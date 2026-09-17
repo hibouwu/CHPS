@@ -1,0 +1,28 @@
+# macOS / iPad 文件共享产生的元数据
+.DS_Store
+._*
+.AppleDouble/
+.LSOverride
+.Spotlight-V100/
+.Trashes/
+.TemporaryItems/
+
+# Windows 缩略图和目录设置
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 编辑器交换文件及备份
+*.swp
+*.swo
+*~
+.~lock.*#
+
+# 仓库根目录下的临时转换、预览和缓存
+/tmp/
+/temp/
+/.cache/
+
+# PDF 和试卷图片属于正式资料，不忽略 *.pdf、*.png 或 *.jpg。
