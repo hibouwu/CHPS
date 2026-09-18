@@ -27,3 +27,11 @@
 ## 2026-09-18 大文件分章
 
 AISE 的 lecture.pdf（约 55 MiB）已由 10 个分章 PDF 替代，共保留 302 个实际页面；原始文件仍在 Note/AISE/CM。上述复制统计为分章前历史记录。分章范围与校验值见 SiteCHPS/整合记录/AISE章节切分.json。
+
+## PPN 改为外部仓库入口
+
+按用户要求移除 M1/PPN 资料副本及 PPN 独立复盘副本，README 与项目总览直接链接 https://github.com/hibouwu/ppn-mnist-neural-network。原始 Note/ppn-mnist-neural-network 项目及 Note/PROJECT_PPN_TRAINING_SYSTEMS.md 保留。前述复制数量属于历史记录。
+
+## 官方材料入口
+
+GLHPC 的 5 份 PDF 已从官网补齐；GLHPC、TOP 的教师讲义与实验源码见各课程 Official 目录。版本与来源保存在 Official/SOURCES.json。

@@ -1,0 +1,1 @@
+Le parcours illustre l'importance de corriger d'abord les bugs de validité avant toute optimisation. La progression logique suit : communication → localité mémoire → parallélisme → refactorisation → SIMD. Les perspectives incluent la mesure inter-nœuds, la validation physique (Cl, Cd, Strouhal) et l'adaptation à d'autres architectures.

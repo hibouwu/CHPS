@@ -1,0 +1,1 @@
+opt24 réorganise le halo vertical en k-major et porte la chaîne de développement à 905 MLUPS pour np=2 OMP=4. Sur notre test intra-nœud, opt25 indique que le coût de waitall reflète surtout un déséquilibre d'arrivée entre ranks. opt26 regroupe plusieurs phases d’un même timestep dans une même région OpenMP, avec un gain limité mais une structure plus propre.

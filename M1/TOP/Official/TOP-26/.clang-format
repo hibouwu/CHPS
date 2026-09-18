@@ -1,0 +1,17 @@
+Language: Cpp
+BasedOnStyle: LLVM
+
+ColumnLimit: 120
+TabWidth: 2
+IndentWidth: 2
+ContinuationIndentWidth: 2
+PointerAlignment: Left
+QualifierAlignment: Right
+AlignAfterOpenBracket: BlockIndent
+AlwaysBreakTemplateDeclarations: true
+AlignConsecutiveAssignments: Consecutive
+AllowShortFunctionsOnASingleLine: Empty
+BinPackArguments: false
+BinPackParameters: false
+PackConstructorInitializers: NextLineOnly
+RequiresClausePosition: OwnLine

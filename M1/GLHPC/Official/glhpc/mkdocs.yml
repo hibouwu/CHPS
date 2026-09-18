@@ -1,0 +1,97 @@
+site_name: GLHPC - Génie Logiciel pour le Calcul Haute Performance et l'Intelligence Artificielle
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: "deep purple"
+      accent: red
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: "deep purple"
+      accent: red
+  features:
+    - navigation.path
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.expand
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+
+    - header.autohide
+
+    - toc.integrate
+
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - attr_list
+  - toc:
+      permalink: true
+      toc_depth: 0
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Course:
+      - Lectures:
+          - L1 - Introduction to Software Engineering for HPC/AI, Development Environment: lecture1.md
+          - L2 - Performance Aware C Computing: lecture2.md
+          - L3 - Building, Testing, and Debugging Scientific Software: lecture3.md
+          - L4 - Experimental Design, Profiling, and Performance/Energy Optimization: lecture4.md
+          - L5 - HPC for AI & Environmental Impact of Computation: lecture5.md
+      - Labs:
+          - Lab 1 - Prerequisites: lab1.md
+          - Lab 2 - C Programming and Memory Management: lab2.md
+          - Lab 3 - CMake, Unit Tests, and Debugging: lab3.md
+          - Lab 4 - Monte-Carlo sampling: lab4.md
+          - Lab 5 - Experimental Methodology and Scientific Reporting: lab5.md
+          - Lab 6 - AI Project (1) SGEMM Kernel Optimization: lab6.md
+          - Lab 7 - AI Project (2) Neural Network Inference: lab7.md
+  - Annex:
+      - Bash cheatsheet: annex/bash_cheatsheet.md
+      - Linux Environment:
+          - Installing fedora: annex/install_fedora.md
+          - Installing oh-my-zsh: annex/oh-my-zsh.md
+      - Experiment Example:
+          - run_experiment.sh: annex/example_experiment/run_experiment.md
+          - model_convergence.py: annex/example_experiment/model_convergence.md
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: CC BY-NC 4.0; 2025 - Pablo de Oliveira Castro, Mathys E. Jam

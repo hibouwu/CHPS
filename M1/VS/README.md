@@ -1,24 +1,61 @@
 # VS — 科学可视化
 
-学期：S2。
+S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
-[返回 M1 总览](../README.md)
+科学可视化课程、ParaView 入门、练习和储罐减压可视化报告。
 
-## 资料入口
+## 从这里开始
 
-- [Materials](<Materials/>)
+- [课程讲义](<Materials/support/Scientific_Visualisation/main.pdf>)
+- [可视化报告](<Materials/decompressionTank_submission/exemple.pdf>)
 
-## Materials 导航
+## 收录范围与缺口
 
-- [1280px-Land_ocean_ice_2048.jpg](<Materials/1280px-Land_ocean_ice_2048.jpg>)
+报告和配图可阅读；ParaView 软件包、完整仿真数据与实验环境未随笔记整体收录。
+
+下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
+
+## 课程讲义与参考材料
+
+### Materials/support/Scientific_Visualisation
+
+| 资源 | 格式 |
+|---|---|
+| [main](<Materials/support/Scientific_Visualisation/main.md>) | MD |
+| [main](<Materials/support/Scientific_Visualisation/main.pdf>) | PDF |
+
+
+## 习题与实验
+
+### Materials/Exercise4.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/Exercise4.1/README.md>) | MD |
+
+
+## 项目、报告与演示
+
+### Materials/decompressionTank_submission
+
+| 资源 | 格式 |
+|---|---|
+| [exemple](<Materials/decompressionTank_submission/exemple.pdf>) | PDF |
+
+
+## 其他学习资料
+
+### Materials
+
+| 资源 | 格式 |
+|---|---|
+| [ParaViewGettingStarted-6.1.0](<Materials/ParaViewGettingStarted-6.1.0.pdf>) | PDF |
+
+## 目录与配套文件
+
 - [Exercise4.1](<Materials/Exercise4.1/>)
 - [Images](<Materials/Images/>)
-- [ParaViewGettingStarted-6.1.0.pdf](<Materials/ParaViewGettingStarted-6.1.0.pdf>)
 - [decompressionTank_submission](<Materials/decompressionTank_submission/>)
 - [support](<Materials/support/>)
 
-## 来源与代码
-
-原目录：[打开本机原始材料](</home/jianyeshi/Note/Visualization scientufique>). 文档按原内容复制；源码、环境、构建产物与数据集未整体复制，代码和实验请从原目录进入。
-
-复制完整性和原有链接问题见 [Import report](../IMPORT.md)。
+个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。

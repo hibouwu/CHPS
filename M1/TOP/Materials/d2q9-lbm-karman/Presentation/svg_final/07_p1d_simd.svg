@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+
+  <path fill="#1565C0" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1A2332">P1-D · Diagnostics et décisions techniques</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">pistes testées · décisions validées</text>
+  <path fill="#1565C0" d="M1158,24 H1176 A4,4 0 0 1 1180,28 V38 A4,4 0 0 1 1176,42 H1158 A4,4 0 0 1 1154,38 V28 A4,4 0 0 1 1158,24 Z" />
+  <text x="1167" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">7 / 13</text>
+
+  
+  <text x="640" y="112" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#546E7A" text-anchor="middle">Certaines pistes testées n'ont pas été retenues, mais elles ont clarifié les choix techniques.</text>
+
+  
+  <path fill="#FFFFFF" stroke="#CFD8DC" stroke-width="1" d="M72,136 H408 A8,8 0 0 1 416,144 V528 A8,8 0 0 1 408,536 H72 A8,8 0 0 1 64,528 V144 A8,8 0 0 1 72,136 Z" />
+  <path fill="#546E7A" d="M67,136 H413 A3,2 0 0 1 416,138 V138 A3,2 0 0 1 413,140 H67 A3,2 0 0 1 64,138 V138 A3,2 0 0 1 67,136 Z" />
+  <text x="240" y="162" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#546E7A" text-anchor="middle">SIMD testé</text>
+  <line x1="84" y1="172" x2="396" y2="172" stroke="#EAF0F6" stroke-width="1" />
+
+  <text x="88" y="200" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">-march=native</text>
+  <text x="88" y="224" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">#pragma omp simd</text>
+  <text x="88" y="266" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Hypothèse :</text>
+  <text x="88" y="286" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">plus de SIMD → plus rapide</text>
+
+  <text x="88" y="330" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Plateforme cible :</text>
+  <text x="88" y="350" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">macOS AArch64</text>
+  <text x="88" y="370" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">Apple M3 (P/E cores)</text>
+
+  <text x="88" y="414" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">-O3 génère déjà NEON 2×double</text>
+  <text x="88" y="436" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A">(fmla.2d — visible à l'objdump)</text>
+
+  
+  <path fill="#FFFFFF" stroke="#C62828" stroke-width="1.5" d="M472,136 H808 A8,8 0 0 1 816,144 V528 A8,8 0 0 1 808,536 H472 A8,8 0 0 1 464,528 V144 A8,8 0 0 1 472,136 Z" />
+  <path fill="#C62828" d="M467,136 H813 A3,2 0 0 1 816,138 V138 A3,2 0 0 1 813,140 H467 A3,2 0 0 1 464,138 V138 A3,2 0 0 1 467,136 Z" />
+  <text x="640" y="162" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#C62828" text-anchor="middle">Résultat macOS</text>
+  <line x1="484" y1="172" x2="796" y2="172" stroke="#EAF0F6" stroke-width="1" />
+
+  <text x="640" y="200" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">-O3 seul vs -O3 -march=native + simd</text>
+
+  
+  <path fill="#FFF5F5" stroke="#CFD8DC" stroke-width="1" d="M490,212 H790 A6,6 0 0 1 796,218 V266 A6,6 0 0 1 790,272 H490 A6,6 0 0 1 484,266 V218 A6,6 0 0 1 490,212 Z" />
+  <text x="640" y="232" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">np=1, OMP=1</text>
+  <text x="640" y="256" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="14" fill="#C62828" text-anchor="middle">62 → 54 MLUPS  (−13%)</text>
+
+  
+  <path fill="#FFF5F5" stroke="#CFD8DC" stroke-width="1" d="M490,284 H790 A6,6 0 0 1 796,290 V338 A6,6 0 0 1 790,344 H490 A6,6 0 0 1 484,338 V290 A6,6 0 0 1 490,284 Z" />
+  <text x="640" y="304" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">np=1, OMP=4</text>
+  <text x="640" y="328" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="14" fill="#C62828" text-anchor="middle">135 → 121 MLUPS  (−10%)</text>
+
+  <text x="640" y="376" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Diagnostic probable : lectures non contiguës</text>
+  <text x="640" y="396" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">+ ordonnanceur P/E cores.</text>
+
+  
+  <path fill="#FFFFFF" stroke="#2E7D32" stroke-width="1.5" d="M872,136 H1208 A8,8 0 0 1 1216,144 V528 A8,8 0 0 1 1208,536 H872 A8,8 0 0 1 864,528 V144 A8,8 0 0 1 872,136 Z" />
+  <path fill="#2E7D32" d="M867,136 H1213 A3,2 0 0 1 1216,138 V138 A3,2 0 0 1 1213,140 H867 A3,2 0 0 1 864,138 V138 A3,2 0 0 1 867,136 Z" />
+  <text x="1040" y="162" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2E7D32" text-anchor="middle">Décision</text>
+  <line x1="884" y1="172" x2="1196" y2="172" stroke="#EAF0F6" stroke-width="1" />
+
+  <path fill="#2E7D32" d="M889,195 H895 A1,1 0 0 1 896,196 V202 A1,1 0 0 1 895,203 H889 A1,1 0 0 1 888,202 V196 A1,1 0 0 1 889,195 Z" />
+  <text x="904" y="204" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">Conserver -O3 sur macOS</text>
+
+  <path fill="#2E7D32" d="M889,225 H895 A1,1 0 0 1 896,226 V232 A1,1 0 0 1 895,233 H889 A1,1 0 0 1 888,232 V226 A1,1 0 0 1 889,225 Z" />
+  <text x="904" y="234" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">Ne pas généraliser</text>
+  <text x="904" y="252" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">-march=native</text>
+
+  <path fill="#2E7D32" d="M889,273 H895 A1,1 0 0 1 896,274 V280 A1,1 0 0 1 895,281 H889 A1,1 0 0 1 888,280 V274 A1,1 0 0 1 889,273 Z" />
+  <text x="904" y="282" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">AVX-512 traité séparément</text>
+  <text x="904" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">sur AMD (Partie 2)</text>
+
+  <path fill="#2E7D32" d="M889,331 H895 A1,1 0 0 1 896,332 V338 A1,1 0 0 1 895,339 H889 A1,1 0 0 1 888,338 V332 A1,1 0 0 1 889,331 Z" />
+  <text x="904" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">Aucun changement de code</text>
+  <text x="904" y="358" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">(analyse et décision seules)</text>
+
+  <path fill="#E8F5E9" stroke="#2E7D32" stroke-width="1" d="M890,384 H1190 A6,6 0 0 1 1196,390 V430 A6,6 0 0 1 1190,436 H890 A6,6 0 0 1 884,430 V390 A6,6 0 0 1 890,384 Z" />
+  <text x="1040" y="406" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">-O3 suffit sur AArch64 :</text>
+  <text x="1040" y="426" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#2E7D32" text-anchor="middle">fmla.2d confirmé (objdump)</text>
+
+  
+  <path fill="#F4F7FA" stroke="#CFD8DC" stroke-width="1" d="M70,556 H1210 A6,6 0 0 1 1216,562 V658 A6,6 0 0 1 1210,664 H70 A6,6 0 0 1 64,658 V562 A6,6 0 0 1 70,556 Z" />
+  <text x="88" y="582" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#546E7A">Autres travaux P1-D :</text>
+  <text x="88" y="604" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">overlap MPI · fusion collision · I/O distribué</text>
+  <text x="88" y="632" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#546E7A">Rôle :</text>
+  <text x="88" y="652" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332">diagnostic · portabilité · préparation pour la suite</text>
+</svg>

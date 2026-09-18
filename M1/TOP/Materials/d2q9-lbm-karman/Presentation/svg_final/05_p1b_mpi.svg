@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#1565C0" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1A2332">P1-B · Réduction latence MPI</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt04–08 · Le coût MPI = latence, pas le volume</text>
+  <path fill="#1565C0" d="M1158,24 H1176 A4,4 0 0 1 1180,28 V38 A4,4 0 0 1 1176,42 H1158 A4,4 0 0 1 1154,38 V28 A4,4 0 0 1 1158,24 Z" />
+  <text x="1167" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">5 / 13</text>
+
+  
+  <path fill="#FFF7EF" stroke="#E65100" stroke-width="1" d="M90,100 H1190 A6,6 0 0 1 1196,106 V146 A6,6 0 0 1 1190,152 H90 A6,6 0 0 1 84,146 V106 A6,6 0 0 1 90,100 Z" />
+  <text x="640" y="124" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#E65100" text-anchor="middle">12 barrières supprimées · 80→1 horizontal · 798→1 vertical</text>
+  <text x="640" y="144" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Insight clé : le coût MPI vient de la latence de démarrage de chaque appel, pas du volume de données</text>
+
+  
+  <path fill="#FFF5F5" stroke="#EF5350" stroke-width="1" d="M128,176 H532 A8,8 0 0 1 540,184 V476 A8,8 0 0 1 532,484 H128 A8,8 0 0 1 120,476 V184 A8,8 0 0 1 128,176 Z" />
+  <path fill="#EF5350" d="M123,176 H537 A3,2 0 0 1 540,178 V178 A3,2 0 0 1 537,180 H123 A3,2 0 0 1 120,178 V178 A3,2 0 0 1 123,176 Z" />
+  <text x="330" y="204" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#EF5350" text-anchor="middle">Avant (opt03)</text>
+  <text x="330" y="236" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">Envois maille-par-maille</text>
+  <text x="330" y="260" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">7 182 messages / itération</text>
+  <text x="330" y="284" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">MPI_Barrier × 12 par itération</text>
+  <text x="330" y="308" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Synchronisation globale bloquante</text>
+  <line x1="150" y1="328" x2="510" y2="328" stroke="#EAF0F6" stroke-width="1" stroke-dasharray="3,3" />
+  <text x="330" y="362" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="22" fill="#E65100" text-anchor="middle">68,7 MLUPS</text>
+  <text x="330" y="386" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">np=2, OMP=1</text>
+  <text x="330" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Latence cumulée dominante</text>
+
+  
+  <text x="640" y="348" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="28" fill="#1565C0" text-anchor="middle">→</text>
+
+  
+  <path fill="#F3FBF5" stroke="#66BB6A" stroke-width="1" d="M748,176 H1152 A8,8 0 0 1 1160,184 V476 A8,8 0 0 1 1152,484 H748 A8,8 0 0 1 740,476 V184 A8,8 0 0 1 748,176 Z" />
+  <path fill="#2E7D32" d="M743,176 H1157 A3,2 0 0 1 1160,178 V178 A3,2 0 0 1 1157,180 H743 A3,2 0 0 1 740,178 V178 A3,2 0 0 1 743,176 Z" />
+  <text x="950" y="204" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2E7D32" text-anchor="middle">Après (opt04–08)</text>
+  <text x="950" y="236" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">Envoi groupé par ligne halo</text>
+  <text x="950" y="260" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">1 message / direction</text>
+  <text x="950" y="284" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Barrières redondantes supprimées</text>
+  <text x="950" y="308" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Volume de données inchangé</text>
+  <line x1="770" y1="328" x2="1130" y2="328" stroke="#EAF0F6" stroke-width="1" stroke-dasharray="3,3" />
+  <text x="950" y="362" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="22" fill="#2E7D32" text-anchor="middle">102,75 MLUPS</text>
+  <text x="950" y="386" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">np=2, OMP=1</text>
+  <text x="950" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Latence fortement réduite</text>
+
+  
+  <path fill="#2E7D32" d="M90,514 H1190 A6,6 0 0 1 1196,520 V540 A6,6 0 0 1 1190,546 H90 A6,6 0 0 1 84,540 V520 A6,6 0 0 1 90,514 Z" />
+  <text x="640" y="535" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Jalon P1-B : 103 MLUPS · +50%</text>
+</svg>

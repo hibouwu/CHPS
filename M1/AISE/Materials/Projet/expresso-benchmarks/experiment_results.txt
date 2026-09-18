@@ -1,0 +1,655 @@
+=== System Info ===
+Model name:                              AMD Ryzen 9 8940HX with Radeon Graphics
+CPU cores: 32
+
+=== Experiment started at 2026年 01月 06日 星期二 23:20:30 CET ===
+
+========== DOT EXPERIMENTS ==========
+--- dot threads=1 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 100.00
+	Worker 0: 100 tasks
+Reference result: 2.02605e+08
+ ExPResSO result: 2.02605e+08
+Reference computation time: 0.0511188 s
+ ExPResSO computation time: 0.0514858 s
+Good results :-)
+--- dot threads=2 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 50.00
+	Worker 0: 50 tasks
+	Worker 1: 50 tasks
+Reference result: 2.02605e+08
+ ExPResSO result: 2.02605e+08
+Reference computation time: 0.0510582 s
+ ExPResSO computation time: 0.101284 s
+Good results :-)
+--- dot threads=4 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 25.00
+	Worker 0: 27 tasks
+	Worker 1: 24 tasks
+	Worker 2: 27 tasks
+	Worker 3: 22 tasks
+Reference result: 2.02605e+08
+ ExPResSO result: 2.02605e+08
+Reference computation time: 0.0510918 s
+ ExPResSO computation time: 0.0854964 s
+Good results :-)
+--- dot threads=8 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 12.50
+	Worker 0: 12 tasks
+	Worker 1: 13 tasks
+	Worker 2: 11 tasks
+	Worker 3: 13 tasks
+	Worker 4: 13 tasks
+	Worker 5: 12 tasks
+	Worker 6: 13 tasks
+	Worker 7: 13 tasks
+Reference result: 2.02605e+08
+ ExPResSO result: 2.02605e+08
+Reference computation time: 0.0511271 s
+ ExPResSO computation time: 0.052733 s
+Good results :-)
+
+========== VECMUL EXPERIMENTS ==========
+--- vecmul threads=1 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 100.00
+	Worker 0: 100 tasks
+Reference computation time: 0.0254217 s
+ ExPResSO computation time: 0.0308675 s
+Good results :-)
+--- vecmul threads=2 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 50.00
+	Worker 0: 49 tasks
+	Worker 1: 51 tasks
+Reference computation time: 0.0255551 s
+ ExPResSO computation time: 0.0158102 s
+Good results :-)
+--- vecmul threads=4 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 25.00
+	Worker 0: 25 tasks
+	Worker 1: 25 tasks
+	Worker 2: 25 tasks
+	Worker 3: 25 tasks
+Reference computation time: 0.0253632 s
+ ExPResSO computation time: 0.00790179 s
+Good results :-)
+--- vecmul threads=8 ---
+Expresso stats:
+	Total tasks executed: 100
+	Average tasks per worker: 12.50
+	Worker 0: 16 tasks
+	Worker 1: 12 tasks
+	Worker 2: 12 tasks
+	Worker 3: 13 tasks
+	Worker 4: 12 tasks
+	Worker 5: 12 tasks
+	Worker 6: 11 tasks
+	Worker 7: 12 tasks
+Reference computation time: 0.0254741 s
+ ExPResSO computation time: 0.00529984 s
+Good results :-)
+
+========== MATMUL EXPERIMENTS ==========
+--- matmul sched=dynamic threads=1 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 8.00
+	Worker 0: 8 tasks
+Reference computation time: 0.697775 s
+ ExPResSO computation time: 0.697139 s
+Good results :-)
+--- matmul sched=dynamic threads=2 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 4.00
+	Worker 0: 4 tasks
+	Worker 1: 4 tasks
+Reference computation time: 0.696372 s
+ ExPResSO computation time: 0.349672 s
+Good results :-)
+--- matmul sched=dynamic threads=4 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 2.00
+	Worker 0: 2 tasks
+	Worker 1: 2 tasks
+	Worker 2: 2 tasks
+	Worker 3: 2 tasks
+Reference computation time: 0.700328 s
+ ExPResSO computation time: 0.187326 s
+Good results :-)
+--- matmul sched=dynamic threads=8 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 1.00
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 1 tasks
+	Worker 6: 1 tasks
+	Worker 7: 1 tasks
+Reference computation time: 0.707054 s
+ ExPResSO computation time: 0.0902074 s
+Good results :-)
+--- matmul sched=static threads=1 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 8.00
+	Worker 0: 8 tasks
+Reference computation time: 0.695966 s
+ ExPResSO computation time: 0.69697 s
+Good results :-)
+--- matmul sched=static threads=2 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 4.00
+	Worker 0: 4 tasks
+	Worker 1: 4 tasks
+Reference computation time: 0.696085 s
+ ExPResSO computation time: 0.348449 s
+Good results :-)
+--- matmul sched=static threads=4 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 2.00
+	Worker 0: 2 tasks
+	Worker 1: 2 tasks
+	Worker 2: 2 tasks
+	Worker 3: 2 tasks
+Reference computation time: 0.697099 s
+ ExPResSO computation time: 0.182957 s
+Good results :-)
+--- matmul sched=static threads=8 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 1.00
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 1 tasks
+	Worker 6: 1 tasks
+	Worker 7: 1 tasks
+Reference computation time: 0.699014 s
+ ExPResSO computation time: 0.0920659 s
+Good results :-)
+--- matmul sched=balanced threads=1 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 8.00
+	Worker 0: 8 tasks
+Reference computation time: 0.696754 s
+ ExPResSO computation time: 0.696344 s
+Good results :-)
+--- matmul sched=balanced threads=2 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 4.00
+	Worker 0: 4 tasks
+	Worker 1: 4 tasks
+Reference computation time: 0.696632 s
+ ExPResSO computation time: 0.351735 s
+Good results :-)
+--- matmul sched=balanced threads=4 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 2.00
+	Worker 0: 2 tasks
+	Worker 1: 2 tasks
+	Worker 2: 2 tasks
+	Worker 3: 2 tasks
+Reference computation time: 0.707557 s
+ ExPResSO computation time: 0.174305 s
+Good results :-)
+--- matmul sched=balanced threads=8 ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 1.00
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 1 tasks
+	Worker 6: 1 tasks
+	Worker 7: 1 tasks
+Reference computation time: 0.699972 s
+ ExPResSO computation time: 0.0935689 s
+Good results :-)
+
+========== LIST EXPERIMENTS ==========
+--- list sched=dynamic threads=1 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 5.00
+	Worker 0: 5 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 15.0004 s
+Good results :-)
+--- list sched=dynamic threads=2 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 2.50
+	Worker 0: 2 tasks
+	Worker 1: 3 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 9.00027 s
+Good results :-)
+--- list sched=dynamic threads=4 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 1.25
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 2 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0005 s
+ ExPResSO computation time: 6.00022 s
+Good results :-)
+--- list sched=dynamic threads=8 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 0.62
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 0 tasks
+	Worker 4: 1 tasks
+	Worker 5: 0 tasks
+	Worker 6: 0 tasks
+	Worker 7: 1 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 5.00017 s
+Good results :-)
+--- list sched=static threads=1 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 5.00
+	Worker 0: 5 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0003 s
+ ExPResSO computation time: 15.0004 s
+Good results :-)
+--- list sched=static threads=2 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 2.50
+	Worker 0: 3 tasks
+	Worker 1: 2 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 9.00025 s
+Good results :-)
+--- list sched=static threads=4 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 1.25
+	Worker 0: 2 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0003 s
+ ExPResSO computation time: 6.00019 s
+Good results :-)
+--- list sched=static threads=8 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 0.62
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 0 tasks
+	Worker 6: 0 tasks
+	Worker 7: 0 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 5.00018 s
+Good results :-)
+--- list sched=balanced threads=1 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 5.00
+	Worker 0: 5 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 15.0004 s
+Good results :-)
+--- list sched=balanced threads=2 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 2.50
+	Worker 0: 3 tasks
+	Worker 1: 2 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0003 s
+ ExPResSO computation time: 9.00023 s
+Good results :-)
+--- list sched=balanced threads=4 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 1.25
+	Worker 0: 2 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 6.0002 s
+Good results :-)
+--- list sched=balanced threads=8 ---
+Reference list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+ ExPResSO list:
+Node  1: value = 1
+Node  2: value = 2
+Node  3: value = 3
+Node  4: value = 4
+Node  5: value = 5
+Expresso stats:
+	Total tasks executed: 5
+	Average tasks per worker: 0.62
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 0 tasks
+	Worker 6: 0 tasks
+	Worker 7: 0 tasks
+Processed reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+ExPResSO reference list:
+Node  1: value = 2
+Node  2: value = 3
+Node  3: value = 4
+Node  4: value = 5
+Node  5: value = 6
+Reference computation time: 15.0004 s
+ ExPResSO computation time: 5.00019 s
+Good results :-)
+
+=== Experiment completed at 2026年 01月 06日 星期二 23:26:19 CET ===

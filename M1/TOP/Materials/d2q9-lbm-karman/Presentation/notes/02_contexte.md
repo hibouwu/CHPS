@@ -1,0 +1,1 @@
+Le solveur implémente la méthode de Boltzmann sur réseau D2Q9 pour simuler le sillage de Kármán à Re=96. La figure de mérite (FOM) est définie en MLUPS : millions de mises à jour de mailles par seconde. Le domaine est 800×160 mailles, simulé sur 20 000 pas. Chaque pas comporte trois phases : traitement des cellules spéciales, collision BGK, et propagation avec échange de halo.

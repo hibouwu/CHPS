@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#1565C0" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1A2332">P1-C · Cache + Schéma Pull + OpenMP</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt09–13 · Localité cache · parallélisme sûr · multi-thread</text>
+  <path fill="#1565C0" d="M1158,24 H1176 A4,4 0 0 1 1180,28 V38 A4,4 0 0 1 1176,42 H1158 A4,4 0 0 1 1154,38 V28 A4,4 0 0 1 1158,24 Z" />
+  <text x="1167" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">6 / 13</text>
+
+  
+  <path fill="#FFF5F5" stroke="#EF5350" stroke-width="1.5" d="M72,100 H396 A8,8 0 0 1 404,108 V512 A8,8 0 0 1 396,520 H72 A8,8 0 0 1 64,512 V108 A8,8 0 0 1 72,100 Z" />
+  <path fill="#EF5350" d="M67,100 H401 A3,2 0 0 1 404,102 V102 A3,2 0 0 1 401,104 H67 A3,2 0 0 1 64,102 V102 A3,2 0 0 1 67,100 Z" />
+  <text x="234" y="126" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#EF5350" text-anchor="middle">Push (avant)</text>
+  <line x1="84" y1="136" x2="384" y2="136" stroke="#FFCDD2" stroke-width="1" />
+  <text x="234" y="164" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">La source écrit vers sa cible</text>
+  <text x="234" y="188" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Plusieurs threads peuvent écrire</text>
+  <text x="234" y="208" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">sur la même cellule cible.</text>
+  <path fill="#FFEBEE" stroke="#EF9A9A" stroke-width="1" d="M92,226 H372 A4,4 0 0 1 376,230 V268 A4,4 0 0 1 372,272 H92 A4,4 0 0 1 88,268 V230 A4,4 0 0 1 92,226 Z" />
+  <text x="232" y="248" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#C62828" text-anchor="middle">mesh_out[i+dx][j+dy] = ...</text>
+  <text x="232" y="264" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828" text-anchor="middle">→ écriture conflict (race)</text>
+  <text x="234" y="306" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828" text-anchor="middle">Race condition sans mutex</text>
+  <text x="234" y="328" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828" text-anchor="middle">Non parallélisable sans verrou</text>
+  <text x="234" y="360" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">OpenMP requière des sections</text>
+  <text x="234" y="378" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">critiques → sérialisation</text>
+
+  
+  <path fill="#E8F5E9" stroke="#66BB6A" stroke-width="1.5" d="M478,100 H802 A8,8 0 0 1 810,108 V512 A8,8 0 0 1 802,520 H478 A8,8 0 0 1 470,512 V108 A8,8 0 0 1 478,100 Z" />
+  <path fill="#2E7D32" d="M473,100 H807 A3,2 0 0 1 810,102 V102 A3,2 0 0 1 807,104 H473 A3,2 0 0 1 470,102 V102 A3,2 0 0 1 473,100 Z" />
+  <text x="640" y="126" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#2E7D32" text-anchor="middle">Schéma Pull</text>
+  <line x1="490" y1="136" x2="790" y2="136" stroke="#C8E6C9" stroke-width="1" />
+  <text x="640" y="164" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">La cible lit depuis sa source</text>
+  <text x="640" y="188" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Chaque thread est propriétaire</text>
+  <text x="640" y="208" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">de sa cellule de destination.</text>
+  <path fill="#F1F8E9" stroke="#A5D6A7" stroke-width="1" d="M498,226 H782 A4,4 0 0 1 786,230 V268 A4,4 0 0 1 782,272 H498 A4,4 0 0 1 494,268 V230 A4,4 0 0 1 498,226 Z" />
+  <text x="640" y="248" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#2E7D32" text-anchor="middle">mesh_out[i][j] = mesh_in[i-dx][j-dy]</text>
+  <text x="640" y="264" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">→ écriture exclusive</text>
+  <text x="640" y="306" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">Race-free, sans verrou</text>
+  <text x="640" y="328" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">Chaque thread isolé en écriture</text>
+  <text x="640" y="360" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Équivalence mathématique</text>
+  <text x="640" y="378" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">garantie par symétrie D2Q9</text>
+
+  
+  <path fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5" d="M884,100 H1208 A8,8 0 0 1 1216,108 V512 A8,8 0 0 1 1208,520 H884 A8,8 0 0 1 876,512 V108 A8,8 0 0 1 884,100 Z" />
+  <path fill="#1565C0" d="M879,100 H1213 A3,2 0 0 1 1216,102 V102 A3,2 0 0 1 1213,104 H879 A3,2 0 0 1 876,102 V102 A3,2 0 0 1 879,100 Z" />
+  <text x="1046" y="126" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1565C0" text-anchor="middle">OpenMP</text>
+  <line x1="896" y1="136" x2="1196" y2="136" stroke="#BBDEFB" stroke-width="1" />
+  <text x="1046" y="164" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">Pull rend le parallélisme trivial</text>
+  <path fill="#F4F7FA" stroke="#CFD8DC" stroke-width="1" d="M904,180 H1188 A4,4 0 0 1 1192,184 V234 A4,4 0 0 1 1188,238 H904 A4,4 0 0 1 900,234 V184 A4,4 0 0 1 904,180 Z" />
+  <text x="1046" y="200" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1565C0" text-anchor="middle">#pragma omp parallel for</text>
+  <text x="1046" y="218" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332" text-anchor="middle">schedule(static)</text>
+  <text x="1046" y="236" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332" text-anchor="middle">for (i = 0; i &lt; width; i++)</text>
+  <text x="1046" y="268" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Colonnes réparties entre threads</text>
+  <text x="1046" y="290" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Collision + propagation parallèles</text>
+  <text x="1046" y="322" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1565C0" text-anchor="middle">Localité cache :</text>
+  <text x="1046" y="342" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">j interne, stride-1</text>
+  <text x="1046" y="362" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">accès contigu en mémoire</text>
+  <text x="1046" y="390" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">OMP=4 : x4 threads actifs</text>
+  <text x="1046" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">sans section critique</text>
+
+  
+  <path fill="#2E7D32" d="M90,550 H1190 A6,6 0 0 1 1196,556 V576 A6,6 0 0 1 1190,582 H90 A6,6 0 0 1 84,576 V556 A6,6 0 0 1 90,550 Z" />
+  <text x="640" y="571" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Jalon P1-C : 194 MLUPS · np=1, OMP=4</text>
+</svg>

@@ -1,0 +1,58 @@
+<h2 id="study-of-reciprocal-square-root-computation">Study of reciprocal square root computation</h2>
+<h3 id="i-overview-of-the-archive">I/ Overview of the archive</h3>
+<p>This archive contains the code to complete for exercise 2 of TP2.
+The code is split into 3 files:</p>
+<ul>
+<li><code>driver.c</code> contains the main function of the driver and performs things like argument parsing, ...</li>
+<li><code>benchmarks.c</code> contains the function that call and measure accuracy/performances of the different variants</li>
+<li><code>variants.c</code> contains the inline ASM snippets for the different variants, which you are supposed to complete
+=&gt; The only file you need to modify is <code>variants.c</code>, but feel free to have a look at the rest of the code.</li>
+</ul>
+<p>There are also a couple of other directories:</p>
+<ul>
+<li><code>outputs</code>: is empty for now, but will contain the results file in <code>.dat</code> format</li>
+<li><code>gnuplots</code>: contains the plotting scripts. Those scripts will save plots in this directory, in PDF format.</li>
+</ul>
+<h3 id="ii-building-and-running-the-driver">II/ Building and running the driver</h3>
+<h4 id="building">Building</h4>
+<pre><code>❯ <span class="hljs-built_in">make</span> driver
+</code></pre><p>To clean the <code>driver</code> binary and the object files:</p>
+<pre><code>❯ make <span class="hljs-built_in">clean</span>
+</code></pre><h4 id="running">Running</h4>
+<p>The <code>driver</code> binary accepts a single parameter, which is the variant to run:</p>
+<pre><code>❯ ./driver <span class="hljs-string">[variant]</span>
+<span class="hljs-string">[variant]</span>
+Cycles/iter: <span class="hljs-number">5</span>.<span class="hljs-number">948566</span>
+Wrote results to outputs/<span class="hljs-string">[variant]</span>_results.dat
+</code></pre><p>where available variants are <code>naive</code>, <code>newton</code>, <code>fast</code> and correspond to questions 2.1 to 2.3.
+Notice how this prints the cycles per computation/iteration and the location of the result file.</p>
+<h4 id="frequency-governor-for-performance-measurement">Frequency governor for performance measurement</h4>
+<p>In order to perform reliable performance measurement, you should ensure that your CPU frequency governor is set appropriately.
+Available CPU governors can be listed with:</p>
+<pre><code>❯ cat <span class="hljs-meta-keyword">/sys/</span>devices<span class="hljs-meta-keyword">/system/</span>cpu<span class="hljs-meta-keyword">/cpu0/</span>cpufreq/scaling_available_governors
+performance powersave
+</code></pre><p>In this example, the governor should be set to <code>performance</code> with:</p>
+<pre><code>❯ sudo cpupower frequency-<span class="hljs-keyword">set</span> --governor <span class="hljs-comment">performance</span>
+Setting <span class="hljs-comment">cpu: 0</span>
+Setting <span class="hljs-comment">cpu: 1</span>
+Setting <span class="hljs-comment">cpu: 2</span>
+Setting <span class="hljs-comment">cpu: 3</span>
+Setting <span class="hljs-comment">cpu: 4</span>
+Setting <span class="hljs-comment">cpu: 5</span>
+Setting <span class="hljs-comment">cpu: 6</span>
+Setting <span class="hljs-comment">cpu: 7</span>
+</code></pre><h3 id="iii-plots-generation">III/ Plots generation</h3>
+<h4 id="installing-gnuplot">Installing gnuplot</h4>
+<p>Plot generation is done using <a href="http://www.gnuplot.info/">gnuplot</a>.
+Depending on your distribution, it can be installed with:
+<strong>Debian / Ubuntu:</strong></p>
+<pre><code>❯ sudo apt <span class="hljs-keyword">install</span> gnuplot
+</code></pre><p><strong>Arch:</strong></p>
+<pre><code>❯ sudo pacman -S gnuplot
+</code></pre><p>Windows binaries are also available on the official website.</p>
+<h4 id="calling-the-scripts">Calling the scripts</h4>
+<p>Plotting scripts should be called from the archive root in the following way:</p>
+<pre><code>❯ gnuplot -c gnuplots<span class="hljs-regexp">/plot_values.plg outputs/</span>[variant]_results.dat   <span class="hljs-comment"># Plot results</span>
+❯ gnuplot -c gnuplots<span class="hljs-regexp">/plot_abs_err.plg outputs/</span>[variant]_results.dat   <span class="hljs-comment"># Plot absolute error</span>
+❯ gnuplot -c gnuplots<span class="hljs-regexp">/plot_rel_err.plg outputs/</span>[variant]_results.dat   <span class="hljs-comment"># Plot relative error</span>
+</code></pre><p>These commands will respectively generate the <code>outputs/values.pdf</code>, <code>outputs/abs_err.pdf</code> and <code>outputs/rel_err.pdf</code> plots.</p>

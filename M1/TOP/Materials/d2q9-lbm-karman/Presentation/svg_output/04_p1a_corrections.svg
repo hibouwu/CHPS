@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0"/>
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA"/>
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1"/>
+  <rect x="64" y="24" width="5" height="32" rx="2" fill="#1565C0"/>
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1A2332">P1-A &#xB7; Corrections de validit&#xE9;</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt01&#x2013;03 &#xB7; Pr&#xE9;requis avant toute mesure</text>
+  <rect x="1154" y="24" width="26" height="18" rx="4" fill="#1565C0"/>
+  <text x="1167" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">4 / 13</text>
+
+  <!-- opt01 -->
+  <rect x="84" y="110" width="1112" height="116" rx="8" fill="#FFF7F7" stroke="#EF5350" stroke-width="1"/>
+  <rect x="84" y="110" width="1112" height="4" rx="3" fill="#EF5350"/>
+  <text x="112" y="138" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350">opt01 &#x2014; Suppression du nanosleep cach&#xE9;</text>
+  <text x="112" y="164" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">nanosleep() encod&#xE9; dans un template CMake &#x2014; invoqu&#xE9; implicitement &#xE0; chaque halo_exchange.</text>
+  <text x="112" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828">Impact : 5,5 h perdues par simulation de 20 000 pas. Faussait toutes les mesures.</text>
+
+  <!-- opt02 -->
+  <rect x="84" y="246" width="1112" height="116" rx="8" fill="#FFF7F7" stroke="#EF5350" stroke-width="1"/>
+  <rect x="84" y="246" width="1112" height="4" rx="3" fill="#EF5350"/>
+  <text x="112" y="274" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350">opt02 &#x2014; Correction de la formule MLUPS</text>
+  <text x="112" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Formule surestimait le FOM d&#x27;un facteur 4 en mode multi-processus.</text>
+  <text x="112" y="320" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828">Impact : les mesures multi-rang semblaient plus rapides &#x2014; masquait le co&#xFB;t MPI r&#xE9;el.</text>
+
+  <!-- opt03 -->
+  <rect x="84" y="382" width="1112" height="116" rx="8" fill="#FFF7F7" stroke="#EF5350" stroke-width="1"/>
+  <rect x="84" y="382" width="1112" height="4" rx="3" fill="#EF5350"/>
+  <text x="112" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350">opt03 &#x2014; Correction des tailles MPI send/recv</text>
+  <text x="112" y="436" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Incoh&#xE9;rence entre les tailles d&#x27;envoi et de r&#xE9;ception dans halo_exchange &#x2014; corrig&#xE9;e.</text>
+  <text x="112" y="456" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">&#xC9;vite des &#xE9;changes halo erron&#xE9;s et des comportements ind&#xE9;finis sur impl&#xE9;mentations MPI strictes.</text>
+
+  <!-- Bottom bar -->
+  <rect x="84" y="528" width="1112" height="32" rx="6" fill="#1565C0"/>
+  <text x="640" y="549" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">R&#xE9;f&#xE9;rence valid&#xE9;e : 60 MLUPS (np=1, OMP=1)</text>
+</svg>

@@ -1,29 +1,31 @@
-# M1 course index
+# M1 — 课程目录
 
-按课程整理 M1 的讲义、个人笔记、习题、复习材料和项目文档。新增资料使用 `Materials/`，保留原资料内部的文件名和相对结构，以维持配图与报告的对应关系。原有手写笔记路径保留。
+按课程查找讲义、个人笔记、习题、试卷和项目报告。
 
-| 学期 | 课程 | 本次复制文件数（含图片） |
-|---|---|---:|
-| S1 | [BaseMath — 数学基础](BaseMath/README.md) | 0 |
-| S1 | [CN — 数值计算](CN/README.md) | 77 |
-| S1 / S2 延伸 | [PPN — 数值编程项目](PPN/README.md) | 136 |
-| S1 | [POO — 科学计算面向对象编程](POO/README.md) | 57 |
-| S1 | [GLHPC — HPC 软件工程](GLHPC/README.md) | 143 |
-| S1 | [AP — 并行体系结构](AP/README.md) | 34 |
-| S1 | [AISE — 操作系统内部结构](AISE/README.md) | 199 |
-| S1 / S2 | [English — 技术英语](English/README.md) | 19 |
-| S2 | [ORO — 优化与运筹学](ORO/README.md) | 34 |
-| S2 | [TM — 建模技术](TM/README.md) | 11 |
-| S2 | [VS — 科学可视化](VS/README.md) | 206 |
-| S2 | [TOP — 并行优化技术](TOP/README.md) | 265 |
-| S2 | [APP — 并行算法与编程](APP/README.md) | 147 |
-| S2 | [APD — 分布式算法](APD/README.md) | 66 |
+[仓库首页](../README.md) · [中文介绍](../README.zh-CN.md)
 
-## 其他入口
+| 学期 | 课程 | 主题 |
+|---|---|---|
+| S1 | [BaseMath](BaseMath/README.md) | 数学基础 |
+| S1 | [CN](CN/README.md) | 数值计算 |
+| S1 | [POO](POO/README.md) | 科学计算面向对象编程 |
+| S1 | [GLHPC](GLHPC/README.md) | HPC 软件工程 |
+| S1 | [AP](AP/README.md) | 并行体系结构 |
+| S1 | [AISE](AISE/README.md) | 操作系统内部结构 |
+| S2 | [ORO](ORO/README.md) | 优化与运筹学 |
+| S2 | [TM](TM/README.md) | 建模技术 |
+| S2 | [VS](VS/README.md) | 科学可视化 |
+| S2 | [TOP](TOP/README.md) | 并行优化技术 |
+| S2 | [APP](APP/README.md) | 并行算法与编程 |
+| S2 | [APD](APD/README.md) | 分布式算法 |
+| S1 / S2 | [English](English/README.md) | 技术英语 |
+
+## 数值编程项目
+
+[PPN — ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network)：项目代码、报告与说明。
+
+## 常用资料
 
 - [课程安排](Programme/)
-- [项目复盘](Project-Reviews/)
-- [项目总览](PROJECTS.md)
-- [复制与验证说明](IMPORT.md)
-
-M1 的 S2 自选课暂未确认；英语材料暂不按学期强拆。S2 并行项目阶段见 PPN。M2 不在本次复制范围。
+- [AISE 分章课件](AISE/Materials/CM/Chapters/README.md)
+- [BaseMath 往年试卷](BaseMath/Examen/)

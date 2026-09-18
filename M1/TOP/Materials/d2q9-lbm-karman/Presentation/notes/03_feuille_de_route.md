@@ -1,0 +1,1 @@
+Les quatre phases de la Partie 1 adressent successivement les corrections de validité, la refactorisation MPI, la localité cache et OpenMP, puis les diagnostics avancés. La Partie 2, sur AMD x86-64, refactorise la disposition mémoire et réécrit le cœur de calcul avec vectorisation AVX-512.

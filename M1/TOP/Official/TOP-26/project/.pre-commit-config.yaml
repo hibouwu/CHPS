@@ -1,0 +1,29 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+    - id: trailing-whitespace
+      name: Trim trailing white space
+    - id: end-of-file-fixer
+      name: Fix EOFs
+    - id: check-added-large-files
+      name: Check adding large files
+
+    # C++ formatting with clang-format
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v20.1.8
+    hooks:
+    - id: clang-format
+      name: Format C files
+      types_or: [c++, c]
+      exclude: ^docs/ # do not format any C++ files in the documentation
+
+    # CMake formatting with gersemi
+  - repo: https://github.com/BlankSpruce/gersemi
+    rev: 0.26.1
+    hooks:
+    - id: gersemi
+      name: Format CMake files
+      args: ["--config=.cmake-format"]

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+
+  <path fill="#1565C0" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="52" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="26" font-weight="bold" fill="#1A2332">Contexte et figure de mérite</text>
+  <path fill="#1565C0" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="52" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">2 / 13</text>
+
+  
+  <path fill="#FFFFFF" stroke="#1565C0" stroke-width="1.5" d="M92,118 H602 A8,8 0 0 1 610,126 V540 A8,8 0 0 1 602,548 H92 A8,8 0 0 1 84,540 V126 A8,8 0 0 1 92,118 Z" />
+  <text x="347" y="146" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">D2Q9 Lattice Boltzmann</text>
+  <text x="347" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Vortex de Kármán · Re = 96</text>
+  <text x="347" y="206" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Domaine : 800 × 160 cellules</text>
+  <text x="347" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">20 000 pas de temps</text>
+
+  
+  <path fill="#EEF3F8" d="M188,278 H506 A6,6 0 0 1 512,284 V450 A6,6 0 0 1 506,456 H188 A6,6 0 0 1 182,450 V284 A6,6 0 0 1 188,278 Z" />
+
+  
+  
+  <line x1="347" y1="326" x2="347" y2="294" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="370" y2="303" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="379" y2="326" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="370" y2="349" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="347" y2="358" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="324" y2="349" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="315" y2="326" stroke="#1565C0" stroke-width="1.5" />
+  <line x1="347" y1="326" x2="324" y2="303" stroke="#1565C0" stroke-width="1.5" />
+  
+  <circle cx="347" cy="294" r="5" fill="#1565C0" />
+  <circle cx="370" cy="303" r="5" fill="#1565C0" />
+  <circle cx="379" cy="326" r="5" fill="#1565C0" />
+  <circle cx="370" cy="349" r="5" fill="#1565C0" />
+  <circle cx="347" cy="358" r="5" fill="#1565C0" />
+  <circle cx="324" cy="349" r="5" fill="#1565C0" />
+  <circle cx="315" cy="326" r="5" fill="#1565C0" />
+  <circle cx="324" cy="303" r="5" fill="#1565C0" />
+  
+  <circle cx="347" cy="326" r="14" fill="#1565C0" />
+  <circle cx="347" cy="326" r="5" fill="#FFFFFF" />
+  
+  <text x="347" y="386" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Modèle D2Q9 : centre + 8 directions</text>
+
+  
+  <text x="347" y="410" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#90A4AE" text-anchor="middle">9 vitesses discrètes par cellule</text>
+
+  
+  <path fill="#FFFFFF" stroke="#E65100" stroke-width="1.5" d="M678,118 H1188 A8,8 0 0 1 1196,126 V540 A8,8 0 0 1 1188,548 H678 A8,8 0 0 1 670,540 V126 A8,8 0 0 1 678,118 Z" />
+  <text x="933" y="146" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#E65100" text-anchor="middle">Figure de mérite : MLUPS</text>
+  <path fill="#FFF7EF" d="M736,170 H1130 A6,6 0 0 1 1136,176 V238 A6,6 0 0 1 1130,244 H736 A6,6 0 0 1 730,238 V176 A6,6 0 0 1 736,170 Z" />
+  <text x="933" y="198" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="16" fill="#E65100" text-anchor="middle">MLUPS = W × H × N / (T × 10^6)</text>
+  <text x="933" y="222" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Millions de Lattice Updates Par Seconde</text>
+  <path fill="#EDF5FC" d="M736,276 H1130 A6,6 0 0 1 1136,282 V376 A6,6 0 0 1 1130,382 H736 A6,6 0 0 1 730,376 V282 A6,6 0 0 1 736,276 Z" />
+  <text x="933" y="314" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">W = 800 · H = 160 · N = 20 000</text>
+  <text x="933" y="342" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">800 × 160 × 20 000 = 2.56 × 10^9 cellules</text>
+  <text x="933" y="366" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Temps de calcul T mesuré en secondes</text>
+  <text x="933" y="430" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Plus MLUPS est grand, plus c'est performant</text>
+  <text x="933" y="454" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Objectif : maximiser le débit de calcul</text>
+
+  
+  <path fill="#EAF2FB" stroke="#1565C0" stroke-width="1" d="M122,580 H1158 A4,4 0 0 1 1162,584 V602 A4,4 0 0 1 1158,606 H122 A4,4 0 0 1 118,602 V584 A4,4 0 0 1 122,580 Z" />
+  <text x="640" y="597" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1565C0" text-anchor="middle">Référence initiale : 60 MLUPS (macOS AArch64, avant corrections)</text>
+</svg>

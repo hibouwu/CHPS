@@ -2,33 +2,46 @@
 
 **English** · [简体中文](README.zh-CN.md) · [Français](README.fr.md)
 
-The collection now also includes typed course notes, teaching materials, exercises, exam preparation and project documents. **[Browse the complete M1 course index](M1/README.md)** · [Projects](M1/PROJECTS.md) · [Import details](M1/IMPORT.md).
+My study notes from the CHPS programme at UVSQ / Université Paris-Saclay: lecture notes, course materials, exercise solutions, past exam papers and project reports. I keep them here to revisit what I have learned and to share useful material with others taking the same courses.
 
-These are my lecture notes, exercise solutions, and collected past exam papers from studying CHPS. If you are taking the same courses, you can browse by subject or use the notes to revisit a derivation while working through exercises.
+The collection currently focuses on M1, covering numerical computing, parallel programming, computer architecture, operating systems and scientific computing. Most documents are in French, with some explanations in Chinese. They include handwritten Notability notes, Markdown documents and PDFs.
 
-The materials currently cover M1. Most notes were handwritten in Notability, mainly in French with occasional explanations in Chinese.
+## M1 courses
 
-## Find your course
+| Semester | Course | Subject |
+|---|---|---|
+| S1 | [BaseMath](M1/BaseMath/README.md) | Mathematical foundations |
+| S1 | [CN](M1/CN/README.md) | Numerical computing |
+| S1 | [POO](M1/POO/README.md) | Object-oriented programming for scientific computing |
+| S1 | [GLHPC](M1/GLHPC/README.md) | Software engineering for HPC |
+| S1 | [AP](M1/AP/README.md) | Parallel architecture |
+| S1 | [AISE](M1/AISE/README.md) | Operating system internals |
+| S2 | [ORO](M1/ORO/README.md) | Optimization and operations research |
+| S2 | [TM](M1/TM/README.md) | Modelling techniques |
+| S2 | [VS](M1/VS/README.md) | Scientific visualization |
+| S2 | [TOP](M1/TOP/README.md) | Parallel performance optimization |
+| S2 | [APP](M1/APP/README.md) | Parallel algorithms and programming |
+| S2 | [APD](M1/APD/README.md) | Distributed algorithms |
+| S1 / S2 | [English](M1/English/README.md) | Technical English |
 
-- [AP](M1/AP/): lecture notes and exercise solutions.
-- [APD](M1/APD/Note/): lecture notes and exercise solutions, including a separate set of graph theory notes.
-- BaseMath: [lecture and exercise notes](M1/BaseMath/Notes/) · [past exam papers](M1/BaseMath/Examen/).
-- [CN](M1/CN/): numerical computing, including linear systems, LU/LDLᵀ factorization, and iterative methods.
-- [ORO](M1/ORO/): optimization and operations research, including linear programming, the simplex method, the big-M method, and branch and bound.
-- [TM](M1/TM/): differential equations and numerical methods, including analytical methods, finite differences, and stability analysis.
+## PPN project
 
-## Reading the notes
+**[ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network)** is my numerical programming project: a C++ neural network and automatic differentiation engine built from scratch, with work on matrix operation optimization and parallel training. The code, reports and project documentation are available in that repository.
 
-Within each course, `Cours` identifies lecture notes, while `TD` and `TDTP` identify exercise or practical-session notes. A useful way to review is to revisit the definitions and derivations first, then try the exercises before comparing your work with the solutions. Notes covering more than one session keep both numbers, as in `TD-02-03`.
+Reports and notes for other course projects are kept with their respective courses, including the Poisson solver in CN, the particle simulator in POO, EXPRESSO in AISE and the LBM fluid simulation in TOP.
 
-For TM, start with differential equations and analytical methods in the [first set of lecture notes](M1/TM/TM-Cours-01.pdf), then move on to finite differences and stability analysis in the [second](M1/TM/TM-Cours-02.pdf). I missed the third lecture, so there are no notes from that session here.
+## Finding material
 
-For exam practice, go straight to the [BaseMath past papers](M1/BaseMath/Examen/). The two images labelled 2024 are successive pages of the same paper and should be read together.
+Each course has a README to help you navigate its documents. `Materials/` contains course materials, exercises, revision notes and project documents. Handwritten notes may also sit directly in the course directory or under `Note/Notes`.
 
-## A note about the collection
+In filenames, `Cours` refers to lectures, `TD` to tutorials, `TP` to practical sessions, and `Examen` or `CC` to exams. A PDF and a Markdown document on the same topic often provide the original material and a text-based version to read alongside it.
 
-These are my personal study notes. Some solutions are incomplete, and there may be mistakes. If something differs from the course materials, check it against the instructor's notes. Corrections and missing notes are welcome through an issue or pull request.
+- [AISE lecture chapters](M1/AISE/Materials/CM/Chapters/README.md)
+- [BaseMath past exams](M1/BaseMath/Examen/)
+- [M1 programme documents](M1/Programme/)
 
-Some session numbers were inferred from the order of topics when organizing the files and may differ from the official numbering. The CN notes on LU/LDLᵀ factorization are named by topic instead. The exam labelled 2025 retains its original filename; the year is not visible in the photo itself.
+## About the notes
 
-If these notes help you with your studies, a star ⭐ would be appreciated. Thank you!
+This is a personal collection, not a complete set of course materials. Some solutions may be incomplete or contain mistakes. Author information for teaching materials and references is retained in the documents; please check the instructor’s original material when in doubt. Some handwritten PDFs do not have a searchable text layer.
+
+Corrections, questions and additional notes are welcome through issues and pull requests. If you find the collection useful, a star ⭐ is appreciated.

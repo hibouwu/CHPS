@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#2E7D32" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2E7D32">Transition · Nouvelle plateforme + Protocole unifié</text>
+  <path fill="#2E7D32" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P2</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">8 / 13</text>
+
+  <path fill="#FBF6FD" stroke="#AB47BC" stroke-width="1.2" d="M92,118 H610 A8,8 0 0 1 618,126 V556 A8,8 0 0 1 610,564 H92 A8,8 0 0 1 84,556 V126 A8,8 0 0 1 92,118 Z" />
+  <text x="351" y="150" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#AB47BC" text-anchor="middle">Plateforme</text>
+  <text x="351" y="196" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A2332" text-anchor="middle">AMD Ryzen 9 8940HX</text>
+  <text x="351" y="226" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Zen4 · 16c/32t · AVX-512</text>
+  <text x="351" y="248" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">GCC 15.2.1 · MPICH 4.3</text>
+  <text x="351" y="270" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Linux x86-64</text>
+  <text x="351" y="326" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#AB47BC" text-anchor="middle">AVX-512 : 8 doubles par registre zmm</text>
+  <text x="351" y="350" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Potentiel SIMD maximal pour LBM</text>
+  <text x="351" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#E65100" text-anchor="middle">Précédente : macOS AArch64</text>
+  <text x="351" y="434" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Apple M · NEON SIMD · Clang</text>
+  <text x="351" y="476" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">P1 : opt01–17 validées jusqu'à 194 MLUPS</text>
+  <text x="351" y="498" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Plateformes non comparables directement</text>
+  <text x="351" y="520" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Gain global indicatif, non iso-plateforme</text>
+
+  <path fill="#F5FBF6" stroke="#43A047" stroke-width="1.2" d="M672,118 H1188 A8,8 0 0 1 1196,126 V556 A8,8 0 0 1 1188,564 H672 A8,8 0 0 1 664,556 V126 A8,8 0 0 1 672,118 Z" />
+  <text x="930" y="150" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#43A047" text-anchor="middle">Protocole unifié</text>
+  <text x="700" y="206" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">✓ 1 warm-up + 20 répétitions · médiane</text>
+  <text x="700" y="234" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">✓ CPU fréq. verrouillée (cpupower)</text>
+  <text x="700" y="262" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">✓ drop_caches avant chaque mesure</text>
+  <text x="700" y="290" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">✓ PROFILING=OFF</text>
+  <text x="700" y="318" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">✓ Répétitions médianes (non moyenne)</text>
+  <path fill="#2E7D32" d="M750,426 H1108 A6,6 0 0 1 1114,432 V468 A6,6 0 0 1 1108,474 H750 A6,6 0 0 1 744,468 V432 A6,6 0 0 1 750,426 Z" />
+  <text x="929" y="446" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Référence P2 dev : 216 MLUPS</text>
+  <text x="929" y="466" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#E8F5E9" text-anchor="middle">valeur de développement</text>
+  <text x="929" y="522" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">np=2, OMP=4</text>
+</svg>

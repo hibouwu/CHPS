@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#2E7D32" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2E7D32">Conclusion</text>
+  <path fill="#2E7D32" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P2</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">13 / 13</text>
+
+  <path fill="#F5FBF6" stroke="#43A047" stroke-width="1.2" d="M94,124 H634 A8,8 0 0 1 642,132 V494 A8,8 0 0 1 634,502 H94 A8,8 0 0 1 86,494 V132 A8,8 0 0 1 94,124 Z" />
+  <text x="364" y="154" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#43A047" text-anchor="middle">Leçons clés</text>
+  <path fill="#FFFFFF" stroke="#CFE7D3" stroke-width="1" d="M118,180 H610 A6,6 0 0 1 616,186 V244 A6,6 0 0 1 610,250 H118 A6,6 0 0 1 112,244 V186 A6,6 0 0 1 118,180 Z" />
+  <text x="134" y="202" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2332">✓ Latence MPI &gt; volume</text>
+  <text x="134" y="224" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Fusion de messages : 7182 → 1 msg/dir</text>
+  <text x="134" y="242" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">+50% (68.7 → 102.75 MLUPS, np=2 OMP=1)</text>
+  <path fill="#FFFFFF" stroke="#CFE7D3" stroke-width="1" d="M118,266 H610 A6,6 0 0 1 616,272 V330 A6,6 0 0 1 610,336 H118 A6,6 0 0 1 112,330 V272 A6,6 0 0 1 118,266 Z" />
+  <text x="134" y="288" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2332">✓ SoA = régression initiale</text>
+  <text x="134" y="310" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Investissement structurel nécessaire</text>
+  <text x="134" y="328" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">pour débloquer AVX-512</text>
+  <path fill="#FFFFFF" stroke="#CFE7D3" stroke-width="1" d="M118,352 H610 A6,6 0 0 1 616,358 V416 A6,6 0 0 1 610,422 H118 A6,6 0 0 1 112,416 V358 A6,6 0 0 1 118,352 Z" />
+  <text x="134" y="374" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2332">✓ __restrict__ + ivdep : analyse d'alias</text>
+  <text x="134" y="396" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Clé pour émission des registres zmm</text>
+  <text x="134" y="414" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">+97% à cette seule étape (423 → 832)</text>
+
+  <path fill="#FFF9F2" stroke="#F57C00" stroke-width="1.2" d="M686,124 H1186 A8,8 0 0 1 1194,132 V494 A8,8 0 0 1 1186,502 H686 A8,8 0 0 1 678,494 V132 A8,8 0 0 1 686,124 Z" />
+  <text x="936" y="154" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#F57C00" text-anchor="middle">Questions ouvertes</text>
+  <path fill="#FFFFFF" stroke="#F6D7B8" stroke-width="1" d="M710,180 H1162 A6,6 0 0 1 1168,186 V244 A6,6 0 0 1 1162,250 H710 A6,6 0 0 1 704,244 V186 A6,6 0 0 1 710,180 Z" />
+  <text x="726" y="202" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2332">? MPI inter-nœuds</text>
+  <text x="726" y="224" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Impact réel du halo sur réseau</text>
+  <text x="726" y="242" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Latence réseau vs. déséquilibre de rangs ?</text>
+  <path fill="#FFFFFF" stroke="#F6D7B8" stroke-width="1" d="M710,266 H1162 A6,6 0 0 1 1168,272 V330 A6,6 0 0 1 1162,336 H710 A6,6 0 0 1 704,330 V272 A6,6 0 0 1 710,266 Z" />
+  <text x="726" y="288" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2332">? Validation physique</text>
+  <text x="726" y="310" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Strouhal, lift/drag quantitat. ?</text>
+  <text x="726" y="328" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Comparaison avec valeurs théoriques</text>
+  <path fill="#FFFFFF" stroke="#F6D7B8" stroke-width="1" d="M710,352 H1162 A6,6 0 0 1 1168,358 V416 A6,6 0 0 1 1162,422 H710 A6,6 0 0 1 704,416 V358 A6,6 0 0 1 710,352 Z" />
+  <text x="726" y="374" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1A2332">? Passage D3Q19, GPU</text>
+  <text x="726" y="396" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Extension 3D (D3Q19)</text>
+  <text x="726" y="414" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">GPU : CUDA/HIP pour accélération massive</text>
+
+  <path fill="#F57C00" d="M94,532 H1186 A6,6 0 0 1 1192,538 V560 A6,6 0 0 1 1186,566 H94 A6,6 0 0 1 88,560 V538 A6,6 0 0 1 94,532 Z" />
+  <text x="640" y="554" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2047 MLUPS · meilleur résultat mesuré · 2 plateformes · 26 optimisations</text>
+  <text x="640" y="616" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#1565C0" text-anchor="middle">Merci · Questions bienvenues</text>
+</svg>

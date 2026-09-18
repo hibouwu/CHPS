@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#2E7D32" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2E7D32">P2-A · AoS → SoA : préparer le SIMD</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt18–19 · Refactorisation structurelle</text>
+  <path fill="#2E7D32" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P2</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">9 / 13</text>
+
+  <path fill="#FFF8F7" stroke="#EF5350" stroke-width="1.2" d="M94,126 H578 A8,8 0 0 1 586,134 V502 A8,8 0 0 1 578,510 H94 A8,8 0 0 1 86,502 V134 A8,8 0 0 1 94,126 Z" />
+  <text x="336" y="156" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350" text-anchor="middle">AoS — Array of Structures</text>
+  <path fill="#1E2E3D" d="M122,192 H550 A4,4 0 0 1 554,196 V222 A4,4 0 0 1 550,226 H122 A4,4 0 0 1 118,222 V196 A4,4 0 0 1 122,192 Z" />
+  <text x="336" y="214" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF" text-anchor="middle">cell[i][j].f[k]</text>
+  <text x="336" y="260" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">stride 72 oct pour le même k entre deux cellules voisines</text>
+  <path fill="#FF8A65" d="M133,292 H199 A3,3 0 0 1 202,295 V309 A3,3 0 0 1 199,312 H133 A3,3 0 0 1 130,309 V295 A3,3 0 0 1 133,292 Z" />
+  <path fill="#F6B4A2" d="M215,292 H329 A3,3 0 0 1 332,295 V309 A3,3 0 0 1 329,312 H215 A3,3 0 0 1 212,309 V295 A3,3 0 0 1 215,292 Z" />
+  <path fill="#FF8A65" d="M369,292 H435 A3,3 0 0 1 438,295 V309 A3,3 0 0 1 435,312 H369 A3,3 0 0 1 366,309 V295 A3,3 0 0 1 369,292 Z" />
+  <path fill="#F6B4A2" d="M451,292 H565 A3,3 0 0 1 568,295 V309 A3,3 0 0 1 565,312 H451 A3,3 0 0 1 448,309 V295 A3,3 0 0 1 451,292 Z" />
+  <text x="336" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Saut de 72 oct pour atteindre f[k] de la cellule suivante</text>
+  <text x="336" y="368" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828" text-anchor="middle">Non vectorisable : stride &gt; 1</text>
+  <text x="336" y="392" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Le compilateur ne peut pas charger un vecteur zmm</text>
+  <text x="336" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">depuis des adresses non contiguous</text>
+
+  <text x="640" y="332" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="22" fill="#1565C0" text-anchor="middle">→</text>
+
+  <path fill="#F5FBF6" stroke="#43A047" stroke-width="1.2" d="M702,126 H1186 A8,8 0 0 1 1194,134 V502 A8,8 0 0 1 1186,510 H702 A8,8 0 0 1 694,502 V134 A8,8 0 0 1 702,126 Z" />
+  <text x="944" y="156" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#43A047" text-anchor="middle">SoA — Structure of Arrays</text>
+  <path fill="#1E2E3D" d="M730,192 H1158 A4,4 0 0 1 1162,196 V222 A4,4 0 0 1 1158,226 H730 A4,4 0 0 1 726,222 V196 A4,4 0 0 1 730,192 Z" />
+  <text x="944" y="214" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF" text-anchor="middle">cells[k][x*H+y]</text>
+  <text x="944" y="260" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">cellules adj. en j, à k fixé : contiguës</text>
+  <path fill="#66BB6A" d="M741,292 H807 A3,3 0 0 1 810,295 V309 A3,3 0 0 1 807,312 H741 A3,3 0 0 1 738,309 V295 A3,3 0 0 1 741,292 Z" />
+  <path fill="#66BB6A" d="M823,292 H889 A3,3 0 0 1 892,295 V309 A3,3 0 0 1 889,312 H823 A3,3 0 0 1 820,309 V295 A3,3 0 0 1 823,292 Z" />
+  <path fill="#A5D6A7" d="M905,292 H971 A3,3 0 0 1 974,295 V309 A3,3 0 0 1 971,312 H905 A3,3 0 0 1 902,309 V295 A3,3 0 0 1 905,292 Z" />
+  <path fill="#A5D6A7" d="M987,292 H1053 A3,3 0 0 1 1056,295 V309 A3,3 0 0 1 1053,312 H987 A3,3 0 0 1 984,309 V295 A3,3 0 0 1 987,292 Z" />
+  <text x="944" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">8 doubles contigus → 1 chargement zmm</text>
+  <text x="944" y="368" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">Vectorisable : stride 1 en j</text>
+  <text x="944" y="392" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">prérequis structurel pour AVX-512</text>
+
+  <path fill="#1565C0" d="M90,542 H1190 A6,6 0 0 1 1196,548 V566 A6,6 0 0 1 1190,572 H90 A6,6 0 0 1 84,566 V548 A6,6 0 0 1 90,542 Z" />
+  <text x="640" y="561" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle">La contiguïté en j par plan k permet la vectorisation SIMD</text>
+  <text x="640" y="598" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Régression initiale −22% — investissement nécessaire pour +285%</text>
+</svg>

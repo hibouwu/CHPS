@@ -1,0 +1,1 @@
+Dans la chaîne de développement, cette étape atteint 832 MLUPS pour np=2 OMP=4. Nous n'écrivons pas d'intrinsics AVX-512 à la main : le compilateur émet bien des registres zmm, et le point clé reste l'ensemble layout mémoire + boucle + __restrict__ + #pragma GCC ivdep.

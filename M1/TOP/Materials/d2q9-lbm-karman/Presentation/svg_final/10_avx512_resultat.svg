@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#2E7D32" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2E7D32">P2-B · Vectorisation AVX-512</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt20–22 · k-outer → multicell → zmm explicite</text>
+  <path fill="#2E7D32" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P2</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">10 / 13</text>
+
+  <path fill="#F5FBF6" stroke="#43A047" stroke-width="1.2" d="M104,124 H388 A8,8 0 0 1 396,132 V362 A8,8 0 0 1 388,370 H104 A8,8 0 0 1 96,362 V132 A8,8 0 0 1 104,124 Z" />
+  <text x="246" y="154" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#43A047" text-anchor="middle">opt20 — k-outer</text>
+  <text x="246" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">Boucle k mise en extérieur</text>
+  <text x="246" y="206" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Accès par plans plus réguliers</text>
+  <text x="246" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Meilleure localité mémoire</text>
+  <path fill="#66BB6A" d="M166,264 H326 A4,4 0 0 1 330,268 V292 A4,4 0 0 1 326,296 H166 A4,4 0 0 1 162,292 V268 A4,4 0 0 1 166,264 Z" />
+  <text x="246" y="285" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF" text-anchor="middle">216 → 319 MLUPS</text>
+  <text x="246" y="320" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Étape de développement</text>
+
+  <path fill="#F5FBF6" stroke="#43A047" stroke-width="1.2" d="M498,124 H782 A8,8 0 0 1 790,132 V362 A8,8 0 0 1 782,370 H498 A8,8 0 0 1 490,362 V132 A8,8 0 0 1 498,124 Z" />
+  <text x="640" y="154" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#43A047" text-anchor="middle">opt21 — multicell</text>
+  <text x="640" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">Kernel multicell</text>
+  <text x="640" y="206" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Structure de boucle réorganisée</text>
+  <text x="640" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Prépare la vectorisation explicite</text>
+  <path fill="#66BB6A" d="M560,264 H720 A4,4 0 0 1 724,268 V292 A4,4 0 0 1 720,296 H560 A4,4 0 0 1 556,292 V268 A4,4 0 0 1 560,264 Z" />
+  <text x="640" y="285" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF" text-anchor="middle">319 → 423 MLUPS</text>
+  <text x="640" y="320" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Étape intermédiaire</text>
+
+  <path fill="#FFF7EF" stroke="#E65100" stroke-width="1.2" d="M892,124 H1188 A8,8 0 0 1 1196,132 V362 A8,8 0 0 1 1188,370 H892 A8,8 0 0 1 884,362 V132 A8,8 0 0 1 892,124 Z" />
+  <text x="1040" y="154" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#E65100" text-anchor="middle">opt22 — __restrict__ + ivdep</text>
+  <text x="1040" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">__restrict__ : pas d'alias</text>
+  <text x="1040" y="206" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">#pragma GCC ivdep</text>
+  <text x="1040" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Levée d'analyse d'alias</text>
+  <path fill="#F57C00" d="M960,264 H1120 A4,4 0 0 1 1124,268 V292 A4,4 0 0 1 1120,296 H960 A4,4 0 0 1 956,292 V268 A4,4 0 0 1 960,264 Z" />
+  <text x="1040" y="285" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF" text-anchor="middle">423 → 832 MLUPS</text>
+  <text x="1040" y="320" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">GCC émet des registres zmm</text>
+
+  <path fill="#243644" d="M102,412 H1190 A6,6 0 0 1 1196,418 V502 A6,6 0 0 1 1190,508 H102 A6,6 0 0 1 96,502 V418 A6,6 0 0 1 102,412 Z" />
+  <text x="118" y="440" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" font-weight="bold" fill="#90CAF9">Preuve assembleur (objdump) :</text>
+  <text x="118" y="468" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#F8F9FB">vmovupd (%r10,%rax,1), %zmm23</text>
+  <text x="118" y="490" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#F8F9FB">vaddpd / vdivpd — registres zmm confirmés</text>
+
+  <path fill="#F57C00" d="M102,540 H1190 A6,6 0 0 1 1196,546 V566 A6,6 0 0 1 1190,572 H102 A6,6 0 0 1 96,566 V546 A6,6 0 0 1 102,540 Z" />
+  <text x="646" y="561" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Chaîne de développement : 216 → 832 MLUPS</text>
+  <text x="646" y="602" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">832 mesuré np=2, OMP=4 · 757 mesuré np=1, OMP=4</text>
+</svg>

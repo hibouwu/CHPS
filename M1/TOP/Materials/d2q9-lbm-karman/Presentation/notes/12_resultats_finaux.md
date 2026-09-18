@@ -1,0 +1,1 @@
+Le benchmark officiel donne 2047 MLUPS pour np=1 OMP=16 — meilleur résultat absolu — et 1071 MLUPS pour np=2 OMP=4, meilleure configuration multi-rang. Pour la comparaison avec macOS, il faut rester prudent : gain global indicatif, non iso-plateforme.

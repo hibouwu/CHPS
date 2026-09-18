@@ -1,0 +1,1 @@
+La Partie 2 est menée sur AMD Ryzen 9 8940HX, 16 cœurs physiques, Zen4, avec AVX-512 confirmé par objdump. Le protocole de mesure unifié impose le verrouillage de fréquence CPU, la purge du cache de pages, 1 échauffement et 20 répétitions formelles avec médiane.

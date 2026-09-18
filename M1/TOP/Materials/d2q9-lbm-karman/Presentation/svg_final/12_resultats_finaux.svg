@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#2E7D32" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2E7D32">Résultats finaux · Protocole unifié</text>
+  <path fill="#2E7D32" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P2</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">12 / 13</text>
+
+  <path fill="#FFFFFF" stroke="#CFD8DC" stroke-width="1" d="M108,124 H628 A8,8 0 0 1 636,132 V510 A8,8 0 0 1 628,518 H108 A8,8 0 0 1 100,510 V132 A8,8 0 0 1 108,124 Z" />
+  <rect x="100" y="124" width="536" height="36" fill="#1565C0" />
+  <text x="150" y="147" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF">np</text>
+  <text x="238" y="147" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF">OMP</text>
+  <text x="338" y="147" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF">MLUPS</text>
+  <text x="460" y="147" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF">Note</text>
+  <text x="152" y="208" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">1</text>
+  <text x="240" y="208" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">4</text>
+  <text x="338" y="208" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">898</text>
+  <text x="460" y="208" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">—</text>
+  <rect x="100" y="232" width="536" height="40" fill="#FFF4E6" />
+  <text x="152" y="258" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">1</text>
+  <text x="240" y="258" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">16</text>
+  <text x="338" y="258" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" font-weight="bold" fill="#E65100">2047</text>
+  <text x="460" y="258" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#E65100">meilleur ★</text>
+  <text x="152" y="310" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">2</text>
+  <text x="240" y="310" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">4</text>
+  <text x="338" y="310" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#2E7D32">1071</text>
+  <text x="460" y="310" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#2E7D32">★ multi-rang</text>
+  <text x="152" y="362" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">2</text>
+  <text x="240" y="362" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">8</text>
+  <text x="338" y="362" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">870</text>
+  <text x="460" y="362" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">—</text>
+  <text x="152" y="414" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">4</text>
+  <text x="240" y="414" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#1A2332">4</text>
+  <text x="338" y="414" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#EF5350">535</text>
+  <text x="460" y="414" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#EF5350">surcharge MPI</text>
+  <text x="368" y="486" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">1 warm-up + 20 rép. · médiane · CPU verrouillé</text>
+
+  <path fill="#FFF8EE" stroke="#F57C00" stroke-width="1" d="M718,124 H1152 A8,8 0 0 1 1160,132 V510 A8,8 0 0 1 1152,518 H718 A8,8 0 0 1 710,510 V132 A8,8 0 0 1 718,124 Z" />
+  <text x="935" y="250" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="64" font-weight="bold" fill="#F57C00" text-anchor="middle">2047</text>
+  <text x="935" y="286" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="18" fill="#F57C00" text-anchor="middle">MLUPS</text>
+  <text x="935" y="316" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#546E7A" text-anchor="middle">np=1, OMP=16</text>
+  <path fill="#EAF7EE" d="M812,346 H1058 A6,6 0 0 1 1064,352 V404 A6,6 0 0 1 1058,410 H812 A6,6 0 0 1 806,404 V352 A6,6 0 0 1 812,346 Z" />
+  <text x="935" y="372" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="14" fill="#2E7D32" text-anchor="middle">1071 MLUPS (np=2, OMP=4)</text>
+  <text x="935" y="394" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">meilleur résultat multi-rang</text>
+  <text x="935" y="468" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Réf. 60 MLUPS sur macOS AArch64</text>
+  <text x="935" y="488" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">gain global indicatif, non iso-plateforme</text>
+</svg>

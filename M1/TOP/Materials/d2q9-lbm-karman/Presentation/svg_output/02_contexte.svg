@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0"/>
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA"/>
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1"/>
+
+  <rect x="64" y="24" width="5" height="32" rx="2" fill="#1565C0"/>
+  <text x="80" y="52" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="26" font-weight="bold" fill="#1A2332">Contexte et figure de m&#xE9;rite</text>
+  <rect x="1170" y="24" width="46" height="18" rx="4" fill="#1565C0"/>
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="52" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">2 / 13</text>
+
+  <!-- Left panel -->
+  <rect x="84" y="118" width="526" height="430" rx="8" fill="#FFFFFF" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="347" y="146" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">D2Q9 Lattice Boltzmann</text>
+  <text x="347" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Vortex de K&#xE1;rm&#xE1;n &#xB7; Re = 96</text>
+  <text x="347" y="206" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Domaine : 800 &#xD7; 160 cellules</text>
+  <text x="347" y="228" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">20 000 pas de temps</text>
+
+  <!-- Grey box -->
+  <rect x="182" y="278" width="330" height="178" rx="6" fill="#EEF3F8"/>
+
+  <!-- D2Q9 schematic: center node + 8 direction arrows -->
+  <!-- 8 direction lines from center (347,326) to tips at radius 32 -->
+  <line x1="347" y1="326" x2="347" y2="294" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="370" y2="303" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="379" y2="326" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="370" y2="349" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="347" y2="358" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="324" y2="349" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="315" y2="326" stroke="#1565C0" stroke-width="1.5"/>
+  <line x1="347" y1="326" x2="324" y2="303" stroke="#1565C0" stroke-width="1.5"/>
+  <!-- 8 direction tip dots -->
+  <circle cx="347" cy="294" r="5" fill="#1565C0"/>
+  <circle cx="370" cy="303" r="5" fill="#1565C0"/>
+  <circle cx="379" cy="326" r="5" fill="#1565C0"/>
+  <circle cx="370" cy="349" r="5" fill="#1565C0"/>
+  <circle cx="347" cy="358" r="5" fill="#1565C0"/>
+  <circle cx="324" cy="349" r="5" fill="#1565C0"/>
+  <circle cx="315" cy="326" r="5" fill="#1565C0"/>
+  <circle cx="324" cy="303" r="5" fill="#1565C0"/>
+  <!-- Center node (larger, solid blue with white core) -->
+  <circle cx="347" cy="326" r="14" fill="#1565C0"/>
+  <circle cx="347" cy="326" r="5" fill="#FFFFFF"/>
+  <!-- Caption -->
+  <text x="347" y="386" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Mod&#xE8;le D2Q9 : centre + 8 directions</text>
+
+  <!-- Grey box label -->
+  <text x="347" y="410" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#90A4AE" text-anchor="middle">9 vitesses discr&#xE8;tes par cellule</text>
+
+  <!-- Right panel (unchanged) -->
+  <rect x="670" y="118" width="526" height="430" rx="8" fill="#FFFFFF" stroke="#E65100" stroke-width="1.5"/>
+  <text x="933" y="146" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#E65100" text-anchor="middle">Figure de m&#xE9;rite : MLUPS</text>
+  <rect x="730" y="170" width="406" height="74" rx="6" fill="#FFF7EF"/>
+  <text x="933" y="198" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="16" fill="#E65100" text-anchor="middle">MLUPS = W &#xD7; H &#xD7; N / (T &#xD7; 10^6)</text>
+  <text x="933" y="222" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Millions de Lattice Updates Par Seconde</text>
+  <rect x="730" y="276" width="406" height="106" rx="6" fill="#EDF5FC"/>
+  <text x="933" y="314" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="14" font-weight="bold" fill="#1565C0" text-anchor="middle">W = 800 &#xB7; H = 160 &#xB7; N = 20 000</text>
+  <text x="933" y="342" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">800 &#xD7; 160 &#xD7; 20 000 = 2.56 &#xD7; 10^9 cellules</text>
+  <text x="933" y="366" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Temps de calcul T mesur&#xE9; en secondes</text>
+  <text x="933" y="430" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Plus MLUPS est grand, plus c&apos;est performant</text>
+  <text x="933" y="454" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Objectif : maximiser le d&#xE9;bit de calcul</text>
+
+  <!-- Bottom bar (unchanged) -->
+  <rect x="118" y="580" width="1044" height="26" rx="4" fill="#EAF2FB" stroke="#1565C0" stroke-width="1"/>
+  <text x="640" y="597" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1565C0" text-anchor="middle">R&#xE9;f&#xE9;rence initiale : 60 MLUPS (macOS AArch64, avant corrections)</text>
+</svg>

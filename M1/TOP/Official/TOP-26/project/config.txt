@@ -1,0 +1,10 @@
+iterations           = 20000
+width                = 800
+height               = 160
+obstacle_x           = 100.0
+obstacle_y           = 80.0
+obstacle_r           = 12.0
+reynolds             = 96
+inflow_max_velocity  = 0.16
+output_filename      = results.raw
+write_interval       = 50

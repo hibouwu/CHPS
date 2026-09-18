@@ -1,0 +1,225 @@
+锁定频率:
+❯ cpupower frequency-info --hwlimits
+cpupower frequency-info --freq
+
+分析 CPU 8：
+421798 5386028
+分析 CPU 10：
+  current CPU frequency: 3500805 (asserted by call to kernel)
+
+因此我选择4.0 GHz作为折中方案，频率足够高，性能波动比默认动态调频小，又比满速 5.3 GHz 更容易控制温度和功耗。
+```bash
+sudo cpupower frequency-set -g performance -u 4000MHz -d 4000MHz
+```
+解锁：
+```bash
+# 检查当前频率
+cpupower frequency-info --policy
+
+# governor 改回自动调速
+sudo cpupower frequency-set -g powersave
+
+# 还原频率上下限（根据 hwlimits 输出调整）
+sudo cpupower frequency-set -d 421MHz -u 5386MHz
+
+# 检查当前频率
+cpupower frequency-info --policy
+```
+使用 `perf stat -r 3`（或更高次数）对 `sgemm naive 512 512 512` 重复采样，统计时间/能耗均值与误差条，并将结果存档作为基准
+
+1.使用 `perf stat -r 3`（或更高次数）对 `sgemm naive 512 512 512` 重复采样，统计时间/能耗均值与误差条，并将结果存档作为基准
+```bash
+# 1) 将 CPU0-7 锁定在 4.0GHz，减少频率波动
+sudo cpupower frequency-set -g performance -u 4000MHz -d 4000MHz
+
+# 2) taskset 固定 sgemm 在核心 0-7，perf 重复 20 次测量 duration_time / energy
+sudo taskset -c 0-7 perf stat -r 20 -a -C 0-7 \
+    -e duration_time,power/energy-pkg/ \
+    ./build/sgemm naive 512 512 512
+```
+
+ Performance counter stats for 'system wide' (20 runs):
+
+       276,130,078        duration_time                                                           ( +-  0.40% )
+             10.26 Joules power/energy-pkg/                                                       ( +-  5.43% )
+
+           0.27599 +- 0.00110 seconds time elapsed  ( +-  0.40% )
+
+恢复默认调频：
+```bash
+sudo cpupower frequency-set -g powersave
+sudo cpupower frequency-set -d 421MHz -u 5386MHz
+```
+
+2. 
+运行 `performance/compare-sizes.sh`，生成最新 `sgemm_sizes_comparison.csv`，再用 `plot-sizes.py` 绘制图表；在报告中说明 `naive` 随 `M` 增长的拐点及原因。
+
+```bash
+./compare-sizes.sh
+python3 plot-sizes.py sgemm_sizes_comparison.csv performance_naive.png
+```
+
+output 看 performance/sgemm_sizes_comparison.csv 和 performance/performance_naive.png
+在 N=K=512 固定时，naive 实现对每个新增的矩阵行执行常量次数的乘加 (≈2×512×512)，所以从 O(M·N·K) 退化为对 M 的一维线性关系，斜率接近常数。
+但 CSV 中的 Energy_stddev 往往达到测值的 20–30%（例如 M=600, 700），RAPL 本身噪声较大，加上 taskset 全系统采样，导致误差条掩盖了任何潜在拐点，因此图上显示为整体平滑上升。
+“naive 版本的时间和能耗随 M 呈线性增长，未见明显折点；轻微起伏属于测量噪声和缓存对齐差异，而非常规的性能退化。”
+Note: performance/compare-sizes.sh now supports locking CPU frequency and pinning to core set via LOCK_FREQ and CPU_SET variables.
+
+
+3. 完成 `compare-optimizations.sh` 和 `plot-optimizations.py`
+完成 `compare-optimizations.sh`，选定4个不同大小的M（如 `N=K=512`且`M=512,1024,2048,4096`）对 `naive/ikj/blocked/omp with different numbers of threads/blas` 重复多次采样，计算均值+误差并汇总到 CSV。CSV 采用长格式，包含列 `M,N,K,Version,threads,Duration_ms,Duration_stddev,Energy_J,Energy_stddev,Cycles,Instructions,runs`，便于后续按不同线程数或实现透视/绘图。
+```bash
+cd performance
+
+# 1) 将 CPU0-7 锁定在 4.0GHz，减少频率波动
+sudo cpupower frequency-set -g performance -u 4000MHz -d 4000MHz
+# 2) 运行
+USE_SUDO=1 ./compare-optimizations.sh
+
+```
+
+恢复默认调频：
+```bash
+sudo cpupower frequency-set -g powersave
+sudo cpupower frequency-set -d 421MHz -u 5386MHz
+```
+
+最新一次运行 `performance/compare-optimizations.sh`（启用 OpenMP 并固定 CPU 频率、核心）输出记录在 `performance/sgemm_optimizations_comparison.csv`，关键信息如下：
+- `M=512, N=K=512`：串行 `ikj` ≈16.31 ms，`blocked` ≈15.56 ms；`omp` 随线程数下降到 9.07 ms（8 线程），能耗仍保持在 0.71 J 左右。
+- `M=1024`：`ikj` ≈28.02 ms；`omp` 从单线程 29.55 ms 降到 14.79 ms（8 线程），速度提升约 2×。
+- `M=2048`：`ikj` ≈52.07 ms，`blocked` ≈51.75 ms；`omp` 8 线程为 26.11 ms，几乎达到 2× 加速，能耗也随时间下降到 1.73 J。
+- `M=4096`：`ikj` ≈100.95 ms；`omp` 8 线程 47.11 ms，耗能 3.12 J，相比串行节省近一半时间。
+这说明在启用 OpenMP 后，`sgemm_omp` 版本已实现有效的多线程缩放，随矩阵尺寸增大保持约 1.8–2.1× 的提速。
+
+使用 `plot-optimizations.py` 将上述均值+误差数据绘制成折线图（含误差条），输出图片并在报告引用。
+进一步使用 `performance/plot-optimizations.py` 生成双轴图 `performance/performance_optimizations_dual_small.png` 与 `performance/performance_optimizations_dual_large.png`：主图将时间/能耗同屏呈现，右上角浅灰 inset 放大非 `naive` 版本细节，并用 `ConnectionPatch` 将主图与放大图的时间、能耗曲线对应连线，便于在报告中引用和解读。
+
+```bash
+python performance/plot-optimizations.py --csv performance/sgemm_optimizations_comparison.csv --out-dir performance --prefix performance_optimizations
+```
+
+- 向量化实验：在 `build`（默认 Release）与 `build-o3`（`-O3 -march=native -fopt-info-vec-optimized`）上分别运行 `performance/compare-optimizations.sh`，生成 `performance/sgemm_perf_default.csv` 与 `performance/sgemm_perf_vectorized.csv`。编译输出 `performance/vectorization_build.log` 显示 `src/sgemm.c` 的朴素、`ikj`、分块及 OpenMP 循环均成功生成 64B/32B/16B 宽度的 SIMD 版本。
+- `perf` 结果表明：单线程 `naive` 提升约 1.3×、能耗下降 20–35%；`ikj` 提升约 1.28–1.40×；`blocked`、`blas` 提升 5–18%。OpenMP 版本在 1–4 线程区间仍有 1.2–1.45× 的收益，而 8 线程及以上受带宽限制，收益趋于持平甚至略有回落（如 `M=1024` 的 `omp(8)`）。整体说明编译器向量化对低线程场景帮助明显，高线程阶段主要瓶颈仍是内存与线程调度。
+
+4. 测量缓存事件
+使用 `sudo taskset -c 0-7 perf stat -a -C 0-7 -e amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/,amd_l3/l3_lookup_state.l3_hit/,amd_l3/l3_lookup_state.l3_miss/,L1-dcache-load-misses ./build/sgemm ikj 1280 512 512` 采集 `naive` 与 `ikj`,`blocked` 的 L3和L1 行为，对缓存访问差异进行总结（AMD 平台无 LLC-loads/LLC-stores）。
+```bash
+# 1) 将 CPU0-7 锁定在 4.0GHz，减少频率波动
+sudo cpupower frequency-set -g performance -u 4000MHz -d 4000MHz
+# 2) 运行
+sudo taskset -c 0-7 perf stat -a -C 0-7 \
+-e amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/,\
+amd_l3/l3_lookup_state.l3_hit/,\
+amd_l3/l3_lookup_state.l3_miss/,\
+L1-dcache-load-misses \
+./build/sgemm naive 1280 512 512
+
+sudo taskset -c 0-7 perf stat -a -C 0-7 \
+-e amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/,\
+amd_l3/l3_lookup_state.l3_hit/,\
+amd_l3/l3_lookup_state.l3_miss/,\
+L1-dcache-load-misses \
+./build/sgemm ikj 1280 512 512
+
+sudo taskset -c 0-7 perf stat -a -C 0-7 \
+-e amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/,\
+amd_l3/l3_lookup_state.l3_hit/,\
+amd_l3/l3_lookup_state.l3_miss/,\
+L1-dcache-load-misses \
+./build/sgemm blocked 1280 512 512
+
+sudo taskset -c 0-7 perf stat -a -C 0-7 \
+-e amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/,\
+amd_l3/l3_lookup_state.l3_hit/,\
+amd_l3/l3_lookup_state.l3_miss/,\
+L1-dcache-load-misses \
+./build/sgemm blocked 1280 512 512
+```
+
+恢复默认调频：
+```bash
+sudo cpupower frequency-set -g powersave
+sudo cpupower frequency-set -d 421MHz -u 5386MHz
+```
+
+
+SGEMM with dimensions M=1280, N=512, K=512
+Using sgemm_naive version
+Checksum: 3304.565514
+
+ Performance counter stats for 'system wide':
+
+        27,940,118      amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/                                      
+        26,361,139      amd_l3/l3_lookup_state.l3_hit/                                        
+         1,579,204      amd_l3/l3_lookup_state.l3_miss/                                       
+       375,987,392      L1-dcache-load-misses                                                 
+
+       0.674398909 seconds time elapsed
+
+
+SGEMM with dimensions M=1280, N=512, K=512
+Using sgemm_ikj version
+Checksum: 3304.566955
+
+ Performance counter stats for 'system wide':
+
+        13,475,043      amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/                                      
+        12,144,339      amd_l3/l3_lookup_state.l3_hit/                                        
+         1,330,784      amd_l3/l3_lookup_state.l3_miss/                                       
+        27,342,484      L1-dcache-load-misses                                                 
+
+       0.043063904 seconds time elapsed
+
+SGEMM with dimensions M=1280, N=512, K=512
+Using sgemm_blocked version
+Checksum: 3304.566955
+
+ Performance counter stats for 'system wide':
+
+         4,275,170      amd_l3/l3_lookup_state.all_coherent_accesses_to_l3/                                      
+         3,053,003      amd_l3/l3_lookup_state.l3_hit/                                        
+         1,223,547      amd_l3/l3_lookup_state.l3_miss/                                       
+        36,688,276      L1-dcache-load-misses                                                 
+
+       0.042966763 seconds time elapsed
+
+5. Compiler flag 编译器向量化
+
+使用 Release+`-O3 -march=native -fopt-info-vec-optimized` 编译 `sgemm`，收集向量化报告；用`perf`记录 `naive/ikj/blocked/omp with 1,2,4,8,16 threads/blas` 在不同编译器标志编译输出中的差异点
+
+- 向量化构建：`cmake -S . -B build-o3 -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-O3 -march=native -fopt-info-vec-optimized"`；`cmake --build build-o3 --clean-first` 的日志写入 `performance/vectorization_build.log`，其中 `src/sgemm.c` 的朴素、`ikj`、分块、OpenMP 核心循环均报告生成 64B/32B/16B SIMD 路径。
+- 以原始 Release (`build/sgemm`) 与向量化版本 (`build-o3/sgemm`) 分别运行 `performance/compare-optimizations.sh`，CPU 绑在 `0-7`，`OMP_NUM_THREADS={1,2,4,8,16}`；结果存在 `performance/sgemm_perf_default.csv` 与 `performance/sgemm_perf_vectorized.csv`。
+- 利用 pandas 合并两份 CSV 后可得：单线程 `naive` 平均加速约 1.30×，能耗下降 20–35%；`ikj` 提升 1.28–1.40×；`blocked`、`blas` 在 5–18% 区间。OpenMP 版本在 1–4 线程仍有 1.2–1.45× 收益，8 线程及以上受内存带宽与调度影响，性能改善趋于平缓乃至略降，但能耗总体仍较默认构建低。
+- 结论：开启 `-O3 -march=native -fopt-info-vec-optimized` 对我们以缓存友好为主的内核帮助明显，但高线程场景的瓶颈主要源自访存/调度，后续可考虑多线程 + 手动分块或 NUMA 亲和性调优。
+
+
+6. 调整 OpenMP 设置来优化性能和能耗
+
+```bash
+# 绑定核心 + 批量测试亲和策略（结果写入 performance/sgemm_omp_affinity.csv）
+CORE_SET=0-7 OMP_THREADS=8 ./performance/experiment-omp-affinity.sh
+
+# 手动复现 close / spread 等策略
+OMP_NUM_THREADS=8 OMP_PLACES=cores  OMP_PROC_BIND=close  \
+  perf stat -r 20 -e duration_time,power/energy-pkg/ taskset -c 0-7 ./build/sgemm omp 2048 512 512
+OMP_NUM_THREADS=8 OMP_PLACES=cores  OMP_PROC_BIND=spread \
+  perf stat -r 20 -e duration_time,power/energy-pkg/ taskset -c 0-7 ./build/sgemm omp 2048 512 512
+```
+
+- `performance/sgemm_omp_affinity.csv`（M=2048, N=K=512, 8 线程）显示：默认策略耗时 25.11 ms / 1.65 J；`OMP_PLACES=cores OMP_PROC_BIND=close` 将时间降至 24.95 ms（约 +0.6%）、能耗降至 1.61 J（约 +2.4%）；`OMP_PLACES=cores OMP_PROC_BIND=spread` 时间几乎不变但能耗略降至 1.64 J。
+- `OMP_PLACES=threads OMP_PROC_BIND=close` 与默认几乎一致；强制将线程落在 `{0,2,4,6}` 并使用 `master` 会让耗时跃升到 42 ms、能耗 2.24 J（+68% 时间 / +36% 能量），不推荐。
+- 结论：亲和性调优带来的收益在 1–3% 量级，作为细节优化仍有价值。性能优先推荐 `cores+close`，能效优先可选 `cores+spread` 或 `sockets+spread`；避免将多个线程堆叠在相同物理核心上。
+- 与 `ikj`（单线程）对比：在向量化构建下，`sgemm_omp` 1 线程较 `ikj` 慢约 10%（因 OpenMP 开销），但能耗高出 ~25%；当线程扩展到 4 线程时，耗时从 27 ms 降至 ~17 ms（≈1.6× 加速），能耗略高；继续加到 8 线程后收益趋缓（~19 ms），能耗反而回升。16 线程（同等核心数）把耗时压至 16 ms 左右（比 `ikj` 的 23 ms 快 ~30%），能耗维持在 1.0–1.9 J 区间，说明并行化对于大矩阵仍能提供显著加速，但高线程下内存带宽成为主要瓶颈。
+
+相对单线程：sgemm_omp 在 2–4 线程时速度提升 1.3–1.4×，能耗也同步下降约 10–20%；8 线程后提升趋缓（只剩 1.4–1.5×），但能耗基本持平或略回升。向量化版（build-o3）进一步把单线程耗时压至原来的 ~70%，能耗降到 65–80%，因此它是与“单线程基线”比较时的最佳对照。
+线程数影响：能耗曲线在低线程区间下降（线程利用更充分、运行时间缩短），到 8 线程开始反弹，因为线程数继续增加时系统总功耗上涨但时间收益有限。16 线程则几乎没有加速（甚至稍降），能耗也趋稳。
+单次运行能量 vs 线程：2–4 线程时能量消耗最低；再增加线程，能量止跌回升。原因是更多线程缩短了运行时间，但总功率上升更快——在 8 线程后“功率×时间”不再减少。
+内存带宽对扩展性的影响：当线程数超过 8 时，访存成为瓶颈。矩阵乘法对内存带宽要求高，L3/DRAM 争用让额外线程无法“喂饱”计算单元，表现为性能不再随线程线性增长、能耗难以下降。适当的线程亲和（如 OMP_PLACES=cores）能略微缓解，但本质瓶颈仍是内存系统。
+
+
+
+
+
+
+
+

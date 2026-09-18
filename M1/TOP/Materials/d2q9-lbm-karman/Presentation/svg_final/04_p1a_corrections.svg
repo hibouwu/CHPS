@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#1565C0" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1A2332">P1-A · Corrections de validité</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt01–03 · Prérequis avant toute mesure</text>
+  <path fill="#1565C0" d="M1158,24 H1176 A4,4 0 0 1 1180,28 V38 A4,4 0 0 1 1176,42 H1158 A4,4 0 0 1 1154,38 V28 A4,4 0 0 1 1158,24 Z" />
+  <text x="1167" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P1</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">4 / 13</text>
+
+  
+  <path fill="#FFF7F7" stroke="#EF5350" stroke-width="1" d="M92,110 H1188 A8,8 0 0 1 1196,118 V218 A8,8 0 0 1 1188,226 H92 A8,8 0 0 1 84,218 V118 A8,8 0 0 1 92,110 Z" />
+  <path fill="#EF5350" d="M87,110 H1193 A3,2 0 0 1 1196,112 V112 A3,2 0 0 1 1193,114 H87 A3,2 0 0 1 84,112 V112 A3,2 0 0 1 87,110 Z" />
+  <text x="112" y="138" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350">opt01 — Suppression du nanosleep caché</text>
+  <text x="112" y="164" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">nanosleep() encodé dans un template CMake — invoqué implicitement à chaque halo_exchange.</text>
+  <text x="112" y="184" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828">Impact : 5,5 h perdues par simulation de 20 000 pas. Faussait toutes les mesures.</text>
+
+  
+  <path fill="#FFF7F7" stroke="#EF5350" stroke-width="1" d="M92,246 H1188 A8,8 0 0 1 1196,254 V354 A8,8 0 0 1 1188,362 H92 A8,8 0 0 1 84,354 V254 A8,8 0 0 1 92,246 Z" />
+  <path fill="#EF5350" d="M87,246 H1193 A3,2 0 0 1 1196,248 V248 A3,2 0 0 1 1193,250 H87 A3,2 0 0 1 84,248 V248 A3,2 0 0 1 87,246 Z" />
+  <text x="112" y="274" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350">opt02 — Correction de la formule MLUPS</text>
+  <text x="112" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Formule surestimait le FOM d'un facteur 4 en mode multi-processus.</text>
+  <text x="112" y="320" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#C62828">Impact : les mesures multi-rang semblaient plus rapides — masquait le coût MPI réel.</text>
+
+  
+  <path fill="#FFF7F7" stroke="#EF5350" stroke-width="1" d="M92,382 H1188 A8,8 0 0 1 1196,390 V490 A8,8 0 0 1 1188,498 H92 A8,8 0 0 1 84,490 V390 A8,8 0 0 1 92,382 Z" />
+  <path fill="#EF5350" d="M87,382 H1193 A3,2 0 0 1 1196,384 V384 A3,2 0 0 1 1193,386 H87 A3,2 0 0 1 84,384 V384 A3,2 0 0 1 87,382 Z" />
+  <text x="112" y="410" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#EF5350">opt03 — Correction des tailles MPI send/recv</text>
+  <text x="112" y="436" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Incohérence entre les tailles d'envoi et de réception dans halo_exchange — corrigée.</text>
+  <text x="112" y="456" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Évite des échanges halo erronés et des comportements indéfinis sur implémentations MPI strictes.</text>
+
+  
+  <path fill="#1565C0" d="M90,528 H1190 A6,6 0 0 1 1196,534 V554 A6,6 0 0 1 1190,560 H90 A6,6 0 0 1 84,554 V534 A6,6 0 0 1 90,528 Z" />
+  <text x="640" y="549" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Référence validée : 60 MLUPS (np=1, OMP=1)</text>
+</svg>

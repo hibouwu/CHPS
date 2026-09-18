@@ -1,26 +1,201 @@
 # AISE — 操作系统内部结构
 
-学期：S1。
+S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
-[返回 M1 总览](../README.md)
+操作系统、进程与线程、内存、并发及 EXPRESSO 项目的讲义和学习记录。
 
-## 资料入口
+## 从这里开始
 
-- [Materials](<Materials/>)
+- [分章课件](<Materials/CM/Chapters/README.md>)
+- [EXPRESSO 项目题目](<Materials/Projet/ProjetDoc/sujet.md>)
 
-## Materials 导航
+## 收录范围与缺口
+
+教师课件按原书签分为 10 章，含全部 302 个实际 PDF 页面；正文页脚使用 246 个幻灯片编号。
+
+下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
+
+## 课程讲义与参考材料
+
+### Materials/CM/Chapters
+
+| 资源 | 格式 |
+|---|---|
+| [AISE-01-Introduction](<Materials/CM/Chapters/AISE-01-Introduction.pdf>) | PDF |
+| [AISE-02-Operating-System](<Materials/CM/Chapters/AISE-02-Operating-System.pdf>) | PDF |
+| [AISE-03-Command-Line](<Materials/CM/Chapters/AISE-03-Command-Line.pdf>) | PDF |
+| [AISE-04-Processes-and-Threads](<Materials/CM/Chapters/AISE-04-Processes-and-Threads.pdf>) | PDF |
+| [AISE-05-Users-and-Groups](<Materials/CM/Chapters/AISE-05-Users-and-Groups.pdf>) | PDF |
+| [AISE-06-Files](<Materials/CM/Chapters/AISE-06-Files.pdf>) | PDF |
+| [AISE-07-Memory-Management](<Materials/CM/Chapters/AISE-07-Memory-Management.pdf>) | PDF |
+| [AISE-08-Concurrency-and-Parallelism](<Materials/CM/Chapters/AISE-08-Concurrency-and-Parallelism.pdf>) | PDF |
+| [AISE-09-Compilation](<Materials/CM/Chapters/AISE-09-Compilation.pdf>) | PDF |
+| [AISE-10-Software-Environment-and-Virtualization](<Materials/CM/Chapters/AISE-10-Software-Environment-and-Virtualization.pdf>) | PDF |
+| [README](<Materials/CM/Chapters/README.md>) | MD |
+
+### Materials/CM
+
+| 资源 | 格式 |
+|---|---|
+| [QuestionLecture1_100](<Materials/CM/QuestionLecture1_100.md>) | MD |
+| [QuestionLecture2_100](<Materials/CM/QuestionLecture2_100.md>) | MD |
+| [QuestionLecture3_100](<Materials/CM/QuestionLecture3_100.md>) | MD |
+| [QuestionLecture4_100](<Materials/CM/QuestionLecture4_100.md>) | MD |
+| [QuestionLecture5_100](<Materials/CM/QuestionLecture5_100.md>) | MD |
+| [QuestionLecture6_100](<Materials/CM/QuestionLecture6_100.md>) | MD |
+| [QuestionLecture7_100](<Materials/CM/QuestionLecture7_100.md>) | MD |
+| [QuestionLecture8_100](<Materials/CM/QuestionLecture8_100.md>) | MD |
+| [lecture1](<Materials/CM/lecture1.md>) | MD |
+| [lecture2](<Materials/CM/lecture2.md>) | MD |
+| [lecture3](<Materials/CM/lecture3.md>) | MD |
+| [lecture4](<Materials/CM/lecture4.md>) | MD |
+| [lecture5](<Materials/CM/lecture5.md>) | MD |
+| [lecture6](<Materials/CM/lecture6.md>) | MD |
+| [lecture7](<Materials/CM/lecture7.md>) | MD |
+| [lecture8](<Materials/CM/lecture8.md>) | MD |
+
+
+## 习题与实验
+
+### Materials/TPS
+
+| 资源 | 格式 |
+|---|---|
+| [123](<Materials/TPS/123.md>) | MD |
+
+### Materials/TPS/EX2.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX2.1/README.md>) | MD |
+
+### Materials/TPS/EX2.2
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX2.2/README.md>) | MD |
+
+### Materials/TPS/EX2.3
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX2.3/README.md>) | MD |
+
+### Materials/TPS/EX2.4
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX2.4/README.md>) | MD |
+
+### Materials/TPS/EX2.5
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX2.5/README.md>) | MD |
+
+### Materials/TPS/EX2.6
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX2.6/README.md>) | MD |
+
+### Materials/TPS/EX3.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX3.1/README.md>) | MD |
+
+### Materials/TPS/EX4.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX4.1/README.md>) | MD |
+
+### Materials/TPS/EX4.2
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX4.2/README.md>) | MD |
+
+### Materials/TPS/EX4.3
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX4.3/README.md>) | MD |
+
+### Materials/TPS/EX5.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX5.1/README.md>) | MD |
+
+### Materials/TPS/EX5.2
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX5.2/README.md>) | MD |
+
+### Materials/TPS/EX5.3
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX5.3/README.md>) | MD |
+
+### Materials/TPS/EX6.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/TPS/EX6.1/README.md>) | MD |
+
+
+## 考试与复习
+
+### Materials/examen2526
+
+| 资源 | 格式 |
+|---|---|
+| [粘贴的图像 (2)](<Materials/examen2526/粘贴的图像 (2).png>) | PNG |
+| [粘贴的图像 (3)](<Materials/examen2526/粘贴的图像 (3).png>) | PNG |
+| [粘贴的图像 (4)](<Materials/examen2526/粘贴的图像 (4).png>) | PNG |
+| [粘贴的图像 (5)](<Materials/examen2526/粘贴的图像 (5).png>) | PNG |
+| [粘贴的图像 (6)](<Materials/examen2526/粘贴的图像 (6).png>) | PNG |
+| [粘贴的图像](<Materials/examen2526/粘贴的图像.png>) | PNG |
+
+
+## 项目、报告与演示
+
+### Materials/Projet/ProjetDoc
+
+| 资源 | 格式 |
+|---|---|
+| [assignment](<Materials/Projet/ProjetDoc/assignment.pdf>) | PDF |
+| [sujet](<Materials/Projet/ProjetDoc/sujet.md>) | MD |
+
+### Materials/Projet/ProjetRapportlatex
+
+| 资源 | 格式 |
+|---|---|
+| [rapport](<Materials/Projet/ProjetRapportlatex/rapport.pdf>) | PDF |
+
+### Materials/Projet/expresso-benchmarks
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/Projet/expresso-benchmarks/README.md>) | MD |
+| [experiment_results](<Materials/Projet/expresso-benchmarks/experiment_results.txt>) | TXT |
+| [results](<Materials/Projet/expresso-benchmarks/results.txt>) | TXT |
+
+### Materials/Projet
+
+| 资源 | 格式 |
+|---|---|
+| [rapport](<Materials/Projet/rapport.pdf>) | PDF |
+
+## 目录与配套文件
 
 - [CM](<Materials/CM/>)
 - [Projet](<Materials/Projet/>)
 - [TPS](<Materials/TPS/>)
 - [examen2526](<Materials/examen2526/>)
 
-## 来源与代码
-
-原目录：[打开本机原始材料](</home/jianyeshi/Note/AISE>). 文档按原内容复制；源码、环境、构建产物与数据集未整体复制，代码和实验请从原目录进入。
-
-复制完整性和原有链接问题见 [Import report](../IMPORT.md)。
-
-## 分章课件
-
-原整本 lecture.pdf 已按原书签切分为 10 章：[章节目录](Materials/CM/Chapters/README.md)。所有分章文件小于 50 MiB。
+个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。

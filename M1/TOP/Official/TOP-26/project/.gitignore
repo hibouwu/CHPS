@@ -1,0 +1,10 @@
+build/
+__pycache__/
+.cache/
+.venv/
+.ruff_cache/
+compile_commands.json
+*.raw
+*.gif
+*.png
+!ref_*

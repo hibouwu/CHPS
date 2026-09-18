@@ -1,24 +1,144 @@
 # POO — 科学计算面向对象编程
 
-学期：S1。
+S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
-[返回 M1 总览](../README.md)
+C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
-## 资料入口
+## 从这里开始
 
-- [Materials](<Materials/>)
+- [课程目录](<Materials/chps2025/index.md>)
+- [粒子模拟器](<Materials/POO-TPProjet/README.md>)
 
-## Materials 导航
+## 收录范围与缺口
+
+部分练习目录只保留文档；完整项目代码仍在原项目目录。
+
+下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
+
+## 课程讲义与参考材料
+
+### Materials/chps2025
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/chps2025/README.md>) | MD |
+| [Wandbox_links](<Materials/chps2025/Wandbox_links.md>) | MD |
+| [detailed_index](<Materials/chps2025/detailed_index.md>) | MD |
+| [index](<Materials/chps2025/index.md>) | MD |
+| [intro](<Materials/chps2025/intro.md>) | MD |
+| [prerequis](<Materials/chps2025/prerequis.md>) | MD |
+
+### Materials/chps2025/part1_survival_kit
+
+| 资源 | 格式 |
+|---|---|
+| [part1_survival_kit-1_TooL](<Materials/chps2025/part1_survival_kit/part1_survival_kit-1_TooL.md>) | MD |
+| [part1_survival_kit-2_OO](<Materials/chps2025/part1_survival_kit/part1_survival_kit-2_OO.md>) | MD |
+| [part1_survival_kit-3_Mem](<Materials/chps2025/part1_survival_kit/part1_survival_kit-3_Mem.md>) | MD |
+| [part1_survival_kit-4_Static](<Materials/chps2025/part1_survival_kit/part1_survival_kit-4_Static.md>) | MD |
+
+### Materials/chps2025/part2_deep_water
+
+| 资源 | 格式 |
+|---|---|
+| [part2_deep_water-1_TooL](<Materials/chps2025/part2_deep_water/part2_deep_water-1_TooL.md>) | MD |
+| [part2_deep_water-2_Mem](<Materials/chps2025/part2_deep_water/part2_deep_water-2_Mem.md>) | MD |
+| [part2_deep_water-3_OO](<Materials/chps2025/part2_deep_water/part2_deep_water-3_OO.md>) | MD |
+| [part2_deep_water-4_Static](<Materials/chps2025/part2_deep_water/part2_deep_water-4_Static.md>) | MD |
+
+### Materials/chps2025/pdfs
+
+| 资源 | 格式 |
+|---|---|
+| [part1_survival_kit-1_TooL](<Materials/chps2025/pdfs/part1_survival_kit-1_TooL.pdf>) | PDF |
+| [part1_survival_kit-2_OO](<Materials/chps2025/pdfs/part1_survival_kit-2_OO.pdf>) | PDF |
+| [part1_survival_kit-3_Mem](<Materials/chps2025/pdfs/part1_survival_kit-3_Mem.pdf>) | PDF |
+| [part1_survival_kit-4_Static](<Materials/chps2025/pdfs/part1_survival_kit-4_Static.pdf>) | PDF |
+| [part2_deep_water-1_TooL](<Materials/chps2025/pdfs/part2_deep_water-1_TooL.pdf>) | PDF |
+| [part2_deep_water-2_Mem](<Materials/chps2025/pdfs/part2_deep_water-2_Mem.pdf>) | PDF |
+| [part2_deep_water-3_OO](<Materials/chps2025/pdfs/part2_deep_water-3_OO.pdf>) | PDF |
+| [part2_deep_water-4_Static](<Materials/chps2025/pdfs/part2_deep_water-4_Static.pdf>) | PDF |
+
+
+## 习题与实验
+
+### Materials/TDDocs
+
+| 资源 | 格式 |
+|---|---|
+| [Help_install_gtest](<Materials/TDDocs/Help_install_gtest.md>) | MD |
+| [TD1_cmake](<Materials/TDDocs/TD1_cmake.md>) | MD |
+| [TD2_simulateur_structure](<Materials/TDDocs/TD2_simulateur_structure.md>) | MD |
+| [TD3_simulateur_1D](<Materials/TDDocs/TD3_simulateur_1D.md>) | MD |
+| [TD4_simulateur_1D_instationnaire](<Materials/TDDocs/TD4_simulateur_1D_instationnaire.md>) | MD |
+| [TD5_performance](<Materials/TDDocs/TD5_performance.md>) | MD |
+
+### Materials/chps2025/TDs
+
+| 资源 | 格式 |
+|---|---|
+| [Help_install_gtest](<Materials/chps2025/TDs/Help_install_gtest.md>) | MD |
+| [TD1_cmake](<Materials/chps2025/TDs/TD1_cmake.md>) | MD |
+| [TD2_simulateur_structure](<Materials/chps2025/TDs/TD2_simulateur_structure.md>) | MD |
+| [TD3_simulateur_1D](<Materials/chps2025/TDs/TD3_simulateur_1D.md>) | MD |
+| [TD4_simulateur_1D_instationnaire](<Materials/chps2025/TDs/TD4_simulateur_1D_instationnaire.md>) | MD |
+| [TD5_performance](<Materials/chps2025/TDs/TD5_performance.md>) | MD |
+
+### Materials/chps2025/part1_survival_kit/exercises
+
+| 资源 | 格式 |
+|---|---|
+| [exo_item1-1](<Materials/chps2025/part1_survival_kit/exercises/exo_item1-1.md>) | MD |
+
+### Materials/chps2025/pdfs
+
+| 资源 | 格式 |
+|---|---|
+| [TD5_performance](<Materials/chps2025/pdfs/TD5_performance.pdf>) | PDF |
+
+
+## 考试与复习
+
+### Materials/chps2025/PreprerForExamen
+
+| 资源 | 格式 |
+|---|---|
+| [QuestionsPourDebug](<Materials/chps2025/PreprerForExamen/QuestionsPourDebug.md>) | MD |
+| [QuestionsPourPrint](<Materials/chps2025/PreprerForExamen/QuestionsPourPrint.md>) | MD |
+| [TestExamen](<Materials/chps2025/PreprerForExamen/TestExamen.md>) | MD |
+| [concept](<Materials/chps2025/PreprerForExamen/concept.md>) | MD |
+
+
+## 项目、报告与演示
+
+### Materials/POO-TPProjet
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/POO-TPProjet/README.md>) | MD |
+
+
+## 其他学习资料
+
+### Materials/POO 1-5
+
+| 资源 | 格式 |
+|---|---|
+| [Readme](<Materials/POO 1-5/Readme.md>) | MD |
+
+### Materials/POO-TP1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Materials/POO-TP1/README.md>) | MD |
+| [Sujet-TP1](<Materials/POO-TP1/Sujet-TP1.md>) | MD |
+
+## 目录与配套文件
 
 - [POO 1-5](<Materials/POO 1-5/>)
 - [POO-TP1](<Materials/POO-TP1/>)
 - [POO-TPProjet](<Materials/POO-TPProjet/>)
 - [TDDocs](<Materials/TDDocs/>)
 - [chps2025](<Materials/chps2025/>)
-- [class.puml](<Materials/class.puml>)
 
-## 来源与代码
-
-原目录：[打开本机原始材料](</home/jianyeshi/Note/POO>). 文档按原内容复制；源码、环境、构建产物与数据集未整体复制，代码和实验请从原目录进入。
-
-复制完整性和原有链接问题见 [Import report](../IMPORT.md)。
+个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。

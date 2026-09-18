@@ -2,33 +2,46 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **Français**
 
-La collection comprend aussi des supports de cours, des notes numériques, des exercices, des annales et des documents de projet. **[Index complet du M1](M1/README.md)** · [Projets](M1/PROJECTS.md) · [Détails de l’import](M1/IMPORT.md).
+Ce dépôt rassemble mes notes prises pendant le master CHPS à l’UVSQ / Université Paris-Saclay : notes de cours, supports pédagogiques, solutions d’exercices, annales et rapports de projet. Il me permet de revenir sur les notions étudiées et de partager des ressources avec les étudiants qui suivent les mêmes cours.
 
-Je rassemble ici mes notes de cours, mes solutions d'exercices et les annales que j'ai récupérées pendant mes études en CHPS. Si vous suivez les mêmes cours, vous pouvez retrouver les documents par matière ou reprendre une démonstration en travaillant vos exercices.
+La collection porte principalement sur le M1 : calcul numérique, programmation parallèle, architecture des ordinateurs, systèmes d’exploitation et calcul scientifique. Les documents sont surtout en français, parfois accompagnés d’explications en chinois. On y trouve des notes manuscrites prises dans Notability, des documents Markdown et des PDF.
 
-Les documents disponibles concernent pour le moment le M1. Les notes sont pour la plupart manuscrites dans Notability, en français, avec quelques explications en chinois.
+## Cours du M1
 
-## Retrouvez votre matière
+| Semestre | Cours | Matière |
+|---|---|---|
+| S1 | [BaseMath](M1/BaseMath/README.md) | Fondements mathématiques pour le HPC |
+| S1 | [CN](M1/CN/README.md) | Calcul numérique |
+| S1 | [POO](M1/POO/README.md) | Programmation orientée objet pour le calcul scientifique |
+| S1 | [GLHPC](M1/GLHPC/README.md) | Génie logiciel pour le calcul HPC/IA |
+| S1 | [AP](M1/AP/README.md) | Architecture parallèle |
+| S1 | [AISE](M1/AISE/README.md) | Architecture interne des systèmes d’exploitation |
+| S2 | [ORO](M1/ORO/README.md) | Optimisation et recherche opérationnelle |
+| S2 | [TM](M1/TM/README.md) | Techniques de modélisation |
+| S2 | [VS](M1/VS/README.md) | Visualisation scientifique |
+| S2 | [TOP](M1/TOP/README.md) | Techniques d’optimisation de la parallélisation |
+| S2 | [APP](M1/APP/README.md) | Algorithmique et programmation parallèle |
+| S2 | [APD](M1/APD/README.md) | Algorithmique distribuée |
+| S1 / S2 | [English](M1/English/README.md) | Anglais technique |
 
-- [AP](M1/AP/) : notes de cours et solutions d'exercices.
-- [APD](M1/APD/Note/) : notes de cours et solutions d'exercices, avec des notes consacrées à la théorie des graphes.
-- BaseMath : [notes de cours et de TD](M1/BaseMath/Notes/) · [annales](M1/BaseMath/Examen/).
-- [CN](M1/CN/) : calcul numérique, notamment la résolution de systèmes linéaires, les factorisations LU/LDLᵀ et les méthodes itératives.
-- [ORO](M1/ORO/) : optimisation et recherche opérationnelle, notamment la programmation linéaire, le simplexe, la méthode du grand M et la séparation et évaluation.
-- [TM](M1/TM/) : équations différentielles et méthodes numériques, notamment les méthodes analytiques, les différences finies et l'analyse de stabilité.
+## Projet PPN
 
-## Pour travailler avec ces notes
+**[ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network)** est mon projet de programmation numérique : un réseau de neurones et un moteur de différentiation automatique développés en C++, avec des travaux sur l’optimisation des opérations matricielles et l’entraînement parallèle. Le code, les rapports et la documentation sont disponibles dans ce dépôt.
 
-Dans chaque matière, les fichiers `Cours` contiennent les notes de cours, tandis que `TD` et `TDTP` désignent les notes d'exercices ou de travaux pratiques. Pour réviser, vous pouvez reprendre les définitions et les démonstrations, puis essayer les exercices avant de consulter les solutions. Les notes regroupant plusieurs séances conservent leurs numéros, comme dans `TD-02-03`.
+Les rapports et notes des autres projets se trouvent dans les matières correspondantes : solveur de Poisson en CN, simulateur de particules en POO, EXPRESSO en AISE et simulation de fluide LBM en TOP.
 
-En TM, vous pouvez commencer par les équations différentielles et les méthodes analytiques dans les [premières notes de cours](M1/TM/TM-Cours-01.pdf), puis aborder les différences finies et la stabilité dans les [suivantes](M1/TM/TM-Cours-02.pdf). J'étais absent au troisième cours : les notes de cette séance ne sont donc pas disponibles ici.
+## Retrouver les documents
 
-Pour préparer un examen, les [annales de BaseMath](M1/BaseMath/Examen/) sont directement accessibles. Les deux images de 2024 correspondent à deux pages successives du même sujet ; pensez à les consulter ensemble.
+Chaque matière possède un README pour se repérer dans les documents. Le dossier `Materials/` contient les supports, exercices, fiches de révision et documents de projet. Les notes manuscrites peuvent aussi se trouver directement dans le dossier de la matière ou dans `Note/Notes`.
 
-## À propos des documents
+Les noms de fichiers utilisent notamment `Cours`, `TD`, `TP`, `Examen` et `CC`. Un PDF et un document Markdown sur le même sujet correspondent souvent au support original et à une version textuelle à consulter en parallèle.
 
-Ce sont mes notes personnelles. Certaines solutions sont partielles et il peut rester des erreurs. En cas de différence avec les supports du cours, vérifiez auprès du polycopié de l'enseignant. Les corrections et les notes manquantes sont les bienvenues, via une issue ou une pull request.
+- [Chapitres du cours d’AISE](M1/AISE/Materials/CM/Chapters/README.md)
+- [Annales de BaseMath](M1/BaseMath/Examen/)
+- [Documents du programme de M1](M1/Programme/)
 
-Certains numéros de séance ont été déduits de l'enchaînement des thèmes lors du rangement des fichiers et peuvent différer de la numérotation officielle. Les notes de CN sur les factorisations LU/LDLᵀ sont donc nommées par thème. Le sujet étiqueté 2025 conserve son nom de fichier d'origine ; l'année n'est pas visible sur la photo.
+## À propos des notes
 
-Si ces notes vous aident dans vos révisions, pensez à laisser une étoile ⭐ au dépôt. Merci !
+Cette collection personnelle n’est pas exhaustive. Certaines solutions peuvent être incomplètes ou contenir des erreurs. Les informations sur les auteurs des supports et des références figurent dans les documents ; en cas de doute, consultez le support original de l’enseignant. Certains PDF manuscrits ne permettent pas la recherche de texte.
+
+Les corrections, questions et compléments sont les bienvenus via les issues et les pull requests. Si ces notes vous sont utiles, une étoile ⭐ fait toujours plaisir.

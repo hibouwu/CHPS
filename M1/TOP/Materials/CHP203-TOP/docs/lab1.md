@@ -8,11 +8,11 @@ The material for this lab is available on the following [GitHub repo](https://gi
 
 1. Write a minimal `CMakeLists.txt` file for the `vector` code. 1. 为 `vector` 代码编写一个最小的 `CMakeLists.txt` 文件。
 
-   文件在：[CMakeLists.txt](lab1/vector_opt/src/CMakeLists.txt)
+   文件在：[CMakeLists.txt](../../TOP-26/lab1/vector_opt/src/CMakeLists.txt)
 
 2. Improve your build system by splitting the `CMakeLists.txt` into multiple files in the directory hierarchy. Use CMake best practices. 2. 通过将 `CMakeLists.txt` 按目录层级拆分为多个文件来改进你的构建系统，并采用 CMake 最佳实践。
 
-   文件在：[CMakeLists.txt](lab1/vector_opt/CMakeLists.txt) 和 [src/CMakeLists.txt](lab1/vector_opt/src/CMakeLists.txt)
+   文件在：[CMakeLists.txt](../../TOP-26/lab1/vector_opt/CMakeLists.txt) 和 [src/CMakeLists.txt](../../TOP-26/lab1/vector_opt/src/CMakeLists.txt)
 
 Relevant resources for this exercise: 本练习的相关资源如下：
 

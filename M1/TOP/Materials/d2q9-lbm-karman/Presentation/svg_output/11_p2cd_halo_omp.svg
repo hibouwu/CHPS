@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <path fill="#2E7D32" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+  <text x="80" y="38" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="22" font-weight="bold" fill="#2E7D32">P2-C/D · Halo k-major + Région OMP unique</text>
+  <text x="80" y="62" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#546E7A">opt24–26 · Données de développement</text>
+  <path fill="#2E7D32" d="M1174,24 H1212 A4,4 0 0 1 1216,28 V38 A4,4 0 0 1 1212,42 H1174 A4,4 0 0 1 1170,38 V28 A4,4 0 0 1 1174,24 Z" />
+  <text x="1193" y="37" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">P2</text>
+  <text x="1216" y="48" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">11 / 13</text>
+
+  <path fill="#FFF7EF" stroke="#E65100" stroke-width="1" d="M90,118 H1190 A6,6 0 0 1 1196,124 V154 A6,6 0 0 1 1190,160 H90 A6,6 0 0 1 84,154 V124 A6,6 0 0 1 90,118 Z" />
+  <text x="640" y="145" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#E65100" text-anchor="middle">⚠ Valeurs de développement — non protocole final — résultats officiels sur slide suivant</text>
+
+  <path fill="#F5FBF6" stroke="#43A047" stroke-width="1.2" d="M92,190 H408 A8,8 0 0 1 416,198 V492 A8,8 0 0 1 408,500 H92 A8,8 0 0 1 84,492 V198 A8,8 0 0 1 92,190 Z" />
+  <text x="250" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#43A047" text-anchor="middle">opt24 · Halo k-major</text>
+  <text x="250" y="246" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">Packing halo réorganisé en k-major</text>
+  <text x="250" y="278" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Accès mémoire plus réguliers</text>
+  <text x="250" y="300" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Localité améliorée pour pack/unpack</text>
+  <text x="250" y="340" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Réorganisation cohérente avec le layout SoA</text>
+  <path fill="#43A047" d="M150,368 H350 A4,4 0 0 1 354,372 V394 A4,4 0 0 1 350,398 H150 A4,4 0 0 1 146,394 V372 A4,4 0 0 1 150,368 Z" />
+  <text x="250" y="388" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#FFFFFF" text-anchor="middle">832 → 905 MLUPS</text>
+  <text x="250" y="418" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">(donnée de développement)</text>
+  <text x="250" y="446" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">(non protocole final)</text>
+
+  <path fill="#FFF9F2" stroke="#F57C00" stroke-width="1.2" d="M482,190 H798 A8,8 0 0 1 806,198 V492 A8,8 0 0 1 798,500 H482 A8,8 0 0 1 474,492 V198 A8,8 0 0 1 482,190 Z" />
+  <text x="640" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#F57C00" text-anchor="middle">opt25 · Diagnostic Waitall</text>
+  <text x="640" y="250" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Arrivées déséquilibrées entre ranks</text>
+  <text x="640" y="272" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Diagnostic intra-nœud : attente surtout</text>
+  <text x="640" y="310" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">due au déséquilibre entre ranks</text>
+  <path fill="#F57C00" d="M564,372 H716 A4,4 0 0 1 720,376 V396 A4,4 0 0 1 716,400 H564 A4,4 0 0 1 560,396 V376 A4,4 0 0 1 564,372 Z" />
+  <text x="640" y="391" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle">Diagnostic seul</text>
+
+  <path fill="#F7F3FB" stroke="#8E24AA" stroke-width="1.2" d="M872,190 H1188 A8,8 0 0 1 1196,198 V492 A8,8 0 0 1 1188,500 H872 A8,8 0 0 1 864,492 V198 A8,8 0 0 1 872,190 Z" />
+  <text x="1030" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" font-weight="bold" fill="#8E24AA" text-anchor="middle">opt26 · Région OMP unique</text>
+  <text x="1030" y="250" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="13" fill="#546E7A" text-anchor="middle">#pragma omp parallel</text>
+  <text x="1030" y="272" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">Une région OpenMP regroupe</text>
+  <text x="1030" y="310" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">les phases d’un même timestep</text>
+  <text x="1030" y="332" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A" text-anchor="middle">gain limité · structure plus propre</text>
+  <path fill="#8E24AA" d="M934,372 H1126 A4,4 0 0 1 1130,376 V396 A4,4 0 0 1 1126,400 H934 A4,4 0 0 1 930,396 V376 A4,4 0 0 1 934,372 Z" />
+  <text x="1030" y="391" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle">Architecture propre</text>
+
+  <text x="640" y="606" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="middle">Valeurs de développement (sans verrou CPU) · résultats officiels sur slide suivant</text>
+</svg>

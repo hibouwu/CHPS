@@ -1,0 +1,1 @@
+L'inversion de boucle réduit le pas d'accès mémoire de 180 lignes de cache à 8 octets (stride-1). Le mode Pull élimine les conflits d'écriture entre threads, permettant une parallélisation OpenMP directe et sûre. Ces deux changements combinés amènent np=1 OMP=4 à 194 MLUPS, soit +220% par rapport à la référence.

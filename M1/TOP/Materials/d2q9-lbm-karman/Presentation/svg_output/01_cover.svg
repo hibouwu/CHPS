@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0" />
+      <stop offset="100%" stop-color="#0277BD" />
+    </linearGradient>
+    <linearGradient id="wakeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#E65100" stop-opacity="0.14" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1280" height="8" fill="#1565C0" />
+  <rect x="0" y="8" width="1280" height="72" fill="#F4F7FA" />
+  <line x1="0" y1="80" x2="1280" y2="80" stroke="#CFD8DC" stroke-width="1" />
+  <rect x="0" y="80" width="760" height="560" fill="#F7FAFC" />
+
+  <g id="cover-header">
+    <path fill="#1565C0" d="M66,24 H67 A2,2 0 0 1 69,26 V54 A2,2 0 0 1 67,56 H66 A2,2 0 0 1 64,54 V26 A2,2 0 0 1 66,24 Z" />
+    <text x="80" y="52" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="24" font-weight="bold" fill="#1A2332">Projet CHP203 TOP</text>
+    <text x="1216" y="52" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE" text-anchor="end">1 / 13</text>
+  </g>
+
+  <g id="title-block">
+    <rect x="88" y="112" width="226" height="28" rx="4" fill="#EAF2FB" stroke="#CFD8DC" stroke-width="1" />
+    <text x="201" y="131" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1565C0" text-anchor="middle">D2Q9 · LBM · MPI + OpenMP</text>
+
+    <rect x="88" y="164" width="6" height="254" rx="3" fill="url(#titleGrad)" />
+    <text x="116" y="220" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="42" font-weight="bold" fill="#1A2332">Optimisation hybride</text>
+    <text x="116" y="276" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="42" font-weight="bold" fill="#1565C0">MPI + OpenMP</text>
+    <text x="116" y="332" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="42" font-weight="bold" fill="#1A2332">d&apos;un solveur LBM D2Q9</text>
+
+    <text x="116" y="388" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" fill="#546E7A">All&#xE9;e de K&#xE1;rm&#xE1;n &#xB7; Re = 96 &#xB7; 800 &#xD7; 160 cellules</text>
+    <line x1="116" y1="418" x2="700" y2="418" stroke="#CFD8DC" stroke-width="1" />
+    <text x="116" y="452" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" fill="#90A4AE">Etude de performance d&apos;un solveur hybride pour la simulation du sillage de K&#xE1;rm&#xE1;n.</text>
+  </g>
+
+  <g id="result-badge">
+    <path fill="#FFFFFF" stroke="#CFD8DC" stroke-width="1" d="M832,128 H1208 A8,8 0 0 1 1216,136 V238 A8,8 0 0 1 1208,246 H832 A8,8 0 0 1 824,238 V136 A8,8 0 0 1 832,128 Z" />
+    <rect x="824" y="128" width="392" height="5" rx="3" fill="#E65100" />
+    <text x="852" y="171" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#E65100">R&#xE9;sultat cl&#xE9;</text>
+    <text x="852" y="203" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A2332">Meilleur r&#xE9;sultat mesur&#xE9; : 2047 MLUPS</text>
+    <text x="852" y="228" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="15" fill="#546E7A">np=1, OMP=16</text>
+  </g>
+
+  <g id="study-case-panel">
+    <path fill="#FFFFFF" stroke="#CFD8DC" stroke-width="1" d="M848,280 H1184 A8,8 0 0 1 1192,288 V540 A8,8 0 0 1 1184,548 H848 A8,8 0 0 1 840,540 V288 A8,8 0 0 1 848,280 Z" />
+    <text x="868" y="316" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1565C0">Cas d&apos;&#xE9;tude</text>
+    <text x="868" y="338" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#90A4AE">Canal 2D avec cylindre et sillage p&#xE9;riodique</text>
+
+    <rect x="868" y="360" width="296" height="128" rx="6" fill="url(#wakeGrad)" stroke="#D8E2EA" stroke-width="1" />
+    <line x1="892" y1="396" x2="1140" y2="396" stroke="#B0BEC5" stroke-width="1" stroke-dasharray="5 4" />
+    <line x1="892" y1="452" x2="1140" y2="452" stroke="#B0BEC5" stroke-width="1" stroke-dasharray="5 4" />
+    <path d="M892,424 C930,404 950,404 986,424 C1022,444 1042,444 1078,424 C1114,404 1124,406 1140,414" fill="none" stroke="#1565C0" stroke-width="3" />
+    <path d="M892,424 C930,444 950,444 986,424 C1022,404 1042,404 1078,424 C1114,444 1124,442 1140,434" fill="none" stroke="#E65100" stroke-width="3" />
+    <circle cx="936" cy="424" r="16" fill="#FFFFFF" stroke="#1A2332" stroke-width="2" />
+    <path d="M884,424 H912" stroke="#1565C0" stroke-width="3" />
+    <path d="M960,424 H978" stroke="#546E7A" stroke-width="2" />
+    <text x="872" y="514" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#546E7A">Champ test&#xE9; : all&#xE9;e de K&#xE1;rm&#xE1;n derri&#xE8;re cylindre</text>
+
+    <path fill="#F4F7FA" stroke="#D8E2EA" stroke-width="1" d="M848,500 H1184 A8,8 0 0 1 1192,508 V540 A8,8 0 0 1 1184,548 H848 A8,8 0 0 1 840,540 V508 A8,8 0 0 1 848,500 Z" />
+    <text x="1016" y="528" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="13" fill="#1A2332" text-anchor="middle">Domaine : 800 &#xD7; 160 cellules &#xB7; R&#xE9;gime : Re = 96</text>
+  </g>
+
+  <g id="footer">
+    <line x1="88" y1="620" x2="1192" y2="620" stroke="#CFD8DC" stroke-width="1" />
+    <text x="88" y="654" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="18" fill="#1A2332">Jianye SHI &#xB7; Wei WEI &#xB7; 2026-05-04</text>
+    <text x="88" y="680" font-family="&quot;Microsoft YaHei&quot;, Arial, sans-serif" font-size="14" fill="#90A4AE">github.com/hibouwu/d2q9-lbm-karman</text>
+  </g>
+</svg>

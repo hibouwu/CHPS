@@ -1,0 +1,1 @@
+Ce projet présente l'optimisation d'un solveur D2Q9 LBM pour la simulation du sillage de Kármán, avec une stratégie parallèle hybride MPI + OpenMP. Nous avons réalisé 26 optimisations sur deux plateformes, avec un meilleur résultat mesuré de 2047 MLUPS.

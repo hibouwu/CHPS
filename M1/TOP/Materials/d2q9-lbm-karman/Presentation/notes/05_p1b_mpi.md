@@ -1,0 +1,1 @@
+Le profiling montrait que le coût MPI venait du nombre de messages, non du volume de données. 12 MPI_Barrier redondants ont été supprimés — 9 dans halo_exchange et 3 dans la boucle principale. L'optimisation principale est le regroupement des messages halo : 7 182 petits envois remplacés par 1 seul message de toute la ligne. Résultat : np=2 OMP=1, 68.7 → 102.75 MLUPS, +50%.

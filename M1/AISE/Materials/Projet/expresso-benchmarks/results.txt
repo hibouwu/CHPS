@@ -1,0 +1,117 @@
+--- DYNAMIC ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 0.25
+	Worker 0: 0 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 0 tasks
+	Worker 4: 1 tasks
+	Worker 5: 0 tasks
+	Worker 6: 0 tasks
+	Worker 7: 0 tasks
+	Worker 8: 0 tasks
+	Worker 9: 0 tasks
+	Worker 10: 0 tasks
+	Worker 11: 1 tasks
+	Worker 12: 1 tasks
+	Worker 13: 0 tasks
+	Worker 14: 1 tasks
+	Worker 15: 1 tasks
+	Worker 16: 0 tasks
+	Worker 17: 0 tasks
+	Worker 18: 1 tasks
+	Worker 19: 0 tasks
+	Worker 20: 0 tasks
+	Worker 21: 0 tasks
+	Worker 22: 0 tasks
+	Worker 23: 0 tasks
+	Worker 24: 0 tasks
+	Worker 25: 0 tasks
+	Worker 26: 0 tasks
+	Worker 27: 0 tasks
+	Worker 28: 0 tasks
+	Worker 29: 0 tasks
+	Worker 30: 0 tasks
+	Worker 31: 0 tasks
+Reference computation time: 0.698125 s
+ ExPResSO computation time: 0.0933385 s
+Good results :-)
+--- STATIC ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 0.25
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 1 tasks
+	Worker 6: 1 tasks
+	Worker 7: 1 tasks
+	Worker 8: 0 tasks
+	Worker 9: 0 tasks
+	Worker 10: 0 tasks
+	Worker 11: 0 tasks
+	Worker 12: 0 tasks
+	Worker 13: 0 tasks
+	Worker 14: 0 tasks
+	Worker 15: 0 tasks
+	Worker 16: 0 tasks
+	Worker 17: 0 tasks
+	Worker 18: 0 tasks
+	Worker 19: 0 tasks
+	Worker 20: 0 tasks
+	Worker 21: 0 tasks
+	Worker 22: 0 tasks
+	Worker 23: 0 tasks
+	Worker 24: 0 tasks
+	Worker 25: 0 tasks
+	Worker 26: 0 tasks
+	Worker 27: 0 tasks
+	Worker 28: 0 tasks
+	Worker 29: 0 tasks
+	Worker 30: 0 tasks
+	Worker 31: 0 tasks
+Reference computation time: 0.699821 s
+ ExPResSO computation time: 0.088267 s
+Good results :-)
+--- BALANCED ---
+Expresso stats:
+	Total tasks executed: 8
+	Average tasks per worker: 0.25
+	Worker 0: 1 tasks
+	Worker 1: 1 tasks
+	Worker 2: 1 tasks
+	Worker 3: 1 tasks
+	Worker 4: 1 tasks
+	Worker 5: 1 tasks
+	Worker 6: 1 tasks
+	Worker 7: 1 tasks
+	Worker 8: 0 tasks
+	Worker 9: 0 tasks
+	Worker 10: 0 tasks
+	Worker 11: 0 tasks
+	Worker 12: 0 tasks
+	Worker 13: 0 tasks
+	Worker 14: 0 tasks
+	Worker 15: 0 tasks
+	Worker 16: 0 tasks
+	Worker 17: 0 tasks
+	Worker 18: 0 tasks
+	Worker 19: 0 tasks
+	Worker 20: 0 tasks
+	Worker 21: 0 tasks
+	Worker 22: 0 tasks
+	Worker 23: 0 tasks
+	Worker 24: 0 tasks
+	Worker 25: 0 tasks
+	Worker 26: 0 tasks
+	Worker 27: 0 tasks
+	Worker 28: 0 tasks
+	Worker 29: 0 tasks
+	Worker 30: 0 tasks
+	Worker 31: 0 tasks
+Reference computation time: 0.70286 s
+ ExPResSO computation time: 0.0935959 s
+Good results :-)
