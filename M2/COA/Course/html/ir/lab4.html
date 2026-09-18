@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 4 - IR generation - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 4 - IR generation | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 4 - IR generation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/ir/lab4.html" />
+<meta property="og:url" content="https://compilation-course.github.io/ir/lab4.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 4 - IR generation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 4 - IR generation","url":"https://compilation-course.github.io/ir/lab4.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link active">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/ir/">Intermediate Representation</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 4 - IR generation</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="lab-4---ir-generation">
+          <a href="#lab-4---ir-generation" class="anchor-heading" aria-labelledby="lab-4---ir-generation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lab 4 - IR generation
+      </h1>
+<p>In this lab we will write a code generator for our Tiger
+compiler targeting LLVM IR.</p>
+<p>The IR code generator is responsible for the following
+tasks:</p>
+<ul>
+  <li>Creating a IR module in which functions will be defined.</li>
+  <li>Creating independent top-level IR functions for every Tiger
+function in the source code, including the nested ones.</li>
+  <li>Building stack frames to hold escaping variables, and
+giving pointer to the outer stack frame to every function
+called.</li>
+  <li>Building basic blocks to represent the flow of the Tiger
+function.</li>
+</ul>
+<p>A completed code generator should never raise an error
+related to the source code. All errors should have been
+caught in earlier phases already. For example, an unknown
+identifier would have been caught and reported by the
+binder. A typing inconsistency would have been caught and
+reported by the typer.</p>
+      <h2 id="setup">
+          <a href="#setup" class="anchor-heading" aria-labelledby="setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setup
+      </h2>
+<p>Retrieve the lab code and commit it to your git with the following commands,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>lab4
+<span class="nv">$ </span><span class="nb">cd </span>lab4
+<span class="nv">$ </span>wget <span class="nt">-qO-</span> www.sifflez.org/lectures/compil/lab4/dragon-tiger.tar.gz | <span class="nb">tar </span>zxv
+<span class="nv">$ </span>git add <span class="nt">-f</span> dragon-tiger/
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"Import dragon-tiger for lab4"</span>
+</code></pre></div></div>
+<p>This lab is the first one which requires the headers and libraries for LLVM. You
+can usually install them from a <code class="language-plaintext highlighter-rouge">llvm-dev</code> package. You must use at least version
+3.9 and at most version 9.0 of LLVM. Let us build the project:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>dragon-tiger
+<span class="nv">$ </span>./configure
+<span class="nv">$ </span>make
+</code></pre></div></div>
+<p>If it doesn’t find the LLVM header and libraries, ensure that you have installed them.
+If needed, you can use the <code class="language-plaintext highlighter-rouge">--with-llvm=</code> argument to configure to point it to the
+right location.</p>
+<p>If everything worked as expected, you should be able to run
+the compiler driver <code class="language-plaintext highlighter-rouge">dtiger</code> as follows,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ src/driver/dtiger --help
+Options:
+  -h [ --help ]         describe arguments
+  --dump-ast            dump the parsed AST
+  --dump-ir             dump the generated IR
+  -b [ --bind ]         run the binder on the parsed AST
+  -t [ --type ]         run the type checker on the parsed AST
+  -i [ --irgen ]        run the LLVM IR code generator
+  --trace-parser        enable parser traces
+  --trace-lexer         enable lexer traces
+  -v [ --verbose ]      be verbose
+  --input-file arg      input Tiger file
+  -o [ --object ] arg   generate object code file
+
+$ echo "print_int(42)" &gt; test.tig
+$ src/driver/dtiger -i --dump-ir test.tig
+; ModuleID = 'tiger'
+source_filename = "tiger"
+
+define i32 @main() {
+entry:
+  br label %body
+
+body:                                             ; preds = %entry
+  call void @__print_int(i32 42)
+  ret i32 0
+}
+
+declare void @__print_int(i32)
+</code></pre></div></div>
+<p>Ensure that you test thoroughly and commit each feature. Follow precisely the
+instructions, this lab is graded and machine corrected!</p>
+      <h2 id="important-note">
+          <a href="#important-note" class="anchor-heading" aria-labelledby="important-note"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Important note
+      </h2>
+<p>Some of you may not have completed the previous assignment. To this effect,
+the current archive contains a pre-built parser library (so as not
+to give you the full solution) and binder and type checker phase
+and this lab may be done separately.</p>
+<p>However, when you have completed the previous assignment, feel free to
+replace the <code class="language-plaintext highlighter-rouge">src/parser/</code> directory by a copy of the one from your
+previous assignment. This will be most satisfactory, as your code from
+the first step will be used also in the second step. Do not forget to
+add <code class="language-plaintext highlighter-rouge">parser</code> to the <code class="language-plaintext highlighter-rouge">SUBDIRS</code> variable in <code class="language-plaintext highlighter-rouge">src/Makefile.am</code> (it must
+be the <strong>first</strong> subdirectory there because it auto-generates files
+used in other subdirectories) and in
+<code class="language-plaintext highlighter-rouge">src/parser/Makefile</code> in <code class="language-plaintext highlighter-rouge">configure.ac</code>. However, you <strong>must</strong>
+keep <code class="language-plaintext highlighter-rouge">nodes.hh</code> as distributed with this lab, because it contains extra
+visitors for the AST.</p>
+<p>You might also want to propagate your evaluator code although this will not be needed.</p>
+<p>Similarly, you can get the <code class="language-plaintext highlighter-rouge">src/ast/</code> directory from the second lab
+as long as you have implemented the binder, type checker and escaper.</p>
+      <h2 id="assembly-production-and-ir-verification">
+          <a href="#assembly-production-and-ir-verification" class="anchor-heading" aria-labelledby="assembly-production-and-ir-verification"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Assembly production and IR verification
+      </h2>
+<p>Piping your IR output to the <code class="language-plaintext highlighter-rouge">llc</code> program will tell you
+if there is a typing output in our IR (for example if you try to use a pointer instead
+of an integer), and will output Intel assembly code corresponding to the computer
+is it currently executing onto.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>src/driver/dtiger <span class="nt">-i</span> <span class="nt">--dump-ir</span> test.tig | opt <span class="nt">-mem2reg</span> | llc
+<span class="o">[</span>…intel assembly output…]
+</code></pre></div></div>
+<p>If you are more familiar with ARM Thumb-2 instruction set, you can obtain it by using
+<code class="language-plaintext highlighter-rouge">llc -march=arm -mcpu=cortex-m4</code> for example.</p>
+<p>You can combine this with <code class="language-plaintext highlighter-rouge">opt -mem2reg</code> to see the effect of removing the unneeded
+<code class="language-plaintext highlighter-rouge">alloca</code> IR instructions:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>src/driver/dtiger <span class="nt">-i</span> <span class="nt">--dump-ir</span> test.tig | opt <span class="nt">-mem2reg</span> | llc <span class="nt">-march</span><span class="o">=</span>arm <span class="nt">-mcpu</span><span class="o">=</span>cortex-m4
+<span class="o">[</span>…thumb2 assembly output…]
+</code></pre></div></div>
+      <h2 id="code-organization">
+          <a href="#code-organization" class="anchor-heading" aria-labelledby="code-organization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Code organization
+      </h2>
+<p>The IR code generator is called with the <code class="language-plaintext highlighter-rouge">-i</code> option. It is interesting to
+also add the <code class="language-plaintext highlighter-rouge">--dump-ir</code> option which provides a text dump of the generated IR.</p>
+<p>The declarations of the IR code generator can be found in <code class="language-plaintext highlighter-rouge">src/irgen/irgen.hh</code>.
+The implementation is split in two parts:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">src/irgen/irgen.cc</code> contains the code to generate new functions, stack
+frames, variable declarations, etc.</li>
+  <li><code class="language-plaintext highlighter-rouge">src/irgen/irgen-visitor.cc</code> contains the code to transform the AST into IR.</li>
+</ul>
+<p>For this lab, you are provided with an incomplete <code class="language-plaintext highlighter-rouge">src/irgen/irgen-visitor.cc</code>
+that you will have to fill according to the instructions. Each <code class="language-plaintext highlighter-rouge">visit</code> method
+must return a <code class="language-plaintext highlighter-rouge">llvm::Value *</code> which represents the result of the translated
+expression. If the expression (or statement) has no useful return value,
+<code class="language-plaintext highlighter-rouge">visit</code> must return <code class="language-plaintext highlighter-rouge">nullptr</code>.</p>
+      <h2 id="llvm-builder">
+          <a href="#llvm-builder" class="anchor-heading" aria-labelledby="llvm-builder"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> LLVM Builder
+      </h2>
+<p>A LLVM IRBuilder object helps you insert code into a basic block. It
+remembers the block and the place within the block where it is currently
+inserting code (called the <em>insertion point</em>). Our <code class="language-plaintext highlighter-rouge">IRGenerator</code> class
+contains a <code class="language-plaintext highlighter-rouge">Builder</code> field for this purpose.</p>
+<p>The IRBuilder contains a lot of methods designed to make code generation
+easier. For example, it can move the insertion point to the end of another
+basic block, it can generate a branch instruction to another block, or
+generate a conditional branch instruction to another block, etc.</p>
+<p>▶ Read carefully the provided code and make sure you understand
+how the visitor for the <code class="language-plaintext highlighter-rouge">Sequence</code> AST node works, both for a non-empty and
+an empty sequence.</p>
+      <h2 id="variables">
+          <a href="#variables" class="anchor-heading" aria-labelledby="variables"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Variables
+      </h2>
+<p>▶ Using utility methods declared in <code class="language-plaintext highlighter-rouge">irgen.hh</code>, implement the visitor
+    for <code class="language-plaintext highlighter-rouge">VarDecl</code> nodes. Do not forget to initialize the variable content
+    with its initial value if it has one. Look at the IRBuilder provided
+    utility to store the initial value at the right address. Also, the
+    <code class="language-plaintext highlighter-rouge">llvm::Value *</code> representing the variable address should be registered
+    into the <code class="language-plaintext highlighter-rouge">allocations</code> map which maps variable declarations to their
+    addresses.</p>
+<p>To validate your implementation, you can check that the following Tiger
+code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let var a := 1 in end
+</code></pre></div></div>
+<p>generates something like</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define i32 @main() {
+entry:
+  %a = alloca i32
+  br label %body
+
+body:                                             ; preds = %entry
+  store i32 1, i32* %a
+  ret i32 0
+}
+</code></pre></div></div>
+<p>One can clearly identify the allocation of a <code class="language-plaintext highlighter-rouge">i32</code> reserved space
+onto the stack (whose address is stored into <code class="language-plaintext highlighter-rouge">%a</code>) in the entry
+block of the main function. In the body, the initial value <code class="language-plaintext highlighter-rouge">1</code>
+is stored at address <code class="language-plaintext highlighter-rouge">%a</code>.</p>
+<p>▶ Implement the visitor for <code class="language-plaintext highlighter-rouge">Identifier</code> nodes.</p>
+<p>The following code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let var a := 1 in print_int(a) end
+</code></pre></div></div>
+<p>should now also contain something like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  %0 = load i32, i32* %a
+  call void @__print_int(i32 %0)
+</code></pre></div></div>
+<p>showing that the value stored at <code class="language-plaintext highlighter-rouge">%a</code> has been read into <code class="language-plaintext highlighter-rouge">%0</code>
+and then passed to function <code class="language-plaintext highlighter-rouge">print_int</code>.</p>
+<p>▶ Implement the visitor for <code class="language-plaintext highlighter-rouge">Assign</code> nodes.</p>
+<p>The following code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let var a := 1 in a := 3; print_int(a) end
+</code></pre></div></div>
+<p>should now also contain something like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  store i32 1, i32* %a
+  store i32 3, i32* %a
+  %0 = load i32, i32* %a
+  call void @__print_int(i32 %0)
+</code></pre></div></div>
+<p>representing the successive assignments of variable <code class="language-plaintext highlighter-rouge">a</code>.
+Do not worry with the useless initial assignment; once
+we will go through the LLVM optimizer, the useless
+assignment to <code class="language-plaintext highlighter-rouge">1</code> will be removed from the final code
+automatically and look like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define i32 @main() local_unnamed_addr {
+entry:
+  tail call void @__print_int(i32 3)
+  ret i32 0
+}
+</code></pre></div></div>
+<p>You can see it by yourself by piping the result of the
+<code class="language-plaintext highlighter-rouge">dtiger</code> compiler through <code class="language-plaintext highlighter-rouge">opt -O3 | llvm-dis</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ src/driver/dtiger -i --dump-ir test.tig | opt -O3 | llvm-dis
+</code></pre></div></div>
+<p><em>Note:</em> you might need to add some LLVM-specific directory to your <code class="language-plaintext highlighter-rouge">PATH</code> variable
+in order to find the <code class="language-plaintext highlighter-rouge">opt</code> and <code class="language-plaintext highlighter-rouge">llvm-dis</code> tools.</p>
+      <h2 id="tests-and-branches">
+          <a href="#tests-and-branches" class="anchor-heading" aria-labelledby="tests-and-branches"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Tests and branches
+      </h2>
+<p>Translating a <code class="language-plaintext highlighter-rouge">IfThenElse</code> AST node into IR is simple but
+requires several steps. In Tiger, a <code class="language-plaintext highlighter-rouge">if … then … else …</code>
+expression might return a value, as in</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let var a := if 2 &gt; 3 then 10 else 20 in … end
+</code></pre></div></div>
+<p>So the various steps needed to translate such a node are:</p>
+<ul>
+  <li>Allocate stack space (in the entry block) to represent
+the result (let’s call it <code class="language-plaintext highlighter-rouge">%result</code>).</li>
+  <li>Build three new basic blocks: the <code class="language-plaintext highlighter-rouge">if_then</code> block to
+represent the <code class="language-plaintext highlighter-rouge">then</code> alternative, the <code class="language-plaintext highlighter-rouge">if_else</code> block to
+represent the <code class="language-plaintext highlighter-rouge">else</code> alternative, and the <code class="language-plaintext highlighter-rouge">if_end</code>
+block as the join point where the execution will
+resume after the <code class="language-plaintext highlighter-rouge">if … then … else …</code>.</li>
+  <li>Evaluate the test condition and either branch to the
+<code class="language-plaintext highlighter-rouge">if_then</code> block or to the <code class="language-plaintext highlighter-rouge">if_else</code> block
+depending on the test evaluation (not 0 / 0).
+Do not forget that the conditional branch needs a
+<code class="language-plaintext highlighter-rouge">i1</code> (boolean) as a parameter, not a <code class="language-plaintext highlighter-rouge">i32</code>. You
+might want to look for the
+<code class="language-plaintext highlighter-rouge">Builder.CreateICmpNE()</code> helper function to compare your value
+to the constant 0.</li>
+  <li>In the <code class="language-plaintext highlighter-rouge">if_then</code> block, evaluate the body, assign
+its value to the <code class="language-plaintext highlighter-rouge">%result</code> variable, and branch to
+the <code class="language-plaintext highlighter-rouge">if_end</code> block.</li>
+  <li>Do the same thing for the <code class="language-plaintext highlighter-rouge">if_else</code> branch.</li>
+  <li>Set the current insertion point to be the
+<code class="language-plaintext highlighter-rouge">if_end</code> block so that the code generation
+continues from there.</li>
+  <li>Load and return the result stored in <code class="language-plaintext highlighter-rouge">%result</code>.</li>
+</ul>
+<p>There is one pitfall however: if the <code class="language-plaintext highlighter-rouge">if …</code> expression is of type <code class="language-plaintext highlighter-rouge">void</code>,
+  then the <code class="language-plaintext highlighter-rouge">%result</code> variable must not be
+  written to or read from (and <code class="language-plaintext highlighter-rouge">nullptr</code>
+  must be returned by <code class="language-plaintext highlighter-rouge">visit</code>).</p>
+<p>▶ Implement the visitor for <code class="language-plaintext highlighter-rouge">IfThenElse</code> AST nodes.</p>
+<p>Do not forget to test your implementation using tests with
+and without <code class="language-plaintext highlighter-rouge">else</code>, and tests returning either a value or
+nothing.</p>
+      <h2 id="loops">
+          <a href="#loops" class="anchor-heading" aria-labelledby="loops"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Loops
+      </h2>
+<p>▶ Implement the visitor for <code class="language-plaintext highlighter-rouge">WhileLoop</code> without taking care
+    of Tiger <code class="language-plaintext highlighter-rouge">break</code> statements at this time.</p>
+<p>▶ Implement the visitor for <code class="language-plaintext highlighter-rouge">Break</code>. You need to modify
+    the <code class="language-plaintext highlighter-rouge">WhileLoop</code> and <code class="language-plaintext highlighter-rouge">ForLoop</code> visitors in order to
+    associate the loop AST nodes with their exit blocks
+    using the <code class="language-plaintext highlighter-rouge">loop_exit_bbs</code> map.</p>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

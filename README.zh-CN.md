@@ -4,7 +4,7 @@
 
 这里记录了我在 UVSQ / Université Paris-Saclay 攻读 CHPS 期间的学习内容，包括课堂笔记、课程讲义、习题解答、往年试卷和项目报告。希望这些材料能方便同学查找课程内容、复习考试，也方便我回顾学过的知识。
 
-目前主要收录 M1 资料，涵盖数值计算、并行编程、计算机体系结构、操作系统和科学计算。材料以法语为主，部分笔记附有中文解释；既有 Notability 手写笔记，也有 Markdown 文本和 PDF。
+目前收录 M1 和部分 M2 资料，涵盖数值计算、并行编程、计算机体系结构、操作系统和科学计算。材料以法语为主，部分笔记附有中文解释；既有 Notability 手写笔记，也有 Markdown 文本和 PDF。
 
 ## M1 课程
 
@@ -23,6 +23,12 @@
 | S2 | [APP](M1/APP/README.md) | 并行算法与编程 |
 | S2 | [APD](M1/APD/README.md) | 分布式算法 |
 | S1 / S2 | [English](M1/English/README.md) | 技术英语 |
+
+## M2 课程
+
+公共课与 IHPS 方向的课程讲义、笔记、习题、考试和参考资料。
+
+[M2 — DA · PAAM · IMMC · AOC · COA · CQ](M2/README.md)
 
 ## PPN 项目
 

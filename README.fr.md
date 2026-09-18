@@ -4,7 +4,7 @@
 
 Ce dépôt rassemble mes notes prises pendant le master CHPS à l’UVSQ / Université Paris-Saclay : notes de cours, supports pédagogiques, solutions d’exercices, annales et rapports de projet. Il me permet de revenir sur les notions étudiées et de partager des ressources avec les étudiants qui suivent les mêmes cours.
 
-La collection porte principalement sur le M1 : calcul numérique, programmation parallèle, architecture des ordinateurs, systèmes d’exploitation et calcul scientifique. Les documents sont surtout en français, parfois accompagnés d’explications en chinois. On y trouve des notes manuscrites prises dans Notability, des documents Markdown et des PDF.
+La collection couvre le M1 et une partie du M2 : calcul numérique, programmation parallèle, architecture des ordinateurs, systèmes d’exploitation et calcul scientifique. Les documents sont surtout en français, parfois accompagnés d’explications en chinois. On y trouve des notes manuscrites prises dans Notability, des documents Markdown et des PDF.
 
 ## Cours du M1
 
@@ -23,6 +23,12 @@ La collection porte principalement sur le M1 : calcul numérique, programmation 
 | S2 | [APP](M1/APP/README.md) | Algorithmique et programmation parallèle |
 | S2 | [APD](M1/APD/README.md) | Algorithmique distribuée |
 | S1 / S2 | [English](M1/English/README.md) | Anglais technique |
+
+## Cours du M2
+
+Notes, supports, exercices, annales et références du tronc commun et du parcours IHPS.
+
+[M2 — DA · PAAM · IMMC · AOC · COA · CQ](M2/README.md)
 
 ## Projet PPN
 

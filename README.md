@@ -4,7 +4,7 @@
 
 My study notes from the CHPS programme at UVSQ / Université Paris-Saclay: lecture notes, course materials, exercise solutions, past exam papers and project reports. I keep them here to revisit what I have learned and to share useful material with others taking the same courses.
 
-The collection currently focuses on M1, covering numerical computing, parallel programming, computer architecture, operating systems and scientific computing. Most documents are in French, with some explanations in Chinese. They include handwritten Notability notes, Markdown documents and PDFs.
+The collection covers M1 and part of M2, covering numerical computing, parallel programming, computer architecture, operating systems and scientific computing. Most documents are in French, with some explanations in Chinese. They include handwritten Notability notes, Markdown documents and PDFs.
 
 ## M1 courses
 
@@ -23,6 +23,12 @@ The collection currently focuses on M1, covering numerical computing, parallel p
 | S2 | [APP](M1/APP/README.md) | Parallel algorithms and programming |
 | S2 | [APD](M1/APD/README.md) | Distributed algorithms |
 | S1 / S2 | [English](M1/English/README.md) | Technical English |
+
+## M2 courses
+
+Lecture notes, exercises, exams and references for the common courses and the IHPS track.
+
+[M2 — DA · PAAM · IMMC · AOC · COA · CQ](M2/README.md)
 
 ## PPN project
 

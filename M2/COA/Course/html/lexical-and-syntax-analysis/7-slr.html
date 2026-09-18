@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Introduction to SLR Parsers - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Introduction to SLR Parsers | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Introduction to SLR Parsers" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" />
+<meta property="og:url" content="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Introduction to SLR Parsers" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Introduction to SLR Parsers","url":"https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html"}</script>
+<!-- End Jekyll SEO tag -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML">
+  </script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link active">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/">Lexical and syntax analysis</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Introduction to SLR Parsers</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="pushdown-automata">
+          <a href="#pushdown-automata" class="anchor-heading" aria-labelledby="pushdown-automata"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pushdown automata
+      </h1>
+<p>A pushdown automaton (PDA) is build by extending finite automaton with a stack,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                 .------------------.
+Input -------&gt;   | Finite automaton |   -------&gt; Accept / Reject input
+                 .------------------.
+                          |
+                          v
+                     |_________|
+                     |_________|
+                     |_________|
+                     |_________|
+                     |_________|
+
+                        Stack
+</code></pre></div></div>
+<p>A PDA reads the input symbol by symbol. At each read, the PDA can:</p>
+<ul>
+  <li>
+    <p>transition the finite automaton to another state by looking at the read
+character and the stack.</p>
+  </li>
+  <li>
+    <p>push or pop elements into the stack</p>
+  </li>
+</ul>
+<p>The finite automaton has a set of accepting states. If at the end of the input,
+the automaton is in an accepting state, then the input is accepted. Otherwise,
+the input is rejected.</p>
+      <h1 id="slr-parsers">
+          <a href="#slr-parsers" class="anchor-heading" aria-labelledby="slr-parsers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> SLR Parsers
+      </h1>
+<p>There are many different types of parsers for Context Free Grammars. In this
+course, we will concentrate only on one specific parser SLR, which is a
+simplified version of the LALR parser used by Bison.</p>
+<p>SLR belongs to the family of bottom-up parsers: that means that it builds a
+parse tree starting from the leafs and tries to reach the root start symbol.
+Because SLR is a bottom-up parse, it will use grammar rules on the other
+direction since it begins from the final word and tries to build the derivation
+backwards towards \(S\).</p>
+<p>SLR stands for <strong>S</strong>imple <strong>L</strong>eft-to-right <strong>R</strong>ightmost-derivation Parser with 1 symbol lookahead.
+Let’s unpack that:</p>
+<ul>
+  <li>Left-to-right means that it reads the input symbol by symbol from left to right</li>
+  <li>Rightmost-derivation means that the parser will always apply grammars rules starting from the right. That is to say, rules will be applied to the symbols more recently read.</li>
+  <li>1 lookahead, means that it looks only at the first character in the input to decide what action to take. (It can also look at the stack).</li>
+</ul>
+<p>SLR parsers use a PDA to parse context free grammars.
+At each step, the PDA can take two actions:</p>
+<ul>
+  <li>
+    <p><strong>shift</strong>, which will read a symbol from input and push it to the stack</p>
+  </li>
+  <li>
+    <p><strong>reduce</strong>, which will apply one grammar rule backwards and replace a set
+of symbols in the stack, by their left-hand-side in the grammar rule.</p>
+  </li>
+</ul>
+<p>After a shift or reduce, we will transition to a new state.</p><hr />
+<p><strong>Example</strong></p>
+<p>Consider \(G_3\), with \(V=\{S, E\}\) and \(\Sigma=\{id,\#\}\), with rules</p>
+<ol>
+  <li>
+\[S \rightarrow E\#\]
+  </li>
+  <li>
+\[E \rightarrow id\ E\]
+  </li>
+  <li>
+\[E \rightarrow id\]
+  </li>
+</ol>
+<p>This grammar can parse words like \(id\ id\#\) which belong to \(L(G_3)\).</p>
+<p>The automata is represented by the following table,</p>
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>id</th>
+      <th>#</th>
+      <th>E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>s1</td>
+      <td> </td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>s1</td>
+      <td>r3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td> </td>
+      <td>s4</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td> </td>
+      <td>r2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>accept</td>
+      <td>accept</td>
+      <td>accept</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>The first column, contains the states of the automaton. The initial state is 0.
+The first line, contains the different symbols (terminals and non terminals).
+Each cell in the table, describes the actions to take.</p>
+<p>Let us show how this SLR would parse input \(id\ id\#\).
+Initially, the input contains the word to parse and the stack contains the initial state (state 0).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 0:
+         v
+input = [id id #]
+         v
+stack = [0]
+</code></pre></div></div>
+<p>To know which action to take, we look to the state that is on top of the stack (here 0) and we look at the first symbol in input (here \(id\)). The above parse table, shows \(s1\) for \((0,id)\); this means we will shift and move to the state 1.</p>
+<p>Shifting means that we take the first symbol in the input and push it on the stack.
+Then we push the new state (here 1) to the stack</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 1:
+         v
+input = [id #]
+              v
+stack = [0 id 1]
+</code></pre></div></div>
+<p>Now we look at the table for state 1 and symbol \(id\), the action is again to shift and move to state 1.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 2:
+         v
+input = [#]
+                   v
+stack = [0 id 1 id 1]
+</code></pre></div></div>
+<p>Here we look at the table for state 1 and symbol \(\#\), the action is r3. This means to reduce by grammar rule 3.</p>
+<p>Grammar rule 3 is \(E \rightarrow id\), we therefore remove the right-hand-side (\(id\)) from the stack and associated states; and replace it by the left-hand-side (\(E\)). Remember that in this bottom-up-parser we reverse grammar rules.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stack = [0 id 1 id 1]
+                ----
+                |
+                v
+stack = [0 id 1 E]
+              ^ ^   
+</code></pre></div></div>
+<p>After this replacement, we look at the top of the stack and read state and symbol, here \(1\ E\). The table tells us that when we reduce to \(E\) in state 1, we should move to state 3.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 3:
+         v
+input = [#]
+                  v
+stack = [0 id 1 E 3]
+</code></pre></div></div>
+<p>Here we look at the table for state 3 and symbol \(\#\), the action is r2.
+Now we reduce by grammar rule 2, which is \(E \rightarrow id\ E\).
+We replace the right-hand-side by the left-hand-side.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stack = [0 id 1 E 3]
+           --------
+           |
+           v
+stack = [0 E]
+         ^ ^   
+</code></pre></div></div>
+<p>The table tells us that a reduction to \(E\) on state 0, transition the automaton
+to state 2.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Step 4:
+         v
+input = [#]
+             v
+stack = [0 E 2]
+</code></pre></div></div>
+<p>The table tells us that for state 2 and symbol \(\#\) we should shift to state 4,
+which accepts the word !</p><hr />
+      <h1 id="how-to-build-an-slr-parser">
+          <a href="#how-to-build-an-slr-parser" class="anchor-heading" aria-labelledby="how-to-build-an-slr-parser"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> How to build an SLR Parser
+      </h1>
+<p>Now that we understand with an example how the SLR operates. Let’s show how to build one on the next video.</p>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

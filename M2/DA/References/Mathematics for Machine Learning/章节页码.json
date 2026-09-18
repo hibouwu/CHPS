@@ -1,0 +1,143 @@
+{
+  "original": "PDF/mml-book.pdf",
+  "sha256": "3f87b70c64a35d30ec4e565b4d5cfd18fe913002d3b3bed44691c7d0838911bc",
+  "pages": 417,
+  "parts": [
+    {
+      "title": "Front Matter",
+      "file": "PDF/00_Front Matter.pdf",
+      "start": 1,
+      "end": 14,
+      "pages": 14,
+      "markdown_file": "Markdown/00_Front Matter.md"
+    },
+    {
+      "title": "Part I Mathematical Foundations",
+      "file": "PDF/00_Part I - Mathematical Foundations.pdf",
+      "start": 15,
+      "end": 16,
+      "pages": 2,
+      "markdown_file": "Markdown/00_Part I - Mathematical Foundations.md"
+    },
+    {
+      "title": "1 Introduction and Motivation",
+      "file": "PDF/01_Introduction and Motivation.pdf",
+      "start": 17,
+      "end": 22,
+      "pages": 6,
+      "markdown_file": "Markdown/01_Introduction and Motivation.md"
+    },
+    {
+      "title": "2 Linear Algebra",
+      "file": "PDF/02_Linear Algebra.pdf",
+      "start": 23,
+      "end": 75,
+      "pages": 53,
+      "markdown_file": "Markdown/02_Linear Algebra.md"
+    },
+    {
+      "title": "3 Analytic Geometry",
+      "file": "PDF/03_Analytic Geometry.pdf",
+      "start": 76,
+      "end": 103,
+      "pages": 28,
+      "markdown_file": "Markdown/03_Analytic Geometry.md"
+    },
+    {
+      "title": "4 Matrix Decompositions",
+      "file": "PDF/04_Matrix Decompositions.pdf",
+      "start": 104,
+      "end": 144,
+      "pages": 41,
+      "markdown_file": "Markdown/04_Matrix Decompositions.md"
+    },
+    {
+      "title": "5 Vector Calculus",
+      "file": "PDF/05_Vector Calculus.pdf",
+      "start": 145,
+      "end": 177,
+      "pages": 33,
+      "markdown_file": "Markdown/05_Vector Calculus.md"
+    },
+    {
+      "title": "6 Probability and Distributions",
+      "file": "PDF/06_Probability and Distributions.pdf",
+      "start": 178,
+      "end": 230,
+      "pages": 53,
+      "markdown_file": "Markdown/06_Probability and Distributions.md"
+    },
+    {
+      "title": "7 Continuous Optimization",
+      "file": "PDF/07_Continuous Optimization.pdf",
+      "start": 231,
+      "end": 254,
+      "pages": 24,
+      "markdown_file": "Markdown/07_Continuous Optimization.md"
+    },
+    {
+      "title": "Part II Central Machine Learning Problems",
+      "file": "PDF/07b_Part II - Central Machine Learning Problems.pdf",
+      "start": 255,
+      "end": 256,
+      "pages": 2,
+      "markdown_file": "Markdown/07b_Part II - Central Machine Learning Problems.md"
+    },
+    {
+      "title": "8 When Models Meet Data",
+      "file": "PDF/08_When Models Meet Data.pdf",
+      "start": 257,
+      "end": 294,
+      "pages": 38,
+      "markdown_file": "Markdown/08_When Models Meet Data.md"
+    },
+    {
+      "title": "9 Linear Regression",
+      "file": "PDF/09_Linear Regression.pdf",
+      "start": 295,
+      "end": 322,
+      "pages": 28,
+      "markdown_file": "Markdown/09_Linear Regression.md"
+    },
+    {
+      "title": "10 Dimensionality Reduction with Principal Component Analysis",
+      "file": "PDF/10_Dimensionality Reduction with Principal Component Analysis.pdf",
+      "start": 323,
+      "end": 353,
+      "pages": 31,
+      "markdown_file": "Markdown/10_Dimensionality Reduction with Principal Component Analysis.md"
+    },
+    {
+      "title": "11 Density Estimation with Gaussian Mixture Models",
+      "file": "PDF/11_Density Estimation with Gaussian Mixture Models.pdf",
+      "start": 354,
+      "end": 375,
+      "pages": 22,
+      "markdown_file": "Markdown/11_Density Estimation with Gaussian Mixture Models.md"
+    },
+    {
+      "title": "12 Classification with Support Vector Machines",
+      "file": "PDF/12_Classification with Support Vector Machines.pdf",
+      "start": 376,
+      "end": 400,
+      "pages": 25,
+      "markdown_file": "Markdown/12_Classification with Support Vector Machines.md"
+    },
+    {
+      "title": "References",
+      "file": "PDF/90_References.pdf",
+      "start": 401,
+      "end": 412,
+      "pages": 12,
+      "markdown_file": "Markdown/90_References.md"
+    },
+    {
+      "title": "Index",
+      "file": "PDF/90_Index.pdf",
+      "start": 413,
+      "end": 417,
+      "pages": 5,
+      "markdown_file": "Markdown/90_Index.md"
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 6 - runtime - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 6 - runtime | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 6 - runtime" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/code-generation/lab6.html" />
+<meta property="og:url" content="https://compilation-course.github.io/code-generation/lab6.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 6 - runtime" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 6 - runtime","url":"https://compilation-course.github.io/code-generation/lab6.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link active">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/code-generation/">Code Generation</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 6 - runtime</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="lab-6---runtime">
+          <a href="#lab-6---runtime" class="anchor-heading" aria-labelledby="lab-6---runtime"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lab 6 - Runtime
+      </h1>
+<p>In this lab, we will write the runtime so that our
+compiler can interact with the underlying operating
+system.</p>
+      <h2 id="setup">
+          <a href="#setup" class="anchor-heading" aria-labelledby="setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setup
+      </h2>
+<p>Retrieve the lab code and commit it to your git with the following commands,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>lab6
+<span class="nv">$ </span><span class="nb">cd </span>lab6
+<span class="nv">$ </span>curl &lt;some <span class="nb">link</span>, see below&gt; | <span class="nb">tar </span>zxvf -
+<span class="o">)</span>
+<span class="nv">$ </span>git add <span class="nt">-f</span> dragon-tiger/
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"Import dragon-tiger for lab6"</span>
+</code></pre></div></div>
+<p>The link to use depends on your operating system. Visit <a href="https://rfc1149.net/tmp/lab6/">this page</a> for more information.</p>
+<p>Now let us build the project,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>dragon-tiger
+<span class="nv">$ </span>./configure
+<span class="nv">$ </span>make
+</code></pre></div></div>
+<p>(as in the previous labs, you might need to use the <code class="language-plaintext highlighter-rouge">--with-llvm=</code> argument to
+<code class="language-plaintext highlighter-rouge">configure</code> to indicate where your LLVM development files are located if
+they are not installed in the default system location)</p>
+<p>If everything worked as expected, you should be able to run
+the compiler driver <code class="language-plaintext highlighter-rouge">dtiger</code> as follows,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ src/driver/dtiger --help
+Options:
+  -h [ --help ]         describe arguments
+  --dump-ast            dump the parsed AST
+  --dump-ir             dump the generated IR
+  -b [ --bind ]         run the binder on the parsed AST
+  -t [ --type ]         run the type checker on the parsed AST
+  -i [ --irgen ]        run the LLVM IR code generator
+  --trace-parser        enable parser traces
+  --trace-lexer         enable lexer traces
+  -v [ --verbose ]      be verbose
+  --input-file arg      input Tiger file
+
+$ echo "print_int(42)" | src/driver/dtiger -i --dump-ir -
+; ModuleID = 'tiger'
+source_filename = "tiger"
+
+%ft_main = type {}
+
+define i32 @main() {
+entry:
+  %frame = alloca %ft_main
+  br label %body
+
+body:                                             ; preds = %entry
+  call void @__print_int(i32 42)
+  ret i32 0
+}
+
+declare void @__print_int(i32)
+</code></pre></div></div>
+<p>Ensure that you test thoroughly and commit each feature. Follow precisely the
+instructions, this lab is graded and machine corrected!</p>
+      <h2 id="important-note">
+          <a href="#important-note" class="anchor-heading" aria-labelledby="important-note"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Important note
+      </h2>
+<p>Some of you may not have completed the previous assignment. To this effect,
+the current archive contains pre-built working compiler parts (so as not
+to give you the full solution) and the runtime may be done separately.</p>
+<p>As you may have done in the previous lab, you can reuse your own code by
+importing the <code class="language-plaintext highlighter-rouge">src/parser</code>, <code class="language-plaintext highlighter-rouge">src/ast</code> and <code class="language-plaintext highlighter-rouge">src/irgen</code> directories and
+adjusting <code class="language-plaintext highlighter-rouge">src/Makefile.am</code> (don’t forget to put <code class="language-plaintext highlighter-rouge">parser</code> first in
+<code class="language-plaintext highlighter-rouge">SUBDIRS</code>) and <code class="language-plaintext highlighter-rouge">configure.ac</code>.</p>
+<p>You might also want to propagate your evaluator code although this will not be needed.</p>
+<p><strong>Warning: the automated tests for this lab are most likely to fail if you do not use your own code (except if by chance you use the same LLVM version as the tester does, which is right now LLVM 7.0.1). The pre-built working compiler parts are only useful to run tests locally. Fortunately, only simple function calls will be used (no frames, no assignments, etc.), so your labs 4 and 5 do not need to be 100% completed.</strong></p>
+      <h2 id="what-is-the-runtime">
+          <a href="#what-is-the-runtime" class="anchor-heading" aria-labelledby="what-is-the-runtime"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What is the runtime?
+      </h2>
+<p>You might remember that in lab3 we registered several primitives with the binder, such
+as <code class="language-plaintext highlighter-rouge">print_int</code> to print an integer or <code class="language-plaintext highlighter-rouge">ord</code> to get the ASCII code of a character. You
+might want to look them up in your <code class="language-plaintext highlighter-rouge">lab3/dragon-tiger/src/ast/binder.cc</code>. We registered
+them so that they could be used without being defined explicitly in Tiger code,
+hence their “primitive” designation.</p>
+<p>However, primitives must now be implemented in order to be found at link time. They
+cannot be implemented in Tiger, as we must interact with the underlying operating
+system.</p>
+<p>In this lab, we will implement all those primitives in C++ in order to build a
+<code class="language-plaintext highlighter-rouge">libruntime.a</code> which will then be linked with the object code produced from the
+output of our Tiger compiler. Since we are using a POSIX system (interfaces with
+the operating system are well-defined), we will create a runtime which works on
+any POSIX system in directory <code class="language-plaintext highlighter-rouge">src/runtime/posix</code>.</p>
+<p>▶ In <code class="language-plaintext highlighter-rouge">src/runtime/posix/runtime.h</code>, look at the various prototypes of the functions
+you will have to implement. We chose to implement the runtime in C because the
+C programming language allows to write code whose binary representation drags
+less dependencies than C++ and are found everywhere. Since this is a “toy” compiler,
+you are allowed to leak memory in the runtime. For example, it may be practical to
+call <code class="language-plaintext highlighter-rouge">malloc()</code> to allocate memory to build a string, even if the memory is not
+freed afterwards. In a complete compiler, we would use a garbage collector to free
+entities that are no longer referenced.</p>
+      <h2 id="compiling-and-linking">
+          <a href="#compiling-and-linking" class="anchor-heading" aria-labelledby="compiling-and-linking"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Compiling and linking
+      </h2>
+<p>A new script <code class="language-plaintext highlighter-rouge">compile</code> is available at the top-level of the compiler once you have
+configured it. You can give it a tiger program or “-“ to denote standard input,
+and it will produce an executable <code class="language-plaintext highlighter-rouge">a.out</code> containing your Tiger code linked with
+the runtime library.</p>
+<p>Try it with:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"print_int(42)"</span> | ./compile -
+<span class="nv">$ </span>./a.out
+UNIMPLEMENTED __print_int
+</code></pre></div></div>
+<p>At this stage, the program does not work yet, since you haven’t implemented the
+<code class="language-plaintext highlighter-rouge">print_int</code> primitive in the runtime.</p>
+<p>The <code class="language-plaintext highlighter-rouge">compile</code> program is a shell script performing those steps:</p>
+<ul>
+  <li>Compile your Tiger program into LLVM IR using the <code class="language-plaintext highlighter-rouge">dtiger</code> compiler with <code class="language-plaintext highlighter-rouge">--dump-ir</code>.</li>
+  <li>Optimize your Tiger program using <code class="language-plaintext highlighter-rouge">opt -O3</code> (from LLVM), which runs various optimization passes.</li>
+  <li>Generate assembly code from the LLVM IR using <code class="language-plaintext highlighter-rouge">llc</code> (from LLVM).</li>
+  <li>Assemble the assembly code into an object file using <code class="language-plaintext highlighter-rouge">gcc</code> (which in turn calls <code class="language-plaintext highlighter-rouge">as</code>).</li>
+  <li>Link the object file and the runtime library using <code class="language-plaintext highlighter-rouge">gcc</code> (which in turn calls <code class="language-plaintext highlighter-rouge">ld</code>).</li>
+</ul>
+<p>Don’t hesitate to read <code class="language-plaintext highlighter-rouge">compile</code> and look at the various arguments used if you want to understand what happens behind the scene.</p>
+      <h2 id="implement-the-runtime">
+          <a href="#implement-the-runtime" class="anchor-heading" aria-labelledby="implement-the-runtime"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Implement the runtime
+      </h2>
+<p>▶ Implement the runtime in file <code class="language-plaintext highlighter-rouge">src/runtime/posix/runtime.c</code>. You might want to do it in the order described in the header file to get the best out of the automated tests.</p>
+<p>If you want, you might implement another runtime for other systems (such as an Arm-based microcontroller), but you will have to interact with the environment using, for example, the semihosting capabilities which let you exchange data with a monitor program.</p>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

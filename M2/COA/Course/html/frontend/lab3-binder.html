@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 3 - Binder - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 3 - Binder | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 3 - Binder" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/frontend/lab3-binder.html" />
+<meta property="og:url" content="https://compilation-course.github.io/frontend/lab3-binder.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 3 - Binder" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 3 - Binder","url":"https://compilation-course.github.io/frontend/lab3-binder.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link active">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/frontend/">Frontend</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 3 - Binder</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="lab-3---binder">
+          <a href="#lab-3---binder" class="anchor-heading" aria-labelledby="lab-3---binder"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lab 3 - Binder
+      </h1>
+<p>In this lab we will write a Binder for our Tiger compiler.
+The Binder is responsible for the following tasks:</p>
+<ul>
+  <li>Wrapping the program inside a top-level <code class="language-plaintext highlighter-rouge">main</code> function;</li>
+  <li>Binding each identifier (function call or variable) to its declaration;</li>
+  <li>Decorating each identifier and each declaration with its depth;</li>
+  <li>Marking escaping declarations as such;</li>
+  <li>Decorating each break with its parent loop.</li>
+</ul>
+<p>The Binder must also raise an error when:</p>
+<ul>
+  <li>An identifier is used but not declared;</li>
+  <li>An identifier is declared twice in the same scope;</li>
+  <li>A break is used outside of a loop or inside a Let declaration (except if enclosed by a loop).</li>
+</ul>
+      <h2 id="setup">
+          <a href="#setup" class="anchor-heading" aria-labelledby="setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setup
+      </h2>
+<p>Retrieve the lab code and commit it to your git with the following commands,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>lab3
+<span class="nv">$ </span><span class="nb">cd </span>lab3
+<span class="nv">$ </span>wget <span class="nt">-qO-</span> www.sifflez.org/lectures/compil/lab3/dragon-tiger.tar.gz | <span class="nb">tar </span>zxv
+<span class="nv">$ </span>git add <span class="nt">-f</span> dragon-tiger
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"Import dragon-tiger for lab3"</span> dragon-tiger
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">-f</code> for <code class="language-plaintext highlighter-rouge">git add</code> is necessary to add the (usually ignored)
+<code class="language-plaintext highlighter-rouge">src/parser/libparser.a</code> which comes in the archive.</p>
+<p>Now let us build the project,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>dragon-tiger
+<span class="nv">$ </span>./configure
+<span class="nv">$ </span>make
+</code></pre></div></div>
+<p>If everything worked as expected, you should be able to run
+the compiler driver <code class="language-plaintext highlighter-rouge">dtiger</code> as follows,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ src/driver/dtiger --help
+Options:
+  -h [ --help ]         describe arguments
+  --dump-ast            dump the parsed AST
+  -b [ --bind ]         run the binder on the parsed AST
+  --trace-parser        enable parser traces
+  --trace-lexer         enable lexer traces
+  -v [ --verbose ]      be verbose
+  --input-file arg      input Tiger file
+
+$ echo "a * b * c * d" &gt; test.tig
+$ src/driver/dtiger -v -b --dump-ast test.tig
+function main(): int =
+  (
+    (((a*b)*c)*d);
+    0
+  )
+</code></pre></div></div>
+<p>Ensure that you test thoroughly and commit each feature. Follow precisely the
+instructions, this lab is graded and machine corrected!</p>
+      <h2 id="important-note">
+          <a href="#important-note" class="anchor-heading" aria-labelledby="important-note"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Important note
+      </h2>
+<p>Some of you may not have completed the previous assignment. To this effect,
+the current archive contains a pre-built parser library (so as not
+to give you the full solution) and this lab may be done separately.</p>
+<p>However, when you have completed the previous assignment, feel free to
+replace the <code class="language-plaintext highlighter-rouge">src/parser/</code> directory by a copy of the one from your
+previous assignment. This will be most satisfactory, as your code from
+the first step will be used also in the second step. Do not forget to
+add <code class="language-plaintext highlighter-rouge">parser</code> to the <code class="language-plaintext highlighter-rouge">SUBDIRS</code> variable in <code class="language-plaintext highlighter-rouge">src/Makefile.am</code> (it must
+be the <strong>first</strong> subdirectory there because it auto-generates files
+used in other subdirectories) and
+<code class="language-plaintext highlighter-rouge">src/parser/Makefile</code> in <code class="language-plaintext highlighter-rouge">configure.ac</code>.</p>
+<p>You might also want to propagate your evaluator code although this will not be needed.</p>
+      <h2 id="code-organization">
+          <a href="#code-organization" class="anchor-heading" aria-labelledby="code-organization"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Code organization
+      </h2>
+<p>The binder is called with the <code class="language-plaintext highlighter-rouge">-b</code> option.  It is interesting to also add the
+options <code class="language-plaintext highlighter-rouge">-v --ast-dump</code> which provide a verbose AST dump. The verbose AST dump
+shows the depth and bound declaration for every decorated identifier.  Because
+the Binder is not yet operational, the verbose AST dump does not yet show
+anything relevant.</p>
+<p>A starting stub is provided for the Binder and it can be found at
+<code class="language-plaintext highlighter-rouge">src/ast/binder.[hh,cc]</code>.</p>
+<p>▶ Read carefully the provided code and ensure that you understand
+which method is wrapping the program inside a main function as shown below,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"a * b * c * d"</span> | src/driver/dtiger <span class="nt">-v</span> <span class="nt">-b</span> <span class="nt">--dump-ast</span> -
+<span class="k">function </span>main<span class="o">()</span>: int <span class="o">=</span>
+  <span class="o">(</span>
+    <span class="o">(((</span>a<span class="k">*</span>b<span class="o">)</span><span class="k">*</span>c<span class="o">)</span><span class="k">*</span>d<span class="o">)</span><span class="p">;</span>
+    0
+  <span class="o">)</span>
+</code></pre></div></div>
+<p>▶ Why is it necessary to call the function <code class="language-plaintext highlighter-rouge">enter_primitive</code> in the Binder’s constructor? Do you
+understand how they are not part of the tree, but they can be referenced by it?</p>
+<p>▶ Read and make sure you understand the methods <code class="language-plaintext highlighter-rouge">current_scope</code>,
+<code class="language-plaintext highlighter-rouge">push_scope</code>, <code class="language-plaintext highlighter-rouge">pop_scope</code>, <code class="language-plaintext highlighter-rouge">enter</code> and <code class="language-plaintext highlighter-rouge">find</code>.</p>
+      <h2 id="binding-variable-declarations">
+          <a href="#binding-variable-declarations" class="anchor-heading" aria-labelledby="binding-variable-declarations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Binding Variable Declarations
+      </h2>
+<p>Your first task is binding each variable usage to its declaration.</p>
+<p>For example, the expected output for the simple program</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let var a := 0 in a end
+</code></pre></div></div>
+<p>is,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"let var a := 0 in a end"</span> | src/driver/dtiger <span class="nt">-b</span> <span class="nt">--dump-ast</span> <span class="nt">-v</span> -
+<span class="k">function </span>main<span class="o">()</span>: int <span class="o">=</span>
+  <span class="o">(</span>
+    <span class="nb">let
+      </span>var a :<span class="o">=</span> 0
+    <span class="k">in
+      </span>a/<span class="k">*</span>decl:1.5-7<span class="k">*</span>/
+    end<span class="p">;</span>
+    0
+  <span class="o">)</span>
+</code></pre></div></div>
+<p>As you can see, the usage of <code class="language-plaintext highlighter-rouge">a</code> indicates that it refers to the variable
+declared at line 1 columns 5-7 (location points to the var keyword).</p>
+<p>Currently, your binder does nothing.</p>
+<p>▶ Add support for binding each variable usage to its declaration.  To bind a
+variable identifier <code class="language-plaintext highlighter-rouge">id</code> to its declaration <code class="language-plaintext highlighter-rouge">decl</code> you shall use the method
+<code class="language-plaintext highlighter-rouge">id.set_decl(decl);</code>. Your binder must adhere to the <em>scoping rules</em> of Tiger.</p>
+<p>▶ Ensure you detect the following illegal cases:</p>
+<ul>
+  <li>
+    <p>An identifier is used but not declared</p>
+  </li>
+  <li>
+    <p>An identifier is declared twice in the same scope</p>
+  </li>
+</ul>
+<p>In those illegal cases, you must raise a fatal error with the <code class="language-plaintext highlighter-rouge">utils::error()</code> function.</p>
+<p>Ensure that your Binder works on complex scenarios with hiding or escaping, including
+with loop indices who need their own scope and cannot be assigned to.</p>
+<p>Because function arguments are handled as <code class="language-plaintext highlighter-rouge">VarDecl</code> nodes in the AST, they should
+also be properly bound by your code.</p>
+      <h2 id="binding-function-declarations">
+          <a href="#binding-function-declarations" class="anchor-heading" aria-labelledby="binding-function-declarations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Binding Function Declarations
+      </h2>
+<p>▶ Add support for binding each function call to its declaration. Remember that in
+Tiger, a set of consecutive function declarations can be mutually referencing.</p>
+<p>For example the following Tiger program,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let
+  function even(n : int) : int = if n = 0 then 1 else odd(n-1)
+  function odd(n : int) : int = if n = 0 then 0 else even(n-1)
+in
+  print_int(odd(5))
+end
+</code></pre></div></div>
+<p>will produce the following verbose AST dump,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function main(): int =
+  (
+    let
+      function even/*main.even*/(n: int) =
+        if
+          (n/*decl:2.17*/=0)
+         then
+          1
+         else
+          odd/*decl:3.3-10*/((n/*decl:2.17*/-1))
+      function odd/*main.odd*/(n: int) =
+        if
+          (n/*decl:3.16*/=0)
+         then
+          0
+         else
+          even/*decl:2.3-10*/((n/*decl:3.16*/-1))
+    in
+      print_int/*decl:&lt;none&gt;:0.0*/(odd/*decl:3.3-10*/(5))
+    end;
+    0
+  )
+</code></pre></div></div>
+<p>Declarations nodes for the primitive functions (such as <code class="language-plaintext highlighter-rouge">print_int</code>) have already been inserted in the top-level scope. They require no special handling. In the verbose AST dump, they are marked with a no-location <code class="language-plaintext highlighter-rouge">/*decl:&lt;none&gt;:0.0*/</code>.</p>
+<p>▶ Make sure that the error handling code also works for function calls and declarations.</p>
+<p>Remember to test your implementation in corner cases and complex scenarios.</p>
+      <h2 id="computing-the-depth-of-nodes-and-marking-escaping-declarations">
+          <a href="#computing-the-depth-of-nodes-and-marking-escaping-declarations" class="anchor-heading" aria-labelledby="computing-the-depth-of-nodes-and-marking-escaping-declarations"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Computing the depth of nodes and marking escaping declarations.
+      </h2>
+<p>To handle escapes later on, we need to compute the depth of variable,
+function declarations, identifiers and function calls.</p>
+<p>The depth is the number of nesting function levels. For example a top-level
+declaration has depth 0. A declaration that lives inside a top-level function
+has depth 1. A declaration inside a doubly nested function has depth 2.</p>
+<p>▶ Implement depth computation and decoration in your Binder. To decorate a node <code class="language-plaintext highlighter-rouge">n</code> with its depth <code class="language-plaintext highlighter-rouge">d</code>, you shall use <code class="language-plaintext highlighter-rouge">n.set_depth(d);</code>.</p>
+<p>▶ All variables declarations that are accessed from a different depth should be marked as <em>escaping</em>. To mark a declaration <code class="language-plaintext highlighter-rouge">d</code> as escaping, you shall use <code class="language-plaintext highlighter-rouge">d.set_escapes()</code>.</p>
+<p>The AST verbose dump shows non-null depth differences between a declaration and its use;
+it also shows escaping variables with <code class="language-plaintext highlighter-rouge">/*e*/</code>.</p>
+<p>For example, the following Tiger program,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let var a := 0
+    function f() : int = a
+in f() end
+</code></pre></div></div>
+<p>should produce the following verbose dump,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function main(): int =
+  (
+    let
+      var a/*e*/ := 0
+      function f/*main.f*/(): int =
+        a/*decl:1.5-7 depth_diff:1*/
+    in
+      f/*decl:2.5-12*/()
+    end;
+    0
+  )
+</code></pre></div></div>
+<p>As you can see the depth difference between <code class="language-plaintext highlighter-rouge">a</code> and its declaration is one; therefore the declaration of <code class="language-plaintext highlighter-rouge">a</code> escapes.</p>
+      <h2 id="breaks-and-loops">
+          <a href="#breaks-and-loops" class="anchor-heading" aria-labelledby="breaks-and-loops"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Breaks and loops
+      </h2>
+<p>Each <code class="language-plaintext highlighter-rouge">break</code> statement should be decorated with its parent loop. To do so you shall use the
+function <code class="language-plaintext highlighter-rouge">break.set_loop(loop)</code>; where <code class="language-plaintext highlighter-rouge">loop</code> is of class <code class="language-plaintext highlighter-rouge">Loop</code> (either a
+<code class="language-plaintext highlighter-rouge">ForLoop</code> or a <code class="language-plaintext highlighter-rouge">WhileLoop</code>).</p>
+<p>▶ Decorate each break with its parent loop. To achieve this you may use a class member variable to record the visited loops.</p>
+<p>▶ Ensure that you raise an error if a break is used outside of a loop or directly inside the declaration part of a Let block.</p>
+<p>For example, the tiger program <code class="language-plaintext highlighter-rouge">while(1) do break</code> emits the following verbose AST dump,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function main(): int = 
+  (
+    while (
+      1
+    ) do
+      break/*loop:1.1-5*/;
+    0
+  )
+</code></pre></div></div>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

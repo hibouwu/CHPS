@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 0 - Git crash course - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 0 - Git crash course | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 0 - Git crash course" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/introduction/lab0.html" />
+<meta property="og:url" content="https://compilation-course.github.io/introduction/lab0.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 0 - Git crash course" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 0 - Git crash course","url":"https://compilation-course.github.io/introduction/lab0.html"}</script>
+<!-- End Jekyll SEO tag -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML">
+  </script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link active">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/introduction/">Introduction</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 0 - Git crash course</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="lab-0---git-crash-course">
+          <a href="#lab-0---git-crash-course" class="anchor-heading" aria-labelledby="lab-0---git-crash-course"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lab 0 - Git crash course
+      </h1>
+      <h2 id="setup">
+          <a href="#setup" class="anchor-heading" aria-labelledby="setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setup
+      </h2>
+<p>For all the compilation labs we will use <a href="http://git-scm.com">git</a>. A
+git repository tracks a project. Each repository may be cloned on different
+local or remote computers.</p>
+<p>This document is under <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC
+by-nc-sa</a> licence, inspired
+by the lecture <em>Gerez vos codes souces avec git</em> from M. Nebra.</p>
+      <h2 id="introduction-to-git">
+          <a href="#introduction-to-git" class="anchor-heading" aria-labelledby="introduction-to-git"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Introduction to Git
+      </h2>
+<p>Git is able to follow the changes inside a text file for each
+line of code. It can record all the intermediate versions and
+changes in your project. But Git is not only a backup tool,
+it offers many other features such as:</p>
+<ul>
+  <li>
+    <p>Git records who made each change to each file and why.</p>
+  </li>
+  <li>
+    <p>If two people work on the same file simultaneously, Git is
+capable of merging their modifications and avoids loosing any contributions.</p>
+  </li>
+</ul>
+<p>Git is a “distributed” version management software. Each of the developers
+participating in the same project has its own <em>git</em> repository. Developers
+can exchange versions and commits (changes) in a peer-to-peer fashion.
+Often a central <em>repository</em> is created on a server. The central repository
+serves as a meeting point and facilitates exchanges between developers.</p>
+<p>It is in this last mode that we will work in this course.</p>
+      <h2 id="creating-an-account-on-gitlab-chpsensuvsqfr">
+          <a href="#creating-an-account-on-gitlab-chpsensuvsqfr" class="anchor-heading" aria-labelledby="creating-an-account-on-gitlab-chpsensuvsqfr"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Creating an account on gitlab-chps.ens.uvsq.fr
+      </h2>
+<p>To save your work between lab sessions we will
+use the server at <a href="http://gitlab-chps.ens.uvsq.fr">gitlab-chps.ens.uvsq.fr</a>.</p>
+<p>▶ An account with your university email <code class="language-plaintext highlighter-rouge">first.last@ens.uvsq.fr</code> has been created. You should have received an email with the initial password.</p>
+<p>▶ Immediatly after logging change your password to secure your account. Click on the drop-down menu on the top-right, then go to <code class="language-plaintext highlighter-rouge">Preferences &gt; Password</code>.</p>
+<p>▶ When you log on the server, you will see that a project (<code class="language-plaintext highlighter-rouge">coa/firstname-lastname</code>) has been created for you.</p>
+<p>▶ (optional) To clone and push on your repository without typing your password each time, create and add an ssh key to your account. First look how to create an ssh-key on your system. Then click on the drop-down menu, then choose <code class="language-plaintext highlighter-rouge">Settings &gt; SSH Keys</code> to upload your public key pair.</p>
+      <h2 id="cloning-the-repository">
+          <a href="#cloning-the-repository" class="anchor-heading" aria-labelledby="cloning-the-repository"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cloning the repository
+      </h2>
+<p>▶ To start working on your git repository, you’ll have to clone it. Log into
+  <a href="http://gitlab-chps.ens.uvsq.fr">gitlab-chps.ens.uvsq.fr</a> and copy the address of
+  the repository. Select the protocol (HTTP or SSH) on the drop-down menu at
+  the center of the interface (do not choose SSH unless you have added an SSH
+  key on your profile). Then copy the address that is located nearby.</p>
+<p>▶ Now go to the terminal and type the following commands:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c"># WARNING: please replace pablo-oliveira by your own name</span>
+
+    <span class="c"># clone the repository </span>
+    <span class="nv">$ </span>git clone http://gitlab-chps.ens.uvsq.fr/coa/pablo-oliveira.git 
+    warning: You appear to have cloned an empty repository.
+    Checking connectivity... <span class="k">done</span><span class="nb">.</span>
+
+    <span class="c"># enter the repository </span>
+    <span class="nv">$ </span><span class="nb">cd </span>pablo-oliveira/
+
+    <span class="c"># Now create a lab0 folder and enter it </span>
+    <span class="nv">$ </span><span class="nb">mkdir </span>lab0
+    <span class="nv">$ </span><span class="nb">cd </span>lab0
+</code></pre></div></div>
+<p>If you want to clone this repository on other machines; the procedure is the
+same.</p>
+<p>In the rest of the lab, you will work inside the <code class="language-plaintext highlighter-rouge">lab0</code> directory that you
+just created.</p>
+      <h2 id="adding-and-committing-files">
+          <a href="#adding-and-committing-files" class="anchor-heading" aria-labelledby="adding-and-committing-files"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding and committing files
+      </h2>
+<p>First configure git with your personal information,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git config <span class="nt">--global</span> user.name <span class="s2">"Pablo Oliveira"</span>
+<span class="nv">$ </span>git config <span class="nt">--global</span> user.email pablo.oliveira@uvsq.fr
+</code></pre></div></div>
+<p>Now write a <code class="language-plaintext highlighter-rouge">test.cc</code> program that displays “Hello World!”
+on the standard output and a Makefile file to compile it with <code class="language-plaintext highlighter-rouge">clang++-9</code>.
+Write your program in C++.</p>
+<p>To commit the files first add them in git with</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add Makefile test.cc
+<span class="nv">$ </span>git status
+On branch main
+
+Initial commit
+
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">"git rm --cached &lt;file&gt;..."</span> to unstage<span class="o">)</span>
+
+	new file:   Makefile
+	new file:   test.cc
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">git status</code> command allows you to see what’s new from the
+last save (or commit) in the repository. Here <code class="language-plaintext highlighter-rouge">git status</code> shows
+that both files are ready to be committed.</p>
+<p>The <code class="language-plaintext highlighter-rouge">git commit</code> command opens an editor that allows you to type a
+a message explaining the changes.</p>
+<p>For commit messages use the following convention,</p>
+<ul>
+  <li>
+    <p>the first line must contain a short and informative message that
+ summarize your changes</p>
+  </li>
+  <li>
+    <p>the second line must be empty</p>
+  </li>
+  <li>
+    <p>next you can describe in detail your changes</p>
+  </li>
+</ul>
+<p>For example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    lab0 (exo1): write a hello world program
+
+    test.cc prints "Hello World!" to the standard
+    output. Also added a makefile.
+</code></pre></div></div>
+      <h2 id="using-the-log">
+          <a href="#using-the-log" class="anchor-heading" aria-labelledby="using-the-log"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Using the log
+      </h2>
+<p>Change your program again. This time change the program so that it segfaults.
+You can be creative ☺</p>
+<p>Then type <code class="language-plaintext highlighter-rouge">git diff</code> to see your changes.
+Then commit your changes with <code class="language-plaintext highlighter-rouge">git add test.cc</code> followed by <code class="language-plaintext highlighter-rouge">git commit</code>.</p>
+<p>You can view the journal of changes with <code class="language-plaintext highlighter-rouge">git log</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log
+commit 66ea53ab301045fc5a990fac3672f842dc75b2e8
+Author: Pablo Oliveira &lt;pablo.oliveira@uvsq.fr&gt;
+Date:   Thu Sep 14 22:59:15 2023 +0200
+
+    Harmless modification that makes the program segfault
+
+commit b35c2b6551d4b3738170637634702ed4d82aa501
+Author: Pablo Oliveira &lt;pablo.oliveira@uvsq.fr&gt;
+Date:   Thu Sep 14 22:55:05 2023 +0200
+
+    lab0 <span class="o">(</span>exo1<span class="o">)</span>: write a hello world program
+
+    test.cc prints <span class="s2">"Hello World!"</span> to the standard
+    output. Also added a makefile.
+</code></pre></div></div>
+<p>Each commit is followed by a unique hexadecimal code that identifies it. You
+can view changes between two versions with <code class="language-plaintext highlighter-rouge">git diff b35c2b6 66ea53a</code>, there
+is no need to type all the numbers, the first are sufficient (except in case of
+conflict). Try !</p>
+<p>The different versions form a <strong>branch</strong> of versions.
+In git the main branch is usually called <code class="language-plaintext highlighter-rouge">main</code>.</p>
+<p>Git allows you to work on several branches at the same time, go back to
+previous versions of code, and many more things but that goes beyond the scope
+of this introduction.</p>
+      <h2 id="sharing-code-with-others">
+          <a href="#sharing-code-with-others" class="anchor-heading" aria-labelledby="sharing-code-with-others"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sharing code with others
+      </h2>
+<p>To send your changes to another repository, you will need to use two commands:</p>
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git pull</code> retrieves changes from another repository</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git push</code> sends your changes to another repository</p>
+  </li>
+</ul>
+<p>Since you already clone your repository from gitlab-chps.ens.uvsq.fr; this server is already configured as the default push server.</p>
+<p>To send your changes do,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git push origin main
+
+Counting objects: 3, <span class="k">done</span><span class="nb">.</span>
+Delta compression using up to 8 threads.
+Compressing objects: 100% <span class="o">(</span>2/2<span class="o">)</span>, <span class="k">done</span><span class="nb">.</span>
+Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, 271 bytes | 0 bytes/s, <span class="k">done</span><span class="nb">.</span>
+Total 3 <span class="o">(</span>delta 0<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+To http://pablo-oliveira@gitlab-chps.ens.uvsq.fr/coa/pablo-oliveira.git
+<span class="k">*</span> <span class="o">[</span>new branch]      main -&gt; main
+</code></pre></div></div>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

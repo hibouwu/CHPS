@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 1 - Tiger Language - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 1 - Tiger Language | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 1 - Tiger Language" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/introduction/lab1.html" />
+<meta property="og:url" content="https://compilation-course.github.io/introduction/lab1.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 1 - Tiger Language" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 1 - Tiger Language","url":"https://compilation-course.github.io/introduction/lab1.html"}</script>
+<!-- End Jekyll SEO tag -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML">
+  </script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link active">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/introduction/">Introduction</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 1 - Tiger Language</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="lab-1---tiger-language">
+          <a href="#lab-1---tiger-language" class="anchor-heading" aria-labelledby="lab-1---tiger-language"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lab 1 - Tiger Language
+      </h1>
+      <h2 id="setup">
+          <a href="#setup" class="anchor-heading" aria-labelledby="setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setup
+      </h2>
+<p>Before starting this lab, please create a new directory <code class="language-plaintext highlighter-rouge">lab1/</code> in your git repository. 
+Execute the following commands at the top of your repository:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>lab1
+<span class="nv">$ </span><span class="nb">cd </span>lab1
+<span class="nv">$ </span>wget <span class="nt">-qO-</span> www.sifflez.org/lectures/compil/lab1/dragon-tiger.tar.gz | <span class="nb">tar </span>zxv
+<span class="nv">$ </span>git add dragon-tiger
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"Import dragon-tiger for lab1"</span> dragon-tiger
+<span class="nv">$ </span><span class="nb">cd </span>dragon-tiger
+</code></pre></div></div>
+<p>To compile tiger language you need,</p>
+<ul>
+  <li>a Tiger compiler called <code class="language-plaintext highlighter-rouge">dtiger</code> (inside <code class="language-plaintext highlighter-rouge">src/driver/</code>)</li>
+  <li>a runtime library <code class="language-plaintext highlighter-rouge">libruntime.a</code> (inside <code class="language-plaintext highlighter-rouge">src/runtime/posix</code>) that implements all the Tiger primitives such as <code class="language-plaintext highlighter-rouge">print</code> or <code class="language-plaintext highlighter-rouge">print_int</code>.</li>
+</ul>
+<p>You can use <code class="language-plaintext highlighter-rouge">dtiger</code> to compile a Tiger program <code class="language-plaintext highlighter-rouge">test.tig</code> as follows,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'print("Hello World!\n")'</span> <span class="o">&gt;</span> test.tig
+<span class="nv">$ </span>src/driver/dtiger <span class="nt">-o</span> test.o test.tig
+<span class="nv">$ </span>clang++-9 test.o src/runtime/posix/libruntime.a <span class="nt">-o</span> <span class="nb">test</span>
+<span class="nv">$ </span>./test
+Hello World!
+</code></pre></div></div>
+<p>The second command transforms the Tiger source into an <em>object file</em> which contains
+the generated assembly code.</p>
+<p>The third command links the <em>object file</em> with the runtime library which contains
+the implementation of Tiger primitives.</p>
+<p>Each time you answer a question marked with [<code class="language-plaintext highlighter-rouge">file.ext</code>] you will create a new file
+<code class="language-plaintext highlighter-rouge">lab1/dragon-tiger/file.ext</code> and write the answer inside (a tiger program or a regular expression).</p>
+<p>You will then add this new file to the git, commit your changes with a
+meaningful message and push your changes.</p>
+<p>Ensure that you commit everything and follow precisely the instructions. This lab
+is graded and machine corrected !</p>
+      <h2 id="tiger-language">
+          <a href="#tiger-language" class="anchor-heading" aria-labelledby="tiger-language"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Tiger Language
+      </h2>
+<p>We will familiarize ourselves with the Tiger language by writing a few programs. If in doubt check the <a href="https://web.archive.org/web/20221225030918/https://www.lrde.epita.fr/~akim/ccmp/tiger.pdf">specifications of the Tiger language</a>
+but remember that in these lectures we will not use and implement array and record types.</p>
+<p>▶ [<code class="language-plaintext highlighter-rouge">hello.tig</code>] Write a Tiger program, <code class="language-plaintext highlighter-rouge">hello.tig</code>, that prints the string “Hello World!” followed by a new line character to the standard output.</p>
+<p>▶ [<code class="language-plaintext highlighter-rouge">fibonacci.tig</code>] Complete the following program and save it in a <code class="language-plaintext highlighter-rouge">fibonacci.tig</code> file.  The function <code class="language-plaintext highlighter-rouge">fibonacci</code> should return the \(n^{th}\) term of the Fibonacci sequence which is defined recursively as follows,</p>
+\[f_0 = 1, f_1 = 1 \\
+f_{n+2} = f_{n} + f_{n+1}\]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let
+   function fibonacci(n : int) : int =
+     /* ... complete here ... */
+in
+   for i := 1 to 8 do
+     (print_int(fibonacci(i)); print("\n"))
+end
+</code></pre></div></div>
+<p>▶ [<code class="language-plaintext highlighter-rouge">read_unsigned.tig</code>] Complete the following program and save it in <code class="language-plaintext highlighter-rouge">read_unsigned.tig</code> file. The function <code class="language-plaintext highlighter-rouge">read_unsigned</code> reads a line from the <em>standard input</em> (<code class="language-plaintext highlighter-rouge">stdin</code>). If the line contains only numerical characters it returns the number as a positive base-ten integer. Otherwise, it returns \(-1\). You should correctly handle the line termination character <code class="language-plaintext highlighter-rouge">\n</code>.</p>
+<p>The following primitives will be useful:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">function getchar() : string</code>, reads a single character from <code class="language-plaintext highlighter-rouge">stdin</code> and returns it as string of size one. If EOF is reached, the empty string is returned.</li>
+  <li><code class="language-plaintext highlighter-rouge">function ord(s : string) : int</code>, returns the ASCII code of the first character of the input string.</li>
+</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let
+  /* Read a positive integer from the standard input.
+     Returns -1 on error */
+  function read_unsigned() : int =
+    /* ... complete here ... */
+  var a : int := read_unsigned()
+in
+  print_int(a*2);
+  print("\n")
+end
+</code></pre></div></div>
+      <h2 id="regular-expressions-and-finite-automata">
+          <a href="#regular-expressions-and-finite-automata" class="anchor-heading" aria-labelledby="regular-expressions-and-finite-automata"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Regular Expressions and Finite Automata
+      </h2>
+<p>▶ Give a regular expression and an automata for each of the following languages in \(\Sigma = \{a, b\}\):</p>
+<ul>
+  <li>
+    <p>[<code class="language-plaintext highlighter-rouge">regexp1.txt</code>] words in \(\Sigma^{*}\) for which the first <code class="language-plaintext highlighter-rouge">a</code> (if it exist) precedes the first <code class="language-plaintext highlighter-rouge">b</code> (if it exists).</p>
+  </li>
+  <li>
+    <p>[<code class="language-plaintext highlighter-rouge">regexp2.txt</code>] words in \(\Sigma^{*}\) for which the number of a is even (0 is considered even).</p>
+  </li>
+</ul>
+<p>You will write regular expressions in the format accepted by <code class="language-plaintext highlighter-rouge">grep -E</code>.
+The two committed files will contain nothing but the regular expression.
+You can test what a regular expression matches like this:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"aaaaab"</span> | <span class="nb">grep</span> <span class="nt">-E</span> <span class="nt">-x</span> <span class="nt">--color</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">cat </span>regexp2.txt<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+<p>The parts of the input that match will be colored.</p>
+      <h2 id="automata-determinisation">
+          <a href="#automata-determinisation" class="anchor-heading" aria-labelledby="automata-determinisation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Automata Determinisation
+      </h2>
+<p>▶ What is the language accepted by the automaton in the figure below?</p>
+<p>▶ Show that it is not deterministic.</p>
+<p>▶ Determinise it.</p>
+<p><img src="/introduction/determ2.png" alt="Automaton to determinise" /></p>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

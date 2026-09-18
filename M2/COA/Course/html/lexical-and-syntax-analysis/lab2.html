@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 2 - Tiger Calculator - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 2 - Tiger Calculator | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 2 - Tiger Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" />
+<meta property="og:url" content="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 2 - Tiger Calculator" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 2 - Tiger Calculator","url":"https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html"}</script>
+<!-- End Jekyll SEO tag -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML">
+  </script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link active">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/">Lexical and syntax analysis</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 2 - Tiger Calculator</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <p>In this lab we will study and improve a Lexer and Parser for the Tiger language.
+We will also write an AST Iterator that evaluates simple integer Tiger expressions.</p>
+<p>We will start from a compiler skeleton built by your teachers.</p>
+      <h2 id="import-the-example-code">
+          <a href="#import-the-example-code" class="anchor-heading" aria-labelledby="import-the-example-code"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Import the example code
+      </h2>
+<p>Retrieve the lab code and commit it to your git with the following commands in the
+subdirectory <code class="language-plaintext highlighter-rouge">lab2</code> at the root of
+your git repository.</p>
+<p>Execute the following commands at the top of your repository:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>lab2
+<span class="nv">$ </span><span class="nb">cd </span>lab2
+<span class="nv">$ </span>wget <span class="nt">-qO-</span> www.sifflez.org/lectures/compil/lab2/dragon-tiger.tar.gz | <span class="nb">tar </span>zxv
+<span class="nv">$ </span>git add dragon-tiger
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"Import dragon-tiger for lab2"</span> dragon-tiger
+</code></pre></div></div>
+      <h2 id="look-around">
+          <a href="#look-around" class="anchor-heading" aria-labelledby="look-around"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Look around
+      </h2>
+<p>The sources in <code class="language-plaintext highlighter-rouge">dragon-tiger</code> are organized this way:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">src/ast</code> contains the definition of the tree. In <code class="language-plaintext highlighter-rouge">nodes.hh</code> you can see all
+the nodes declaration. You should not alter this file.</li>
+  <li><code class="language-plaintext highlighter-rouge">src/parser</code> contains the lexer (<code class="language-plaintext highlighter-rouge">tiger_lexer.ll</code>) for use with the <code class="language-plaintext highlighter-rouge">lex</code>/<code class="language-plaintext highlighter-rouge">flex</code> lexer generator, and
+the parser (<code class="language-plaintext highlighter-rouge">tiger_parser.yy</code>) for the <code class="language-plaintext highlighter-rouge">yacc</code>/<code class="language-plaintext highlighter-rouge">bison</code> parser generator.</li>
+  <li><code class="language-plaintext highlighter-rouge">src/driver</code> contains the main program in <code class="language-plaintext highlighter-rouge">driver.cc</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">src/utils</code> contains some utility classes to deal with errors.</li>
+</ul>
+<p>If needed, <code class="language-plaintext highlighter-rouge">flex</code> documentation is <a href="https://westes.github.io/flex/manual/">located here</a> and <code class="language-plaintext highlighter-rouge">bison</code> documentation can be <a href="https://www.gnu.org/software/bison/manual/">found here</a>, but the existing code should be self-explanatory and reading it should be enough to implement the requested features.</p>
+      <h2 id="the-ast-nodes">
+          <a href="#the-ast-nodes" class="anchor-heading" aria-labelledby="the-ast-nodes"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The AST nodes
+      </h2>
+<p>The AST contains nodes derived from the <code class="language-plaintext highlighter-rouge">Node</code> class. There are two kind of nodes,
+which derive directly from this top-level <code class="language-plaintext highlighter-rouge">Node</code> class: <code class="language-plaintext highlighter-rouge">Expr</code> represents any form
+of Tiger expressions, while <code class="language-plaintext highlighter-rouge">Decl</code> represents declarations.</p>
+<p>The <code class="language-plaintext highlighter-rouge">nodes.hh</code> also contains structures that help use the <a href="https://en.wikipedia.org/wiki/Visitor_pattern">visitor pattern</a>. You should read and understand it, as the last item of this lab will need to use it.</p>
+      <h2 id="building-the-project">
+          <a href="#building-the-project" class="anchor-heading" aria-labelledby="building-the-project"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Building the project
+      </h2>
+<p>From within the <code class="language-plaintext highlighter-rouge">dragon-tiger</code> repository, run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./configure
+<span class="nv">$ </span>make
+</code></pre></div></div>
+<p>If everything worked as expected, you should be able to run
+the compiler driver <code class="language-plaintext highlighter-rouge">dtiger</code> as follows,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ src/driver/dtiger --help
+Options:
+  -h [ --help ]         describe arguments
+  --dump-ast            dump the parsed AST
+  --trace-parser        enable parser traces
+  --trace-lexer         enable lexer traces
+  -v [ --verbose ]      be verbose
+  --input-file arg      input Tiger file
+
+$ echo "a * b * c * d" &gt; test.tig
+$ src/driver/dtiger --dump-ast test.tig
+(a*(b*(c*d)))
+</code></pre></div></div>
+<p>You can use <code class="language-plaintext highlighter-rouge">-</code> as a file name to read the Tiger code from the standard input without using an intermediate file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"a * b"</span> | src/driver/dtiger <span class="nt">--dump-ast</span> -
+<span class="o">(</span>a<span class="k">*</span>b<span class="o">)</span>
+</code></pre></div></div>
+<p>As you can see a simple lexer, parser, and AST dumper (printer) are already
+implemented.</p>
+<p>In the following lab you will add new features to <code class="language-plaintext highlighter-rouge">dtiger</code>, ensure that you
+test thoroughly and commit each feature. Follow precisely the instructions,
+this lab is graded and machine corrected!</p>
+<p>Remember: you should never have to modify <code class="language-plaintext highlighter-rouge">ast/nodes.hh</code> during this lab.</p>
+      <h2 id="supporting-integers">
+          <a href="#supporting-integers" class="anchor-heading" aria-labelledby="supporting-integers"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Supporting integers
+      </h2>
+<p>Your first task is implementing support for integer literals.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"1*2"</span> | src/driver/dtiger <span class="nt">--dump-ast</span> -
+1.1: invalid character
+</code></pre></div></div>
+<p>As you can see in the above example, currently, the lexer and parser do not recognize integers. To debug the parser and lexer you can activate trace modes:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"1*2"</span> | src/driver/dtiger <span class="nt">--dump-ast</span> <span class="nt">--trace-lexer</span> -
+<span class="nt">--</span><span class="o">(</span>end of buffer or a NUL<span class="o">)</span>
+<span class="nt">--accepting</span> rule at line 122 <span class="o">(</span><span class="s2">"1"</span><span class="o">)</span>
+1.1: invalid character
+</code></pre></div></div>
+<p>(line numbers may vary)</p>
+<p>Can you understand what is happening? Look for the string “invalid character” in the lexer file <code class="language-plaintext highlighter-rouge">src/parser/tiger_lexer.ll</code>. It looks like someone forgot to add a rule to recognize integers.</p>
+<p>▶ First add an <code class="language-plaintext highlighter-rouge">INT</code> token in the parser. Look at <code class="language-plaintext highlighter-rouge">src/parser/tiger_parser.yy</code> after the comment starting with “Define tokens”. The type of the token should be <code class="language-plaintext highlighter-rouge">int</code>, its name <code class="language-plaintext highlighter-rouge">INT</code>, and its comment <code class="language-plaintext highlighter-rouge">integer</code>.</p>
+<p>▶ Add support for recognizing integers in the lexer. You should look at how this is implemented for <code class="language-plaintext highlighter-rouge">ID</code> tokens. First, add a rule for a regular expression matching integers. No need to worry about the minus sign; it is already handled in the parser.
+In the <code class="language-plaintext highlighter-rouge">flex</code> action for integers, use the function <code class="language-plaintext highlighter-rouge">strtol</code> to convert the matched text (<code class="language-plaintext highlighter-rouge">yytext</code>) to an integer and emit an <code class="language-plaintext highlighter-rouge">INT</code> token.
+You should ensure that the parsed integer is in the range of legal Tiger integers (the constant <code class="language-plaintext highlighter-rouge">TIGER_INT_MAX</code> has been defined for you), and signal a correctly placed error using <code class="language-plaintext highlighter-rouge">utils::error</code> if not.</p>
+<p>▶ Ensure that you reject numbers with leading 0 as the Tiger language forbids them (but you must accept 0 of course).</p>
+<p>Now the lexer should recognize integers,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"1*2"</span> | src/driver/dtiger <span class="nt">--trace-lexer</span> <span class="nt">--trace-parser</span> <span class="nt">--dump-ast</span> -
+Starting parse
+Entering state 0
+Reading a token: <span class="nt">--</span><span class="o">(</span>end of buffer or a NUL<span class="o">)</span>
+<span class="nt">--accepting</span> rule at line 87 <span class="o">(</span><span class="s2">"1"</span><span class="o">)</span>
+Next token is token <span class="s2">"int"</span> <span class="o">(</span>1.1: <span class="o">)</span>
+1.1: syntax error, unexpected int
+</code></pre></div></div>
+<p>but the parser still complains because integers are not valid expressions.</p>
+<p>▶ Add support for integer expressions in the parser. You should add a new
+rule that matches an INT token and returns an AST Node of type
+<code class="language-plaintext highlighter-rouge">IntegerLiteral</code>. For this, you need to perform three steps: add an <code class="language-plaintext highlighter-rouge">intExpr</code>
+rule doing the matching and returning a new <code class="language-plaintext highlighter-rouge">IntegerLiteral</code> node, declare
+the type of <code class="language-plaintext highlighter-rouge">intExpr</code> as being <code class="language-plaintext highlighter-rouge">Expr *</code> (see how this is done for <code class="language-plaintext highlighter-rouge">stringExpr</code>
+for example), and add a case to the <code class="language-plaintext highlighter-rouge">expr</code> rule to make it accept <code class="language-plaintext highlighter-rouge">intExpr</code>
+everywhere an <code class="language-plaintext highlighter-rouge">expr</code> is acceptable (as it does for <code class="language-plaintext highlighter-rouge">stringExpr</code> for example).</p>
+<p>When you finish this section, the Tiger program <code class="language-plaintext highlighter-rouge">1*2</code> should be properly parsed!</p>
+      <h2 id="a-note-on-symbols">
+          <a href="#a-note-on-symbols" class="anchor-heading" aria-labelledby="a-note-on-symbols"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A note on symbols
+      </h2>
+<p>Throughout the lexer and parser files, you may have noticed that strings are
+represented using the <code class="language-plaintext highlighter-rouge">Symbol</code> type. This type, which is defined in
+<code class="language-plaintext highlighter-rouge">src/utils/symbols.hh</code>, allows to detect when similar objects are used (here we
+use it for strings and identifiers) and return a shared reference for similar
+objects.</p>
+<p>For example, if the <code class="language-plaintext highlighter-rouge">foobar_identifier_123</code> identifier is used 10,000 times in
+your Tiger source code, the string will be present only once in memory and the
+AST will contain 10,000 identical references to it instead of pointing onto
+10,000 different copies.</p>
+      <h2 id="adding-support-for-more-binary-operators-and-adding-precedence-rules">
+          <a href="#adding-support-for-more-binary-operators-and-adding-precedence-rules" class="anchor-heading" aria-labelledby="adding-support-for-more-binary-operators-and-adding-precedence-rules"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding support for more binary operators and adding precedence rules
+      </h2>
+<p>Before diving in the subject of precedence rules, let’s have a look at how
+we handle the <em>unary minus</em> operation. We could add a node <code class="language-plaintext highlighter-rouge">UnaryMinus</code>
+in our AST, or we could take advantage that <code class="language-plaintext highlighter-rouge">-x</code> holds the same value
+as <code class="language-plaintext highlighter-rouge">0-x</code>, and we already know how to represent a subtraction in our AST
+using a <code class="language-plaintext highlighter-rouge">BinaryOperator</code> node. Hence this is what we are choosing here:
+<code class="language-plaintext highlighter-rouge">-4</code> will produce an AST of <code class="language-plaintext highlighter-rouge">(0-4)</code>. Hopefully, this subtraction will
+be optimized in a further step by the compiler and will be performed at
+compile time rather than at runtime every time the program is run.</p>
+<p>Let us now worry about operator precedence. Currently the following
+expression <code class="language-plaintext highlighter-rouge">1*2+3</code> is parsed as <code class="language-plaintext highlighter-rouge">(1*(2+3))</code>. This is clearly incorrect,
+because the <code class="language-plaintext highlighter-rouge">*</code> is more binding than the <code class="language-plaintext highlighter-rouge">+</code>.</p>
+<p>If you look at the file <code class="language-plaintext highlighter-rouge">src/parser/bison-report.txt</code> you will find many
+shift/reduce and reduce/reduce conflicts. Such as,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>State 25
+
+   20 negExpr: "-" expr .
+   21 opExpr: expr . "+" expr
+   22       | expr . "-" expr
+   23       | expr . "*" expr
+   24       | expr . "/" expr
+   25       | expr . "=" expr
+   26       | expr . "&lt;&gt;" expr
+   27       | expr . "&lt;" expr
+   28       | expr . "&gt;" expr
+   29       | expr . "&lt;=" expr
+   30       | expr . "&gt;=" expr
+   31       | expr . "&amp;" expr
+
+    "+"   shift, and go to state 32
+    "-"   shift, and go to state 33
+[…]
+
+    "+"       [reduce using rule 20 (negExpr)]
+    "-"       [reduce using rule 20 (negExpr)]
+[…]
+</code></pre></div></div>
+<p>Here the parser is parsing the following kind of construct <code class="language-plaintext highlighter-rouge">-4+5</code> and got confused. Should it be parsed as <code class="language-plaintext highlighter-rouge">-(4+5)</code> (incorrect) or <code class="language-plaintext highlighter-rouge">(-4)+5</code> (correct)? The parser does not contain the necessary information yet.</p>
+<p>How to read this report? The reading cursor, depicted by a dot (<code class="language-plaintext highlighter-rouge">.</code>) is currently just before the <code class="language-plaintext highlighter-rouge">+</code> operator: it parsed a minus sign <code class="language-plaintext highlighter-rouge">-</code>, an expression <code class="language-plaintext highlighter-rouge">4</code>, and does not know what to do when it encounters a <code class="language-plaintext highlighter-rouge">+</code> sign. It hesitates between:</p>
+<ul>
+  <li>
+    <p><strong>reducing</strong> <code class="language-plaintext highlighter-rouge">(-4)</code> right now which will utimately produce the following (correct) interpretation <code class="language-plaintext highlighter-rouge">(-4) + 5</code> and the AST <code class="language-plaintext highlighter-rouge">((0-4)+5)</code></p>
+  </li>
+  <li>
+    <p><strong>shifting</strong> which will ultimately produce the following (incorrect) interpretation <code class="language-plaintext highlighter-rouge">-(4+5)</code> and the AST <code class="language-plaintext highlighter-rouge">(0-(4+5))</code></p>
+  </li>
+</ul>
+<p>The default choice in Bison is to shift. Therefore here, the parser will produce the
+second incorrect AST.</p>
+<p>To fix these ambiguities one must declare precedence rules for the operators and some keywords. If you
+look for “Declare precedence rules” in <code class="language-plaintext highlighter-rouge">tiger_parser.yy</code> you will find at this stage</p><pre><code class="language-yacc">%nonassoc FUNCTION VAR TYPE DO OF ASSIGN;
+%left UMINUS;
+</code></pre>
+<p>It means that <code class="language-plaintext highlighter-rouge">FUNCTION</code>, <code class="language-plaintext highlighter-rouge">VAR</code>, and so on are not associative. It also means that the unary minus (denoted by <code class="language-plaintext highlighter-rouge">UMINUS</code>) is associative left (not that it matters for an unary operator), and that it has a higher precedence than <code class="language-plaintext highlighter-rouge">FUNCTION</code>, <code class="language-plaintext highlighter-rouge">VAR</code>, and so on, because it is declared after them.</p>
+<p>As an example, <code class="language-plaintext highlighter-rouge">+</code> should be associative left, and have a precedence lower (“be declared before”) than the unary minus, because you want <code class="language-plaintext highlighter-rouge">-4+5</code> to be parsed as <code class="language-plaintext highlighter-rouge">(-4)+5</code>, not as <code class="language-plaintext highlighter-rouge">-(4+5)</code>.</p>
+<p>▶ Add precedence rules until you fix all the shift/reduce and reduce/reduce conflicts in the parser. 
+Check that you correctly parse arithmetic expressions such as <code class="language-plaintext highlighter-rouge">1+2*3</code>, <code class="language-plaintext highlighter-rouge">5-2-1</code> or <code class="language-plaintext highlighter-rouge">-4+5</code>.</p>
+      <h2 id="adding-support-for-the-boolean-or-operator">
+          <a href="#adding-support-for-the-boolean-or-operator" class="anchor-heading" aria-labelledby="adding-support-for-the-boolean-or-operator"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding support for the boolean OR operator
+      </h2>
+<p>To simplify subsequent phases in the compiler, boolean operators are
+translated to an <code class="language-plaintext highlighter-rouge">IfThenElse</code> AST node.  Indeed, due to Tiger’s lazy evaluation
+of boolean operators, <code class="language-plaintext highlighter-rouge">a &amp; b</code> is semantically equivalent to the following code,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (a) then (if (b) then 1 else 0) else 0 
+</code></pre></div></div>
+<p>▶ Add support for <code class="language-plaintext highlighter-rouge">|</code> (OR) boolean operator in the parser. Do not produce a
+<code class="language-plaintext highlighter-rouge">BinaryOperator</code> node, use an <code class="language-plaintext highlighter-rouge">IfThenElse</code> node with a construction similar to
+the one used by the <code class="language-plaintext highlighter-rouge">&amp;</code> (AND) operator.</p>
+<p>▶ Test that your compiler recognizes the new constructs.</p>
+      <h2 id="adding-support-for-if-then-else-constructs">
+          <a href="#adding-support-for-if-then-else-constructs" class="anchor-heading" aria-labelledby="adding-support-for-if-then-else-constructs"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding support for <code class="language-plaintext highlighter-rouge">if then else</code> constructs
+      </h2>
+<p>▶ Add support for <code class="language-plaintext highlighter-rouge">if then else</code> and <code class="language-plaintext highlighter-rouge">if then</code> constructs to the lexer and parser.</p>
+<p>To simplify subsequent phases in the compiler, when you find a naked</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if condition then
+    body
+</code></pre></div></div>
+<p>block replace it by the following equivalent construct,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if condition then
+    body
+else
+    ()
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">()</code> corresponds to a <code class="language-plaintext highlighter-rouge">Sequence</code> AST node with an empty expression vector.</p>
+<p>Be careful to fix any shift/reduce or reduce/reduce conflicts you may introduce. Do not forget
+to declare the type of the new expression you created and to add it to the list of acceptable
+expressions.</p>
+      <h2 id="implementing-an-ast-evaluator-for-simple-tiger-int-expressions">
+          <a href="#implementing-an-ast-evaluator-for-simple-tiger-int-expressions" class="anchor-heading" aria-labelledby="implementing-an-ast-evaluator-for-simple-tiger-int-expressions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Implementing an AST evaluator for simple Tiger int expressions
+      </h2>
+<p>Now that your parser and lexer are complete, we are going to add a new AST
+iterator that evaluates them to build a simple Tiger calculator.</p>
+<p>The AST evaluator should support evaluating the following AST nodes:</p>
+<ul>
+  <li>
+    <p>An <code class="language-plaintext highlighter-rouge">IntegerLiteral</code> evaluates to its integer value.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">A BinaryOperator</code> evaluates to the result between the two operands. For boolean operators <code class="language-plaintext highlighter-rouge">1</code> is true and <code class="language-plaintext highlighter-rouge">0</code> is false.</p>
+  </li>
+  <li>
+    <p>A <code class="language-plaintext highlighter-rouge">Sequence</code> evaluates all its sub-expressions, and evaluates to the value of its last sub-expression. An empty sequence should raise an error and terminate the evaluation.</p>
+  </li>
+  <li>
+    <p>A <code class="language-plaintext highlighter-rouge">IfThenElse</code> block evaluates to the value of the <code class="language-plaintext highlighter-rouge">then</code> or <code class="language-plaintext highlighter-rouge">else</code> branch depending if the condition is true or false. The other branch is not evaluated at all.</p>
+  </li>
+</ul>
+<p><strong>All the other nodes should raise an error when evaluated.</strong></p>
+<p>The evaluator can be called with the <code class="language-plaintext highlighter-rouge">-e</code> (and <code class="language-plaintext highlighter-rouge">--eval</code>) command line option. It should work as follows,</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"2*3"</span> | src/driver/dtiger <span class="nt">-e</span> -
+6
+</code></pre></div></div>
+<p>Please ensure that your implementation works exactly as above so that this work can be graded automatically.</p>
+<p>When using both <code class="language-plaintext highlighter-rouge">-e</code> and <code class="language-plaintext highlighter-rouge">--dump-ast</code>, an error should be triggered.</p>
+<p>Errors should be raised with the <code class="language-plaintext highlighter-rouge">util/errors.hh</code> functions and should be fatal.</p>
+<p>The evaluator should reside in the <code class="language-plaintext highlighter-rouge">src/ast</code> directory in the <code class="language-plaintext highlighter-rouge">ast</code>
+namespace and extend the class <code class="language-plaintext highlighter-rouge">ConstASTIntVisitor</code>.</p>
+<p>▶ Implement the Evaluator as described above.</p>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

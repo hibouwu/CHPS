@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://www.sifflez.org/lectures/compil/lab1/dragon-tiger.tar.gz",
+    "source_page": "https://compilation-course.github.io/introduction/lab1.html",
+    "status": "downloaded_archive_list_validated",
+    "path": "materials/lab1/dragon-tiger.tar.gz",
+    "members": 10,
+    "sha256": "3e3b90d617bf4936add7d847abc155cc906aa81593f63c4f7b40967324252574",
+    "bytes": 12856464
+  },
+  {
+    "url": "https://www.sifflez.org/lectures/compil/lab2/dragon-tiger.tar.gz",
+    "source_page": "https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html",
+    "status": "downloaded_archive_list_validated",
+    "path": "materials/lab2/dragon-tiger.tar.gz",
+    "members": 48,
+    "sha256": "4d4780e2aa077e0c709c555e57cddb50c6b457fecdabc0666963a38d8051c187",
+    "bytes": 161557
+  },
+  {
+    "url": "https://www.sifflez.org/lectures/compil/lab3/dragon-tiger.tar.gz",
+    "source_page": "https://compilation-course.github.io/frontend/lab3-binder.html",
+    "status": "downloaded_archive_list_validated",
+    "path": "materials/lab3/dragon-tiger.tar.gz",
+    "members": 50,
+    "sha256": "2c79f46f675a9200d2b8152b5743500d2844c708122a5bd75def753d1339b763",
+    "bytes": 787128
+  },
+  {
+    "url": "https://www.sifflez.org/lectures/compil/lab4/dragon-tiger.tar.gz",
+    "source_page": "https://compilation-course.github.io/ir/lab4.html",
+    "status": "downloaded_archive_list_validated",
+    "path": "materials/lab4/dragon-tiger.tar.gz",
+    "members": 55,
+    "sha256": "bc4cdb22f06e2a46ed74fc8edfce0a7db9d3193c4c62498814630c7dec118ee2",
+    "bytes": 1562289
+  }
+]

@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Lab 5 - Static frames - Compilation course</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 5 - Static frames | Compilation course</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Lab 5 - Static frames" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<meta property="og:description" content="Compiler lectures : building a Tiger compiler with an LLVM backend." />
+<link rel="canonical" href="https://compilation-course.github.io/code-generation/lab5.html" />
+<meta property="og:url" content="https://compilation-course.github.io/code-generation/lab5.html" />
+<meta property="og:site_name" content="Compilation course" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 5 - Static frames" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Compiler lectures : building a Tiger compiler with an LLVM backend.","headline":"Lab 5 - Static frames","url":"https://compilation-course.github.io/code-generation/lab5.html"}</script>
+<!-- End Jekyll SEO tag -->
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://compilation-course.github.io/" class="site-title lh-tight">
+  Compilation course
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list"><li class="nav-list-item"><a href="https://compilation-course.github.io/" class="nav-list-link">About this Compilation Course</a></li><li class="nav-list-item"><a href="https://compilation-course.github.io/dev-environment.html" class="nav-list-link">Configuring your development environment</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/introduction/" class="nav-list-link">Introduction</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/1-introduction.html" class="nav-list-link">Introduction to the compilation course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/2-tiger-language.html" class="nav-list-link">Tiger Language</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/3-compiler-anatomy.html" class="nav-list-link">Compiler Anatomy</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/4-llvm-pipeline.html" class="nav-list-link">Example of the LLVM Pipeline</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab0.html" class="nav-list-link">Lab 0 - Git crash course</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/introduction/lab1.html" class="nav-list-link">Lab 1 - Tiger Language</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/" class="nav-list-link">Lexical and syntax analysis</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/1-ast.html" class="nav-list-link">Abstract Syntax Tree</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/2-visitor.html" class="nav-list-link">Visitors</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/3-visitor-example.html" class="nav-list-link">Visitor (ast_dumper.cc) Example</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/4-lexer.html" class="nav-list-link">Lexical Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/5-grammars.html" class="nav-list-link">Context Free Grammars</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/6-parser.html" class="nav-list-link">Syntax Analysis</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/7-slr.html" class="nav-list-link">Introduction to SLR Parsers</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/8-slr-video.html" class="nav-list-link">How to build an SLR Parser</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/lexical-and-syntax-analysis/lab2.html" class="nav-list-link">Lab 2 - Tiger Calculator</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/frontend/" class="nav-list-link">Frontend</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/1-scopes.html" class="nav-list-link">Scopes</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/2-binder.html" class="nav-list-link">Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/3-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/4-types.html" class="nav-list-link">Types</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-binder.html" class="nav-list-link">Lab 3 - Binder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/frontend/lab3-types.html" class="nav-list-link">Lab 3 (second part) - Type checker</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/ir/" class="nav-list-link">Intermediate Representation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/1-ir.html" class="nav-list-link">IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/2-llvm-ir.html" class="nav-list-link">LLVM IR</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/3-basic-block.html" class="nav-list-link">Basic Blocks</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/4-ssa.html" class="nav-list-link">Single Static Assignment (SSA)</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/5-irbuilder.html" class="nav-list-link">IRBuilder</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/6-exercices.html" class="nav-list-link">LLVM IR Exercices</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/ir/lab4.html" class="nav-list-link">Lab 4 - IR generation</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://compilation-course.github.io/code-generation/" class="nav-list-link">Code Generation</a><ul class="nav-list "><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/1-frames.html" class="nav-list-link">Frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/2-opt-pass.html" class="nav-list-link">Example of an optimization pass</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/3-reg-alloc.html" class="nav-list-link">Register allocation</a></li><li class="nav-list-item  active"><a href="https://compilation-course.github.io/code-generation/lab5.html" class="nav-list-link active">Lab 5 - Static frames</a></li><li class="nav-list-item "><a href="https://compilation-course.github.io/code-generation/lab6.html" class="nav-list-link">Lab 6 - runtime</a></li></ul></li></ul>
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Compilation course" aria-label="Search Compilation course" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+                <li class="breadcrumb-nav-list-item"><a href="https://compilation-course.github.io/code-generation/">Code Generation</a></li>
+              <li class="breadcrumb-nav-list-item"><span>Lab 5 - Static frames</span></li>
+            </ol>
+          </nav>
+      <div id="main-content" class="main-content" role="main">
+          <h1 id="lab-5---static-frames">
+          <a href="#lab-5---static-frames" class="anchor-heading" aria-labelledby="lab-5---static-frames"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lab 5 - Static frames
+      </h1>
+<p>In this lab, we will extend our code generator for our
+Tiger compiler so that it can access variables declared
+outside the current function using the static link.</p>
+      <h2 id="setup">
+          <a href="#setup" class="anchor-heading" aria-labelledby="setup"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setup
+      </h2>
+<p>This lab must be done by enriching the work done in lab 4. The automated
+tests will run as soon as you create (and add in git) a <code class="language-plaintext highlighter-rouge">src/irgen/lab5.check</code>
+file in your <code class="language-plaintext highlighter-rouge">lab4/dragon-tiger</code> directory. This file can be empty, only
+its presence is required.</p>
+      <h2 id="frame-creation">
+          <a href="#frame-creation" class="anchor-heading" aria-labelledby="frame-creation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Frame creation
+      </h2>
+<p>▶ Add a new <code class="language-plaintext highlighter-rouge">void IRGenerator::generate_frame()</code> method which will
+be called when analyzing a <code class="language-plaintext highlighter-rouge">FunDecl</code> (in <code class="language-plaintext highlighter-rouge">irgen.cc</code>). The steps are:</p>
+<ul>
+  <li>Build a vector of the types needed in the frame. If the function has a parent,
+the first field is a pointer onto the parent frame. You can use the <code class="language-plaintext highlighter-rouge">getPointerTo()</code>
+method on a type (<code class="language-plaintext highlighter-rouge">llvm::Type</code>) to get a pointer type to it. Other types needed are those
+of the escaping declarations, whose list is accessible through the
+<code class="language-plaintext highlighter-rouge">get_escaping_decls()</code> method on the <code class="language-plaintext highlighter-rouge">FunDecl</code> node. The current function is
+stored in the <code class="language-plaintext highlighter-rouge">current_function</code> field of the <code class="language-plaintext highlighter-rouge">IRGenerator</code> object.</li>
+  <li>Create a new structure named <code class="language-plaintext highlighter-rouge">ft_</code> followed by the external name (for example
+<code class="language-plaintext highlighter-rouge">ft_main.f</code>) from those types.</li>
+  <li>Register this new type into the <code class="language-plaintext highlighter-rouge">frame_type</code> map which associates a function
+declaration to its frame type.</li>
+  <li>Create a new object of the newly created frame type and allocate it on the
+stack, assigning the result to the <code class="language-plaintext highlighter-rouge">frame</code> field of the <code class="language-plaintext highlighter-rouge">IRGenerator</code> object.</li>
+</ul>
+<p>The insertion point should be set to the entry block right after its creation
+before calling <code class="language-plaintext highlighter-rouge">generate_frame()</code>, in <code class="language-plaintext highlighter-rouge">IRGenerator::generate_function()</code>,</p>
+<p>At this stage, the frame will be created with the right type but will be
+empty.</p>
+<p>Also, make sure that you to not attempt to create a field for any escaping
+<code class="language-plaintext highlighter-rouge">void</code> value, as those do not (and cannot) require storage.</p>
+      <h2 id="finding-the-right-frame">
+          <a href="#finding-the-right-frame" class="anchor-heading" aria-labelledby="finding-the-right-frame"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Finding the right frame
+      </h2>
+<p>▶ Add a new <code class="language-plaintext highlighter-rouge">std::pair&lt;llvm::StructType *, llvm::Value *&gt; IRGenerator::frame_up(int levels)</code>
+method (in <code class="language-plaintext highlighter-rouge">irgen.cc</code>) which returns either the current frame information (if <code class="language-plaintext highlighter-rouge">levels</code> is 0)
+or the information of one or several levels above (if <code class="language-plaintext highlighter-rouge">levels</code> is not 0). The returned pair
+contains the frame type and an expression to be able to access it.</p>
+<p>A way to do it would be:</p>
+<ul>
+  <li>Initialize a variable <code class="language-plaintext highlighter-rouge">fun</code> with the current function declaration (found in
+<code class="language-plaintext highlighter-rouge">current_function_decl</code>) and a <code class="language-plaintext highlighter-rouge">sl</code> value representing the address of the
+current frame (found in <code class="language-plaintext highlighter-rouge">frame</code>).</li>
+  <li>Then, for every level you need to go up, replace <code class="language-plaintext highlighter-rouge">sl</code> by a load of the
+first field of the frame it currently points to (using <code class="language-plaintext highlighter-rouge">Builder.CreateStructGEP()</code>
+and <code class="language-plaintext highlighter-rouge">Builder.CreateLoad()</code>, and <code class="language-plaintext highlighter-rouge">fun</code> by the declaration of its parent. You
+are not one level up.</li>
+  <li>When this is done, you can return a pair made of the frame type of <code class="language-plaintext highlighter-rouge">fun</code>
+(found in the <code class="language-plaintext highlighter-rouge">frame_type</code> map) and the current static link from <code class="language-plaintext highlighter-rouge">sl</code>, which represents
+a succession of loads.</li>
+</ul>
+      <h2 id="frame-assignment">
+          <a href="#frame-assignment" class="anchor-heading" aria-labelledby="frame-assignment"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Frame assignment
+      </h2>
+<p>▶ It is now time to put escaping variables into the frame. You will
+create a new <code class="language-plaintext highlighter-rouge">llvm::Value *IRGenerator::generate_vardecl(const VarDecl &amp;decl)</code>
+method (in <code class="language-plaintext highlighter-rouge">irgen.cc</code>) which will take care of allocating the variable
+either in the frame (if it escapes) or in the stack (if it doesn’t escape)
+and register its address into the <code class="language-plaintext highlighter-rouge">allocations</code> map:</p>
+<ul>
+  <li>If the variable does not escape, allocate it using <code class="language-plaintext highlighter-rouge">alloca_in_entry</code>,
+register its address in the <code class="language-plaintext highlighter-rouge">allocations</code> map which maps a variable
+declaration to the <code class="language-plaintext highlighter-rouge">llvm::Value *</code> representing its address. You might
+have to modify code you have written already to set the <code class="language-plaintext highlighter-rouge">allocations</code>
+data here.</li>
+  <li>If the variable does escape, you must find its position in the list
+of escaping variables for the current function. This gives you its
+position in the frame structure. Don’t forget to add 1 if the current
+function has a parent and thus has reserved index 0 to store the static
+link it received. Do not forget to skip <code class="language-plaintext highlighter-rouge">void</code> variables either, as those
+are not represented in the frame. This computed index must be recorded
+into the <code class="language-plaintext highlighter-rouge">frame_position</code> map which associates an escaping variable
+declaration to its position in the frame. Then you can use
+<code class="language-plaintext highlighter-rouge">Builder.CreateStructGEP</code> with the right frame type (found
+in the <code class="language-plaintext highlighter-rouge">frame_type</code> map) and the current frame
+(found in the <code class="language-plaintext highlighter-rouge">frame</code> field of the visitor) to retrieve the address
+of this variable. You must register it in the <code class="language-plaintext highlighter-rouge">allocations</code> map and
+you can return it.</li>
+</ul>
+<p>Now, you can replace your calls to <code class="language-plaintext highlighter-rouge">alloca_in_entry</code> from lab4 to use
+<code class="language-plaintext highlighter-rouge">generate_vardecl</code> instead. Since the tests in lab4 do not use escaping
+variables, this should not break them. However, you might want to
+try some code snippets to ensure that escaping variables (and only
+them and the static link) are stored into the frame.</p>
+      <h2 id="find-the-variable-address">
+          <a href="#find-the-variable-address" class="anchor-heading" aria-labelledby="find-the-variable-address"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Find the variable address
+      </h2>
+<p>▶ Since a variable may have been created in an outer frame, we must
+    use <code class="language-plaintext highlighter-rouge">frame_up</code> to find its address. Modify <code class="language-plaintext highlighter-rouge">IRGenerator::address_of()</code>
+    in order to:</p>
+<ul>
+  <li>return the result of <code class="language-plaintext highlighter-rouge">allocations[&amp;decl]</code> as before if the variable is used
+at the same depth as its declaration;</li>
+  <li>use <code class="language-plaintext highlighter-rouge">frame_up()</code> and the <code class="language-plaintext highlighter-rouge">frame_position</code> map to return a pointer to the
+variable in an upper frame otherwise.</li>
+</ul>
+<p>Make sure you use <code class="language-plaintext highlighter-rouge">address_of()</code> and not directly <code class="language-plaintext highlighter-rouge">allocations</code> in the
+visitor for <code class="language-plaintext highlighter-rouge">Identifier</code> and <code class="language-plaintext highlighter-rouge">Assign</code>.</p>
+      <h2 id="passing-the-static-link">
+          <a href="#passing-the-static-link" class="anchor-heading" aria-labelledby="passing-the-static-link"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Passing the static link
+      </h2>
+<p>▶ We now must pass the static link to every function which isn’t external (primitives
+don’t need the static link). To do so, we need to do several things:</p>
+<ul>
+  <li>Modify the <code class="language-plaintext highlighter-rouge">FunCall</code> visitor in order to pass the static link to non-external functions as
+the first argument. We will use the recently created <code class="language-plaintext highlighter-rouge">frame_up</code> method to get the
+right static link. The number of levels to go up is computed from the difference between
+the depth of the call and the depth of the function declaration. We only care for
+the second component of the pair returned by <code class="language-plaintext highlighter-rouge">frame_up</code>.</li>
+  <li>Modify the <code class="language-plaintext highlighter-rouge">FunDecl</code> visitor if we are analyzing a non-external function. In this
+case, we must insert a parameter which is a pointer to our parent frame type
+before the other arguments.</li>
+  <li>Modify <code class="language-plaintext highlighter-rouge">IRGenerator::generate_function()</code> (in <code class="language-plaintext highlighter-rouge">irgen.cc</code>) so that it stores the
+first parameter (if we are analyzing a non-external function) into the first
+field of the current frame.</li>
+  <li>In the same function, use <code class="language-plaintext highlighter-rouge">generate_vardecl</code> instead of <code class="language-plaintext highlighter-rouge">alloca_in_entry</code> to
+store function parameters into local variables. By doing so, you will ensure
+that escaping parameters will get stored in the frame, while non-escaping ones
+will be allocated on the stack (and probably later in physical registers instead).</li>
+</ul>
+<p>If everything goes well, at this stage, you will be able to run code which uses
+variables defined above the current function.</p>
+<p>Congratulations, your compiler is now complete as far as the code generation is
+concerned.</p>
+      </div>
+    </div>
+      <div class="search-overlay"></div>
+  </div>
+</body>
+</html>

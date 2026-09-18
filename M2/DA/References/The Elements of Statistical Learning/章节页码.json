@@ -1,0 +1,183 @@
+{
+  "original": "PDF/ESLII_print12_toc.pdf",
+  "sha256": "8d098d65cf53925ba0fc13a52a2790d48a32433223cbd876d0a527cd1afe2e0f",
+  "pages": 764,
+  "parts": [
+    {
+      "title": "Front Matter",
+      "file": "PDF/00_Front Matter.pdf",
+      "start": 1,
+      "end": 19,
+      "pages": 19,
+      "markdown_file": "Markdown/00_Front Matter.md"
+    },
+    {
+      "title": "1 Introduction",
+      "file": "PDF/01_Introduction.pdf",
+      "start": 20,
+      "end": 27,
+      "pages": 8,
+      "markdown_file": "Markdown/01_Introduction.md"
+    },
+    {
+      "title": "2 Overview of Supervised Learning",
+      "file": "PDF/02_Overview of Supervised Learning.pdf",
+      "start": 28,
+      "end": 61,
+      "pages": 34,
+      "markdown_file": "Markdown/02_Overview of Supervised Learning.md"
+    },
+    {
+      "title": "3 Linear Methods for Regression",
+      "file": "PDF/03_Linear Methods for Regression.pdf",
+      "start": 62,
+      "end": 119,
+      "pages": 58,
+      "markdown_file": "Markdown/03_Linear Methods for Regression.md"
+    },
+    {
+      "title": "4 Linear Methods for Classification",
+      "file": "PDF/04_Linear Methods for Classification.pdf",
+      "start": 120,
+      "end": 157,
+      "pages": 38,
+      "markdown_file": "Markdown/04_Linear Methods for Classification.md"
+    },
+    {
+      "title": "5 Basis Expansions and Regularization",
+      "file": "PDF/05_Basis Expansions and Regularization.pdf",
+      "start": 158,
+      "end": 209,
+      "pages": 52,
+      "markdown_file": "Markdown/05_Basis Expansions and Regularization.md"
+    },
+    {
+      "title": "6 Kernel Smoothing Methods",
+      "file": "PDF/06_Kernel Smoothing Methods.pdf",
+      "start": 210,
+      "end": 237,
+      "pages": 28,
+      "markdown_file": "Markdown/06_Kernel Smoothing Methods.md"
+    },
+    {
+      "title": "7 Model Assessment and Selection",
+      "file": "PDF/07_Model Assessment and Selection.pdf",
+      "start": 238,
+      "end": 279,
+      "pages": 42,
+      "markdown_file": "Markdown/07_Model Assessment and Selection.md"
+    },
+    {
+      "title": "8 Model Inference and Averaging",
+      "file": "PDF/08_Model Inference and Averaging.pdf",
+      "start": 280,
+      "end": 313,
+      "pages": 34,
+      "markdown_file": "Markdown/08_Model Inference and Averaging.md"
+    },
+    {
+      "title": "9 Additive Models, Trees, and Related Methods",
+      "file": "PDF/09_Additive Models, Trees, and Related Methods.pdf",
+      "start": 314,
+      "end": 355,
+      "pages": 42,
+      "markdown_file": "Markdown/09_Additive Models, Trees, and Related Methods.md"
+    },
+    {
+      "title": "10 Boosting and Additive Trees",
+      "file": "PDF/10_Boosting and Additive Trees.pdf",
+      "start": 356,
+      "end": 407,
+      "pages": 52,
+      "markdown_file": "Markdown/10_Boosting and Additive Trees.md"
+    },
+    {
+      "title": "11 Neural Networks",
+      "file": "PDF/11_Neural Networks.pdf",
+      "start": 408,
+      "end": 435,
+      "pages": 28,
+      "markdown_file": "Markdown/11_Neural Networks.md"
+    },
+    {
+      "title": "12 Support Vector Machines andFlexible Discriminants",
+      "file": "PDF/12_Support Vector Machines andFlexible Discriminants.pdf",
+      "start": 436,
+      "end": 477,
+      "pages": 42,
+      "markdown_file": "Markdown/12_Support Vector Machines andFlexible Discriminants.md"
+    },
+    {
+      "title": "13 Prototype Methods and Nearest-Neighbors",
+      "file": "PDF/13_Prototype Methods and Nearest-Neighbors.pdf",
+      "start": 478,
+      "end": 503,
+      "pages": 26,
+      "markdown_file": "Markdown/13_Prototype Methods and Nearest-Neighbors.md"
+    },
+    {
+      "title": "14 Unsupervised Learning",
+      "file": "PDF/14_Unsupervised Learning.pdf",
+      "start": 504,
+      "end": 605,
+      "pages": 102,
+      "markdown_file": "Markdown/14_Unsupervised Learning.md"
+    },
+    {
+      "title": "15 Random Forests",
+      "file": "PDF/15_Random Forests.pdf",
+      "start": 606,
+      "end": 623,
+      "pages": 18,
+      "markdown_file": "Markdown/15_Random Forests.md"
+    },
+    {
+      "title": "16 Ensemble Learning",
+      "file": "PDF/16_Ensemble Learning.pdf",
+      "start": 624,
+      "end": 643,
+      "pages": 20,
+      "markdown_file": "Markdown/16_Ensemble Learning.md"
+    },
+    {
+      "title": "17 Undirected Graphical Models",
+      "file": "PDF/17_Undirected Graphical Models.pdf",
+      "start": 644,
+      "end": 667,
+      "pages": 24,
+      "markdown_file": "Markdown/17_Undirected Graphical Models.md"
+    },
+    {
+      "title": "18 High-Dimensional Problems:p≫N",
+      "file": "PDF/18_High-Dimensional Problems - p≫N.pdf",
+      "start": 668,
+      "end": 717,
+      "pages": 50,
+      "markdown_file": "Markdown/18_High-Dimensional Problems - p≫N.md"
+    },
+    {
+      "title": "References",
+      "file": "PDF/90_References.pdf",
+      "start": 718,
+      "end": 747,
+      "pages": 30,
+      "markdown_file": "Markdown/90_References.md"
+    },
+    {
+      "title": "Author Index",
+      "file": "PDF/90_Author Index.pdf",
+      "start": 748,
+      "end": 755,
+      "pages": 8,
+      "markdown_file": "Markdown/90_Author Index.md"
+    },
+    {
+      "title": "Index",
+      "file": "PDF/90_Index.pdf",
+      "start": 756,
+      "end": 764,
+      "pages": 9,
+      "markdown_file": "Markdown/90_Index.md"
+    }
+  ]
+}
