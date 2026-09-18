@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+<!-- patch='nozzle' time='9e-05' index='180' -->
+<VTKFile type='PolyData' version='0.1' byte_order='LittleEndian' header_type='UInt64'>
+  <PolyData>
+    <FieldData>
+      <DataArray type='Float32' Name='TimeValue' NumberOfTuples='1' format='binary'>
+BAAAAAAAAABivrw4
+      </DataArray>
+    </FieldData>
+    <Piece NumberOfPoints='12' NumberOfPolys='5'>
+      <Points>
+        <DataArray type='Float32' Name='Points' NumberOfComponents='3' format='binary'>
+kAAAAAAAAACamRk+zcxMPQrXI7yamRk+9P1UPQrXI7yamRk+9P1UPQrXIzyamRk+zcxMPQrXIzyamRk+Gy9dPQrXI7yamRk+Gy9dPQrXIzyamRk+QmBlPQrXI7yamRk+QmBlPQrXIzyamRk+aJFtPQrXI7yamRk+aJFtPQrXIzyamRk+j8J1PQrXI7yamRk+j8J1PQrXIzw=
+        </DataArray>
+      </Points>
+      <Polys>
+        <DataArray type='Int32' Name='connectivity' format='binary'>
+UAAAAAAAAAAAAAAAAQAAAAIAAAADAAAAAQAAAAQAAAAFAAAAAgAAAAQAAAAGAAAABwAAAAUAAAAGAAAACAAAAAkAAAAHAAAACAAAAAoAAAALAAAACQAAAA==
+        </DataArray>
+        <DataArray type='Int32' Name='offsets' format='binary'>
+FAAAAAAAAAAEAAAACAAAAAwAAAAQAAAAFAAAAA==
+        </DataArray>
+      </Polys>
+      <CellData>
+        <DataArray type='Float32' Name='p' format='binary'>
+FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        </DataArray>
+        <DataArray type='Float32' Name='rho' format='binary'>
+FAAAAAAAAAAf/XlEH/15RB/9eUQf/XlEH/15RA==
+        </DataArray>
+        <DataArray type='Float32' Name='U' NumberOfComponents='3' format='binary'>
+PAAAAAAAAAAtQ4JB28rINQAAAAD+Q4JBA4WZNQAAAAD+Q4JB7RPnNAAAAAD+Q4JBaMIDtQAAAAAtQ4JBweuqtQAAAAA=
+        </DataArray>
+      </CellData>
+      <PointData>
+        <DataArray type='Float32' Name='p' format='binary'>
+MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        </DataArray>
+        <DataArray type='Float32' Name='rho' format='binary'>
+MAAAAAAAAAAf/XlEH/15RB/9eUQf/XlEH/15RB/9eUQf/XlEH/15RB/9eUQf/XlEH/15RB/9eUQ=
+        </DataArray>
+        <DataArray type='Float32' Name='U' NumberOfComponents='3' format='binary'>
+kAAAAAAAAAAtQ4JB28rINQAAAACWQ4JB7yexNQAAAACWQ4JB7yexNQAAAAAtQ4JB28rINQAAAAD+Q4JB/klTNQAAAAD+Q4JB/klTNQAAAAD+Q4JBi8MBswAAAAD+Q4JBi8MBswAAAACWQ4JB9cxstQAAAACWQ4JB9cxstQAAAAAtQ4JBweuqtQAAAAAtQ4JBweuqtQAAAAA=
+        </DataArray>
+      </PointData>
+    </Piece>
+  </PolyData>
+</VTKFile>

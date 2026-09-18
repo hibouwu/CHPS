@@ -9,11 +9,11 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 - [TD / TP：题目、解答与代码](Exercises/README.md)
 
 - [课程讲义](<Materials/support/Scientific_Visualisation/main.pdf>)
-- [可视化报告](<Materials/decompressionTank_submission/exemple.pdf>)
+- [可视化报告](<Projects/Decompression-Tank/exemple.pdf>)
 
 ## 收录范围与缺口
 
-报告和配图可阅读；ParaView 软件包、完整仿真数据与实验环境未随笔记整体收录。
+储罐减压作业包含报告、视频、处理脚本及两种格式的输入数据；ParaView 软件和 Python 依赖需要另行安装。
 
 下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
 
@@ -38,11 +38,11 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 项目、报告与演示
 
-### Materials/decompressionTank_submission
+### Projects/Decompression-Tank
 
 | 资源 | 格式 |
 |---|---|
-| [exemple](<Materials/decompressionTank_submission/exemple.pdf>) | PDF |
+| [exemple](<Projects/Decompression-Tank/exemple.pdf>) | PDF |
 
 
 ## 其他学习资料
@@ -57,7 +57,7 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 - [Exercise4.1](<Exercises/Exercise4.1>)
 - [Images](<Materials/Images/>)
-- [decompressionTank_submission](<Materials/decompressionTank_submission/>)
+- [decompressionTank_submission](<Projects/Decompression-Tank>)
 - [support](<Materials/support/>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
@@ -65,3 +65,8 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 ## 讲义配套代码
 
 [ParaView programmable filter / source 示例](Materials/support/Scientific_Visualisation/code/)
+
+## 完整作业与数据
+
+- [储罐减压可视化项目](Projects/Decompression-Tank/README.md)
+- [VTK / VTU / CSV 小例子](Exercises/Data-Examples/README.md)

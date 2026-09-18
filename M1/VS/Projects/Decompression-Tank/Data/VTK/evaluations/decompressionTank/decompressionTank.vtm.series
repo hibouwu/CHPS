@@ -1,0 +1,26 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "decompressionTank_0.vtm", "time" : 0 },
+    { "name" : "decompressionTank_10.vtm", "time" : 5e-06 },
+    { "name" : "decompressionTank_20.vtm", "time" : 1e-05 },
+    { "name" : "decompressionTank_30.vtm", "time" : 1.5e-05 },
+    { "name" : "decompressionTank_40.vtm", "time" : 2e-05 },
+    { "name" : "decompressionTank_50.vtm", "time" : 2.5e-05 },
+    { "name" : "decompressionTank_60.vtm", "time" : 3e-05 },
+    { "name" : "decompressionTank_70.vtm", "time" : 3.5e-05 },
+    { "name" : "decompressionTank_80.vtm", "time" : 4e-05 },
+    { "name" : "decompressionTank_90.vtm", "time" : 4.5e-05 },
+    { "name" : "decompressionTank_100.vtm", "time" : 5e-05 },
+    { "name" : "decompressionTank_110.vtm", "time" : 5.5e-05 },
+    { "name" : "decompressionTank_120.vtm", "time" : 6e-05 },
+    { "name" : "decompressionTank_130.vtm", "time" : 6.5e-05 },
+    { "name" : "decompressionTank_140.vtm", "time" : 7e-05 },
+    { "name" : "decompressionTank_150.vtm", "time" : 7.5e-05 },
+    { "name" : "decompressionTank_160.vtm", "time" : 8e-05 },
+    { "name" : "decompressionTank_170.vtm", "time" : 8.5e-05 },
+    { "name" : "decompressionTank_180.vtm", "time" : 9e-05 },
+    { "name" : "decompressionTank_190.vtm", "time" : 9.5e-05 },
+    { "name" : "decompressionTank_200.vtm", "time" : 0.0001 }
+  ]
+}

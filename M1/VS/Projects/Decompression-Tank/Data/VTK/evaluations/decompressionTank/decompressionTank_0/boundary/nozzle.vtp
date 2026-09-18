@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<!-- patch='nozzle' time='0' index='0' -->
+<VTKFile type='PolyData' version='0.1' byte_order='LittleEndian' header_type='UInt64'>
+  <PolyData>
+    <FieldData>
+      <DataArray type='Float32' Name='TimeValue' NumberOfTuples='1' format='binary'>
+BAAAAAAAAAAAAAAA
+      </DataArray>
+    </FieldData>
+    <Piece NumberOfPoints='12' NumberOfPolys='5'>
+      <Points>
+        <DataArray type='Float32' Name='Points' NumberOfComponents='3' format='binary'>
+kAAAAAAAAACamRk+zcxMPQrXI7yamRk+9P1UPQrXI7yamRk+9P1UPQrXIzyamRk+zcxMPQrXIzyamRk+Gy9dPQrXI7yamRk+Gy9dPQrXIzyamRk+QmBlPQrXI7yamRk+QmBlPQrXIzyamRk+aJFtPQrXI7yamRk+aJFtPQrXIzyamRk+j8J1PQrXI7yamRk+j8J1PQrXIzw=
+        </DataArray>
+      </Points>
+      <Polys>
+        <DataArray type='Int32' Name='connectivity' format='binary'>
+UAAAAAAAAAAAAAAAAQAAAAIAAAADAAAAAQAAAAQAAAAFAAAAAgAAAAQAAAAGAAAABwAAAAUAAAAGAAAACAAAAAkAAAAHAAAACAAAAAoAAAALAAAACQAAAA==
+        </DataArray>
+        <DataArray type='Int32' Name='offsets' format='binary'>
+FAAAAAAAAAAEAAAACAAAAAwAAAAQAAAAFAAAAA==
+        </DataArray>
+      </Polys>
+      <CellData>
+        <DataArray type='Float32' Name='p' format='binary'>
+FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        </DataArray>
+        <DataArray type='Float32' Name='U' NumberOfComponents='3' format='binary'>
+PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        </DataArray>
+      </CellData>
+      <PointData>
+        <DataArray type='Float32' Name='p' format='binary'>
+MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        </DataArray>
+        <DataArray type='Float32' Name='U' NumberOfComponents='3' format='binary'>
+kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+        </DataArray>
+      </PointData>
+    </Piece>
+  </PolyData>
+</VTKFile>
