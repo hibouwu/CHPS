@@ -1,3 +1,7 @@
 venv
 slides
 build
+
+# Published lecture slides are part of the course archive.
+!/docs/slides/
+!/docs/slides/*.pdf

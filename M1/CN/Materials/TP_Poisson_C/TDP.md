@@ -1,6 +1,6 @@
 # Méthodes directes et itératives pour l'équation de la chaleur 1D / 一维稳态热方程的直接与迭代法
 
-T. Dufaud [thomas.dufaud@uvsq.fr](thomas.dufaud@uvsq.fr), J. Gurhem [jgurhem@aneo.fr](jgurhem@aneo.fr) — M1 CHPS —  
+T. Dufaud [thomas.dufaud@uvsq.fr](mailto:thomas.dufaud@uvsq.fr), J. Gurhem [jgurhem@aneo.fr](mailto:jgurhem@aneo.fr) — M1 CHPS —\
 作者与课程信息
 
 ## 1. Résolution de l'équation de la chaleur 1D stationnaire / 一维稳态热方程的求解
