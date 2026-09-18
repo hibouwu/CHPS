@@ -20,3 +20,7 @@
 原目录：[打开本机原始材料](</home/jianyeshi/Note/AISE>). 文档按原内容复制；源码、环境、构建产物与数据集未整体复制，代码和实验请从原目录进入。
 
 复制完整性和原有链接问题见 [Import report](../IMPORT.md)。
+
+## 分章课件
+
+原整本 lecture.pdf 已按原书签切分为 10 章：[章节目录](Materials/CM/Chapters/README.md)。所有分章文件小于 50 MiB。
