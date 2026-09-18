@@ -1,0 +1,55 @@
+#image: timbru31/node-chrome:iron
+image: timbru31/node-chrome:hydrogen
+
+#image: selenium/node-chrome:nightly
+export:
+
+  script:
+    - npm install --save-dev @marp-team/marp-cli
+    - apt update
+    - apt-get install libxss1
+    - apt-get -y install pandoc texlive-latex-base texlive-fonts-recommended texlive-extra-utils texlive-latex-extra
+    - pandoc prerequis.md -o prerequis.pdf
+    - pandoc index.md -o index.pdf
+    - pandoc detailed_index.md -o detailed_index.pdf
+    - pandoc TDs/TD1_cmake.md -o TDs/TD1_cmake.pdf
+    - pandoc TDs/TD2_simulateur_structure.md -o TDs/TD2_simulateur_structure.pdf
+    - pandoc TDs/TD3_simulateur_1D.md -o TDs/TD3_simulateur_1D.pdf
+    - pandoc TDs/TD4_simulateur_1D_instationnaire.md -o TDs/TD4_simulateur_1D_instationnaire.pdf
+    - pandoc TDs/TD5_performance.md -o TDs/TD5_performance.pdf
+    - npx @marp-team/marp-cli@latest intro.md --pdf
+    - npx @marp-team/marp-cli@latest part1_survival_kit/part1_survival_kit-1_TooL.md --pdf
+    - npx @marp-team/marp-cli@latest part1_survival_kit/part1_survival_kit-2_OO.md --pdf
+    - npx @marp-team/marp-cli@latest part1_survival_kit/part1_survival_kit-3_Mem.md --pdf
+    - npx @marp-team/marp-cli@latest part1_survival_kit/part1_survival_kit-4_Static.md --pdf
+    - npx @marp-team/marp-cli@latest part2_deep_water/part2_deep_water-1_TooL.md --pdf    
+    - npx @marp-team/marp-cli@latest part2_deep_water/part2_deep_water-2_Mem.md --pdf    
+    - npx @marp-team/marp-cli@latest part2_deep_water/part2_deep_water-3_OO.md --pdf    
+    - npx @marp-team/marp-cli@latest part2_deep_water/part2_deep_water-4_Static.md --pdf
+
+
+  artifacts:
+    paths:
+      - prerequis.pdf
+      - index.pdf
+      - detailed_index.pdf
+      - intro.pdf
+      - part1_survival_kit/part1_survival_kit-1_TooL.pdf  
+      - part1_survival_kit/part1_survival_kit-2_OO.pdf
+      - part1_survival_kit/part1_survival_kit-3_Mem.pdf
+      - part1_survival_kit/part1_survival_kit-4_Static.pdf
+      - part2_deep_water/part2_deep_water-1_TooL.pdf
+      - part2_deep_water/part2_deep_water-2_Mem.pdf
+      - part2_deep_water/part2_deep_water-3_OO.pdf
+      - part2_deep_water/part2_deep_water-4_Static.pdf
+      - TDs/TD1_cmake.pdf
+      - TDs/TD2_simulateur_structure.pdf
+      - TDs/TD3_simulateur_1D.pdf
+      - TDs/TD4_simulateur_1D_instationnaire.pdf
+      - TDs/TD5_performance.pdf
+
+
+
+
+    untracked: false
+    expire_in: 30 days

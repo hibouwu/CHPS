@@ -144,3 +144,8 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 - [chps2025](<Materials/chps2025/>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
+
+## 课内示例源码
+
+- [C++ 基础示例](Materials/chps2025/part1_survival_kit/exercises/)
+- [C++ 进阶示例](Materials/chps2025/part2_deep_water/exercises/)

@@ -61,3 +61,7 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 - [support](<Materials/support/>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
+
+## 讲义配套代码
+
+[ParaView programmable filter / source 示例](Materials/support/Scientific_Visualisation/code/)

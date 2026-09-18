@@ -234,3 +234,7 @@ C 与 Linux 工具、构建和测试、性能分析、实验方法与神经网�
 [教师课程网站](https://m1-chps.github.io/glhpc/) · [官方材料来源](Official/README.md)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
+
+## 补充练习
+
+[链表练习源码与 CMake 配置](Materials/glhpc/L3ListeChainee/)
