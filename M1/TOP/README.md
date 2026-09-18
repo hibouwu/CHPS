@@ -305,3 +305,7 @@ Official 分别保存教师课程网站和 TOP-26 实验源码；官网课件标
 [教师课程网站](https://dssgabriel.github.io/CHP203-TOP/) · [官方材料来源](Official/README.md)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
+
+## 项目源码
+
+[d2q9-lbm-karman](https://github.com/hibouwu/d2q9-lbm-karman)：MPI/OpenMP D2Q9 LBM 卡门涡街仿真与优化。

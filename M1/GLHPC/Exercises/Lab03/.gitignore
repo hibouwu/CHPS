@@ -1,0 +1,26 @@
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+CMakeUserPresets.json
+mytransform
+venv
+results
+output
+build
+
+# Uncompressed exercise inputs; regenerate with prepare_data.py
+/images/image1.bmp
+
+# Retained exercise figures and small result tables
+!/output/
+/output/*
+!/output/.gitignore
+!/output/image0_rotated.bmp

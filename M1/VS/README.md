@@ -6,6 +6,8 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [课程讲义](<Materials/support/Scientific_Visualisation/main.pdf>)
 - [可视化报告](<Materials/decompressionTank_submission/exemple.pdf>)
 
@@ -27,11 +29,11 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 习题与实验
 
-### Materials/Exercise4.1
+### Exercises/Exercise4.1
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/Exercise4.1/README.md>) | MD |
+| [README](<Exercises/Exercise4.1/README.md>) | MD |
 
 
 ## 项目、报告与演示
@@ -53,7 +55,7 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 目录与配套文件
 
-- [Exercise4.1](<Materials/Exercise4.1/>)
+- [Exercise4.1](<Exercises/Exercise4.1>)
 - [Images](<Materials/Images/>)
 - [decompressionTank_submission](<Materials/decompressionTank_submission/>)
 - [support](<Materials/support/>)

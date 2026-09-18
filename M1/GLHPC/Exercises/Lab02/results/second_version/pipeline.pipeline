@@ -1,0 +1,13 @@
+0 -1 load images/image1.bmp
+1 0 quantize 16
+2 0 quantize 16
+3 0 quantize 16
+4 0 quantize 16
+5 0 quantize 16
+6 0 quantize 16
+7 0 quantize 16
+8 0 quantize 16
+9 0 quantize 16
+10 9 invert
+11 10 grayscale
+12 11 save results/second_version/output.bmp

@@ -1,0 +1,1 @@
+xmgrace -free -log xy -block all_telaps -bxy 1:2 -block all_telaps -bxy 1:3 -block all_telaps -bxy 1:4 -block all_telaps -bxy 1:5 -block all_telaps -bxy 1:6

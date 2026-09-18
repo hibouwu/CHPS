@@ -6,6 +6,8 @@ C 与 Linux 工具、构建和测试、性能分析、实验方法与神经网�
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [教师原版课程导航](<Official/README.md>)
 - [个人整理的课程目录](<Materials/glhpc/docs/index.md>)
 
@@ -125,11 +127,11 @@ C 与 Linux 工具、构建和测试、性能分析、实验方法与神经网�
 | [lab4](<Materials/glhpc/docs/lab4.md>) | MD |
 | [lab5](<Materials/glhpc/docs/lab5.md>) | MD |
 
-### Materials/lab1/exo7
+### Exercises/Lab01-Extra/exo7
 
 | 资源 | 格式 |
 |---|---|
-| [readme](<Materials/lab1/exo7/readme.md>) | MD |
+| [readme](<Exercises/Lab01-Extra/exo7/readme.md>) | MD |
 
 
 ## 考试与复习
@@ -182,49 +184,49 @@ C 与 Linux 工具、构建和测试、性能分析、实验方法与神经网�
 |---|---|
 | [readme](<Materials/glhpc/readme.md>) | MD |
 
-### Materials/glhpc-lab-1-hibouwu
+### Exercises/Lab01
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/glhpc-lab-1-hibouwu/README.md>) | MD |
+| [README](<Exercises/Lab01/README.md>) | MD |
 
-### Materials/glhpc-lab-2-hibouwu
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/glhpc-lab-2-hibouwu/README.md>) | MD |
-
-### Materials/glhpc-lab-3-hibouwu
+### Exercises/Lab02
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/glhpc-lab-3-hibouwu/README.md>) | MD |
+| [README](<Exercises/Lab02/README.md>) | MD |
 
-### Materials/glhpc-lab-4-hibouwu
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/glhpc-lab-4-hibouwu/README.md>) | MD |
-
-### Materials/glhpc-lab-5-hibouwu
+### Exercises/Lab03
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/glhpc-lab-5-hibouwu/README.md>) | MD |
-| [report](<Materials/glhpc-lab-5-hibouwu/report.md>) | MD |
+| [README](<Exercises/Lab03/README.md>) | MD |
+
+### Exercises/Lab04
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Lab04/README.md>) | MD |
+
+### Exercises/Lab05
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Lab05/README.md>) | MD |
+| [report](<Exercises/Lab05/report.md>) | MD |
 
 ## 目录与配套文件
 
 - [examen2526](<Materials/examen2526/>)
 - [glhpc](<Materials/glhpc/>)
-- [glhpc-lab-1-hibouwu](<Materials/glhpc-lab-1-hibouwu/>)
-- [glhpc-lab-2-hibouwu](<Materials/glhpc-lab-2-hibouwu/>)
-- [glhpc-lab-3-hibouwu](<Materials/glhpc-lab-3-hibouwu/>)
-- [glhpc-lab-4-hibouwu](<Materials/glhpc-lab-4-hibouwu/>)
-- [glhpc-lab-5-hibouwu](<Materials/glhpc-lab-5-hibouwu/>)
+- [glhpc-lab-1-hibouwu](<Exercises/Lab01>)
+- [glhpc-lab-2-hibouwu](<Exercises/Lab02>)
+- [glhpc-lab-3-hibouwu](<Exercises/Lab03>)
+- [glhpc-lab-4-hibouwu](<Exercises/Lab04>)
+- [glhpc-lab-5-hibouwu](<Exercises/Lab05>)
 - [glhpc-lab-6-project-hibouwu](<Materials/glhpc-lab-6-project-hibouwu/>)
 - [glhpc-lab7-project-hibouwu](<Materials/glhpc-lab7-project-hibouwu/>)
-- [lab1](<Materials/lab1/>)
+- [lab1](<Exercises/Lab01-Extra>)
 - [glhpc](<Official/glhpc/>)
 
 ## 课程网站

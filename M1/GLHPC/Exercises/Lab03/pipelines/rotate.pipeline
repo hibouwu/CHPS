@@ -1,0 +1,3 @@
+0 -1 load images/image0.bmp
+1 0 rotate
+2 1 save output/image0_rotated.bmp

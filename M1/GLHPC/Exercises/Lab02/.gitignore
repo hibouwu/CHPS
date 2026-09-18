@@ -1,0 +1,31 @@
+*.o
+*.a
+mytransform
+venv
+results
+output
+# Uncompressed exercise inputs; regenerate with prepare_data.py
+/images/image1.bmp
+/scripts/reference.bmp
+
+# Retained exercise figures and small result tables
+!/results/
+/results/*
+!/results/first_version/
+/results/first_version/*
+!/results/second_version/
+/results/second_version/*
+!/results/comparison.png
+!/results/first_version/timings.png
+!/results/first_version/pipeline.pipeline
+!/results/first_version/timings.csv
+!/results/second_version/timings.png
+!/results/second_version/pipeline.pipeline
+!/results/second_version/timings.csv
+
+# Retained exercise figures and small result tables
+!/output/
+/output/*
+!/output/image0_inverted_grayscale.bmp
+!/output/image0_quantized.bmp
+!/output/image0_inverted_quantized.bmp

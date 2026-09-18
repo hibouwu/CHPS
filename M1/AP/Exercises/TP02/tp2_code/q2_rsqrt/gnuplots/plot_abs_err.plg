@@ -1,0 +1,14 @@
+print "Plotting abs. error for file: ", ARG1
+working_directory = system("dirname ".ARG0)
+output_file = outputfile = working_directory."/abs_err.pdf"
+
+set title "Absolute error of FP32 inv. square root (".ARG1.")"
+set xlabel "x"
+set ylabel "Abs. error"
+set logscale x
+set terminal pdf
+set output output_file
+
+plot ARG1 u 1:4 w l title ARG1
+
+print "Output wrote to             : ", output_file

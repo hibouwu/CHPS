@@ -33,6 +33,8 @@ Notes, supports, exercices, annales et références du tronc commun et du parcou
 
 ## Projet PPN
 
+[Projets et exercices](PROJECTS.md) : dépôts des projets, notes de TD/TP et travaux complémentaires en HPC.
+
 **[ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network)** est mon projet de programmation numérique : un réseau de neurones et un moteur de différentiation automatique développés en C++, avec des travaux sur l’optimisation des opérations matricielles et l’entraînement parallèle. Le code, les rapports et la documentation sont disponibles dans ce dépôt.
 
 Les rapports et notes des autres projets se trouvent dans les matières correspondantes : solveur de Poisson en CN, simulateur de particules en POO, EXPRESSO en AISE et simulation de fluide LBM en TOP.

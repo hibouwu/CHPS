@@ -1,0 +1,5 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/my_libTargets.cmake")
+
+check_required_components(my_lib)

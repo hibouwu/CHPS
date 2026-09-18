@@ -1,0 +1,8 @@
+0 -1 load images/image0.bmp
+1 0 grayscale
+2 1 invert
+3 2 save output/image0_inverted_grayscale.bmp
+4 0 quantize 4
+5 4 save output/image0_quantized.bmp
+6 4 invert
+7 6 save output/image0_inverted_quantized.bmp

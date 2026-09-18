@@ -6,6 +6,8 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [教师课程材料](<Materials/cn-cm/>)
 - [Poisson 项目说明](<Materials/TP_Poisson_C/README.md>)
 
@@ -52,35 +54,35 @@ LU/LDLᵀ 手写笔记按主题命名，课次尚未确认；材料数量不代�
 
 ## 习题与实验
 
-### Materials/cn-tdtp2
+### Exercises/TDTP02
 
 | 资源 | 格式 |
 |---|---|
-| [TD2](<Materials/cn-tdtp2/TD2.md>) | MD |
-| [TD2](<Materials/cn-tdtp2/TD2.pdf>) | PDF |
+| [TD2](<Exercises/TDTP02/TD2.md>) | MD |
+| [TD2](<Exercises/TDTP02/TD2.pdf>) | PDF |
 
-### Materials/cn-tdtp3
-
-| 资源 | 格式 |
-|---|---|
-| [TD3](<Materials/cn-tdtp3/TD3.md>) | MD |
-| [TD3](<Materials/cn-tdtp3/TD3.pdf>) | PDF |
-
-### Materials/cn-tdtp4
+### Exercises/TDTP03
 
 | 资源 | 格式 |
 |---|---|
-| [TD4](<Materials/cn-tdtp4/TD4.md>) | MD |
-| [TD4](<Materials/cn-tdtp4/TD4.pdf>) | PDF |
-| [TD4Ex1Corr](<Materials/cn-tdtp4/TD4Ex1Corr.md>) | MD |
-| [TD4Ex1Corr](<Materials/cn-tdtp4/TD4Ex1Corr.pdf>) | PDF |
-| [TD4Ex3Corr](<Materials/cn-tdtp4/TD4Ex3Corr.pdf>) | PDF |
+| [TD3](<Exercises/TDTP03/TD3.md>) | MD |
+| [TD3](<Exercises/TDTP03/TD3.pdf>) | PDF |
 
-### Materials/cn-tdtp5
+### Exercises/TDTP04
 
 | 资源 | 格式 |
 |---|---|
-| [TDP_Methodes-iteratives_2025](<Materials/cn-tdtp5/TDP_Methodes-iteratives_2025.pdf>) | PDF |
+| [TD4](<Exercises/TDTP04/TD4.md>) | MD |
+| [TD4](<Exercises/TDTP04/TD4.pdf>) | PDF |
+| [TD4Ex1Corr](<Exercises/TDTP04/TD4Ex1Corr.md>) | MD |
+| [TD4Ex1Corr](<Exercises/TDTP04/TD4Ex1Corr.pdf>) | PDF |
+| [TD4Ex3Corr](<Exercises/TDTP04/TD4Ex3Corr.pdf>) | PDF |
+
+### Exercises/TDTP05
+
+| 资源 | 格式 |
+|---|---|
+| [TDP_Methodes-iteratives_2025](<Exercises/TDTP05/TDP_Methodes-iteratives_2025.pdf>) | PDF |
 
 
 ## 考试与复习
@@ -107,35 +109,39 @@ LU/LDLᵀ 手写笔记按主题命名，课次尚未确认；材料数量不代�
 
 ## 其他学习资料
 
-### Materials/cn-td1-simulation-climatique-simple-hibouwu
+### Exercises/TD01-Climate
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/cn-td1-simulation-climatique-simple-hibouwu/README.md>) | MD |
-| [README](<Materials/cn-td1-simulation-climatique-simple-hibouwu/README.pdf>) | PDF |
+| [README](<Exercises/TD01-Climate/README.md>) | MD |
+| [README](<Exercises/TD01-Climate/README.pdf>) | PDF |
 
-### Materials/cn-tdtp3
-
-| 资源 | 格式 |
-|---|---|
-| [ExoGAUSSetLU](<Materials/cn-tdtp3/ExoGAUSSetLU.md>) | MD |
-| [exo](<Materials/cn-tdtp3/exo.md>) | MD |
-
-### Materials/cn-tdtp5
+### Exercises/TDTP03
 
 | 资源 | 格式 |
 |---|---|
-| [MIExo](<Materials/cn-tdtp5/MIExo.md>) | MD |
+| [ExoGAUSSetLU](<Exercises/TDTP03/ExoGAUSSetLU.md>) | MD |
+| [exo](<Exercises/TDTP03/exo.md>) | MD |
+
+### Exercises/TDTP05
+
+| 资源 | 格式 |
+|---|---|
+| [MIExo](<Exercises/TDTP05/MIExo.md>) | MD |
 
 ## 目录与配套文件
 
 - [CC](<Materials/CC/>)
 - [TP_Poisson_C](<Materials/TP_Poisson_C/>)
 - [cn-cm](<Materials/cn-cm/>)
-- [cn-td1-simulation-climatique-simple-hibouwu](<Materials/cn-td1-simulation-climatique-simple-hibouwu/>)
-- [cn-tdtp2](<Materials/cn-tdtp2/>)
-- [cn-tdtp3](<Materials/cn-tdtp3/>)
-- [cn-tdtp4](<Materials/cn-tdtp4/>)
-- [cn-tdtp5](<Materials/cn-tdtp5/>)
+- [cn-td1-simulation-climatique-simple-hibouwu](<Exercises/TD01-Climate>)
+- [cn-tdtp2](<Exercises/TDTP02>)
+- [cn-tdtp3](<Exercises/TDTP03>)
+- [cn-tdtp4](<Exercises/TDTP04>)
+- [cn-tdtp5](<Exercises/TDTP05>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
+
+## 项目源码
+
+[cn-poisson-tools](https://github.com/hibouwu/cn-poisson-tools)：一维 Poisson／热方程、直接法与迭代法。

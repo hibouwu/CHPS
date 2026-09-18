@@ -6,6 +6,8 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [分章课件](<Materials/CM/Chapters/README.md>)
 - [EXPRESSO 项目题目](<Materials/Projet/ProjetDoc/sujet.md>)
 
@@ -57,95 +59,95 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 习题与实验
 
-### Materials/TPS
+### Exercises/Systems
 
 | 资源 | 格式 |
 |---|---|
-| [123](<Materials/TPS/123.md>) | MD |
+| [123](<Exercises/Systems/123.md>) | MD |
 
-### Materials/TPS/EX2.1
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX2.1/README.md>) | MD |
-
-### Materials/TPS/EX2.2
+### Exercises/Systems/EX2.1
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX2.2/README.md>) | MD |
+| [README](<Exercises/Systems/EX2.1/README.md>) | MD |
 
-### Materials/TPS/EX2.3
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX2.3/README.md>) | MD |
-
-### Materials/TPS/EX2.4
+### Exercises/Systems/EX2.2
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX2.4/README.md>) | MD |
+| [README](<Exercises/Systems/EX2.2/README.md>) | MD |
 
-### Materials/TPS/EX2.5
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX2.5/README.md>) | MD |
-
-### Materials/TPS/EX2.6
+### Exercises/Systems/EX2.3
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX2.6/README.md>) | MD |
+| [README](<Exercises/Systems/EX2.3/README.md>) | MD |
 
-### Materials/TPS/EX3.1
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX3.1/README.md>) | MD |
-
-### Materials/TPS/EX4.1
+### Exercises/Systems/EX2.4
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX4.1/README.md>) | MD |
+| [README](<Exercises/Systems/EX2.4/README.md>) | MD |
 
-### Materials/TPS/EX4.2
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX4.2/README.md>) | MD |
-
-### Materials/TPS/EX4.3
+### Exercises/Systems/EX2.5
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX4.3/README.md>) | MD |
+| [README](<Exercises/Systems/EX2.5/README.md>) | MD |
 
-### Materials/TPS/EX5.1
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX5.1/README.md>) | MD |
-
-### Materials/TPS/EX5.2
+### Exercises/Systems/EX2.6
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX5.2/README.md>) | MD |
+| [README](<Exercises/Systems/EX2.6/README.md>) | MD |
 
-### Materials/TPS/EX5.3
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/TPS/EX5.3/README.md>) | MD |
-
-### Materials/TPS/EX6.1
+### Exercises/Systems/EX3.1
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/TPS/EX6.1/README.md>) | MD |
+| [README](<Exercises/Systems/EX3.1/README.md>) | MD |
+
+### Exercises/Systems/EX4.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX4.1/README.md>) | MD |
+
+### Exercises/Systems/EX4.2
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX4.2/README.md>) | MD |
+
+### Exercises/Systems/EX4.3
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX4.3/README.md>) | MD |
+
+### Exercises/Systems/EX5.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX5.1/README.md>) | MD |
+
+### Exercises/Systems/EX5.2
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX5.2/README.md>) | MD |
+
+### Exercises/Systems/EX5.3
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX5.3/README.md>) | MD |
+
+### Exercises/Systems/EX6.1
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/Systems/EX6.1/README.md>) | MD |
 
 
 ## 考试与复习
@@ -195,7 +197,7 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 - [CM](<Materials/CM/>)
 - [Projet](<Materials/Projet/>)
-- [TPS](<Materials/TPS/>)
+- [TPS](<Exercises/Systems>)
 - [examen2526](<Materials/examen2526/>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。

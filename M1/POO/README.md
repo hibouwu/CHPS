@@ -6,12 +6,14 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [课程目录](<Materials/chps2025/index.md>)
 - [粒子模拟器](<Materials/POO-TPProjet/README.md>)
 
 ## 收录范围与缺口
 
-部分练习目录只保留文档；完整项目代码仍在原项目目录。
+基础 TD/TP 的题目、解答与代码见 Exercises；粒子模拟器作为独立项目保留。
 
 下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
 
@@ -62,16 +64,16 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
 ## 习题与实验
 
-### Materials/TDDocs
+### Exercises/TD-Notes
 
 | 资源 | 格式 |
 |---|---|
-| [Help_install_gtest](<Materials/TDDocs/Help_install_gtest.md>) | MD |
-| [TD1_cmake](<Materials/TDDocs/TD1_cmake.md>) | MD |
-| [TD2_simulateur_structure](<Materials/TDDocs/TD2_simulateur_structure.md>) | MD |
-| [TD3_simulateur_1D](<Materials/TDDocs/TD3_simulateur_1D.md>) | MD |
-| [TD4_simulateur_1D_instationnaire](<Materials/TDDocs/TD4_simulateur_1D_instationnaire.md>) | MD |
-| [TD5_performance](<Materials/TDDocs/TD5_performance.md>) | MD |
+| [Help_install_gtest](<Exercises/TD-Notes/Help_install_gtest.md>) | MD |
+| [TD1_cmake](<Exercises/TD-Notes/TD1_cmake.md>) | MD |
+| [TD2_simulateur_structure](<Exercises/TD-Notes/TD2_simulateur_structure.md>) | MD |
+| [TD3_simulateur_1D](<Exercises/TD-Notes/TD3_simulateur_1D.md>) | MD |
+| [TD4_simulateur_1D_instationnaire](<Exercises/TD-Notes/TD4_simulateur_1D_instationnaire.md>) | MD |
+| [TD5_performance](<Exercises/TD-Notes/TD5_performance.md>) | MD |
 
 ### Materials/chps2025/TDs
 
@@ -120,25 +122,25 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
 ## 其他学习资料
 
-### Materials/POO 1-5
+### Exercises/Cpp-01-05
 
 | 资源 | 格式 |
 |---|---|
-| [Readme](<Materials/POO 1-5/Readme.md>) | MD |
+| [Readme](<Exercises/Cpp-01-05/Readme.md>) | MD |
 
-### Materials/POO-TP1
+### Exercises/TP01
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/POO-TP1/README.md>) | MD |
-| [Sujet-TP1](<Materials/POO-TP1/Sujet-TP1.md>) | MD |
+| [README](<Exercises/TP01/README.md>) | MD |
+| [Sujet-TP1](<Exercises/TP01/Sujet-TP1.md>) | MD |
 
 ## 目录与配套文件
 
-- [POO 1-5](<Materials/POO 1-5/>)
-- [POO-TP1](<Materials/POO-TP1/>)
+- [POO 1-5](<Exercises/Cpp-01-05>)
+- [POO-TP1](<Exercises/TP01>)
 - [POO-TPProjet](<Materials/POO-TPProjet/>)
-- [TDDocs](<Materials/TDDocs/>)
+- [TDDocs](<Exercises/TD-Notes>)
 - [chps2025](<Materials/chps2025/>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。

@@ -6,12 +6,14 @@ MPI 点对点与集合通信、PThread、OpenMP 的讲义、实验和考试复�
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [课程材料](<Materials/SupportDuCour/>)
 - [考试与复习](<Materials/ExamenEtPartiel/>)
 
 ## 收录范围与缺口
 
-部分习题直接引用的代码解答已收录；本目录不等于完整的原始实验运行环境。
+MPI、PThread 和 OpenMP 的练习题目、解答与代码集中在 Exercises；运行前需准备相应编译器和并行库。
 
 下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
 
@@ -45,65 +47,65 @@ MPI 点对点与集合通信、PThread、OpenMP 的讲义、实验和考试复�
 
 ## 习题与实验
 
-### Materials/td1_mpi_pt2pt_block
+### Exercises/TD01-MPI-Blocking
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/td1_mpi_pt2pt_block/README.md>) | MD |
-| [TD1_MPI_Pt2Pt_Block](<Materials/td1_mpi_pt2pt_block/TD1_MPI_Pt2Pt_Block.md>) | MD |
-| [TD1_MPI_Pt2Pt_Block](<Materials/td1_mpi_pt2pt_block/TD1_MPI_Pt2Pt_Block.pdf>) | PDF |
+| [README](<Exercises/TD01-MPI-Blocking/README.md>) | MD |
+| [TD1_MPI_Pt2Pt_Block](<Exercises/TD01-MPI-Blocking/TD1_MPI_Pt2Pt_Block.md>) | MD |
+| [TD1_MPI_Pt2Pt_Block](<Exercises/TD01-MPI-Blocking/TD1_MPI_Pt2Pt_Block.pdf>) | PDF |
 
-### Materials/td1_mt
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/td1_mt/README.md>) | MD |
-| [TD1_MT](<Materials/td1_mt/TD1_MT.pdf>) | PDF |
-
-### Materials/td1_omp
+### Exercises/TD01-Pthreads
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/td1_omp/README.md>) | MD |
-| [TD1_OMP](<Materials/td1_omp/TD1_OMP.pdf>) | PDF |
+| [README](<Exercises/TD01-Pthreads/README.md>) | MD |
+| [TD1_MT](<Exercises/TD01-Pthreads/TD1_MT.pdf>) | PDF |
 
-### Materials/td2_mpi_pt2pt_nonblock
-
-| 资源 | 格式 |
-|---|---|
-| [TD2_MPI_Pt2Pt_NonBlock](<Materials/td2_mpi_pt2pt_nonblock/TD2_MPI_Pt2Pt_NonBlock.md>) | MD |
-| [TD2_MPI_Pt2Pt_NonBlock](<Materials/td2_mpi_pt2pt_nonblock/TD2_MPI_Pt2Pt_NonBlock.pdf>) | PDF |
-
-### Materials/td2_mt
+### Exercises/TD01-OpenMP
 
 | 资源 | 格式 |
 |---|---|
-| [TD2_MT](<Materials/td2_mt/TD2_MT.pdf>) | PDF |
+| [README](<Exercises/TD01-OpenMP/README.md>) | MD |
+| [TD1_OMP](<Exercises/TD01-OpenMP/TD1_OMP.pdf>) | PDF |
 
-### Materials/td2_omp/MolDyn/correction/solQ4
-
-| 资源 | 格式 |
-|---|---|
-| [README](<Materials/td2_omp/MolDyn/correction/solQ4/README.md>) | MD |
-
-### Materials/td2_omp
+### Exercises/TD02-MPI-Nonblocking
 
 | 资源 | 格式 |
 |---|---|
-| [TD2_OMP](<Materials/td2_omp/TD2_OMP.pdf>) | PDF |
+| [TD2_MPI_Pt2Pt_NonBlock](<Exercises/TD02-MPI-Nonblocking/TD2_MPI_Pt2Pt_NonBlock.md>) | MD |
+| [TD2_MPI_Pt2Pt_NonBlock](<Exercises/TD02-MPI-Nonblocking/TD2_MPI_Pt2Pt_NonBlock.pdf>) | PDF |
 
-### Materials/td3_mpi_collective
-
-| 资源 | 格式 |
-|---|---|
-| [TD3_MPI_Collective](<Materials/td3_mpi_collective/TD3_MPI_Collective.md>) | MD |
-| [TD3_MPI_Collective](<Materials/td3_mpi_collective/TD3_MPI_Collective.pdf>) | PDF |
-
-### Materials/td4_mpi
+### Exercises/TD02-Pthreads
 
 | 资源 | 格式 |
 |---|---|
-| [TD4_Ddt](<Materials/td4_mpi/TD4_Ddt.pdf>) | PDF |
+| [TD2_MT](<Exercises/TD02-Pthreads/TD2_MT.pdf>) | PDF |
+
+### Exercises/TD02-OpenMP/MolDyn/correction/solQ4
+
+| 资源 | 格式 |
+|---|---|
+| [README](<Exercises/TD02-OpenMP/MolDyn/correction/solQ4/README.md>) | MD |
+
+### Exercises/TD02-OpenMP
+
+| 资源 | 格式 |
+|---|---|
+| [TD2_OMP](<Exercises/TD02-OpenMP/TD2_OMP.pdf>) | PDF |
+
+### Exercises/TD03-MPI-Collectives
+
+| 资源 | 格式 |
+|---|---|
+| [TD3_MPI_Collective](<Exercises/TD03-MPI-Collectives/TD3_MPI_Collective.md>) | MD |
+| [TD3_MPI_Collective](<Exercises/TD03-MPI-Collectives/TD3_MPI_Collective.pdf>) | PDF |
+
+### Exercises/TD04-MPI
+
+| 资源 | 格式 |
+|---|---|
+| [TD4_Ddt](<Exercises/TD04-MPI/TD4_Ddt.pdf>) | PDF |
 
 
 ## 考试与复习
@@ -138,13 +140,13 @@ MPI 点对点与集合通信、PThread、OpenMP 的讲义、实验和考试复�
 
 - [ExamenEtPartiel](<Materials/ExamenEtPartiel/>)
 - [SupportDuCour](<Materials/SupportDuCour/>)
-- [td1_mpi_pt2pt_block](<Materials/td1_mpi_pt2pt_block/>)
-- [td1_mt](<Materials/td1_mt/>)
-- [td1_omp](<Materials/td1_omp/>)
-- [td2_mpi_pt2pt_nonblock](<Materials/td2_mpi_pt2pt_nonblock/>)
-- [td2_mt](<Materials/td2_mt/>)
-- [td2_omp](<Materials/td2_omp/>)
-- [td3_mpi_collective](<Materials/td3_mpi_collective/>)
-- [td4_mpi](<Materials/td4_mpi/>)
+- [td1_mpi_pt2pt_block](<Exercises/TD01-MPI-Blocking>)
+- [td1_mt](<Exercises/TD01-Pthreads>)
+- [td1_omp](<Exercises/TD01-OpenMP>)
+- [td2_mpi_pt2pt_nonblock](<Exercises/TD02-MPI-Nonblocking>)
+- [td2_mt](<Exercises/TD02-Pthreads>)
+- [td2_omp](<Exercises/TD02-OpenMP>)
+- [td3_mpi_collective](<Exercises/TD03-MPI-Collectives>)
+- [td4_mpi](<Exercises/TD04-MPI>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。

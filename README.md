@@ -33,6 +33,8 @@ Lecture notes, exercises, exams and references for the common courses and the IH
 
 ## PPN project
 
+[Projects and exercises](PROJECTS.md): course projects, TD/TP notes and related HPC research.
+
 **[ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network)** is my numerical programming project: a C++ neural network and automatic differentiation engine built from scratch, with work on matrix operation optimization and parallel training. The code, reports and project documentation are available in that repository.
 
 Reports and notes for other course projects are kept with their respective courses, including the Poisson solver in CN, the particle simulator in POO, EXPRESSO in AISE and the LBM fluid simulation in TOP.

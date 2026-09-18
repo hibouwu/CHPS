@@ -33,6 +33,8 @@
 
 ## PPN 项目
 
+[项目与练习索引](PROJECTS.md)：课程项目的 GitHub 链接、TD/TP 笔记入口与 HPC 拓展研究。
+
 **[ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network)** 是我的数值编程项目仓库：从零实现 C++ 神经网络与自动微分，并探索矩阵运算优化和并行训练。项目代码、报告和说明请直接查看该仓库。
 
 其他课程项目的报告与笔记随对应课程存放，例如 CN 的 Poisson 求解、POO 的粒子模拟器、AISE 的 EXPRESSO 和 TOP 的 LBM 流体仿真。

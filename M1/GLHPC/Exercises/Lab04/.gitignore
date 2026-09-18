@@ -1,0 +1,21 @@
+*.o
+*.a
+piestimator
+venv
+results
+build/*
+*.png
+
+# Retained exercise figures and small result tables
+!/results/
+/results/*
+!/results/sequential/
+/results/sequential/*
+!/results/sequential/stability.png
+!/results/sequential/convergence.png
+!/results/sequential/timestamp.txt
+!/results/sequential/cpuinfo.txt
+!/results/sequential/meminfo.txt
+!/results/sequential/label.txt
+!/results/sequential/stability.csv
+!/results/sequential/convergence.csv

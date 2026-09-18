@@ -1,14 +1,22 @@
-# M1 projects
+# M1 — 项目与练习
 
-[返回 M1 总览](README.md)
+[全部项目与练习](../PROJECTS.md) · [M1 课程目录](README.md)
 
-| 项目 | 已复制文档 | 项目源码／本机材料 |
+## 个人课程项目
+
+| 课程 | 仓库 | 内容 |
 |---|---|---|
-| MNIST / PPN | [报告与文档](https://github.com/hibouwu/ppn-mnist-neural-network) | [GitHub 仓库](https://github.com/hibouwu/ppn-mnist-neural-network) |
-| D2Q9 LBM / TOP | [文档](<TOP/Materials/d2q9-lbm-karman/>) | [源码仓库](https://github.com/hibouwu/d2q9-lbm-karman) |
-| Poisson / CN | [文档](<CN/Materials/TP_Poisson_C/>) | [源码仓库](https://github.com/hibouwu/cn-poisson-tools) |
-| 粒子模拟器 / POO | [文档](<POO/Materials/POO-TPProjet/>) | [本机项目](</home/jianyeshi/Note/POO/POO-TPProjet>) |
-| EXPRESSO / AISE | [文档](<AISE/Materials/Projet/>) | [源码仓库](https://gitlab.com/expresso-student/expresso) |
-| GLHPC lab7 | [文档](<GLHPC/Materials/glhpc-lab7-project-hibouwu/>) | [源码仓库](https://github.com/M1-CHPS/glhpc-lab7-project-hibouwu) |
-| 储罐减压可视化 | [文档](<VS/Materials/decompressionTank_submission/>) | [本机项目](</home/jianyeshi/Note/Visualization scientufique/decompressionTank_submission>) |
+| PPN | [ppn-mnist-neural-network](https://github.com/hibouwu/ppn-mnist-neural-network) | C++ 神经网络、自动微分与训练系统 |
+| CN | [cn-poisson-tools](https://github.com/hibouwu/cn-poisson-tools) | 一维 Poisson／热方程、直接法与迭代法 |
+| TOP | [d2q9-lbm-karman](https://github.com/hibouwu/d2q9-lbm-karman) | MPI/OpenMP D2Q9 LBM 卡门涡街仿真与优化 |
 
+## 其他项目材料
+
+- [POO 粒子模拟器](POO/Materials/POO-TPProjet/README.md)
+- [AISE EXPRESSO](AISE/Materials/Projet/)
+- [GLHPC 后期实验项目](GLHPC/Materials/glhpc-lab7-project-hibouwu/)
+- [科学可视化报告](VS/Materials/decompressionTank_submission/)
+
+## TD / TP
+
+[AP](AP/Exercises/README.md) · [APP](APP/Exercises/README.md) · [CN](CN/Exercises/README.md) · [POO](POO/Exercises/README.md) · [GLHPC](GLHPC/Exercises/README.md) · [AISE](AISE/Exercises/README.md)

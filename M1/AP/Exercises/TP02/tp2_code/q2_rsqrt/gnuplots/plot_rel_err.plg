@@ -1,0 +1,14 @@
+print "Plotting rel. error for file: ", ARG1
+working_directory = system("dirname ".ARG0)
+output_file = outputfile = working_directory."/rel_err.pdf"
+
+set title "Relative error of FP32 inv. square root (".ARG1.")"
+set xlabel "x"
+set ylabel "Rel. error"
+set logscale x
+set terminal pdf
+set output output_file
+
+plot ARG1 u 1:5 w l title ARG1
+
+print "Output wrote to             : ", output_file

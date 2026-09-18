@@ -6,6 +6,8 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 从这里开始
 
+- [TD / TP：题目、解答与代码](Exercises/README.md)
+
 - [课程材料](<Materials/Cours/>)
 - [TD 题目](<Materials/TDs/>)
 
@@ -66,41 +68,41 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 | [td4](<Materials/TDs/td4.pdf>) | PDF |
 | [td5](<Materials/TDs/td5.pdf>) | PDF |
 
-### Materials/tp1
+### Exercises/TP01
 
 | 资源 | 格式 |
 |---|---|
-| [tp1](<Materials/tp1/tp1.md>) | MD |
-| [tp1](<Materials/tp1/tp1.pdf>) | PDF |
-| [tp1_aarch64_annex](<Materials/tp1/tp1_aarch64_annex.pdf>) | PDF |
-| [tp1_aarch64_annex_MinerU__20251003143753](<Materials/tp1/tp1_aarch64_annex_MinerU__20251003143753.md>) | MD |
+| [tp1](<Exercises/TP01/tp1.md>) | MD |
+| [tp1](<Exercises/TP01/tp1.pdf>) | PDF |
+| [tp1_aarch64_annex](<Exercises/TP01/tp1_aarch64_annex.pdf>) | PDF |
+| [tp1_aarch64_annex_MinerU__20251003143753](<Exercises/TP01/tp1_aarch64_annex_MinerU__20251003143753.md>) | MD |
 
-### Materials/tp2
-
-| 资源 | 格式 |
-|---|---|
-| [tp2](<Materials/tp2/tp2.md>) | MD |
-| [tp2](<Materials/tp2/tp2.pdf>) | PDF |
-
-### Materials/tp2/tp2_code/q2_rsqrt
+### Exercises/TP02
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/tp2/tp2_code/q2_rsqrt/README.html>) | HTML |
-| [README](<Materials/tp2/tp2_code/q2_rsqrt/README.md>) | MD |
+| [tp2](<Exercises/TP02/tp2.md>) | MD |
+| [tp2](<Exercises/TP02/tp2.pdf>) | PDF |
 
-### Materials/tp3
-
-| 资源 | 格式 |
-|---|---|
-| [tp3](<Materials/tp3/tp3.md>) | MD |
-
-### Materials/tp4
+### Exercises/TP02/tp2_code/q2_rsqrt
 
 | 资源 | 格式 |
 |---|---|
-| [tp4](<Materials/tp4/tp4.md>) | MD |
-| [tp4](<Materials/tp4/tp4.pdf>) | PDF |
+| [README](<Exercises/TP02/tp2_code/q2_rsqrt/README.html>) | HTML |
+| [README](<Exercises/TP02/tp2_code/q2_rsqrt/README.md>) | MD |
+
+### Exercises/TP03
+
+| 资源 | 格式 |
+|---|---|
+| [tp3](<Exercises/TP03/tp3.md>) | MD |
+
+### Exercises/TP04
+
+| 资源 | 格式 |
+|---|---|
+| [tp4](<Exercises/TP04/tp4.md>) | MD |
+| [tp4](<Exercises/TP04/tp4.pdf>) | PDF |
 
 
 ## 考试与复习
@@ -121,9 +123,9 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 - [Cours](<Materials/Cours/>)
 - [Examen](<Materials/Examen/>)
 - [TDs](<Materials/TDs/>)
-- [tp1](<Materials/tp1/>)
-- [tp2](<Materials/tp2/>)
-- [tp3](<Materials/tp3/>)
-- [tp4](<Materials/tp4/>)
+- [tp1](<Exercises/TP01>)
+- [tp2](<Exercises/TP02>)
+- [tp3](<Exercises/TP03>)
+- [tp4](<Exercises/TP04>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
