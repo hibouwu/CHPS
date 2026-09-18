@@ -1,0 +1,170 @@
+@startuml
+skinparam classAttributeIconSize 0
+top to bottom direction
+
+class Matrix {
+  +data: vector<double>
+  +rows: size_t
+  +cols: size_t
+  +matmul(other: Matrix): Matrix
+  +add(other: Matrix): Matrix
+  +mul(other: Matrix): Matrix
+  +randomInit(param1: double, param2: double, use_normal: bool, seed: uint): void
+  +print(): void
+  +operator()(r: size_t, c: size_t): double
+}
+
+class Node {
+  -value_: Matrix
+  -grad_: Matrix
+  -parents_: vector~shared_ptr<Node>~
+  -backwardFn_: function<void(const Matrix&)>
+  +value(): const Matrix&
+  +grad(): Matrix&
+  +addParent(p: shared_ptr<Node>): void
+  +setBackwardFn(fn: function<void(const Matrix&)>): void
+  +backward(): void
+  +addGrad(g: Matrix): void
+  +zeroGrad(): void
+  {static} +topoSort(root: shared_ptr<Node>): vector~shared_ptr<Node>~
+}
+Node *-- Matrix : value, grad
+
+class OperationNode {
+  -opType_: OpKind
+  +opType(): OpKind
+}
+OperationNode --|> Node
+
+class MathOps <<Utility>> {
+  {static} +add(a: Node, b: Node): Node
+  {static} +matmul(a: Node, b: Node): Node
+  {static} +mul(a: Node, b: Node): Node
+  {static} +sum(x: Node): Node
+  {static} +mean(x: Node): Node
+  {static} +relu(x: Node): Node
+  {static} +sigmoid(x: Node): Node
+  {static} +tanh(x: Node): Node
+}
+MathOps ..> Node : creates >
+
+interface ActivationFunction {
+  +forward(input: Node): Node
+}
+class ReLU
+class Sigmoid
+class Tanh
+ActivationFunction <|.. ReLU
+ActivationFunction <|.. Sigmoid
+ActivationFunction <|.. Tanh
+ReLU ..> MathOps : uses >
+Sigmoid ..> MathOps : uses >
+Tanh ..> MathOps : uses >
+
+class LinearLayer {
+  + {static} enum InitType { Manual, He, Xavier }
+  -in_dim: size_t
+  -out_dim: size_t
+  -weights_: Node
+  -bias_: Node
+  +forward(input: Node): Node
+  +forward(input: Node): Node
+  +randomInit(min: double, max: double, initType: InitType, seed: uint): void
+  +parameters(): vector~shared_ptr<Node>~
+  +parameters(): vector~shared_ptr<Node>~
+}
+LinearLayer o-- Node : weights, bias
+LinearLayer ..> MathOps : uses >
+
+class LayerNode {
+  +linear: unique_ptr<LinearLayer>
+  +activation: unique_ptr<ActivationFunction>
+}
+
+class MLPNetwork {
+  -layers: vector~LayerNode~
+  +addLayer(linear: LinearLayer, activation: ActivationFunction): void
+  +forward(input: Node): Node
+  +getParameters(): vector~shared_ptr<Node>~
+}
+MLPNetwork *-- LayerNode
+LayerNode *-- LinearLayer
+LayerNode *-- ActivationFunction
+
+interface LossFunction {
+  +forward(pred: Node, target: Node): Node
+}
+class MSELoss
+class CrossEntropyLoss
+LossFunction <|.. MSELoss
+LossFunction <|.. CrossEntropyLoss
+
+abstract Optimizer {
+  #parameters_: vector~shared_ptr<Node>~
+  #lr_: double
+  +step(): void
+  +zeroGrad(): void
+}
+class SGDOptimizer {
+  +step(): void
+}
+SGDOptimizer --|> Optimizer
+
+class MNISTDataset {
+  -data_dir_: string
+  -train_images_: Matrix
+  -train_labels_: Matrix
+  -test_images_: Matrix
+  -test_labels_: Matrix
+  +load(): void
+  +getTrainImages(): const Matrix&
+  +getTrainLabels(): const Matrix&
+}
+
+class DataLoader {
+  -inputs_: const Matrix&
+  -targets_: const Matrix&
+  -batchSize_: size_t
+  -currentIndex_: size_t
+  -indices_: vector~size_t~
+  +reset(): void
+  +hasNext(): bool
+  +nextBatchInto(x: Matrix&, y: Matrix&): size_t
+  +shuffle(): void
+}
+DataLoader --> Matrix : references (no ownership)
+
+struct Metrics {
+  +avg_loss: double
+  +accuracy: double
+}
+
+class Trainer {
+  -model_: MLPNetwork&
+  -lossFn_: LossFunction&
+  -optimizer_: Optimizer&
+  -dataLoader_: DataLoader&
+  +trainEpoch(): Metrics
+  +evaluate(): Metrics
+}
+Trainer o-- MLPNetwork : ref
+Trainer o-- LossFunction : ref
+Trainer o-- Optimizer : ref
+Trainer o-- DataLoader : ref
+
+class TrainingConfig {
+  +epochs: int
+  +batchSize: int
+  +learningRate: double
+  +dataDir: string
+}
+
+class TrainingEntry <<Entry Point>> {
+  + {static} main(argc: int, argv: char**): int
+}
+TrainingEntry ..> Trainer : instantiates >
+TrainingEntry ..> TrainingConfig : creates >
+TrainingEntry ..> MNISTDataset : loads >
+TrainingEntry ..> MLPNetwork : builds >
+TrainingEntry ..> DataLoader : builds >
+@enduml

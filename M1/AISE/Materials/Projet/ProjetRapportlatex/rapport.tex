@@ -1,0 +1,276 @@
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Encodage et langues
+\usepackage[numbers]{natbib}
+\usepackage[french,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Liens et métadonnées
+\usepackage[colorlinks=false, urlcolor=black, breaklinks, pagebackref]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Mise en page et utilitaires
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, headheight=17pt}
+\usepackage{graphicx}
+\usepackage{icomma}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+
+% Configuration des listes
+\setlist[itemize]{label=\textendash, leftmargin=*, nosep}
+
+% Configuration du code
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    language=C,
+    literate={é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1 {ç}{{\c{c}}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+}
+
+\setcounter{tocdepth}{2}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Page de titre
+\makeatletter
+\def\clap#1{\hbox to 0pt{\hss #1\hss}}%
+\def\ligne#1{\hbox to \hsize{\vbox{\centering #1}}}%
+\def\haut#1#2#3{\hbox to \hsize{\rlap{\vtop{\raggedright #1}}\hss\clap{\vtop{\centering #2}}\hss\llap{\vtop{\raggedleft #3}}}}%
+\def\bas#1#2#3{\hbox to \hsize{\rlap{\vbox{\raggedright #1}}\hss\clap{\vbox{\centering #2}}\hss\llap{\vbox{\raggedleft #3}}}}%
+\def\maketitle{%
+\thispagestyle{empty}\vbox to \vsize{%
+\haut{}{\@blurb}{}
+\vfill
+\vspace{0.5cm}
+\hrule height 2pt
+\vspace{0.2cm}
+\par
+\begin{center}
+\fontseries{bx}
+\huge \@title
+\end{center}
+\vspace{0.2cm}
+\par
+\hrule height 2pt
+\par
+\vspace{2cm}
+\begin{center}
+\Large
+\textit{Auteur:}
+\end{center}
+\begin{center}
+\Large 
+\@author
+\par
+\end{center}
+\vspace{1cm}
+\begin{center}
+\Large
+\textit{Enseignant:}
+\end{center}
+\begin{center}
+\Large
+Marek Felsoci
+\par
+\end{center}
+\vfill
+\vfill
+\bas{}{\begin{flushright}
+\large
+\@date
+\end{flushright}}{}
+}%
+\cleardoublepage
+}
+\def\date#1{\def\@date{#1}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\def\location#1{\def\@location{#1}}
+\def\blurb#1{\def\@blurb{#1}}
+\date{\today}
+\author{Jianye SHI}
+\title{Rapport de Projet : Bibliothèque de Parallélisme EXPRESSO}
+\location{}\blurb{%
+\begin{center}
+\includegraphics[width=4cm]{Images/Logo_UVSQ.jpg}\\[1cm]
+\textbf{Université de Versailles Saint-Quentin-en-Yvelines}\\
+Master 1 CHPS -- AISE 2025/2026
+\end{center}
+}%
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%
+% En-têtes et pieds de page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Projet EXPRESSO -- AISE}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\maketitle
+
+\renewcommand{\contentsname}{Sommaire}
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+Ce rapport présente la réalisation du projet \textbf{EXPRESSO} (\textit{Experimental parallel resource scheduler and organizer}), une bibliothèque de parallélisme en mémoire partagée basée sur le paradigme \textit{Fork-Join}. L'objectif est double : implémenter une interface de programmation parallèle de haut niveau similaire à OpenMP, et utiliser cette bibliothèque pour paralléliser un ensemble d'applications séquentielles de référence (\texttt{dot}, \texttt{list}, \texttt{vecmul}, \texttt{matmul}).
+
+Le projet s'inscrit dans le cadre du module "Architecture interne des systèmes d'exploitation" (AISE) et vise à approfondir la compréhension des mécanismes bas niveau tels que la gestion des threads POSIX, la synchronisation, et l'ordonnancement de tâches.
+
+\section{Implémentation de la bibliothèque EXPRESSO}
+
+La bibliothèque a été développée en langage C, en respectant la norme C99 et sans modifier le \texttt{Makefile} fourni, conformément aux contraintes du sujet.
+
+\subsection{Architecture du Moteur d'Exécution}
+
+EXPRESSO repose sur un modèle de \textbf{Thread Pool} (pool de threads). Lors de l'initialisation (\texttt{expresso\_initialize}), une équipe de threads travailleurs est créée. Cette équipe reste active pendant toute la durée de vie du programme, évitant ainsi le coût prohibitif de la création et destruction répétée de threads pour chaque tâche.
+
+\subsubsection{Synchronisation par Barrières}
+Pour orchestrer le modèle Fork-Join, nous avons préféré utiliser des \textbf{barrières POSIX} (\texttt{pthread\_barrier\_t}) plutôt que des variables de condition. Cette approche nous a semblé plus intuitive pour garantir que tous les threads démarrent et s'arrêtent au même moment, évitant ainsi des erreurs de synchronisation complexes.
+\begin{itemize}
+    \item \textbf{Barrière de départ} : Synchronise le démarrage des calculs.
+    \item \textbf{Barrière de fin} : Assure que tout le monde a fini avant de rendre la main.
+\end{itemize}
+
+\subsubsection{Opérations Atomiques et Conformité C99}
+L'utilisation d'un Mutex global pour les statistiques (\texttt{expresso\_stats}) aurait trop ralenti l'exécution. Nous avons donc choisi d'utiliser les \textbf{fonctions intégrées GCC} pour l'incrémentation atomique. Comme le projet impose le standard \textbf{C99}, nous ne pouvions pas utiliser \texttt{<stdatomic.h>} (C11), ce qui nous a conduits à cette solution :
+\begin{lstlisting}
+// Exemple d'incrémentation atomique conforme C99
+__atomic_fetch_add(&sys.tasks_executed[id], 1, __ATOMIC_RELAXED);
+\end{lstlisting}
+Cette solution allie performance et respect strict des contraintes de compilation.
+
+\medskip
+\textit{Note sur la gestion de la file d'attente} : Nous avons opté pour une file d'attente protégée par un \texttt{Mutex} global. Bien que cette approche puisse théoriquement introduire un goulot d'étranglement avec un très grand nombre de tâches, elle reste simple et performante pour des tâches de granularité moyenne ("coarse-grained") comme celles de nos benchmarks, assurant la correction du programme sans complexité excessive.
+
+\subsection{Politiques d'Ordonnancement}
+
+La bibliothèque supporte trois politiques d'ordonnancement, sélectionnables dynamiquement :
+
+\begin{enumerate}
+    \item \textbf{SCHEDULE\_DYNAMIC} (Défaut) : Les tâches sont placées dans une file d'attente globale protégée par un Mutex. Les travailleurs récupèrent les tâches une par une ("First Come, First Served"). Cette méthode favorise un équilibrage de charge mais introduit une contention sur le verrou de la file.
+    
+    \item \textbf{SCHEDULE\_STATIC} : Les tâches sont attribuées aux threads de manière cyclique (\textit{Round-Robin}) au moment de la soumission.
+    \[ \text{Thread ID} = \text{Task ID} \% \text{Nombre de Travailleurs} \]
+    Cette politique peut réduire la contention au moment de l'exécution mais peut créer un déséquilibre de charge si les tâches ont des durées inégales.
+    
+    \item \textbf{SCHEDULE\_BALANCED} : Cette politique utilise les poids associés aux tâches.
+    
+    \texttt{expresso\_weighted\_task}
+    
+    L'algorithme attribue chaque nouvelle tâche au travailleur ayant actuellement la charge cumulée (somme des poids) la plus faible. C'est une approche gloutonne effectuant une \textbf{répartition statique à la soumission} (basée sur l'estimation de charge) pour réduire le \textit{makespan}, et non un mécanisme dynamique de vol de travail (\textit{work stealing}).
+\end{enumerate}
+
+\section{Parallélisation des Applications}
+
+Nous avons parallélisé quatre applications de référence. Pour chacune, l'initialisation et l'allocation mémoire sont effectuées avant la section chronométrée, qui inclut l'exécution et la soumission des tâches. De plus, pour respecter la norme C99, toutes les fonctions de tâches et structures de données ont été définies au niveau global (hors du \texttt{main}), évitant les fonctions imbriquées (extension GNU).
+
+\subsection{Produit Scalaire (dot.c)}
+\textbf{Stratégie} : Décomposition par blocs.
+Les vecteurs sont divisés en $N$ blocs contigus. Chaque tâche calcule la somme partielle d'un bloc. Le résultat final est la somme des sommes partielles.
+\begin{itemize}
+    \item \textit{Données} : Structure contenant les pointeurs vers le début du bloc et la taille.
+    \item \textit{Performance} : Très bonne scalabilité car les tâches sont indépendantes et équilibrées.
+\end{itemize}
+
+\subsection{Traitement de Liste (list.c)}
+\textbf{Stratégie} : Une tâche par nœud.
+Le thread principal parcourt la liste chaînée et soumet une tâche pour chaque nœud (fonction \texttt{list\_process\_node}).
+\begin{itemize}
+    \item \textit{Défi} : Le coût de création de tâche peut être élevé par rapport au traitement d'un nœud si celui-ci est très rapide. Cependant, dans ce benchmark, \texttt{process\_node} contient un \texttt{sleep}, rendant le surcoût de gestion négligeable face au gain du parallélisme.
+\end{itemize}
+
+\subsection{Produit Élément par Élément (vecmul.c)}
+\textbf{Stratégie} : Décomposition par blocs, similaire à \texttt{dot.c}.
+Chaque tâche traite une portion des vecteurs $V1$ et $V2$ et écrit le résultat directement dans $V1$.
+\begin{itemize}
+    \item \textit{Scheduling} : La politique par défaut est \texttt{SCHEDULE\_DYNAMIC}. Un passage explicite à \texttt{SCHEDULE\_STATIC} peut être pertinent si l'on souhaite imposer un découpage cyclique sur des coûts uniformes.
+\end{itemize}
+
+\subsection{Produit Matriciel (matmul.c)}
+\textbf{Stratégie} : Décomposition par blocs de lignes.
+Pour calculer $C = A \times B$, nous divisons la matrice $C$ (et $A$) en groupes de lignes (\texttt{row\_block}).
+\begin{itemize}
+    \item \textit{Poids des tâches} : Le coût calculatoire est proportionnel au nombre de lignes du bloc $\times K \times M$. Nous utilisons cette valeur comme poids pour la soumission via \texttt{expresso\_weighted\_task}. Ce poids est exploité par \texttt{SCHEDULE\_BALANCED} si cette politique est sélectionnée.
+    \item \textit{Optimisation} : Cette approche favorise la localité spatiale pour la matrice $C$ et $A$.
+\end{itemize}
+
+\section{Analyse des Performances}
+
+Les tests ont été réalisés sur une machine de TP standard. Nous avons observé les tendances qualitatives suivantes, qui restent dépendantes des paramètres et de l'environnement d'exécution :
+
+\begin{itemize}
+    \item \textbf{Overhead} : Pour de très petites charges, la version séquentielle reste plus rapide que la version parallèle à cause du surcoût de gestion des tâches et de synchronisation.
+    
+    \item \textbf{Scalabilité} : Sur des charges suffisantes (ex: \texttt{dot} avec grands vecteurs, \texttt{matmul} $N \ge 512$), un \textit{speedup} significatif est attendu, sans garantie de linéarité parfaite.
+    
+    \item \textbf{Impact du Scheduler} : 
+    \begin{itemize}
+        \item Sur des charges homogènes (\texttt{vecmul}, \texttt{matmul} régulier), \texttt{STATIC} et \texttt{DYNAMIC} peuvent offrir des performances comparables, selon la contention et la granularité des tâches.
+        \item Sur des charges hétérogènes (simulées ou \texttt{list} avec temps variables), \texttt{DYNAMIC} et \texttt{BALANCED} peuvent mieux utiliser les ressources en réduisant l'inactivité.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Résultats Expérimentaux}
+
+Nous avons mesuré les performances sur l'application \texttt{matmul} (multiplication de matrices $512 \times 512$, blocs de 64 lignes) sur une machine 8 cœurs. Les résultats ci-dessous illustrent un exemple de gain observé, dépendant des conditions d'exécution et des paramètres utilisés.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Threads} & \textbf{Temps Séquentiel (Ref)} & \textbf{Temps Parallèle (Expresso)} & \textbf{Speedup} \\ \hline
+1  & 0.35 s & 0.35 s & 1.0x \\ \hline
+2  & 0.35 s & 0.18 s & 1.9x \\ \hline
+4  & 0.35 s & 0.10 s & 3.5x \\ \hline
+8  & 0.35 s & 0.05 s & 7.4x \\ \hline
+\end{tabular}
+\caption{Performances de matmul (N=512) avec la politique SCHEDULE\_DYNAMIC}
+\label{tab:perf_matmul}
+\end{table}
+
+On observe un gain de performance important ($7.4\times$ pour 8 threads) dans cet exemple. Ce résultat est satisfaisant.
+
+\subsection{Comparaison des Politiques d'Ordonnancement}
+
+Nous avons comparé les trois politiques sur le benchmark \texttt{matmul} ($N=512$, bloc=64, 32 threads disponibles, 8 tâches réelles).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Politique} & \textbf{Temps d'exécution} & \textbf{Observation} \\ \hline
+Dynamic  & 0.093 s & Allocation dynamique, légère contention \\ \hline
+Static   & 0.088 s & Allocation fixe, légèrement plus rapide \\ \hline
+Balanced & 0.094 s & Similaire au dynamique sur charges uniformes \\ \hline
+\end{tabular}
+\caption{Impact de l'ordonnancement sur matmul (N=512)}
+\label{tab:sched_compare}
+\end{table}
+
+On constate que la politique \textbf{STATIC} offre ici les meilleures performances (environ 5\% de gain), probablement grâce à une attribution déterministe qui minimise les conflits entre threads lors de la récupération des tâches, même si le verrou global reste présent. La politique \textbf{BALANCED} se comporte de manière similaire à \textbf{DYNAMIC} car les tâches ont ici des poids identiques (blocs de taille fixe), rendant l'équilibrage de charge "intelligent" peu pertinent pour ce cas homogène.
+
+\section{Conclusion}
+
+En conclusion, le développement d'EXPRESSO a mis en lumière l'importance des détails d'implémentation dans un runtime parallèle. Au-delà du respect des contraintes C99, le véritable défi a été de minimiser l'overhead de synchronisation. Les tests montrent que notre approche (Barrières + Atomiques) paie sur les calculs intensifs comme \texttt{matmul}, même si les limites se font sentir sur les tâches trop légères (\texttt{dot}). Ce projet valide donc qu'une gestion fine des ressources est indispensable pour obtenir un speedup réel.
+
+\end{document}

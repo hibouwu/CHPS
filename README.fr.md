@@ -2,6 +2,8 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **Français**
 
+La collection comprend aussi des supports de cours, des notes numériques, des exercices, des annales et des documents de projet. **[Index complet du M1](M1/README.md)** · [Projets](M1/PROJECTS.md) · [Détails de l’import](M1/IMPORT.md).
+
 Je rassemble ici mes notes de cours, mes solutions d'exercices et les annales que j'ai récupérées pendant mes études en CHPS. Si vous suivez les mêmes cours, vous pouvez retrouver les documents par matière ou reprendre une démonstration en travaillant vos exercices.
 
 Les documents disponibles concernent pour le moment le M1. Les notes sont pour la plupart manuscrites dans Notability, en français, avec quelques explications en chinois.

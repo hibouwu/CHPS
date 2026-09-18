@@ -1,0 +1,68 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+enum ComputeType {
+  Steady
+  Unsteady
+}
+
+class Array {
+  - data_: std::vector<double>
+  + operator[](size_t): double
+  + size() : size_t
+  + fill(double) : void
+  + begin()/end()
+}
+
+class ConstantGasField {
+  + velocity(position: double, time: double) : double
+}
+
+class "Model~GasField~" as Model {
+  + compute_velocities(velocities: Array&, positions: Array const&, time: double) : void
+  + compute_positions(positions: Array&, velocities: Array const&, time: double) : void
+}
+
+abstract class SimulatorBase {
+  {abstract} + compute(particles: Particles*) : void
+}
+
+class SteadySimulator {
+  + compute(particles: Particles*) : void
+}
+
+class UnsteadySimulator {
+  + compute(particles: Particles*) : void
+}
+
+class SimulatorFactory {
+  + stringToComputeType(type_str: std::string) : ComputeType
+  + createSimulator(compute_type: ComputeType) : std::unique_ptr<SimulatorBase>
+  + printUsage() : void
+}
+
+class Particles {
+  - simulator_: std::unique_ptr<SimulatorBase>
+  - particle_count_: size_t
+  - positions_: Array
+  - velocities_: Array
+  + Particles(particle_count: size_t = 10)
+  + init(compute_type: ComputeType) : void
+  + init_particles() : void
+  + compute_particles(time: double) : void
+  + print_particles(time: double) : void
+  + compute() : void
+  - export_particles_to_file(filename: std::string, data: Array const&, quantity_label: std::string, time: double) : void
+}
+
+ComputeType <.. SimulatorFactory : uses
+SimulatorFactory ..> SimulatorBase : create
+SimulatorBase <|-- SteadySimulator
+SimulatorBase <|-- UnsteadySimulator
+Particles o--> SimulatorBase : simulator_
+Particles *-- Array : positions_\nvelocities_
+Particles ..> ComputeType
+Particles ..> SteadySimulator
+Particles ..> UnsteadySimulator
+Model --> ConstantGasField : template param
+@enduml

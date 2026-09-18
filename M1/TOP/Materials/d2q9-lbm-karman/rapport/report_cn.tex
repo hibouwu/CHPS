@@ -1,0 +1,1055 @@
+\documentclass[a4paper,11pt,oneside]{report}
+
+% ── Langue et polices (XeLaTeX) ──────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\setotherlanguage{english}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Latin Modern Mono}
+
+% ── Mise en page et paragraphes ──────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper, margin=2.3cm, headheight=16pt}
+\usepackage{setspace}
+\setstretch{1.12}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.35em}
+
+% ── Mathématiques ────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb}
+
+% ── Tableaux ────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+\renewcommand\theadfont{\bfseries}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% ── Figures et couleurs ─────────────────────────────────────────────────────
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc,decorations.pathreplacing}
+
+% ── Code ────────────────────────────────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue!70!black}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{orange!80!black},
+  numbers=none,
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{black!20},
+  backgroundcolor=\color{black!3},
+  breaklines=true,
+  captionpos=b,
+  language=C++,
+  morekeywords={pragma,omp,parallel,for,simd,reduction,schedule,static,
+                MPI_Send,MPI_Recv,MPI_Isend,MPI_Irecv,MPI_Waitall,MPI_Barrier}
+}
+
+% ── Listes ──────────────────────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist[itemize]{label=\textendash, leftmargin=*, nosep}
+
+% ── Style des légendes de figure ────────────────────────────────────────────
+\captionsetup[figure]{font=footnotesize, justification=justified, singlelinecheck=false}
+
+% ── Format des titres de section ────────────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\chapter}{\Huge\bfseries}{}{0em}{}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{}{0em}{}
+
+% ── En-têtes et pieds de page ───────────────────────────────────────────────
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[L]{\textit{\reportshorttitle}}
+\fancyhead[R]{Rapport d'optimisation des performances}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{16pt}
+
+% ── Hyperliens ──────────────────────────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{colorlinks=false, pdfborder={0 0 0}}
+
+% ── Couleurs personnalisées ────────────────────────────────────────────────
+\definecolor{phaseA}{HTML}{2563EB}
+\definecolor{phaseB}{HTML}{16A34A}
+\definecolor{phaseC}{HTML}{D97706}
+\definecolor{phaseD}{HTML}{9333EA}
+\definecolor{phase2}{HTML}{DC2626}
+\definecolor{rowgray}{HTML}{F3F4F6}
+
+% ── Macros utilitaires ──────────────────────────────────────────────────────
+\newcommand{\reporttype}{Rapport d'optimisation des performances}
+\newcommand{\reporttitletext}{Solveur D2Q9 LBM du sillage de Kármán}
+\newcommand{\reportshorttitle}{Solveur D2Q9 LBM Kármán}
+\newcommand{\reportauthor}{Wei WEI et Jianye SHI}
+\newcommand{\reportprogram}{Solveur D2Q9 Lattice Boltzmann hybride MPI + OpenMP}
+\newcommand{\reportyear}{Linux x86-64 \quad DDR5-5200 \quad GCC~15 \quad MPICH~4.3.0 \quad OpenMP~4.0}
+\newcommand{\reportdate}{\today}
+\newcommand{\reportrepo}{\href{https://github.com/hibouwu/d2q9-lbm-karman}{\texttt{github.com/hibouwu/d2q9-lbm-karman}}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+\pagenumbering{gobble}
+\begin{titlepage}
+  \centering
+  \vspace*{0.8cm}
+  \includegraphics[width=0.92\textwidth]{ISTY-logo-2025-RVB.jpg}\par
+  \vspace{0.9cm}
+  {\Large \reportprogram\par}
+  \vspace{2.6cm}
+  {\large \reporttype\par}
+  \vspace{0.6cm}
+  {\huge\bfseries \reporttitletext\par}
+  \vspace{1.2cm}
+  {\large Synthèse du parcours d'optimisation et de l'évolution des performances\par}
+  \vspace{3.0cm}
+  \begin{flushleft}
+    \textbf{Auteurs : }\reportauthor\\[0.35em]
+    \textbf{Code source : }{\small \reportrepo}
+  \end{flushleft}
+  \vfill
+  {\large \reportdate\par}
+\end{titlepage}
+
+\clearpage
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\tableofcontents
+
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter*{Contexte du projet}
+\addcontentsline{toc}{chapter}{Contexte du projet}
+
+Ce projet implémente une méthode de Boltzmann sur réseau bidimensionnelle D2Q9 (LBM) pour simuler le sillage de Kármán derrière un cylindre ($Re = 96$).
+Le solveur utilise une stratégie parallèle hybride MPI+OpenMP : MPI décompose le domaine selon les lignes, et OpenMP parallélise la boucle interne de chaque rang.
+
+L'indicateur de performance (Figure of Merit, FOM) est défini par :
+
+\[
+  \text{FOM} = \frac{W \times H \times N_\text{pas}}{T_\text{wall} \times 10^6}
+  \quad [\text{MLUPS, millions de mises à jour de mailles par seconde}]
+\]
+
+Ici, $W = 800$, $H = 160$ et $N_\text{pas} = 20\,000$. Chaque pas de temps comporte trois phases :
+
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners=3pt,fill=black!5,minimum width=3.2cm,
+              minimum height=0.8cm,font=\small},
+  arr/.style={-{Stealth[length=5pt]},thick}
+]
+  \node[box] (sc) {\texttt{special\_cells}};
+  \node[box,right=1.2cm of sc] (co) {\texttt{collision}};
+  \node[box,right=1.2cm of co] (pr) {\texttt{propagation}};
+  \draw[arr] (sc) -- (co);
+  \draw[arr] (co) -- (pr);
+  \node[font=\footnotesize,below=0.15cm of co] {relaxation collisionnelle BGK};
+  \node[font=\footnotesize,below=0.15cm of pr] {advection + communication halo};
+\end{tikzpicture}
+\end{center}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begingroup
+\titlespacing*{\chapter}{0pt}{-24pt}{10pt}
+\chapter*{Feuille de route d'optimisation (opt\,01–24)}
+\addcontentsline{toc}{chapter}{Feuille de route d'optimisation (opt\,01–24)}
+\begin{center}
+\resizebox{!}{0.85\textheight}{%
+\newcommand{\roadmapboxwidth}{8.8cm}
+\begin{tikzpicture}[
+  font=\normalsize,
+  group/.style={draw,rounded corners=4pt,fill=#1!8,inner sep=6pt},
+  arr/.style={-{Stealth[length=4pt]},thick,#1},
+  fom/.style={font=\small\itshape,text=black!55}
+]
+
+\node[group=phaseA] (A) at (0,0) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phaseA}{\textbf{P1-A \quad Corrections de validité (opt01–03)}}\\[2pt]
+    \texttt{01}\ Suppression du \texttt{nanosleep} caché (1\,s par pas)\\
+    \texttt{02}\ Correction de la formule MLUPS (facteur \texttt{comm\_size} en trop)\\
+    \texttt{03}\ Correction du décalage entre tailles d'envoi et de réception verticales
+  \end{minipage}
+};
+
+\node[group=phaseB,below=0.32cm of A] (B) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phaseB}{\textbf{P1-B \quad Refactorisation des communications MPI (opt04–08)}}\\[2pt]
+    \texttt{04–05}\ Suppression de 12 \texttt{MPI\_Barrier} redondants\\
+    \texttt{06}\ Suppression d'une phase de communication halo dupliquée\\
+    \texttt{07–08}\ Envoi groupé : 7\,182 messages $\to$ 1 message
+  \end{minipage}
+};
+
+\node[group=phaseC,below=0.32cm of B] (C) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phaseC}{\textbf{P1-C \quad Localité cache + OpenMP (opt09–13)}}\\[2pt]
+    \texttt{09}\ Correction de l'ordre des boucles de collision (boucle interne stride-1)\\
+    \texttt{10}\ Propagation Push $\to$ Pull (suppression des conflits d'écriture)\\
+    \texttt{11–13}\ Parallélisation OpenMP de collision / propagation
+  \end{minipage}
+};
+
+\node[group=phaseD,below=0.32cm of C] (D) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phaseD}{\textbf{P1-D \quad Optimisations avancées (opt14–17)}}\\[2pt]
+    \texttt{14}\ Recouvrement entre communication MPI asynchrone et calcul interne\\
+    \texttt{15}\ Audit de vectorisation (\texttt{-march=native} avec régression)\\
+    \texttt{16}\ Fusion des boucles de collision + \texttt{omp simd reduction}\\
+    \texttt{17}\ I/O : pré-calcul distribué, taille des messages réduite de 9.2$\times$
+  \end{minipage}
+};
+
+\node[group=phase2,below=0.32cm of D] (E) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phase2}{\textbf{P2-A \quad Instrumentation + refactorisation de la disposition mémoire (opt18–19)}}\\[2pt]
+    \texttt{18}\ Infrastructure de profiling par phase avec \texttt{MPI\_Wtime}\\
+    \texttt{19}\ Refactorisation mémoire AoS $\to$ SoA
+  \end{minipage}
+};
+
+\node[group=phase2,below=0.32cm of E] (F) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phase2}{\textbf{P2-B \quad Réécriture du cœur de calcul (opt20–22)}}\\[2pt]
+    \texttt{20}\ Propagation SoA avec boucle externe en \textit{k}\\
+    \texttt{21}\ Multi-cell collision kernel\\
+    \texttt{22}\ Vectorisation AVX-512 explicite (\texttt{multicell\_vec})
+  \end{minipage}
+};
+
+\node[group=phase2,below=0.32cm of F] (G) {%
+  \begin{minipage}{\roadmapboxwidth}
+    \textcolor{phase2}{\textbf{P2-C \quad Essais non retenus + optimisation de la disposition des communications (opt23–24)}}\\[2pt]
+    \texttt{23}\ Audit FMA + essai de prélecture logicielle (gain négatif, non retenu)\\
+    \texttt{24}\ Halo vertical refactorisé en pack/unpack \textit{k}-major
+  \end{minipage}
+};
+
+\draw[arr=phaseA] (A.south) -- (B.north)
+  node[midway,right=0.16cm,fom] {référence : 60 MLUPS};
+\draw[arr=phaseB] (B.south) -- (C.north)
+  node[midway,right=0.16cm,fom] {np=2: +50\%\quad np=4: +166\%};
+\draw[arr=phaseC] (C.south) -- (D.north)
+  node[midway,right=0.16cm,fom] {np=1 OMP=4: 194 MLUPS (+220\%)};
+\draw[arr=phaseD] (D.south) -- (E.north)
+  node[midway,right=0.16cm,fom] {efficacité d'extension MPI mono-nœud 92\% (np=2)};
+\draw[arr=phase2] (E.south) -- (F.north)
+  node[midway,right=0.16cm,fom] {np=2 OMP=4: 216 MLUPS (référence SoA, -22\%)};
+\draw[arr=phase2] (F.south) -- (G.north)
+  node[midway,right=0.16cm,fom] {np=2 OMP=4: 832 MLUPS};
+\node[fom,below=0.18cm of G]{\textbf{configuration de profiling de développement pour opt26 : 802.31 MLUPS} (np=2, OMP=8)};
+
+\end{tikzpicture}
+\par}
+\end{center}
+\endgroup
+
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter*{Première partie -- optimisations 01--17}
+\addcontentsline{toc}{chapter}{Première partie -- optimisations 01--17}
+
+\noindent\textbf{Plateforme de test (première partie) :}~macOS AArch64, Apple Silicon (série M, architecture hétérogène P-core + E-core), GCC~15, \texttt{-O3}, Open~MPI (mode loopback). Mesure par \texttt{MPI\_Wtime}, sans verrouillage de fréquence CPU. L'ordonnancement hétérogène de macOS provoque une fluctuation du FOM d'environ $\pm$20--30\% dans les cas OMP multithread ; les valeurs absolues de cette partie ne servent qu'à lire la tendance et ne sont pas comparées directement à celles de la seconde partie (AMD x86-64).
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P1-A \quad Corrections de validité (opt01–03)}
+
+\subsubsection{Suppression du \texttt{nanosleep} caché -- opt01}
+
+Dans le code initial, le macro \code{MPI\_HINT\_VTBL} dans \code{cmake/tpl.hpp.in} (chaîne encodée en hexadécimal) était décodé en nom de fonction plateforme \code{\_\_builtin\_sync\_fence\_}. Sous Linux x86-64, il était ensuite lié dynamiquement à \code{nanosleep(1s)} via \code{dlsym}, avec un appel implicite à la fin de chaque \code{lbm\_comm\_halo\_exchange}. Sur 20\,000 pas, la perte cumulée atteint environ 5.5 heures. La correction consiste à supprimer entièrement \code{tpl.hpp.in}, \code{tpl\_loader.hpp.in} et la chaîne d'appel dynamique dans \code{communications.cpp}.
+
+\subsubsection{Correction de la formule MLUPS -- opt02}
+
+\begin{lstlisting}
+// Erreur : total_cells est multiplié une fois de trop par le nombre de processus
+total_cells = MESH_WIDTH * MESH_HEIGHT * comm_size;
+// Correction
+total_cells = (uint64_t)MESH_WIDTH * MESH_HEIGHT;
+\end{lstlisting}
+
+Cette erreur surestimait d'un facteur 4 les MLUPS rapportés pour np=4. L'« accélération » multi-processus devenait alors artificielle et masquait entièrement le coût des communications.
+
+\subsubsection{Correction du décalage de taille des communications verticales -- opt03}
+
+\code{MPI\_Send} utilisait \texttt{count=1}, tandis que le \code{MPI\_Recv} associé utilisait \texttt{count=9} (DIRECTIONS). Cette incohérence de taille posait un risque de portabilité avec des implémentations MPI strictes. La correction ramène les deux côtés à \texttt{count=1} et prépare la refactorisation des communications groupées en P1-B.
+
+\medskip
+\textbf{Référence après P1-A : 60 MLUPS (np=1, OMP=1).}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P1-B \quad Refactorisation des communications MPI (opt04–08)}
+
+\subsubsection{Suppression des synchronisations redondantes (opt04–06)}
+
+Dans l'implémentation initiale, chaque phase de communication de \code{lbm\_comm\_halo\_exchange}
+était suivie d'un appel à \code{MPI\_Barrier}, soit 9 au total. Dans la boucle principale
+en temps, un barrier était aussi inséré après \code{special\_cells}, \code{collision}
+et \code{propagation}, pour un total de 12 synchronisations.
+
+Ces synchronisations n'étaient pourtant pas nécessaires. Les échanges reposent déjà
+sur des appels bloquants : \code{MPI\_Send} d'un côté, \code{MPI\_Recv} de l'autre.
+Le couplage tag/rank garantit alors l'appariement correct des messages et leur ordre.
+Une synchronisation globale supplémentaire
+n'apporte donc pas de sûreté supplémentaire et ajoute seulement du temps d'attente.
+
+L'analyse a aussi montré des phases de communication dupliquées dans \code{halo\_exchange}.
+Par exemple, la diagonale bottom-left et la direction horizontale right-to-left étaient
+exécutées deux fois, ce qui alourdissait encore la communication.
+
+Tous les \code{MPI\_Barrier} redondants ont donc été supprimés, ainsi que les phases de communication
+dupliquées. Sur la configuration np=4, cette optimisation apporte environ 14\% de gain.
+
+\subsubsection{Regroupement des messages par paquets (opt07–08)}
+
+Le profiling montre que le coût de communication vient surtout du nombre de messages,
+et non du volume de données lui-même. Dans l'implémentation initiale, l'échange de halo
+vertical s'effectuait « maille par maille, direction par direction ». Chaque appel envoyait
+ainsi environ $(W-2)\times 9 \approx 7\,182$ petits messages, et la latence de démarrage MPI
+devenait le principal goulot d'étranglement.
+
+Pour réduire ce nombre de messages, toute une ligne de halo a été empaquetée dans un
+buffer continu, puis transmise en un seul envoi. Des milliers de petits messages sont ainsi
+remplacés par un seul grand message, ce qui réduit fortement le coût de démarrage.
+
+\begin{lstlisting}[language={}]
+// Avant : envoi maille par maille
+foreach x in [1, W-2]:
+    foreach k in [0, 8]:
+        MPI_Send(cell[x][halo_y][k], count=1)
+
+// Après : envoi empaqueté de toute la ligne
+pack(buffer, halo_row[1..W-2])   // (W-2)*9 doubles
+MPI_Send(buffer, count=(W-2)*9)
+MPI_Recv(buffer, count=(W-2)*9)
+unpack(ghost_row[1..W-2], buffer)
+\end{lstlisting}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Configuration} & \textbf{Référence (opt03)} & \textbf{Après P1-B} & \textbf{Gain} \\
+\midrule
+np=1 & 60.16 MLUPS & 58.57 MLUPS & quasi inchangé (pas de communication) \\
+np=2 & 68.66 MLUPS & 102.75 MLUPS & \textbf{+50\%} \\
+np=4 & 28.84 MLUPS & 76.73 MLUPS  & \textbf{+166\%} \\
+\bottomrule
+\end{tabular}
+\caption{Résultats de l'étape P1-B (OMP=1).}
+\end{table}
+
+\medskip
+\textbf{Jalon P1-B : np=2, OMP=1 $\approx$ 103 MLUPS (+50\%) ; np=4, OMP=1 $\approx$ 77 MLUPS (+166\%).}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P1-C \quad Localité cache + parallélisation OpenMP (opt09–13)}
+
+\subsubsection{Correction de l'ordre des boucles de collision -- opt09}
+
+Avec la disposition AoS, les données sont stockées sous la forme \code{[x][y][k]}
+($x$ est la dimension lente). Dans la boucle de collision initiale, $j$ ($y$) était
+à l'extérieur et $i$ ($x$) à l'intérieur. Deux éléments adjacents de la boucle interne
+étaient donc séparés en mémoire de :
+\[
+  \Delta_\text{pas interne} = H \times 9 \times 8 = 11\,520 \text{ octets} \approx 180 \text{ lignes de cache}
+\]
+ce qui provoquait de nombreux cache miss. Après inversion des boucles, avec $i$ à l'extérieur
+et $j$ à l'intérieur, le pas de la boucle interne tombe à 8 octets (accès contigu stride-1).
+
+$\Rightarrow$ np=1 : \textbf{+10\%}, np=2 : \textbf{+26\%}
+
+\subsubsection{Propagation Push $\to$ Pull -- opt10}
+
+Le streaming LBM admet deux implémentations équivalentes :
+
+\begin{center}
+\begin{tabular}{@{}p{1.5cm}p{5.5cm}p{5cm}@{}}
+\toprule
+\textbf{Mode} & \textbf{Opération} & \textbf{Problème} \\
+\midrule
+Push &
+  la maille source $(i,j)$ écrit vers la cible $(i{+}dx_k,\,j{+}dy_k)$ &
+  plusieurs threads peuvent écrire sur la même cible, avec conflit d'écriture ; pas de parallélisation sûre \\
+Pull &
+  la maille cible $(i,j)$ lit depuis le voisin $(i{-}dx_k,\,j{-}dy_k)$ &
+  chaque cible appartient à un seul thread, sans conflit ; parallélisation sûre \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+L'équivalence est garantie par la symétrie centrale de l'ensemble des directions D2Q9 :
+si $(dx_k,dy_k)$ est une direction valide, alors $(-dx_k,-dy_k)$ l'est aussi. Le mode Pull
+améliore également la régularité des lectures et réduit les cache miss.
+
+$\Rightarrow$ np=1 : \textbf{+14\%}, np=4 : \textbf{+51\%}
+
+\subsubsection{Parallélisation OpenMP -- opt11, 12, 13}
+
+En mode Pull, les itérations de la boucle externe en $i$ de propagation sont complètement
+indépendantes et peuvent être parallélisées directement. Les mailles de collision n'ont
+pas non plus de dépendances entre elles. \code{special\_cells} n'agit que sur le bord de
+l'obstacle ; le gain attendu y est négligeable.
+
+\begin{lstlisting}[language={}]
+// collision et propagation sont parallélisés avec #pragma omp parallel for
+// le mode pull garantit qu'une maille cible n'appartient qu'à un seul thread, sans conflit d'écriture
+parallel for i in [0, W-1]:
+    for j in [0, H-1]:
+        collision(out[i,j], in[i,j])          // opt11
+        out[i,j][k] = in[i-dx[k], j-dy[k]][k] // opt13, pour tous les k
+\end{lstlisting}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Configuration} & \textbf{Après P1-B (OMP=1)} & \textbf{Après P1-C (OMP=4)} & \textbf{Gain} \\
+\midrule
+np=1 & $\sim$76 MLUPS  & $\sim$194 MLUPS & \textbf{+155\%} \\
+np=2 & $\sim$147 MLUPS & $\sim$202 MLUPS & +37\% \\
+\bottomrule
+\end{tabular}
+\caption{Résultats de l'étape P1-C (OMP=1 $\to$ OMP=4).}
+\end{table}
+
+\textbf{Jalon P1-C : np=1, OMP=4 $\approx$ 194 MLUPS, soit +220\% par rapport à la référence.}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P1-D \quad Optimisations avancées (opt14–17)}
+
+\subsubsection{Recouvrement entre communication MPI asynchrone et calcul -- opt14}
+
+En mode Pull, la propagation des mailles intérieures, c'est-à-dire celles qui ne sont pas
+adjacentes aux lignes ghost, ne dépend pas des données halo. Elle peut donc être exécutée
+pendant la communication MPI :
+
+\begin{center}
+\resizebox{0.94\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\scriptsize,
+  box/.style={draw, rounded corners=2pt, minimum height=0.65cm, inner xsep=4pt, align=center},
+  lbl/.style={font=\footnotesize\bfseries, anchor=east}
+]
+
+% ── Avant ────────────────────────────────────────────────────────────────────
+\node[lbl] at (-0.4, 0) {Avant :};
+\node[box, fill=black!8,  minimum width=2.6cm] (h1) at (2.3,  0) {\texttt{halo\_exchange}};
+\node[box, fill=black!8,  minimum width=3.3cm] (p1) at (6.7,  0) {\texttt{propagation}\\\texttt{(domaine complet)}};
+
+% ── Après ────────────────────────────────────────────────────────────────────
+\node[lbl] at (-0.4, -2.2) {Après :};
+\node[box, fill=phaseD!25, minimum width=1.7cm] (hs) at (1.3,  -2.2) {\texttt{halo\_start}};
+\node[box, fill=phaseC!25, minimum width=2.2cm] (pi) at (4.0,  -2.2) {\texttt{prop\_interior}};
+\node[box, fill=phaseD!25, minimum width=1.7cm] (hf) at (6.8,  -2.2) {\texttt{halo\_finish}};
+\node[box, fill=phaseC!25, minimum width=1.8cm] (pb) at (9.3,  -2.2) {\texttt{prop\_border}};
+
+% ── Annotation du recouvrement ───────────────────────────────────────────────
+\draw[decorate, decoration={brace, amplitude=5pt, raise=3pt},
+      color=phaseD, thick]
+  (hs.north west) -- (hf.north east)
+  node[midway, above=10pt, font=\footnotesize, text=phaseD]
+    {recouvrement communication / calcul};
+
+\end{tikzpicture}
+}
+\end{center}
+
+\code{halo\_start} lance \code{MPI\_Isend}/\code{MPI\_Irecv} ; \code{halo\_finish} appelle \code{MPI\_Waitall}. La première partie ne dispose pas d'un profiling par phase, ce qui empêche de quantifier directement le coût du halo.
+
+D'après les mesures après opt24 dans la seconde partie (intra-node, voir P2-D), \code{halo\_finish} représente environ 27--30\% du temps par itération, dont environ 8\% pour \code{waitall}. Cela reflète surtout l'écart d'arrivée entre rangs, et non la latence de transmission réseau. Même avec une fenêtre de recouvrement plus large, ce coût ne disparaît pas complètement.
+
+Les expériences formelles de ce dépôt couvrent uniquement des exécutions MPICH mono-nœud / intra-node ; le comportement inter-nœuds ou sur InfiniBand n'a pas été mesuré ici. opt26 (voir P2-D dans la seconde partie) place en outre border collision et interior collision dans une même région \texttt{omp parallel}, ce qui étend la fenêtre de recouvrement de propagation\_interior ($\approx$0.02\,ms) à interior\_collision + propagation\_interior ($\approx$0.07\,ms).
+
+\subsubsection{Audit de vectorisation -- opt15 (essai non retenu)}
+
+La plateforme de test est un Apple Silicon (série M, cœurs hétérogènes P-core/E-core), avec GCC~15 et \texttt{-O3}. Le désassemblage par \code{objdump} confirme la génération automatique d'instructions SIMD NEON sur AArch64 (128-bit, 2$\times$\code{double}). Avec \texttt{-march=native}, les performances reculent de 10--13\%. La cause est que les instructions gather générées pour les P-core s'exécutent plus lentement lorsqu'elles sont planifiées sur les E-core par l'ordonnanceur hétérogène de macOS. \textbf{Conclusion (valable uniquement sur cette machine macOS AArch64) : conserver \texttt{-O3} sans option de compilation supplémentaire.} Sur Linux x86-64 (avec AVX-512), \texttt{-march=native} est au contraire une condition préalable au saut de performance d'opt22 (+158\%).
+
+\subsubsection{Fusion des boucles de collision -- opt16}
+
+Dans la version initiale de \code{compute\_cell\_collision}, 4 boucles distinctes calculaient
+séparément density, $v_x$, $v_y$ puis la distribution d'équilibre / mise à jour. Chacune
+parcourait intégralement les 9 directions, avec un surcoût de boucle et d'appel de fonction.
+La fusion en 2 boucles, avec \code{\#pragma omp simd reduction}, permet au compilateur
+d'accumuler en parallèle dans les registres SIMD :
+
+\begin{lstlisting}[language={}]
+// Version initiale : 4 parcours distincts (density, vx, vy, BGK chacun une fois)
+// opt16 : fusion en 2 parcours, reduction autorise l'accumulation parallèle dans les registres du compilateur
+loop k in [0,8]:  density += f[k];  vx += f[k]*cx[k];  vy += f[k]*cy[k]
+loop k in [0,8]:  f[k] += omega * (f_eq(density, vx, vy, k) - f[k])
+\end{lstlisting}
+
+$\Rightarrow$ mono-cœur : \textbf{+5\%}, multi-cœur : \textbf{+1.7\%}
+
+\subsubsection{Optimisation de la stratégie d'I/O -- opt17}
+
+Dans l'implémentation initiale de \code{save\_frame\_all\_domain}, chaque rang envoyait à rank~0
+les données brutes en \code{double}, ghost cells incluses, pour tout son sous-domaine local.
+rank~0 recalculait ensuite en série le champ de densité / vitesse, convertissait en \code{float},
+puis écrivait sur disque.
+
+Dans la nouvelle implémentation, chaque rang pré-calcule localement \code{lbm\_file\_entry\_t}
+(density + $v_x$ + $v_y$, déjà convertis en \code{float}, uniquement sur les mailles valides),
+puis envoie directement ce résultat compact.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}p{4.0cm}R{2.7cm}R{3.0cm}p{1.7cm}@{}}
+\toprule
+\textbf{Indicateur} & \textbf{Implémentation initiale} & \textbf{Nouvelle implémentation} & \\
+\midrule
+Taille des messages (np=2, 800$\times$160) & $\sim$4.5 MB/image & $\sim$500 KB/image & \textbf{réduction 9$\times$} \\
+Charge de calcul de rank~0 & recalcul du domaine complet & aucune & \\
+\bottomrule
+\end{tabular}
+\caption{Effet de l'optimisation I/O (opt17). Le benchmark utilise \texttt{write\_interval=99999} ; le gain est maximal dans les cas dominés par les I/O.}
+\end{table}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{Bilan des performances de la première partie}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}p{3.4cm}R{1.5cm}R{1.5cm}R{1.5cm}R{1.5cm}@{}}
+\toprule
+\textbf{Étape} & \makecell{\textbf{np=1}\\\textbf{OMP=1}} & \makecell{\textbf{np=1}\\\textbf{OMP=4}} & \makecell{\textbf{np=2}\\\textbf{OMP=1}} & \makecell{\textbf{np=4}\\\textbf{OMP=1}} \\
+\midrule
+Référence (après opt03) & 60   & —             & 69            & 29  \\
+P1-B (opt08)   & 59   & —             & \textbf{103}  & \textbf{77}  \\
+P1-C (opt13)   & 76   & \textbf{194}  & 147           & —   \\
+P1-D (opt17)   & 65.7 & 146$^\dagger$ & 121.9         & 118 \\
+\bottomrule
+\multicolumn{5}{@{}p{\linewidth}@{}}{\footnotesize Unité : MLUPS. $^\dagger$P1-D np=1 OMP=4 = 146, inférieur à P1-C 194 : fluctuation de l'ordonnancement hétérogène de macOS (±20–30\%), et non régression du code ; le gain reste positif en mono-nœud multi-processus.}
+\end{tabular}
+\caption{Évolution des performances de la première partie.}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=12cm, height=6cm,
+  xlabel={Jalons d'optimisation},
+  ylabel={FOM (MLUPS)},
+  xtick={1,2,3,4,5},
+  xticklabels={Référence, P1-B, P1-C(OMP=1), P1-C(OMP=4), P1-D(OMP=4)},
+  xticklabel style={rotate=20,anchor=east,font=\small},
+  ymin=0, ymax=220,
+  ymajorgrids=true, grid style=dashed,
+  legend style={at={(0.03,0.97)},anchor=north west,font=\small},
+  legend cell align=left,
+]
+\addplot[color=phaseA,mark=*,thick] coordinates {
+  (1,60)(2,59)(3,76)(4,76)(5,65.7)
+};
+\addlegendentry{np=1, OMP=1}
+
+\addplot[color=phaseB,mark=square*,thick] coordinates {
+  (1,69)(2,103)(3,147)(4,147)(5,122)
+};
+\addlegendentry{np=2, OMP=1}
+
+\addplot[color=phaseC,mark=triangle*,thick] coordinates {
+  (1,29)(2,77)(3,77)(4,77)(5,77)
+};
+\addlegendentry{np=4, OMP=1}
+
+\addplot[color=phaseD,mark=diamond*,thick,dashed] coordinates {
+  (3,76)(4,194)(5,146)
+};
+\addlegendentry{np=1, OMP=4}
+\end{axis}
+\end{tikzpicture}
+\caption{Courbe d'évolution du FOM de la première partie (MLUPS). L'axe vertical est limité à 220 MLUPS ; dans la seconde partie, le jalon atteint 905.13 MLUPS sous le protocole de développement (opt24, np=2 OMP=4 ; voir §Évolution complète des performances).}
+\end{figure}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter*{Seconde partie -- optimisations 18--26}
+\addcontentsline{toc}{chapter}{Seconde partie -- optimisations 18--26}
+
+La seconde partie reprend la base de code stabilisée à l'étape précédente et poursuit le travail sur une machine AMD x86-64. L'objectif n'est pas de répéter les résultats acquis. Il s'agit de compléter le profiling, la refactorisation de la disposition des données et la réécriture du cœur de calcul sur un nouveau processeur et dans un nouvel environnement d'exécution, afin d'établir une référence comparable et de préparer l'adaptation à d'autres plateformes CPU.
+
+\section{Environnement expérimental}
+
+\subsection{Plateforme matérielle}
+
+\begin{table}[H]
+\centering
+\caption{Configuration matérielle des expériences LBM}
+\label{tab:lbm_hardware}
+\begin{tabular}{p{0.28\textwidth}p{0.62\textwidth}}
+\toprule
+\textbf{Composant} & \textbf{Spécification} \\
+\midrule
+Processeur & AMD Ryzen 9 8940HX, x86\_64, microarchitecture Zen~4 \\
+Cœurs physiques / threads logiques & 16 cœurs physiques, 32 threads logiques (SMT, 2 threads par cœur)\\
+Organisation des CCX & 2 CCX, chacun avec 8 cœurs + 32\,MiB de L3 \\
+Hiérarchie de cache & L1d 32\,KiB/cœur, L2 1\,MiB/cœur, L3 64\,MiB (2 instances partagées)\\
+Fréquence de fonctionnement & \texttt{cpupower frequency-set -g performance} (governor CPU réglé sur \texttt{performance})\\
+Mémoire & 30\,GiB DDR5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Environnement logiciel}
+
+\begin{table}[H]
+\centering
+\caption{Configuration logicielle des expériences LBM}
+\label{tab:lbm_software}
+\begin{tabular}{p{0.28\textwidth}p{0.62\textwidth}}
+\toprule
+\textbf{Composant} & \textbf{Version / détails} \\
+\midrule
+Système d'exploitation & Fedora Linux (le noyau consigné dans le benchmark final est \texttt{6.19.13-200.fc43.x86\_64}) \\
+Compilateur & GCC 15.2.1, options de compilation \texttt{-O3 -march=native -DNDEBUG} \\
+Implémentation MPI & MPICH 4.3.0 (lanceur Hydra, intra-node shared memory)\\
+Modèle parallèle & MPI 3.0 + OpenMP 4.0 \\
+Jeu d'instructions vectorielles & AVX-512 (activé par \texttt{-march=native}, instructions \texttt{zmm} confirmées par \texttt{objdump})\\
+Profiling & \texttt{LBM\_ENABLE\_PROFILING=ON}, chronométrage \texttt{MPI\_Wtime} en 6 phases \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Protocole de mesure}\label{subsec:lbm_protocol}
+
+Cette phase utilise deux protocoles, chacun pour un usage distinct :
+
+\paragraph{Protocole de développement (opt19–opt24)}
+Les données des étapes intermédiaires ont été collectées progressivement pendant le développement, avec un protocole léger : 1 échauffement, 3 répétitions avec médiane, chronométrage par \texttt{MPI\_Wtime}, mais \textbf{sans verrouillage de fréquence CPU}. Ces données servent uniquement à comparer les gains relatifs entre étapes voisines et ne sont pas utilisées comme résultat final officiel.
+
+\subsubsection{Protocole de mesure unifié (résultat final opt26)}
+
+Les chiffres finaux de FOM de la seconde partie suivent le protocole complet ci-dessous, exécuté automatiquement par \texttt{scripts/bench.sh} :
+
+\begin{itemize}
+  \item \textbf{Échauffement} : avant la mesure formelle, le solveur est exécuté une fois en entier pour chaque configuration (20\,000 pas), puis ce résultat est écarté. Cela met en régime le cache d'instructions, le cache de données et l'initialisation de l'équipe de threads OMP.
+
+  \item \textbf{Mesure} : le programme utilise \texttt{MPI\_Wtime} pour un chronométrage précis sur l'ensemble des 20\,000 pas ; le FOM est calculé par $W \times H \times N_\text{pas} \,/\, (T_\text{wall}
+        \times 10^6)$, en MLUPS. Chaque configuration est répétée 20 fois, et la médiane est retenue.
+
+  \item \textbf{Isolation de l'environnement} : avant chaque exécution, le cache de pages est vidé avec
+        \texttt{echo 3 > /proc/sys/vm/drop\_caches} ;
+        la fréquence CPU est fixée avec \texttt{cpupower frequency-set -g performance}
+        (cette étape est obligatoire ; en cas d'échec, la mesure est interrompue).
+
+  \item \textbf{Affinité des threads} : \texttt{OMP\_PROC\_BIND} n'est pas défini explicitement.
+        Sans politique coordonnée de placement des processus MPI, \texttt{OMP\_PROC\_BIND=close}
+        conduit les threads de rangs différents à se disputer les mêmes cœurs physiques, avec une baisse mesurée du FOM d'environ 15\% ;
+        l'ordonnancement par défaut de l'OS est plus favorable.
+
+  \item \textbf{Vérification de compilation} : après chaque build, \texttt{objdump} vérifie la présence
+        d'instructions AVX-512 de type \texttt{zmm} dans \texttt{libtop.lbm-lib.so},
+        afin de confirmer l'effet de \texttt{-march=native}.
+\end{itemize}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P2-A \quad Infrastructure d'instrumentation et refactorisation de la disposition mémoire (opt18–19)}
+
+\subsubsection{Infrastructure de profiling par phase -- opt18}
+
+Dans la première partie, seul le wall time global était disponible, sans localisation des goulots d'étranglement par phase. opt18 ajoute des points de mesure autour de
+\code{special\_cells}, \code{collision}, \code{halo\_start},
+\code{propagation\_interior}, \code{halo\_finish} et
+\code{propagation\_border}, avec \code{LBM\_PROF\_BEGIN} / \code{LBM\_PROF\_END}. Le chronométrage bas niveau repose sur \code{MPI\_Wtime}, et l'agrégation fournit \code{avg} / \code{max} / \code{pct\_loop}.
+Cette fonctionnalité est contrôlée par \code{LBM\_ENABLE\_PROFILING=ON} ; lorsqu'elle est désactivée, le code de mesure n'est pas exécuté.
+opt18 ne modifie pas le chemin de calcul et ne change pas le FOM ; il fournit une base de mesure homogène pour les décisions à partir d'opt19.
+
+\subsubsection{Refactorisation de la disposition mémoire AoS $\to$ SoA -- opt19}
+
+opt19 remplace la disposition des fonctions de distribution, de AoS \code{cell[i][j].f[0..8]} vers SoA
+\code{cells[k][x * H + y]}. Dans la disposition initiale, deux mailles adjacentes pour une même direction $k$ sont séparées de
+$9 \times 8 = 72$ octets ; avec SoA, l'accès devient contigu dans un même plan, ce qui prépare les étapes SIMD et la propagation plane-based. Le volume total de données ne change pas et reste
+$9 \times W \times H \times 8$ octets.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Configuration} & \textbf{AoS (opt17)} & \textbf{SoA v1.1 (opt19)} & \textbf{Évolution} \\
+\midrule
+np=1, OMP=4 & 157.79 MLUPS & 143.94 MLUPS & -8.8\% \\
+np=2, OMP=4 & 278.66 MLUPS & 216.22 MLUPS & -22.4\% \\
+np=4, OMP=4 & 368.60 MLUPS & 260.92 MLUPS & -29.2\% \\
+\bottomrule
+\end{tabular}
+\caption{FOM après AoS $\to$ SoA (opt19 v1.1). Cette refactorisation prépare le SoA kernel ultérieur, mais mesurée seule sur cette plateforme, elle introduit une régression.}
+\end{table}
+
+opt19 v1.0 avait déjà montré une régression : la disposition mémoire avait changé, mais \code{collision} conservait encore un mode d'accès AoS maille par maille.
+Après correction cohérente des chemins d'accès dans v1.1, le FOM ne revient toujours pas au niveau de référence AoS : pour
+np=2 OMP=4, AoS atteint 278.66 MLUPS, contre 216.22 MLUPS pour SoA v1.1
+(-22.4\%). Sur cette machine, opt19 doit donc être lu comme une \textbf{refactorisation préparatoire, nécessaire à la réécriture ultérieure de propagation / SIMD}, et non comme un gain de performance autonome ; toutes les comparaisons suivantes de la seconde partie prennent
+SoA v1.1 comme référence.
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P2-B \quad Réécriture du cœur de calcul (opt20–22)}
+
+\subsubsection{Propagation SoA avec boucle externe en \textit{k} -- opt20}
+
+Après opt19, propagation suivait encore l'ordre $i$-$j$-$k$, avec une boucle interne qui basculait en continu entre plusieurs plans.
+opt20 place $k$ à l'extérieur, de sorte qu'une itération ne traite qu'un plan source et un plan cible :
+
+\begin{lstlisting}[language={}]
+// k à l'extérieur : chaque itération n'accède qu'à 2 plans (src[k], dst[k]), soit environ 2 MB
+foreach k in [0, DIRECTIONS):
+    src = plane(in,  k)
+    dst = plane(out, k)
+    parallel for i in [1, W-1):
+        foreach j in [j_begin, j_end):
+            dst[i, j] = src[i - dx[k], j - dy[k]]   // stride-1 pull
+\end{lstlisting}
+
+Chaque itération en $k$ n'accède qu'à deux plans, pour un volume d'environ
+$2 \times 800 \times 160 \times 8 \approx 2$ MB. Sur np=2 OMP=4, cette modification fait passer SoA v1.1 de 216.22 à 319.07 MLUPS (+47.6\%) ; dans le profiling, la phase
+propagation baisse d'environ 5--6$\times$.
+
+\subsubsection{Multi-cell collision kernel -- opt21}
+
+Dans opt20, collision appelait encore \code{compute\_cell\_collision} maille par maille. Cette granularité est trop fine pour que le compilateur optimise entre mailles.
+opt21 déplace la boucle en $i$ à l'intérieur du kernel et déroule toute la colonne \code{j=1..H-2} dans une même frame de fonction. La frontière d'appel disparaît, et le compilateur peut vectoriser entre mailles.
+Sur np=2 OMP=4, la référence k-outer d'opt20 (319.07 MLUPS) monte à 422.99 MLUPS, soit +33\% sur l'ensemble de la chaîne ; la comparaison formelle propre à opt21 est k-outer+unrolled $\to$ k-outer+multicell, avec un gain mesuré de 6.5\%, le reste provenant de l'essai additionnel unrolled collision mené avec opt20.
+
+\subsubsection{Vectorisation AVX-512 explicite -- opt22}
+
+La limite principale d'opt21 vient de l'analyse d'alias. Le compilateur signale
+\code{may alias} dans \code{-fopt-info-vec-missed}, et la boucle interne en $j$ n'est donc pas vectorisée. opt22 remonte, pour chaque direction $k$, un pointeur de plan
+et un pointeur de colonne, tous deux marqués \code{\_\_restrict\_\_}, puis ajoute \code{\#pragma GCC ivdep} pour affirmer l'absence d'alias. Le désassemblage montre \code{vmovupd} et \code{vfmadd231pd}, avec une largeur vectorielle de 8 \code{double} en AVX-512.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Configuration} & \textbf{opt21} & \textbf{opt22} & \textbf{Gain} \\
+\midrule
+np=1, OMP=4 & 293.52 & 757.20 & \textbf{+158\%} \\
+np=2, OMP=4 & 422.99 & 832.34 & \textbf{+97\%} \\
+\bottomrule
+\end{tabular}
+\caption{Effet de la vectorisation AVX-512 (opt22). \texttt{objdump} confirme que la boucle interne génère des instructions de type \texttt{zmm} ; la vectorisation est effective.}
+\end{table}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P2-C \quad Essais non retenus et optimisation de la disposition des communications (opt23–24)}
+
+\subsubsection{Audit FMA -- opt23 (confirmation, aucune intervention nécessaire)}
+
+opt23 commence par vérifier la génération des FMA. Le désassemblage montre 92 instructions \code{vfmadd231pd} ;
+les opérations de multiplication-addition de la distribution d'équilibre BGK sont déjà fusionnées, sans marge d'optimisation isolée sur ce point.
+
+\subsubsection{Essai de prélecture logicielle -- opt23 (non retenu)}
+
+Un \code{\_\_builtin\_prefetch} est inséré avant la boucle interne de \code{collision\_multicell\_vec}
+(avec 2 cache lines d'avance). Résultats :
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Configuration} & \textbf{Variation du FOM} & \textbf{Conclusion} \\
+\midrule
+np=1, OMP=4 & $-0.7\%$ & négligeable \\
+np=2, OMP=4 & $-4.4\%$ & effet négatif \\
+np=4, OMP=4 & $-5.0\%$ & effet négatif \\
+\bottomrule
+\end{tabular}
+\caption{Effet de la prélecture logicielle sur le FOM (opt23). L'effet est négatif dans les cas multithread ; l'option n'est pas retenue.}
+\end{table}
+
+L'effet négatif apparaît dans les configurations multithread. Le pas de la boucle interne est de 8 octets, ce que le prefetcher matériel suit déjà ;
+la prélecture logicielle consomme de la bande passante supplémentaire et ajoute du coût d'instruction, donc elle n'est pas conservée.
+
+\subsubsection{Pack/unpack du halo vertical en \textit{k}-major -- opt24}
+
+opt24 traite le chemin de pack du halo après passage en SoA. Les 9 composantes directionnelles d'une ligne de halo verticale sont réparties sur 9 plans,
+avec un espacement d'environ $W \times H \times 8 = 1{,}024$ KB entre plans voisins ; l'ancien \code{vert\_pack}
+rebondissait donc continuellement entre plans. opt24 adopte un pack \textit{k}-major, en parcourant d'abord $k$, puis $i$ :
+
+\begin{lstlisting}
+// Avant (opt22) : i-major, sauts entre plans
+for (int i = 1; i < W-1; i++)
+    for (int k = 0; k < 9; k++)
+        buf[i*9 + k] = cells[k*W*H + i*H + j_halo];
+
+// Après (opt24) : k-major, continuité dans un seul plan
+for (int k = 0; k < 9; k++)
+    memcpy(buf + k*(W-2),
+           cells + k*W*H + 1*H + j_halo,
+           (W-2) * sizeof(double));
+\end{lstlisting}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}p{3.1cm}R{1.6cm}R{1.6cm}R{1.9cm}@{}}
+\toprule
+\textbf{Configuration} & \textbf{opt22$^\ddagger$} & \textbf{opt24} & \textbf{Gain} \\
+\midrule
+np=2, OMP=4 & 832.34 & 905.13 & \textbf{+8.7\%} \\
+np=4, OMP=4 & —      & 705.52 & — \\
+\bottomrule
+\multicolumn{4}{@{}p{\linewidth}@{}}{\footnotesize $^\ddagger$la référence formelle de développement pour opt24 (protocole opt23, même code dans un environnement de test différent) est 700.82 MLUPS.}\\
+\multicolumn{4}{@{}p{\linewidth}@{}}{\footnotesize Le gain mesuré est de +29.1\% ; la valeur 832.34 d'opt22 donnée ici fournit une borne inférieure prudente.}\\
+\end{tabular}
+\caption{Effet du halo en \textit{k}-major (opt24). Le profiling montre une baisse de 28--40\% du temps de \code{vert\_unpack} et de 10--36\% de \code{halo\_finish} (np=2: $-36\%$, np=4: $-10\%$).}
+\end{table}
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{P2-D \quad Approfondissement du recouvrement MPI / calcul (opt25–26)}
+
+\subsubsection{Diagnostic du goulot d'étranglement halo et essais non retenus -- opt25}
+
+Après opt24, le profiling en np=2 OMP=8 montre que \code{halo\_finish} représente encore 29.4\% de la boucle,
+dont 7.7\% pour \code{waitall} et 21.5\% pour \code{vert\_unpack}. Le rôle d'opt25 est d'identifier l'origine de ce temps.
+
+Le diagnostic comporte deux points. D'abord, le MPI en mémoire partagée intra-node utilise un eager protocol :
+au retour de \code{MPI\_Isend}, la copie locale des données est généralement déjà effectuée, et l'attente principale de \code{Waitall} vient du décalage d'arrivée
+des différents rangs au point d'attente. Ensuite, lorsque np$\ge 3$, les rangs de bord haut et bas n'ont pas la même charge halo que les rangs intermédiaires ;
+l'écart max/min de \code{vert\_pack} et \code{vert\_unpack} amplifie directement \code{waitall}.
+
+Deux essais non retenus ont aussi été menés. Le premier consiste à entrelacer le pack, en lançant
+\code{MPI\_Isend} après chaque bloc de $k$ ; le FOM baisse alors d'environ 3\%, le surcoût dû au nombre accru d'appels non bloquants étant plus élevé.
+Le second est un split collision, où border collision est avancé avant \code{halo\_start} ;
+le FOM recule de 34\%, car la région OMP supplémentaire déclenche un coût net de réveil / sommeil des workers.
+La conclusion d'opt25 est directe : le problème tient à la fenêtre de recouvrement et au déséquilibre de structure ; continuer à affiner l'ordre actuel de soumission des communications rapporterait peu.
+
+\subsubsection{Refactorisation vers une région \texttt{omp parallel} unique -- opt26}
+
+opt26 traite le problème structurel du split collision introduit par opt25. L'objectif est de conserver une fenêtre de
+recouvrement plus longue tout en évitant les entrées répétées dans la région parallèle OMP.
+Sur le chemin \code{has\_vn=true}, la boucle principale est réécrite autour d'un \code{\#pragma omp parallel} externe.
+La séquence devient :
+\begin{itemize}
+\item border collision
+\item \code{halo\_start}
+\item interior collision
+\item \code{propagation\_interior}
+\item \code{halo\_finish}
+\item \code{propagation\_border}
+\end{itemize}
+Le travail parallèle utilise \code{omp for}, et les appels MPI restent limités à \code{omp master}.
+
+Trois interfaces sont ajoutées pour cela, toutes appelées depuis une région \code{omp parallel} déjà ouverte :
+\begin{itemize}
+\item \code{collision\_rows} sur une plage de lignes, avec barrier implicite
+\item \code{propagation\_interior\_omp\_region}, avec \code{nowait} en interne et barrier explicite à la fin
+\item \code{propagation\_border\_omp\_region}, sur le même principe
+\end{itemize}
+La structure de la boucle principale sur le chemin \code{has\_vn} devient :
+
+\begin{lstlisting}[language={}]
+omp parallel:
+    collision_rows(border: j=1, j=H-2)      // → barrier
+    omp master: halo_start()                 // pas de barrier (interior ne lit pas les ghost rows)
+    collision_rows(interior: j=2..H-3)       // recouvrement avec le transfert MPI → barrier
+    propagation_interior()                   // recouvrement avec le transfert MPI → barrier
+    omp master: halo_finish()               // écrit les ghost rows
+    omp barrier                             // reprendre seulement après visibilité des ghost rows
+    propagation_border()                    // → barrier
+\end{lstlisting}
+
+Les barrier sont conservés uniquement là où les dépendances l'exigent : le pack par
+master n'est autorisé qu'après la fin de border collision ; aucun barrier n'est inséré entre \code{halo\_start} et interior collision ;
+un barrier explicite est gardé après \code{halo\_finish}, afin de garantir que l'écriture des ghost rows est terminée avant d'entrer dans
+\code{propagation\_border}.
+
+\textbf{Résultats de performance (np=2, OMP=8, intra-node) :}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Indicateur} & \textbf{opt25 (référence)} & \textbf{opt26} & \textbf{Évolution} \\
+\midrule
+loop total (avg/call) & 0.1591 ms & 0.1586 ms & $-0.3\%$ \\
+FOM & 800.27 MLUPS & 802.31 MLUPS & \textbf{$+0.3\%$} \\
+halo\_finish (avg) & 0.0467 ms & 0.0438 ms & $-6.2\%$ \\
+vert\_unpack (avg) & 0.0342 ms & 0.0270 ms & $-21\%$ \\
+\bottomrule
+\end{tabular}
+\caption{Comparaison de performance d'opt26 (np=2, OMP=8, AMD Ryzen 9 8940HX, mono-nœud).
+Le gain de FOM reste dans la plage de bruit de mesure ($\pm 1\%$).}
+\end{table}
+
+Les résultats restent globalement stables. L'environnement de test utilise un MPI en mémoire partagée intra-node, où le coût de copie locale de \code{Isend} est très faible,
+et \code{Waitall} reflète surtout l'écart d'arrivée entre rangs. opt26 réduit une partie de \code{halo\_finish} et de
+\code{vert\_unpack}, mais la variation du FOM reste dans le bruit de $\pm 1\%$.
+Cette étape confirme que la refactorisation de structure est terminée et que la région parallèle unique élimine le coût supplémentaire de réveil des threads introduit dans opt25.
+Le gain inter-nœuds reste à mesurer ; les conclusions de cette section ne couvrent que la configuration mono-nœud donnée ici.
+
+% ──────────────────────────────────────────────────────────────────────────────
+\subsection{Validation finale des performances de la seconde partie}
+
+Le tableau ci-dessous donne le FOM du code final opt26 sous le protocole de mesure unifié (fréquence CPU verrouillée, drop\_caches, PROFILING=OFF,
+1 échauffement par configuration, puis 20 mesures formelles avec médiane) pour chaque configuration parallèle.
+
+\begin{table}[H]
+\centering
+\begin{minipage}{0.70\textwidth}
+\centering
+\small
+\begin{tabular}{@{}p{3.8cm}R{2.4cm}@{}}
+\toprule
+\textbf{Configuration} & \textbf{Médiane (MLUPS)} \\
+\midrule
+np=1, OMP=4  & \textbf{898.46} \\
+np=1, OMP=16 & \textbf{2047.32} \\
+np=2, OMP=4  & \textbf{1070.76} \\
+np=2, OMP=8  & \textbf{870.32} \\
+np=4, OMP=4  & \textbf{534.95} \\
+\bottomrule
+\multicolumn{2}{@{}p{\linewidth}@{}}{\footnotesize Plateforme : AMD Ryzen~9~8940HX, Linux x86-64, GCC~15, MPICH~4.3.0.}\\
+\multicolumn{2}{@{}p{\linewidth}@{}}{\footnotesize 1 échauffement puis 20 mesures formelles par configuration.}\\
+\multicolumn{2}{@{}p{\linewidth}@{}}{\footnotesize Le journal console complet figure dans \code{scripts/bench.txt} ; \code{fom.tsv} est un tableau de synthèse.}\\
+\end{tabular}
+\end{minipage}
+\caption{FOM final d'opt26 (protocole de mesure unifié). Les données d'échantillonnage des étapes de développement figurent en annexe.}
+\end{table}
+
+\noindent\footnotesize Parmi ces résultats, la configuration au FOM le plus élevé est np=1, OMP=16 (2047.32 MLUPS) ;
+la meilleure configuration multi-processus est np=2, OMP=4 (1070.76 MLUPS).
+Dans P2-D, la configuration fixe np=2, OMP=8 sert uniquement à l'analyse de phase par profiling et ne correspond pas au point optimal en FOM.
+Le balayage FOM et la sélection des cas de profiling pour cette exécution de \code{bench.sh} sont terminés.
+\normalsize
+
+% ══════════════════════════════════════════════════════════════════════════════
+\chapter*{Évolution des performances sur l'ensemble du parcours}
+\addcontentsline{toc}{chapter}{Évolution des performances sur l'ensemble du parcours}
+
+% ── Tableau A : phase P1 (macOS AArch64) ─────────────────────────────────────
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{2pt}
+\setlength{\tabcolsep}{2pt}
+\scriptsize
+\begin{tabular}{@{}p{2.7cm}p{1.45cm}R{1.15cm}p{2.0cm}R{1.15cm}@{}}
+\toprule
+\textbf{Jalon} & \makecell{\textbf{Config.}} & \makecell{\textbf{FOM}\\\textbf{(MLUPS)}} & \makecell{\textbf{vs}\\\textbf{préc.}} & \makecell{\textbf{vs}\\\textbf{réf.}} \\
+\midrule
+Code initial (avec sleep caché) & \makecell[l]{np=1\\OMP=1} & $\approx$0 & — & — \\
+\rowcolor{rowgray}
+P1-A achevé (opt03)  & \makecell[l]{np=1\\OMP=1} & 60  & réf. établie & — \\
+P1-B achevé (opt08)  & \makecell[l]{np=2\\OMP=1} & 103 & \textbf{+72\%} & +72\% \\
+\rowcolor{rowgray}
+P1-C achevé (opt13)  & \makecell[l]{np=1\\OMP=4} & 194 & \textbf{+88\%} & \textbf{+220\%} \\
+P1-D achevé (opt17)  & \makecell[l]{np=2\\OMP=1} & 122 & mono-nœud multi-rang & — \\
+\bottomrule
+\end{tabular}
+\caption{Historique des optimisations de la première partie (plateforme de test : macOS AArch64, Apple Silicon).}
+\end{table}
+
+\medskip
+\noindent\textit{Changement de plateforme : la seconde partie est menée sur AMD Ryzen~9~8940HX (Linux x86-64) ; les valeurs absolues de FOM ne sont pas comparées d'une plateforme à l'autre.}
+\medskip
+
+% ── Tableau B : phase P2 (AMD Ryzen 9 8940HX, Linux x86-64) ──────────────────
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{2pt}
+\setlength{\tabcolsep}{2pt}
+\scriptsize
+\begin{tabular}{@{}p{2.7cm}p{1.45cm}R{1.15cm}p{2.0cm}R{1.15cm}@{}}
+\toprule
+\textbf{Jalon} & \makecell{\textbf{Config.}} & \makecell{\textbf{FOM}\\\textbf{(MLUPS)}} & \makecell{\textbf{vs}\\\textbf{préc.}} & \makecell{\textbf{vs}\\\textbf{réf.}} \\
+\midrule
+P2-A : SoA (opt19)  & \makecell[l]{np=2\\OMP=4} & 216 & réf. SoA établie & — \\
+\rowcolor{rowgray}
+P2-B : \textit{k}-outer (opt20) & \makecell[l]{np=2\\OMP=4} & 319 & +48\% & +48\% \\
+P2-B : multicell (opt21) & \makecell[l]{np=2\\OMP=4} & 423 & \textbf{+33\%} & +96\% \\
+\rowcolor{rowgray}
+P2-B : AVX-512 (opt22)   & \makecell[l]{np=2\\OMP=4} & 832 & \textbf{+97\%} & \textbf{+285\%} \\
+P2-C : \textit{k}-major (opt24) & \makecell[l]{np=2\\OMP=4} & \textbf{905} & +9\% & \textbf{+319\%} \\
+\bottomrule
+\multicolumn{5}{@{}p{\linewidth}@{}}{\footnotesize Les données opt19–opt24 ont été collectées pendant le développement (sans verrouillage de fréquence CPU) et servent uniquement de référence relative entre étapes ; les 905 MLUPS d'opt24 ne constituent pas le benchmark final officiel.}\\
+\end{tabular}
+\caption{Historique des optimisations de la seconde partie (plateforme de test : AMD Ryzen~9~8940HX, Linux x86-64, GCC~15, MPICH~4.3.0). Dans P2, opt19 $\to$ opt24 (np=2 OMP=4) fait passer le FOM de $216 \to 905$ MLUPS, soit environ $\times 4.2$. opt19 reste une refactorisation préparatoire, mesurée isolément en régression.}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=13.5cm, height=6.5cm,
+  ylabel={FOM (MLUPS)},
+  xtick={1,2,3,4,5,6,7,8},
+  xticklabels={P1-A\\référence, P1-B\\opt08, P1-C\\opt13, P1-D\\opt17,
+               P2-A\\opt19, P2-B\\opt22, P2-C\\opt24, P2-D\\opt26},
+  xticklabel style={align=center, font=\footnotesize},
+  ymin=0, ymax=1050,
+  ymajorgrids=true, grid style={dashed, black!20},
+  legend style={at={(0.02,0.97)}, anchor=north west, font=\small},
+  legend cell align=left,
+  clip=false,
+]
+% Première partie : macOS AArch64 (configurations représentatives, voir légende)
+\addplot[color=phaseA, mark=*, thick, mark size=3pt]
+  coordinates {(1,60)(2,103)(3,194)(4,146)};
+\addlegendentry{Première partie (macOS AArch64)}
+
+% Seconde partie : AMD Ryzen 9 8940HX, Linux x86-64
+\addplot[color=phase2, mark=square*, thick, mark size=3pt]
+  coordinates {(5,216)(6,832)(7,905)};
+\addlegendentry{Seconde partie (AMD Ryzen~9, Linux x86-64)}
+
+% Marqueur de changement de plateforme
+\draw[dashed, thick, black!40]
+  (axis cs:4.5,0) -- (axis cs:4.5,1020)
+  node[above, font=\footnotesize, text=black!55, align=center]{changement\\de plateforme};
+
+% Annotations numériques
+\node[above,      font=\tiny] at (axis cs:1,60)  {60};
+\node[above,      font=\tiny] at (axis cs:2,103) {103};
+\node[above,      font=\tiny] at (axis cs:3,194) {194};
+\node[below left, font=\tiny] at (axis cs:4,146) {146$^\dagger$};
+\node[above,      font=\tiny] at (axis cs:5,216) {216};
+\node[left,       font=\tiny] at (axis cs:6,832) {832};
+\node[above,      font=\tiny] at (axis cs:7,905) {905};
+\node[above,      font=\tiny] at (axis cs:7,905) {905};
+\end{axis}
+\end{tikzpicture}
+\caption{Courbe complète d'évolution du FOM (configurations représentatives). Première partie : P1-A/B en np=2 OMP=1, P1-C/D en np=1 OMP=4 (macOS AArch64, sans verrouillage de fréquence). Seconde partie : np=2 OMP=4 (opt19–opt24, protocole de développement). opt26 utilise np=2 OMP=8 avec un protocole différent et n'est donc pas tracé sur la même courbe. Les valeurs absolues ne sont pas comparées entre plateformes. Le niveau plus bas de P1-D par rapport à P1-C provient de la fluctuation d'ordonnancement hétérogène de macOS, et non d'une régression.}
+\end{figure}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+
+Le benchmark final officiel suit le protocole unifié consigné dans \texttt{scripts/bench.txt} : \texttt{PROFILING=OFF}, 1 échauffement par configuration, 20 mesures formelles, et report de la médiane du FOM. Dans ce protocole, le meilleur résultat global est 2047.32~MLUPS pour np=1, OMP=16. Parmi les configurations multi-rang, le meilleur résultat est 1070.76~MLUPS pour np=2, OMP=4.
+
+Les 905.13~MLUPS d'opt24 constituent un jalon de développement obtenu sous le protocole de développement, et non le benchmark final officiel. La configuration np=2, OMP=8 est une configuration fixe de profiling, utilisée pour l'analyse par phase, et non pour chercher le meilleur FOM. Le périmètre expérimental officiel se limite ici aux exécutions MPICH mono-nœud / intra-node ; le comportement inter-nœuds, ainsi que les coefficients de portance et de traînée, le nombre de Strouhal, ou une vérification indépendante de cohérence numérique sur l'ensemble des configurations finales, ne sont pas couverts par ce rapport.
+
+\section*{Annexe : vérification de correction}
+\addcontentsline{toc}{section}{Annexe : vérification de correction}
+
+Dans les sorties examinées, aucune anomalie évidente n'a été observée. Les vérifications effectuées sont les suivantes :
+
+\begin{itemize}
+  \item \textbf{Vérification des écarts numériques :} pour certaines étapes d'optimisation, une comparaison max-delta maille par maille a été effectuée avec les sorties antérieures à la modification ; les écarts observés restent au niveau des erreurs d'arrondi FP64.
+  \item \textbf{Comparaison multi-processus :} certaines sorties en np=1 ont été comparées à des sorties en np=2/4, sans anomalie évidente observée.
+  \item \textbf{Vérification physique qualitative :} à $Re=96$, la visualisation fait apparaître un sillage de Kármán.
+\end{itemize}
+
+Ce rapport ne fournit ni coefficients de portance et de traînée, ni nombre de Strouhal, ni validation indépendante de cohérence numérique sur l'ensemble des configurations finales.
+
+\end{document}

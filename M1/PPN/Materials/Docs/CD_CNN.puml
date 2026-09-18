@@ -1,0 +1,155 @@
+@startuml
+skinparam classAttributeIconSize 0
+top to bottom direction
+title CNN LeNet-5 — Diagramme de classes (version minimale)
+
+' ============================================================
+' Composants existants (réutilisés tels quels)
+' ============================================================
+
+class Matrix {
+  +data: vector<double>
+  +rows: size_t
+  +cols: size_t
+  +matmul(other: Matrix): Matrix
+  +add(other: Matrix): Matrix
+  +mul(other: Matrix): Matrix
+}
+
+class Node {
+  -value_: Matrix
+  -grad_: Matrix
+  +value(): const Matrix&
+  +grad(): Matrix&
+  +backward(): void
+  +addGrad(g: Matrix): void
+  +zeroGrad(): void
+}
+Node *-- Matrix : value, grad
+
+class MathOps <<Utility>> {
+  {static} +add(a: Node, b: Node): Node
+  {static} +matmul(a: Node, b: Node): Node
+  {static} +relu(x: Node): Node
+}
+MathOps ..> Node : creates >
+
+class ReLU {
+  +forward(input: Node): Node
+}
+
+class LinearLayer {
+  -in_dim: size_t
+  -out_dim: size_t
+  -weights_: Node
+  -bias_: Node
+  +forward(input: Node): Node
+  +parameters(): vector~shared_ptr<Node>~
+}
+LinearLayer o-- Node : weights, bias
+LinearLayer ..> MathOps : uses >
+
+' ============================================================
+' Nouvelle interface minimale
+' ============================================================
+
+interface NeuralNetwork <<interface>> {
+  +forward(input: Node): Node
+  +getParameters(): vector~shared_ptr<Node>~
+}
+
+class MLPNetwork {
+  -layers: vector~LayerNode~
+  +forward(input: Node): Node
+  +getParameters(): vector~shared_ptr<Node>~
+}
+MLPNetwork ..|> NeuralNetwork
+
+' ============================================================
+' Nouveaux composants CNN (ajouts minimaux)
+' ============================================================
+
+class Conv2DLayer {
+  -in_channels_: size_t
+  -out_channels_: size_t
+  -kernel_h_: size_t
+  -kernel_w_: size_t
+  -stride_: size_t
+  -padding_: size_t
+  -kernels_: Node
+  -bias_: Node
+  __
+  +forward(input: Node, N: size_t, C: size_t, H: size_t, W: size_t): Node
+  +parameters(): vector~shared_ptr<Node>~
+  +outputShape(H: size_t, W: size_t): pair<size_t, size_t>
+  -im2col(input: Matrix, N: size_t, C: size_t, H: size_t, W: size_t): Matrix
+}
+note right of Conv2DLayer
+  im2col transforme l'entrée en matrice 2D
+  pour réutiliser Matrix::matmul (BLAS).
+  Forme des kernels : (out_ch, in_ch*kH*kW)
+  Pas de Tensor4D : shape passé en paramètres.
+end note
+Conv2DLayer o-- Node : kernels, bias
+Conv2DLayer ..> MathOps : matmul, add >
+
+class MaxPool2DLayer {
+  -pool_h_: size_t
+  -pool_w_: size_t
+  -stride_: size_t
+  __
+  +forward(input: Node, N: size_t, C: size_t, H: size_t, W: size_t): Node
+  +parameters(): vector~shared_ptr<Node>~
+}
+note right of MaxPool2DLayer
+  Aucun paramètre entraînable.
+  Backward : gradient → position du max.
+end note
+
+class LeNetNetwork {
+  -conv1_: Conv2DLayer
+  -conv2_: Conv2DLayer
+  -pool1_: MaxPool2DLayer
+  -pool2_: MaxPool2DLayer
+  -fc1_: LinearLayer
+  -fc2_: LinearLayer
+  -fc3_: LinearLayer
+  -relu_: ReLU
+  __
+  +LeNetNetwork(seed: uint)
+  +forward(input: Node): Node
+  +getParameters(): vector~shared_ptr<Node>~
+}
+note bottom of LeNetNetwork
+  Structure fixe LeNet-5 pour MNIST (28×28) :
+  Conv(1→6, 5×5, p=2) → ReLU → MaxPool(2×2)
+  Conv(6→16, 5×5, p=0) → ReLU → MaxPool(2×2)
+  Flatten (inline) → FC(400→120) → ReLU
+  FC(120→84) → ReLU → FC(84→10)
+  Pas de CNNLayer/CNNLayerNode : membres directs.
+end note
+
+LeNetNetwork ..|> NeuralNetwork
+LeNetNetwork *-- Conv2DLayer
+LeNetNetwork *-- MaxPool2DLayer
+LeNetNetwork *-- LinearLayer
+LeNetNetwork *-- ReLU
+
+' ============================================================
+' Entraînement (modifications minimales)
+' ============================================================
+
+class Trainer {
+  -model_: NeuralNetwork&
+  -lossFn_: LossFunction&
+  -optimizer_: Optimizer&
+  -dataLoader_: DataLoader&
+  +trainEpoch(): Metrics
+  +evaluate(): Metrics
+}
+note right of Trainer
+  Seul changement : MLPNetwork& → NeuralNetwork&
+end note
+Trainer o-- NeuralNetwork : ref
+
+@enduml

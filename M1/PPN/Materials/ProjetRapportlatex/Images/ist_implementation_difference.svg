@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="706" height="1045" viewBox="0 0 706 1045">
+  <rect width="706" height="1045" fill="#17191a"/>
+  <rect x="26" y="11" width="647" height="77" rx="7" fill="#1b1d1e" stroke="#333536"/>
+  <rect x="35" y="16" width="83" height="32" rx="7" fill="#242627"/>
+  <text x="46" y="37" fill="#9fa3a7" font-size="14" font-family="DejaVu Sans Mono, monospace">&lt;/&gt;</text>
+  <text x="68" y="37" fill="#d4d4d4" font-size="14" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">IST.md</text>
+  <text x="35" y="72" fill="#d8d8d8" font-size="18" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">检查IST代码里的具体实现和论文的区别</text>
+
+  <circle cx="42" cy="118" r="4.5" fill="#8f9294"/>
+  <text x="66" y="123" fill="#d8d8d8" font-size="17" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">以下是实现与原始 IST 论文的核心差异：</text>
+  <line x1="66" y1="140" x2="673" y2="140" stroke="#d7d7d7" stroke-width="2"/>
+
+  <text x="66" y="167" fill="#e0e0e0" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">1. Resample 已实现，但粒度与论文不同</text>
+  <text x="66" y="195" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">论文要求每隔 K 步就重新随机采样隐藏神经元子网分配。</text>
+  <text x="66" y="222" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">当前实现通过 --ist_resample_every 在 epoch 边界重新生成 ownership plan；</text>
+  <rect x="77" y="233" width="143" height="27" rx="3" fill="#303233"/>
+  <text x="80" y="252" fill="#aeb0b2" font-size="14" font-family="DejaVu Sans Mono, monospace">buildOwnershipPlan</text>
+  <text x="224" y="252" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">会按周期再次调用并换 seed。它已不是静态分区，但仍</text>
+  <text x="66" y="276" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">是参数 mask 重采样，不是论文中的神经元子网重采样。</text>
+  <line x1="66" y1="292" x2="673" y2="292" stroke="#d7d7d7" stroke-width="2"/>
+
+  <text x="66" y="318" fill="#e0e0e0" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">2. 先算完整梯度再 mask，论文不这样做</text>
+  <text x="66" y="346" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">论文：每个 rank 只在本地子网上做前向/后向，天然只有子网参数的梯度。</text>
+  <text x="66" y="373" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">实现：每个 rank 对完整网络做前向/后向，计算出全部梯度，然后再乘以 0/1 掩</text>
+  <text x="66" y="400" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">码把非拥有的梯度清零。数学上等价，但算了不必要的计算。</text>
+  <line x1="66" y1="423" x2="673" y2="423" stroke="#d7d7d7" stroke-width="2"/>
+
+  <text x="66" y="449" fill="#e0e0e0" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">3. 同步公式等价，但不是显式的“子网拼接”</text>
+  <text x="66" y="477" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">论文的视角是：K 步之后把各 rank 的子网参数直接拼回完整模型。</text>
+  <text x="66" y="504" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">实现用的是：</text>
+  <rect x="77" y="541" width="375" height="77" rx="2" fill="#27292a"/>
+  <text x="78" y="560" fill="#aeb0b2" font-size="15" font-family="DejaVu Sans Mono, monospace">delta[i] = (current[i] - snapshot[i]) × mask[i]</text>
+  <text x="78" y="584" fill="#aeb0b2" font-size="15" font-family="DejaVu Sans Mono, monospace">AllReduce(delta, SUM)</text>
+  <text x="78" y="608" fill="#aeb0b2" font-size="15" font-family="DejaVu Sans Mono, monospace">current[i] = snapshot[i] + delta[i]</text>
+  <text x="66" y="651" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">这个 delta+sum 操作数学上等价于“拼子网”——因为每个位置 i 只有一个 rank</text>
+  <text x="66" y="678" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">的 delta 非零，最终结果和直接拼接一样。这部分是对的。</text>
+  <line x1="66" y1="701" x2="673" y2="701" stroke="#d7d7d7" stroke-width="2"/>
+
+  <text x="66" y="727" fill="#e0e0e0" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">4. 没有稀疏通信</text>
+  <text x="66" y="755" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">论文的通信量应为完整模型的</text>
+  <rect x="300" y="741" width="126" height="27" rx="3" fill="#303233"/>
+  <text x="303" y="760" fill="#aeb0b2" font-size="14" font-family="DejaVu Sans Mono, monospace">1/world_size</text>
+  <text x="431" y="755" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">（每个 rank 只需发送自己拥有的那</text>
+  <text x="66" y="782" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">份 delta）。实现对完整参数向量做 AllReduce，向量是稀疏的（大部分是 0），</text>
+  <text x="66" y="809" fill="#d2d2d2" font-size="16" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">但没有利用这个稀疏性——通信量实际上和 dense AllReduce 一样大。</text>
+  <line x1="66" y1="828" x2="673" y2="828" stroke="#d7d7d7" stroke-width="2"/>
+
+  <text x="66" y="854" fill="#e0e0e0" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">总结</text>
+  <rect x="66" y="867" width="462" height="162" fill="#1d1f20" stroke="#343637"/>
+  <line x1="66" y1="899" x2="528" y2="899" stroke="#343637"/>
+  <line x1="176" y1="867" x2="176" y2="1029" stroke="#343637"/>
+  <line x1="322" y1="867" x2="322" y2="1029" stroke="#343637"/>
+  <line x1="66" y1="931" x2="528" y2="931" stroke="#343637"/>
+  <line x1="66" y1="963" x2="528" y2="963" stroke="#343637"/>
+  <line x1="66" y1="995" x2="528" y2="995" stroke="#343637"/>
+  <text x="104" y="888" fill="#dcdcdc" font-size="16" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">方面</text>
+  <text x="215" y="888" fill="#dcdcdc" font-size="16" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">论文 IST</text>
+  <text x="390" y="888" fill="#dcdcdc" font-size="16" font-weight="700" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">当前实现</text>
+  <text x="71" y="920" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">采样机制</text>
+  <text x="181" y="920" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">每 K 步重采样</text>
+  <text x="324" y="920" fill="#64d875" font-size="20" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">✓</text>
+  <text x="351" y="920" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">epoch级重采样</text>
+  <text x="71" y="952" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">梯度计算</text>
+  <text x="181" y="952" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">只算子网梯度</text>
+  <text x="324" y="952" fill="#ff4d57" font-size="20" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">✗</text>
+  <text x="351" y="952" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">算全部再清零</text>
+  <text x="71" y="984" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">参数同步公式</text>
+  <text x="181" y="984" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">拼子网</text>
+  <text x="324" y="984" fill="#64d875" font-size="20" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">✓</text>
+  <text x="351" y="984" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">等价（delta+sum）</text>
+  <text x="71" y="1016" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">通信量</text>
+  <text x="181" y="1016" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">1/world_size</text>
+  <text x="324" y="1016" fill="#ff4d57" font-size="20" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">✗</text>
+  <text x="351" y="1016" fill="#d2d2d2" font-size="15" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">全量（稀疏但未压缩）</text>
+</svg>

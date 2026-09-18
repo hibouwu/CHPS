@@ -1,0 +1,485 @@
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Encodage et langues
+\usepackage[numbers]{natbib}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Liens et métadonnées
+\usepackage[colorlinks=false, urlcolor=black, breaklinks, pagebackref]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Mise en page et utilitaires
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, headheight=17pt}
+\usepackage{graphicx}
+\usepackage{icomma}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+
+% Configuration des listes
+\setlist[itemize]{label=\textendash, leftmargin=*, nosep}
+
+% Configuration du code
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!5},
+    language=C,
+    literate={é}{{\'e}}1 {è}{{\`e}}1 {à}{{\`a}}1 {ç}{{\c{c}}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+}
+
+\setcounter{tocdepth}{2}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Page de titre
+\makeatletter
+\def\clap#1{\hbox to 0pt{\hss #1\hss}}%
+\def\ligne#1{\hbox to \hsize{\vbox{\centering #1}}}%
+\def\haut#1#2#3{\hbox to \hsize{\rlap{\vtop{\raggedright #1}}\hss\clap{\vtop{\centering #2}}\hss\llap{\vtop{\raggedleft #3}}}}%
+\def\bas#1#2#3{\hbox to \hsize{\rlap{\vbox{\raggedright #1}}\hss\clap{\vbox{\centering #2}}\hss\llap{\vbox{\raggedleft #3}}}}%
+\def\maketitle{%
+\thispagestyle{empty}\vbox to \vsize{%
+\haut{}{\@blurb}{}
+\vfill
+\vspace{0.5cm}
+\hrule height 2pt
+\vspace{0.2cm}
+\par
+\begin{center}
+\fontseries{bx}
+\huge \@title
+\end{center}
+\vspace{0.2cm}
+\par
+\hrule height 2pt
+\par
+\vspace{2cm}
+\begin{center}
+\Large
+\textit{Auteur:}
+\end{center}
+\begin{center}
+\Large 
+\@author
+\par
+\end{center}
+\vspace{1cm}
+\begin{center}
+\Large
+\textit{Enseignant:}
+\end{center}
+\begin{center}
+\Large
+T. Dufaud, J. Gurhem
+\par
+\end{center}
+\vfill
+\vfill
+\bas{}{\begin{flushright}
+\large
+\@date
+\end{flushright}}{}
+}%
+\cleardoublepage
+}
+\def\date#1{\def\@date{#1}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\def\location#1{\def\@location{#1}}
+\def\blurb#1{\def\@blurb{#1}}
+\date{\today}
+\author{Jianye SHI}
+\title{Rapport de TP : Méthodes Directes et Itératives pour l'Équation de la Chaleur 1D}
+\location{}\blurb{%
+\begin{center}
+\includegraphics[width=4cm]{Images/Logo_UVSQ.jpg}\\[1cm]
+\textbf{Université de Versailles Saint-Quentin-en-Yvelines}\\
+Master 1 CHPS -- Calcul Numérique 2025/2026
+\end{center}
+}%
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%
+% En-têtes et pieds de page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{TP Poisson 1D -- Calcul Numérique}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\maketitle
+
+\renewcommand{\contentsname}{Sommaire}
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Ce rapport présente la réalisation du TP sur les \textbf{méthodes directes et itératives} pour la résolution de l'équation de la chaleur 1D stationnaire. L'objectif est d'appliquer les algorithmes vus en cours/TD pour résoudre un système linéaire issu de la discrétisation par différences finies.
+
+\subsection{Problème Physique}
+
+On considère l'équation de la chaleur 1D stationnaire dans un milieu immobile, linéaire, homogène et isotrope, avec terme source :
+\begin{equation}
+\left\{
+\begin{array}{l}
+-k \dfrac{\partial^{2} T}{\partial x^{2}} = g, \quad x \in ]0, 1[ \\[0.3cm]
+T(0) = T_0 \\
+T(1) = T_1
+\end{array}
+\right.
+\end{equation}
+où $g$ est le terme source, $k>0$ la conductivité thermique, et $T_0 < T_1$ les températures aux bords (conditions de Dirichlet).
+
+\subsection{Discrétisation par Différences Finies}
+
+On discrétise le domaine $[0,1]$ sur $n+2$ nœuds $x_i$, $i=0,\dots,n+1$, avec un pas constant $h = \frac{1}{n+1}$. En appliquant un schéma centré d'ordre 2 pour approximer la dérivée seconde :
+\begin{equation}
+\left(\frac{\partial^{2} T}{\partial x^{2}}\right)_i \approx \frac{T_{i-1} - 2T_i + T_{i+1}}{h^2}
+\end{equation}
+
+En multipliant chaque équation par $-h^2/k$, on obtient le système linéaire $A u = f$, où $u = (T_1, \dots, T_n)^T$ est le vecteur des températures aux nœuds internes. Le vecteur $f$ absorbe le terme source $g_i$ et les conditions aux limites, mis à l'échelle par $h^2/k$.
+
+On obtient un système linéaire de dimension $n$ :
+\begin{equation}
+A u = f, \quad A \in \mathbb{R}^{n \times n}, \; u,f \in \mathbb{R}^n
+\end{equation}
+
+où $A$ est une matrice tridiagonale de la forme :
+\begin{equation}
+A = \begin{pmatrix}
+2 & -1 & & & \\
+-1 & 2 & -1 & & \\
+& \ddots & \ddots & \ddots & \\
+& & -1 & 2 & -1 \\
+& & & -1 & 2
+\end{pmatrix}
+\end{equation}
+
+\subsection{Solution Analytique (Cas $g=0$)}
+
+Dans le cas sans source ($g=0$), la solution analytique est linéaire :
+\begin{equation}
+T(x) = T_0 + x (T_1 - T_0)
+\end{equation}
+
+Cette solution sert de référence pour valider nos implémentations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Environnement et Stockage}
+
+\subsection{Environnement de Développement}
+
+Le code est développé en \textbf{langage C} avec les bibliothèques \textbf{BLAS} et \textbf{LAPACK}. L'environnement est configuré et exécuté exclusivement via \textbf{Docker} pour garantir la portabilité et la reproductibilité des résultats, conformément aux instructions (fichier \texttt{README.md}).
+
+\subsection{Stockage en bande (General Band, GB)}
+
+Pour les matrices tridiagonales, on utilise le format \textbf{General Band} (GB) de LAPACK. Une matrice $m \times n$ avec $kl$ sous-diagonales et $ku$ sur-diagonales se stocke dans un tableau $(kl+ku+1) \times n$. L'élément $a_{ij}$ est stocké en position $AB(ku+1+i-j, j)$.
+
+\textbf{Exemple} pour la matrice de Poisson 1D ($kl=ku=1$) : $AB$ représente la matrice $A$ sous forme bande (General Band), où $A$ est tridiagonale.
+\begin{equation}
+AB = \begin{pmatrix}
+0 & -1 & -1 & \cdots & -1 \\
+2 & 2 & 2 & \cdots & 2 \\
+-1 & -1 & -1 & \cdots & 0
+\end{pmatrix}
+\end{equation}
+
+L'implémentation utilise la fonction \texttt{set\_GB\_operator\_colMajor\_poisson1D} :
+\begin{lstlisting}[language=Matlab]
+AB = zeros(lab, n);
+% Remplissage (Tridiagonale -1, 2, -1)
+AB(kv+1, 2:n)   = -1.0; % Sur-diagonale
+AB(kv+2, 1:n)   =  2.0; % Diagonale
+AB(kv+3, 1:n-1) = -1.0; % Sous-diagonale
+\end{lstlisting}
+
+Validation : comparer le résultat de dgbmv avec un produit dense de référence (ou une solution analytique) sur un petit cas test.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthode Directe : Factorisation LU}
+
+\subsection{Utilisation de LAPACK}
+
+Nous utilisons les routines LAPACK pour la résolution directe :
+\begin{itemize}
+    \item \texttt{dgbtrf} : Factorisation LU avec pivotage partiel
+    \item \texttt{dgbtrs} : Résolution triangulaire après factorisation
+    \item \texttt{dgbsv} : Driver combinant factorisation et résolution
+\end{itemize}
+
+\subsection{Implémentation LU Tridiagonale}
+
+Pour les matrices tridiagonales, une factorisation LU simplifiée (sans pivotage) a été implémentée dans \texttt{dgbtrftridiag} :
+
+\begin{lstlisting}[language=Matlab]
+for j = 1:n-1
+    % Element diagonal courant
+    pivot = AB(diag_row, j);
+    
+    % Facteur pour eliminer l'element sous-diagonal (L)
+    factor = AB(sub_row, j) / pivot;
+    AB(sub_row, j) = factor; 
+    
+    % Mise a jour de l'element diagonal suivant (U)
+    AB(diag_row, j+1) = AB(diag_row, j+1) - factor * AB(sup_row, j+1);
+end
+\end{lstlisting}
+
+\subsection{Complexité}
+
+\begin{itemize}
+    \item \texttt{dgbtrf} : $O(n (kl + ku)^2) = O(n)$ pour tridiagonal
+    \item \texttt{dgbtrs} : $O(n (kl + ku)) = O(n)$ pour tridiagonal
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Méthodes Itératives}
+
+\subsection{Méthode de Richardson}
+
+La méthode de Richardson avec paramètre de relaxation $\alpha$ s'écrit :
+\begin{equation}
+x^{(k+1)} = x^{(k)} + \alpha r^{(k)}, \quad r^{(k)} = b - Ax^{(k)}
+\end{equation}
+
+Le paramètre optimal est :
+\begin{equation}
+\alpha_{opt} = \frac{2}{\lambda_{min} + \lambda_{max}}
+\end{equation}
+
+où les valeurs propres de la matrice de Poisson 1D sont :
+\begin{equation}
+\lambda_k = 2 - 2\cos\left(\frac{k\pi}{n+1}\right), \quad k = 1, \ldots, n
+\end{equation}
+
+\subsection{Méthode de Jacobi}
+
+La méthode de Jacobi utilise le préconditionneur $M = D$ (diagonale de $A$) :
+\begin{equation}
+x^{(k+1)} = x^{(k)} + D^{-1} r^{(k)}
+\end{equation}
+
+L'extraction du préconditionneur :
+\begin{lstlisting}[language=Matlab]
+MB = zeros(lab, n);
+for j = 1:n
+    MB(kv+2, j) = AB(ku+1, j); % Extraction Diagonale
+end
+\end{lstlisting}
+
+\subsection{Méthode de Gauss-Seidel}
+
+Gauss-Seidel utilise $M = D - E$ (partie triangulaire inférieure) :
+\begin{equation}
+x^{(k+1)} = x^{(k)} + (D - E)^{-1} r^{(k)}
+\end{equation}
+
+La résolution de $(D-E)z = r$ se fait par substitution avant.
+
+\subsection{Critère de Convergence}
+
+Les démonstrations des conditions de convergence et du choix optimal de $\alpha$ ont été vues en cours et sont détaillées dans les TD associés.
+
+La convergence est vérifiée par le résidu relatif :
+\begin{equation}
+\frac{\|r^{(k)}\|}{\|b\|} < \varepsilon
+\end{equation}
+
+avec $\varepsilon = 10^{-3}$ par défaut.
+
+Chaque itération coûte $O(n)$ pour une matrice tridiagonale ; le coût total est donc proportionnel au nombre d'itérations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Validation et Résultats}
+
+\subsection{Méthode de Validation}
+
+La validation s'effectue par :
+\begin{enumerate}
+    \item Comparaison avec la solution analytique (erreur relative avant)
+    \item Calcul du résidu relatif $\|Ax - b\| / \|b\|$
+    \item Comparaison avec les résultats LAPACK de référence
+\end{enumerate}
+
+L'erreur relative avant est calculée par :
+\begin{lstlisting}[language=Matlab]
+function err = relative_forward_error(x, y)
+    err = norm(y - x) / norm(x);
+end
+\end{lstlisting}
+
+\subsection{Résultats Numériques}
+
+Les tests ont été réalisés avec $T_0 = -5$, $T_1 = 5$, et différentes tailles de problème.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Méthode} & \textbf{N=10} (Err) & \textbf{N=100} \\ \hline
+LU (Tridiag) & $< 10^{-14}$ & $< 10^{-14}$ \\ \hline
+Richardson & $3.8 \times 10^{-3}$ & $>1000$ \\ \hline
+Jacobi & $3.8 \times 10^{-3}$ & $>1000$ \\ \hline
+Gauss-Seidel & $3.8 \times 10^{-3}$ & $>1000$ \\ \hline
+\end{tabular}
+\caption{Erreur relative avant ($\|x_{calc} - x_{ex}\| / \|x_{ex}\|$)}
+\label{tab:erreur}
+\end{table}
+
+\noindent \textbf{Analyse :} Pour $N=10$, l'erreur correspond à la discrétisation ($O(h^2)$). Pour $N \ge 100$, les méthodes itératives n'ont pas atteint la tolérance en 1000 itérations (nombre maximal d’itérations, 1000), bien que théoriquement convergentes. La lenteur s'explique par le conditionnement qui croît comme $O(N^2)$.
+
+\subsection{Temps d'Exécution}
+
+\textit{Environnement de test : exécution dans un conteneur Docker sur Fedora Linux 42. Hôte : AMD Ryzen 9 8940HX (16 cœurs), 30 GiB RAM. Compilation GCC avec optimisation -O2.}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Méthode} & \textbf{N=100} & \textbf{N=1000} & \textbf{N=10000} \\ \hline
+Direct (Tridiag) & 0.05 ms & 0.07 ms & 0.56 ms \\ \hline
+Direct (LAPACK) & 0.03 ms & 0.08 ms & 0.57 ms \\ \hline
+
+\end{tabular}
+\caption{Temps de calcul (Méthodes Directes)}
+\label{tab:temps}
+\end{table}
+
+La Figure~\ref{fig:benchmark} montre l'évolution du temps de calcul en fonction de la taille de la matrice $N$. On observe une croissance linéaire ($O(N)$), ce qui valide l'efficacité des solveurs bandes pour ce problème 1D.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/benchmark_plot.png}
+    \caption{Performance des méthodes directes (échelle Log-Log)}
+    \label{fig:benchmark}
+\end{figure}
+
+\subsection{Convergence des Méthodes Itératives}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Méthode} & \textbf{N=10} & \textbf{N=100} \\ \hline
+Richardson & 88 & $>1000$ \\ \hline
+Jacobi & 88 & $>1000$ \\ \hline
+Gauss-Seidel & 45 & $>1000$ \\ \hline
+\end{tabular}
+\caption{Nombre d'itérations pour atteindre $\varepsilon = 10^{-3}$}
+\label{tab:iterations}
+\end{table}
+
+La Figure~\ref{fig:convergence} illustre l'historique de convergence pour $N=100$. On observe que :
+\begin{itemize}
+    \item Les courbes de Richardson et Jacobi sont confondues, car Richardson optimal équivaut à Jacobi pour ce problème.
+    \item Gauss-Seidel converge environ deux fois plus vite (pente plus raide), atteignant un résidu plus faible pour le même nombre d'itérations.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/convergence_comparison.png}
+    \caption{Comparaison de l'historique de convergence ($N=100$, 1000 itérations)}
+    \label{fig:convergence}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formats de stockage creux (CSR/CSC)}
+
+\textit{(Exercice 10)}
+
+Dans cette section, nous étendons notre bibliothèque pour supporter les formats de matrices creuses \textbf{CSR} et \textbf{CSC}. Ces formats sont essentiels pour traiter des problèmes multidimensionnels.
+\textit{Note : Pour la clarté de l'exposition, les algorithmes ci-dessous sont présentés en pseudo-code de type Matlab, bien que l'implémentation réelle soit en C.}
+
+\subsection{Implémentation des Structures}
+
+Nous avons défini deux nouvelles structures dans \texttt{lib\_poisson1D.h} :
+
+\begin{lstlisting}
+typedef struct {
+    double *values; // Valeurs non-nulles
+    int *col_ind;   // Indices de colonne
+    int *row_ptr;   // Pointeurs de début de ligne
+    int nnz;        // Nombre d'éléments non-nuls
+    int n;          // Dimension
+} CSRMatrix;
+\end{lstlisting}
+
+La structure \texttt{CSCMatrix} est analogue, avec \texttt{row\_ind} et \texttt{col\_ptr}. Pour la matrice de Poisson 1D, le nombre d'éléments non-nuls est exactement $3N - 2$.
+
+\subsection{Produit Matrice-Vecteur Creux (SpMV)}
+
+L'opération critique pour les méthodes itératives est le produit matrice-vecteur $y = Ax$.
+
+\subsubsection{Format CSR (\texttt{dcsrmv})}
+L'algorithme parcourt les lignes ($i$) et les éléments non-nuls ($k$) :
+\begin{lstlisting}[language=Matlab]
+for i = 1:n
+    s = 0;
+    for k = row_ptr(i) : row_ptr(i+1)-1
+        s = s + values(k) * x(col_ind(k));
+    end
+    y(i) = s;
+end
+\end{lstlisting}
+
+\subsubsection{Format CSC (\texttt{dcscmv})}
+L'algorithme parcourt les colonnes ($j$) et accumule dans le vecteur résultat :
+\begin{lstlisting}[language=Matlab]
+y = zeros(n,1);
+for j = 1:n
+    for k = col_ptr(j) : col_ptr(j+1)-1
+        y(row_ind(k)) = y(row_ind(k)) + values(k) * x(j);
+    end
+end
+\end{lstlisting}
+
+\subsection{Adaptation des Algorithmes Itératifs}
+
+Nous avons adapté la méthode de \textbf{Richardson} pour utiliser ces nouveaux formats. La logique reste identique à la version bande, seule l'appel au produit matrice-vecteur change :
+\begin{itemize}
+    \item \texttt{IMPLEM=3} : Richardson avec CSR (utilise \texttt{dcsrmv})
+    \item \texttt{IMPLEM=4} : Richardson avec CSC (utilise \texttt{dcscmv})
+\end{itemize}
+
+\subsection{Validation}
+
+Les tests effectués avec $N=10$ montrent une convergence correcte :
+\begin{itemize}
+    \item Erreur relative obtenue : $\approx 3.8 \times 10^{-3}$
+    \item Cette erreur est identique à celle obtenue avec le stockage bande.
+    \item Elle correspond à l'erreur de discrétisation du schéma différences finies ($O(h^2)$ avec $h \approx 0.1$).
+\end{itemize}
+
+Cela valide l'exactitude de nos routines de construction de matrice et de multiplication matrice-vecteur.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+
+Ce TP a permis d'implémenter et de comparer différentes méthodes de résolution pour l'équation de la chaleur 1D. Nous avons couvert :
+\begin{itemize}
+    \item Les méthodes directes (LU) via LAPACK et une implémentation manuelle optimisée pour tridiagonale.
+    \item Les méthodes itératives classiques (Richardson, Jacobi, Gauss-Seidel).
+    \item L'extension vers les formats de stockage creux (CSR/CSC).
+\end{itemize}
+
+Si le format bande (General Band) reste le plus performant pour ce problème spécifique 1D (structure tridiagonale stricte), l'implémentation des formats CSR et CSC nous a permis de développer des outils génériques capables de traiter des problèmes physiques plus complexes (2D, 3D, maillages non structurés) où la structure de la matrice n'est plus aussi régulière.
+
+\end{document}

@@ -1,0 +1,15 @@
+# Cour par chapitres
+
+- [00-Introduction.md](/home/jianyeshi/Note/TOP/CM/chapters/00-Introduction.md)
+- [01-Supercomputerarchitecture.md](/home/jianyeshi/Note/TOP/CM/chapters/01-Supercomputerarchitecture.md)
+- [02-Memory-layout-and-cache-blocking.md](/home/jianyeshi/Note/TOP/CM/chapters/02-Memory-layout-and-cache-blocking.md)
+- [03-NUMA.md](/home/jianyeshi/Note/TOP/CM/chapters/03-NUMA.md)
+- [04-The-Roofline-model.md](/home/jianyeshi/Note/TOP/CM/chapters/04-The-Roofline-model.md)
+- [05-Tools.md](/home/jianyeshi/Note/TOP/CM/chapters/05-Tools.md)
+- [06-Compilers.md](/home/jianyeshi/Note/TOP/CM/chapters/06-Compilers.md)
+- [08-Vectorization.md](/home/jianyeshi/Note/TOP/CM/chapters/08-Vectorization.md)
+- [09-MPI.md](/home/jianyeshi/Note/TOP/CM/chapters/09-MPI.md)
+- [10-Placement.md](/home/jianyeshi/Note/TOP/CM/chapters/10-Placement.md)
+- [11-Scalability.md](/home/jianyeshi/Note/TOP/CM/chapters/11-Scalability.md)
+- [12-Threads-Synchronisation.md](/home/jianyeshi/Note/TOP/CM/chapters/12-Threads-Synchronisation.md)
+- [13-Parallel-IO.md](/home/jianyeshi/Note/TOP/CM/chapters/13-Parallel-IO.md)

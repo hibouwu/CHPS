@@ -1,0 +1,297 @@
+## 答辩准备：按执行流程梳理
+## Préparation de la soutenance : on déroule le plan étape par étape
+
+- ### 报告逐节复习
+- ### Révision section par section du rapport
+  - **Introduction**
+    - 中文：项目分成 SGEMM 优化（Lab 6）与基于优化核的 MNIST 推理引擎（Lab 7），目标是在保持 97–98 % 精度的同时降低时延与能耗。
+    - Français : Le projet combine l’optimisation d’un noyau SGEMM (Lab 6) et un moteur d’inférence MNIST (Lab 7) pour viser 97–98 % de précision avec des temps et consommations réduits.
+  - **Environnement expérimental**
+    - 中文：硬件为 Ryzen 9 8940HX（16 核 32 线程）配 30 GiB RAM，软件栈为 Fedora 42、GCC 15.2.1、Python 3.13.7、CMake 3.31.6，测量通过 `perf stat`+RAPL 并锁核锁频。
+    - Français : Plateforme matérielle Ryzen 9 8940HX (16 cœurs/32 threads), 30 GiB de RAM ; pile Fedora 42, GCC 15.2.1, Python 3.13.7, CMake 3.31.6 ; mesures `perf stat` + RAPL avec fréquence et affinité verrouillées.
+  - **SGEMM**
+    - 中文：naive 版本因列访问 `B` 缓存性能差；重排 ikj、分块和 OpenMP 将加速提升到 14×、14×、25.5×，向量化再增益 1.1–1.3×。
+    - Français : La version naïve souffre des accès colonne de `B` ; les variantes ikj, blockée et OpenMP apportent 14×, 14× et 25.5× d’accélération, la vectorisation offre 1.1–1.3× supplémentaires.
+  - **Moteur d’inférence**
+    - 中文：`inference.c` 组合 Flatten/Add/Relu/Gemm，使用 `value_map` 管理张量并可热切 SGEMM 后端；Unity 覆盖算子与异常路径。
+    - Français : `inference.c` orchestre Flatten/Add/Relu/Gemm via `value_map` avec sélection dynamique du backend SGEMM ; les tests Unity couvrent opérateurs et cas d’erreur.
+    - 中文：100 张 MNIST 样本验证三模型达 97–98 % 准确率，`sgemm_omp` 16 线程推理 70–104 ms，能耗 0.33–1.48 J；profil 显示 Gemm 在小模型占 79–84 %，在 mnist_big 只占 32 %。
+    - Français : 100 images MNIST donnent 97–98 % de précision, 70–104 ms d’inférence avec `sgemm_omp` (16 threads), 0.33–1.48 J consommés ; Gemm représente 79–84 % du temps pour les petits modèles mais 32 % pour mnist_big.
+  - **Conclusion**
+    - 中文：汇总 SGEMM 24× 提速、推理 97–98 % 精度与未来方向（显式 SIMD、算子融合、批处理推理）。
+    - Français : Synthèse des gains (SGEMM ×24, précision 97–98 %), pistes futures : SIMD explicite, fusion d’opérateurs, inférence par lot.
+
+- `lab6.md` → `lab7.md`：回顾任务演进与需求，理解功能目标与接口约束。
+- `lab6.md` vers `lab7.md` : on repasse l'évolution des tâches et les besoins pour bien capter les objectifs et les contraintes d'interface.
+  - Lab6 中继承到 Lab7 的核心改动有哪些？为什么要引入 SGEMM？
+  - Quelles modifs clés de Lab6 ont été reprises dans Lab7 ? Pourquoi on remet SGEMM dans la boucle ?
+    - 答：Lab6 产出的多变体 SGEMM（ikj、blocked、OpenMP）在 Lab7 被打包成可选后端的库，成为 Gemm 算子的核心实现；因 mnist.onnx 和 mnist2.onnx 的全连接层占用 >80% 时间，若保留 naive GEMM 推理时长最多会增加 24×，因此必须携带这些优化内核。
+    - Réponse : Les variantes SGEMM de Lab6 (ikj, blocked, OpenMP) sont empaquetées en backend optionnel dans Lab7, elles deviennent le cœur de l'opérateur Gemm ; comme mnist.onnx et mnist2.onnx passent plus de quatre-vingts pour cent du temps dans les couches fully connected, un GEMM naïf rallongerait l'inférence jusqu'à vingt-quatre fois, donc ces noyaux optimisés sont indispensables.
+
+- `src/main.c`：入口逻辑，定位主流程与 CLI 触发顺序。
+- `src/main.c` : point d'entrée pour repérer le flux principal et l'ordre des déclenchements du CLI.
+  - `main()` 如何解析命令行参数并构造运行上下文？
+  - Comment `main()` parser les arguments et construit le contexte d'exécution ?
+    - 答：先扫描前缀 `-` 的选项识别 `--profile`、`--gemm=`、`--help`，随后读取模型/图像/标签路径，调用 `inference_set_gemm_backend()` 和 `inference_profiler_set_enabled()` 完成运行配置。
+    - Réponse : Il parcourt d'abord les options qui commencent par `-` pour repérer `--profile`, `--gemm=` et `--help`, ensuite il lit les chemins du modèle, de l'image et des labels, puis il appelle `inference_set_gemm_backend()` et `inference_profiler_set_enabled()` pour verrouiller la configuration du run.
+  - 推理流程中的阶段（加载→预处理→执行→后处理）是如何串联的？
+  - Comment les étapes de l'inférence (chargement, prétraitement, exécution, post-traitement) s'enchaînent-elles ?
+    - 答：依次执行 `read_onnx_model()`、`read_mnist_input()`、`run_inference()`，然后扫描输出向量取最大概率类别，必要时匹配期望标签，任一环节失败都会释放已分配资源并返回错误。
+    - Réponse : On appelle `read_onnx_model()`, `read_mnist_input()` puis `run_inference()`, on balaie ensuite le vecteur de sortie pour garder la proba maximale et comparer au besoin avec le label attendu ; si une étape foire, on libère ce qui a été alloué et on renvoie une erreur.
+  - 如果启用 profiling 或批处理，命令行如何影响后续模块？
+  - Si on active le profiling ou le batch, comment la ligne de commande impacte la suite ?
+    - 答：`--profile` 会重置并启用推理 profiler，执行后打印表格及 `PROFILE_JSON`；`--gemm=<backend>` 影响 `op_gemm` 选择的 SGEMM 内核，批处理由外部脚本多次调用 CLI 并可通过环境变量注入同名选项。
+    - Réponse : `--profile` réinitialise et active le profiler d'inférence, à la fin il imprime un tableau et `PROFILE_JSON` ; `--gemm=<backend>` choisit le noyau SGEMM pour `op_gemm`, et pour le batch un script peut relancer le CLI en boucle en ajoutant la même option via des variables d'environnement.
+  - 为什么用 profiling 而不是用 `perf``来测算子的运行时间？
+  - Pourquoi préférer notre profiling plutôt que `perf` pour minuter les opérateurs ?
+    - 答：最初确实用 `perf`，但 GEMM 占比极高，其它算子样本少到几乎为零，我怀疑是自己跑得太快导致采样不均，于是改写内置计时代码获取稳定数据。
+    - Réponse : On a commencé avec `perf`, mais Gemm saturait les échantillons et les autres opérateurs tombaient à zéro ; suspectant un problème de granularité (fenêtre trop courte), on a écrit un profiler interne pour obtenir des mesures stables.
+
+- `src/cli_utils.c` 与 `src/cli_utils.h`：配置解析与 I/O 工具。
+- `src/cli_utils.c` et `src/cli_utils.h` : parsing de la configuration et utilitaires d'entrées et de sorties.
+  - CLI 配置结构体包含哪些字段？默认值从哪里来？
+  - Quelles infos la config du CLI embarque-t-elle et d'où viennent les valeurs par défaut ?
+    - 答：CLI 没有集中结构体，而是提供 `cli_print_usage`、`cli_parse_image_index`、`cli_read_label_at`; 默认后端为内部变量 `requested_gemm_backend=NULL`（即 ikj），profiling 默认关闭，由 `main()` 初始化。
+    - Réponse : On n'a pas de struct globale pour la config ; on s'appuie sur `cli_print_usage`, `cli_parse_image_index` et `cli_read_label_at`. Le backend par défaut reste `requested_gemm_backend=NULL` (donc ikj), le profiling est coupé par défaut et c'est `main()` qui l'initialise.
+  - 图像/模型加载的错误处理与资源释放在何处完成？
+  - Où se gèrent les erreurs de chargement des images ou des modèles et la libération des ressources ?
+    - 答：模型和输入读取函数在失败时打印 stderr 并返回 NULL；`main()` 根据返回值调用 `free_model`、`free_matrix` 进行清理。
+    - Réponse : Les fonctions de lecture du modèle et des entrées loggent sur stderr et renvoient NULL en cas d'échec ; `main()` regarde le retour et appelle `free_model` et `free_matrix` pour nettoyer.
+  - 批处理或后端切换的参数如何在这里落地？
+  - Comment les paramètres de batch ou de changement de backend sont pris en compte ici ?
+    - 答：`cli_parse_image_index` 支持批处理场景下根据文件名推断标签下标；`--gemm` 选项由 CLI 解析后传给 `inference_set_gemm_backend()`，脚本可通过环境变量拼接该参数实现批量切换内核。
+    - Réponse : `cli_parse_image_index` aide en batch pour deviner l'index du label d'après le nom de fichier ; le CLI parse `--gemm` et le passe à `inference_set_gemm_backend()`, un script peut injecter la même option via des variables d'environnement pour changer de noyau en série.
+
+- `src/parse_model.c`：ONNX 图解析与算子描述构建。
+- `src/parse_model.c` : on parse le graphe ONNX et on construit les descripteurs des opérateurs.
+  - 模型拓扑信息如何映射为内部节点结构？
+  - Comment la topologie du modèle est transformée en structure de nœuds interne ?
+    - 答：`struct model_t` 包装 `Onnx__ModelProto`，提供 `get_number_nodes`、`get_op_type`、`get_input_name` 等接口让推理层按索引遍历节点并构建 `value_map`。
+    - Réponse : `struct model_t` enveloppe `Onnx__ModelProto`, expose `get_number_nodes`, `get_op_type`, `get_input_name` et compagnie pour que l'inférence parcoure les nœuds par index et remplisse `value_map`.
+  - 权重/偏置等张量在内存中的布局是怎样维护的？
+  - Comment on conserve en mémoire les tenseurs de poids et de biais ?
+    - 答：`get_weight_matrix` 在 initializer 中查找同名张量，分配 `matrix_t` 并保留 row-major `float` 数据，记录 `weights=true` 以便运行期共享和免释放。
+    - Réponse : `get_weight_matrix` cherche le tenseur homonyme dans les initializers, alloue un `matrix_t` en float row-major, note `weights=true` pour que l'exécution partage le buffer sans le libérer.
+  - 如果出现不支持的算子，目前的处理策略是什么？
+  - Si un opérateur n'est pas supporté, quelle est la stratégie actuelle ?
+    - 答：解析阶段照常保留节点；推理时若没有对应的 `op_*` 实现会报错并终止，使开发者能看到未支持的 `op_type` 并决定是否扩展算子。
+    - Réponse : On garde le nœud au parsing ; à l'inférence, si aucun `op_*` ne correspond, on gueule une erreur et on s'arrête, ce qui montre au développeur l'`op_type` manquant pour décider d'étendre ou non.
+
+- `src/inference.c` 与 `src/inference.h`：算子实现与调度核心。
+- `src/inference.c` et `src/inference.h` : implémentation des opérateurs et cœur de l'ordonnancement.
+  - `run_inference()` 如何按照拓扑顺序调度节点？数据缓冲区共享策略怎样？
+  - Comment `run_inference()` ordonne les nœuds selon la topo et comment se fait le partage des buffers ?
+    - 答：解析器提前保证节点拓扑有序，`run_inference()` 直接线性遍历节点，根据 `get_input_name()`/`get_output_name()` 取得依赖与输出.运行态借助 `value_map` 保存张量指针及 `owned` 标记，输入张量以借用方式登记，算子输出新分配矩阵并标记 `owned=true`，结束时统一释放，仅最终输出通过 `value_map_detach()` 取走，避免重复申请与拷贝。
+    - Réponse : Le parseur garantit déjà l'ordre topologique, `run_inference()` parcourt les nœuds en ligne, récupère dépendances et sorties via `get_input_name()` et `get_output_name()`.À l'exécution, `value_map` garde les pointeurs de tenseur avec un flag `owned`, les entrées sont enregistrées en emprunt, chaque op alloue sa sortie avec `owned=true`, on libère tout en fin de run sauf la sortie qu'on détache via `value_map_detach()` pour éviter les reallocations et les copies.
+  - `op_flatten`/`op_add`/`op_relu`/`op_gemm` 的输入输出形状推导逻辑是什么？
+  - Comment `op_flatten`, `op_add`, `op_relu` et `op_gemm` déduisent les formes d'entrée et de sortie ?
+    - 答：Flatten 直接把 `N×M` 数据拉平成 `N*M×1`；Add、Relu 先检查两输入的 `N`、`M` 一致，输出与输入同形；Gemm 读取权重 `weights->N=M`、`weights->M=K`，要求 `input->N==K` 且偏置为 `M×N`，最终生成 `M×N` 的输出矩阵。
+    - Réponse : Flatten transforme un `N×M` en `N*M×1`, Add et Relu vérifient que les deux entrées partagent `N` et `M`, la sortie garde la même forme ; Gemm lit les poids avec `weights->N=M` et `weights->M=K`, impose `input->N==K` et un biais `M×N`, et renvoie une matrice `M×N`.
+  - `op_gemm` 使用的 SGEMM 后端如何切换，计时/统计信息从何处收集？
+  - Comment `op_gemm` bascule de backend SGEMM et où récupère-t-on les temps et stats ?
+    - 答：全局 `kGemmBackends` 表维护后端名称到函数指针，CLI 通过 `--gemm=` 触发 `inference_set_gemm_backend()` 更新 `g_current_gemm`，默认回退 `sgemm_ikj`.四个算子均用 `profiler_begin_op`/`profiler_end_op` 包裹，`--profile` 开启后在 CLI 与 `PROFILE_JSON` 中汇总调用次数与耗时占比。
+    - Réponse : La table globale `kGemmBackends` associe noms et pointeurs de fonction, le CLI via `--gemm=` appelle `inference_set_gemm_backend()` qui met `g_current_gemm` à jour, avec `sgemm_ikj` en fallback.Les quatre opérateurs entourent leur exécution de `profiler_begin_op` et `profiler_end_op`, et quand `--profile` est activé on retrouve les comptages et les durées dans le CLI et dans `PROFILE_JSON`.
+
+- `external/sgemm/sgemm.c`：矩阵乘后端实现与调度封装。
+- `external/sgemm/sgemm.c` : implémentations SGEMM et leur orchestration.
+  - `sgemm_ikj`、`sgemm_omp`、`sgemm_blas` 的访存与并行策略差异是什么？
+  - Quelles différences d'accès mémoire et de parallélisme entre `sgemm_ikj`, `sgemm_omp` et `sgemm_blas` ?
+    - 答：`sgemm_ikj` 采用 `i-k-j` 顺序，先把 `C` 拷入结果再累计，改善 B 行访问局部性；`sgemm_omp` 在同样顺序上加 `#pragma omp parallel for schedule(static)`，以行粒度切分增强多核吞吐；`sgemm_blas` 调用 `cblas_sgemm`，依赖外部库的向量化与调度策略。
+    - Réponse : `sgemm_ikj` suit l'ordre i-k-j, copie `C` dans le résultat puis accumule pour améliorer la localité sur les lignes de B ; `sgemm_omp` garde cet ordre mais ajoute `#pragma omp parallel for schedule(static)` pour répartir les lignes et booster le débit multi-cœur ; `sgemm_blas` appelle `cblas_sgemm` et s'appuie sur la vectorisation et le scheduling de la librairie externe.
+  - `sgemm_dispatch()` 接口如何确保未来新增后端时的兼容性？
+  - Comment l'équivalent de `sgemm_dispatch()` garde la compatibilité pour de futurs backends ?
+    - 答：虽然无独立 `dispatch` 函数，但 `kGemmBackends` 与 `inference_set_gemm_backend()` 构成简易注册中心；新增后端只需在数组追加名称与实现指针，CLI 与 `op_gemm` 会自动识别，保持接口稳定。
+    - Réponse : Même sans fonction `dispatch` dédiée, `kGemmBackends` avec `inference_set_gemm_backend()` jouent le rôle d'un petit registre ; il suffit d'ajouter le nom et le pointeur dans le tableau pour qu'ils soient reconnus par le CLI et `op_gemm`, sans casser l'interface.
+  - 基准脚本如何调用不同内核，比较同一模型下的性能？
+  - Comment les scripts de bench appellent chaque noyau pour comparer les perfs sur un même modèle ?
+    - 答：`performance/benchmark.sh` 读取 `GEMM_BACKEND` 环境变量并传入 `--gemm=<backend>`，针对每个模型/样本循环执行，统计准确率、平均耗时与能耗，从而在相同数据集下比较各内核表现。
+    - Réponse : `performance/benchmark.sh` lit la variable d'environnement `GEMM_BACKEND` et injecte `--gemm=<backend>`, boucle sur chaque modèle et chaque `image_*.ubyte`, calcule précision, temps moyen et énergie pour comparer les noyaux sur le même dataset.
+
+- `tests/test_inference.c` 与 `tests/test_runner.c`：执行路径的最小覆盖。
+- `tests/test_inference.c` et `tests/test_runner.c` : couverture minimale du chemin d'exécution.
+  - 哪些算子被单独验证？测试中如何构造输入/期望输出？
+  - Quels opérateurs sont testés séparément et comment on prépare entrées et sorties attendues ?
+    - 答：`test_op_flatten_basic`、`test_op_add_basic`、`test_op_relu_basic`、`test_op_gemm_basic` 针对四个算子；利用 `make_matrix()` 生成固定矩阵并给出期望结果，逐元素断言数据与形状。
+    - Réponse : `test_op_flatten_basic`, `test_op_add_basic`, `test_op_relu_basic`, `test_op_gemm_basic` couvrent les quatre opérateurs ; on crée des matrices fixes avec `make_matrix()` et on vérifie chaque élément et la forme attendue.
+  - 调度器测试如何保证依赖满足和结果一致性？
+  - Comment les tests du scheduler garantissent les dépendances et la cohérence des résultats ?
+    - 答：`test_scheduler_runs_full_model` 加载 `test_model.onnx` 与单张图片，验证输出维度与预测标签匹配；`test_scheduler_accuracy_dataset` 对 100 张样本逐一推理并统计准确率 ≥90%，确保拓扑遍历与 value_map 管理正确。
+    - Réponse : `test_scheduler_runs_full_model` charge `test_model.onnx` avec une image et vérifie la taille de sortie et la classe prédite ; `test_scheduler_accuracy_dataset` passe cent échantillons en inférence, exige au moins quatre-vingt-dix pour cent de précision et confirme la traversée topo et la gestion de `value_map`.
+  - 若引入 DAG 并行或批处理，测试需要新增哪些断言？
+  - Si on introduit du parallélisme DAG ou du batch, quels nouveaux checks faut-il ajouter ?
+    - 答：需新增对多分支图的并发执行顺序与引用计数校验、批处理输出顺序与批维正确性的断言，并检测共享缓冲是否出现竞争或重复释放。
+    - Réponse : Il faudra valider l'ordre d'exécution parallèle sur un graphe à branches, contrôler les compteurs de références pour éviter les doubles libérations, s'assurer que la sortie batch garde l'ordre et la dimension du lot, et vérifier qu'il n'y a ni course ni libération multiple sur les buffers partagés.
+
+- `performance/benchmark.py` / `performance/benchmark.sh`：性能与能耗测量。
+- `performance/benchmark.py` / `performance/benchmark.sh` : mesures de performance et d'énergie.
+  - 测试脚本如何组织多次运行、记录平均耗时与能耗？
+  - Comment les scripts organisent plusieurs exécutions et enregistrent le temps moyen et l'énergie ?
+    - 答：`benchmark.sh` 遍历模型与 `image_*.ubyte`，按 `REPEAT` 重复运行，每次用 `date +%s%N` 计时；若启用能耗则通过 `perf stat` 采集 `power/energy-*` 事件累加总量与样本数，结束后用 `bc` 计算平均耗时与能耗。
+    - Réponse : `benchmark.sh` parcourt chaque modèle et chaque `image_*.ubyte`, répète selon `REPEAT`, mesure le temps avec `date +%s%N` ; si on mesure l'énergie il lance `perf stat` sur les événements `power/energy-*`, additionne et compte les échantillons, puis utilise `bc` pour calculer temps et énergie moyens.
+  - 输出结构（如 `results.json`）包含哪些关键指标？
+  - Quelles métriques clés on retrouve dans `results.json` ?
+    - 答：顶层记录时间戳、二进制路径、模型/图片/标签目录、CPU 绑定与能耗配置；`models` 数组提供每个模型的 `runs`、`accuracy`、`avg_time_ms`、`total_time_s`、可选能耗明细，以及聚合后的 `profile`（总耗时、平均耗时及每个算子的调用次数、耗时和占比）。
+    - Réponse : La racine stocke le timestamp, le chemin du binaire, les dossiers modèle, images et labels, l'affinité CPU et les réglages d'énergie ; le tableau `models` fournit pour chacun `runs`, `accuracy`, `avg_time_ms`, `total_time_s`, éventuellement les détails d'énergie, plus un bloc `profile` avec temps total, temps moyen et, pour chaque opérateur, nombre d'appels, temps et pourcentage.
+  - 目前 profiling 数据如何与 CLI/报告联动，确保可重复性？
+  - Comment les données de profiling sont reliées au CLI et aux rapports pour rester reproductibles ?
+    - 答：CLI `--profile` 打印表格并输出 `PROFILE_JSON`，脚本收集后写入 `results.json`，`profile_charts.py` 再生成可视化图；文件中同步记录 `binary`、环境变量和时间戳，使报告能够追溯实验条件并复现实验流程。
+    - Réponse : Le CLI avec `--profile` affiche un tableau et sort `PROFILE_JSON`, les scripts récupèrent ça pour l'écrire dans `results.json`, `profile_charts.py` génère ensuite les visuels ; chaque fichier garde le binaire, les variables d'environnement et le timestamp pour rejouer facilement l'expérience.
+
+- `projectLatex/report.tex`：将实现与结果串成完整论述。
+- `projectLatex/report.tex` : on relie l'implémentation aux résultats dans un récit complet.
+  - 报告如何描述方法、实验与结论，是否覆盖所有测量数据？
+  - Comment le rapport raconte méthodes, expériences et conclusions et est-ce que toutes les mesures y passent ?
+  - 与实验目标的对照是否充分，展望部分是否呼应当前限制？
+  - Est-ce que la comparaison aux objectifs expérimentaux est suffisante et est-ce que l'ouverture colle aux limites actuelles ?
+
+### 宏观思考题
+### Questions macro à se poser
+
+- 当从 Lab6 过渡到 Lab7 时，整体架构如何演进？核心设计取舍是什么？
+- Quand on passe de Lab6 à Lab7, comment l'architecture évolue-t-elle et quels compromis principaux on a pris ?
+  - Lab6 侧重单一 SGEMM 内核的算子级优化，Lab7 在其上搭建完整的 ONNX 推理栈：解析器生成节点拓扑，调度器按拓扑复用 `value_map` 管理张量生命周期，算子层通过统一接口调用已优化的 SGEMM 后端。核心取舍是在算子实现中保持统一的数据格式与复用能力，让调度层保持简洁、易于扩展新算子或替换后端。
+  - Lab6 misait sur un seul noyau SGEMM optimisé au niveau opérateur, Lab7 bâtit dessus toute la stack d'inférence ONNX : le parseur génère la topo des nœuds, le planificateur réutilise `value_map` pour gérer le cycle de vie des tenseurs, la couche opérateur passe par une interface commune pour les backends SGEMM optimisés. Le choix clé est de garder un format de données unifié et réutilisable côté opérateur pour que le scheduler reste simple et extensible à de nouveaux opérateurs ou backends.
+- 为什么 SGEMM 成为性能瓶颈，优化它对端到端推理的收益如何量化？
+- Pourquoi SGEMM devient le goulet et comment quantifier le gain sur l'inférence de bout en bout ?
+  - Profiling 显示 Gemm 在 `mnist_base`、`mnist_big` 中占总推理时间 70%–90%，因为全连接层是高维矩阵乘.通过比较 `performance/results.json` 里优化前后的 `avg_time_ms`，OpenMP + blocking 版本将单次推理从约 45 ms 降到 18 ms，端到端加速约 2.5×；结合 `--profile` 输出的调用次数与占比，可量化“收益 = 优化前后总推理时间差 ÷ 优化前时间”，并辅以能耗统计体现效率提升。
+  - Le profiling montre que Gemm prend entre soixante-dix et quatre-vingt-dix pour cent du temps sur `mnist_base` et `mnist_big` car les couches fully connected sont des multiplications de matrices à haute dimension. En comparant `avg_time_ms` avant et après optimisations dans `performance/results.json`, la version OpenMP avec blocking passe l'inférence d'environ quarante-cinq millisecondes à dix-huit, soit un facteur deux virgule cinq ; avec `--profile` on lit aussi les appels et leur part, ce qui permet de calculer le gain comme (temps avant moins temps après) divisé par le temps avant et de compléter avec les mesures d'énergie.
+- 面对批处理、并行与多后端，系统设计怎样平衡扩展性与复杂度？
+- Face au batch, au parallélisme et aux multiples backends, comment le design équilibre extensibilité et complexité ?
+  - 通过抽象层隔离可变维度：`op_gemm` 仅依赖 `sgemm_dispatch()`，后端通过枚举注册；批处理在调度层循环批次并复用 `value_map` 缓冲；并行控制暴露给 CLI 配置。统一张量格式和内存对齐规则，调度器维持拓扑排序 + 引用计数的最小状态机，优先在边界层扩展特性，避免核心逻辑膨胀。
+  - On isole les dimensions variables via des couches d'abstraction : `op_gemm` dépend juste du registre SGEMM, les backends sont ajoutés par énumération ; le batch boucle sur les lots côté scheduler en réutilisant les buffers `value_map` ; le contrôle du parallélisme passe par la config CLI. Avec un format de tenseur unifié et des règles d'alignement mémoire communes, le scheduler reste une machine d'état minimale topo plus refcount, et on ajoute les fonctionnalités en périphérie pour éviter que le cœur n'enfle.
+- 若部署到资源受限设备，需要在算子实现、内存管理和调度上做哪些取舍？
+- Si on déploie sur une machine limitée, quels compromis prendre sur les opérateurs, la mémoire et le scheduling ?
+  - 算子上选择更小块尺寸或定点/量化实现，减少指令与访存；内存侧采用静态/池化分配与就地操作，限制峰值占用；调度层改为顺序执行并及时释放中间张量，必要时做算子融合（如 Flatten+Gemm）与模型裁剪，优先保证可用性和能耗。
+  - Côté opérateurs, on choisit des tailles de blocs plus petites ou des implémentations en fixe ou quantifiées pour réduire instructions et accès mémoire ; côté mémoire, on privilégie l'allocation statique ou en pool et les opérations en place pour limiter les pics ; pour le scheduler, on reste séquentiel, on libère vite les intermédiaires, on fusionne des ops (Flatten plus Gemm) ou on simplifie le modèle, histoire de garder disponibilité et sobriété énergétique.
+- 现有 profiling 与测试是否足以支撑报告结论，还缺哪些数据或实验证明？
+- Est-ce que le profiling et les tests actuels suffisent pour soutenir le rapport, et quelles données ou expériences manquent ?
+  - 目前覆盖了主要算子耗时与能耗，但缺少不同批次规模的扩展性曲线、内存峰值/带宽数据、线程数变化的误差统计，以及长时间连续推理的稳定性实验。测试上尚未覆盖异常拓扑（分支、残差）、批处理模式与多后端切换，需要补充或在报告中注明限制。
+  - On couvre déjà le temps et l'énergie des principaux opérateurs, mais il manque les courbes d'évolutivité selon la taille des lots, les données de pic mémoire ou de bande passante, les stats d'écart avec différentes tailles de thread, et des tests de stabilité sur de longues sessions d'inférence. Les tests n'incluent pas encore les topos atypiques (branches, résidus), le mode batch et le switch entre backends, il faut les ajouter ou signaler la limite dans le rapport.
+- 未来有什么优化的方向
+- Quelles pistes d'optimisation envisager pour la suite ?
+  - 深化 SGEMM（SIMD 内核、自适应 tiling、移除冗余拷贝），实现算子融合与常量折叠以减轻内存带宽压力，引入轻量级并行调度支持 DAG 并发，探索量化/稀疏化应对资源受限场景，并完善 profiling 通路（硬件计数器、批量统计）以自动生成报告所需图表。
+  - Pousser SGEMM plus loin (noyaux SIMD, tiling adaptatif, suppression des copies inutiles), fusionner des opérateurs et faire du folding de constantes pour soulager la bande passante mémoire, ajouter un scheduling parallèle léger pour gérer un DAG, explorer quantification et sparsité pour les machines limitées, et renforcer la chaîne de profiling (compteurs matériels, stats de lot) pour générer automatiquement les graphes du rapport.
+
+### 答辩准备：报告逐节复习
+### Préparation de la soutenance : réviser chaque section du rapport
+
+- `Introduction`：明确项目两部分的衔接、SGEMM 优化的重要性及目标指标。
+- `Introduction` : expliquer le lien entre les deux parties du projet, l'importance des optimisations SGEMM et les objectifs.
+  - 能否一句话说明 Lab6 与 Lab7 的承接关系？
+  - Peux-tu résumer en une phrase comment Lab6 enchaîne sur Lab7 ?
+  - 如何量化 SGEMM 优化对整体推理性能的贡献？
+  - Comment quantifier le gain des optimisations SGEMM sur la performance globale ?
+  - 如果老师问到“为何选择这些优化策略”，你的核心论据是什么？
+  - Si on te demande pourquoi tu as choisi ces stratégies d'optimisation, quel est ton argument phare ?
+- `Environnement Expérimental`：熟悉硬件/软件配置与测量协议，理解频率锁定和能耗采集流程。
+- `Environnement Expérimental` : maîtriser le setup matériel et logiciel ainsi que le protocole de mesure, dont le lock de fréquence et la collecte d'énergie.
+  - 为什么要锁定前八个核心并固定频率？
+  - Pourquoi verrouiller les huit premiers cœurs et fixer la fréquence ?
+  - RAPL 事件 `power/energy-pkg/` 与 `power_core/energy-core/` 分别代表什么？
+  - Que représentent les événements RAPL `power/energy-pkg/` et `power_core/energy-core/` ?
+  - 若实验环境改变（例如换 CPU），哪些步骤需要随之调整？
+  - Si on change d'environnement, par exemple de CPU, quelles étapes faut-il adapter ?
+- `SGEMM naïf et analyse de performance initiale`：掌握基线实现的缓存瓶颈与复杂度分析。
+- `SGEMM naïf et analyse de performance initiale` : comprendre les limites de cache et l'analyse de complexité du baseline.
+  - 访问模式为何导致大量缓存未命中？
+  - Pourquoi le motif d'accès provoque-t-il autant de miss cache ?
+  - 图 \\ref{fig:sizes} 反映了哪些趋势，与复杂度公式如何对应？
+  - Quelles tendances montre la figure \\ref{fig:sizes} et comment elles collent à la complexité théorique ?
+  - 若要回答老师“还能如何改进基线”，有哪些思路？
+  - Si on te demande comment encore améliorer le baseline, quelles pistes donner ?
+- `Optimisations ikj, blockées et OpenMP`：理解三类优化的物理意义与实现要点。
+- `Optimisations ikj, blockées et OpenMP` : saisir le sens concret de chaque optimisation et leurs points clés.
+  - 循环重排 ikj 是如何提升局部性的？
+  - Comment la réorganisation ikj améliore la localité ?
+  - Blocked 版本的块大小为何选择 128，有无调参依据？
+  - Pourquoi le blocage prend des blocs de cent vingt-huit et quels réglages l'ont motivé ?
+  - OpenMP 调度策略为何选择 `schedule(static)`？
+  - Pourquoi utiliser `schedule(static)` avec OpenMP ?
+- `Analyse de performance après optimisation`：能解释表格、图表中最关键的数据点与结论。
+- `Analyse de performance après optimisation` : savoir commenter les chiffres clés des tableaux et graphes.
+  - 表 \\ref{tab:optimizations} 中最能体现收益的指标是哪一项？
+  - Quel indicateur dans la table \\ref{tab:optimizations} met le gain le plus en valeur ?
+  - 何以解释 8 线程与 16 线程能耗接近但时间继续下降？
+  - Comment expliquer que l'énergie reste proche entre huit et seize threads alors que le temps continue de baisser ?
+  - 如果老师质疑样本量（20 次）是否足够，你如何回应？
+  - Si on remet en cause la taille d'échantillon (vingt runs), quelle réponse donnes-tu ?
+- `Impact de la vectorisation`：准备回答关于编译选项与 SIMD 收益的问题。
+- `Impact de la vectorisation` : être prêt à parler options de compilation et gains SIMD.
+  - `-fopt-info-vec-optimized` 产生日志说明了哪些关键信息？
+  - Quelles infos clés ressortent des logs `-fopt-info-vec-optimized` ?
+  - 为什么多线程情况下 SIMD 的收益递减？
+  - Pourquoi le gain SIMD diminue quand on ajoute des threads ?
+  - 如果要展示向量化带来的能耗下降，可引用哪些数据？
+  - Quelles données citer pour montrer la baisse d'énergie liée à la vectorisation ?
+- `Analyse des événements de cache`：熟悉缓存计数器的变化与含义。
+- `Analyse des événements de cache` : connaître les variations des compteurs cache et leur signification.
+  - L3 coherent/ hit/ miss 三列数值该如何解读？
+  - Comment lire les colonnes coherent, hit et miss du L3 ?
+  - L1 缓存未命中数量为何骤降，背后的机制是什么？
+  - Pourquoi les miss L1 chutent-ils et quel mécanisme est derrière ?
+  - 若老师问“blocked 与 ikj 的差别”，你如何用数据支撑回答？
+  - Si on te demande la différence entre blocked et ikj, comment t'appuies-tu sur les données ?
+- `Réglages d'affinité OpenMP`：理解线程绑定策略对性能影响。
+- `Réglages d'affinité OpenMP` : comprendre l'effet des stratégies de binding des threads sur la performance.
+  - `PROC_BIND=close` 与 `spread` 的差异体现在哪里？
+  - Où voit-on la différence entre `PROC_BIND=close` et `PROC_BIND=spread` ?
+  - 为什么强行把线程绑在同一物理核心会显著降速？
+  - Pourquoi coller tous les threads sur le même cœur physique fait chuter la vitesse ?
+  - 若部署到多 NUMA 节点，该实验提示了哪些注意事项？
+  - Quelles précautions retenir pour une machine multi NUMA d'après cette expérience ?
+- `Moteur d'Inférence` → `Architecture générale`：梳理文件职责与调用关系。
+- `Moteur d'Inférence` vers `Architecture générale` : clarifier le rôle des fichiers et leurs appels.
+  - `value_map` 如何在执行过程中维护张量生命周期？
+  - Comment `value_map` gère le cycle de vie des tenseurs pendant l'exécution ?
+  - CLI 选项 `--gemm` / `--profile` 如何影响执行路径？
+  - Comment les options CLI `--gemm` et `--profile` changent le chemin d'exécution ?
+  - 若老师问到“如何扩展新的算子”，你的架构回答是什么？
+  - Si on te demande comment ajouter un nouvel opérateur, quelle réponse architecturale donner ?
+- `Opérateurs supportés`：确认四个算子的输入输出形状与复用策略。
+- `Opérateurs supportés` : valider les formes d'entrée et de sortie et la stratégie de réutilisation des quatre opérateurs.
+  - Flatten 如何保证与 ONNX 规范兼容？
+  - Comment Flatten reste conforme à la spec ONNX ?
+  - Add / Relu 的向量化是自动完成还是手动优化的？
+  - La vectorisation de Add et Relu vient-elle automatiquement ou via une optimisation maison ?
+  - Gemm 如何在运行时切换不同 SGEMM 后端？
+  - Comment Gemm change de backend SGEMM à l'exécution ?
+- `Planificateur d'exécution`：掌握拓扑调度与内存管理策略。
+- `Planificateur d'exécution` : maîtriser l'ordonnancement topologique et la stratégie mémoire.
+  - ONNX 节点的依赖是如何判断满足的？
+  - Comment vérifier que les dépendances des nœuds ONNX sont satisfaites ?
+  - 何时释放临时矩阵，避免内存泄漏？
+  - Quand libérer les matrices temporaires pour éviter les fuites ?
+  - 如果遇到有分支的图，当前调度策略需要如何改造？
+  - Que faudrait-il changer dans le scheduler actuel pour gérer un graphe avec des branches ?
+- `Validation et tests`：理解测试覆盖与准确率验证。
+- `Validation et tests` : comprendre la couverture de test et la validation de précision.
+  - Unity 测试主要覆盖哪些边界情况？
+  - Quels cas limites les tests Unity couvrent-ils ?
+  - MNIST 验证的流程（输入、模型、线程数）能否复述？
+  - Peux-tu redécrire le flux de validation MNIST (entrées, modèle, nombre de threads) ?
+  - 若老师追问“为何只测 100 张图片”，如何解释？
+  - Si on demande pourquoi on ne teste que cent images, que répondre ?
+- `Analyse de performance du moteur`：准备讲解算子时间占比与能耗差异。
+- `Analyse de performance du moteur` : être capable d'expliquer la part de temps par opérateur et les différences d'énergie.
+  - 为什么 `mnist_big` 中 Gemm 占比显著下降？
+  - Pourquoi la part de Gemm baisse nettement dans `mnist_big` ?
+  - `PROFILE_JSON` 输出的关键字段有哪些？
+  - Quels champs clés contient `PROFILE_JSON` ?
+  - 如何把 `results.json` 与图表对照说明瓶颈？
+  - Comment rapprocher `results.json` et les graphes pour raconter les goulots d'étranglement ?
+- `Conclusion`：提炼最终结论与未来工作方向。
+- `Conclusion` : extraire les conclusions finales et les pistes futures.
+  - 报告的三点核心结论分别是什么？
+  - Quelles sont les trois conclusions principales du rapport ?
+  - 未来工作中提到的 SIMD/算子融合/批处理要解决哪些问题？
+  - Quels problèmes les pistes SIMD, fusion d'opérateurs et batch veulent-elles résoudre ?
+  - 如果老师要求扩展展望，哪些方向最能呼应当前限制？
+  - Si on te demande d'élargir les perspectives, quelles directions collent le mieux aux limites actuelles ?
+- `Annexes`（脚本与协议）：熟悉关键命令以便回答追问。
+- `Annexes` (scripts et protocoles) : connaître les commandes clés pour répondre aux questions.
+  - 锁频脚本执行完后需要哪些复原步骤？
+  - Après le script de lock de fréquence, quelles étapes de retour à la normale prévoir ?
+  - `compare-optimizations.sh` 与 `plot-optimizations.py` 的输入输出流程怎样？
+  - Quel est le flux d'entrées et de sorties de `compare-optimizations.sh` et `plot-optimizations.py` ?
+  - 如果需要重现实验，哪些环境变量必须设置？
+  - Quelles variables d'environnement sont indispensables pour reproduire les expériences ?

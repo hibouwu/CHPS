@@ -2,6 +2,8 @@
 
 **English** · [简体中文](README.zh-CN.md) · [Français](README.fr.md)
 
+The collection now also includes typed course notes, teaching materials, exercises, exam preparation and project documents. **[Browse the complete M1 course index](M1/README.md)** · [Projects](M1/PROJECTS.md) · [Import details](M1/IMPORT.md).
+
 These are my lecture notes, exercise solutions, and collected past exam papers from studying CHPS. If you are taking the same courses, you can browse by subject or use the notes to revisit a derivation while working through exercises.
 
 The materials currently cover M1. Most notes were handwritten in Notability, mainly in French with occasional explanations in Chinese.

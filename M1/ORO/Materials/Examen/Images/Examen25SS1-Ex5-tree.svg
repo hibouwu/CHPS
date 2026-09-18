@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+  <style>
+    .hand { font-family: "Comic Sans MS", "Bradley Hand", "Segoe Print", cursive; fill: #243447; }
+    .title { font-size: 30px; font-weight: 700; }
+    .label { font-size: 24px; }
+    .small { font-size: 17px; }
+    .tiny { font-size: 16px; }
+    .edge { font-size: 22px; }
+    .line { stroke: #5b6f87; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .node { fill: #f8fbff; stroke: #2e4057; stroke-width: 3; }
+    .prune { fill: #fff3f3; stroke: #9b2c2c; stroke-width: 3; }
+    .best { fill: #eefcf4; stroke: #1f7a4f; stroke-width: 3; }
+    .note { fill: #f8fbff; stroke: none; }
+  </style>
+
+  <rect x="0" y="0" width="1200" height="860" fill="#ffffff"/>
+
+  <text x="600" y="42" text-anchor="middle" class="hand title">Branch and Bound Tree</text>
+
+  <!-- edges -->
+  <path d="M600 102 C540 130, 500 150, 430 190" class="line"/>
+  <path d="M600 102 C670 135, 735 150, 815 190" class="line"/>
+
+  <path d="M430 242 C380 275, 335 305, 270 350" class="line"/>
+  <path d="M430 242 C480 275, 535 300, 605 350" class="line"/>
+
+  <path d="M270 402 C230 438, 190 470, 145 530" class="line"/>
+  <path d="M270 402 C295 438, 320 470, 365 530" class="line"/>
+
+  <path d="M365 582 C330 620, 300 660, 270 720" class="line"/>
+  <path d="M365 582 C395 620, 430 660, 490 720" class="line"/>
+
+  <!-- edge labels -->
+  <text x="500" y="146" class="hand edge" transform="rotate(-12 500 146)">x₃ ≥ 1</text>
+  <text x="700" y="146" class="hand edge" transform="rotate(10 700 146)">x₃ ≤ 0</text>
+
+  <text x="308" y="302" class="hand edge" transform="rotate(-20 308 302)">x₁ ≥ 1</text>
+  <text x="495" y="302" class="hand edge" transform="rotate(18 495 302)">x₁ ≤ 0</text>
+
+  <text x="176" y="470" class="hand edge" transform="rotate(-28 176 470)">x₄ ≥ 1</text>
+  <text x="308" y="470" class="hand edge" transform="rotate(25 308 470)">x₄ ≤ 0</text>
+
+  <text x="264" y="652" class="hand edge" transform="rotate(-28 264 652)">x₂ ≥ 1</text>
+  <text x="428" y="652" class="hand edge" transform="rotate(28 428 652)">x₂ ≤ 0</text>
+
+  <!-- nodes -->
+  <ellipse cx="600" cy="82" rx="145" ry="48" class="node" transform="rotate(-2 600 82)"/>
+  <text x="600" y="78" text-anchor="middle" class="hand label">P₀</text>
+  <text x="600" y="108" text-anchor="middle" class="hand small">≤ 69</text>
+
+  <ellipse cx="430" cy="220" rx="125" ry="48" class="node" transform="rotate(-2 430 220)"/>
+  <text x="430" y="216" text-anchor="middle" class="hand label">P₁</text>
+  <text x="430" y="246" text-anchor="middle" class="hand small">≤ 69</text>
+
+  <rect x="710" y="175" width="210" height="92" rx="18" class="prune" transform="rotate(0.5 815 221)"/>
+  <text x="815" y="218" text-anchor="middle" class="hand label">P₂</text>
+  <text x="815" y="248" text-anchor="middle" class="hand small">≤ 205/4 &lt; 66</text>
+
+  <ellipse cx="270" cy="380" rx="120" ry="46" class="node" transform="rotate(1 270 380)"/>
+  <text x="270" y="376" text-anchor="middle" class="hand label">P₃</text>
+  <text x="270" y="406" text-anchor="middle" class="hand small">≤ 69</text>
+
+  <rect x="500" y="334" width="220" height="94" rx="18" class="prune" transform="rotate(-0.5 610 381)"/>
+  <text x="610" y="378" text-anchor="middle" class="hand label">P₄</text>
+  <text x="610" y="408" text-anchor="middle" class="hand small">≤ 56 &lt; 66</text>
+
+  <rect x="55" y="488" width="170" height="92" rx="18" class="prune" transform="rotate(0.7 140 534)"/>
+  <text x="140" y="531" text-anchor="middle" class="hand label">P₅</text>
+  <text x="140" y="561" text-anchor="middle" class="hand small">infeasible</text>
+
+  <ellipse cx="365" cy="560" rx="120" ry="46" class="node" transform="rotate(-2 365 560)"/>
+  <text x="365" y="556" text-anchor="middle" class="hand label">P₆</text>
+  <text x="365" y="586" text-anchor="middle" class="hand small">≤ 66</text>
+
+  <rect x="185" y="688" width="170" height="92" rx="18" class="best" transform="rotate(0.4 270 734)"/>
+  <text x="270" y="731" text-anchor="middle" class="hand label">P₇</text>
+  <text x="270" y="761" text-anchor="middle" class="hand small">solution = 66</text>
+
+  <rect x="405" y="688" width="180" height="92" rx="18" class="prune" transform="rotate(-0.4 495 734)"/>
+  <text x="495" y="731" text-anchor="middle" class="hand label">P₈</text>
+  <text x="495" y="761" text-anchor="middle" class="hand small">≤ 63 &lt; 66</text>
+
+  <!-- right-side notes -->
+  <text x="780" y="505" class="hand small">Best integer solution :</text>
+  <text x="780" y="540" class="hand tiny">(x₁,x₂,x₃,x₄,x₅) = (1,1,1,0,0)</text>
+  <text x="780" y="575" class="hand tiny">volume = 45, utility = 66</text>
+
+  <text x="780" y="640" class="hand small">Density order for branching :</text>
+  <text x="780" y="675" class="hand tiny">item 3 &gt; item 1 &gt; item 4 &gt; item 2 &gt; item 5</text>
+</svg>
