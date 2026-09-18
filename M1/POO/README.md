@@ -9,11 +9,11 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 - [TD / TP：题目、解答与代码](Exercises/README.md)
 
 - [课程目录](<Materials/chps2025/index.md>)
-- [粒子模拟器](<Materials/POO-TPProjet/README.md>)
+- [粒子模拟器](<Projects/Particle-Simulator/README.md>)
 
 ## 收录范围与缺口
 
-基础 TD/TP 的题目、解答与代码见 Exercises；粒子模拟器作为独立项目保留。
+基础 TD/TP 的题目、解答与代码见 Exercises；粒子模拟器的完整源码与构建说明见 Projects。
 
 下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
 
@@ -113,11 +113,11 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
 ## 项目、报告与演示
 
-### Materials/POO-TPProjet
+### Projects/Particle-Simulator
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/POO-TPProjet/README.md>) | MD |
+| [README](<Projects/Particle-Simulator/README.md>) | MD |
 
 
 ## 其他学习资料
@@ -139,7 +139,7 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
 - [POO 1-5](<Exercises/Cpp-01-05>)
 - [POO-TP1](<Exercises/TP01>)
-- [POO-TPProjet](<Materials/POO-TPProjet/>)
+- [POO-TPProjet](<Projects/Particle-Simulator>)
 - [TDDocs](<Exercises/TD-Notes>)
 - [chps2025](<Materials/chps2025/>)
 
@@ -149,3 +149,8 @@ C++ 课程材料、TD、考试复习和粒子模拟器项目。
 
 - [C++ 基础示例](Materials/chps2025/part1_survival_kit/exercises/)
 - [C++ 进阶示例](Materials/chps2025/part2_deep_water/exercises/)
+
+## 补充示例
+
+- [虚函数与多态示例](Exercises/Virtual-Methods/virtual.cpp)
+- [类图与辅助脚本](Exercises/Class-Diagram/README.md)

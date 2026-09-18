@@ -1,0 +1,4 @@
+/build/
+/build-*/
+/particles_positions*
+/particles_velocities*

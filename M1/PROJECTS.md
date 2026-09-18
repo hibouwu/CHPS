@@ -12,7 +12,7 @@
 
 ## 其他项目材料
 
-- [POO 粒子模拟器](POO/Materials/POO-TPProjet/README.md)
+- [POO 粒子模拟器](<POO/Projects/Particle-Simulator/README.md>)
 - [AISE EXPRESSO](AISE/Materials/Projet/)
 - [GLHPC 后期实验项目](GLHPC/Materials/glhpc-lab7-project-hibouwu/)
 - [科学可视化报告](VS/Materials/decompressionTank_submission/)

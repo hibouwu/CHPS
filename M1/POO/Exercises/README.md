@@ -13,3 +13,8 @@
 | TD-Notes | [打开](<TD-Notes/Help_install_gtest.md>) |
 
 各练习保留原有源文件布局和构建说明；构建产物与运行环境不属于练习正文。
+
+## 补充示例
+
+- [虚函数与多态](Virtual-Methods/virtual.cpp)
+- [PlantUML 类图](Class-Diagram/README.md)

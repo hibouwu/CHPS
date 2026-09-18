@@ -51,3 +51,7 @@ Lancer les benchmarks pour comparer Séquentiel vs Parallèle :
 ./build/Myproject perf thread
 ./build/Myproject perf async
 ```
+
+## Dépendances
+
+Le projet utilise C++17, CMake, GoogleTest, TBB et les threads système. Les scripts de tracé utilisent Gnuplot.
