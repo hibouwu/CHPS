@@ -6,6 +6,7 @@ Ce dépôt rassemble mes notes prises pendant le master CHPS à l’UVSQ / Unive
 
 La collection couvre le M1 et une partie du M2 : calcul numérique, programmation parallèle, architecture des ordinateurs, systèmes d’exploitation et calcul scientifique. Les documents sont surtout en français, parfois accompagnés d’explications en chinois. On y trouve des notes manuscrites prises dans Notability, des documents Markdown et des PDF.
 
+
 ## Cours du M1
 
 | Semestre | Cours | Matière |

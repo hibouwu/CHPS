@@ -6,6 +6,7 @@ My study notes from the CHPS programme at UVSQ / Université Paris-Saclay: lectu
 
 The collection covers M1 and part of M2, covering numerical computing, parallel programming, computer architecture, operating systems and scientific computing. Most documents are in French, with some explanations in Chinese. They include handwritten Notability notes, Markdown documents and PDFs.
 
+
 ## M1 courses
 
 | Semester | Course | Subject |

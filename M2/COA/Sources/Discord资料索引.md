@@ -1,8 +1,6 @@
 # Compilation Avancée：Discord 资料索引
 
-**本次手动归档：1 份不同的非图片附件已移入本课程目录。原始文件名和内容保留。**
-
-来源：CHPS → Cours M2 IHPS → coa。已保存 354 条主频道消息，读到频道起点；分批记录互有重叠，子线程列表显示为空。
+来源：CHPS → Cours M2 IHPS → coa。
 
 ## 已下载的课程网站资料
 

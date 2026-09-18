@@ -25,3 +25,5 @@ PDF 与 Markdown 分目录保存，Markdown 文件名与对应章节 PDF 一致�
 | Index | [PDF](<PDF/90_Index.pdf>) | [MD](<Markdown/90_Index.md>) | 413-417 |
 
 完整原书已保留。拆分 PDF 的跨章节跳转可能不可用，跨章查阅请使用原书。
+
+中文稿目前覆盖第 1–3 章，以及第 4 章至 4.2 节末（例 4.9）。从 4.3 Cholesky Decomposition 起请对照英文原文；对应第 4 章分卷 PDF 第 17 页、原书印刷页 114。

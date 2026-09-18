@@ -9,4 +9,4 @@
 
 教师给出的 vector 实验要求学生编写 CMakeLists.txt，因此原始 vector 目录没有该文件；个人解答保留在 [vector_opt](../Materials/TOP-26/lab1/vector_opt/)。
 
-教师原版与个人笔记分别存放；此目录保留源码仓库的结构与版权信息。来源版本见 [SOURCES.json](SOURCES.json)。
+教师原版与个人笔记分别存放；此目录保留源码仓库的结构与版权信息。

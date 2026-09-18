@@ -5,3 +5,7 @@
 - [Linear Algebra and Optimization for Machine Learning](<Linear Algebra and Optimization for Machine Learning/README.md>)：11 章，原书 507 页。
 
 每本书的文件夹包含完整原书、章节 PDF、章节目录和页码记录。
+
+## 术语参考
+
+[中英翻译术语表](Translation-Glossary.md)

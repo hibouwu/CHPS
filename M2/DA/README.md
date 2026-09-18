@@ -79,7 +79,6 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 | 资源 | 格式 |
 |---|---|
 | [Cours Data - Apprentissage, M2 CHPS 23-24.html](<Sources/Cours Data - Apprentissage, M2 CHPS 23-24.html>) | HTML |
-| [网站资料索引.md](<Sources/网站资料索引.md>) | MD |
 | [课程页面资料清单.md](<Sources/课程页面资料清单.md>) | MD |
 
 ### 专题教程
@@ -123,9 +122,9 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 | [tutorial-LDA/PDF/tutorial-LDA.pdf](<Tutorials/tutorial-LDA/PDF/tutorial-LDA.pdf>) | PDF |
 | [tutorial-LDA/README.md](<Tutorials/tutorial-LDA/README.md>) | MD |
 
-个人整理稿、中文解释与原始教师材料应对照阅读。来源索引保留历史获取信息，不能据此推定当前课程版本或所有资源均已收齐。
+个人整理稿、中文解释与原始教师材料应对照阅读。不同年份的材料可能存在差异，版本信息以原文为准。
 
-## 中文讲义的校对依据
 
-- [数学与题面修正说明](Sources/课程文件审查修正_2026-09-15.md)
-- [中文讲义校对说明](Sources/课程讲义翻译校对_2026-09-15.md)
+## 术语参考
+
+[中英翻译术语表](References/Translation-Glossary.md)：阅读中文讲义或继续翻译参考书时，可用来查找术语对应关系。

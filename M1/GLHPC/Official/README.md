@@ -22,4 +22,4 @@
 - [Lab 6](glhpc/docs/lab6.md)
 - [Lab 7](glhpc/docs/lab7.md)
 
-教师原版与个人笔记分别存放；此目录保留源码仓库的结构与版权信息。来源版本见 [SOURCES.json](SOURCES.json)。
+教师原版与个人笔记分别存放；此目录保留源码仓库的结构与版权信息。
