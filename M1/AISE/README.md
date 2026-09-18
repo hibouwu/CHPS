@@ -9,7 +9,7 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 - [TD / TP：题目、解答与代码](Exercises/README.md)
 
 - [分章课件](<Materials/CM/Chapters/README.md>)
-- [EXPRESSO 项目题目](<Materials/Projet/ProjetDoc/sujet.md>)
+- [EXPRESSO 项目题目](<Projects/EXPRESSO/ProjetDoc/sujet.md>)
 
 ## 收录范围与缺口
 
@@ -166,38 +166,42 @@ S1 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 项目、报告与演示
 
-### Materials/Projet/ProjetDoc
+### Projects/EXPRESSO/ProjetDoc
 
 | 资源 | 格式 |
 |---|---|
-| [assignment](<Materials/Projet/ProjetDoc/assignment.pdf>) | PDF |
-| [sujet](<Materials/Projet/ProjetDoc/sujet.md>) | MD |
+| [assignment](<Projects/EXPRESSO/ProjetDoc/assignment.pdf>) | PDF |
+| [sujet](<Projects/EXPRESSO/ProjetDoc/sujet.md>) | MD |
 
-### Materials/Projet/ProjetRapportlatex
-
-| 资源 | 格式 |
-|---|---|
-| [rapport](<Materials/Projet/ProjetRapportlatex/rapport.pdf>) | PDF |
-
-### Materials/Projet/expresso-benchmarks
+### Projects/EXPRESSO/ProjetRapportlatex
 
 | 资源 | 格式 |
 |---|---|
-| [README](<Materials/Projet/expresso-benchmarks/README.md>) | MD |
-| [experiment_results](<Materials/Projet/expresso-benchmarks/experiment_results.txt>) | TXT |
-| [results](<Materials/Projet/expresso-benchmarks/results.txt>) | TXT |
+| [rapport](<Projects/EXPRESSO/ProjetRapportlatex/rapport.pdf>) | PDF |
 
-### Materials/Projet
+### Projects/EXPRESSO/expresso-benchmarks
 
 | 资源 | 格式 |
 |---|---|
-| [rapport](<Materials/Projet/rapport.pdf>) | PDF |
+| [README](<Projects/EXPRESSO/expresso-benchmarks/README.md>) | MD |
+| [experiment_results](<Projects/EXPRESSO/expresso-benchmarks/experiment_results.txt>) | TXT |
+| [results](<Projects/EXPRESSO/expresso-benchmarks/results.txt>) | TXT |
+
+### Projects/EXPRESSO
+
+| 资源 | 格式 |
+|---|---|
+| [rapport](<Projects/EXPRESSO/rapport.pdf>) | PDF |
 
 ## 目录与配套文件
 
 - [CM](<Materials/CM/>)
-- [Projet](<Materials/Projet/>)
+- [Projet](<Projects/EXPRESSO>)
 - [TPS](<Exercises/Systems>)
 - [examen2526](<Materials/examen2526/>)
 
 个人笔记和解答可能存在遗漏或错误，阅读时请结合教师原文。
+
+## 完整课程项目
+
+[EXPRESSO：实现、测试、benchmark 与报告](Projects/EXPRESSO/README.md)

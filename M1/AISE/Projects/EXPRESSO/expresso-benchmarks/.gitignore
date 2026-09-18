@@ -1,0 +1,8 @@
+dot
+list
+matmul
+vecmul
+*.o
+*~
+\#*\#
+.\#*

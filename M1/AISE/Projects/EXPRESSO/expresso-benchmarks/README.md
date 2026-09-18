@@ -9,8 +9,8 @@ To reproduce these results:
 1. **Compile the benchmark** (ensure `PREFIX` points to your installation):
 
     ```bash
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jianyeshi/Note/AISE/Projet/install_dir/lib
-    make matmul PREFIX=/home/jianyeshi/Note/AISE/Projet/install_dir
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(cd ../install_dir && pwd)/lib
+    make matmul PREFIX=$(cd ../install_dir && pwd)
     ```
 
 2. **Run the commands**:
@@ -36,9 +36,9 @@ To reproduce the full experiment suite, you can use the following script:
 #!/bin/bash
 
 # Ensure libraries are found
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jianyeshi/Note/AISE/Projet/install_dir/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(cd ../install_dir && pwd)/lib
 # Compile all tests
-make all PREFIX=/home/jianyeshi/Note/AISE/Projet/install_dir
+make all PREFIX=$(cd ../install_dir && pwd)
 
 echo "=== System Info ==="
 lscpu | grep "Model name"
