@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - cf1</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726242606768">Contrôle final 20016-2017</h2>
+<div class="chapitre-content" id="chapitre-idm45726242606768">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242910944">La pile (14 points)</h3>
+<div class="exercice-content" id="exercice-idm45726242910944">
+		On souhaite programmer une pile contenant des entiers de quatre façons différentes :
+		sans se préoccuper des problèmes de synchronisations,
+		en utilisant des verrous, 
+		en utilisant un mémoire transactionnelle,
+		et en utilisant un algorithme sans verrou.
+
+		<p></p>
+		Pour vous guider, on vous propose de partir du squelette suivant :
+		<div class="code code-block"><div class="code-container">struct node {
+  struct node* next;
+  int          value;
+};
+
+struct node*    head = 0;
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;</div></div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242483424">4 points</h4>
+<div class="question-content" id="question-idm45726242483424">
+			Nous commençons par une version initiale dans laquelle on ne soucie pas des problèmes de
+			synchronisation. Donnez le code des fonctions <span class="code"><span class="code-container">void push_unsafe(int value)</span></span>
+			et <span class="code"><span class="code-container">int pop_unsafe()</span></span> permettant d'ajouter et de retirer un élément de la pile.
+
+			<div class="remarque">
+				Si la pile est vide, la fonction <span class="code"><span class="code-container">int pop_unsafe()</span></span> doit retourner la valeur -1.
+			</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241296432"></div>
+<div class="solution-content" id="solution-idm45726241296432">
+<div class="code code-block"><div class="code-container">void push_unsafe(int value) {
+	struct node* node = malloc(sizeof(struct node));
+	node-&gt;next = head;
+	node-&gt;value = value;
+	head = node;
+}
+
+int pop_unsafe() {
+	struct node* node = head;
+
+	if(node) {
+		int res = node-&gt;value;
+		head = node-&gt;next;
+		free(node);
+		return res;
+	} else
+		return -1;
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242728544">2 points</h4>
+<div class="question-content" id="question-idm45726242728544">
+			Nous programmons maintenant la version protégée par un verrou.
+			Donnez le code des fonctions <span class="code"><span class="code-container">push_lock(int value)</span></span> et
+			<span class="code"><span class="code-container">int pop_lock()</span></span> utilisant un verrou.
+
+			<div class="remarque">
+				Pensez à réutiliser les fonctions que vous avez précédemment programmées.
+			</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241503264"></div>
+<div class="solution-content" id="solution-idm45726241503264">
+<div class="code code-block"><div class="code-container">void push_lock(int value) {
+	pthread_mutex_lock(&amp;mutex);
+	push_unsafe(value);
+	pthread_mutex_unlock(&amp;mutex);
+}
+
+int pop_lock() {
+	pthread_mutex_lock(&amp;mutex);
+	int res = pop_unsafe();
+	pthread_mutex_unlock(&amp;mutex);
+	return res;
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242486880">2 points</h4>
+<div class="question-content" id="question-idm45726242486880">
+			On suppose maintenant que votre langage dispose des mots clés <span class="code"><span class="code-container">atomic</span></span>
+			et <span class="code"><span class="code-container">retry</span></span>. Donnez le code des fonctions
+			<span class="code"><span class="code-container">void push_tm(int value)</span></span> et <span class="code"><span class="code-container">int pop_tm()</span></span> utilisant
+			une mémoire transactionnelle.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726240933680"></div>
+<div class="solution-content" id="solution-idm45726240933680">
+<div class="code code-block"><div class="code-container">void push_tm(int value) {
+	atomic {
+		push_unsafe(value);
+	}
+}
+
+int pop_tm() {
+	atomic {
+		return pop_unsafe();
+	}
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241601152">2 points</h4>
+<div class="question-content" id="question-idm45726241601152">
+			On souhaite maintenant écrire une fonction <span class="code"><span class="code-container">int pop_tm_wait()</span></span> qui attend
+			qu'il existe au moins un élément dans la pile avant de le retourner.
+			La fonction <span class="code"><span class="code-container">int pop_tm_wait()</span></span> doit utiliser la fonction <span class="code"><span class="code-container">int pop_tm()</span></span>
+			pour retirer un élément de la pile.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241548064"></div>
+<div class="solution-content" id="solution-idm45726241548064">
+<div class="code code-block"><div class="code-container">int pop_tm_wait() {
+	atomic {
+		int res = pop_unsafe();
+		if(res == -1)
+			retry;
+		return res;
+	}
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242753952">4 points</h4>
+<div class="question-content" id="question-idm45726242753952">
+			On souhaite maintenant écrire une version sans verrou permettant d'accéder à la pile.
+			Donnez le code des fonctions <span class="code"><span class="code-container">void push_lock_free(int value)</span></span>
+			et <span class="code"><span class="code-container">int pop_lock_free()</span></span>.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242084880"></div>
+<div class="solution-content" id="solution-idm45726242084880">
+<div class="code code-block"><div class="code-container">void push_lock_free(int value) {
+	struct node* node = malloc(sizeof(struct node));
+
+	node-&gt;value = value;
+	do {
+		node-&gt;next = head;
+	} while(__sync_val_compare_and_swap(&amp;head, node-&gt;next, node) != node-&gt;next);
+}
+
+int pop_lock_free() {
+	struct node* node;
+
+	do {
+		node = head;
+	} while(__sync_val_compare_and_swap(&amp;head, node, node-&gt;next) != node);
+
+	return node-&gt;value;
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241426064">Questions de cours (6 points)</h3>
+<div class="exercice-content" id="exercice-idm45726241426064">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241866816">2 points</h4>
+<div class="question-content" id="question-idm45726241866816">
+			Dans un modèle mémoire TSO, pour quelle raison le code suivant, dans
+			lequel il existe un unique thread <span class="code"><span class="code-container">sender</span></span> et un unique thread
+			<span class="code"><span class="code-container">receiver</span></span>,  est-il correct ?
+			<div class="code code-block"><div class="code-container">char* msg = 0;
+int go = 0;
+
+void sender() {
+  msg = "coucou";
+  go = 1;
+}
+
+void receiver() {
+  while(!go);
+  printf("%s\n", msg);
+}</div></div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241625888">4 points</h4>
+<div class="question-content" id="question-idm45726241625888">
+			On suppose une architecture à mémoire non uniforme. Chaque cœur possède un cache L1 unifié.
+			Les cœurs d'un nœud NUMA partagent un cache L2 unifié.
+			En partant de l'adresse virtuelle <span class="code"><span class="code-container">@v</span></span> d'une variable <span class="code"><span class="code-container">x</span></span>,
+			décrivez étape par étape comment le matériel exécute un accès en écriture à la variable.
+			Pensez à expliquer ce qui se passe dans les différents caches.
+
+			<p class="inline-paragraph"></p>
+<p></p>
+			On suppose que votre machine possède quatre nœuds NUMA.
+			On suppose aussi que l'accès est effectué par le cœur 5 du nœud 0,
+			que la variable est gérée par le nœud 1 et qu'elle
+			est se trouve dans le cache L1 du cœur 3 du nœud 2 à l'état <span class="code"><span class="code-container">Modified</span></span>.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241271248"></div>
+<div class="solution-content" id="solution-idm45726241271248">
+<div class="code code-block"><div class="code-container">Transforme @v en @p via la table des pages
+Demande à L1 un accès exclusif à @p
+Demande à L2 un accès exclusif
+Demande à Noeud 1 un accès exclusif
+Noeud 1 enregistre @p sur noeud 0/coeur 5
+Noeud 1 forward la requête à noeud 2/coeur 3
+Noeud 2/coeur 3 invalide @p et envoie @p à noeud 0/coeur 5
+L2 ajoute @p à son cache en exclusif
+L1 ajoute @p à son cache en exclusif
+Processeur effectue l'accès
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

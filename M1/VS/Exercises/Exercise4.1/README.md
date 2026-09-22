@@ -6,7 +6,7 @@
 ## 目录内容
 
 - `parasphere.py`：并行可视化脚本，创建一个球体并按 `vtkProcessId` 着色。
-- `run.sh`：运行脚本，使用本目录下已有的 ParaView 安装执行并行渲染。
+- `run.sh`：运行脚本，使用所配置的 ParaView 安装执行并行渲染。
 - `parasphere.png`：运行完成后生成的输出图像。
 
 ## 运行方式
@@ -109,4 +109,4 @@ mpiexec -np 4 "C:/Program Files/ParaView x.x.x/bin/pvbatch" parasphere.py
 
 这张图的球体会按 `vtkProcessId` 着色，因此不同并行进程负责的部分会显示成不同颜色，这就是教程里要验证的结果。
 
-`run.sh` 默认使用本机已有的 ParaView 安装；其他机器可先设置 `PARAVIEW_BIN` 为安装目录下的 `bin` 路径，再执行脚本。
+运行前将 `PARAVIEW_BIN` 设为 ParaView 安装目录下的 `bin`，或将 `mpiexec`、`pvbatch` 加入 PATH。脚本不依赖某个固定的本机安装路径。

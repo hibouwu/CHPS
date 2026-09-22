@@ -1,0 +1,90 @@
+{
+  "files": {
+    "01-threads_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 48,
+      "sha256": "86a6b4e99ec91a197250ab9246bfcd549a150a1ac37c5720801c572390658735"
+    },
+    "01-welcome_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 26,
+      "sha256": "4a75a0cf6642d83faff69d7b5703140e216a36b069c948a719033c5fbb0e4c6a"
+    },
+    "02-locks_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 41,
+      "sha256": "6b0b77ffb322db84865d63f6f9677b4b7c178953d193e47c758282bb9bdc3a46"
+    },
+    "03-non-blocking_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 28,
+      "sha256": "c36d8c617c5f75dbb14311df73590714c208f2ce058f43ed249a77c3268516de"
+    },
+    "04-stm_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 37,
+      "sha256": "a85668d3f99a622745dd817a1021856d0eb343682fa3bb4ecac8f23afc206ec2"
+    },
+    "05-numa_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 54,
+      "sha256": "231e0270622fdc8f9b9819a3d5a52ad640e8a62fc47521b7f86385c213dac53c"
+    },
+    "06-nvmm_zh.md": {
+      "preserved": {
+        "code": true,
+        "inline_code": true,
+        "math": true,
+        "headings": true,
+        "links_images": true,
+        "anchors": true
+      },
+      "new_english_parentheses": 35,
+      "sha256": "2f7e533ad00f9d7aaacb6de4b73a8af913958238fb8cb6b3e6a0d8b12f0f4211"
+    }
+  },
+  "local_links": 118,
+  "errors": []
+}

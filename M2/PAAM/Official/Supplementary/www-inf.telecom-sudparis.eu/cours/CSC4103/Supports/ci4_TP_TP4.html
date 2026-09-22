@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC 4103 – Programmation système - TP4</title>
+<link href="../../../../fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../../../use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/tsp/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.telecom-sudparis.eu">
+<img alt="Telecom SudParis" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png"/>
+</a>
+<a class="title" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=unix">
+<h1>CSC 4103 – Programmation système</h1>
+</a>
+<a class="tagline" href="https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/portail/">
+				Portail informatique			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+    Organisation
+    <ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=unix">Présentation</a></li>
+<li>Annales
+<ul>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2016-2017/cf1/cf1&amp;soluce=true"> CF1 2017</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2016-2017/cf2/cf2&amp;soluce=true"> CF2 2017</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2017-2018/cf1/cf1&amp;soluce=true"> CF1 2018</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2017-2018/cf2/cf2&amp;soluce=true"> CF2 2018</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2018-2019/cf1/cf1&amp;soluce=true"> CF1 2019</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2019-2020/cf1/cf1&amp;soluce=true"> CF1 2020</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2019-2020/cf2/cf2&amp;soluce=true"> CF2 2020</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2020-2021/w4liXwbj1e/cf1/cf1&amp;soluce=true"> CF1 2021</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2020-2021/w4liXwbj1e/cf2/cf2&amp;soluce=true"> CF2 2021</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2021-2022/cf1/cf1&amp;soluce=true"> CF1 2022</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2022-2023/cf1/cf1&amp;soluce=true"> CF1 2023</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2023-2024/cf1/Q4BTFQTuEx/cf1"> CF1 2024</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2024-2025/cf1/lyTkliJ5q4/cf1"> CF1 2025</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2025-2026/cf1/LQZdryGoPW/cf1"> CF1 2026</a>
+</li>
+</ul>
+</li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=all&amp;wrap=true&amp;preprint=true">Sujets de TP en version imprimable</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=planning">Planning</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=annexe-gdb">Annexe gdb</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=resources">Ressources utiles</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=logiciels">Logiciels à installer</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=vm">Travailler sur sa machine</a></li>
+</ul>
+</li>
+<li>
+    Supports
+<ul class="chapitres">
+<li>
+<div class="chapter-id">CI1</div>
+<div class="chapter-title">Les bases du langage C</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C1/C1-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C1/C1-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci1/TP/demineur">TP</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Présentation du module</li>
+<li>Programme, Variables</li>
+<li>Structures algorithmiques (if, for, while, etc.)</li>
+<li>Fonctions</li>
+<li>Types composés (tableaux, structures)</li>
+<li>Passage de paramètres par référence</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">Hors-présentiel</div>
+<div class="chapter-title">Projet</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=projet/projet">Projet</a> <div class="expanded-version">9h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Programmation en C</li>
+<li>Structures de données</li>
+<li>Tests unitaires</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI2</div>
+<div class="chapter-title">Modularité</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C2/C2-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C2/C2-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci2/TP/TP2">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=f13919bb-9294-48af-99dc-ff6b5ba2eaab">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c13bc61a99d71caa564af4">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Chaîne de compilation</li>
+<li>Préprocesseur, Compilateur, Editeur de liens</li>
+<li>Objet ELF, Makefile</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI3</div>
+<div class="chapter-title">Pointeurs</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C3/C3-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C3/C3-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci3/TP/TP3&amp;wrap=true">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=db146646-ca77-483e-b853-b45615b11afb">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c13d931a99d71caa564b1a">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Espace mémoire</li>
+<li>Notion de pointeur</li>
+<li>Allocation mémoire</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI4</div>
+<div class="chapter-title">Fichiers</div> <!-- GT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C4/C4-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C4/C4-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-book.html">[html]</a>
+</li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci4/TP/TP4&amp;wrap=true">TP</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://play.kahoot.it/#/?quizId=c6c13e59-aceb-4451-98a8-b417452e01c1">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c13f871a99d71caa564b39">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Entrées/sorties bufferisées</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI5</div>
+<div class="chapter-title">Debugger</div> <!-- GT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C5/C5-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C5/C5-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-book.html">[html]</a>
+</li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci5/TP/TP5&amp;wrap=true">TP</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://play.kahoot.it/#/?quizId=3164b2c5-26bb-454c-ac6b-d8716ce08fb7">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c18415e81a69b7de17e449">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>GDB, Valgrind</li>
+<li>Pointeurs de fonction</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI6</div>
+<div class="chapter-title">Processus</div> <!-- FT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C6/C6-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C6/C6-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci6/TP/TP6&amp;wrap=true">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=5c8561c5-0f21-4dd6-a3d5-1cfa83f4d4e3">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c1855def2bdc3e846f291c">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Caractéristiques d'un processus</li>
+<li>Ordonnancement de processus</li>
+<li><code>fork/exec/wait</code></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI7</div>
+<div class="chapter-title">Appels systèmes</div> <!-- FT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C7/C7-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C7/C7-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci7/TP/TP7&amp;wrap=true">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=8f0ea405-eaa9-43d0-a49c-46efd589f68c">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c1869d70affaad9fa254f3">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Mode noyau/utilisateur</li>
+<li>strace</li>
+<li>sémaphore</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI8</div>
+<div class="chapter-title">Threads</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C8/C8-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C8/C8-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci8/TP/TP8&amp;wrap=true">TP</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=696e055ff82c0ec8f1077798">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Threads</li>
+<li>Concurrence</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI9</div>
+<div class="chapter-title">Signaux</div> <!-- GT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C9/C9-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C9/C9-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci9/TP/TP9&amp;wrap=true">TP</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c187642fd934070acc2c95">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>kill, sigaction, etc.</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI10</div>
+<div class="chapter-title">Projet</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci10/TP/TP10&amp;wrap=true">TP</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Evaluation du DM</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/cours/CSC4103/Supports/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241147584">Les fichiers</h2>
+<div class="chapitre-content" id="chapitre-idm45726241147584">
+<div class="objectif">
+      L'objectif de cette session d'exercices est de manipuler des fichiers.
+  </div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242088528">Comptes en banque (~ 20 min)</h3>
+<div class="exercice-content" id="exercice-idm45726242088528">
+<p>
+	Une banque stocke le solde de chacun des comptes qu'elle gère dans un fichier sous la forme :
+	<span class="code"><span class="code-container">solde_compte_0solde_compte_1solde_compte_2...solde_compte_n</span></span>
+</p>
+<p>
+	Le système de gestion des comptes de la banque peut générer des fichiers dans 2 formats différents:
+	les soldes peuvent être stockés sous forme d'une chaîne de caractères ASCII, ou sous la forme d'un <span class="code"><span class="code-container">int</span></span>.
+	Vous avez à votre disposition 2 fichiers représentant les même données:
+	<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/fichier_ascii.dat">fichier_ascii.dat</a>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/fichier_binaire.dat">fichier_binaire.dat</a>
+</p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242339744"></h4>
+<div class="question-content" id="question-idm45726242339744">
+<p class="inline-paragraph">
+ 	Utilisez l'éditeur hexadécimal <span class="code"><span class="code-container">bless</span></span> (ou <span class="code"><span class="code-container">xxd</span></span>) pour consulter le contenu des deux fichiers.
+    </p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241830832"></h4>
+<div class="question-content" id="question-idm45726241830832">
+<p class="inline-paragraph">
+	    Écrivez maintenant un programme <span class="code"><span class="code-container">read_bank_ascii.c</span></span> affichant le contenu du fichier
+	    <span class="code"><span class="code-container">fichier_ascii.dat</span></span>, et un programme <span class="code"><span class="code-container">read_bank_binary.c</span></span> affichant
+	    le contenu du fichier <span class="code"><span class="code-container">fichier_binaire.dat</span></span>.
+	</p>
+<p></p>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242342832"></div>
+<div class="solution-content" id="solution-idm45726242342832">
+<div class="code code-block">
+<div class="code-url"><a download="read_bank_ascii.c" href="ci4/TP/exo-banque/read_bank_ascii.c">read_bank_ascii.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../Supports/ci4/TP/exo-banque/read_bank_ascii.c"></div>
+</div>
+<div class="code code-block">
+<div class="code-url"><a download="read_bank_binary.c" href="ci4/TP/exo-banque/read_bank_binary.c">read_bank_binary.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../Supports/ci4/TP/exo-banque/read_bank_binary.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241702912">Le chiffrement xor (~ 1h15)</h3>
+<div class="exercice-content" id="exercice-idm45726241702912">
+	Dans cet exercice, nous concevons un programme permettant de chiffrer
+	le contenu d'un fichier, de façon à en protéger le contenu.
+	L'algorithme que nous mettons en œuvre est simple et facile à décrypter,
+	le but est surtout de vous faire manipuler des fichiers.
+	Notre algorithme utilise le chiffrement xor :
+	à partir d'une clé K (comprise entre 0 et 255), il s'agit d'appliquer l'opérateur xor avec comme
+	opérande K sur chacun des octets d'un fichier.
+	Pour déchiffrer le fichier, il suffit de le re-chiffrer avec la même clé, puisque
+	<span class="code"><span class="code-container">A xor K xor K = A</span></span>.
+
+	<p></p>
+	Votre programme doit recevoir trois arguments :
+	<ul>
+<li>une clé,</li>
+<li>le chemin d'un fichier d'entrée,</li>
+<li>le chemin d'un fichier de sortie.</li>
+</ul>
+<p></p>
+	Votre programme doit simplement appliquer le chiffrement xor avec la clé passée en argument
+	sur le fichier d'entrée, et écrire le résultat dans le fichier de sortie.
+
+	<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726246049568"></h4>
+<div class="question-content" id="question-idm45726246049568">
+<p class="inline-paragraph">
+		Pour commencer, écrivez un programme vérifiant qu'il a bien reçu le nombre adéquat d'arguments.
+		Souvenez-vous que l'argument 0 est toujours le nom du programme.
+		Si votre programme ne reçoit pas le nombre adéquat de paramètres, il doit écrire
+		un message adéquat sur la sortie d'erreur standard (<span class="code"><span class="code-container">stderr</span></span>) avec
+	    la fonction <span class="code"><span class="code-container">fprintf</span></span>, et quitter avec le code de retour <span class="code"><span class="code-container">EXIT_FAILURE</span></span>
+	    (qui, on vous le rappelle, signifie par convention que le programme s'est terminé
+		avec une erreur).
+	    </p>
+<p></p>
+<p>
+
+		Pour vérifier que votre programme écrit correctement sur la sortie d'erreur
+		standard, vous pouvez lancer votre programme en redirigeant la sortie
+		standard vers <span class="code"><span class="code-container">/dev/null</span></span>. Par exemple :
+	    </p>
+<div class="code code-block"><div class="code-container">$ ./encode &gt;/dev/null
+Usage: ./encode key in out</div></div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242088272"></h4>
+<div class="question-content" id="question-idm45726242088272">
+	    Convertissez l'argument clé en entier non signé sur 8 bits (avec le type <span class="code"><span class="code-container">uint8_t</span></span>
+	    défini dans <span class="code"><span class="code-container">stdint.h</span></span>) avec la fonction <span class="code"><span class="code-container">atoi</span></span>,
+		et affichez ce paramètre sur la sortie d'erreur standard, accompagné des
+		noms des fichiers d'entrée et de sortie. Vous devriez avoir un affichage similaire
+		à celui-ci :
+		<div class="code code-block"><div class="code-container">$ ./encode 10 /etc/passwd plip
+encode /etc/passwd with the key 10 to plip</div></div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242109712"></h4>
+<div class="question-content" id="question-idm45726242109712">
+		Ouvrez un flux nommé <span class="code"><span class="code-container">in</span></span> à partir du fichier d'entrée.
+		En cas d'erreur (i.e., si la fonction <span class="code"><span class="code-container">fopen</span></span> renvoie <span class="code"><span class="code-container">NULL</span></span>),
+	    vous afficherez la cause de l'erreur sur la sortie d'erreur avant de quitter (avec le code de retour
+	    <span class="code"><span class="code-container">EXIT_FAILURE</span></span>).
+
+		<p class="inline-paragraph"></p>
+<p></p>
+		Il faut savoir que <span class="code"><span class="code-container">fopen</span></span>, comme la plupart des fonctions C standards,
+	 	stocke la cause de l'erreur sous la forme d'un entier dans la variable <span class="code"><span class="code-container">errno</span></span> définie dans <span class="code"><span class="code-container">errno.h</span></span>,
+		et que la fonction <span class="code"><span class="code-container">char* strerror(int e)</span></span>
+		définie dans <span class="code"><span class="code-container">string.h</span></span> vous donnera une chaîne de caractère
+		expliquant l'erreur numéro <span class="code"><span class="code-container">e</span></span> de façon conviviale pour un humain.
+		Par exemple, si le fichier <span class="code"><span class="code-container">toto</span></span>
+		n'existe pas, vous devriez obtenir un affichage similaire à celui-ci 
+		<div class="code code-block"><div class="code-container">$ ./encode 10 toto plop 
+encode toto with the key 10 to plop
+fopen toto: No such file or directory</div></div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241422944"></h4>
+<div class="question-content" id="question-idm45726241422944">
+		De façon similaire, ouvrez un flux nommé <span class="code"><span class="code-container">out</span></span> à partir du fichier de sortie.
+		En cas d'erreur, vous afficherez un message expliquant la cause de l'erreur. Vous pouvez par
+		exemple essayer d'utiliser un répertoire comme chemin de sortie :
+		<div class="code code-block"><div class="code-container">$ ./encode 10 /etc/passwd /bin
+encode /etc/passwd with the key 10 to /bin
+fopen /bin: Is a directory</div></div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241749728"></h4>
+<div class="question-content" id="question-idm45726241749728">
+		Nous pouvons maintenant encoder le fichier.
+		Pour cela, nous mettons en œuvre une fonction nommée <span class="code"><span class="code-container">encode</span></span>
+		prenant trois paramètres :
+		<ul>
+<li>une clé d'encodage (un entier non signé sur 8 bits),</li>
+<li>un flux d'entrée,</li>
+<li>un flux de sortie.</li>
+</ul>
+<p class="inline-paragraph"></p>
+<p></p>
+		Dans un premier temps, votre fonction doit lire le fichier octet par octet
+		avec la fonction <span class="code"><span class="code-container">fread</span></span>, encoder le caractère
+		avec la clé (le caractère <span class="code"><span class="code-container">^</span></span> est l'opérateur xor en C),
+		puis écrire le caractère dans le flux de sortie.
+
+		<p></p>
+		Vérifiez que votre programme est correct en encodant le fichier <span class="code"><span class="code-container">/etc/passwd</span></span>
+		avec la clé 10 dans un fichier <span class="code"><span class="code-container">plop</span></span>.
+		Vérifiez que le contenu de <span class="code"><span class="code-container">plop</span></span> est bien radicalement
+		différent de celui de <span class="code"><span class="code-container">/etc/passwd</span></span>.
+		Ensuite, vérifiez que si vous encodez <span class="code"><span class="code-container">plop</span></span> avec la clé 10
+		dans un fichier <span class="code"><span class="code-container">plip</span></span>, le fichier <span class="code"><span class="code-container">plip</span></span>
+		est bien identique au fichier <span class="code"><span class="code-container">/etc/passwd</span></span>,
+		i.e., que vous avez bien déchiffré votre fichier <span class="code"><span class="code-container">plop</span></span>.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241069504"></h4>
+<div class="question-content" id="question-idm45726241069504">
+		Actuellement, votre programme appelle la fonction <span class="code"><span class="code-container">fread</span></span>
+		pour chaque caractère, ce qui est loin d'être optimal.
+		Nous optimisons donc notre fonction dans cet exercice.
+
+		<p class="inline-paragraph"></p>
+<p></p>
+		Au lieu de lire votre fichier octet par octet, nous vous suggérons
+		de définir un tampon de caractères de 256 octets, et d'effectuer
+		vos lectures par blocs de 256 caractères avec <span class="code"><span class="code-container">fread</span></span>.
+		De façon à bien écrire exactement le nombre d'octets du fichier
+		d'entrée dans le fichier de sortie, pensez
+		à utiliser le retour de la fonction <span class="code"><span class="code-container">fread</span></span>,
+		qui indique le nombre de caractères lus.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241957872"></h4>
+<div class="question-content" id="question-idm45726241957872">
+		Comme il est bien agréable de travailler aussi avec l'entrée ou la sortie standard,
+		modifiez votre programme de façon à utiliser le flux <span class="code"><span class="code-container">stdin</span></span>
+		si le nom du fichier d'entrée est égal à la chaîne de caractères <span class="code"><span class="code-container">"-"</span></span>,
+		et à utiliser le flux <span class="code"><span class="code-container">stdout</span></span> si le nom du fichier de sortie est égal à la chaîne
+		de caractères <span class="code"><span class="code-container">"-"</span></span>.
+		Souvenez-vous que la fonction <span class="code"><span class="code-container">strcmp</span></span> permet de comparer des chaînes
+		de caractères.
+
+		<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241814896"></div>
+<div class="solution-content" id="solution-idm45726241814896">
+<div class="code code-block">
+<div class="code-url"><a download="encode.c" href="ci4/TP/exo-encode/encode.c">encode.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../Supports/ci4/TP/exo-encode/encode.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241746752">Une note, des notes (~ 1h30)</h3>
+<div class="exercice-content" id="exercice-idm45726241746752">
+	Dans cet exercice, nous gérons des fichiers de notes.
+	Vous pouvez trouver une liste d'étudiants 
+	à <a download="" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/student.txt">cette adresse</a>.
+	L'exercice se compose de deux parties. 
+	Dans une première partie, vous générez un fichier de notes à partir
+	de la liste d'étudiants. 
+	Dans la seconde partie, vous apprenez à modifier ce fichier de notes.
+
+	<div class="partie">Création du fichier de note</div>
+	Dans cette partie, nous écrivons un programme nommé <span class="code"><span class="code-container">generate</span></span>. Ce programme
+	doit recevoir trois arguments :
+	<ul>
+<li>un fichier d'entrée contenant des noms d'étudiants (le fichier 
+		    <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/student.txt">student.txt</a>),</li>
+<li>un fichier de sortie contenant des noms d'étudiants et des notes,</li>
+<li>une note initiale.</li>
+</ul>
+<p></p>
+	Le programme <span class="code"><span class="code-container">generate</span></span> doit affecter la note initiale à chacun des étudiants
+	du fichier d'entrée, et écrire le résultat dans le fichier de sortie.
+	
+	<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242342240"></h4>
+<div class="question-content" id="question-idm45726242342240">
+		Pour commencer, vérifiez que votre programme reçoit bien trois arguments.
+		Si ce n'est pas le cas, votre programme doit se terminer avec un message d'erreur adéquat.
+		Ensuite, votre programme doit ouvrir les fichiers d'entrée et de sortie, respectivement
+		en lecture seul, et en écriture tronquée (i.e., si le fichier existe, il est tronqué).
+		Si vous rencontrez une erreur pendant l'une des ouvertures, vous veillerez
+		à quitter votre programme avec un message d'erreur adéquat. Pour cela,
+		pensez à utiliser <span class="code"><span class="code-container">strerror(errno)</span></span>.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241735312"></h4>
+<div class="question-content" id="question-idm45726241735312">
+		Maintenant, votre programme doit lire le fichier d'entrée ligne à ligne, jusqu'à la fin
+		du fichier, en utilisant la fonction <span class="code"><span class="code-container">fgets</span></span>.
+		Dans un premier temps, votre programme doit simplement afficher le nom de chaque étudiant dans le terminal.
+		On considère qu'un nom est correct si il fait moins de 256 caractères.
+		Dans le code, au lieu d'utiliser directement la valeur 256, on vous demande de définir
+		cette valeur à l'aide d'une macro, et de placer cette macro dans un fichier
+		d'entête nommé <span class="code"><span class="code-container">student.h</span></span>, que vous devez inclure avec la directive <span class="code"><span class="code-container">#include</span></span>.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242218640"></h4>
+<div class="question-content" id="question-idm45726242218640">
+		Ajoutez au fichier <span class="code"><span class="code-container">student.h</span></span> la définition d'une structure nommée
+		<span class="code"><span class="code-container">student</span></span> et contenant les champs suivants :
+		<ul>
+<li>
+<span class="code"><span class="code-container">name</span></span>: le nom de l'étudiant. Ce nom est une chaîne faisant au plus 256 caractères. 
+				Pensez à utiliser votre macro plutôt que d'écrire directement ce 256.</li>
+<li>
+<span class="code"><span class="code-container">rank</span></span>: la note associé à l'étudiant. On ne considère que des notes entières
+				dans l'exercice.</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241811616"></h4>
+<div class="question-content" id="question-idm45726241811616">
+		Dans <span class="code"><span class="code-container">generate</span></span>, au lieu d'afficher le nom de l'étudiant, vous devez remplir
+		une instance de la structure <span class="code"><span class="code-container">student</span></span> avec le nom de l'étudiant se trouvant
+		dans le fichier d'entrée et avec la note initiale passée en argument.
+		Après avoir rempli cette structure, écrivez là dans le fichier de sortie avec la fonction
+		<span class="code"><span class="code-container">fwrite</span></span>.
+
+		<div class="remarque">
+			Comme vous êtes une promotion exceptionnelle, vous pouvez naturellement affecter la note initiale
+			de 17 à tous les étudiants ! Bravo à toutes et à tous !
+		</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242381936"></div>
+<div class="solution-content" id="solution-idm45726242381936">
+<div class="code code-block">
+<div class="code-url"><a download="student.h" href="ci4/TP/exo-notes/student.h">student.h</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../Supports/ci4/TP/exo-notes/student.h"></div>
+</div>
+<div class="code code-block">
+<div class="code-url"><a download="generate.c" href="ci4/TP/exo-notes/generate.c">generate.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../Supports/ci4/TP/exo-notes/generate.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="partie">Modification du fichier de notes</div>
+	Dans cette partie, nous écrivons un nouveau programme nommé <span class="code"><span class="code-container">modify</span></span>, prenant
+	trois arguments :
+	<ul>
+<li>un fichier de notes,</li>
+<li>un nom d'étudiant,</li>
+<li>une note.</li>
+</ul>
+<div class="remarque">
+		Vous remarquerez qu'un nom d'étudiant est composé d'un ou plusieurs prénoms et d'un ou plusieurs noms,
+		le tout séparé par des espaces.
+		Comme l'espace sur la ligne de commande est le séparateur d'argument, appeler
+		<span class="code"><span class="code-container">modify notes.dat Zabeth La Chouette 20</span></span> revient à appeler le programme
+		<span class="code"><span class="code-container">modify</span></span> avec 5 arguments et non 3.
+
+		<p></p>
+		Comme vous vous souvenez parfaitement, et avec nostalgie, du module CSC3102, vous n'avez, bien entendu, pas
+		oublié qu'une chaîne de caractère entourée de guillemets compte comme un unique argument.
+		En d'autres termes, <span class="code"><span class="code-container">modify notes.dat "Zabeth La Chouette" 20</span></span> appelle
+		bien le programme <span class="code"><span class="code-container">modify</span></span> avec trois arguments.
+	</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242010480"></h4>
+<div class="question-content" id="question-idm45726242010480">
+		Pour commencer, vérifiez que le nombre d'arguments est correct et que, lors de l'ouverture
+		du fichier de notes passé en argument en mode lecture-écriture, vous n'avez pas d'erreur.
+		Pensez à utiliser <span class="code"><span class="code-container">strerror(errno)</span></span> pour afficher de façon conviviale 
+		l'éventuelle erreur d'ouverture.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241081456"></h4>
+<div class="question-content" id="question-idm45726241081456">
+		Plutôt que de lire les notes d'étudiants une par une, nous souhaitons lire l'ensemble
+		des notes avec un unique appel à <span class="code"><span class="code-container">fread</span></span>. Pour cela, il faut être capable
+		de connaître la taille de votre fichier.
+		En utilisant judicieusement <span class="code"><span class="code-container">fseek</span></span> et <span class="code"><span class="code-container">ftell</span></span>, essayez de trouver
+		la taille du fichier en nombre d'octets. 
+		Affichez cette taille, et vérifiez que cette taille est correcte en la comparant
+		à ce que vous donne la commande <span class="code"><span class="code-container">ls -l</span></span>.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241787472"></h4>
+<div class="question-content" id="question-idm45726241787472">
+		Maintenant que nous connaissons la taille du fichier, nous pouvons en déduire
+		le nombre d'étudiants en divisant la taille du fichier par la taille d'une structure <span class="code"><span class="code-container">student</span></span>.
+		Après avoir inclus le fichier <span class="code"><span class="code-container">student</span></span> avec la directive <span class="code"><span class="code-container">#include</span></span>,
+		calculez et affichez le nombre d'étudiants.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241096752"></h4>
+<div class="question-content" id="question-idm45726241096752">
+		Allouez maintenant un tableau pouvant recevoir les étudiants avec la fonction <span class="code"><span class="code-container">malloc</span></span>.
+		Utilisez ce tableau pour lire l'ensemble du fichier de notes avec un unique appel à
+		<span class="code"><span class="code-container">fread</span></span>.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241094992"></h4>
+<div class="question-content" id="question-idm45726241094992">
+		Affichez maintenant la note de chaque étudiant en parcourant votre tableau d'étudiants.
+	</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241857904"></h4>
+<div class="question-content" id="question-idm45726241857904">
+		Après l'affichage de la note de chaque étudiant effectué à la question précédente, 
+		effectuez un second parcours du tableau d'étudiant.
+		Pendant ce parcours, vous devez trouver l'étudiant dont le nom est passé en argument.
+		Une fois cet étudiant identifié :
+		<ul>
+<li>modifiez sa note en utilisant le dernier paramètre de <span class="code"><span class="code-container">modify</span></span>,</li>
+<li>positionnez de façon adéquat la tête de lecture du fichier de notes
+				sur son entrée,</li>
+<li>écrivez les nouvelles valeurs de sa structure <span class="code"><span class="code-container">student</span></span>.</li>
+</ul>
+<div class="remarque">
+			Vous pouvez vérifier que votre modification est correcte en lançant une seconde fois <span class="code"><span class="code-container">modify</span></span>,
+			puisque <span class="code"><span class="code-container">modify</span></span> affiche aussi la note de chaque étudiant (voir question précédente).
+		</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726240804848"></div>
+<div class="solution-content" id="solution-idm45726240804848">
+<div class="code code-block">
+<div class="code-url"><a download="modify.c" href="ci4/TP/exo-notes/modify.c">modify.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../Supports/ci4/TP/exo-notes/modify.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<a href="https://www.telecom-sudparis.eu">
+<img alt="Telecom SudParis" height="75" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png" width="75"/>
+</a>
+<a href="https://www.imt.fr">
+<img alt="Telecom SudParis" height="75" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/imt.jpg" width="143"/>
+</a>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.telecom-sudparis.eu">
+	Telecom SudParis</a></b><br/>
+<b><a class="hide-link" href="https://www.ip-paris.fr/en">
+		Institut Polytechnique de Paris</a></b></p>
+<p>9, rue Charles Fourier<br/>
+	F-91011 Evry Cedex France</p>
+<p>19, Place Marguerite Perey<br/>
+	F-91120 Palaiseau Cedex France<br/></p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Télécom SudParis
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC 5001– High Performance Systems - tp-multicore</title>
+<link href="../../../../fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../../../use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=page_principale">
+<h1>CSC 5001– High Performance Systems</h1>
+</a>
+<a class="tagline" href="https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/portail/">
+				Portail informatique			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+	Organization
+	<ul>
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=page_principale">Main page</a> </li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=planning">Schedule</a> </li>
+</ul>
+</li>
+<li>
+	Supports
+	<ul class="chapitres">
+<li>
+<div class="chapter-title">Introduction</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_intro/CSC5001-EP-intro.pdf">Introduction</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_intro/CSC5001-EP-modalite.pdf">Curriculum</a></li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_intro/software">Getting starting with Slurm</a> </li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=Ressources/doc-slurm">Slurm quick documentation</a> </li>
+<li> <a href="https://slurm.schedmd.com/quickstart.html">Slurm documentation</a> </li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-title">Project</div>
+<div class="chapter-content">
+<ul>
+<!--<li><a href='../Supports/Projet/projet-GameOfLife.pdf'>The
+			  Game of Life (&agrave; supprimer)</a></li> -->
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=Projet/projet-GameOfLife">The Game of Life</a> </li>
+<li> <a href="https://onedrive.live.com/view.aspx?resid=149A781E86548BA1%2136883&amp;authkey=!AEKXOMuvazSeD80">Slideshow in french… but visual</a>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+</div>
+</li>
+<li>
+<div class="chapter-title">OpenMP Basics</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_openmp/csc5001-openmp-EN.pdf">Lecture</a></li>
+<!-- <li><a href='../Supports/ci_openmp/sujet.pdf'>Lab (&agrave; supprimer)</a></li>-->
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_openmp/lab_openmp">Lab</a> </li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_openmp/Fichiers.tar.gz">Code base</a></li>
+<!-- <li><a href='https://raymond-namyst.emi.u-bordeaux.fr/ens/it224/Lecture-2.pdf'>Course</a></li>  -->
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/Ressources/OpenMPRef-5.0-0519-web.pdf">OpenMP 5.0 Quick Reference Card</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-title">OpenMP Tasks</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_openmp_tasks/CSC5001-EP-OpenMPTask.pdf">Lecture</a></li>
+<!--<li><a href='../Supports/ci_openmp_tasks/sujet.pdf'>Lab (&agrave; supprimer)</a></li>-->
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_openmp_tasks/lab_openmp_tasks">Lab</a> </li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_openmp_tasks/Fichiers.tar.gz">Code base</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+</div>
+</li>
+<li>
+<div class="chapter-title">Computer Architecture : cache, SIMD</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_architecture/CSC5001-EP-cache.pdf">Lecture - Cache</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_architecture/CSC5001-EP-SIMD.pdf">Lecture - SIMD</a></li>
+<!--<li><a href='../Supports/ci_architecture/sujet.pdf'>Lab (&agrave; supprimer)</a></li>-->
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_architecture/lab_archi">Lab</a> </li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_architecture/Fichiers.tar.gz">Code base</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/Ressources/x86-intrin-cheatsheet-v2.1.pdf">x86 Intrinsics Cheat Sheet</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-title">MPI</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_mpi/csc5001-mpi-1.pdf">Lecture - MPI</a></li>
+<!-- <li><a href='../Supports/ci_mpi/sujet.pdf'>Lab (&agrave; supprimer)</a></li>-->
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_mpi/lab_mpi">Lab</a> </li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_mpi/csc5001-mpi-internals.pdf">Lecture - MPI internals</a></li>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_mpi/tp-mpi-internals">Lab MPI internals</a> </li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_mpi/mpi_bootstrap">Bootstraping MPI</a> </li>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=Ressources/mpi/doc-mpi">Documentation on MPI</a> </li>
+<li><a href="http://www.mpi-forum.org/docs/mpi-3.0/mpi30-report.pdf">MPI 3 manual </a></li>
+<li>
+<a href="http://www.mcs.anl.gov/research/projects/mpi/tutorial/gropp/talk.html">Tutorial#1</a> </li>
+<li>
+<a href="https://computing.llnl.gov/tutorials/mpi/">Tutorial#2</a> </li>
+<li><a href="http://www.idris.fr/data/cours/parallel/mpi/mpi_aide_memoire_C.html">MPI cheat sheet</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-title">Parallel Algorithmics</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_algo/csc5001-algo.pdf">Lecture - Parallel algorithmics</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_algo/mandelbrot.tgz">Lab - Parallel algorithmics</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+</div>
+</li>
+<li>
+<div class="chapter-title">Performance Analysis</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_performance_analysis/csc5001-performance_analysis.pdf">Lecture - Performance analysis</a></li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_performance_analysis/performance_analysis">Lab - Performance analysis</a> </li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>
+<a href="https://gitlab.com/eztrace/eztrace-tutorials">Tutorials on EZTrace </a> </li>
+<li>
+<a href="https://www.youtube.com/watch?v=fhBHvsi0Ql0">Linux Systems Performance</a>
+			    by Brendan Gregg (Netflix) at the <a href="https://www.usenix.org/conference/lisa19">LISA'19 conference</a> </li>
+<li><a href="http://www.brendangregg.com/perf.html">perf examples</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-title">GPU programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_gpu/GPU-Intro.pdf">Lecture - Introduction to GPU programming</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_gpu/GPU-Memory.pdf">Lecture - GPU Memory Architecture</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/ci_gpu/GPU-MatMult.pdf">Lecture - Optimized matrix multiplication</a></li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=ci_gpu/lab-cuda">Lab - GPU programming</a> </li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> <a href="http://docs.nvidia.com/cuda/cuda-runtime-api/modules.html">CUDA reference Manual</a>
+</li>
+</ul>
+</div>
+</li>
+<!--
+	    <li>
+		<chapter-title>Documentation</chapter-title>
+		<chapter-content>
+		    <ul>
+			<li> <a href='?page=Ressources/mpi/doc-mpi'>MPI documentation</a> </li>
+			<li> <a href='?page=Ressources/doc-eztrace'>EZTrace documentation</a> </li>
+			<li> <a href='https://docs.nvidia.com/cuda/'>CUDA documentation</a> </li>
+		    </ul>
+		</chapter-content>
+		<chapter-notion>
+		</chapter-notion>
+	    </li>
+	    -->
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/COURS/CSC5001/Supports/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<h2 style="color: red">Sorry, the requested resource doesn't exist</h2></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

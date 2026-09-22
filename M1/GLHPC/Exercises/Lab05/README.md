@@ -3,4 +3,4 @@
 More details in [`report.md`](<report.md>)
 ## Python 环境
 
-现有 `run_bls.py` 与 `stability.py` 使用本机原练习的 `venv`。运行前请确认环境路径可用；在其他机器上需安装依赖并调整解释器路径。C 库应按本目录中的构建说明重新编译。
+先激活装有实验依赖的 Python 环境，再运行脚本。`run_bls.py` 使用当前环境，`stability.py` 的子进程沿用同一解释器；C 库按本目录的构建说明编译。

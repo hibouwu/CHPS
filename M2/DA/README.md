@@ -41,6 +41,7 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 
 | 资源 | 格式 |
 |---|---|
+| [Lab1.ipynb](<Exercises/Lab1/Lab1.ipynb>)（第一节实验，含配套数据与图片） | IPYNB |
 | [Assignments1.ipynb](<Exercises/Assignments1.ipynb>) | IPYNB |
 
 ### 课程讲义

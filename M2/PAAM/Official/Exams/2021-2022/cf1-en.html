@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - cf1-en</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241576048">PAAM – Exam 2021-2022</h2>
+<div class="chapitre-content" id="chapitre-idm45726241576048">
+<div style="width: 100%; text-align: center;">
+    Duration: 2 hours, any document allowed
+	</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241576432">Course questions (6 points)</h3>
+<div class="exercice-content" id="exercice-idm45726241576432">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242525456">NUMA (2 points)</h4>
+<div class="question-content" id="question-idm45726242525456">
+<p class="inline-paragraph">We assume an NUMA architecture consisting of four nodes A, B, C, and D. Each node contains 10 cores and
+        is connected to a memory with a maximum throughput of 5Gb/s. We suppose
+        4 interconnect links: between A and B, B and C, C and D, and D and A. Each link has a maximum throughput of 1Gb/s.
+        We assume an application consisting of 40 threads, in which each thread generates memory accesses with a constant rate of 0.1Gb/s.
+        The application allocates and initializes the memory used during computation in the initial thread.
+        In this setting, which policy will give the best performance, first-touch or interleaved?
+        Justify. For each policy, you can represent the throughput generated on the different links on a figure.</p>
+<p></p>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242031040"></div>
+<div class="solution-content" id="solution-idm45726242031040">
+        We suppose that memory access is uniformly distributed among the virtual address space.
+        We have 40 threads that generate each a load of 0.1 GB/s. We have a total generated load of 4GB/s.
+        <ul>
+<li>If we use an interleaved policy, we distribute equally the load of 4GB/s among each interconnect link, which means
+            1 GB/s per link, which do not saturate. The memory controllers, with their throughput of 5GB/s don't saturate either.
+            The actual throughput is thus 4GB/s.</li>
+<li>If we use a first touch policy, the maximal load possible generated by the application to node A (4GB/s) does not saturate
+            the memory controller of node A. 
+            Since the maximum capacity of the links AB and AC is equal to 2GB/s, node A will only process
+            3GB/s: the 2GB/s received from the links AB and AC (from B, C and D), and 1GB/s generated by the node A itself (10 threads
+            at 0.1GB/s).
+            The total throughput of the application is thus 3GB/s, which is lower than the 4GB/s of the interleaved policy.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242396656">Modèle mémoire (2 points)</h4>
+<div class="question-content" id="question-idm45726242396656">
+<p class="inline-paragraph">We consider four variables <span class="code"><span class="code-container">ok1</span></span>, <span class="code"><span class="code-container">ok2</span></span>, <span class="code"><span class="code-container">msg1</span></span> and <span class="code"><span class="code-container">msg2</span></span>, all of which are initialized to 0.
+        We also consider the following code in which reads and writes are atomic:</p>
+<p></p>
+<table>
+<tr>
+<td><div class="code code-block"><div class="code-container">Thread 1
+
+a. msg1 = 42;
+b. ok1 = 1;</div></div></td>
+<td><div class="code code-block"><div class="code-container">Thread 2
+
+c. while(ok1 == 0) { }
+d. msg2 = msg1;
+e. ok2 = 1</div></div></td>
+<td><div class="code code-block"><div class="code-container">Thread 3
+
+f. while(ok2 == 0) { }
+g. printf("%d %d\n", msg1, msg2);</div></div></td>
+</tr>
+</table>
+<p>If we consider a relaxed memory model, what are all the possible displays?
+        What are also the possible displays if the machine does not reorder the writes between them, nor the reads between them?</p>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242732320"></div>
+<div class="solution-content" id="solution-idm45726242732320">
+<p>With a machine that neither reorders reads between them and writes between them, if "&lt;" means "executed before",
+          we necessarily have
+          a &lt; b and d &lt; e (a, b, d and e are writes). We also necessarily have
+          f &lt; g (f and g are reads).
+          However, we can still have d &lt; c and e &lt; c because c is a read, and d and e are writes. For this reason, we can have:</p>
+<ul>
+<li>"0 0" with d &lt; e &lt; f &lt; g (then a &lt; b &lt; c)</li>
+<li>"42 0" with d &lt; a &lt; e &lt; f &lt; g (then b &lt; c)</li>
+<li>"42 42" with a &lt; d &lt; e &lt; f &lt; g (then b &lt; c)</li>
+</ul>
+<p>With the relaxed memory model, we can have the same output.</p>
+<p>Note that "0 42" is impossible: if msg2 = 42, then necessarily, msg1 = 42 because of line d.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242549232">Persistent memory (2 points, more difficult)</h4>
+<div class="question-content" id="question-idm45726242549232">
+<p class="inline-paragraph">We assume that our computer has the latest eADR technology. This technology ensures that,
+        in case of a failure, there is enough power to propagate the data from the caches into persistent memory.
+        On such a machine, is it necessary to have the pwb and pfence instructions? Justify.</p>
+<p></p>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242733776"></div>
+<div class="solution-content" id="solution-idm45726242733776">
+        pwb is not required anymore: any dirty cache line will eventually be propagated to memory in case of failure.
+        We still need pfence because eADR is not related to out of order execution.
+      </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242524864">The radix tree (14 points)</h3>
+<div class="exercice-content" id="exercice-idm45726242524864">
+<p>In this exercise, we implement a radix tree. A radix tree associates keys with values.
+      It mainly provides an interface with two functions:</p>
+<ul>
+<li>
+<span class="code"><span class="code-container">void* insert(char* key, void* value)</span></span>: associates the key with the value.
+        If there is already a value associated with the key, <span class="code"><span class="code-container">insert</span></span> returns the old value associated with the key and replaces
+        the old value with the new value. Otherwise, <span class="code"><span class="code-container">insert</span></span> creates an association between key and value, and returns NULL,</li>
+<li>
+<span class="code"><span class="code-container">void* get(char* key)</span></span>: returns the value associated with the key if it exists, and NULL otherwise.</li>
+</ul>
+<p>A node of a radix tree is represented by the following structure:</p>
+<div class="code code-block"><div class="code-container">struct node {
+  void* value; 
+  struct node* nexts[256]; 
+};</div></div>
+<p>When searching for a key in the tree, we go down the tree letter by letter starting from the root.
+      Technically, the root of the tree represents the empty key (string with 0 letters).
+      The <span class="code"><span class="code-container">nexts</span></span> field of the root is used to find the nodes associated with single letter strings.
+      For example, if <span class="code"><span class="code-container">root</span></span> is a pointer to the root of the tree, then
+      <span class="code"><span class="code-container">root-&gt;nexts['a']</span></span> points to the node representing the string <span class="code"><span class="code-container">"a"</span></span>.
+      When <span class="code"><span class="code-container">root-&gt;nexts['a']-&gt;value</span></span> is not <span class="code"><span class="code-container">NULL</span></span>, it gives the value associated to <span class="code"><span class="code-container">"a"</span></span>.
+      Otherwise, it means that the key <span class="code"><span class="code-container">"a"</span></span> is not in the tree.
+      The <span class="code"><span class="code-container">nexts</span></span> field of <span class="code"><span class="code-container">root-&gt;nexts["a"]</span></span> is used to retrieve two-letter strings starting with the string <span class="code"><span class="code-container">"a"</span></span>.
+      For example, <span class="code"><span class="code-container">root-&gt;nexts['a']-&gt;nexts['b']</span></span> points to the node representing the string
+      <span class="code"><span class="code-container">"ab"</span></span>, and root-&gt;nexts['a']-&gt;nexts['b']-&gt;value, if not <span class="code"><span class="code-container">NULL</span></span>, gives its value.</p>
+<div class="partie">Mono-threaded implementation</div>
+<p>In this first part, you have to implement the radix tree without considering concurrent accesses:
+      you can consider that there is only a single thread in your process.</p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242106560">Jumping one level in the tree (1 points)</h4>
+<div class="question-content" id="question-idm45726242106560">
+<p class="inline-paragraph">To start, write a function
+        <span class="code"><span class="code-container">struct node* get_next(struct node** p)</span></span>.
+        If <span class="code"><span class="code-container">*p</span></span> is <span class="code"><span class="code-container">NULL</span></span>, the function has to allocate a <span class="code"><span class="code-container">struct node</span></span>,
+        to store it in <span class="code"><span class="code-container">*p</span></span>, and to return it.
+        If <span class="code"><span class="code-container">*p</span></span> is not NULL, this function has simply to return <span class="code"><span class="code-container">*p</span></span>.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241623264">The insert function (3 points)</h4>
+<div class="question-content" id="question-idm45726241623264">
+<p class="inline-paragraph">Implement the insert function. In this question, you have to use <span class="code"><span class="code-container">get_next</span></span>
+        to go down the tree and create the intermediate nodes. 
+        In details, you can use a <span class="code"><span class="code-container">struct node** cur</span></span> to traverse the tree. At the beginning of <span class="code"><span class="code-container">insert</span></span>,
+        you can simply initialize it to <span class="code"><span class="code-container">&amp;root</span></span>, where root is a global variable of type
+        <span class="code"><span class="code-container">struct node*</span></span> pointing to the root of the radix tree.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242029712">The get function (2 points)</h4>
+<div class="question-content" id="question-idm45726242029712">
+<p class="inline-paragraph">Write the <span class="code"><span class="code-container">get</span></span> function.</p>
+<p></p>
+</div>
+</div>
+<div class="partie">Multi-threaded implementation</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242033792">Lock-based synchronization (3 points)</h4>
+<div class="question-content" id="question-idm45726242033792">
+<p class="inline-paragraph">Write a <span class="code"><span class="code-container">main</span></span> method that creates 10 threads and terminates once all 10 threads are finished.
+        Each thread must insert 10 different words (threads can insert the same words 10 times)
+        before retrieving them one after another by calling get. Don't forget to handle concurrent accesses.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726245748048">Lock-free synchronization (4 points, more difficult)</h4>
+<div class="question-content" id="question-idm45726245748048">
+<p class="inline-paragraph">Rewrite the <span class="code"><span class="code-container">get_next</span></span>, <span class="code"><span class="code-container">insert</span></span> and
+        <span class="code"><span class="code-container">get</span></span> methods in such a way that your code does not use locks anymore but remains correct with multiple threads.
+        You may notice that, in <span class="code"><span class="code-container">get_next</span></span>, if two threads create a node at the same time, the second writer
+          has simply to use the node created by the first writer and to free its already allocated node.</p>
+<p></p>
+<div class="remarque">
+        You will have to make sure that you read and write the variables potentially accessed by several threads with
+        <span class="code"><span class="code-container">atomic_load</span></span> and <span class="code"><span class="code-container">atomic_store</span></span>. You will also have to use <span class="code"><span class="code-container">atomic_compare_exchange_strong</span></span>.
+      </div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726245767856">Transactional memory (1 point)</h4>
+<div class="question-content" id="question-idm45726245767856">
+<p class="inline-paragraph">Explain briefly the changes that you should make to the single-threaded code of
+        <span class="code"><span class="code-container">insert</span></span> and <span class="code"><span class="code-container">get</span></span> (questions 2.b and 2.c) to make it correct using transactional memory.</p>
+<p></p>
+</div>
+</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726245765728"></div>
+<div class="solution-content" id="solution-idm45726245765728">
+<div class="code code-block">
+<div class="code-url"><a download="radix-free.c" href="radix-free.c">radix-free.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2021-2022/radix-free.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - cf1-en</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726242268928">PAAM – Exam 2022-2023</h2>
+<div class="chapitre-content" id="chapitre-idm45726242268928">
+<div style="width: 100%; text-align: center;">
+    Duration: 2 hours, any document allowed.
+	</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242681728">The barrier (11 points, easy/medium)</h3>
+<div class="exercice-content" id="exercice-idm45726242681728">
+<p>The goal of this exercise is to implement a barrier.
+      A barrier is an object that allows <span class="code"><span class="code-container">N</span></span> threads to synchronize.
+      Technically, a barrier mainly provides a <span class="code"><span class="code-container">barrier_wait</span></span> method.
+      When a thread calls <span class="code"><span class="code-container">barrier_wait</span></span>, if the number of threads having reached the barrier is strictly smaller than <span class="code"><span class="code-container">N</span></span>, the thread waits.
+      When the <span class="code"><span class="code-container">N</span></span><sup>th</sup> thread calls <span class="code"><span class="code-container">barrier_wait</span></span>, all the threads are unblocked.</p>
+<p>A barrier is represented by a <span class="code"><span class="code-container">struct barrier</span></span>. In the exercise, you must implement the following functions:</p>
+<ul>
+<li>
+<span class="code"><span class="code-container">void barrier_init(struct barrier* b, int n)</span></span>: initializes the barrier to <span class="code"><span class="code-container">n</span></span>, where <span class="code"><span class="code-container">n</span></span> is the number of threads that participates,</li>
+<li>
+<span class="code"><span class="code-container">void barrier_wait(struct barrier* b)</span></span>: joins the barrier.</li>
+</ul>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241747568">2 points (easy)</h4>
+<div class="question-content" id="question-idm45726241747568">
+<p class="inline-paragraph">Write a program that:</p>
+<p></p>
+<ul>
+<li>Takes <span class="code"><span class="code-container">n</span></span> as argument, where <span class="code"><span class="code-container">n</span></span> is the number of threads to create,</li>
+<li>Starts <span class="code"><span class="code-container">n</span></span> threads. Each thread must wait the n threads on a barrier before terminating.</li>
+<li>Terminates the program once the <span class="code"><span class="code-container">n</span></span> threads are terminate.
+      </li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241728208">3,5 points (easy)</h4>
+<div class="question-content" id="question-idm45726241728208">
+<p class="inline-paragraph">First, we want to implement the barrier using POSIX locks and condition variables.
+        Give the definition of <span class="code"><span class="code-container">struct barrier</span></span> and the code of <span class="code"><span class="code-container">barrier_init</span></span> and <span class="code"><span class="code-container">barrier_wait</span></span>.
+        A thread must sleep when it waits for the other threads.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242422512">2 points (easy)</h4>
+<div class="question-content" id="question-idm45726242422512">
+<p class="inline-paragraph">We now want to implement barrier using only atomic operations.
+        Give the new definition of <span class="code"><span class="code-container">struct barrier</span></span> and of the code of <span class="code"><span class="code-container">barrier_init</span></span> and <span class="code"><span class="code-container">barrier_wait</span></span>.
+        A thread must sleep when it waits for the other threads.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241833616">2 points (medium)</h4>
+<div class="question-content" id="question-idm45726241833616">
+<p class="inline-paragraph">In our previous implementation, a thread uselessly uses the processor when it waits the other threads.
+        We want to improve this behavior by using a futex so that a thread sleeps while it waits.
+        Give the new definition of <span class="code"><span class="code-container">struct barrier</span></span> and the code of <span class="code"><span class="code-container">barrier_init</span></span> and <span class="code"><span class="code-container">barrier_wait</span></span>.
+        To use a futex, we suppose that you can use these functions:</p>
+<p></p>
+<ul>
+<li>
+<span class="code"><span class="code-container">futex_wait(int* ptr, int value)</span></span> : the thread sleeps if and only if <span class="code"><span class="code-container">*ptr</span></span> is equal to <span class="code"><span class="code-container">value</span></span>.
+          This function is executed atomically.</li>
+<li>
+<span class="code"><span class="code-container">futex_wake(int* ptr, int n)</span></span> : wake up <span class="code"><span class="code-container">n</span></span> threads waiting on the <span class="code"><span class="code-container">ptr</span></span> address.
+          This function is executed atomically.</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242279424">1,5 points (easy)</h4>
+<div class="question-content" id="question-idm45726242279424">
+<p class="inline-paragraph">We finally want to implement a barrier by using a transactional memory.
+        Give the new definition of <span class="code"><span class="code-container">struct barrier</span></span> and the code of <span class="code"><span class="code-container">barrier_init</span></span> and <span class="code"><span class="code-container">barrier_wait</span></span>.</p>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241979776">Questions de cours (2 points, easy)</h3>
+<div class="exercice-content" id="exercice-idm45726241979776">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726240868112">1 points</h4>
+<div class="question-content" id="question-idm45726240868112">
+<p class="inline-paragraph">Why the <span class="code"><span class="code-container">sfence</span></span> (store fence) instruction of a pentium is enough to implement the abstract instruction <span class="code"><span class="code-container">pfence</span></span>?</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241118256">1 points</h4>
+<div class="question-content" id="question-idm45726241118256">
+<p class="inline-paragraph">Why the <span class="code"><span class="code-container">sfence</span></span> (store fence) instruction of a pentium is enough to implement the abstract instruction <span class="code"><span class="code-container">psync</span></span>?</p>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241173504">Flat combining (7 points, difficult/very difficult)</h3>
+<div class="exercice-content" id="exercice-idm45726241173504">
+<p>In this exercise, we have the goal of adapting the MCS lock algorithm in order to transform it into a so-called flat combining algorithm.
+      The following code recalls how the MCS algorithm is implemented.
+      Compared to the course, the code has been slightly adapted.
+      First, the condition <span class="code"><span class="code-container">isFree</span></span> has been inverted and is now <span class="code"><span class="code-container">is_busy</span></span>.
+      Second, instead of having a function to take a lock and a function to release the lock, the code contains only a single function named <span class="code"><span class="code-container">execute_in_cs</span></span>.
+      This function takes as argument a pointer to a job function (type job_t).
+      The <span class="code"><span class="code-container">execute_in_cs</span></span> function takes the lock, executes the job and releases the lock.</p>
+<div class="code code-block">
+<div class="code-url"><a download="mcs.c" href="mcs.c">mcs.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2022-2023/mcs.c"></div>
+</div>
+<p>With the flat combining algorithm, when a thread acquires the lock, we say that it becomes a combiner.
+      In this case, instead of executing only its own job, it executes also the next jobs in the queue.
+      At a high level, the algorithm becomes:</p>
+<ul>
+<li>Try to take the lock,</li>
+<li>If the lock is taken, waits until a combiner has executed its job,</li>
+<li>Otherwise, the thread becomes a combiner. It executes its own job and then traverses the queue in order to execute the jobs of the waiters.</li>
+</ul>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242494800">4 points (difficult)</h4>
+<div class="question-content" id="question-idm45726242494800">
+<p class="inline-paragraph">Implement the flat combining algorithm.
+        Since implementing the flat combining algorithm requires modifying the <span class="code"><span class="code-container">struct node</span></span> structure, you also have to give the new <span class="code"><span class="code-container">struct node</span></span> structure that you are using.
+        Implementing the flat combining algorithm requires few modifications in the MCS algorithm.
+        At a high level, the main difference is that a thread must execute the jobs of the waiting threads before leaving <span class="code"><span class="code-container">execute_in_cs</span></span>.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242584752">1 point (difficult)</h4>
+<div class="question-content" id="question-idm45726242584752">
+<p class="inline-paragraph">Why do you think the flat combining algorithm generally performs better than the MCS algorithm?</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726240842672">2 points (very difficult)</h4>
+<div class="question-content" id="question-idm45726240842672">
+<p class="inline-paragraph">With the previous algorithm, a thread may never progress if new nodes are continuously adding their jobs.
+        Modify your algorithm so that a combiner never executes more than 256 jobs.</p>
+<p></p>
+</div>
+</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242176512"></div>
+<div class="solution-content" id="solution-idm45726242176512">
+<div class="code code-block">
+<div class="code-url"><a download="flat.c" href="flat.c">flat.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2022-2023/flat.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

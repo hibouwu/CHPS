@@ -20,3 +20,5 @@
 ## TD / TP
 
 [AP](AP/Exercises/README.md) · [APP](APP/Exercises/README.md) · [CN](CN/Exercises/README.md) · [POO](POO/Exercises/README.md) · [GLHPC](GLHPC/Exercises/README.md) · [AISE](AISE/Exercises/README.md)
+
+TOP 的 Lab 直接查看[教师题目与源码](TOP/README.md#lab-教师资源)；LBM 项目使用上面的独立 GitHub 仓库。

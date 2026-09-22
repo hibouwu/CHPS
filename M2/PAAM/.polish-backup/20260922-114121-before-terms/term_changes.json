@@ -1,0 +1,1325 @@
+{
+  "01-welcome": {
+    "annotations": [
+      {
+        "term": "多核机器",
+        "before": "多核机器",
+        "after": "多核机器（multicore machine）"
+      },
+      {
+        "term": "共享数据",
+        "before": "共享数据",
+        "after": "共享数据（shared data）"
+      },
+      {
+        "term": "同步机制",
+        "before": "同步机制",
+        "after": "同步机制（synchronization mechanism）"
+      },
+      {
+        "term": "插槽",
+        "before": "插槽",
+        "after": "插槽（socket）"
+      },
+      {
+        "term": "多核架构",
+        "before": "多核架构",
+        "after": "多核架构（multicore architecture）"
+      },
+      {
+        "term": "锁",
+        "before": "锁",
+        "after": "锁（lock）"
+      },
+      {
+        "term": "争用",
+        "before": "争用",
+        "after": "争用（contention）"
+      },
+      {
+        "term": "缓存一致性",
+        "before": "缓存一致性",
+        "after": "缓存一致性（cache coherence）"
+      },
+      {
+        "term": "NUMA",
+        "before": "NUMA",
+        "after": "非均匀内存访问（non-uniform memory access，NUMA）"
+      },
+      {
+        "term": "线程",
+        "before": "线程",
+        "after": "线程（thread）"
+      },
+      {
+        "term": "互斥",
+        "before": "互斥",
+        "after": "互斥（mutual exclusion）"
+      },
+      {
+        "term": "API",
+        "before": "API",
+        "after": "应用程序接口（application programming interface，API）"
+      },
+      {
+        "term": "非阻塞算法",
+        "before": "非阻塞算法",
+        "after": "非阻塞算法（non-blocking algorithms）"
+      },
+      {
+        "term": "CAS",
+        "before": "CAS",
+        "after": "比较并交换（compare-and-swap，CAS）"
+      },
+      {
+        "term": "进展保证",
+        "before": "进展保证",
+        "after": "进展保证（progress guarantee）"
+      },
+      {
+        "term": "内存回收",
+        "before": "内存回收",
+        "after": "内存回收（memory reclamation）"
+      },
+      {
+        "term": "事务内存",
+        "before": "事务内存",
+        "after": "事务内存（transactional memory，TM）"
+      },
+      {
+        "term": "原子更新",
+        "before": "原子更新",
+        "after": "原子更新（atomic update）"
+      },
+      {
+        "term": "非易失性内存",
+        "before": "非易失性内存",
+        "after": "非易失性内存（non-volatile memory，NVM）"
+      },
+      {
+        "term": "指针",
+        "before": "指针",
+        "after": "指针（pointer）"
+      },
+      {
+        "term": "内存管理",
+        "before": "内存管理",
+        "after": "内存管理（memory management）"
+      },
+      {
+        "term": "系统调用",
+        "before": "系统调用",
+        "after": "系统调用（system call）"
+      },
+      {
+        "term": "进程",
+        "before": "进程",
+        "after": "进程（process）"
+      }
+    ],
+    "manual": [
+      [
+        "进程间通信等系统知识",
+        "进程间通信（inter-process communication，IPC）等系统知识"
+      ]
+    ],
+    "not_encountered": []
+  },
+  "01-threads": {
+    "annotations": [
+      {
+        "term": "进程",
+        "before": "进程",
+        "after": "进程（process）"
+      },
+      {
+        "term": "操作系统",
+        "before": "操作系统",
+        "after": "操作系统（operating system，OS）"
+      },
+      {
+        "term": "信号",
+        "before": "信号",
+        "after": "信号（signal）"
+      },
+      {
+        "term": "管道",
+        "before": "管道",
+        "after": "管道（pipe）"
+      },
+      {
+        "term": "套接字",
+        "before": "套接字",
+        "after": "套接字（socket）"
+      },
+      {
+        "term": "虚拟化",
+        "before": "虚拟化",
+        "after": "虚拟化（virtualization）"
+      },
+      {
+        "term": "地址空间",
+        "before": "地址空间",
+        "after": "地址空间（address space）"
+      },
+      {
+        "term": "CPU",
+        "before": "CPU",
+        "after": "中央处理器（central processing unit，CPU）"
+      },
+      {
+        "term": "物理内存",
+        "before": "物理内存",
+        "after": "物理内存（physical memory）"
+      },
+      {
+        "term": "函数调用",
+        "before": "函数调用",
+        "after": "函数调用（function call）"
+      },
+      {
+        "term": "参数",
+        "before": "参数",
+        "after": "参数（argument）"
+      },
+      {
+        "term": "局部变量",
+        "before": "局部变量",
+        "after": "局部变量（local variable）"
+      },
+      {
+        "term": "调用帧",
+        "before": "调用帧",
+        "after": "调用帧（call frame）"
+      },
+      {
+        "term": "栈",
+        "before": "栈",
+        "after": "栈（stack）"
+      },
+      {
+        "term": "线程",
+        "before": "线程",
+        "after": "线程（thread）"
+      },
+      {
+        "term": "调度",
+        "before": "调度",
+        "after": "调度（scheduling）"
+      },
+      {
+        "term": "调用栈",
+        "before": "调用栈",
+        "after": "调用栈（call stack）"
+      },
+      {
+        "term": "寄存器",
+        "before": "寄存器",
+        "after": "寄存器（register）"
+      },
+      {
+        "term": "内联",
+        "before": "内联",
+        "after": "内联（inlining）"
+      },
+      {
+        "term": "全局数据",
+        "before": "全局数据",
+        "after": "全局数据（global data）"
+      },
+      {
+        "term": "堆",
+        "before": "堆",
+        "after": "堆（heap）"
+      },
+      {
+        "term": "生命期",
+        "before": "生命期",
+        "after": "生命期（lifetime）"
+      },
+      {
+        "term": "同步",
+        "before": "同步",
+        "after": "同步（synchronization）"
+      },
+      {
+        "term": "并发",
+        "before": "并发",
+        "after": "并发（concurrency）"
+      },
+      {
+        "term": "并行",
+        "before": "并行",
+        "after": "并行（parallelism）"
+      },
+      {
+        "term": "线程标识",
+        "before": "线程标识",
+        "after": "线程标识（thread identifier）"
+      },
+      {
+        "term": "pthread",
+        "before": "pthread",
+        "after": "POSIX 线程（POSIX threads，pthreads）"
+      },
+      {
+        "term": "入口函数",
+        "before": "入口函数",
+        "after": "入口函数（start routine）"
+      },
+      {
+        "term": "指针",
+        "before": "指针",
+        "after": "指针（pointer）"
+      },
+      {
+        "term": "POSIX",
+        "before": "POSIX",
+        "after": "可移植操作系统接口（Portable Operating System Interface，POSIX）"
+      },
+      {
+        "term": "二级指针",
+        "before": "二级指针",
+        "after": "二级指针（pointer to pointer）"
+      },
+      {
+        "term": "joinable",
+        "before": "joinable 状态",
+        "after": "可等待回收状态（joinable）"
+      },
+      {
+        "term": "detached",
+        "before": "detached",
+        "after": "分离状态（detached）"
+      },
+      {
+        "term": "丢失更新",
+        "before": "丢失更新",
+        "after": "丢失更新（lost update）"
+      },
+      {
+        "term": "数据竞争",
+        "before": "数据竞争",
+        "after": "数据竞争（data race）"
+      },
+      {
+        "term": "未定义行为",
+        "before": "未定义行为",
+        "after": "未定义行为（undefined behavior，UB）"
+      },
+      {
+        "term": "临界区",
+        "before": "临界区",
+        "after": "临界区（critical section）"
+      },
+      {
+        "term": "互斥锁",
+        "before": "互斥锁",
+        "after": "互斥锁（mutex）"
+      },
+      {
+        "term": "原子效果",
+        "before": "原子效果",
+        "after": "原子效果（atomic effect）"
+      },
+      {
+        "term": "抢占",
+        "before": "抢占",
+        "after": "抢占（preemption）"
+      },
+      {
+        "term": "条件变量",
+        "before": "条件变量",
+        "after": "条件变量（condition variable）"
+      },
+      {
+        "term": "虚假唤醒",
+        "before": "虚假唤醒",
+        "after": "虚假唤醒（spurious wakeup）"
+      },
+      {
+        "term": "共享状态",
+        "before": "共享状态",
+        "after": "共享状态（shared state）"
+      },
+      {
+        "term": "谓词",
+        "before": "谓词",
+        "after": "谓词（predicate）"
+      },
+      {
+        "term": "消息队列",
+        "before": "消息队列",
+        "after": "消息队列（message queue）"
+      },
+      {
+        "term": "生命周期",
+        "before": "生命周期",
+        "after": "生命周期（lifecycle）"
+      },
+      {
+        "term": "互斥",
+        "before": "互斥",
+        "after": "互斥（mutual exclusion）"
+      }
+    ],
+    "manual": [
+      [
+        "执行的上下文**",
+        "执行上下文（execution context）**"
+      ]
+    ],
+    "not_encountered": []
+  },
+  "02-locks": {
+    "annotations": [
+      {
+        "term": "互斥",
+        "before": "互斥",
+        "after": "互斥（mutual exclusion）"
+      },
+      {
+        "term": "互斥锁",
+        "before": "mutex",
+        "after": "互斥锁（mutex）"
+      },
+      {
+        "term": "临界区",
+        "before": "临界区",
+        "after": "临界区（critical section）"
+      },
+      {
+        "term": "原子操作",
+        "before": "原子操作",
+        "after": "原子操作（atomic operation）"
+      },
+      {
+        "term": "竞争窗口",
+        "before": "竞争窗口",
+        "after": "竞争窗口（race window）"
+      },
+      {
+        "term": "机器模型",
+        "before": "机器模型",
+        "after": "机器模型（machine model）"
+      },
+      {
+        "term": "机器字",
+        "before": "机器字",
+        "after": "机器字（machine word）"
+      },
+      {
+        "term": "不可撕裂",
+        "before": "不可撕裂",
+        "after": "不可撕裂（non-tearing）"
+      },
+      {
+        "term": "Bakery 算法",
+        "before": "Bakery 算法",
+        "after": "面包店算法（Bakery algorithm）"
+      },
+      {
+        "term": "严格全序",
+        "before": "严格全序",
+        "after": "严格全序（strict total order）"
+      },
+      {
+        "term": "内存顺序",
+        "before": "内存顺序",
+        "after": "内存顺序（memory ordering）"
+      },
+      {
+        "term": "CPU",
+        "before": "CPU",
+        "after": "中央处理器（central processing unit，CPU）"
+      },
+      {
+        "term": "缓存",
+        "before": "缓存",
+        "after": "缓存（cache）"
+      },
+      {
+        "term": "共享副本",
+        "before": "共享副本",
+        "after": "共享副本（shared copy）"
+      },
+      {
+        "term": "写权限",
+        "before": "写权限",
+        "after": "写权限（write permission）"
+      },
+      {
+        "term": "缓存一致性",
+        "before": "缓存一致性",
+        "after": "缓存一致性（cache coherence）"
+      },
+      {
+        "term": "缓存行",
+        "before": "缓存行",
+        "after": "缓存行（cache line）"
+      },
+      {
+        "term": "吞吐量",
+        "before": "吞吐量",
+        "after": "吞吐量（throughput）"
+      },
+      {
+        "term": "原子性",
+        "before": "原子性",
+        "after": "原子性（atomicity）"
+      },
+      {
+        "term": "TSO",
+        "before": "TSO",
+        "after": "全存储顺序（total store order，TSO）"
+      },
+      {
+        "term": "屏障",
+        "before": "屏障",
+        "after": "屏障（fence）"
+      },
+      {
+        "term": "数据竞争",
+        "before": "数据竞争",
+        "after": "数据竞争（data race）"
+      },
+      {
+        "term": "未定义行为",
+        "before": "未定义行为",
+        "after": "未定义行为（undefined behavior，UB）"
+      },
+      {
+        "term": "release",
+        "before": "release",
+        "after": "释放顺序（release ordering）"
+      },
+      {
+        "term": "acquire",
+        "before": "acquire",
+        "after": "获取顺序（acquire ordering）"
+      },
+      {
+        "term": "acq_rel",
+        "before": "acq_rel",
+        "after": "获取—释放顺序（acquire-release ordering，acq_rel）"
+      },
+      {
+        "term": "读改写",
+        "before": "读改写",
+        "after": "读改写（read-modify-write，RMW）"
+      },
+      {
+        "term": "consume",
+        "before": "consume",
+        "after": "消费顺序（consume ordering）"
+      },
+      {
+        "term": "顺序一致性",
+        "before": "顺序一致性",
+        "after": "顺序一致性（sequential consistency，SC）"
+      },
+      {
+        "term": "全序",
+        "before": "全序",
+        "after": "全序（total order）"
+      },
+      {
+        "term": "原子读写",
+        "before": "原子读写",
+        "after": "原子读写（atomic load/store）"
+      },
+      {
+        "term": "ticket lock",
+        "before": "Ticket lock",
+        "after": "票据锁（ticket lock）"
+      },
+      {
+        "term": "CAS",
+        "before": "CAS",
+        "after": "比较并交换（compare-and-swap，CAS）"
+      },
+      {
+        "term": "MCS",
+        "before": "MCS",
+        "after": "MCS 队列锁（Mellor-Crummey–Scott lock，MCS）"
+      },
+      {
+        "term": "convoy",
+        "before": "convoy（队列拖延）",
+        "after": "队列拖延（convoy effect）"
+      },
+      {
+        "term": "FIFO",
+        "before": "FIFO",
+        "after": "先进先出（first in, first out，FIFO）"
+      },
+      {
+        "term": "伪共享",
+        "before": "伪共享",
+        "after": "伪共享（false sharing）"
+      }
+    ],
+    "manual": [
+      [
+        "`relaxed` 保留",
+        "宽松顺序（relaxed ordering）的 `relaxed` 访问保留"
+      ],
+      [
+        "使用 `_Thread_local`，让",
+        "使用线程局部存储（thread-local storage，TLS）机制 `_Thread_local`，让"
+      ]
+    ],
+    "not_encountered": [
+      "API",
+      "内存屏障",
+      "内存模型",
+      "自旋锁"
+    ]
+  },
+  "03-non-blocking": {
+    "annotations": [
+      {
+        "term": "顺序一致性",
+        "before": "顺序一致",
+        "after": "顺序一致（sequential consistency，SC）"
+      },
+      {
+        "term": "原子操作",
+        "before": "原子操作",
+        "after": "原子操作（atomic operation）"
+      },
+      {
+        "term": "非阻塞算法",
+        "before": "非阻塞算法",
+        "after": "非阻塞算法（non-blocking algorithms）"
+      },
+      {
+        "term": "进展保证",
+        "before": "进展保证",
+        "after": "进展保证（progress guarantee）"
+      },
+      {
+        "term": "wait-free",
+        "before": "wait-free",
+        "after": "无等待（wait-free）"
+      },
+      {
+        "term": "lock-free",
+        "before": "lock-free",
+        "after": "无锁（lock-free）"
+      },
+      {
+        "term": "obstruction-free",
+        "before": "obstruction-free",
+        "after": "无障碍（obstruction-free）"
+      },
+      {
+        "term": "栈",
+        "before": "栈",
+        "after": "栈（stack）"
+      },
+      {
+        "term": "节点",
+        "before": "节点",
+        "after": "节点（node）"
+      },
+      {
+        "term": "头指针",
+        "before": "头指针",
+        "after": "头指针（head pointer）"
+      },
+      {
+        "term": "线性化点",
+        "before": "线性化点",
+        "after": "线性化点（linearization point）"
+      },
+      {
+        "term": "队列",
+        "before": "队列",
+        "after": "队列（queue）"
+      },
+      {
+        "term": "FIFO",
+        "before": "先进先出",
+        "after": "先进先出（first in, first out，FIFO）"
+      },
+      {
+        "term": "sentinel",
+        "before": "哨兵节点（fake/dummy）",
+        "after": "哨兵节点（sentinel/dummy node）"
+      },
+      {
+        "term": "不变量",
+        "before": "不变量",
+        "after": "不变量（invariant）"
+      },
+      {
+        "term": "逻辑删除",
+        "before": "逻辑删除",
+        "after": "逻辑删除（logical deletion）"
+      },
+      {
+        "term": "物理摘链",
+        "before": "物理摘链",
+        "after": "物理摘链（physical unlinking）"
+      },
+      {
+        "term": "链表",
+        "before": "链表",
+        "after": "链表（linked list）"
+      },
+      {
+        "term": "释放后使用",
+        "before": "释放后使用",
+        "after": "释放后使用（use-after-free，UAF）"
+      },
+      {
+        "term": "ABA 风险",
+        "before": "ABA 风险",
+        "after": "ABA 风险（ABA problem）"
+      },
+      {
+        "term": "垃圾回收",
+        "before": "垃圾回收",
+        "after": "垃圾回收（garbage collection，GC）"
+      },
+      {
+        "term": "hazard pointers",
+        "before": "hazard pointers",
+        "after": "危险指针（hazard pointers）"
+      },
+      {
+        "term": "epoch",
+        "before": "epoch",
+        "after": "基于纪元的回收（epoch-based reclamation，EBR）"
+      }
+    ],
+    "manual": [
+      [
+        "这里的 `CAS(address, old, new)`",
+        "这里的比较并交换（compare-and-swap，CAS）接口 `CAS(address, old, new)`"
+      ],
+      [
+        "于是得到\n",
+        "按阿姆达尔定律（Amdahl’s law）的理想模型得到\n"
+      ]
+    ],
+    "not_encountered": [
+      "内存回收",
+      "后进先出",
+      "地址复用",
+      "尾指针",
+      "有序链表"
+    ]
+  },
+  "04-stm": {
+    "annotations": [
+      {
+        "term": "细粒度锁",
+        "before": "细粒度锁",
+        "after": "细粒度锁（fine-grained locking）"
+      },
+      {
+        "term": "非阻塞结构",
+        "before": "非阻塞结构",
+        "after": "非阻塞结构（non-blocking data structures）"
+      },
+      {
+        "term": "不变量",
+        "before": "不变量",
+        "after": "不变量（invariant）"
+      },
+      {
+        "term": "重试",
+        "before": "重试",
+        "after": "重试（retry）"
+      },
+      {
+        "term": "生命期",
+        "before": "生命期",
+        "after": "生命期（lifetime）"
+      },
+      {
+        "term": "事务内存",
+        "before": "事务内存",
+        "after": "事务内存（transactional memory，TM）"
+      },
+      {
+        "term": "事务",
+        "before": "事务",
+        "after": "事务（transaction）"
+      },
+      {
+        "term": "I/O",
+        "before": "I/O",
+        "after": "输入／输出（input/output，I/O）"
+      },
+      {
+        "term": "STM",
+        "before": "STM",
+        "after": "软件事务内存（software transactional memory，STM）"
+      },
+      {
+        "term": "读集合",
+        "before": "读集合",
+        "after": "读集合（read set）"
+      },
+      {
+        "term": "提交",
+        "before": "提交",
+        "after": "提交（commit）"
+      },
+      {
+        "term": "后进先出",
+        "before": "后进先出",
+        "after": "后进先出（last in, first out，LIFO）"
+      },
+      {
+        "term": "FIFO",
+        "before": "FIFO",
+        "after": "先进先出（first in, first out，FIFO）"
+      },
+      {
+        "term": "乐观实现",
+        "before": "乐观实现",
+        "after": "乐观实现（optimistic implementation）"
+      },
+      {
+        "term": "撤销",
+        "before": "撤销",
+        "after": "撤销（abort）"
+      },
+      {
+        "term": "冲突",
+        "before": "冲突",
+        "after": "冲突（conflict）"
+      },
+      {
+        "term": "redo",
+        "before": "延迟更新（redo log）",
+        "after": "延迟更新（deferred update），使用重做日志（redo log）"
+      },
+      {
+        "term": "undo",
+        "before": "立即更新（undo log）",
+        "after": "立即更新（immediate update），使用撤销日志（undo log）"
+      },
+      {
+        "term": "eager",
+        "before": "eager",
+        "after": "即时检测（eager conflict detection）"
+      },
+      {
+        "term": "lazy",
+        "before": "lazy",
+        "after": "延迟检测（lazy conflict detection）"
+      },
+      {
+        "term": "HTM",
+        "before": "HTM",
+        "after": "硬件事务内存（hardware transactional memory，HTM）"
+      },
+      {
+        "term": "写集合",
+        "before": "写集合",
+        "after": "写集合（write set）"
+      },
+      {
+        "term": "HyTM",
+        "before": "HyTM",
+        "after": "混合事务内存（hybrid transactional memory，HyTM）"
+      },
+      {
+        "term": "zombie transaction",
+        "before": "zombie transaction",
+        "after": "僵尸事务（zombie transaction）"
+      },
+      {
+        "term": "全局时钟",
+        "before": "全局时钟",
+        "after": "全局时钟（global clock）"
+      },
+      {
+        "term": "版本号",
+        "before": "版本号",
+        "after": "版本号（version number）"
+      },
+      {
+        "term": "快照",
+        "before": "快照",
+        "after": "快照（snapshot）"
+      },
+      {
+        "term": "不可变",
+        "before": "不可变",
+        "after": "不可变（immutable）"
+      },
+      {
+        "term": "开始时钟",
+        "before": "开始时钟",
+        "after": "开始时钟（start timestamp）"
+      },
+      {
+        "term": "垃圾回收",
+        "before": "垃圾回收",
+        "after": "垃圾回收（garbage collection，GC）"
+      },
+      {
+        "term": "随机指数退避",
+        "before": "随机指数退避",
+        "after": "随机指数退避（randomized exponential backoff）"
+      },
+      {
+        "term": "死锁",
+        "before": "死锁",
+        "after": "死锁（deadlock）"
+      },
+      {
+        "term": "饥饿",
+        "before": "饥饿",
+        "after": "饥饿（starvation）"
+      }
+    ],
+    "manual": [
+      [
+        "这个接口写成 `atomic { ... }`",
+        "原子块（atomic block）写成 `atomic { ... }`"
+      ],
+      [
+        "再看组合操作：",
+        "再看事务的可组合性（composability）："
+      ],
+      [
+        "事务也必须能看到自己的写入，",
+        "事务也必须能看到自己的写入（read-your-writes），"
+      ]
+    ],
+    "not_encountered": [
+      "副作用"
+    ]
+  },
+  "05-numa": {
+    "annotations": [
+      {
+        "term": "功耗",
+        "before": "功耗",
+        "after": "功耗（power consumption）"
+      },
+      {
+        "term": "晶体管",
+        "before": "晶体管",
+        "after": "晶体管（transistor）"
+      },
+      {
+        "term": "核数",
+        "before": "核数",
+        "after": "核数（core count）"
+      },
+      {
+        "term": "单线程性能",
+        "before": "单线程性能",
+        "after": "单线程性能（single-thread performance）"
+      },
+      {
+        "term": "吞吐量",
+        "before": "吞吐量",
+        "after": "吞吐量（throughput）"
+      },
+      {
+        "term": "NUMA",
+        "before": "NUMA",
+        "after": "非均匀内存访问（non-uniform memory access，NUMA）"
+      },
+      {
+        "term": "延迟",
+        "before": "延迟",
+        "after": "延迟（latency）"
+      },
+      {
+        "term": "拓扑",
+        "before": "拓扑",
+        "after": "拓扑（topology）"
+      },
+      {
+        "term": "DRAM",
+        "before": "DRAM",
+        "after": "动态随机存取存储器（dynamic random-access memory，DRAM）"
+      },
+      {
+        "term": "缓存层次",
+        "before": "缓存层次",
+        "after": "缓存层次（cache hierarchy）"
+      },
+      {
+        "term": "缓存未命中",
+        "before": "缓存未命中",
+        "after": "缓存未命中（cache miss）"
+      },
+      {
+        "term": "内存控制器",
+        "before": "内存控制器",
+        "after": "内存控制器（memory controller）"
+      },
+      {
+        "term": "硬件线程",
+        "before": "硬件线程",
+        "after": "硬件线程（hardware thread）"
+      },
+      {
+        "term": "NUMA 节点",
+        "before": "NUMA 节点",
+        "after": "NUMA 节点（NUMA node）"
+      },
+      {
+        "term": "局部性",
+        "before": "局部性",
+        "after": "局部性（locality）"
+      },
+      {
+        "term": "虚拟地址",
+        "before": "虚拟地址",
+        "after": "虚拟地址（virtual address）"
+      },
+      {
+        "term": "物理页",
+        "before": "物理页",
+        "after": "物理页（physical page）"
+      },
+      {
+        "term": "页表",
+        "before": "页表",
+        "after": "页表（page table）"
+      },
+      {
+        "term": "虚拟页",
+        "before": "虚拟页",
+        "after": "虚拟页（virtual page）"
+      },
+      {
+        "term": "内存放置",
+        "before": "内存放置",
+        "after": "内存放置（memory placement）"
+      },
+      {
+        "term": "线程亲和性",
+        "before": "线程亲和性",
+        "after": "线程亲和性（thread affinity）"
+      },
+      {
+        "term": "条件命中率",
+        "before": "条件命中率",
+        "after": "条件命中率（conditional hit rate）"
+      },
+      {
+        "term": "CPI",
+        "before": "CPI",
+        "after": "每条指令平均周期数（cycles per instruction，CPI）"
+      },
+      {
+        "term": "内存级并行",
+        "before": "内存级并行",
+        "after": "内存级并行（memory-level parallelism，MLP）"
+      },
+      {
+        "term": "预取",
+        "before": "预取",
+        "after": "预取（prefetching）"
+      },
+      {
+        "term": "乱序执行",
+        "before": "乱序执行",
+        "after": "乱序执行（out-of-order execution）"
+      },
+      {
+        "term": "人工放置",
+        "before": "人工放置",
+        "after": "人工放置（manual placement）"
+      },
+      {
+        "term": "interleave",
+        "before": "Interleave",
+        "after": "交错放置（interleaving）"
+      },
+      {
+        "term": "first-touch",
+        "before": "First-touch",
+        "after": "首次触碰放置（first-touch placement）"
+      },
+      {
+        "term": "相对标准差",
+        "before": "相对标准差",
+        "after": "相对标准差（relative standard deviation，RSD）"
+      },
+      {
+        "term": "样本标准差",
+        "before": "样本标准差",
+        "after": "样本标准差（sample standard deviation）"
+      },
+      {
+        "term": "总体标准差",
+        "before": "总体标准差",
+        "after": "总体标准差（population standard deviation）"
+      },
+      {
+        "term": "堆",
+        "before": "堆",
+        "after": "堆（heap）"
+      },
+      {
+        "term": "垃圾回收",
+        "before": "垃圾回收器",
+        "after": "垃圾回收器（garbage collector）"
+      },
+      {
+        "term": "工作窃取",
+        "before": "工作窃取",
+        "after": "工作窃取（work stealing）"
+      },
+      {
+        "term": "localmode",
+        "before": "local 模式",
+        "after": "本地模式（local mode）"
+      },
+      {
+        "term": "thiefmode",
+        "before": "thief 模式",
+        "after": "窃取模式（thief mode）"
+      },
+      {
+        "term": "虚拟化",
+        "before": "虚拟化",
+        "after": "虚拟化（virtualization）"
+      },
+      {
+        "term": "客户机",
+        "before": "客户机",
+        "after": "客户机（guest）"
+      },
+      {
+        "term": "宿主机",
+        "before": "宿主机",
+        "after": "宿主机（host）"
+      },
+      {
+        "term": "vCPU",
+        "before": "vCPU",
+        "after": "虚拟 CPU（virtual CPU，vCPU）"
+      },
+      {
+        "term": "pCPU",
+        "before": "pCPU",
+        "after": "物理 CPU（physical CPU，pCPU）"
+      },
+      {
+        "term": "hypervisor",
+        "before": "hypervisor",
+        "after": "虚拟机监控器（hypervisor）"
+      },
+      {
+        "term": "运行库",
+        "before": "运行库",
+        "after": "运行库（runtime library）"
+      },
+      {
+        "term": "vNUMA",
+        "before": "vNUMA",
+        "after": "虚拟 NUMA（virtual NUMA，vNUMA）"
+      },
+      {
+        "term": "XPV",
+        "before": "XPV",
+        "after": "扩展半虚拟化（eXtended ParaVirtualization，XPV）"
+      },
+      {
+        "term": "操作系统",
+        "before": "OS",
+        "after": "操作系统（operating system，OS）"
+      },
+      {
+        "term": "负载均衡",
+        "before": "负载均衡",
+        "after": "负载均衡（load balancing）"
+      },
+      {
+        "term": "虚拟机",
+        "before": "虚拟机",
+        "after": "虚拟机（virtual machine，VM）"
+      }
+    ],
+    "manual": [],
+    "not_encountered": [
+      "物理地址",
+      "缓存命中率"
+    ]
+  },
+  "06-nvmm": {
+    "annotations": [
+      {
+        "term": "崩溃",
+        "before": "崩溃",
+        "after": "崩溃（crash）"
+      },
+      {
+        "term": "掉电",
+        "before": "掉电",
+        "after": "掉电（power failure）"
+      },
+      {
+        "term": "易失内存",
+        "before": "易失内存",
+        "after": "易失内存（volatile memory）"
+      },
+      {
+        "term": "NVMM",
+        "before": "NVMM",
+        "after": "非易失性主存（non-volatile main memory，NVMM）"
+      },
+      {
+        "term": "按字节寻址",
+        "before": "按字节寻址",
+        "after": "按字节寻址（byte addressability）"
+      },
+      {
+        "term": "load/store",
+        "before": "load/store",
+        "after": "加载／存储（load/store）"
+      },
+      {
+        "term": "延迟",
+        "before": "延迟",
+        "after": "延迟（latency）"
+      },
+      {
+        "term": "带宽",
+        "before": "带宽",
+        "after": "带宽（bandwidth）"
+      },
+      {
+        "term": "顺序访问",
+        "before": "顺序访问",
+        "after": "顺序访问（sequential access）"
+      },
+      {
+        "term": "随机访问",
+        "before": "随机访问",
+        "after": "随机访问（random access）"
+      },
+      {
+        "term": "持久化",
+        "before": "持久化",
+        "after": "持久化（persistence）"
+      },
+      {
+        "term": "文件映射",
+        "before": "文件映射",
+        "after": "文件映射（file mapping）"
+      },
+      {
+        "term": "page cache",
+        "before": "page cache",
+        "after": "页缓存（page cache）"
+      },
+      {
+        "term": "DAX",
+        "before": "DAX",
+        "after": "直接访问（Direct Access，DAX）"
+      },
+      {
+        "term": "CPU cache",
+        "before": "CPU cache",
+        "after": "CPU 缓存（CPU cache）"
+      },
+      {
+        "term": "不变量",
+        "before": "不变量",
+        "after": "不变量（invariant）"
+      },
+      {
+        "term": "内存屏障",
+        "before": "内存屏障",
+        "after": "内存屏障（memory fence）"
+      },
+      {
+        "term": "写回",
+        "before": "写回",
+        "after": "写回（write-back）"
+      },
+      {
+        "term": "缓存行",
+        "before": "缓存行",
+        "after": "缓存行（cache line）"
+      },
+      {
+        "term": "提交标志",
+        "before": "提交标志",
+        "after": "提交标志（commit flag）"
+      },
+      {
+        "term": "durable linearizability",
+        "before": "durable linearizability",
+        "after": "耐久线性化（durable linearizability）"
+      },
+      {
+        "term": "持久性",
+        "before": "持久性",
+        "after": "持久性（durability）"
+      },
+      {
+        "term": "持久域",
+        "before": "持久域",
+        "after": "持久域（persistence domain）"
+      },
+      {
+        "term": "ADR",
+        "before": "ADR",
+        "after": "异步 DRAM 刷新（Asynchronous DRAM Refresh，ADR）"
+      },
+      {
+        "term": "eADR",
+        "before": "eADR",
+        "after": "扩展 ADR（Extended ADR，eADR）"
+      },
+      {
+        "term": "TSO",
+        "before": "TSO",
+        "after": "全存储顺序（total store order，TSO）"
+      },
+      {
+        "term": "STM",
+        "before": "STM",
+        "after": "软件事务内存（software transactional memory，STM）"
+      },
+      {
+        "term": "崩溃一致性",
+        "before": "崩溃一致性",
+        "after": "崩溃一致性（crash consistency）"
+      },
+      {
+        "term": "幂等性",
+        "before": "幂等性",
+        "after": "幂等性（idempotence）"
+      }
+    ],
+    "manual": [
+      [
+        "`pwb(addr)` 请求",
+        "持久化写回（persistent write-back）操作 `pwb(addr)` 请求"
+      ],
+      [
+        "`pfence()` 约束",
+        "持久化屏障（persistence fence）操作 `pfence()` 约束"
+      ],
+      [
+        "引入 `psync()`：",
+        "引入持久化同步（persistence synchronization）操作 `psync()`："
+      ],
+      [
+        "pwb 使用 `clwb`，pfence 和 psync 都使用 `sfence`。",
+        "pwb 使用 `clwb`（cache line write back，缓存行写回），pfence 和 psync 都使用 `sfence`（store fence，存储屏障）。"
+      ]
+    ],
+    "not_encountered": [
+      "内存映射"
+    ]
+  }
+}

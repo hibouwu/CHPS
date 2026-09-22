@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>锁算法 · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}.partie{display:block;font-size:20px;font-weight:700;color:#174767;margin:26px 0 14px}</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a href="../tp-threads/tp-threads_zh.html">线程与同步</a><a aria-current="page" href="../tp-locks/tp-locks_zh.html">锁算法</a><a href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a href="../tp-stm/tp-stm_zh.html">事务内存</a><a href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html">非易失性内存</a></nav><div><a href="tp-locks.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/02-locks_zh.md">中文讲义</a> · <a href="../../Lectures/02-locks.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。练习、问题和分节编号与英文原版一致；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">锁算法</h2>
+<div class="chapitre-content" id="chapitre-idm45726241587856">
+<div class="objectif">本实验测量几种基本锁算法的性能：自旋锁、ticket lock、MCS 锁和 POSIX 锁。</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 1：基准测试程序</h3>
+<div class="exercice-content" id="exercice-idm45726242221952">本练习先实现用于比较锁算法的基准测试程序。<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.a. 程序参数</h4>
+<div class="question-content" id="question-idm45726242148640">
+<p class="inline-paragraph">编写程序，接收以下参数：</p>
+<ul>
+<li>线程数 <code>n</code>，整数；</li>
+<li>每个线程执行的迭代次数 <code>it</code>，整数；</li>
+<li>临界区延迟 <code>csd</code>，整数；</li>
+<li>临界区外的计算延迟，整数。原题此处混用了 <code>ds</code> 与 <code>cd</code>；后面的等待步骤又写作 <code>cs</code>，三处均指这项计算延迟。</li>
+<li>锁算法 <code>algo</code>，字符串。</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.b. 线程执行过程</h4>
+<div class="question-content" id="question-idm45726241274512">
+<p class="inline-paragraph">创建线程，并在 main 函数中等待它们结束。每个线程执行 <code>benchmark</code> 函数，循环 <code>it</code> 次，每次依次进行：</p>
+<ul>
+<li>获取 POSIX 锁；</li>
+<li>等待 <code>csd</code> 纳秒；</li>
+<li>释放 POSIX 锁；</li>
+<li>等待临界区外的计算延迟，单位为纳秒（原题此处记作 <code>cs</code>）。</li>
+</ul>
+<p>实现等待时，可以使用 <code>clock_gettime</code>，时钟类型选 <code>CLOCK_MONOTONIC</code>。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.c. 报告结果</h4>
+<div class="question-content" id="question-idm45726241416048">
+<p class="inline-paragraph">程序结束时，报告获取和释放锁所花费的时间。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.d. 选择锁算法</h4>
+<div class="question-content" id="question-idm45726241708768">
+<p class="inline-paragraph">接下来由命令行参数选择锁算法，而不再固定使用 POSIX 锁。支持以下算法名称：</p>
+<ul>
+<li><code>none</code>：不获取锁，用于检查基准程序报告的数值是否合理；</li>
+<li><code>posix</code>：使用 POSIX 锁，与前一题相同；</li>
+<li><code>spinlock</code>：使用自旋锁；</li>
+<li><code>ticket</code>：使用 ticket lock；</li>
+<li><code>mcs</code>：使用 MCS 锁。</li>
+</ul>
+<p>必须至少实现 <code>spinlock</code>、<code>ticket</code>、<code>mcs</code> 中的一种。如果三种都实现，就可以进一步比较它们。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.e. 实现类似 POSIX 的锁（选做）</h4>
+<div class="question-content" id="question-idm45726241982224">
+<p class="inline-paragraph">现在尝试自己实现类似 POSIX mutex 的锁。需要使用 Linux 内核提供的 <a href="https://man7.org/linux/man-pages/man2/futex.2.html">futex</a> 系统调用。线程可借助它等待变量状态变化（例如锁被释放），也可用它唤醒正在等待的线程。</p>
+<p>原题提供下面的 <code>futex</code> 调用封装，可将代码复制到程序中，通过它访问 futex 系统调用：</p>
+<div class="code code-block">
+<div class="code-url"><a download="futex.c" href="futex.c">futex.c</a></div>
+<pre><code>#define _GNU_SOURCE
+#include &lt;unistd.h&gt;
+#include &lt;sys/syscall.h&gt;
+#include &lt;linux/futex.h&gt;
+
+long futex(void *addr1, int op, int val1, struct timespec *timeout,
+                  void *addr2, int val3) {
+  return syscall(SYS_futex, addr1, op, val1, timeout, addr2, val3);
+}
+</code></pre>
+</div>
+<p>从整体上看，<code>pthread_mutex_lock</code> 应先尝试原子地将锁从 FREE 改为 BUSY。若锁已被占用，线程应通过 futex 等待，让出处理器。这种方式称为阻塞等待；前面几种自旋算法则不断运行并检查锁状态。<strong>译注：原题写成 BUSY → FREE，与获取锁的含义相反，此处明确修正。</strong></p>
+<p>实现 <code>pthread_mutex_unlock</code> 时，如果有线程正在等待锁，记得通过 <code>futex</code> 唤醒等待者。</p>
+<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726241726624">可以下载 <a href="Makefile">Makefile</a>，以及下面三个文件。<div class="code code-block">
+<div class="code-url"><a download="locks.c" href="locks.c">locks.c</a></div>
+<pre><code>#include &lt;stdatomic.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;time.h&gt;
+#include "futexlock.h"
+
+#define asm_pause() asm volatile("pause")
+
+uint32_t z = 0;
+
+uint32_t n;
+uint32_t it;
+uint32_t csd;
+uint32_t cd;
+
+void (*ze_lock)();
+void (*ze_unlock)();
+
+/*
+ *    spin lock
+ */
+int slock = 0;
+
+void spin_lock() {
+  while(atomic_exchange(&amp;slock, 1)) { asm_pause(); }
+}
+
+void spin_unlock() {
+  atomic_store(&amp;slock, 0);
+}
+
+/*
+ *    tocket lock
+ */
+struct {
+  uint64_t _Atomic counter;
+  uint64_t _Atomic screen;
+} ticket = { 0, 0 };
+
+void ticket_lock() {
+  uint64_t my = atomic_fetch_add(&amp;ticket.counter, 1);
+  while(atomic_load(&amp;ticket.screen) &lt; my) { asm_pause(); }
+}
+
+void ticket_unlock() {
+  atomic_fetch_add(&amp;ticket.screen, 1);
+}
+
+/*
+ *    MCS lock
+ */
+struct node { struct node* _Atomic next; bool _Atomic is_free; };
+_Thread_local struct node my;
+struct node* _Atomic lock = NULL;
+
+void mcs_lock() {
+  my.next = NULL;
+  my.is_free = false;
+  
+  struct node* p = atomic_exchange(&amp;lock, &amp;my);
+  if(p) {
+    atomic_store(&amp;p-&gt;next, &amp;my);
+    while(!atomic_load(&amp;my.is_free)) { asm_pause(); }
+  }
+}
+
+void mcs_unlock() {
+  struct node* expected = &amp;my;
+  if(!atomic_load(&amp;my.next) &amp;&amp; 
+     atomic_compare_exchange_strong(&amp;lock, &amp;expected, NULL))
+    return;
+  while(!atomic_load(&amp;my.next)) { asm_pause(); }
+  atomic_store(&amp;my.next-&gt;is_free, true);
+}
+
+/*
+ *   POSIX lock
+ */
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
+void posix_lock() {
+  pthread_mutex_lock(&amp;mutex);
+}
+
+void posix_unlock() {
+  pthread_mutex_unlock(&amp;mutex);
+}
+
+/*
+ *   Home-made POSIX lock
+ */
+futex_lock_t flock;
+
+void test_futex_lock() { futex_lock(&amp;flock); }
+void test_futex_unlock() { futex_unlock(&amp;flock); }
+
+/*
+ *   Benchmark
+ */ 
+
+int _Atomic nb_started = 0;
+struct {
+  pthread_t  tid;
+  double     elapsed;
+}* stats;
+
+double gettime() {
+  struct timespec ts;
+  clock_gettime(CLOCK_MONOTONIC, &amp;ts);
+  return ts.tv_sec*1e0 + ts.tv_nsec*1e-9;
+}
+
+double delay(double from, uint32_t d) {
+  if(d) {
+    double res;
+
+    do {
+      res = gettime();
+    } while(res &lt; from + d*1e-9);
+
+    return res;
+  } else
+    return from;
+}
+
+void* f(void* _arg) {
+  uint32_t self = (uint32_t)(uintptr_t)_arg;
+  atomic_fetch_add(&amp;nb_started, 1);
+  while(atomic_load(&amp;nb_started) &lt; n) { asm_pause(); }
+
+  double start = gettime();
+  double cur = start;
+  
+  for(int i=0; i&lt;it; i++) {
+    ze_lock();
+    z++;
+    cur = delay(cur, csd);
+    ze_unlock();
+    cur = delay(cur, cd);
+  }
+  
+  stats[self].elapsed = gettime() - start;
+  
+  return 0;
+}
+
+int main(int argc, char** argv) {
+  if(argc &lt; 6) {
+    fprintf(stderr, "Usage: %s nb-threads it csd cd algo\n", argv[0]);
+    exit(1);
+  }
+  n = atoi(argv[1]);
+  it = atoi(argv[2]);
+  csd = atoi(argv[3]);
+  cd = atoi(argv[4]);
+  char* algo = argv[5];
+  
+  stats = calloc(n, sizeof(*stats));
+  
+  printf("=== test with %s lock ===\n", algo);
+  if(strcmp(algo, "spinlock") == 0) {
+    ze_lock = spin_lock;
+    ze_unlock = spin_unlock;
+  } else if(strcmp(algo, "ticket") == 0) {
+    ze_lock = ticket_lock;
+    ze_unlock = ticket_unlock;
+  } else if(strcmp(algo, "mcs") == 0) {
+    ze_lock = mcs_lock;
+    ze_unlock = mcs_unlock;
+  } else if(strcmp(algo, "posix") == 0) {
+    ze_lock = posix_lock;
+    ze_unlock = posix_unlock;
+  } else if(strcmp(algo, "futex") == 0) {
+    ze_lock = test_futex_lock;
+    ze_unlock = test_futex_unlock;
+  } else {
+    fprintf(stderr, "unknow lock: %s\n", algo);
+    exit(1);
+  }
+  
+  for(int i=0; i&lt;n; i++)
+    pthread_create(&amp;stats[i].tid, NULL, f, (void*)(uintptr_t)i);
+
+  for(int i=0; i&lt;n; i++) {
+    void* retval;
+    pthread_join(stats[i].tid, &amp;retval);
+  }
+
+  double total = 0;
+  for(int i=0; i&lt;n; i++)
+    total += stats[i].elapsed;
+
+  double av = (total*1e9 / (n * it)) - cd;
+  printf("Average: %0.0lf ns per loop (with a delay of %u ns =&gt; %0.0lf ns)\n", av, csd, av - csd);
+
+  if(z != n * it)
+    printf("Integrity check failed: %u for %u\n", z, n * it);
+
+  return 0;
+}
+</code></pre>
+</div>
+<div class="code code-block">
+<div class="code-url"><a download="futexlock.h" href="futexlock.h">futexlock.h</a></div>
+<pre><code>#ifndef _FUTEX_LOCK_H_
+#define _FUTEX_LOCK_H_
+
+#include &lt;stdbool.h&gt;
+#include &lt;stdatomic.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;pthread.h&gt;
+
+enum {
+      FREE = 0,                /* the lock is free */
+      BUSY_NO_WAITER = 1,      /* the lock is BUSY and I don't have waiters =&gt; no futex_wake at the end of unlock */
+      BUSY_WITH_WAITERS = 2    /* the lock is BUSY and I have waiters =&gt; futex_wake at the end of unlock */
+};
+
+typedef struct {
+  uint64_t _Atomic state;
+} futex_lock_t;
+
+extern void futex_lock(futex_lock_t* lock);
+extern void futex_unlock(futex_lock_t* lock);
+
+#endif
+</code></pre>
+</div>
+<div class="code code-block">
+<div class="code-url"><a download="futexlock.c" href="futexlock.c">futexlock.c</a></div>
+<pre><code>#define _GNU_SOURCE
+#include &lt;unistd.h&gt;
+#include &lt;sys/syscall.h&gt;
+#include &lt;linux/futex.h&gt;
+#include &lt;time.h&gt;
+#include &lt;stdio.h&gt;
+#include "futexlock.h"
+
+long futex(void *addr1, int op, int val1, struct timespec *timeout,
+           void *addr2, int val3) {
+  return syscall(SYS_futex, addr1, op, val1, timeout, addr2, val3);
+}
+
+void futex_wait(void* addr, int val) {
+  futex(addr, FUTEX_WAIT, val, NULL, NULL, 0); /* wait if *addr == val */
+}
+
+void futex_wake(void* addr, int nb_threads) {
+  futex(addr, FUTEX_WAKE, nb_threads, NULL, NULL, 0);
+}
+
+void futex_lock(futex_lock_t* lock) {
+  uint64_t expected = FREE;
+
+  if(!atomic_compare_exchange_strong(&amp;lock-&gt;state, &amp;expected, BUSY_NO_WAITER)) {
+  restart:
+    if(expected == BUSY_WITH_WAITERS || atomic_compare_exchange_strong(&amp;lock-&gt;state, &amp;expected, BUSY_WITH_WAITERS))
+      futex_wait(&amp;lock-&gt;state, BUSY_WITH_WAITERS);
+    
+    expected = FREE;
+    if(!atomic_compare_exchange_strong(&amp;lock-&gt;state, &amp;expected, BUSY_WITH_WAITERS)) /* take the lock and we don't know if we have waiters */
+      goto restart;
+  }
+}
+
+void futex_unlock(futex_lock_t* lock) {
+  uint64_t expected = BUSY_NO_WAITER;
+
+  if(!atomic_compare_exchange_strong(&amp;lock-&gt;state, &amp;expected, FREE)) {
+    /* I have waiters */
+    atomic_store(&amp;lock-&gt;state, FREE);
+    futex_wake(&amp;lock-&gt;state, 1);
+  }
+}
+
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.f. 实现条件变量（选做）</h4>
+<div class="question-content" id="question-idm45726242040976">
+<p class="inline-paragraph">尝试使用 futex API 实现条件变量。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><footer>来源：<a href="tp-locks.html">同目录英文原版</a>。中文翻译不增加实验答案，也不代表所附代码已经编译或验证。外部参考网站仍需联网。</footer></div></body></html>

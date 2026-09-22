@@ -1,4 +1,4 @@
-#!/home/jianyeshi/Note/glhpc/glhpc-lab-5-hibouwu/venv/bin/python
+#!/usr/bin/env python3
 import os
 import sys
 import numpy as np

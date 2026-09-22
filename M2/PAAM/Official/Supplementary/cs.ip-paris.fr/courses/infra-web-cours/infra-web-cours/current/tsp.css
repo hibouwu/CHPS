@@ -1,0 +1,392 @@
+/* remove leading blanks */
+.navbar-menu .chapter-id, .navbar-menu .chapter-short, .navbar-menu .chapter-title { display: inline-block; }
+
+/* ignore useless chapter stuffs in nav */
+li[ignore], 
+.schedule li[only-nav],
+.navbar-menu li[only-schedule], 
+.navbar-search,
+.navbar-menu niveau,
+.navbar-menu .chapter-short ~ .chapter-title, 
+.navbar-menu .chapter-notion, 
+.navbar-menu .expanded-version { 
+  display: none !important; 
+}
+
+.navbar-menu ul { margin-bottom: 1rem; }
+.navbar-menu ul ul { margin-bootom: 0rem; }
+
+@media (min-width: 768px) {  /* md */
+  .navbar-menu ul { margin-bottom: 0rem; }
+}
+
+.content.cours {
+	margin-left: 0.8rem;
+	margin-right: 0.8rem;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	grid-template-areas: 'main'
+}
+
+body { 
+  -webkit-print-color-adjust: exact;
+	text-align: justify;
+	counter-reset: exercice question figure;
+}
+
+/*
+ *   schedule
+ */
+.schedule {
+  display: table;
+  border: 1px solid black;
+	width: 100%; 
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.schedule li { display: table-row; }
+
+.schedule li .chapter-id, .schedule li .chapter-title, .schedule li .chapter-content, .schedule li .chapter-notion, .schedule li .chapter-head {
+  display: table-cell;
+  border: 1px solid black;
+	padding: 4px 6px 4px 6px;
+  vertical-align: middle;
+}
+
+.schedule .expanded-version { display: inline; }
+.schedule li .chapter-short { display: none; }
+.schedule li .chapter-id, .schedule li .chapter-title, .schedule li .chapter-head { text-align: center; }
+.schedule li .chapter-head { font-weight: bold; }
+.schedule li .chapter-content, .schedule li .chapter-notion { text-align: left; }
+.schedule li ul {
+  display: block;
+  border: 0px;
+  padding: 0em 0em 0em 1.3em;
+  text-align: left
+}
+
+.schedule li ul li { display: list-item; }
+
+/* code */
+.code {
+  display: inline;
+	font-weight: bold;
+}
+
+.code.code-block {
+	font-weight: normal; 
+	display: block;
+ 	border-style: solid;
+  margin-bottom: 1rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	background-color: MintCream;
+	border-width: 1px;
+}
+
+.code.code-block a {
+	display: block;
+	text-align: center;
+}
+
+.code-container {
+  font-family: "Andale Mono", AndaleMono, monospace;
+  font-style: normal;
+  white-space: pre-wrap;
+  text-align: start;
+}
+
+/* structure */
+.toggle { cursor: pointer; }
+.active { display: block; }
+.inactive { display: none; }
+.inline-paragraph { display: inline; }
+
+/* chapitre */
+h2 { text-align: center; }
+.chapitre-container { counter-reset: exercice question partie; display: block; margin-bottom: 1.5rem; }
+
+/* exercice */
+.exercice-container { counter-reset: question partie; display: block; margin-bottom: 1rem; }
+.exercice-toggle:not(.raw)::before { counter-increment: exercice; }
+.exercice-toggle:not(.raw)::before { content: 'Exercise ' counter(exercice) ': '; }
+.exercice-toggle:not(.raw):lang(fr)::before { content: 'Exercice ' counter(exercice) ' : '; }
+
+/* partie */
+.partie:not(.raw)::before { counter-increment: partie; }
+.partie:not(.raw)::before { content: 'Part ' counter(partie) ': '; }
+.partie:not(.raw):lang(fr)::before { content: 'Partie ' counter(partie) ' : '; }
+.partie { 
+  display: block; 
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* question */
+h4 { display: inline-block; }
+.question-container { display: block; margin-bottom: 1rem; }
+.question-content.active { display: inline; }
+.question-toggle { display: inline-block; margin-right: 0.4rem; }
+.question-toggle:not(.raw)::before {
+	content: 'Question ' counter(exercice) '.' counter(question, lower-alpha) '.\00a0';
+	counter-increment: question;
+}
+.question-content p.first-p { display: inline; }
+
+/* solution */
+.solution-container { display: none; }
+.solution-container.hasjs { display: block; }
+
+.solution-toggle::before { content: 'Soluce'; }
+.solution-toggle:lang(fr)::before { content: 'Solution'; }
+.solution-toggle.d-none { display: none; }
+.solution-toggle {
+	font-weight: bold;
+  margin-bottom: 1rem;
+  color: red;
+}
+
+.solution-content { 
+	background-color: LightGoldenRodYellow;
+  border: 1px solid black;
+	padding: 0.3em 0.3em 0.3em 0.3em;
+  margin-bottom: 1rem;
+}
+
+/* tip */
+.tip-container { display: inline; }
+.tip-container.as-paragraph { display: block; margin-bottom: 1rem; }
+
+.tip-content.active { display: inline; }
+.tip-container.as-paragraph > .tip-content.active { display: block; margin-bottom: 1rem; }
+
+.tip-toggle { display: inline-block; background-color: #f0c0c0; color: var(--title); margin-right: 0.3em; }
+.tip-container.as-paragraph > .tip-toggle { margin-bottom: 1rem; }
+
+.tip-toggle.off:before { content: "Need help?"; }
+.tip-toggle.off:lang(fr):before { content: "Besoin d'aide ?"; }
+
+.tip-content .tip-toggle.off:before { content: "More help?"; }
+.tip-content .tip-toggle.off:lang(fr):before { content: "Plus d'aide ?"; }
+
+.tip-toggle.on:before, .tip-content .tip-toggle.on:before { content: "Remove help"; }
+.tip-toggle.on:lang(fr):before, .tip-content .tip-toggle.on:lang(fr):before { content: "Replier l'aide"; }
+
+body[preprint] .tip-toggle { display: none; }
+
+/* details */
+.details-container { display: inline; }
+.details-container.as-paragraph { display: block; margin-bottom: 1rem; }
+
+.details-content.active { display: inline; }
+.details-container.as-paragraph > .details-content.active { display: block; margin-bottom: 1rem; }
+
+.details-toggle { display: inline-block; background-color: #98FB98; color: var(--title); margin-right: 0.3em; }
+.details-container.as-paragraph > .details-toggle { margin-bottom: 1rem; }
+
+.details-toggle.off:before { content: "Details..."; }
+.details-toggle.off:lang(fr):before { content: "Détails..."; }
+
+.details-toggle.on:before { content: "Remove details"; }
+.details-toggle.on:lang(fr):before { content: "Replier les détails"; }
+
+body[preprint] .details-toggle { display: none; }
+
+/* enconstruction, objectif, attention, remarque, bravo */
+.enconstruction::before { content: 'Under construction, do not read.'; }
+.enconstruction:lang(fr)::before { content: 'En cours de conception, ne pas lire.'; }
+.enconstruction {
+	display: block;
+  font-size: 1.3em; 
+	font-weight: bold; 
+	text-align: center;
+	color: yellow;
+	background-color: red;
+}
+
+.attention::before { font-weight: bold; color: red; }
+.attention::before { content: 'Warning: '; }
+.attention:lang(fr)::before { content: 'Attention : '; }
+.attention { display: block; font-style: italic; margin-bottom: 1rem; }
+.attention .first-p { display: inline; }
+.attention .first-p:after { display: block; content: ' '; margin-bottom: 1rem; }
+
+.remarque::before { font-weight: bold; }
+.remarque::before { content: 'Note: '; }
+.remarque:lang(fr)::before { content: 'Remarque : '; }
+.remarque { display: block; font-style: italic; margin-bottom: 1rem; }
+.remarque .first-p { display: inline; }
+.remarque .first-p:after { display: block; content: ' '; margin-bottom: 1rem; }
+
+.objectif::before { font-weight: bold; }
+.objectif::before { content: 'Goal: '; }
+.objectif:lang(fr)::before { content: 'Objectifs : '; }
+.objectif { display: block; font-style: italic; margin-bottom: 1rem; }
+.objectif .first-p { display: inline; }
+.objectif .first-p:after { display: block; content: ' '; margin-bottom: 1rem; }
+
+.bravo {
+	display: block;
+  font-size: 1.2em; 
+  font-weight: bold; 
+  margin-top: 1.5rem; 
+  margin-bottom: 1.5rem; 
+  text-align: center;
+	color: darkgreen;
+}
+
+/* figures */
+.figenv {
+  counter-increment: figure;
+}
+
+.figure {
+  display: block;
+	margin: 2rem auto 2rem auto;
+	width: 100%;
+	text-align: center;
+}
+
+.figure table, .figure table td, .figure table tr { border: none; }
+
+.figcontent {
+  display: block;
+}
+
+.figref::before {
+  content: counter(figure);
+}
+
+.figcap .figref::before {
+  content: 'Figure ' counter(figure);
+}
+
+.figcap .figref::after {
+  content: ' – ';
+}
+
+.figcap {
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+  margin: 0.7rem 0rem 1.3rem 0rem;
+}
+
+/* planning */
+table.planning {
+  border: 2px solid black;
+	font-size: 0.9em;
+	width: 100%; 
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.planning tbody {
+  border-top: 2px solid;
+}
+
+table.planning th, table.planning td {
+  border: 1px solid black;
+	padding: 4px 6px 4px 6px;
+}
+
+/*
+ *   usefull to manage width
+ */
+.w100 { width: 100%; }
+.w90  { width: 90%; }
+.w80  { width: 80%; }
+.w70  { width: 70%; }
+.w60  { width: 60%; }
+.w50  { width: 50%; }
+.w40  { width: 40%; }
+.w30  { width: 30%; }
+.w20  { width: 20%; }
+.w10  { width: 10%; }
+
+/*
+ *   groups
+ */
+table.groupe {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table.groupe td, table.groupe th {
+  border: 1px solid black;
+}
+
+.icsbox {
+  display: inline-block;
+  box-sizing: border-box; 
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186); 
+  border-style: solid; 
+  border-width: 1px; 
+  padding: 1px 7px 2px;
+  text-align: center; 
+  cursor: default;
+  color: buttontext;
+  white-space: pre;
+	font-size: 0.8rem;
+}
+
+@media print {
+/*  header { display: none; } */
+	html {
+		font-size: 12px; 
+	}
+
+  header {
+	  box-shadow: initial;
+  }
+
+	h2, exercice-toggle {
+		page-break-after: avoid;
+	}	
+
+	h3, question-toggle {
+		page-break-after: avoid;
+	}	
+
+	chapitre, exercice, question, solution {
+		page-break-after: avoid;
+	}	
+
+	chapitre-content {
+		display: block;
+		page-break-after: always;
+	}
+
+	chapitre-content:last-child {
+		display: block;
+		page-break-after: inherit;
+	}
+
+	all-in-one > span {
+		display: block;
+		page-break-after: always;
+	}
+
+	all-in-one > span:last-child {
+		display: block;
+		page-break-after: inherit;
+	}
+
+  .footer { display: none; }
+  .header { border: 1px solid var(--over); }
+  .navbar-toggler { display: none; }
+  .tagline { display: none; }
+}
+
+/* Local Variables: */
+/* mode: web */
+/* coding: utf-8 */
+/* End: */

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - tp-locks</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../../Exams/2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../../Exams/2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../../Exams/2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../../Exams/2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../../Exams/2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../../Exams/2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../../Exams/2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241587856">Lock algorithms</h2>
+<div class="chapitre-content" id="chapitre-idm45726241587856">
+<div class="objectif">This lab has the goal of measuring the performance of the basic lock algorithms: the spinlock,
+  the ticket lock, the MC lock and the POSIX lock.</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242221952">The benchmark</h3>
+<div class="exercice-content" id="exercice-idm45726242221952">
+    In this exercise, we implement the benchmark.
+
+    <div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242148640">Arguments</h4>
+<div class="question-content" id="question-idm45726242148640">
+<p class="inline-paragraph">Start to write an application that takes as arguments:</p>
+<p></p>
+<ul>
+<li>a number <span class="code"><span class="code-container">n</span></span> of threads (an integer),</li>
+<li>a number <span class="code"><span class="code-container">it</span></span> of iteration executed by each thread (an integer),</li>
+<li>a critical section delay <span class="code"><span class="code-container">csd</span></span> (an integer),</li>
+<li>a compute delay <span class="code"><span class="code-container">ds</span></span>cd (an integer),</li>
+<li>a lock algorithm <span class="code"><span class="code-container">algo</span></span> (an array of caracters).</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241274512">The threads</h4>
+<div class="question-content" id="question-idm45726241274512">
+<p class="inline-paragraph">Create the threads and waits for their termination in the main function.
+        Each thread has to execute the function <span class="code"><span class="code-container">benchmark</span></span>,
+        which executes <span class="code"><span class="code-container">it</span></span> iterations of a loop that:</p>
+<p></p>
+<ul>
+<li>Take a POSIX lock,</li>
+<li>Waits <span class="code"><span class="code-container">csd</span></span> nano-seconds,</li>
+<li>Release a POSIX lock,</li>
+<li>Waits <span class="code"><span class="code-container">cs</span></span> nano-seconds.</li>
+</ul>
+<p>In order to wait, you can use the <span class="code"><span class="code-container">clock_gettime</span></span> function with the <span class="code"><span class="code-container">CLOCK_MONOTONIC</span></span> mode.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241416048">Reporting</h4>
+<div class="question-content" id="question-idm45726241416048">
+<p class="inline-paragraph">At the end of the application, reports the time taken to acquire and release a lock.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241708768">Lock algorithms</h4>
+<div class="question-content" id="question-idm45726241708768">
+<p class="inline-paragraph">Instead of taken a POSIX lock, we want to specify the lock algorithm used in the application as
+        an argument. We consider that these algorithms are correct:</p>
+<p></p>
+<ul>
+<li>none: don't take a lock, it's just to check that your application report correct values,</li>
+<li>posix: take a POSIX lock, as you have done in the previous question,</li>
+<li>spinlock: take a spinlock,</li>
+<li>ticket: take a ticket lock,</li>
+<li>mcs: take a MCS lock.</li>
+</ul>
+<p>Implementing at least one of the algorithm is mandatory (spinlock, ticket or mcs). Implementing the
+        three algorithms is interesting to compare them.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241982224">The POSIX lock implementation (optional)</h4>
+<div class="question-content" id="question-idm45726241982224">
+<p class="inline-paragraph">Now, we want to implement our own POSIX lock.
+        For that purpose, we have to use the <a href="https://man7.org/linux/man-pages/man2/futex.2.html">futex</a> system call
+        provided by a Linux kernel.
+        A thread can call this function either to wait for a variable modification (a lock release) or to wakeup the
+        threads that wait for a variable modification.</p>
+<p></p>
+<p>Since the <span class="code"><span class="code-container">futex</span></span> API is not exposed by the system library, you can copy paste the following code
+        in your application to have an access to the <span class="code"><span class="code-container">futex</span></span> function:</p>
+<div class="code code-block">
+<div class="code-url"><a download="futex.c" href="futex.c">futex.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-locks/futex.c"></div>
+</div>
+<p>At high level, the <span class="code"><span class="code-container">pthread_mutex_lock</span></span> should first try to atomically change
+        the lock value from BUSY to FREE. If the lock is already taken, the thread should wait
+        with a futex, which, contrarily to the previous algorithms, release the processor.
+        For that reason, we say the a POSIX lock passively waits for the lock, while for the other
+        algorithms, we say that they actively wait for the lock.</p>
+<p>In <span class="code"><span class="code-container">pthread_mutex_unlock</span></span>, if a thread is waiting for the lock,
+        don't forget to use the <span class="code"><span class="code-container">futex</span></span> function.</p>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241726624"></div>
+<div class="solution-content" id="solution-idm45726241726624">
+        You can download the Makefile <a href="Makefile">here</a>.
+        You also have to download the three files.
+        
+			  <div class="code code-block">
+<div class="code-url"><a download="locks.c" href="locks.c">locks.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-locks/locks.c"></div>
+</div>
+<div class="code code-block">
+<div class="code-url"><a download="futexlock.h" href="futexlock.h">futexlock.h</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-locks/futexlock.h"></div>
+</div>
+<div class="code code-block">
+<div class="code-url"><a download="futexlock.c" href="futexlock.c">futexlock.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-locks/futexlock.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242040976">The POSIX cond implementation (optional)</h4>
+<div class="question-content" id="question-idm45726242040976">
+<p class="inline-paragraph">By using the futex API, try to implement the condition variable.</p>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "english" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

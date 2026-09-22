@@ -1,0 +1,32 @@
+{
+  "questions": {
+    "tp-threads.html": [
+      "1.a",
+      "1.b",
+      "1.c",
+      "1.d",
+      "1.e",
+      "2.a",
+      "2.b",
+      "3.a",
+      "3.b",
+      "3.c"
+    ],
+    "tp-threads_zh.html": [
+      "1.a",
+      "1.b",
+      "1.c",
+      "1.d",
+      "1.e",
+      "2.a",
+      "2.b",
+      "3.a",
+      "3.b",
+      "3.c"
+    ]
+  },
+  "question_text_and_existing_code_preserved": true,
+  "answers_default_collapsed": true,
+  "new_links_checked": true,
+  "note": "Programming questions contain implementation approaches, not newly executed full solutions."
+}

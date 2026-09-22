@@ -10,6 +10,7 @@ import seaborn as sns
 import tqdm
 import subprocess
 import os
+import sys
 from scipy import stats
 
 # ----------------------------------- DO NOT MODIFY BELOW THIS LINE ----------------------------------- #
@@ -90,7 +91,7 @@ def measure_bls_stability():
         # Run the BLS script using subprocess
         try:
             result = subprocess.run([
-                "/home/jianyeshi/Note/glhpc/glhpc-lab-5-hibouwu/venv/bin/python", 
+                sys.executable,
                 "scripts/run_bls.py", 
                 "kepler-8_subsampled"
             ], 

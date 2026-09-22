@@ -1,0 +1,16 @@
+
+table.groupe thead {
+    background-color: BlanchedAlmond;
+}
+
+table.planning thead {
+    background-color: BlanchedAlmond;
+}
+
+table.planning tbody tr:nth-child(odd) {
+    background-color:  inherit;
+}
+
+table.planning tbody tr:nth-child(even) {
+    background-color: BlanchedAlmond;
+}

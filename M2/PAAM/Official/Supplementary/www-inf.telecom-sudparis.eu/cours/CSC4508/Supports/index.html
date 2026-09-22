@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>Operating systems</title>
+<link href="../../../../fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../../../use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=main">
+<h1>Operating systems</h1>
+</a>
+<a class="tagline" href="https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/portail/">
+				Portail informatique			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+        Organisation
+        <ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=main">Presentation</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=remote">Working remotely</a></li>
+<li>
+                Annals
+                <ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2018-2019/cf1/cf1&amp;soluce=true">Exam 2019</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2019-2020/cf1/bKnJUPNnKG/cf1&amp;soluce=true">Exam 2020</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2020-2021-tsp/cf1/wNbK5DhwrA/cf1&amp;soluce=true">Exam 2021</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2021-2022-tsp/cf1/m6srFeNUiN/cf1&amp;soluce=true">Exam 2022</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2022-2023/cf1/9jF2j7Ns7M/cf1&amp;soluce=true">Exam 2023</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2023-2024/cf1/G21Xw7xVpe/cf1&amp;soluce=true">Exam 2024</a></li>
+</ul>
+</li>
+<li>
+          Annals (old formula)
+          <ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2017/WWW/index.html">CF1 2017</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2017Session2/WWW/index.html">CF2 2017</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2016/WWW/index.html">CF1 2016</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2016Session2/WWW/index.html">CF2 2016</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2015/WWW/index.html">CF1 2015</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2015Session2/WWW/index.html">CF2 2015</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2014/WWW/index.html">CF1 2014</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2014Session2/WWW/index.html">CF2 2014</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2013/WWW/index.html">CF1 2013</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2013Session2/WWW/index.html">CF2 2013</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2012/WWW/index.html">CF1 2012</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2012Session2/WWW/index.html">CF2 2012</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2011/WWW/index.html">CF1 2011</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2011Session2/WWW/index.html">CF2 2011</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2010/WWW/index.html">CF1 2010</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2010Session2/WWW/index.html">CF2 2010</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2009/WWW/index.html">CF1 2009</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2009Session2/WWW/index.html">CF2 2009</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2008/WWW/index.html">CF1 2008</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2008Session2/WWW/index.html">CF2 2008</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2007/WWW/index.html">CF1 2007</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2007Session2/WWW/index.html">CF2 2007</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2006/WWW/index.html">CF1 2006</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2006Session2/WWW/index.html">CF2 2006</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2005/WWW/index.html">CF1 2005</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2005Session2/WWW/index.html">CF2 2005</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2004/WWW/index.html">CF1 2004</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2004Session2/WWW/index.html">CF2 2004</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2003/WWW/index.html">CF1 2003</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/ExoCoursSys/TPNote2003Session2/WWW/index.html">CF2 2003</a></li>
+</ul>
+</li>
+<li>
+<a href="http://www-inf.telecom-sudparis.eu/COURS/CSC4508.old/Current/Documents/WebCoursSys/Contenu/index.html">Courses/Lab (old formula)</a>
+</li>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=all">All the labs</a> </li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=planning">Schedule</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=equipe">Teachers</a></li>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=annexe-gdb">GDB cheat-sheet</a> </li>
+</ul>
+</li>
+<li>
+    Resources
+
+<ul class="chapitres">
+<li>
+<h1>Partie 1 - Process</h1>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #1</div>
+<div class="chapter-title">Threads</div>
+<div class="chapter-content">
+<ul>
+<li>Introduction - Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-slides.html">[html]</a>
+</li>
+<li>Introduction - Book <a href="../public/intro/intro-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-book.html">[html]</a>
+</li>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C1/C1-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C1.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-1-threads/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-1-threads/">Lab recording [En]</a></li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci1/tp1">Lab</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Class overview module</li>
+<li>Stack and registers</li>
+<li>Threads</li>
+<li>Thread-safety, reentrancy</li>
+<li>Thread synchronization </li>
+</ul>
+</div>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #2</div>
+<div class="chapter-title">Concurrent programming</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C2/C2-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C2.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-2-concurrent-programming/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-2-concurrent-programming/">Lab recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci2-corrige-des-exercices-2-et-3_54899/">Lab recording [Fr]</a></li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci2/tp2">Lab</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> Pipe-based communication</li>
+<li> IPC : message queue, shared memory, semaphores, mutex, condition</li>
+<li> Classic synchronizatin patterns</li>
+</ul>
+</div>
+</li>
+<li style="background-color:BlanchedALmond">
+<div class="chapter-id">Class #3</div>
+<div class="chapter-title">Synchronization</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C3/C3-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C3.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-3-synchronization/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-3-synchronization/">Lab recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-cours-3-mecanismes-de-synchronisation/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci3-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci3/tp3&amp;wrap=true">Lab</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> Atomic operations</li>
+<li> Implementing synchronization primitives</li>
+<li> Futex</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #4</div>
+<div class="chapter-title">System calls</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C4/C4-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-4-system-calls/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci4-cours-appels-systemes/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci4-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci4/syscall&amp;wrap=true">Lab</a> <div class="expanded-version"> 2h30</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>System call concept</li>
+<li>Introduction to the xv6 kernel</li>
+<li>Implementing a system call</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #5</div>
+<div class="chapter-title">Interrupts and scheduling</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C5/C5-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci5-cours-interruptions-et-ordonnancement/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci5-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci5/interruption&amp;wrap=true">Lab</a> <div class="expanded-version"> 2h30</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Memory bus, I/O bus</li>
+<li>Processing an interrupt</li>
+<li>Time management</li>
+<li>Implementing an interrupt handler</li>
+<li>Implementing a scheduler</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #6</div>
+<div class="chapter-title">Sprint</div>
+<div class="chapter-content">  
+            <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci6/tp6&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Code review and discussion</li>
+</ul>
+</div>
+</li>
+<li>
+<h1>Part 2 - Memory management</h1>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #7</div>
+<div class="chapter-title">Virtual memory</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C7/C7-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C7.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-7-virtual-memory/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci7-cours-memoire-virtuelle/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci7-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci7/tp7&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Virtual memory</li>
+<li>Pagination</li>
+<li>Page table, TLB</li>
+<li>Memory space of a process</li>
+<li>Memory allocation strategies</li>
+<li>Implementing a memory cache</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #8</div>
+<div class="chapter-title">Memory Management Unit</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci8/tp8&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci8-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li><a href="https://node-bbb.imtbs-tsp.eu/screenshare/026f8a620fb45437f8749153cee4729c4a56f1de-1780041687838/">Lab recording [En]</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Memory management in an operating system</li>
+<li>Shared memory</li>
+</ul>
+</div>
+</li>
+<li style="background-color:BlanchedALmond">
+<div class="chapter-id">Class #9</div>
+<div class="chapter-title">Architecture</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C9/C9-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-9-architecture/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-9-architecture/">Lab recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/cc4508-ci9-cours-architecture/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci9-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci9/tp9&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> Sequential processor</li>
+<li> Pipeline</li>
+<li> Superscalar processor</li>
+<li> Branch prediction</li>
+<li> Vector instructions</li>
+<li> Hyperthreading</li>
+<li> Multi-core processor</li>
+<li> NUMA architecture</li>
+<li> How a cache works</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #10</div>
+<div class="chapter-title">Sprint</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci8/sprint&amp;wrap=true">Sprint</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion"> </div>
+</li>
+<li>
+<h1>Part 3 - I/O</h1>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #11</div>
+<div class="chapter-title">I/O</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C11/C11-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C11.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-11-io/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-c11-cours-entreessorties/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci11-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci11/tp11&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Buffered / unbuffered IOs</li>
+<li>mmap</li>
+<li>Asynchronous IOs</li>
+<li>Concurrency</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #12</div>
+<div class="chapter-title">File systems</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C13/C13-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-12-filesystems/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci12-cours-systemes-de-fichiers/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci12-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci13/tp13&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+            TODO
+        </div>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #13</div>
+<div class="chapter-title">Synthesis: mini-project</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci12/tp12&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci13-corrige-du-tp/">Lab recording [Fr]</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+            TODO
+        </div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #14</div>
+<div class="chapter-title">Sprint</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci13/sprint&amp;wrap=true">Sprint</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion"> </div>
+</li>
+<li>
+<div class="chapter-id">Class #15</div>
+<div class="chapter-title">Exam</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2025-2026/cf1/qJsdljYOI2/cf1">Exam 2026</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion"> </div>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "french" -->
+<!-- coding: utf-8 -->
+<!-- indent-tabs-mode: nil -->
+<!-- End: -->
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "french" -->
+<!-- coding: utf-8 -->
+<!-- indent-tabs-mode: nil -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/cours/CSC4508/Supports/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<article>
+<p>
+	The <i>CSC 4508 - Operating systems </i> module is dispensed at <a href="http://www.telecom-sudparis.eu/en_accueil.html">Télécom SudParis</a> in M1, and as part of <a href="http://www.ip-paris.fr">IP Paris</a> master of Computer Science (<a href="http://www-inf.telecom-sudparis.eu/COURS/masteripparis/pds/">Parallel &amp; Distributed Systems</a>, and <a href="http://www-inf.telecom-sudparis.eu/COURS/masteripparis/hpda/">High Performance Data Analytics</a> tracks).
+    </p>
+<p>
+	The aim of the module is to introduce the main concepts of operating
+	systems. In this module, you will learn how to:
+    </p>
+<ul>
+<li>Develop an application that interacts with the operating system</li>
+<li>Develop a parallel application using processes or threads that
+	    interact</li>
+<li>Explain the main internal mechanisms of an Operating System</li>
+<li>Implement the main mechanisms in a toy operating system</li>
+</ul>
+</article>
+<article>
+<h2>Useful links</h2>
+<table style="text-align: center; border-collapse: collapse; width: 100%;">
+<tr>
+<td><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=equipe">Teachers</a></td>
+<td><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=planning">Schedule</a></td>
+<td><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=annales">Annals</a></td>
+</tr>
+<tr>
+<td><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=annexe-gdb">gdb cheat-sheet</a></td>
+<td><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=resources">Useful Resources</a></td>
+<td><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=logiciels">Software to install</a></td>
+</tr>
+</table>
+</article>
+<div class="remarque">
+<div style="margin-top:30px">
+<div style="width:50px;float:left;margin-right:10px;background-color:LightCyan;"> </div> <div>User space</div>
+<div style="width:50px;float:left;margin-right:10px;background-color:BlanchedALmond;"> </div> <div>General</div>
+<div style="width:50px;float:left;margin-right:10px;background-color:Lavender;"> </div> <div>Kernel space</div>
+</div>
+</div>
+<article>
+<h2>Resources</h2>
+<p>
+	While browsing, you can return to this page at any time by clicking on
+	the blue banner at the top of the page.
+    </p>
+<p>
+</p>
+<ul>
+<li>Lecture notes <a href="../public/poly/poly-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/poly/poly-book.html">[html]</a> </li>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Poly/poly-1pp_french_2020.pdf">Lecture notes in French (Poly 2020)</a> </li>
+</ul>
+<ul class="schedule">
+<li>
+<div class="chapter-head"></div>
+<div class="chapter-head">Topics</div>
+<div class="chapter-head">Resources</div>
+<div class="chapter-head">Key concepts</div>
+</li>
+<li>
+<h1>Partie 1 - Process</h1>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #1</div>
+<div class="chapter-title">Threads</div>
+<div class="chapter-content">
+<ul>
+<li>Introduction - Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-slides.html">[html]</a>
+</li>
+<li>Introduction - Book <a href="../public/intro/intro-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-book.html">[html]</a>
+</li>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C1/C1-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C1.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-1-threads/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-1-threads/">Lab recording [En]</a></li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci1/tp1">Lab</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Class overview module</li>
+<li>Stack and registers</li>
+<li>Threads</li>
+<li>Thread-safety, reentrancy</li>
+<li>Thread synchronization </li>
+</ul>
+</div>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #2</div>
+<div class="chapter-title">Concurrent programming</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C2/C2-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C2.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-2-concurrent-programming/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-2-concurrent-programming/">Lab recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci2-corrige-des-exercices-2-et-3_54899/">Lab recording [Fr]</a></li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci2/tp2">Lab</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> Pipe-based communication</li>
+<li> IPC : message queue, shared memory, semaphores, mutex, condition</li>
+<li> Classic synchronizatin patterns</li>
+</ul>
+</div>
+</li>
+<li style="background-color:BlanchedALmond">
+<div class="chapter-id">Class #3</div>
+<div class="chapter-title">Synchronization</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C3/C3-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C3.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-3-synchronization/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-3-synchronization/">Lab recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-cours-3-mecanismes-de-synchronisation/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci3-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci3/tp3&amp;wrap=true">Lab</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> Atomic operations</li>
+<li> Implementing synchronization primitives</li>
+<li> Futex</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #4</div>
+<div class="chapter-title">System calls</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C4/C4-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-4-system-calls/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci4-cours-appels-systemes/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci4-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci4/syscall&amp;wrap=true">Lab</a> <div class="expanded-version"> 2h30</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>System call concept</li>
+<li>Introduction to the xv6 kernel</li>
+<li>Implementing a system call</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #5</div>
+<div class="chapter-title">Interrupts and scheduling</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C5/C5-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci5-cours-interruptions-et-ordonnancement/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci5-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci5/interruption&amp;wrap=true">Lab</a> <div class="expanded-version"> 2h30</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Memory bus, I/O bus</li>
+<li>Processing an interrupt</li>
+<li>Time management</li>
+<li>Implementing an interrupt handler</li>
+<li>Implementing a scheduler</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #6</div>
+<div class="chapter-title">Sprint</div>
+<div class="chapter-content">  
+            <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci6/tp6&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Code review and discussion</li>
+</ul>
+</div>
+</li>
+<li>
+<h1>Part 2 - Memory management</h1>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #7</div>
+<div class="chapter-title">Virtual memory</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C7/C7-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C7.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-7-virtual-memory/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci7-cours-memoire-virtuelle/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci7-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci7/tp7&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Virtual memory</li>
+<li>Pagination</li>
+<li>Page table, TLB</li>
+<li>Memory space of a process</li>
+<li>Memory allocation strategies</li>
+<li>Implementing a memory cache</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #8</div>
+<div class="chapter-title">Memory Management Unit</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci8/tp8&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci8-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li><a href="https://node-bbb.imtbs-tsp.eu/screenshare/026f8a620fb45437f8749153cee4729c4a56f1de-1780041687838/">Lab recording [En]</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Memory management in an operating system</li>
+<li>Shared memory</li>
+</ul>
+</div>
+</li>
+<li style="background-color:BlanchedALmond">
+<div class="chapter-id">Class #9</div>
+<div class="chapter-title">Architecture</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C9/C9-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-9-architecture/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lab-9-architecture/">Lab recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/cc4508-ci9-cours-architecture/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci9-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci9/tp9&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li> Sequential processor</li>
+<li> Pipeline</li>
+<li> Superscalar processor</li>
+<li> Branch prediction</li>
+<li> Vector instructions</li>
+<li> Hyperthreading</li>
+<li> Multi-core processor</li>
+<li> NUMA architecture</li>
+<li> How a cache works</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #10</div>
+<div class="chapter-title">Sprint</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci8/sprint&amp;wrap=true">Sprint</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion"> </div>
+</li>
+<li>
+<h1>Part 3 - I/O</h1>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #11</div>
+<div class="chapter-title">I/O</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C11/C11-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-book.html">[html]</a>
+</li>
+<li><a href="../Public/Exemples/C11.tgz">Examples</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-11-io/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-c11-cours-entreessorties/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci11-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci11/tp11&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Buffered / unbuffered IOs</li>
+<li>mmap</li>
+<li>Asynchronous IOs</li>
+<li>Concurrency</li>
+</ul>
+</div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #12</div>
+<div class="chapter-title">File systems</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-slides.html">[html]</a>
+</li>
+<li>Book <a href="../public/C13/C13-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-book.html">[html]</a>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/lecture-12-filesystems/">Lecture recording [En]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci12-cours-systemes-de-fichiers/">Lecture recording [Fr]</a></li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci12-corrige-du-tp/">Lab recording [Fr]</a></li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci13/tp13&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+            TODO
+        </div>
+</li>
+<li style="background-color:LightCyan">
+<div class="chapter-id">Class #13</div>
+<div class="chapter-title">Synthesis: mini-project</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci12/tp12&amp;wrap=true">Lab</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://mediaserver.ip-paris.fr/videos/csc4508-ci13-corrige-du-tp/">Lab recording [Fr]</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+            TODO
+        </div>
+</li>
+<li style="background-color:lavender">
+<div class="chapter-id">Class #14</div>
+<div class="chapter-title">Sprint</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=ci13/sprint&amp;wrap=true">Sprint</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion"> </div>
+</li>
+<li>
+<div class="chapter-id">Class #15</div>
+<div class="chapter-title">Exam</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/?page=CF/2025-2026/cf1/qJsdljYOI2/cf1">Exam 2026</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion"> </div>
+</li>
+</ul>
+<div style="text-align: left; width: 100%; font-size: 10px;">
+	CM : Lecture       CI : Lecture + lab
+    </div>
+</article>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

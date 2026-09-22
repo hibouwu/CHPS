@@ -1,0 +1,13 @@
+:root {
+  --banner:        #003882;     /* header */
+  --menu:          #61473f;     /* h3, navbar */
+	--menu-grey:     #c2a9a2;
+  --menu-hover:    #797979;        
+  --title:         #003882;     /* h1, h2, header */
+  --subtitle:      #61473f;     /* h3 */
+  --bg-header:     #f2f2f2;
+	--subtitle-grey: #c2aaa2;
+  --over:          rgba(0,0,0,.1);
+}
+
+.header .logo img { width: 7.2rem; height: 7.2rem; }

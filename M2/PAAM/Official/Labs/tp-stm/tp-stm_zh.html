@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>事务内存 · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}.partie{display:block;font-size:20px;font-weight:700;color:#174767;margin:26px 0 14px}</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a href="../tp-threads/tp-threads_zh.html">线程与同步</a><a href="../tp-locks/tp-locks_zh.html">锁算法</a><a href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a aria-current="page" href="../tp-stm/tp-stm_zh.html">事务内存</a><a href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html">非易失性内存</a></nav><div><a href="tp-stm.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/04-stm_zh.md">中文讲义</a> · <a href="../../Lectures/04-stm.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。练习、问题和分节编号与英文原版一致；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">软件事务内存实验</h2>
+<div class="chapitre-content" id="chapitre-idm45726245744144">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 1：实现事务内存运行时</h3>
+<div class="exercice-content" id="exercice-idm45726242354048">本实验实现一个小型的软件事务内存运行时。<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.a.</h4>
+<div class="question-content" id="question-idm45726241663264">先编写 main 函数，按程序参数 N 创建 N 个线程。main 必须等所有线程结束后再退出。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.b.</h4>
+<div class="question-content" id="question-idm45726242675840">
+<p class="inline-paragraph">将内存看作单元数组，每个单元同时包含一个整数值和一个计数器。为此，使用下面文件中给出的结构定义：</p>
+<div class="code code-block">
+<div class="code-url"><a download="mem.h" href="mem.h">mem.h</a></div>
+<pre><code>#include &lt;sys/types.h&gt;
+
+#define NB_CELLS 65536
+
+struct cell {
+  uintptr_t value;
+  size_t    counter;
+};
+
+struct memory {
+  struct cell* cells[NB_CELLS];
+  size_t       clock;
+};
+
+</code></pre>
+</div>
+<p>将单元数组下标 0 处的变量视为 <code>x</code>。每个线程利用这个结构，以原子指令将 <code>x</code> 递增 <code>1024*1024</code> 次。程序结束时，检查 <code>x</code> 是否等于 1024*1024 乘以线程数。</p>
+<p>记得编写初始化函数，为单元分配内存，并将值和计数器都初始化为 0。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.c.</h4>
+<div class="question-content" id="question-idm45726242542720">使用 <code>clock_gettime</code> 和 <code>CLOCK_MONOTONIC</code>，测量线程执行循环的平均耗时。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.d.</h4>
+<div class="question-content" id="question-idm45726241519344">增加一个程序参数，用来选择保护 <code>x</code> 的算法。第一版只接受 <code>atomic</code>；如果参数不是 <code>atomic</code>，程序应报错退出。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.e.</h4>
+<div class="question-content" id="question-idm45726241535552">增加第二个循环版本，使用 <code>pthread_mutex_lock</code> 保护 <code>x</code>。比较运行时间；原题要求观察它比原子指令版本更慢，实际结果应以本机测量为准。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.f.</h4>
+<div class="question-content" id="question-idm45726240818400">接下来实现基于软件事务内存的第三个版本，使用以下 API：<ul>
+<li><code>void startTX()</code>：开始一个事务；</li>
+<li><code>uintptr_t read(int n)</code>：读取下标 <code>n</code> 处单元的值。<code>read</code> 可能检测到事务应中止，此时需要返回一个预留值，例如 <code>MAX_INT</code>；</li>
+<li><code>void write(int n, uintptr_t value)</code>：写入下标 <code>n</code> 处单元的值；</li>
+<li><code>bool commitTX()</code>：可以提交时提交事务，否则中止；中止时返回 false。</li>
+</ul>先只添加这些函数的空实现。测试事务版本时，可使用下面的调用代码：<div class="code code-block"><pre><code>for(size_t i=0; i&lt;1024*1024; i++) {
+restart:
+  startTX();
+  int value = read(0); // read x
+  if(value == MAX_INT)
+    goto restart;
+  write(0, value + 1); // write x + 1
+  if(!commitTX())      // try to commit
+    goto restart;      // in case of abort, restart
+}</code></pre></div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.g.</h4>
+<div class="question-content" id="question-idm45726241886624">补全函数，实现<a href="../../Lectures/04-stm.pdf">讲义</a>介绍的算法。需要定义线程局部结构来保存事务状态，使用 <code>_Thread_local</code>。当前阶段不要在提交时释放旧单元：提交新值时，应分配一个包含新值和新计数器的单元，再原子地修改指向该单元的指针。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.h. 选做：回收旧单元</h4>
+<div class="question-content" id="question-idm45726241916592">现在尝试在提交过程中回收旧单元。只要还有线程正在使用某个单元，例如正在读取它，就不能在提交时释放它。可复用上一个实验介绍的 hazard pointer 方法，判断单元何时可以安全回收。</div>
+</div>
+<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242357200">
+<div class="code code-block">
+<div class="code-url"><a download="main-v1.c" href="main-v1.c">main-v1.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/time.h&gt;
+
+#define N       128
+#define LOOPS   2000
+#define THREADS 20
+#define ABORT   0xf0000000 /* f + 7x0 */
+#define BACKOFF 1          /* initial backoff in microseconds */
+
+#define STM    0
+#define LOCK   1
+#define ATOMIC 2
+
+int version;
+
+struct cell {
+	int value;
+	int counter;
+};
+
+struct memory {
+	pthread_mutex_t       lock;
+	struct cell* volatile values[N];
+	volatile int          clock;
+};
+
+struct tx {
+	int       readSet[N];
+	int       writeSet[N];
+	int       values[N]; /* valeurs */
+	int       clock;
+	long long backoff;
+};
+
+struct memory      memory;
+__thread struct tx tx;
+
+struct cell* newValue(int value, int counter) {
+	struct cell* res = malloc(sizeof(struct cell));
+	res-&gt;value = value;
+	res-&gt;counter = counter;
+	return res;
+}
+
+void initMemory() {
+	pthread_mutex_init(&amp;memory.lock, 0);
+	for(int i=0; i&lt;N; i++)
+		memory.values[i] = newValue(0, 0);
+	memory.clock = 1;
+	srand(time(0));
+}
+
+void startTX() {
+	for(int i=0; i&lt;N; i++) {
+		tx.readSet[i] = 0;
+		tx.writeSet[i] = 0;
+  }
+
+	tx.clock = memory.clock;
+	tx.backoff = BACKOFF;
+}
+
+/*
+ *   ABORT: abort, other: ok
+ */
+int writeValue(int idx, int value) {
+	tx.writeSet[idx] = 1;
+	tx.values[idx] = value;
+	return value;
+}
+
+/*
+ *   ABORT: abort, other: ok
+ */
+int readValue(int idx) {
+	if(tx.writeSet[idx])
+		return tx.values[idx];
+
+  tx.readSet[idx] = 1;
+	struct cell* value = memory.values[idx];
+
+	if(value-&gt;counter &gt;= memory.clock)
+		return ABORT;
+
+	return value-&gt;value;
+}
+
+/*
+ *   ABORT: abort, other: ok
+ */
+int commitTX() {
+	pthread_mutex_lock(&amp;memory.lock);
+	
+	for(int i=0; i&lt;N; i++)
+		if(tx.readSet[i] &amp;&amp; memory.values[i]-&gt;counter &gt;= tx.clock) {
+			pthread_mutex_unlock(&amp;memory.lock);
+			return ABORT;
+		}
+	
+	for(int i=0; i&lt;N; i++)
+		if(tx.writeSet[i])
+			memory.values[i] = newValue(tx.values[i], memory.clock);
+
+	memory.clock++;
+
+	pthread_mutex_unlock(&amp;memory.lock);
+	
+	return 0;
+}
+
+void do_abort() {
+	if(BACKOFF) {
+		long long n = rand() % tx.backoff;
+		for(int i=0; i&lt;n; i++);
+		tx.backoff &lt;&lt;= 1;
+	}
+}
+
+volatile int total = 0;
+
+void* f(void* arg) {
+	__sync_fetch_and_add(&amp;total, 1);
+	while(total &lt; THREADS) {
+		//asm volatile("pause"); use that to optimize performance on a pentium
+  }
+	
+	for(int i=0; i&lt;LOOPS; i++) {
+		if(version == STM) {
+			int x;
+restart:
+			startTX();
+			x = readValue(0);
+	
+			if(x == ABORT) {
+				do_abort();
+				goto restart;
+			}
+
+			if(writeValue(0, x + 1) == ABORT) {
+				do_abort();
+				goto restart;
+			}
+
+			if(commitTX() == ABORT) {
+				do_abort();
+				goto restart;
+			}
+		} else if(version == LOCK) {
+			pthread_mutex_lock(&amp;memory.lock);
+			memory.values[0]-&gt;value++;
+			pthread_mutex_unlock(&amp;memory.lock);
+		} else {
+			__sync_fetch_and_add(&amp;memory.values[0]-&gt;value, 1);
+		}
+	}
+	return 0;
+}
+
+int main(int argc, char **argv) {
+	if(argc != 2) {
+		fprintf(stderr, "usage: %s [0: STM, 1: LOCK, 2: ATOMIC_ADD]\n", argv[0]);
+		return 1;
+	}
+
+	version = atoi(argv[1]);
+
+	pthread_t threads[THREADS];
+	initMemory();
+
+	struct timeval start;
+	gettimeofday(&amp;start, 0);
+
+	for(int i=0; i&lt;THREADS; i++)
+		pthread_create(&amp;threads[i], 0, f, 0);
+
+	for(int i=0; i&lt;THREADS; i++)
+		pthread_join(threads[i], 0);
+	
+	struct timeval end;
+	gettimeofday(&amp;end, 0);
+
+	if(memory.values[0]-&gt;value != THREADS*LOOPS) {
+		printf("value = %d while we expect %d\n", memory.values[0]-&gt;value, THREADS*LOOPS);
+		printf("    =&gt; error!!!\n");
+	} else {
+		printf("Elapsed time: %0.3f ms\n",
+					 1e3*end.tv_sec + end.tv_usec*1e-3 - start.tv_sec*1e3 - start.tv_usec*1e-3);
+	}
+
+	return 0;
+}
+
+/* gcc -Wall -Werror -o main main.c -lpthread */
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+</div>
+</div>
+</div><footer>来源：<a href="tp-stm.html">同目录英文原版</a>。中文翻译不增加实验答案，也不代表所附代码已经编译或验证。外部参考网站仍需联网。</footer></div></body></html>

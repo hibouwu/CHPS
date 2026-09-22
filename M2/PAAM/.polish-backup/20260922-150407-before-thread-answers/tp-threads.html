@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - tp-threads</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../../Exams/2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../../Exams/2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../../Exams/2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../../Exams/2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../../Exams/2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../../Exams/2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../../Exams/2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241872608">Threads and synchronizations</h2>
+<div class="chapitre-content" id="chapitre-idm45726241872608">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242418048">My first threads</h3>
+<div class="exercice-content" id="exercice-idm45726242418048">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242238960"></h4>
+<div class="question-content" id="question-idm45726242238960">
+<p class="inline-paragraph">Write, in C, an application that creates N threads with <span class="code"><span class="code-container">pthread_create</span></span>, where <span class="code"><span class="code-container">N</span></span>
+        is the first argument of the application.
+        Each thread must write to the terminal "[tid] Hello, World i!!!", where:</p>
+<p></p>
+<ul>
+<li>tid is the thread identifier returned by <span class="code"><span class="code-container">pthread_self</span></span>,</li>
+<li>
+<span class="code"><span class="code-container">i</span></span> is a number incremented by the <span class="code"><span class="code-container">main</span></span> for each thread
+          (0 for the first thread, 1 for the second and so on).</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241530816"></h4>
+<div class="question-content" id="question-idm45726241530816">
+<p class="inline-paragraph">The <span class="code"><span class="code-container">main</span></span> function has now to print <span class="code"><span class="code-container">Main quitting</span></span> at the end of the function.
+        Launch several times your application with 3 threads.
+        Why, sometime, the application write the main quitting before the three hello worlds?</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241991072"></h4>
+<div class="question-content" id="question-idm45726241991072">
+<p class="inline-paragraph">Start your application with 20 threads several times. Why, often,
+        the application writes less than 20 times hello world?</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242501072"></h4>
+<div class="question-content" id="question-idm45726242501072">
+<p class="inline-paragraph">Add a call to <span class="code"><span class="code-container">pthread_exit</span></span> at the end of <span class="code"><span class="code-container">main</span></span>.
+        Why, now, the application systematically write 20 times hello world when you start it
+        with 20 threads?</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242346880"></h4>
+<div class="question-content" id="question-idm45726242346880">
+<p class="inline-paragraph">Ensure now that the application writes the main quitting after all the hello worlds.</p>
+<p></p>
+</div>
+</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242421952"></div>
+<div class="solution-content" id="solution-idm45726242421952">
+<div class="code code-block">
+<div class="code-url"><a download="hello.c" href="hello.c">hello.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-threads/hello.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242711440">A shared counter</h3>
+<div class="exercice-content" id="exercice-idm45726242711440">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241559520"></h4>
+<div class="question-content" id="question-idm45726241559520">
+<p class="inline-paragraph">First, add a global variable called <span class="code"><span class="code-container">counter</span></span> initialized to 0 to your application.
+        Then, ensure that each thread increments this variable after printing its hello world.
+        Finally, modify the application in order to print the value of <span class="code"><span class="code-container">counter</span></span>
+        before the <span class="code"><span class="code-container">pthread_exit</span></span> of the <span class="code"><span class="code-container">main</span></span>.</p>
+<p></p>
+<p>When you run your application with 100 threads, why the printed counter is often smaller
+        than 100? Modify your application in order to ensure that the counter is equal to the number
+        of threads at end of the application.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242180816"></h4>
+<div class="question-content" id="question-idm45726242180816">
+      Modify your application in order to print "Main quitting" only when the counter is equal to the number of
+      threads.
+		</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242452384">Producer/consumer</h3>
+<div class="exercice-content" id="exercice-idm45726242452384">
+<p>In this exercise, we want to implement a producer/consumer.
+      In detail, the main thread, called the producer hereafter, has to read lines from the standard input and to push
+      them in a queue.
+      The other threads, called the consumers hereafter,
+      have to take these lines from the queue in the FIFO (first in first out) order
+      and to print them.</p>
+<p>We want to implement the queue with a linked-list. The first node
+      of the list is the oldest enqueued line (first in), while the last node of the linked list
+      is the newest enqueued line (last in).
+      We also want to avoid following the whole linked-list to enqueue a new node.
+      For this reason, you have to keep both a pointer to the first and to the last node.</p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242004512"></h4>
+<div class="question-content" id="question-idm45726242004512">
+      First, implement a unicast queue: only a single consumer has
+      to take the messages from the queue.
+      You have to ensure that a consumer thread sleeps with <span class="code"><span class="code-container">pthread_cond_wait</span></span>
+      when the queue is empty.
+      Don't forget to free a node of the linked list when it is consumed.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242476352"></div>
+<div class="solution-content" id="solution-idm45726242476352">
+        You can download the Makefile <a href="Makefile">here</a>.
+        
+			  <div class="code code-block">
+<div class="code-url"><a download="spsc.c" href="spsc.c">spsc.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-threads/spsc.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242619760">Atomic broadcast in shared memory (optional, 1/2)</h4>
+<div class="question-content" id="question-idm45726242619760">
+      Modify your application in order to implement a multicast queue: each consumer has to
+      receive and to print each line (and in the FIFO order).
+      In this question also, don't forget to free the nodes of the linked list.
+		</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241937968">Atomic broadcast in shared memory (optional, 2/2)</h4>
+<div class="question-content" id="question-idm45726241937968">
+      With the broadcast, now, you can try to ensure that each consumer can consume a node even if the previous ones in the list are not
+      consumers, which means totally desynchronizing the consumers (in your initial version, probably, all the consumers consume a node and then they all continue with the next one).
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241937680"></div>
+<div class="solution-content" id="solution-idm45726241937680">
+<div class="code code-block">
+<div class="code-url"><a download="mpmc.c" href="mpmc.c">mpmc.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-threads/mpmc.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "english" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

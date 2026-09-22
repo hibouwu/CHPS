@@ -1,0 +1,18 @@
+:root {
+  --banner:        black;       /* header */
+  --menu:          black;       /* navbar */
+  --menu-grey:     #c1c1c1;
+  --menu-hover:    #4D8694; /*#57919e; */
+  --title:         #4D8694; /*#57919e; h1, h2 */
+  --subtitle:      black;       /*#777 h3 */
+  --bg-header:     #f8f8f8;
+  --over:          rgba(0,0,0,.1);
+}
+
+h2 {
+    border-top: 0.1px solid #eee;
+    line-height: 2em;
+    border-bottom: 0.1px solid #eee;
+}
+
+.header .logo img { width: 5.5rem; height: 5.5rem; }

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC 4103 – Programmation système - TP1</title>
+<link href="../../../../fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../../../use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/wp/wp-content/themes/tsp-inf/tsp/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.telecom-sudparis.eu">
+<img alt="Telecom SudParis" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png"/>
+</a>
+<a class="title" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=unix">
+<h1>CSC 4103 – Programmation système</h1>
+</a>
+<a class="tagline" href="https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/portail/">
+				Portail informatique			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+    Organisation
+    <ul>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=unix">Présentation</a></li>
+<li>Annales
+<ul>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2016-2017/cf1/cf1&amp;soluce=true"> CF1 2017</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2016-2017/cf2/cf2&amp;soluce=true"> CF2 2017</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2017-2018/cf1/cf1&amp;soluce=true"> CF1 2018</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2017-2018/cf2/cf2&amp;soluce=true"> CF2 2018</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2018-2019/cf1/cf1&amp;soluce=true"> CF1 2019</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2019-2020/cf1/cf1&amp;soluce=true"> CF1 2020</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2019-2020/cf2/cf2&amp;soluce=true"> CF2 2020</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2020-2021/w4liXwbj1e/cf1/cf1&amp;soluce=true"> CF1 2021</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2020-2021/w4liXwbj1e/cf2/cf2&amp;soluce=true"> CF2 2021</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2021-2022/cf1/cf1&amp;soluce=true"> CF1 2022</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2022-2023/cf1/cf1&amp;soluce=true"> CF1 2023</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2023-2024/cf1/Q4BTFQTuEx/cf1"> CF1 2024</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2024-2025/cf1/lyTkliJ5q4/cf1"> CF1 2025</a>
+</li>
+<li> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=controles/2025-2026/cf1/LQZdryGoPW/cf1"> CF1 2026</a>
+</li>
+</ul>
+</li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=all&amp;wrap=true&amp;preprint=true">Sujets de TP en version imprimable</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=planning">Planning</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=annexe-gdb">Annexe gdb</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=resources">Ressources utiles</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=logiciels">Logiciels à installer</a></li>
+<li><a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=vm">Travailler sur sa machine</a></li>
+</ul>
+</li>
+<li>
+    Supports
+<ul class="chapitres">
+<li>
+<div class="chapter-id">CI1</div>
+<div class="chapter-title">Les bases du langage C</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C1/C1-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C1/C1-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci1/TP/demineur">TP</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Présentation du module</li>
+<li>Programme, Variables</li>
+<li>Structures algorithmiques (if, for, while, etc.)</li>
+<li>Fonctions</li>
+<li>Types composés (tableaux, structures)</li>
+<li>Passage de paramètres par référence</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">Hors-présentiel</div>
+<div class="chapter-title">Projet</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=projet/projet">Projet</a> <div class="expanded-version">9h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Programmation en C</li>
+<li>Structures de données</li>
+<li>Tests unitaires</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI2</div>
+<div class="chapter-title">Modularité</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C2/C2-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C2/C2-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci2/TP/TP2">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=f13919bb-9294-48af-99dc-ff6b5ba2eaab">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c13bc61a99d71caa564af4">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Chaîne de compilation</li>
+<li>Préprocesseur, Compilateur, Editeur de liens</li>
+<li>Objet ELF, Makefile</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI3</div>
+<div class="chapter-title">Pointeurs</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C3/C3-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C3/C3-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci3/TP/TP3&amp;wrap=true">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=db146646-ca77-483e-b853-b45615b11afb">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c13d931a99d71caa564b1a">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Espace mémoire</li>
+<li>Notion de pointeur</li>
+<li>Allocation mémoire</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI4</div>
+<div class="chapter-title">Fichiers</div> <!-- GT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C4/C4-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C4/C4-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-book.html">[html]</a>
+</li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci4/TP/TP4&amp;wrap=true">TP</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://play.kahoot.it/#/?quizId=c6c13e59-aceb-4451-98a8-b417452e01c1">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c13f871a99d71caa564b39">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Entrées/sorties bufferisées</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI5</div>
+<div class="chapter-title">Debugger</div> <!-- GT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C5/C5-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C5/C5-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-book.html">[html]</a>
+</li>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci5/TP/TP5&amp;wrap=true">TP</a> <div class="expanded-version"> 3h</div>
+</li>
+<li><a href="https://play.kahoot.it/#/?quizId=3164b2c5-26bb-454c-ac6b-d8716ce08fb7">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c18415e81a69b7de17e449">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>GDB, Valgrind</li>
+<li>Pointeurs de fonction</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI6</div>
+<div class="chapter-title">Processus</div> <!-- FT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C6/C6-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C6/C6-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci6/TP/TP6&amp;wrap=true">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=5c8561c5-0f21-4dd6-a3d5-1cfa83f4d4e3">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c1855def2bdc3e846f291c">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Caractéristiques d'un processus</li>
+<li>Ordonnancement de processus</li>
+<li><code>fork/exec/wait</code></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI7</div>
+<div class="chapter-title">Appels systèmes</div> <!-- FT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C7/C7-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C7/C7-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci7/TP/TP7&amp;wrap=true">TP</a></li>
+<li><a href="https://play.kahoot.it/#/?quizId=8f0ea405-eaa9-43d0-a49c-46efd589f68c">Kahoot !</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c1869d70affaad9fa254f3">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Mode noyau/utilisateur</li>
+<li>strace</li>
+<li>sémaphore</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI8</div>
+<div class="chapter-title">Threads</div>
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C8/C8-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C8/C8-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci8/TP/TP8&amp;wrap=true">TP</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=696e055ff82c0ec8f1077798">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Threads</li>
+<li>Concurrence</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI9</div>
+<div class="chapter-title">Signaux</div> <!-- GT -->
+<div class="chapter-content">
+<ul>
+<li>Slides <a href="../Public/C9/C9-slides.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-slides.html">[html]</a>
+</li>
+<li>Chapitre <a href="../Public/C9/C9-book.pdf">[pdf]</a> <a href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-book.html">[html]</a>
+</li>
+<li><a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci9/TP/TP9&amp;wrap=true">TP</a></li>
+<li><a href="https://play.blooket.com/host/classic?id=63c187642fd934070acc2c95">Blooket</a></li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>kill, sigaction, etc.</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">CI10</div>
+<div class="chapter-title">Projet</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a class="all-in-one" href="https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci10/TP/TP10&amp;wrap=true">TP</a> <div class="expanded-version"> 3h</div>
+</li>
+</ul>
+</div>
+<div class="chapter-notion">
+<ul>
+<li>Evaluation du DM</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/cours/CSC4103/Supports/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<h2 style="color: red">Sorry, the requested resource doesn't exist</h2></div>
+<div class="footer">
+<div class="logo">
+<a href="https://www.telecom-sudparis.eu">
+<img alt="Telecom SudParis" height="75" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png" width="75"/>
+</a>
+<a href="https://www.imt.fr">
+<img alt="Telecom SudParis" height="75" src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/imt.jpg" width="143"/>
+</a>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.telecom-sudparis.eu">
+	Telecom SudParis</a></b><br/>
+<b><a class="hide-link" href="https://www.ip-paris.fr/en">
+		Institut Polytechnique de Paris</a></b></p>
+<p>9, rue Charles Fourier<br/>
+	F-91011 Evry Cedex France</p>
+<p>19, Place Marguerite Perey<br/>
+	F-91120 Palaiseau Cedex France<br/></p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Télécom SudParis
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../../../cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

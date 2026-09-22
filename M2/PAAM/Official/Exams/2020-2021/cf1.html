@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - cf1</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241612288">PAAM – Contrôle final 2020-2021</h2>
+<div class="chapitre-content" id="chapitre-idm45726241612288">
+<div style="width: 100%; text-align: center;">
+		Durée: 2h, tout document autorisé
+	</div>
+<div class="remarque">
+    Vous devez envoyer par mail votre contrôle à l'adresse
+    <a href="mailto:gael.thomas@telecom-sudparis.eu">gael.thomas@telecom-sudparis.eu</a>
+    sous la forme d'une archive (fichier <span class="code"><span class="code-container">tar.gz</span></span> ou <span class="code"><span class="code-container">zip</span></span> par exemple).
+  </div>
+<div class="remarque">
+    Vous devez avoir fait la question 1.a pour pouvoir faire l'exercice 2.
+  </div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242465568">Synchronisation maître/esclaves (10,5 points)</h3>
+<div class="exercice-content" id="exercice-idm45726242465568">
+<p>
+      Le but de cet exercice est d'écrire un petit répartiteur de charges. Un répartiteur de charge, appelé le maître, prend
+      en entrée des commandes à exécuter et délègue leur exécution à des threads que nous appellerons des esclaves.
+      Pour cet exercice, on vous demande d'écrire votre code dans le fichier <span class="code"><span class="code-container">synchro.c</span></span>
+      que vous ajouterez à votre archive. Un bonus sera donné aux programmes qui compilent et s'exécutent correctement.
+    </p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241489600">2 points</h4>
+<div class="question-content" id="question-idm45726241489600">
+<p class="inline-paragraph">Écrivez une méthode <span class="code"><span class="code-container">main</span></span> qui :</p>
+<p></p>
+<ul>
+<li>s'assure que le programme reçoit bien un argument,</li>
+<li>stocke dans une variable <span class="code"><span class="code-container">n</span></span> de type entier cet argument après l'avoir
+          converti en chaîne de caractères (fonction <span class="code"><span class="code-container">atoi</span></span>),</li>
+<li>créé <span class="code"><span class="code-container">n</span></span> threads esclaves qui chacun exécute la fonction <span class="code"><span class="code-container">slave</span></span>,</li>
+<li>appel la fonction <span class="code"><span class="code-container">master</span></span>,</li>
+<li>et enfin attend la terminaison des <span class="code"><span class="code-container">n</span></span> threads esclaves.</li>
+</ul>
+<p>Une fois que votre programme fonctionne, copiez le dans le fichier <span class="code"><span class="code-container">rcl.c</span></span> :
+        vous en aurez besoin pour faire le second exercice.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241318560">0,5 point</h4>
+<div class="question-content" id="question-idm45726241318560">
+<p class="inline-paragraph">Le thread maître va donner du travail aux esclaves en utilisant une structure de donnée de type
+        queue (FIFO) mise en œuvre avec une liste de nœuds.
+        Pour cette raison, commencez par ajouter à votre programme la définition de la structure <span class="code"><span class="code-container">node</span></span>
+        contenant :</p>
+<p></p>
+<ul>
+<li>Un pointeur vers l'élément suivant de la file,</li>
+<li>Une commande à exécuter (une chaîne de 256 caractères).</li>
+</ul>
+<p>Ensuite, ajoutez à votre programme une structure <span class="code"><span class="code-container">struct queue</span></span> permettant
+        de gérer la queue des travaux en attente, et une variable globale nommée <span class="code"><span class="code-container">jobs</span></span>
+        contenant les travaux en attente.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242081776">3 points</h4>
+<div class="question-content" id="question-idm45726242081776">
+      En veillant à synchroniser le maître et les esclaves à l'aide de mutex et variables conditions,
+      modifiez votre fonction <span class="code"><span class="code-container">master</span></span>
+      de façon à exécuter dans une boucle infinie :
+      <ul>
+<li>Lecture d'une commande à partir de l'entrée standard,</li>
+<li>Ajout de la commande à la queue des commandes en attente de traitement,</li>
+<li>Retour dans la fonction <span class="code"><span class="code-container">main</span></span> si la commande est égale à la chaîne de caractères
+          <span class="code"><span class="code-container">"quit"</span></span> (pensez à utiliser la fonction <span class="code"><span class="code-container">strcmp</span></span>).</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241853248">3 points</h4>
+<div class="question-content" id="question-idm45726241853248">
+      En veillant à synchroniser le maître et les esclaves avec des mutex et variables conditions,
+      modifiez votre fonction <span class="code"><span class="code-container">slave</span></span>
+      de façon à exécuter dans une boucle infinie :
+      <ul>
+<li>Attente tant que la pile des commandes en attente est vide,</li>
+<li>Retire la dernière commande de la pile,</li>
+<li>Quitte le thread si la commande est égale à <span class="code"><span class="code-container">"quit"</span></span> (fonction <span class="code"><span class="code-container">pthread_exit</span></span>),</li>
+<li>Exécute la commande reçue sinon (fonction <span class="code"><span class="code-container">system</span></span>).</li>
+</ul>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241437920"></div>
+<div class="solution-content" id="solution-idm45726241437920">
+<div class="code code-block">
+<div class="code-url"><a download="synchro.c" href="synchro.c">synchro.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2020-2021/synchro.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241025616">2 points</h4>
+<div class="question-content" id="question-idm45726241025616">
+      On suppose maintenant que vous disposez d'une mémoire transactionnelle. Copiez votre fichier
+      <span class="code"><span class="code-container">synchro.c</span></span> en <span class="code"><span class="code-container">stm.c</span></span> que vous ajouterez à l'archive que vous devez rendre.
+      Modifiez vos fonctions <span class="code"><span class="code-container">master</span></span> et <span class="code"><span class="code-container">slave</span></span> de façon à synchroniser
+      le maître et les esclaves à l'aide d'une mémoire transactionnelle.
+
+      <div class="remarque">
+        À cette question, on ne vous demande bien sûr pas de compiler votre programme puisque vous ne disposez
+        pas de mémoire transactionnelle.
+      </div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241635632"></div>
+<div class="solution-content" id="solution-idm45726241635632">
+<div class="code code-block">
+<div class="code-url"><a download="stm.c" href="stm.c">stm.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2020-2021/stm.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241870272">Remote core locking (6,5 points)</h3>
+<div class="exercice-content" id="exercice-idm45726241870272">
+<p>Lorsqu'un thread doit exécuter une section critique, le fait que ce soit
+      lui qui l'exécute ou un autre thread n'est pas essentiel. Tant que la section
+      critique est exécutée en exclusion mutuelle, le code reste correct.
+      L'algorithme de Remote Core Locking (RCL) part de ce principe pour optimiser
+      les mouvements de lignes de caches que ce soit celles accédées dans la section critique et celles
+      accédées pour entrer en section critiques.
+      Le principe du RCL est qu'un thread unique, appelé le thread serveur, exécute les sections
+      critiques pour les autres.</p>
+<p>En pratique, le programme utilise un tableau de n pointeurs vers des structures
+      <span class="code"><span class="code-container">struct cs</span></span> où n est le nombre de threads.
+      Nous appelons ce tableau <span class="code"><span class="code-container">pendings</span></span>.</p>
+<p>Une structure <span class="code"><span class="code-container">struct cs</span></span> représente une demande d'exécution d'une section
+      critique. Elle contient les champs suivants :</p>
+<ul>
+<li>
+<span class="code"><span class="code-container">func</span></span> : un pointeur vers la fonction à exécuter en exclusion mutuelle.
+        On considère que cette fonction prend en argument un entier et ne renvoie pas de valeur
+        (le type d'une telle fonction en C est <span class="code"><span class="code-container">(void (*)(int))</span></span>.</li>
+<li>
+<span class="code"><span class="code-container">arg</span></span> : l'argument de la fonction <span class="code"><span class="code-container">func</span></span> (donc de type <span class="code"><span class="code-container">int</span></span>),</li>
+<li>
+<span class="code"><span class="code-container">completed</span></span> : un booléen indiquant si la fonction a été exécutée.</li>
+</ul>
+<p>Chaque thread client (autre que le serveur) possède une variable locale (thread local storage, c'est-à-dire avec l'attribut
+      <span class="code"><span class="code-container">_Thread</span></span>) nommée <span class="code"><span class="code-container">request</span></span> de type <span class="code"><span class="code-container">struct cs</span></span>.
+      Lorsque le thread client numéro <span class="code"><span class="code-container">K</span></span> souhaite exécuter une section critique,
+      il prépare sa structure <span class="code"><span class="code-container">request</span></span> et l'écrit à l'entrée numéro <span class="code"><span class="code-container">K</span></span> du tableau <span class="code"><span class="code-container">pendings</span></span>.
+      Ensuite, il attend que la variable <span class="code"><span class="code-container">completed</span></span> passe à vrai pour continuer.</p>
+<p>De son côté, le thread serveur passe son temps à parcourir le tableau <span class="code"><span class="code-container">pendings</span></span>
+      Si l'entrée <span class="code"><span class="code-container">K</span></span> ne pointe pas vers <span class="code"><span class="code-container">NULL</span></span>, ça signifie que le
+      thread numéro <span class="code"><span class="code-container">K</span></span> lui a envoyé une requête. Le serveur exécute alors
+      la section critique en appelant <span class="code"><span class="code-container">pendings[K]-&gt;func(pendings[K]-&gt;arg)</span></span>,
+      puis passe la variable <span class="code"><span class="code-container">completed</span></span> associée à la requête à vrai de façon à débloquer le thread client.</p>
+<p>Le but de cet exercice est de mettre en œuvre cet algorithme sans jamais prendre un unique
+      verrou POSIX.</p>
+<p>Nous allons partir du code que vous avez réaliser à la question 1.a. Un thread client est
+      un thread qui exécute la fonction <span class="code"><span class="code-container">slave</span></span>. Le serveur est le thread maître (le thread
+      initial du processus).</p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242026128">0,5 point</h4>
+<div class="question-content" id="question-idm45726242026128">
+      Dans le fichier <span class="code"><span class="code-container">rcl.c</span></span> que vous avez réalisé à la question 1.a,
+      ajoutez les structures de données et les variables utilisées par le programme
+      (la structure <span class="code"><span class="code-container">struct cs</span></span>, la variable globale <span class="code"><span class="code-container">pendings</span></span>
+      et la variable locale au thread <span class="code"><span class="code-container">request</span></span>).
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242171632">0.5 point</h4>
+<div class="question-content" id="question-idm45726242171632">
+      Les clients vont demander à ajouter des valeurs à une variable globale de type entier nommée
+      <span class="code"><span class="code-container">var</span></span> que vous devez définir à cette question.
+      Écrivez une fonction <span class="code"><span class="code-container">void add(int v)</span></span> ajoutant <span class="code"><span class="code-container">v</span></span> à <span class="code"><span class="code-container">var</span></span>.
+      Il n'est pas nécessaire de synchroniser l'accès à <span class="code"><span class="code-container">var</span></span> puisque cette fonction
+      ne pourra que être exécutée par le thread serveur.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241471568">0.5 points</h4>
+<div class="question-content" id="question-idm45726241471568">
+      Modifiez votre programme de façon à ce chaque client (fonction <span class="code"><span class="code-container">slave</span></span>)
+      reçoivent en argument son index dans le tableau <span class="code"><span class="code-container">pendings</span></span> (un numéro <span class="code"><span class="code-container">K</span></span>
+      unique compris entre 0 et N-1, où N est le nombre de threads).
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242363008">3 points</h4>
+<div class="question-content" id="question-idm45726242363008">
+      Écrivez le code d'un client (fonction <span class="code"><span class="code-container">slave</span></span>). Un client doit exécuter une boucle
+      infinie dans laquelle il demande au serveur d'exécuter <span class="code"><span class="code-container">add(2)</span></span> puis <span class="code"><span class="code-container">add(-1)</span></span>.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241097568">2 points</h4>
+<div class="question-content" id="question-idm45726241097568">
+      Écrivez le code du thread serveur. Pour cela, il suffit d'écrire le code du serveur
+      dans la fonction <span class="code"><span class="code-container">master</span></span>. On considère que le thread serveur ne termine jamais non plus
+      (il exécute aussi une boucle infinie).
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241876560"></div>
+<div class="solution-content" id="solution-idm45726241876560">
+<div class="code code-block">
+<div class="code-url"><a download="rcl.c" href="rcl.c">rcl.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2020-2021/rcl.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241539504">Questions de cours (3 points)</h3>
+<div class="exercice-content" id="exercice-idm45726241539504">
+    Vous devez répondre aux questions dans un fichier <span class="code"><span class="code-container">cours.txt</span></span>
+    que vous ajouterez à l'archive.
+    Répondez à chaque question succinctement (2/3 lignes devraient suffire).
+
+    <div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242348976">1 point</h4>
+<div class="question-content" id="question-idm45726242348976">
+      D'après-vous, pour quelle raison, lorsqu'on relâche un verrou, il faut exécuter une opération atomique
+      avec la sémantique <span class="code"><span class="code-container">memory_order_release</span></span> ?
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242347984"></div>
+<div class="solution-content" id="solution-idm45726242347984">
+        Car il faut que les écritures qui précédent soit exécutées avant de lâcher le verrou.
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241688256">1 point</h4>
+<div class="question-content" id="question-idm45726241688256">
+      Sur une architecture NUMA, dans quel cas un placement interleaved est préférable à un placement
+      first-touch?
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241687728"></div>
+<div class="solution-content" id="solution-idm45726241687728">
+        Lorsqu'un thread alloue de la mémoire pour les autres threads et accède à cette mémoire en premier.
+        Dans ce cas, la mémoire se retrouve sur le noeud NUMA de l'allocateur et les autres threads
+        finissent par écrouler le noeud NUMA de l'allocateur.
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242098080">1 point</h4>
+<div class="question-content" id="question-idm45726242098080">
+      Expliquez brièvement la différence entre <span class="code"><span class="code-container">psync</span></span> et <span class="code"><span class="code-container">pfence</span></span>.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241467680"></div>
+<div class="solution-content" id="solution-idm45726241467680">
+<span class="code"><span class="code-container">pfence</span></span> assure que les <span class="code"><span class="code-container">pwb</span></span> et lectures/écritures mémoires ne sont pas réordonnancées,
+        alors que <span class="code"><span class="code-container">psync</span></span> assure en plus que les lignes de caches de la flush queue ont bien été propagées.
+      </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "french" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

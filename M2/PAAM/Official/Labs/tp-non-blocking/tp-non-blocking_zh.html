@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>非阻塞算法 · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}.partie{display:block;font-size:20px;font-weight:700;color:#174767;margin:26px 0 14px}</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a href="../tp-threads/tp-threads_zh.html">线程与同步</a><a href="../tp-locks/tp-locks_zh.html">锁算法</a><a aria-current="page" href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a href="../tp-stm/tp-stm_zh.html">事务内存</a><a href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html">非易失性内存</a></nav><div><a href="tp-non-blocking.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/03-non-blocking_zh.md">中文讲义</a> · <a href="../../Lectures/03-non-blocking.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。练习、问题和分节编号与英文原版一致；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">非阻塞算法</h2>
+<div class="chapitre-content" id="chapitre-idm45726241751200">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 1：无锁队列</h3>
+<div class="exercice-content" id="exercice-idm45726242889952">
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.a.</h4>
+<div class="question-content" id="question-idm45726242325760">编写 main 函数，按程序参数 N 创建 N 个线程，并在退出前等待所有线程结束。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.b.</h4>
+<div class="question-content" id="question-idm45726241458992">实现一个由 <code>pthread_mutex_lock</code> 保护的整数队列，包含 enqueue 和 dequeue 操作。修改程序，让每个线程先入队 K 个节点，再出队 K 个节点，K 由程序参数指定。以 N = 10、K = 1000000 运行，检查结束时队列是否为空。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.c.</h4>
+<div class="question-content" id="question-idm45726242875568">使用讲义中的算法实现无锁整数队列。识别哪些访问必须是原子的，并使用对应的 C 语言机制。仍以 N = 10、K = 1000000 运行，检查结束时无锁队列是否为空。<div class="remarque">当前阶段先不要释放出队的节点，后面会看到节点回收怎样增加算法的复杂性。</div>
+<div class="remarque">为方便调试，可以添加一个输出队列状态的函数。</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.d.</h4>
+<div class="question-content" id="question-idm45726241734224">使用 <code>clock_gettime</code> 和 <code>CLOCK_MONOTONIC</code>，比较无锁版本与 <code>pthread_mutex_lock</code> 保护版本的性能。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.e.</h4>
+<div class="question-content" id="question-idm45726241466256">现在尝试在无锁队列的 <code>dequeue</code> 中释放节点，观察可能发生的段错误，并结合 <a href="https://en.wikipedia.org/wiki/ABA_problem">ABA 问题</a>分析原因。理解之后，请教师检查你的解释。<strong>译注：原题把崩溃写成必然结果；具体故障是否出现取决于执行交错，未崩溃不代表回收方式正确，释放后使用与 ABA 也应区分。</strong></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.f. 选做：hazard pointers（较难）</h4>
+<div class="question-content" id="question-idm45726240800304">
+<p class="inline-paragraph">为避免节点使用期间因重新分配而出现 ABA 风险，需要保证线程仍使用节点 A 时，A 不会被重新分配。这里采用 hazard pointers，参考 Maged Michael 的论文 “Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects”，TPDS 2004。</p>
+<p>线程从位置 L 读出指针 X，准备以 CAS 将 L 从 X 改为其他值时，需要保证从读取到 CAS 之间，X 所指节点不会被重新分配。为此，线程在使用 X 期间，将 X 登记在自己负责的 hazard 槽位中。只要某个 hazard 槽仍指向 X，算法就不能释放该节点。</p>
+<p>对队列而言，<code>dequeue</code> 先从 head 读取 X，将 X 写入 hazard，然后重读 head；若 head 已不等于 X，就从头重试。CAS 成功后，先将本线程的 hazard 清为 0，再将 X 放入名为 free_nodes 的无锁栈，而不立即释放它。</p>
+<p>enqueue 中修改 tail 时也要保护所用节点：先读取 tail，把值登记到本线程的 hazard，重读 tail 并确认它未改变；完成相应 CAS 后，再将 hazard 清为 0。</p>
+<p>enqueue 需要节点时，应先尝试从 free_nodes 中取，再考虑用 <code>malloc</code> 分配。具体过程如下：</p>
+<ul>
+<li>以无锁方式从 free_nodes 栈弹出指针 Z；</li>
+<li>若 Z 为空，即栈中没有可用节点，则使用 <code>malloc</code>；</li>
+<li>若 Z 非空，则检查：<ul>
+<li>如果其他线程的某个 hazard 槽仍保存 Z，说明节点仍在使用中。将 Z 重新压栈，并通过 <code>malloc</code> 分配新节点；</li>
+<li>否则，该节点已经空闲且无人使用，可直接复用以入队新值，无需调用 <code>malloc</code>。</li>
+</ul>
+</li>
+</ul>
+<p>追加问题：为什么同一个节点不会在 free_nodes 栈中出现两次？</p>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 2：基数树</h3>
+<div class="exercice-content" id="exercice-idm45726241851280">尝试实现无锁的基数树，可以先阅读<a href="https://en.wikipedia.org/wiki/Radix_tree">基数树说明</a>。本题假定不需要从树中删除元素。</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 3：链表</h3>
+<div class="exercice-content" id="exercice-idm45726242487280">重复第一个练习的过程，将队列换成链表，先不回收节点。如果还有时间，并且已为队列实现 hazard pointers，可继续尝试用它处理链表中的 ABA 问题；这部分较难。</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 4：一个简单的内存分配器</h3>
+<div class="exercice-content" id="exercice-idm45726242018544">
+<p>本练习实现内存分配器。分配器内部管理内存块（chunk），每个块代表一段处于空闲或已分配状态的内存。结构如下：</p>
+<div class="code code-block"><pre><code>struct chunk {
+  size_t size;
+  union {
+    struct chunk* next; /* next node when the chunk is free */
+    char content[0];    /* the content of the chunk when allocated */
+  };
+};</code></pre></div>
+<p>对外提供两个函数：</p>
+<ul>
+<li><code>struct chunk* alloc_chunk(size_t size)</code>：分配大小为 <code>size</code> 的内存块；</li>
+<li><code>void free_chunk(struct chunk* c)</code>：释放内存块 <code>c</code>。</li>
+</ul>
+<p>空闲块 <code>c</code> 保存在全局链表 <code>struct chunk* free_list</code> 中，<code>c-&gt;next</code> 指向下一个空闲块。块已分配时，它不在 <code>free_list</code> 中，<code>next</code> 字段也不再作为链使用，用户可在 <code>c-&gt;content</code> 保存对象内容。</p>
+<p>分配时，<code>alloc_chunk</code> 在空闲链表中查找第一个足够大的块 <code>c</code>，并将它摘下。如果整块返回会浪费可分割的空间，则在原块的区域内构造另一个块，把大块拆成两部分。<strong>译注：这一段原文把链表写成 <code>free_chunk</code>，还使用了结构中不存在的 <code>c-&gt;chunk</code> 字段；下方保留原题给出的具体分割步骤，写实现前需统一 size 是否包含块头及对齐约定。</strong></p>
+<div class="tip-container">
+<div class="tip-toggle toggle"></div>
+<div class="tip-content" id="tip-idm45726241751952">原题给出的 <code>alloc_chunk</code> 步骤为：<ul>
+<li>在 <code>free_list</code> 中找到第一个满足 <code>size &lt; c-&gt;size</code> 的块 <code>c</code>；</li>
+<li>将 <code>c</code> 从链表中摘下；</li>
+<li>如果 <code>size + sizeof(struct chunk) &lt; c-&gt;size</code>，则：<ul>
+<li>创建新块 <code>struct chunk* d = (struct chunk*)((uintptr_t)c + size)</code>；</li>
+<li>将 <code>d-&gt;size</code> 设为 <code>c-&gt;size - size</code>，再将 <code>c-&gt;size</code> 设为 <code>size</code>；</li>
+<li>释放块 <code>d</code>，使其回到空闲结构中；</li>
+<li>返回 <code>c</code>。</li>
+</ul>
+</li>
+<li>否则，即 <code>size + sizeof(struct chunk) &gt;= c-&gt;size</code>，直接返回整个 <code>c</code>。</li>
+</ul>
+</div>
+</div>
+<div class="partie">第 1 部分：带锁版本</div>
+<p>先实现带锁分配器，使用一个全局锁 <code>pthread_mutex_t mutex</code>。</p>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.a. free_chunk</h4>
+<div class="question-content" id="question-idm45726241645968">实现 <code>free_chunk(struct chunk* c)</code>，将 <code>c</code> 加入 <code>free_list</code>。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.b. create_large_chunk</h4>
+<div class="question-content" id="question-idm45726240799552">实现 <code>struct chunk* create_large_chunk()</code>：使用 <code>malloc</code> 分配 <code>64*1024*1024</code> 字节的大块，正确初始化 <code>size</code> 后返回。这个函数只返回新块，不负责把它加入链表。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.c. alloc_chunk</h4>
+<div class="question-content" id="question-idm45726241912864">实现 <code>alloc_chunk</code>。若 <code>free_list</code> 中没有足以满足申请的块，就调用 <code>create_large_chunk</code> 创建大块，将它加入 <code>free_list</code> 后重试分配。原题此处将大小比较对象写成 <code>c</code>，应结合申请的大小理解。</div>
+</div>
+<div class="partie">第 2 部分：无锁版本</div>
+<p>接下来逐步改成无锁版本，先将 <code>free_list</code> 当作无锁栈处理。</p>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.d. pop</h4>
+<div class="question-content" id="question-idm45726242392208">实现 <code>struct chunk* pop()</code>。若 <code>free_list</code> 为 NULL，返回 NULL；否则弹出并返回第一个元素。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.e. push</h4>
+<div class="question-content" id="question-idm45726241091472">实现 <code>void push(struct chunk* head, struct chunk* tail)</code>。参数表示一段从 <code>head</code> 开始、到 <code>tail</code> 结束的链表；将这段链表整体压入栈中，包含首尾两个节点。应当不需要从 head 遍历到 tail。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.f. free_chunk</h4>
+<div class="question-content" id="question-idm45726241517264">实现 <code>free_chunk</code> 函数。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4.g. alloc_chunk</h4>
+<div class="question-content" id="question-idm45726242147632">实现 <code>alloc_chunk</code>。通过调用 <code>push</code>、<code>pop</code> 和 <code>create_large_chunk</code>，可以将所需原子操作封装在这些辅助函数中，使 <code>alloc_chunk</code> 本身不必直接编写原子操作。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><aside class="translator-notes"><h3>阅读时留意</h3><p>hazard pointers 和 free_nodes 部分是原题给出的实现思路。实际代码仍须分析 hazard 的发布与复查、所访问节点的生命期，以及空闲栈自身的正确性。分配器的 size 与对齐约定在原题中不够完整，结构和伪算法保持原样供对照。</p></aside><footer>来源：<a href="tp-non-blocking.html">同目录英文原版</a>。中文翻译不增加实验答案，也不代表所附代码已经编译或验证。外部参考网站仍需联网。</footer></div></body></html>

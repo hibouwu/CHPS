@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - cf1</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726242106400">PAAM – Contrôle final 2017-2018</h2>
+<div class="chapitre-content" id="chapitre-idm45726242106400">
+<div style="width: 100%; text-align: center;">
+		Durée: 1h30, tout document autorisé
+	</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241491904">Modèles mémoires (6 points)</h3>
+<div class="exercice-content" id="exercice-idm45726241491904">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242859328">1 points</h4>
+<div class="question-content" id="question-idm45726242859328">
+			On suppose que, initialement, <span class="code"><span class="code-container">x</span></span> et <span class="code"><span class="code-container">y</span></span> valent 0.
+			Pour quelle raison le code suivant affiche forcément 42 avec un modèle mémoire TSO ?
+			<table style="width: 100%;">
+<tr>
+<td>
+<div class="code code-block"><div class="code-container">
+<b>Thread 1</b>
+1.a x = 42;
+1.b y = 1;</div></div>
+</td>
+<td>
+<div class="code code-block"><div class="code-container">
+<b>Thread 2</b>
+2.a while(y == 0);
+2.b printf("%d\n", x);</div></div>
+</td>
+</tr>
+</table>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241705168"></div>
+<div class="solution-content" id="solution-idm45726241705168">
+<ul>
+<li>On ne peut que passer 2.a après l'exécution de 1.b.</li>
+<li>2.b s'exécute forcément après 2.a (TSO : lecture après lecture).</li>
+<li>1.a précède 1.b (TSO : écriture après écriture).</li>
+<li>Donc 1.a précède 2.b.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242614000">1 point</h4>
+<div class="question-content" id="question-idm45726242614000">
+			Pour quelle raison, si on considère un modèle mémoire plus relaché, le programme précédent pourrait afficher
+			la valeur 0 ?
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242377552"></div>
+<div class="solution-content" id="solution-idm45726242377552">
+				Si les lectures peuvent être réordonnancée, la lecture 2.b pourrait être exécutée avant
+				2.a, donc aussi avant 1.a et pour afficher 0.
+			</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242244832">2 point</h4>
+<div class="question-content" id="question-idm45726242244832">
+			On suppose que, initialement, <span class="code"><span class="code-container">x</span></span>, <span class="code"><span class="code-container">y</span></span>, <span class="code"><span class="code-container">t1</span></span> et <span class="code"><span class="code-container">t2</span></span>
+			valent 0.
+			On suppose aussi qu'on dispose d'un modèle de cohérence séquentiel, c'est-à-dire que les
+			lectures et écritures se propagent aux autres threads exactement dans le sens où elles sont exécutées.
+			Après l'exécution des trois threads, quelles sont les valeurs que les 4 variables peuvent avoir ?
+
+			<table style="width: 100%;">
+<tr>
+<td><div class="code code-block"><div class="code-container">
+<b>Thread 1</b>
+1.a x = 2;
+1.b t1 = y;</div></div></td>
+<td><div class="code code-block"><div class="code-container">
+<b>Thread 2</b>
+2.a y = 1;
+2.b x = 1;</div></div></td>
+<td><div class="code code-block"><div class="code-container">
+<b>Thread 3</b>
+3.a t2 = x;
+
+</div></div></td>
+</tr>
+</table>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242349520"></div>
+<div class="solution-content" id="solution-idm45726242349520">
+				Dans tous les cas, y=1 à la fin. On n'en parle donc plus.
+				Ensuite, x peut être égal à 2 ou 1 à la fin, donc on explore ces deux cas :
+				<ul>
+<li>Si x=2 à la fin, forcément, 2.b précède 1.a. Comme 2.a précède 2.b et 1.a précède 1.b,
+						on a forcément 2.a précède 1.b, donc t1=1. Ensuite t2 peut valoir 0, 1 ou 2 car on peut
+						exécuter 3.a avant 2.b (x vaut encore 0), juste après 2.b (x vaut 1) ou après 1.a (x vaut 2).</li>
+<li>Si x=1 à la fin, forcément 1.a précède 2.b. Entre 1.a et 2.b, on peut exécuter
+						1.b et 2.a dans n'importe quel ordre, donc t1 peut valoir 0 (1.b puis 2.a) ou 1 (2.a puis 1.b).
+						Enfin, comme dans le cas précédent, t2 peut valoir 0, 1 ou 2 car on peut exécuter
+						3.a quand on veut.</li>
+</ul>
+<p></p>
+				En version courte :
+				<ul>
+<li>Si x=2 =&gt; t1=1, y=1 et t2=0, 1 ou 2,</li>
+<li>Si x=1 =&gt; t1=0 ou 1, y=1 et t2=0, 1 ou 2.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241533264">2 point</h4>
+<div class="question-content" id="question-idm45726241533264">
+			Si on suppose maintenant un modèle mémoire TSO, quelles sont les valeurs que les 4 variables peuvent avoir ?
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242425488"></div>
+<div class="solution-content" id="solution-idm45726242425488">
+				On fait sauter la contrainte 1.a avant 1.b car TSO autorise une lecture par anticipation
+				avant une écriture. Donc, dans les cas où x=2, on peut remonter la lecture 1.b au début lorsque y vaut 0.
+				On ajoute donc les cas x=2, t1=0, y=1 et t2=0, 1 ou 2.
+			</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241877504">La FIFO (8 points)</h3>
+<div class="exercice-content" id="exercice-idm45726241877504">
+		On souhaite mettre en œuvre une file (FIFO). Vous disposez du canevas de code suivant.
+		<div class="code code-block">
+<div class="code-url"><a download="fifo.c" href="fifo.c">fifo.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2017-2018/fifo.c"></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241232384">3 points</h4>
+<div class="question-content" id="question-idm45726241232384">
+			Mettez en œuvre <span class="code"><span class="code-container">addFirst</span></span> et <span class="code"><span class="code-container">removeLast</span></span> en utilisant la variable
+			<span class="code"><span class="code-container">mutex</span></span> pour synchroniser les threads.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242245232"></div>
+<div class="solution-content" id="solution-idm45726242245232">
+<div class="code code-block">
+<div class="code-url"><a download="fifo-lock.c" href="fifo-lock.c">fifo-lock.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2017-2018/fifo-lock.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241618160">3 points</h4>
+<div class="question-content" id="question-idm45726241618160">
+			Modifiez vos fonctions de façon à utiliser une mémoire transactionnelle pour synchroniser les threads.
+		</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242541952">2 points</h4>
+<div class="question-content" id="question-idm45726242541952">
+			En ré-utilisant <span class="code"><span class="code-container">removeLast</span></span> et à l'aide d'une mémoire transactionnelle,
+			écrivez une fonction <span class="code"><span class="code-container">int removeAsync()</span></span> 
+			retirant le dernier élément si le FIFO n'est pas vide et renvoyant -1 sinon.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241315472"></div>
+<div class="solution-content" id="solution-idm45726241315472">
+<div class="code code-block">
+<div class="code-url"><a download="fifo-tm.c" href="fifo-tm.c">fifo-tm.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2017-2018/fifo-tm.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242689008">Algorithmique lock-free (6 points)</h3>
+<div class="exercice-content" id="exercice-idm45726242689008">
+		On souhaite mettre en œuvre un algorithme de verrouillage reposant sur un ticket.
+		Le verrou est modélisé par deux entiers : un numéro de ticket et un numéro de guichet.
+		Pour acquérir un verrou, un thread tire un ticket et l'incrémente. Le thread attend ensuite
+		que la variable guichet atteigne la valeur du ticket qu'il a retiré. Pour libérer le verrou,
+		le thread incrémente le guichet. 
+
+		<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241401328">1 point</h4>
+<div class="question-content" id="question-idm45726241401328">
+			Donnez la définition de la structure de données modélisant un ticket et le code fonction <span class="code"><span class="code-container">init</span></span>
+			initialisant cette structure.
+		</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241744960">3 points</h4>
+<div class="question-content" id="question-idm45726241744960">
+			Donnez le code de la méthode <span class="code"><span class="code-container">lock</span></span> permettant d'acquérir un verrou.
+		</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241776032">2 points</h4>
+<div class="question-content" id="question-idm45726241776032">
+			Donnez le code de la méthode <span class="code"><span class="code-container">unlock</span></span> permettant de libérer un verrou.
+
+			<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241673312"></div>
+<div class="solution-content" id="solution-idm45726241673312">
+<div class="code code-block">
+<div class="code-url"><a download="lock.c" href="lock.c">lock.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/annales/2017-2018/lock.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "fr_FR" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

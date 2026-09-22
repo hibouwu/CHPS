@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - tp-nvmm</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../../Exams/2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../../Exams/2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../../Exams/2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../../Exams/2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../../Exams/2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../../Exams/2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../../Exams/2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726242747616">Non volatile main memory</h2>
+<div class="chapitre-content" id="chapitre-idm45726242747616">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241270992">A simple write cache</h3>
+<div class="exercice-content" id="exercice-idm45726241270992">
+<p>This exercise has the goal of implementing a write cache in non volatile memory in order
+      to boost IO performance.
+      The code that you will implement is incomplete because it cannot handle reads.
+      You can find the full algorithm in the
+      "<a href="https://pages.saclay.inria.fr/gael.thomas/research/biblio/2021/dulong-dsn-nvcache.pdf">NVCache: A Plug-and-Play NVMM-based I/O Booster for Legacy Systems</a>" paper published by Rémi Dulong et al. at DSN'21.
+    </p>
+<p>At thigh level, we will implement the <span class="code"><span class="code-container">int my_pwrite(int fd, const void* buf, size_t n, off_t off)</span></span>
+      function.
+      This function behaves as the classical <span class="code"><span class="code-container">pwrite</span></span> function: it writes
+      the <span class="code"><span class="code-container">n</span></span> bytes at <span class="code"><span class="code-container">buf</span></span> in the file <span class="code"><span class="code-container">fd</span></span> at the offset <span class="code"><span class="code-container">off</span></span>.
+      However, instead of writing the buffer in the file <span class="code"><span class="code-container">fd</span></span>, <span class="code"><span class="code-container">my_pwrite</span></span>
+      will instead add the write operation in a log stored in NVMM.
+      Asynchronously, a thread, called the cleanup thread, will take the operation from the
+      log and use the normal <span class="code"><span class="code-container">pwrite</span></span> function to propagate them to the disk.</p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242007376"></h4>
+<div class="question-content" id="question-idm45726242007376">
+<p class="inline-paragraph">Since you probably don't have a NVMM, we will simulate a NVMM by mapping a persistent file in
+        memory. Write an application that creates a file called <span class="code"><span class="code-container">nvmm.dat</span></span> of 128 megabytes, maps
+        this file in memory and increments the first byte of the file.
+        Check that the first byte is actually incremented each time you run your application by
+        launching <span class="code"><span class="code-container">hexdump -C nvmm.dat</span></span>.</p>
+<p></p>
+<div class="remarque">
+        Don't forget to check the return code of the <span class="code"><span class="code-container">open</span></span>, <span class="code"><span class="code-container">ftruncate</span></span> and
+        <span class="code"><span class="code-container">mmap</span></span> functions.
+      </div>
+<div class="remarque">
+        Since you are not using a NVMM but a file, you simply have to replace the
+        <span class="code"><span class="code-container">MAP_SHARED_VALIDATE | MAP_SYNC</span></span> flag by <span class="code"><span class="code-container">MAP_SHARED</span></span>.
+      </div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241536848"></h4>
+<div class="question-content" id="question-idm45726241536848">
+<p class="inline-paragraph">In order to use the NVMM instructions (pwb, pfence and psync), you first have to compile with
+        the <span class="code"><span class="code-container">-march=native</span></span> option of gcc. Then, you have to download the following
+        file and to include it:</p>
+<p></p>
+<div class="code code-block">
+<div class="code-url"><a download="nvmm.h" href="nvmm.h">nvmm.h</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-nvmm/nvmm.h"></div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242279456"></h4>
+<div class="question-content" id="question-idm45726242279456">
+<p class="inline-paragraph">Add a <span class="code"><span class="code-container">my_pwrite</span></span> function. For the moment, <span class="code"><span class="code-container">my_pwrite</span></span>
+        has simply to call the normal <span class="code"><span class="code-container">pwrite</span></span> function.
+        In the main function, adds a code that writes "hello" 1024 times at the offsets 0, 5 etc. of the file
+        <span class="code"><span class="code-container">out.dat</span></span>, and checks that your application behaves correctly by inspecting
+        <span class="code"><span class="code-container">out.dat</span></span> with <span class="code"><span class="code-container">hexdump -C out.dat</span></span>.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241625536"></h4>
+<div class="question-content" id="question-idm45726241625536">
+<p class="inline-paragraph">At this step, we define the main structures and variables. For that purpose,
+        you just have download and include this file:</p>
+<p></p>
+<div class="code code-block">
+<div class="code-url"><a download="struct.h" href="struct.h">struct.h</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-nvmm/struct.h"></div>
+</div>
+<p>The <span class="code"><span class="code-container">struct operation</span></span> describes a write operation. In details,
+        a <span class="code"><span class="code-container">struct operation</span></span> contains two cache lines (the first one defined
+        with a union, the second one is the field <span class="code"><span class="code-container">buf</span></span>).
+        In the first cache-line, we can find the meta data associated to the write:</p>
+<ul>
+<li>
+<span class="code"><span class="code-container">commit</span></span> is true if the entry contains a write operation,</li>
+<li>
+<span class="code"><span class="code-container">fd</span></span>, <span class="code"><span class="code-container">n</span></span> and <span class="code"><span class="code-container">off</span></span> describe the operation.</li>
+</ul>
+<p>In the second cache line, we can find the written buffer.</p>
+<p>Then, the NVMM consists in a log (<span class="code"><span class="code-container">struct nvmm</span></span>). In this log, we can find:</p>
+<ul>
+<li>An array of operations (<span class="code"><span class="code-container">operation</span></span>),</li>
+<li>A tail index (<span class="code"><span class="code-container">tail</span></span>), which indicates where is the least recently added operation.</li>
+</ul>
+<p>Finally, in volatile memory, you can find:</p>
+<ul>
+<li>A pointer to the nvmm (<span class="code"><span class="code-container">nvmm</span></span>),</li>
+<li>A volatile head index (<span class="code"><span class="code-container">head</span></span>) where the new operations are added.</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241363696"></h4>
+<div class="question-content" id="question-idm45726241363696">
+<p class="inline-paragraph">Now that we have the main structures and variables, we can implement our booster.
+        In <span class="code"><span class="code-container">my_pwrite</span></span>, you have to add the new operations at <span class="code"><span class="code-container">head</span></span>.
+        If <span class="code"><span class="code-container">head + 1</span></span> is equal to <span class="code"><span class="code-container">tail</span></span>, it means
+        that the log is full. In this case, <span class="code"><span class="code-container">my_pwrite</span></span> has to wait.</p>
+<p></p>
+<p>Additionally to the <span class="code"><span class="code-container">my_pwrite</span></span> function, you also have to implement the
+        cleanup thread. This thread inspects the <span class="code"><span class="code-container">commit</span></span> flag of the operation
+        at <span class="code"><span class="code-container">tail</span></span>. When the commit flag becomes true,
+        the cleanup thread has to call the normal <span class="code"><span class="code-container">pwrite</span></span> function
+        in order to propagate the write to the disk.
+        Then, the cleanup thread has to call <span class="code"><span class="code-container">fsync</span></span> in order to ensure that
+        the data is actually written to disk.
+        Finally, when the <span class="code"><span class="code-container">fsync</span></span> returns, it means that the entry in the log
+        becomes useless.
+        The cleanup thread can thus increment <span class="code"><span class="code-container">tail</span></span>, and then flushes
+        it to <span class="code"><span class="code-container">NVMM</span></span>.</p>
+<div class="remarque">
+        You have to consider the log as a circular buffer.
+      </div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242116592"></h4>
+<div class="question-content" id="question-idm45726242116592">
+<p class="inline-paragraph">By using <span class="code"><span class="code-container">clock_gettime</span></span> in <span class="code"><span class="code-container">CLOCK_MONOTONIC</span></span> mode, compare the performance of:</p>
+<p></p>
+<ul>
+<li>a simple call to <span class="code"><span class="code-container">pwrite</span></span>,</li>
+<li>a call to <span class="code"><span class="code-container">pwrite</span></span> followed by a call to <span class="code"><span class="code-container">fsync</span></span> in order to ensure that
+          the write is durable,</li>
+<li>a call to <span class="code"><span class="code-container">my_pwrite</span></span>.
+      </li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241784256"></h4>
+<div class="question-content" id="question-idm45726241784256">
+<p class="inline-paragraph">Now, we want to handle crashes. In case of crash, when your application recover,
+        it has to applies the last writes of the log. In details, the recovery
+        procedure has to inspect all the operations by starting at <span class="code"><span class="code-container">tail</span></span>
+        and to apply all the committed operations.
+        In order to simplify, since
+        the old file descriptor does not make sense after the crash, you can consider
+        that <span class="code"><span class="code-container">fd</span></span> is necessarily a file descriptor associated to the file <span class="code"><span class="code-container">out.dat</span></span>.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241523376">batching</h4>
+<div class="question-content" id="question-idm45726241523376">
+<p class="inline-paragraph">If the log contains multiple entries, calling <span class="code"><span class="code-container">fsync</span></span> for each write in the cleanup thread
+        is inefficient. Modify your code in order to call <span class="code"><span class="code-container">fsync</span></span> only once when you propagate multiple
+        entries.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241276208">optional</h4>
+<div class="question-content" id="question-idm45726241276208">
+<p class="inline-paragraph">Because of batching, our application contains a small bug. Let's imagine that the log is
+        full, i.e., that <span class="code"><span class="code-container">head + 1</span></span> is equal to <span class="code"><span class="code-container">tail</span></span>.
+        If the cleanup thread consumes two entries, it will add 2 to <span class="code"><span class="code-container">tail</span></span>.
+        At this step, the main thread can thus create two new entries: <span class="code"><span class="code-container">e1</span></span> and <span class="code"><span class="code-container">e2</span></span>.
+        Unfortunately, a crash may happen while the two new entries are propagated to NVMM, but
+        not the <span class="code"><span class="code-container">tail</span></span> index.
+        During recovery, the cleanup thread will thus consider that <span class="code"><span class="code-container">e2</span></span> is the oldest
+        write (<span class="code"><span class="code-container">e1</span></span> is at <span class="code"><span class="code-container">head</span></span> which is just before <span class="code"><span class="code-container">tail</span></span>,
+        while <span class="code"><span class="code-container">e2</span></span> is at <span class="code"><span class="code-container">tail</span></span>).
+        If <span class="code"><span class="code-container">e2</span></span> and another entry <span class="code"><span class="code-container">e0</span></span> in the log write at the same place, <span class="code"><span class="code-container">e0</span></span>
+        will overwrite the write of <span class="code"><span class="code-container">e2</span></span>, which is incorrect: <span class="code"><span class="code-container">e2</span></span> is
+        the most recent write and should overwrite <span class="code"><span class="code-container">e0</span></span>.</p>
+<p></p>
+<p>In order to correct this small bug, you should use two <span class="code"><span class="code-container">tail</span></span> variables:</p>
+<ul>
+<li>a <span class="code"><span class="code-container">persistent_tail</span></span> stored in NVMM and used by the cleanup thread and during
+          recovery.</li>
+<li>a <span class="code"><span class="code-container">volatile_tail</span></span> stored in volatile memory and only incremented
+          if the incrementation of <span class="code"><span class="code-container">persistent_tail</span></span> in the cleanup thread is actually propagated to
+          NVMM (i.e., by using <span class="code"><span class="code-container">pwb</span></span>/<span class="code"><span class="code-container">pfence</span></span>).
+          If the main thread waits when <span class="code"><span class="code-container">head + 1</span></span> is equal to <span class="code"><span class="code-container">volatile_tail</span></span>,
+          we are sure that the main thread can only start to add the entries <span class="code"><span class="code-container">e1</span></span> and <span class="code"><span class="code-container">e2</span></span>
+          if the persistent tail is consistent (after <span class="code"><span class="code-container">e2</span></span>), which corrects the bug.</li>
+</ul>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242739360"></div>
+<div class="solution-content" id="solution-idm45726242739360">
+        You can download the Makefile <a href="Makefile">here</a>.
+			  <div class="code code-block">
+<div class="code-url"><a download="soluce.c" href="soluce.c">soluce.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-nvmm/soluce.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "english" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

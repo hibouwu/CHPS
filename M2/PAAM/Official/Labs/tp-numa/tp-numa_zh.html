@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>NUMA · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}.partie{display:block;font-size:20px;font-weight:700;color:#174767;margin:26px 0 14px}</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a href="../tp-threads/tp-threads_zh.html">线程与同步</a><a href="../tp-locks/tp-locks_zh.html">锁算法</a><a href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a href="../tp-stm/tp-stm_zh.html">事务内存</a><a aria-current="page" href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html">非易失性内存</a></nav><div><a href="tp-numa.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/05-numa_zh.md">中文讲义</a> · <a href="../../Lectures/05-numa.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。练习、问题和分节编号与英文原版一致；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">非均匀内存访问架构</h2>
+<div class="chapitre-content" id="chapitre-idm45726241579760">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 1：测量 NUMA 内存访问</h3>
+<div class="exercice-content" id="exercice-idm45726241511648">本练习尝试测量 NUMA 机器上的内存访问时间。<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.a.</h4>
+<div class="question-content" id="question-idm45726242712000">首先连接测试机器 “arya”，连接方法请向教师询问。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.b.</h4>
+<div class="question-content" id="question-idm45726242716480">使用 <code>lstopo-no-graphics</code> 查看 NUMA 拓扑，找出 NUMA 节点数、每个节点的内存容量，以及每个节点包含的处理单元数（逻辑处理器数）。L1、L2、L3 缓存分别有多大？</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.c.</h4>
+<div class="question-content" id="question-idm45726241702432">使用一个线程多次读取大缓冲区来测量访问时间，称它为测试线程。再加入其他线程产生内存流量，称它们为噪声线程，用于观察干扰下的性能。编写 C 程序，接收以下参数：<ul>
+<li>第一个参数 <code>test_pu</code>：整数，指定测试线程运行的处理单元；</li>
+<li>第二个参数 <code>test_node</code>：整数，指定测试缓冲区所在的 NUMA 节点；</li>
+<li>第三个参数 <code>test_buffer</code>：测试缓冲区大小，单位为千字节，按题中 1024 字节计算；</li>
+<li>第四个参数 <code>test_workload</code>：测试线程总共访问的千字节数。例如 test_buffer=1、test_workload=2，表示完整遍历缓冲区两次；</li>
+<li>第五个参数 <code>noisy_config</code>：噪声线程配置，可取以下值：<ul>
+<li><code>none</code>：不创建噪声线程；</li>
+<li><code>spread</code>：除测试线程使用的处理单元外，每个处理单元都运行一个噪声线程。线程访问位于 <code>(n + 1) % number_of_nodes</code> 节点的缓冲区，其中 n 是该线程所在的 NUMA 节点，number_of_nodes 为总节点数；</li>
+<li><code>overload</code>：线程安排与 spread 相同，但所有噪声缓冲区集中到指定节点，见下一个参数；</li>
+</ul>
+</li>
+<li>第六个参数 <code>noisy_node</code>：整数，指定 overload 模式下噪声线程访问的 NUMA 节点。</li>
+</ul>
+<p class="inline-paragraph">当前阶段只需检查参数数量并解析这些参数值。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.d.</h4>
+<div class="question-content" id="question-idm45726241908608">
+<p class="inline-paragraph">接下来使用 hwloc 库读取 NUMA 拓扑，可复用下方代码。链接时加入 <code>-lhwloc</code>，正确运行后应能输出机器的 NUMA 拓扑。主要结构为 <code>numa</code>：其中包含 NUMA 节点数组和处理单元数组；每个处理单元关联一个节点，每个节点也保存自己的处理单元数组。</p>
+<div class="code code-block">
+<div class="code-url"><a download="main.c" href="main.c">main.c</a></div>
+<pre><code>#include &lt;hwloc.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+hwloc_topology_t topology;
+
+struct node {
+  hwloc_obj_t obj;
+  struct pu* pus;
+  size_t nb_pus;
+};
+
+struct pu {
+  hwloc_obj_t obj;
+  struct node* node;
+};
+
+struct topology {
+  size_t nb_nodes;
+  size_t nb_pus;
+  struct pu* pus;
+  struct node* nodes;
+}* numa;
+
+void print_obj(hwloc_obj_t obj, char* prefix, bool verbose) {
+  char type[32];
+  char attributes[256];
+    
+  // Récupérer le type de l'objet
+  hwloc_obj_type_snprintf(type, sizeof(type), obj, 0);
+    
+  // Récupérer les attributs de l'objet
+  hwloc_obj_attr_snprintf(attributes, sizeof(attributes), obj, " ", 0);
+    
+  // Afficher les informations de l'objet
+  if(verbose) {
+    printf("%sObject@%p\n", prefix, obj);
+    printf("%s  Object Type: %s\n", prefix, type);
+    printf("%s  OS Index: %d\n", prefix, obj-&gt;os_index);
+    printf("%s  Attributes: %s\n", prefix, attributes);
+    printf("%s  Depth: %d\n", prefix, obj-&gt;depth);
+    printf("%s  Logical Index: %d\n", prefix, obj-&gt;logical_index);
+    printf("%s  Number of Children: %u\n", prefix, obj-&gt;arity);
+  } else
+    printf("%s%s at index %d\n", prefix, type, obj-&gt;logical_index);
+}
+
+hwloc_obj_t is_ancestor(hwloc_obj_t base, hwloc_obj_t obj) {
+  for(hwloc_obj_t cur=obj; cur; cur=cur-&gt;parent)
+    if(cur == base)
+      return cur;
+  return NULL;
+}
+
+void extract_numa_topology() {
+  // To understand the topology, you can take a look at the page here: https://www.open-mpi.org/projects/hwloc/doc/v2.2.0/a00325.php
+  numa = malloc(sizeof(*numa));
+
+  // allocate the space for the nodes
+  int depth_numa = hwloc_get_type_depth(topology, HWLOC_OBJ_NUMANODE);
+
+  numa-&gt;nb_nodes = hwloc_get_nbobjs_by_depth(topology, depth_numa);
+  numa-&gt;nodes = malloc(sizeof(*numa-&gt;nodes)*numa-&gt;nb_nodes);
+  
+  // record the numa nodes
+  hwloc_obj_t obj = NULL;
+  size_t n = 0;
+  while ((obj = hwloc_get_next_obj_by_type(topology, HWLOC_OBJ_NUMANODE, obj)) != NULL) {
+    numa-&gt;nodes[n].obj = obj;
+    numa-&gt;nodes[n].nb_pus = 0;
+    n++;
+  }
+  
+  // allocate the space for the cpus
+  int depth_pu = hwloc_get_type_depth(topology, HWLOC_OBJ_PU);
+
+  numa-&gt;nb_pus = hwloc_get_nbobjs_by_depth(topology, depth_pu);
+  numa-&gt;pus = malloc(sizeof(*numa-&gt;pus)*numa-&gt;nb_pus);
+
+  // record the cpus and associates them to the nodes
+  obj = NULL;
+  n = 0;
+  while ((obj = hwloc_get_next_obj_by_type(topology, HWLOC_OBJ_PU, obj)) != NULL) {
+    numa-&gt;pus[n].obj = obj;
+    
+    for(size_t i=0; i&lt;numa-&gt;nb_nodes; i++)
+      if(is_ancestor(numa-&gt;nodes[i].obj-&gt;parent, numa-&gt;pus[n].obj)) {
+        numa-&gt;pus[n].node = &amp;numa-&gt;nodes[i];
+        numa-&gt;pus[n].node-&gt;nb_pus++;
+      }
+    
+    n++;
+  }
+
+  // build the invert tree
+  for(size_t i=0; i&lt;numa-&gt;nb_nodes; i++) {
+    numa-&gt;nodes[i].pus = malloc(sizeof(*numa-&gt;nodes[i].pus)*numa-&gt;nodes[i].nb_pus);
+    numa-&gt;nodes[i].nb_pus = 0;
+  }
+
+  for(size_t i=0; i&lt;numa-&gt;nb_pus; i++) {
+    struct node* node = numa-&gt;pus[i].node;
+    node-&gt;pus[node-&gt;nb_pus++] = numa-&gt;pus[i];
+  }
+}
+
+void print_numa_topology() {
+  for(size_t i=0; i&lt;numa-&gt;nb_nodes; i++) {
+    print_obj(numa-&gt;nodes[i].obj, "", 0);
+    for(size_t j=0; j&lt;numa-&gt;nodes[i].nb_pus; j++)
+      print_obj(numa-&gt;nodes[i].pus[j].obj, "  ", 0);
+  }
+}
+
+int main(int argc, char* argv[]) {
+  // Initialize topology
+  hwloc_topology_init(&amp;topology);
+  hwloc_topology_set_flags(topology, HWLOC_TOPOLOGY_FLAG_WHOLE_SYSTEM);
+  hwloc_topology_load(topology);
+
+  extract_numa_topology();
+  print_numa_topology();
+
+  hwloc_set_cpubind(topology, numa-&gt;pus[0].obj-&gt;cpuset, HWLOC_CPUBIND_THREAD);
+
+  char* buf = hwloc_alloc_membind(topology,
+                                  32 * 1024 * 1024,
+                                  numa-&gt;pus[0].node-&gt;obj-&gt;nodeset,
+                                  HWLOC_MEMBIND_BIND,
+                                  HWLOC_MEMBIND_STRICT | HWLOC_MEMBIND_BYNODESET | HWLOC_MEMBIND_NOCPUBIND );
+
+  printf("=&gt; %p\n", buf);
+  
+  // cleanup
+  hwloc_topology_destroy(topology);
+  return 0;
+};
+</code></pre>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.e.</h4>
+<div class="question-content" id="question-idm45726242763120">
+<p class="inline-paragraph">创建测试线程，将它绑定到 <code>test_pu</code> 指定的处理单元。在 <code>numa-&gt;pus</code> 中查找 <code>numa-&gt;pus[i].obj-&gt;logical_index</code> 等于 test_pu 的项。hwloc 的 <code>hwloc_set_cpubind</code> 可用于绑定当前线程，示例如下：</p>
+<div class="code code-block"><pre><code>hwloc_set_cpubind(topology, numa-&gt;pus[0].obj-&gt;cpuset, HWLOC_CPUBIND_THREAD);</code></pre></div>
+<div class="attention">将示例中的下标 0 换成查找到的处理单元，即 logical_index 等于 test_pu 的那一项。</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.f.</h4>
+<div class="question-content" id="question-idm45726241472784">若 <code>noisy_config</code> 为 spread 或 overload，就在除测试线程所在 PU 以外的各个 PU 上启动噪声线程。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.g.</h4>
+<div class="question-content" id="question-idm45726241754720">
+<p class="inline-paragraph">为噪声线程分配缓冲区。原题让每个噪声线程持续顺序访问 32MB 的缓冲区，并以该大小超出测试机器 L3 缓存为前提，从而产生到内存控制器的流量。缓冲区按下述方式放置：</p>
+<ul>
+<li>spread 模式：放在噪声线程所在节点 N 的下一个节点 N+1；节点编号回绕按前面 <code>(n + 1) % number_of_nodes</code> 的定义处理；</li>
+<li>overload 模式：放在 <code>noisy_node</code> 指定的节点。</li>
+</ul>
+<p>从指定节点分配内存时，可参考下面代码：</p>
+<div class="code code-block"><pre><code>  char* buf = hwloc_alloc_membind(topology,
+                                  32 * 1024 * 1024,
+                                  numa-&gt;pus[0].node-&gt;obj-&gt;nodeset,
+                                  HWLOC_MEMBIND_BIND,
+                                  HWLOC_MEMBIND_STRICT | HWLOC_MEMBIND_BYNODESET | HWLOC_MEMBIND_NOCPUBIND );</code></pre></div>
+<div class="attention">原题这里再次要求用 test_pu 的 logical_index 替换下标 0；但本题分配的是噪声缓冲区，应根据 spread／overload 配置选定目标节点的 nodeset，不要把它误固定到测试线程节点。</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.h.</h4>
+<div class="question-content" id="question-idm45726241398576">
+<p class="inline-paragraph">让噪声线程不断访问各自 32MB 的缓冲区，因此此阶段程序暂时不会结束。每轮遍历中，每条缓存行只访问一次，避免反复读取同一行主要落在 L1。将缓冲区视为 <code>struct cache_line</code> 数组，结构如下：</p>
+<div class="code code-block"><pre><code>struct cache_line {
+  union {
+    char _content[64]; // 64 bytes in each cache line
+    int  value;
+  };
+};</code></pre></div>
+<p>噪声线程无限重复遍历，每轮读取 <code>32 * 1024 * 1024 / sizeof(struct cache_line)</code> 条缓存行的 <code>value</code> 字段。</p>
+<p>若使用优化选项（<code>-O2</code> 或 <code>-O3</code>），没有可观察结果的读取循环可能被编译器删除。可先关闭优化，或让读取参与实际计算，例如将每条缓存行的 value 累加到变量 <code>r</code>，并在循环结束时把 r 写入适当的全局结果位置，避免连累加本身也被消去。<strong>译注：原题将 -O2 误写为 -02。若多个线程共享结果位置，还须正确同步。</strong></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.i.</h4>
+<div class="question-content" id="question-idm45726241159232">
+<p class="inline-paragraph">现在实现测试线程：从 NUMA 节点 <code>test_node</code> 分配 <code>test_buffer</code> 千字节的缓冲区，可以复用前面的分配代码。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.j.</h4>
+<div class="question-content" id="question-idm45726240783056">
+<p class="inline-paragraph">测量时以缓存行为访问单位，不逐字节读取。复用前面定义的 <code>struct cache_line</code>。</p>
+<p>将测试缓冲区当作 cache_line 数组，每次读取一条缓存行的整数 <code>value</code>。题目按读取该行代表访问 64 字节计量；再读取同一行其他字节会给测量增加额外工作。因此，要访问 <code>test_workload</code> 千字节，需要读取 <code>test_workload * 1024 / 64</code> 条缓存行，将这个次数记为 <code>num_access</code>。</p>
+<p>顺序执行 <code>num_access</code> 次缓存行读取，每次只读 <code>value</code>。当访问位置到达 <code>test_buffer * 1024 / 64</code> 条缓存行的末尾时，要回到缓冲区开头继续。</p>
+<p>使用 <code>clock_gettime</code> 和 <code>CLOCK_MONOTONIC</code> 计时，将循环总耗时除以 <code>num_access</code>，报告每次缓存行访问的平均时间。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.k.</h4>
+<div class="question-content" id="question-idm45726241628048">
+<p class="inline-paragraph">顺序访问容易被处理器识别，触发提前预取，因此当前结果不能直接当作未预取条件下的内存访问延迟。</p>
+<p>接下来改用随机位置访问，减弱顺序预取的影响。不要在测量循环中调用 <code>rand()</code>，否则随机数生成本身可能主导耗时。提前生成随机索引，存入缓冲区各缓存行的 <code>value</code> 字段。测量从 <code>cur = 0</code> 开始，每次读取当前位置保存的下一索引，再沿它访问；cache_lines 是缓冲区指针。<strong>译注：原题把下一索引简写成 <code>cache_lines[cur]</code>，按前面的结构定义应读取 <code>cache_lines[cur].value</code>。</strong></p>
+<p>准备随机索引时，确保一轮链式遍历能够将每条缓存行访问一次，而不只落入一个较小的环。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.l.</h4>
+<div class="question-content" id="question-idm45726241515392">
+<p class="inline-paragraph">现在可以测量不同访问层次和噪声条件下的性能：</p>
+<ul>
+<li>L1：让 <code>test_buffer</code> 远小于 L1 容量，例如 2KB，并将噪声配置设为 none；</li>
+<li>L2：使用相同设置，但增大缓冲区，例如 128KB；</li>
+<li>L3：继续增大缓冲区，例如 1MB；</li>
+<li>本地内存：使用更大的缓冲区，例如 32MB，并确保测试缓冲区位于测试线程所在的 NUMA 节点；</li>
+<li>远端内存：改变测试缓冲区的分配节点；</li>
+<li>需要噪声时，启用 spread 或 overload 模式。</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242457248">原题还链接了一份直接使用 pthread_setaffinity 和 mbind、而不使用 hwloc 的近似解答，见<a href="../../Supplementary/www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/multicore_tp-multicore.html">参考页面的最后一个练习</a>。该旧页面在此前下载时提示目标资源不存在，可能无法取得所指答案。</div></details>
+</div>
+</div>
+</div><aside class="translator-notes"><h3>阅读时留意</h3><p>32MB 缓冲区超出 L3、每行 64 字节以及各层缓存容量，均属于原题测试环境的假设，应与 lstopo 输出核对。仅分配内存并不等于已完成初始化和预热；实测时应明确这些步骤。顺序读的平均耗时与依赖链随机访问的延迟也不是同一测量条件。</p></aside><footer>来源：<a href="tp-numa.html">同目录英文原版</a>。中文翻译不增加实验答案，也不代表所附代码已经编译或验证。外部参考网站仍需联网。</footer></div></body></html>

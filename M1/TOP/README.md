@@ -6,16 +6,29 @@ S2 · [M1 课程目录](../README.md) · [仓库首页](../../README.md)
 
 ## 从这里开始
 
-- [教师原版与实验源码](<Official/README.md>)
+- [教师课程网站](https://dssgabriel.github.io/CHP203-TOP/)
+- [Lab 题目与源码](#lab-教师资源)
 - [LBM 最终答辩](<Materials/d2q9-lbm-karman/Presentation/exports/karman_lbm_20260504_final_factchecked.pdf>)
 
 ## 收录范围与缺口
 
-Official 分别保存教师课程网站和 TOP-26 实验源码；官网课件标注为往年课件。个人优化记录、报告和答辩材料列在项目部分。
+Lab 主要参考教师题目与公开源码，不作为已完成的个人解答集。官网课件标注为往年课件；LBM 项目另有自己的源码仓库、报告和答辩材料。
 
 下面按实际文件列出可阅读的正文、试卷和演示稿。配图随正文保留，不逐张列出；源码与实验数据通过相应目录访问。课程名称或文件编号不代表内容已经覆盖整门课。
 
-## 教师原版
+## Lab 教师资源
+
+| 实验 | 教师题目 | 教师源码 |
+|---|---|---|
+| Lab 1 | [题目](https://dssgabriel.github.io/CHP203-TOP/lab1/) | [Lab 1 源码](https://github.com/dssgabriel/TOP-26/tree/main/lab1) |
+| Lab 2 | [题目](https://dssgabriel.github.io/CHP203-TOP/lab2/) | [Lab 2 源码](https://github.com/dssgabriel/TOP-26/tree/main/lab2) |
+| Lab 3 | [题目](https://dssgabriel.github.io/CHP203-TOP/lab3/) | [Lab 3 源码](https://github.com/dssgabriel/TOP-26/tree/main/lab3) |
+| Lab 4 | [题目](https://dssgabriel.github.io/CHP203-TOP/lab4/) | 见题目中的说明 |
+| Lab 5 | [题目](https://dssgabriel.github.io/CHP203-TOP/lab5/) | 见题目中的说明 |
+
+现有 Lab 5 材料仍为 TODO，以教师后续更新为准。这里提供学习入口，不表示各 Lab 已完成。
+
+## 已保存的教师材料
 
 ### Official/CHP203-TOP
 

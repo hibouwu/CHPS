@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - tp-threads</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+<style id="paam-answer-style">
+details.paam-answer{display:block;clear:both;border:1px solid #9fbdd3;border-left:4px solid #34789f;background:#f3f8fc;border-radius:5px;margin:18px 0;padding:12px 18px;font:16px/1.8 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif;color:#253b4b;counter-reset:none}
+details.paam-answer>summary{cursor:pointer;font-weight:700;color:#18557b;display:list-item}details.paam-answer[open]>summary{margin-bottom:12px}.paam-answer p{display:block;margin:12px 0}.paam-answer ul,.paam-answer ol{padding-left:1.7em}.paam-answer li{margin:7px 0}.paam-answer code{font-size:.9em;white-space:normal;overflow-wrap:anywhere}.paam-answer .answer-language{font-size:14px;border-top:1px solid #ccdce8;padding-top:10px;margin-top:16px}.paam-answer-note{display:block;padding:12px 16px;margin:18px 0;background:#eef5fa;border-left:4px solid #34789f;font-size:15px;color:#314c61}
+</style></head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../../Exams/2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../../Exams/2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../../Exams/2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../../Exams/2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../../Exams/2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../../Exams/2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../../Exams/2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content"><aside class="paam-answer-note">Expandable answers and implementation approaches have been added below each question, with matching numbering in the Chinese edition. These are study notes, not official answers supplied by the course website. The original questions and supplied reference code are retained.</aside>
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241872608">Threads and synchronizations</h2>
+<div class="chapitre-content" id="chapitre-idm45726241872608">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242418048">My first threads</h3>
+<div class="exercice-content" id="exercice-idm45726242418048">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242238960"></h4>
+<div class="question-content" id="question-idm45726242238960">
+<p class="inline-paragraph">Write, in C, an application that creates N threads with <span class="code"><span class="code-container">pthread_create</span></span>, where <span class="code"><span class="code-container">N</span></span>
+        is the first argument of the application.
+        Each thread must write to the terminal "[tid] Hello, World i!!!", where:</p>
+<p></p>
+<ul>
+<li>tid is the thread identifier returned by <span class="code"><span class="code-container">pthread_self</span></span>,</li>
+<li>
+<span class="code"><span class="code-container">i</span></span> is a number incremented by the <span class="code"><span class="code-container">main</span></span> for each thread
+          (0 for the first thread, 1 for the second and so on).</li>
+</ul>
+<details class="paam-answer" data-question="1.a" id="answer-1-a" lang="en"><summary>Added answer and approach · 1.a</summary><div class="paam-answer-body"><p>Parse and validate N, keep the IDs of successfully created threads in an array of <code>pthread_t</code>, and start the workers with <code>pthread_create</code>. Each worker obtains its assigned index i, calls <code>pthread_self()</code>, and prints the requested message.</p>
+<p><strong>Give every worker its own argument whose lifetime covers the worker's access.</strong> Passing the same loop variable <code>&amp;i</code> repeatedly is unsafe: the creator keeps changing it while workers may read it. A separately allocated argument per worker is one option; an argument array also works if it remains alive until all users finish. If main calls <code>pthread_exit</code>, workers must not continue using an array on main's stack.</p>
+<p>Handle creation failures and join only successfully created threads. A single integer printf format is not portable for every implementation of <code>pthread_t</code>. The supplied <code>hello.c</code> illustrates the approach but fixes N at 20; adapt it to read N from the command line.</p>
+<p>Reference: <a href="https://man7.org/linux/man-pages/man3/pthread_create.3.html">pthread_create</a>.</p>
+<p><a href="https://man7.org/linux/man-pages/man3/pthread_self.3.html">pthread_self</a></p></div><p class="answer-language"><a href="tp-threads_zh.html#answer-1-a">中文版答案</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241530816"></h4>
+<div class="question-content" id="question-idm45726241530816">
+<p class="inline-paragraph">The <span class="code"><span class="code-container">main</span></span> function has now to print <span class="code"><span class="code-container">Main quitting</span></span> at the end of the function.
+        Launch several times your application with 3 threads.
+        Why, sometime, the application write the main quitting before the three hello worlds?</p>
+<p></p>
+<details class="paam-answer" data-question="1.b" id="answer-1-b" lang="en"><summary>Added answer and approach · 1.b</summary><div class="paam-answer-body"><p><code>pthread_create</code> starts a thread; it does not wait for that thread to print. Scheduling determines whether the creator or a worker runs next. Without additional synchronization, main can reach its own print statement first.</p>
+<p>Creation order therefore does not establish output order. To make Main quitting appear last, wait for the workers to finish the relevant work, for example with the joins used in the later question. Sleeping for a fixed duration does not establish that guarantee.</p>
+<p>Reference: <a href="https://man7.org/linux/man-pages/man3/pthread_create.3.html">Scheduling after thread creation</a>.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-1-b">中文版答案</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241991072"></h4>
+<div class="question-content" id="question-idm45726241991072">
+<p class="inline-paragraph">Start your application with 20 threads several times. Why, often,
+        the application writes less than 20 times hello world?</p>
+<p></p>
+<details class="paam-answer" data-question="1.c" id="answer-1-c" lang="en"><summary>Added answer and approach · 1.c</summary><div class="paam-answer-body"><p>Returning from <code>main</code> terminates the entire process, including workers that are still running or have not yet been scheduled. If main reaches its end quickly, some workers may never reach <code>printf</code>, so fewer than 20 lines appear.</p>
+<p>The number of observed lines is not a thread-limit measurement. Check that all 20 calls to <code>pthread_create</code> succeeded, then check how main waits or exits. The following questions change the exit timing with <code>pthread_exit</code> or joins.</p>
+<p>Reference: <a href="https://man7.org/linux/man-pages/man7/pthreads.7.html">Returning from main and thread termination</a>.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-1-c">中文版答案</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242501072"></h4>
+<div class="question-content" id="question-idm45726242501072">
+<p class="inline-paragraph">Add a call to <span class="code"><span class="code-container">pthread_exit</span></span> at the end of <span class="code"><span class="code-container">main</span></span>.
+        Why, now, the application systematically write 20 times hello world when you start it
+        with 20 threads?</p>
+<p></p>
+<details class="paam-answer" data-question="1.d" id="answer-1-d" lang="en"><summary>Added answer and approach · 1.d</summary><div class="paam-answer-body"><p><code>pthread_exit</code> terminates only the calling thread. When main terminates this way, the other threads can continue; the process exits normally after its last thread ends. Thus all 20 messages can be produced, assuming every creation succeeds, the arguments remain valid, and all workers complete normally.</p>
+<p><strong>This is not a wait followed by resuming main.</strong> <code>pthread_exit</code> does not return. Code placed after it is not reached, and a Main quitting message printed before it is not retroactively ordered after the workers' messages.</p>
+<p>Reference: <a href="https://man7.org/linux/man-pages/man3/pthread_exit.3.html">pthread_exit</a>.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-1-d">中文版答案</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242346880"></h4>
+<div class="question-content" id="question-idm45726242346880">
+<p class="inline-paragraph">Ensure now that the application writes the main quitting after all the hello worlds.</p>
+<p></p>
+<details class="paam-answer" data-question="1.e" id="answer-1-e" lang="en"><summary>Added answer and approach · 1.e</summary><div class="paam-answer-body"><p>Create all workers first and save their IDs. Then call <code>pthread_join</code> for each successfully created thread. Print Main quitting only after every join succeeds. Since a worker prints before returning, this places main's message after all worker messages.</p>
+<p>Do not create one thread and immediately join it inside the same creation loop: the next worker would not be created until the previous one finished, largely serializing the exercise. The order of joins does not prescribe the workers' relative print order; it only establishes that they have all finished before main continues.</p>
+<p>Once all workers have terminated, main may return normally; <code>pthread_exit</code> is no longer needed to keep the process alive.</p>
+<p>Reference: <a href="https://man7.org/linux/man-pages/man3/pthread_join.3.html">pthread_join</a>.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-1-e">中文版答案</a></p></details></div>
+</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242421952"></div>
+<div class="solution-content" id="solution-idm45726242421952">
+<div class="code code-block">
+<div class="code-url"><a download="hello.c" href="hello.c">hello.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-threads/hello.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242711440">A shared counter</h3>
+<div class="exercice-content" id="exercice-idm45726242711440">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241559520"></h4>
+<div class="question-content" id="question-idm45726241559520">
+<p class="inline-paragraph">First, add a global variable called <span class="code"><span class="code-container">counter</span></span> initialized to 0 to your application.
+        Then, ensure that each thread increments this variable after printing its hello world.
+        Finally, modify the application in order to print the value of <span class="code"><span class="code-container">counter</span></span>
+        before the <span class="code"><span class="code-container">pthread_exit</span></span> of the <span class="code"><span class="code-container">main</span></span>.</p>
+<p></p>
+<p>When you run your application with 100 threads, why the printed counter is often smaller
+        than 100? Modify your application in order to ensure that the counter is equal to the number
+        of threads at end of the application.</p>
+<details class="paam-answer" data-question="2.a" id="answer-2-a" lang="en"><summary>Added answer and approach · 2.a</summary><div class="paam-answer-body"><p>Separate two possible problems.</p>
+<ol>
+<li><strong>Reading too early.</strong> Unless main waits for the workers, some increments may not have happened yet. If the complete joining step from 1.e is already present, this explanation no longer applies.</li>
+<li><strong>Racing increments.</strong> <code>counter++</code> on an ordinary integer is not an atomic operation. In a read–modify–write illustration, two threads both read 0, both compute 1, and both store 1, losing an update. Under the C memory model, unsynchronized conflicting accesses are a data race and cause undefined behavior; the possible outcomes are not limited to this simple illustration.</li>
+</ol>
+<p>Protect every increment with the same mutex, and read the final count after main has joined all workers. No concurrent writers remain at that point. Any reads performed while workers are still running must follow the same synchronization rules.</p>
+<p>An atomic counter with an atomic increment is another option, but main must still wait before checking the final result. <strong>Joining does not repair racing worker updates; atomic increments do not wait for all workers to finish.</strong> With correct synchronization and exactly one increment per successfully created worker, the final count equals the number of workers.</p>
+<p>See also: <a href="../../Lectures/01-threads.md#page-12">Processes, threads and synchronizations</a>.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-2-a">中文版答案</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242180816"></h4>
+<div class="question-content" id="question-idm45726242180816">
+      Modify your application in order to print "Main quitting" only when the counter is equal to the number of
+      threads.
+		<details class="paam-answer" data-question="2.b" id="answer-2-b" lang="en"><summary>Added answer and approach · 2.b</summary><div class="paam-answer-body"><p>Use the counter as a shared predicate and let main wait on a condition variable until it reaches N.</p>
+<ul>
+<li>Each worker prints its Hello, World message first, locks the mutex, increments <code>counter</code>, notifies the waiter when the count reaches N, and unlocks.</li>
+<li>Main locks the same mutex and checks <code>while (counter &lt; N)</code>, calling <code>pthread_cond_wait(&amp;done, &amp;mutex)</code> while the predicate is false.</li>
+<li>The wait releases the mutex while sleeping and reacquires it before returning. Print Main quitting only after leaving the loop.</li>
+</ul>
+<p>Recheck the predicate in a while loop, including after spurious wakeups. If the final notification happens before main starts waiting, the counter already records completion, so main skips the wait; it does not need the condition variable to remember an old notification.</p>
+<p>Join the workers afterwards if they are joinable and their resources must be reclaimed. <code>counter == N</code> establishes completion of the work preceding each increment, not necessarily termination of every worker.</p>
+<p>Reference: <a href="https://man7.org/linux/man-pages/man3/pthread_cond_wait.3p.html">Condition waits and predicate checks</a>.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-2-b">中文版答案</a></p></details></div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242452384">Producer/consumer</h3>
+<div class="exercice-content" id="exercice-idm45726242452384">
+<p>In this exercise, we want to implement a producer/consumer.
+      In detail, the main thread, called the producer hereafter, has to read lines from the standard input and to push
+      them in a queue.
+      The other threads, called the consumers hereafter,
+      have to take these lines from the queue in the FIFO (first in first out) order
+      and to print them.</p>
+<p>We want to implement the queue with a linked-list. The first node
+      of the list is the oldest enqueued line (first in), while the last node of the linked list
+      is the newest enqueued line (last in).
+      We also want to avoid following the whole linked-list to enqueue a new node.
+      For this reason, you have to keep both a pointer to the first and to the last node.</p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242004512"></h4>
+<div class="question-content" id="question-idm45726242004512">
+      First, implement a unicast queue: only a single consumer has
+      to take the messages from the queue.
+      You have to ensure that a consumer thread sleeps with <span class="code"><span class="code-container">pthread_cond_wait</span></span>
+      when the queue is empty.
+      Don't forget to free a node of the linked list when it is consumed.
+
+      <details class="paam-answer" data-question="3.a" id="answer-3-a" lang="en"><summary>Added answer and approach · 3.a</summary><div class="paam-answer-body"><p>Maintain head and tail pointers, a mutex, and a condition variable. Unicast means that each message is taken by one consumer; this first version uses only a single consumer.</p>
+<p>The producer gives each input line independent storage, locks the queue, appends the node after tail, sets head as well if the queue was empty, updates tail, and notifies the consumer. The consumer checks for an empty queue under the same mutex and waits in a while loop. When a node is available, it removes head and also clears tail if the queue becomes empty.</p>
+<p>After removal, the single consumer owns the node exclusively. It can unlock, print the message, and release the message storage and node. Do not make all nodes point into an input buffer that the next read will overwrite. Use <code>getline</code> or suitable <code>fgets</code> handling for whole lines; <code>%s</code> reads whitespace-delimited words instead.</p>
+<p>An optional completion protocol uses a closed flag protected by the same mutex. Set it and wake waiters when input ends. The consumer exits only when the queue is empty and input is closed; otherwise it drains remaining messages. The supplied <code>spsc.c</code> demonstrates synchronization using word input and an exit string, not complete line/EOF handling.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-3-a">中文版答案</a></p></details><div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242476352"></div>
+<div class="solution-content" id="solution-idm45726242476352">
+        You can download the Makefile <a href="Makefile">here</a>.
+        
+			  <div class="code code-block">
+<div class="code-url"><a download="spsc.c" href="spsc.c">spsc.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-threads/spsc.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242619760">Atomic broadcast in shared memory (optional, 1/2)</h4>
+<div class="question-content" id="question-idm45726242619760">
+      Modify your application in order to implement a multicast queue: each consumer has to
+      receive and to print each line (and in the FIFO order).
+      In this question also, don't forget to free the nodes of the linked list.
+		<details class="paam-answer" data-question="3.b" id="answer-3-b" lang="en"><summary>Added answer and approach · 3.b</summary><div class="paam-answer-body"><p>Broadcast requires every consumer to receive every message. Replacing <code>pthread_cond_signal</code> with <code>pthread_cond_broadcast</code> is insufficient: if the first awakened consumer still removes head immediately, the others cannot receive that message.</p>
+<p>A simple baseline keeps all consumers at the current head. Give each node a sequence number and a remaining-consumer count initialized to the fixed consumer count N. Each consumer records the last sequence it handled so that it does not process the same node twice.</p>
+<p>Under one mutex, a consumer waits until head exists and it has not handled that node, processes the message, and decrements remaining. Printing inside the mutex keeps this baseline simple. Only the last consumer, which makes remaining zero, removes and frees head, updates tail when necessary, and wakes the consumers for the next node. The producer also wakes relevant waiters when adding messages.</p>
+<p>Every message is processed N times and each consumer preserves FIFO order, but faster consumers wait for slower ones. Atomic broadcast here concerns agreement on message order, not implementation with one hardware atomic instruction. The next question removes the per-node lockstep progression.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-3-b">中文版答案</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241937968">Atomic broadcast in shared memory (optional, 2/2)</h4>
+<div class="question-content" id="question-idm45726241937968">
+      With the broadcast, now, you can try to ensure that each consumer can consume a node even if the previous ones in the list are not
+      consumers, which means totally desynchronizing the consumers (in your initial version, probably, all the consumers consume a node and then they all continue with the next one).
+
+      <details class="paam-answer" data-question="3.c" id="answer-3-c" lang="en"><summary>Added answer and approach · 3.c</summary><div class="paam-answer-body"><p>Give each consumer an independent cursor to its next unread message, and keep a remaining-user count for each node. A fast consumer may advance after processing its current message without waiting for the others. It must not skip its own earlier messages, so its individual FIFO order is preserved.</p>
+<p>A straightforward design can still use one global mutex. When appending a node, the producer publishes it to consumers whose cursors are at the end and waiting for new input. Under the mutex, a consumer copies its current message, saves the successor, advances its cursor, and decrements the node's count. It prints from the copy after unlocking, and prints before processing its own next message. The mutex protects queue state and cursors; it does not impose per-node lockstep across consumers.</p>
+<p>A node may be unlinked and freed only after all consumers have passed it and neither the producer nor shared queue pointers still need it. If it was the last node, update tail consistently. One consumer finishing is not enough. A sentinel-based design is also possible, but the relationship between the final node and waiting cursors still needs an explicit protocol.</p>
+<p><strong>The supplied reference code needs a correction:</strong> <code>mpmc.c</code> calls <code>pthread_mutex_unlock(&amp;cons-&gt;mutex)</code> after <code>free(cons)</code>, accessing a freed object. Do not copy that order. Reclamation requires proving there are no remaining users and completing unlocking and any required synchronization-object cleanup; moving one free statement is not a substitute for that lifetime argument.</p>
+</div><p class="answer-language"><a href="tp-threads_zh.html#answer-3-c">中文版答案</a></p></details><div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241937680"></div>
+<div class="solution-content" id="solution-idm45726241937680">
+<div class="code code-block">
+<div class="code-url"><a download="mpmc.c" href="mpmc.c">mpmc.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-threads/mpmc.c"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "english" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

@@ -22,11 +22,12 @@
 | [POO](M1/POO/Exercises/README.md) | C++ TD/TP、粒子模拟器 |
 | [GLHPC](M1/GLHPC/Exercises/README.md) | Lab 1–7、SGEMM 与推理实验 |
 | [AISE](M1/AISE/Exercises/README.md) | 操作系统实验、EXPRESSO |
+| [TOP Lab](M1/TOP/README.md#lab-教师资源) | 教师实验题目与公开源码 |
 | [VS](M1/VS/Exercises/README.md) | ParaView 练习、储罐减压可视化 |
 
 ## 教师提供的代码与材料
 
-- [GLHPC 课程仓库](https://github.com/M1-CHPS/glhpc)
+- [GLHPC 课程仓库](https://github.com/M1-CHPS/glhpc) · [Lab 1–7 公开模板](M1/GLHPC/README.md#教师公开实验仓库)
 - [TOP 实验代码](https://github.com/dssgabriel/TOP-26)
 - [TOP 课程网站源码](https://github.com/dssgabriel/CHP203-TOP)
 - [POO 课程仓库（GitLab）](https://gitlab.com/sdcm/chps2025)

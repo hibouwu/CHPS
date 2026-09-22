@@ -1,0 +1,1402 @@
+{
+  "source": "https://cs.ip-paris.fr/courses/chps/paam/",
+  "download_date": "2026-09-21",
+  "files": [
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/",
+      "path": "Pages/index.html",
+      "bytes": 15416,
+      "download_sha256": "c905e1eddfdca114f525f067f3c52d285baf286335b0e871ce7d5587be4034b6",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "07fb3882c795421e8599074e5a20fa46cce537b057838aa9e05bd645be978acd",
+      "local_bytes": 13377,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=all&wrap=true&preprint=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=all&wrap=true&preprint=true",
+      "path": "Pages/all.html",
+      "bytes": 10074,
+      "download_sha256": "3e486f94bdeb63f2d91fec633e9ede465f3b25941f173f6ccbe60fc259d521ce",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "9ca26b16cbfa4e8a472a27d0d74fa6102d874b3c6c040fdf6c4010e86dc7cf9e",
+      "local_bytes": 8822,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2016-2017/cf1&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2016-2017/cf1&soluce=true",
+      "path": "Exams/2016-2017/cf1.html",
+      "bytes": 20207,
+      "download_sha256": "7eaf142d5008eb7b9e8d5db34dfb860f0eb8fb8f5beddb0620f56fba99d77ea6",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "a0890742240c44985f3a08a49e4cd932e444512f5df53e1fd81e72ce2082443b",
+      "local_bytes": 18245,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2017-2018/cf1&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2017-2018/cf1&soluce=true",
+      "path": "Exams/2017-2018/cf1.html",
+      "bytes": 21752,
+      "download_sha256": "1c2fb2350572f140fd01dd82d41e829faba387cca6ab4c447f12f346e1b2be95",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "c772cf6796212b1975faed774c63c1253e389de349500d9255281029d0918549",
+      "local_bytes": 19323,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2018-2019/cf1&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2018-2019/cf1&soluce=true",
+      "path": "Exams/2018-2019/cf1.html",
+      "bytes": 35856,
+      "download_sha256": "2fd72a8cd649d59bddeee5299df53d83a28b7e78152cd22d11fe013fb49b7ce5",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "b055a8649faa2968f15a850dc7ac6d34ddac9d69d1d87e86d5c4caad1c4414dd",
+      "local_bytes": 32699,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2019-2020/cf1&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2019-2020/cf1&soluce=true",
+      "path": "Exams/2019-2020/cf1.html",
+      "bytes": 20386,
+      "download_sha256": "aa132b22f566084a4dc4567f385aa0b4bdbef4f399c273dd89c0320e5029ec37",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "a1e2905e6b7c74b71feaca78b3dcf412863e6906013d929efab2e6c79ac49212",
+      "local_bytes": 18398,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2020-2021/cf1&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2020-2021/cf1&soluce=true",
+      "path": "Exams/2020-2021/cf1.html",
+      "bytes": 30583,
+      "download_sha256": "04662a9bdb94903c682688300635ba6beb088ac52d4e2f4e1d9e8f939241fec2",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "4f41b55fc96517a63ca1ddd2119978fc533473dd7d69ae657240fad52676e56d",
+      "local_bytes": 27484,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2021-2022/cf1-en&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2021-2022/cf1-en&soluce=true",
+      "path": "Exams/2021-2022/cf1-en.html",
+      "bytes": 25642,
+      "download_sha256": "a5dca69cb674954d095ee2c75dc16c63c521d1038c25cc5d207dacc81dd8cf11",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "e30fa3820fe77368738591590c7aecb6fee7b7b8ce40cbc870a2b9ddb00433f5",
+      "local_bytes": 23578,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2022-2023/cf1-en&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=annales/2022-2023/cf1-en&soluce=true",
+      "path": "Exams/2022-2023/cf1-en.html",
+      "bytes": 22197,
+      "download_sha256": "10feb271a0b4d205589c099bcaf94029b0d244e245b5b3084e579eb65e0fd462",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "fcffeab6bdd34d08ada40505d85971d9669b49c68fbc89b3c1c445ac82cebe72",
+      "local_bytes": 20251,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=paam",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=paam",
+      "path": "Pages/paam.html",
+      "bytes": 15416,
+      "download_sha256": "dae616519a682e659aec0e853d5452ffde4c1227d7bc49e7c41b565db4d04a16",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "7d2d2ed0c32cf74b3a1a9eaafe37a7926c44df6d9e29fa501df31e82a37babba",
+      "local_bytes": 13377,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=planning",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=planning",
+      "path": "Pages/planning.html",
+      "bytes": 15744,
+      "download_sha256": "b93b7175fdc984a66b147a4e3f191218bdef2e4cb14d27dde01b36dfea5f333c",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "ae8b0d0ef4b86d009a4f6922dced0c7fb98b5f2c7a3d994f8337cc0a34456814",
+      "local_bytes": 14376,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-locks/tp-locks&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-locks/tp-locks&soluce=true",
+      "path": "Labs/tp-locks/tp-locks.html",
+      "bytes": 17662,
+      "download_sha256": "28d8489fcb3cedf1731e9ac0b6ca86b50fe906c60f40cbab240786a8ce385f13",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "c02dca5aed6234717cdb71c32a676fc5a604165e8cc2f45cd6aaf911fd286e3a",
+      "local_bytes": 15889,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-non-blocking/tp-non-blocking&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-non-blocking/tp-non-blocking&soluce=true",
+      "path": "Labs/tp-non-blocking/tp-non-blocking.html",
+      "bytes": 28545,
+      "download_sha256": "318d5edb926e51d1dca0bd4a00d417d729678b96acb4905508f117f230ca4129",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "2be244f586756fd63994992d5726f28d3db12e7f7928ac35cf8013112c9861a8",
+      "local_bytes": 26476,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-numa/tp-numa&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-numa/tp-numa&soluce=true",
+      "path": "Labs/tp-numa/tp-numa.html",
+      "bytes": 28226,
+      "download_sha256": "5cb14fceca4b753d53b869d57d3354f3e850048986aaf82f33c0c89b1c2cfb57",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "85f5bd3925dea64e7add1d4f79dcf02d6e17a2d15bae291d5ff032c96fbdbbc3",
+      "local_bytes": 26174,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-nvmm/tp-nvmm&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-nvmm/tp-nvmm&soluce=true",
+      "path": "Labs/tp-nvmm/tp-nvmm.html",
+      "bytes": 26486,
+      "download_sha256": "c572f3d77e42f6e6de4d18aad2c82b9278ae1ad6b59d01dad7ef0ecfb33c5407",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "4c0b959c2de39489c497fabf9105bd9fd05eb8573a0e8a44dbd811c5e9d33b6f",
+      "local_bytes": 24517,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-stm/tp-stm&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-stm/tp-stm&soluce=true",
+      "path": "Labs/tp-stm/tp-stm.html",
+      "bytes": 17975,
+      "download_sha256": "0e086b7337c4fed94406bff0c56bbb9d4a50cbe28667979ad222b486ce587f70",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "63474c965b87ec9f5280a529cccb4ecfbc524bf57171f0396c3f97fe3ccdc0e9",
+      "local_bytes": 16381,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-threads/tp-threads&soluce=true",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/?page=tp-threads/tp-threads&soluce=true",
+      "path": "Labs/tp-threads/tp-threads.html",
+      "bytes": 19349,
+      "download_sha256": "b1cfc7b9d43988a548930e410056d1fe805709061df6dba245c39bd2ad2fd5a2",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "5e1228bea35c890e844f35126c79befc1705d38c4b4978f12d8ba8cf2f0f770e",
+      "local_bytes": 17530,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/01-threads.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/01-threads.pdf",
+      "path": "Lectures/01-threads.pdf",
+      "bytes": 227959,
+      "download_sha256": "35e5422f293f4e80cb6c063cec724daa6ae2bc29dae6d3d1ad7491af330657f7",
+      "content_type": "application/pdf",
+      "local_sha256": "35e5422f293f4e80cb6c063cec724daa6ae2bc29dae6d3d1ad7491af330657f7",
+      "local_bytes": 227959
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/01-welcome.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/01-welcome.pdf",
+      "path": "Lectures/01-welcome.pdf",
+      "bytes": 173567,
+      "download_sha256": "4648ff1f8dda460bb0cc8076f89a9f0cd20e414f1a8dcf0b7de66052f54fb23d",
+      "content_type": "application/pdf",
+      "local_sha256": "4648ff1f8dda460bb0cc8076f89a9f0cd20e414f1a8dcf0b7de66052f54fb23d",
+      "local_bytes": 173567
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/02-locks.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/02-locks.pdf",
+      "path": "Lectures/02-locks.pdf",
+      "bytes": 294668,
+      "download_sha256": "3c28a45bdb87f9b972c67e2c01a343617618a512845d5bd8c6169baa7e6fa22e",
+      "content_type": "application/pdf",
+      "local_sha256": "3c28a45bdb87f9b972c67e2c01a343617618a512845d5bd8c6169baa7e6fa22e",
+      "local_bytes": 294668
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/03-non-blocking.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/03-non-blocking.pdf",
+      "path": "Lectures/03-non-blocking.pdf",
+      "bytes": 571997,
+      "download_sha256": "c0a7b285dd61e169e7ba5eda70a10b244669895a2ebf891d89b1c09680749a94",
+      "content_type": "application/pdf",
+      "local_sha256": "c0a7b285dd61e169e7ba5eda70a10b244669895a2ebf891d89b1c09680749a94",
+      "local_bytes": 571997
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/04-stm.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/04-stm.pdf",
+      "path": "Lectures/04-stm.pdf",
+      "bytes": 479524,
+      "download_sha256": "7c06fea1eaa8b62acda0abd16fe31a7f13f3923119c7b74d230049240ff33b56",
+      "content_type": "application/pdf",
+      "local_sha256": "7c06fea1eaa8b62acda0abd16fe31a7f13f3923119c7b74d230049240ff33b56",
+      "local_bytes": 479524
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/05-numa.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/05-numa.pdf",
+      "path": "Lectures/05-numa.pdf",
+      "bytes": 2283048,
+      "download_sha256": "d9163c9d9331923a9230a798bab30006b807749696a06b0f78c2d2df969ae759",
+      "content_type": "application/pdf",
+      "local_sha256": "d9163c9d9331923a9230a798bab30006b807749696a06b0f78c2d2df969ae759",
+      "local_bytes": 2283048
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/cours/06-nvmm.pdf",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/cours/06-nvmm.pdf",
+      "path": "Lectures/06-nvmm.pdf",
+      "bytes": 641743,
+      "download_sha256": "7bbddd2a0b9312aad471503ae45994bee5ee6c742a849504471686360d74e2a7",
+      "content_type": "application/pdf",
+      "local_sha256": "7bbddd2a0b9312aad471503ae45994bee5ee6c742a849504471686360d74e2a7",
+      "local_bytes": 641743
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci1/TP/TP1&soluce=true",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci1/TP/TP1&soluce=true",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html",
+      "bytes": 13744,
+      "download_sha256": "ae93dac8103f1638860d30e1eeaf7b757d81a9f9b38d11ff4862c3b4ba5c5347",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "1ec91df3e5cf0dc14a677e47635ee9d058bdaa2659fe45fcd588ad17f4866d82",
+      "local_bytes": 15501,
+      "status": "source_page_missing_content"
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci4/TP/TP4&wrap=true&soluce=true",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci4/TP/TP4&wrap=true&soluce=true",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html",
+      "bytes": 41044,
+      "download_sha256": "7eb0ef088b73dd0cb131882abe7653c1c81363a8a0d7bdc31c16d81c234a7449",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "84d3ed04eea27f596999f0fdad5d54075dd19659ecba18473bf6835accac1017",
+      "local_bytes": 40987,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html",
+      "bytes": 45446,
+      "download_sha256": "6c1c3e591f50ef0cf03dbbe5f7039e031643266e97b9ade80fb520e25aaa4466",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "2e824e11e465df7fc6f0292a44d28c96ca885505885a437bd022f045fa60636b",
+      "local_bytes": 43474,
+      "status": "downloaded"
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/fifo-lock.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/fifo-lock.c",
+      "path": "Exams/2017-2018/fifo-lock.c",
+      "bytes": 951,
+      "download_sha256": "494ed17fe2dd237e1b4b474e2aa22cf0bf131545c4e76f9631792cd244c0da25",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "494ed17fe2dd237e1b4b474e2aa22cf0bf131545c4e76f9631792cd244c0da25",
+      "local_bytes": 951
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/fifo-tm.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/fifo-tm.c",
+      "path": "Exams/2017-2018/fifo-tm.c",
+      "bytes": 946,
+      "download_sha256": "3aedb1898bcf851ff7900523ead548a2a067d100064fcf6aed415a8a389d2c25",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "3aedb1898bcf851ff7900523ead548a2a067d100064fcf6aed415a8a389d2c25",
+      "local_bytes": 946
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/fifo.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/fifo.c",
+      "path": "Exams/2017-2018/fifo.c",
+      "bytes": 487,
+      "download_sha256": "c2c1ca4b32e821ef7d709f1e9672c72d59cc44bf61d03cdea5e6f59400cf5c59",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "c2c1ca4b32e821ef7d709f1e9672c72d59cc44bf61d03cdea5e6f59400cf5c59",
+      "local_bytes": 487
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/lock.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2017-2018/lock.c",
+      "path": "Exams/2017-2018/lock.c",
+      "bytes": 513,
+      "download_sha256": "b370d4d78550f57d073961258ca974b2fdfcf4333d9beb056b86a11d51fd571c",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "b370d4d78550f57d073961258ca974b2fdfcf4333d9beb056b86a11d51fd571c",
+      "local_bytes": 513
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2020-2021/rcl.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2020-2021/rcl.c",
+      "path": "Exams/2020-2021/rcl.c",
+      "bytes": 1463,
+      "download_sha256": "e0a8d5f9ae1f84b5689ad4f7e37100082608b1099a62db9f3d97312b16c21921",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "e0a8d5f9ae1f84b5689ad4f7e37100082608b1099a62db9f3d97312b16c21921",
+      "local_bytes": 1463
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2020-2021/stm.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2020-2021/stm.c",
+      "path": "Exams/2020-2021/stm.c",
+      "bytes": 1623,
+      "download_sha256": "527cd31d08c7f5683d36212bfc32a56604849f0980937ffd20073bb764d52015",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "527cd31d08c7f5683d36212bfc32a56604849f0980937ffd20073bb764d52015",
+      "local_bytes": 1623
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2020-2021/synchro.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2020-2021/synchro.c",
+      "path": "Exams/2020-2021/synchro.c",
+      "bytes": 1702,
+      "download_sha256": "6d8b96fa43c98209bafcf89fe54cb3707eb40ae416b9403959c529bae7fae444",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "6d8b96fa43c98209bafcf89fe54cb3707eb40ae416b9403959c529bae7fae444",
+      "local_bytes": 1702
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2021-2022/radix-free.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2021-2022/radix-free.c",
+      "path": "Exams/2021-2022/radix-free.c",
+      "bytes": 821,
+      "download_sha256": "1ea7767d31a4afda4008ad4df9cdd93f8413af3fcf28f8d177a1d0056575a4a0",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "1ea7767d31a4afda4008ad4df9cdd93f8413af3fcf28f8d177a1d0056575a4a0",
+      "local_bytes": 821
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2022-2023/flat.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2022-2023/flat.c",
+      "path": "Exams/2022-2023/flat.c",
+      "bytes": 1285,
+      "download_sha256": "fbf5eb530c17bc913138da82afacb92c9e4f043b47d277c9ce9cccfc7294191c",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "fbf5eb530c17bc913138da82afacb92c9e4f043b47d277c9ce9cccfc7294191c",
+      "local_bytes": 1285
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2022-2023/mcs.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/annales/2022-2023/mcs.c",
+      "path": "Exams/2022-2023/mcs.c",
+      "bytes": 621,
+      "download_sha256": "b073c07bef39e18e9e95cdf6b607ba7fd4191b18e9b55b434455c8c319f0ed95",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "b073c07bef39e18e9e95cdf6b607ba7fd4191b18e9b55b434455c8c319f0ed95",
+      "local_bytes": 621
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/Makefile",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/Makefile",
+      "path": "Labs/tp-locks/Makefile",
+      "bytes": 5095,
+      "download_sha256": "e273b7e741da9380c5d18c8bf4fa3b0e04b367bf7fa6d396ed82f945205365d4",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "e273b7e741da9380c5d18c8bf4fa3b0e04b367bf7fa6d396ed82f945205365d4",
+      "local_bytes": 5095
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/futex.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/futex.c",
+      "path": "Labs/tp-locks/futex.c",
+      "bytes": 272,
+      "download_sha256": "288e8ca577e65f317a42d0223b9041f45caeacef798a8a14bf21717052744ca3",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "288e8ca577e65f317a42d0223b9041f45caeacef798a8a14bf21717052744ca3",
+      "local_bytes": 272
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/futexlock.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/futexlock.c",
+      "path": "Labs/tp-locks/futexlock.c",
+      "bytes": 1318,
+      "download_sha256": "eb543accfa4a7c233f81e4d05414996570841c6929b48cfde999ae69afac736b",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "eb543accfa4a7c233f81e4d05414996570841c6929b48cfde999ae69afac736b",
+      "local_bytes": 1318
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/futexlock.h",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/futexlock.h",
+      "path": "Labs/tp-locks/futexlock.h",
+      "bytes": 581,
+      "download_sha256": "82d0de13df0eec31c1ec4a8d0e5ddd0264c6867b39cfd9c27e282de2b7b2b013",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "82d0de13df0eec31c1ec4a8d0e5ddd0264c6867b39cfd9c27e282de2b7b2b013",
+      "local_bytes": 581
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/locks.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-locks/locks.c",
+      "path": "Labs/tp-locks/locks.c",
+      "bytes": 3997,
+      "download_sha256": "52a2b45e55f301a7fffbf2021a5e23dee61f56d075b255ea3f3f438f528f4e95",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "52a2b45e55f301a7fffbf2021a5e23dee61f56d075b255ea3f3f438f528f4e95",
+      "local_bytes": 3997
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-numa/main.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-numa/main.c",
+      "path": "Labs/tp-numa/main.c",
+      "bytes": 3952,
+      "download_sha256": "e245508231d3cee4a9fb75c289d209f1faa41566a0af7881165bd036f61b768e",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "e245508231d3cee4a9fb75c289d209f1faa41566a0af7881165bd036f61b768e",
+      "local_bytes": 3952
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/Makefile",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/Makefile",
+      "path": "Labs/tp-nvmm/Makefile",
+      "bytes": 5241,
+      "download_sha256": "18e207164b1a3dfdd4528c624d6652b545c3cceb36fc2a7e12689a3487291601",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "18e207164b1a3dfdd4528c624d6652b545c3cceb36fc2a7e12689a3487291601",
+      "local_bytes": 5241
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/nvmm.h",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/nvmm.h",
+      "path": "Labs/tp-nvmm/nvmm.h",
+      "bytes": 2173,
+      "download_sha256": "9ec3eb4be0b1cce7d44820c7312abd6cf16aaa14642cc904d148ffed3b27ca33",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "9ec3eb4be0b1cce7d44820c7312abd6cf16aaa14642cc904d148ffed3b27ca33",
+      "local_bytes": 2173
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/soluce.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/soluce.c",
+      "path": "Labs/tp-nvmm/soluce.c",
+      "bytes": 5758,
+      "download_sha256": "111a39df8e8bbf369fd78528b7091c26814a666822fd07ecd95d12136a134323",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "111a39df8e8bbf369fd78528b7091c26814a666822fd07ecd95d12136a134323",
+      "local_bytes": 5758
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/struct.h",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-nvmm/struct.h",
+      "path": "Labs/tp-nvmm/struct.h",
+      "bytes": 1664,
+      "download_sha256": "e8ac3215bc56b0e7d446efd0c76c3047b4f46c351b63d60a3bd85a0a27ac13ef",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "e8ac3215bc56b0e7d446efd0c76c3047b4f46c351b63d60a3bd85a0a27ac13ef",
+      "local_bytes": 1664
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-stm/main-v1.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-stm/main-v1.c",
+      "path": "Labs/tp-stm/main-v1.c",
+      "bytes": 3600,
+      "download_sha256": "98d8e2b63a40236bfd30c8d809433b5c3a93e1abf19bde6da36af0123156eaea",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "98d8e2b63a40236bfd30c8d809433b5c3a93e1abf19bde6da36af0123156eaea",
+      "local_bytes": 3600
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-stm/mem.h",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-stm/mem.h",
+      "path": "Labs/tp-stm/mem.h",
+      "bytes": 180,
+      "download_sha256": "c6bd4960dd9163fe23479632ad47a03d09bc568e223edf4a81a91cb99fb3d89c",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "c6bd4960dd9163fe23479632ad47a03d09bc568e223edf4a81a91cb99fb3d89c",
+      "local_bytes": 180
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/Makefile",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/Makefile",
+      "path": "Labs/tp-threads/Makefile",
+      "bytes": 5080,
+      "download_sha256": "11a9947a59edd7f181293eb62573e0a4eec42305817011af94443bf7f7e51133",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "11a9947a59edd7f181293eb62573e0a4eec42305817011af94443bf7f7e51133",
+      "local_bytes": 5080
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/hello.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/hello.c",
+      "path": "Labs/tp-threads/hello.c",
+      "bytes": 541,
+      "download_sha256": "3d7194545376d03373f9f69863c52eb42fe6ce6f0dc6554643e0548c255d28a3",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "3d7194545376d03373f9f69863c52eb42fe6ce6f0dc6554643e0548c255d28a3",
+      "local_bytes": 541
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/mpmc.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/mpmc.c",
+      "path": "Labs/tp-threads/mpmc.c",
+      "bytes": 3178,
+      "download_sha256": "cb32cc8824ecdc5c9b8683373d0c074671c52ee6b773af782ab3093f05b3aa94",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "cb32cc8824ecdc5c9b8683373d0c074671c52ee6b773af782ab3093f05b3aa94",
+      "local_bytes": 3178
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/spsc.c",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/tp-threads/spsc.c",
+      "path": "Labs/tp-threads/spsc.c",
+      "bytes": 1562,
+      "download_sha256": "983bf93fe51eef4b9e63f4f30bd545761fb1078e3076a94660a6005c3ec5673d",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "983bf93fe51eef4b9e63f4f30bd545761fb1078e3076a94660a6005c3ec5673d",
+      "local_bytes": 1562
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=multicore/tp-multicore&wrap=true&soluce=true",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=multicore/tp-multicore&wrap=true&soluce=true",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/multicore_tp-multicore.html",
+      "bytes": 12429,
+      "download_sha256": "f2336961cb1d7ed5d7d6d3f96d5e5c580bb2bd549492eb49a0da799bf2805c1e",
+      "content_type": "text/html; charset=UTF-8",
+      "local_sha256": "5b6369f87a5d03eba694d5012c80b35f677738bded578413a4e510b76d34c546",
+      "local_bytes": 12690,
+      "status": "source_page_missing_content"
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-book.pdf",
+      "bytes": 1582087,
+      "download_sha256": "026adc493aa66372260f73568ab7364549623b6b91dc17586627fedf77e8111e",
+      "content_type": "application/pdf",
+      "local_sha256": "026adc493aa66372260f73568ab7364549623b6b91dc17586627fedf77e8111e",
+      "local_bytes": 1582087
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C1/C1-slides.pdf",
+      "bytes": 2100521,
+      "download_sha256": "7af2d0d0957317fa21bbc6277e3008a8e28182cc1bc322fe881639f584585e69",
+      "content_type": "application/pdf",
+      "local_sha256": "7af2d0d0957317fa21bbc6277e3008a8e28182cc1bc322fe881639f584585e69",
+      "local_bytes": 2100521
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-book.pdf",
+      "bytes": 1623804,
+      "download_sha256": "5401f2617ffedfa4fa744e344d69f2a94ca06da05155ea5cbe99c79f924cd8f9",
+      "content_type": "application/pdf",
+      "local_sha256": "5401f2617ffedfa4fa744e344d69f2a94ca06da05155ea5cbe99c79f924cd8f9",
+      "local_bytes": 1623804
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C2/C2-slides.pdf",
+      "bytes": 1728167,
+      "download_sha256": "585b6f2fd1a8ebbe140ea1da84a924e0c395e813ebbae282f780328dc41fe069",
+      "content_type": "application/pdf",
+      "local_sha256": "585b6f2fd1a8ebbe140ea1da84a924e0c395e813ebbae282f780328dc41fe069",
+      "local_bytes": 1728167
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-book.pdf",
+      "bytes": 1598877,
+      "download_sha256": "1c7d86e55e25ae9192cae3d4acca44ed04e9bb62d877a5f1b39edd93f11cc3b1",
+      "content_type": "application/pdf",
+      "local_sha256": "1c7d86e55e25ae9192cae3d4acca44ed04e9bb62d877a5f1b39edd93f11cc3b1",
+      "local_bytes": 1598877
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C3/C3-slides.pdf",
+      "bytes": 1758135,
+      "download_sha256": "26a373c7673bc99bf2b1d3b4d661e856ad409da3e2cf4d7adc9cbad6a41e841b",
+      "content_type": "application/pdf",
+      "local_sha256": "26a373c7673bc99bf2b1d3b4d661e856ad409da3e2cf4d7adc9cbad6a41e841b",
+      "local_bytes": 1758135
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-book.pdf",
+      "bytes": 1533854,
+      "download_sha256": "b8eded4ffbb5c4fd1b5cc2820a83a333848f6181e3c6dfe61d05e3291daeb099",
+      "content_type": "application/pdf",
+      "local_sha256": "b8eded4ffbb5c4fd1b5cc2820a83a333848f6181e3c6dfe61d05e3291daeb099",
+      "local_bytes": 1533854
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C4/C4-slides.pdf",
+      "bytes": 1578038,
+      "download_sha256": "9924227971740b563710e695660e85c387ae764180b81aa8ce05a881ac78ff1a",
+      "content_type": "application/pdf",
+      "local_sha256": "9924227971740b563710e695660e85c387ae764180b81aa8ce05a881ac78ff1a",
+      "local_bytes": 1578038
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-book.pdf",
+      "bytes": 1555537,
+      "download_sha256": "2af2955500ff78ed0cca01b05dd9b8782abe2153cdd72e53af4049aa38bf044b",
+      "content_type": "application/pdf",
+      "local_sha256": "2af2955500ff78ed0cca01b05dd9b8782abe2153cdd72e53af4049aa38bf044b",
+      "local_bytes": 1555537
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C5/C5-slides.pdf",
+      "bytes": 1669667,
+      "download_sha256": "50561b68ef516bbc93b4b464f134721f86bf9f9b016bdc73e9c82c368a10e048",
+      "content_type": "application/pdf",
+      "local_sha256": "50561b68ef516bbc93b4b464f134721f86bf9f9b016bdc73e9c82c368a10e048",
+      "local_bytes": 1669667
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-book.pdf",
+      "bytes": 1495091,
+      "download_sha256": "7960405c46eb300da4994c98bdec601e67e7c0de64eb7024c561d1987a460405",
+      "content_type": "application/pdf",
+      "local_sha256": "7960405c46eb300da4994c98bdec601e67e7c0de64eb7024c561d1987a460405",
+      "local_bytes": 1495091
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C6/C6-slides.pdf",
+      "bytes": 1570491,
+      "download_sha256": "27c3b9b404624685710e5312c305e9c418d0493f590357befa91969906800d79",
+      "content_type": "application/pdf",
+      "local_sha256": "27c3b9b404624685710e5312c305e9c418d0493f590357befa91969906800d79",
+      "local_bytes": 1570491
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-book.pdf",
+      "bytes": 1577030,
+      "download_sha256": "88e2ec8dbfbeabba64d82596bc552057f633987d8fd5f07f41e1356e68b972e2",
+      "content_type": "application/pdf",
+      "local_sha256": "88e2ec8dbfbeabba64d82596bc552057f633987d8fd5f07f41e1356e68b972e2",
+      "local_bytes": 1577030
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C7/C7-slides.pdf",
+      "bytes": 1661759,
+      "download_sha256": "2a1554b570d683594a3ef712a4df6ed5fd9a19dfb1798f6125baa19dc0aa44c2",
+      "content_type": "application/pdf",
+      "local_sha256": "2a1554b570d683594a3ef712a4df6ed5fd9a19dfb1798f6125baa19dc0aa44c2",
+      "local_bytes": 1661759
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-book.pdf",
+      "bytes": 1981669,
+      "download_sha256": "1a00ce8fc9f1134d75bf62b273b14f7bf8e649ab9d4445843e1bc517ae39d197",
+      "content_type": "application/pdf",
+      "local_sha256": "1a00ce8fc9f1134d75bf62b273b14f7bf8e649ab9d4445843e1bc517ae39d197",
+      "local_bytes": 1981669
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C8/C8-slides.pdf",
+      "bytes": 2129597,
+      "download_sha256": "25c546245e6ae7c314a860cc6fa1c6f0ed1f4c2db94c108ee8eab2f5ac1bdce7",
+      "content_type": "application/pdf",
+      "local_sha256": "25c546245e6ae7c314a860cc6fa1c6f0ed1f4c2db94c108ee8eab2f5ac1bdce7",
+      "local_bytes": 2129597
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-book.pdf",
+      "bytes": 1516470,
+      "download_sha256": "8caf7d51c24eb767e4495acbe05f41730ab359c4e3918b90f2eb0879e7f2da7d",
+      "content_type": "application/pdf",
+      "local_sha256": "8caf7d51c24eb767e4495acbe05f41730ab359c4e3918b90f2eb0879e7f2da7d",
+      "local_bytes": 1516470
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-slides.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-slides.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Public/C9/C9-slides.pdf",
+      "bytes": 1623505,
+      "download_sha256": "32f25e6eee8017dce35555b7496c66483c399497cb7290849d71f78859ecd7a3",
+      "content_type": "application/pdf",
+      "local_sha256": "32f25e6eee8017dce35555b7496c66483c399497cb7290849d71f78859ecd7a3",
+      "local_bytes": 1623505
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/read_bank_ascii.c",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/read_bank_ascii.c",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/read_bank_ascii.c",
+      "bytes": 326,
+      "download_sha256": "e64575e4232dd024449b9805ca874fbfd61502e93c15d1986370acaacb735d0b",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "e64575e4232dd024449b9805ca874fbfd61502e93c15d1986370acaacb735d0b",
+      "local_bytes": 326
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/read_bank_binary.c",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/read_bank_binary.c",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-banque/read_bank_binary.c",
+      "bytes": 263,
+      "download_sha256": "445fede46bb3ca38b736b738c2d6fbbcf4c6bc6a6388e6c1a6208c077ee9a620",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "445fede46bb3ca38b736b738c2d6fbbcf4c6bc6a6388e6c1a6208c077ee9a620",
+      "local_bytes": 263
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-encode/encode.c",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-encode/encode.c",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-encode/encode.c",
+      "bytes": 1171,
+      "download_sha256": "07e3e5fe42bbb8f961961955e7139e87bbcaf21abcad2f1803c60d692ad6a21b",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "07e3e5fe42bbb8f961961955e7139e87bbcaf21abcad2f1803c60d692ad6a21b",
+      "local_bytes": 1171
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/generate.c",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/generate.c",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/generate.c",
+      "bytes": 880,
+      "download_sha256": "9651f84d6a612d1b2ee98ef7b6c8c914dc8f7d876be2e66c8b6c630cc7f4d243",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "9651f84d6a612d1b2ee98ef7b6c8c914dc8f7d876be2e66c8b6c630cc7f4d243",
+      "local_bytes": 880
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/modify.c",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/modify.c",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/modify.c",
+      "bytes": 1146,
+      "download_sha256": "7d5e9d500973317f9e76651a8174f8f43d4f59838ae65bb9a58090eb17d25bb7",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "7d5e9d500973317f9e76651a8174f8f43d4f59838ae65bb9a58090eb17d25bb7",
+      "local_bytes": 1146
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/student.h",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/student.h",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4/TP/exo-notes/student.h",
+      "bytes": 113,
+      "download_sha256": "6489ef5c8e9fb2d577c165a26571ba7ed9ecdb17c70bc5592ea673adfd7aab65",
+      "content_type": "text/plain; charset=UTF-8",
+      "local_sha256": "6489ef5c8e9fb2d577c165a26571ba7ed9ecdb17c70bc5592ea673adfd7aab65",
+      "local_bytes": 113
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C1.tgz",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C1.tgz",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C1.tgz",
+      "bytes": 1854,
+      "download_sha256": "65dc39345e8412a82c36123ac009695c9b5dee5fb29a9060f8fd60a27782b35b",
+      "content_type": "application/x-gzip",
+      "local_sha256": "65dc39345e8412a82c36123ac009695c9b5dee5fb29a9060f8fd60a27782b35b",
+      "local_bytes": 1854
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C11.tgz",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C11.tgz",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C11.tgz",
+      "bytes": 1234,
+      "download_sha256": "4d3943b058370e49eeaab3f89ba79104bf00e005ec6d5faa3148cad63e3c56b2",
+      "content_type": "application/x-gzip",
+      "local_sha256": "4d3943b058370e49eeaab3f89ba79104bf00e005ec6d5faa3148cad63e3c56b2",
+      "local_bytes": 1234
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C2.tgz",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C2.tgz",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C2.tgz",
+      "bytes": 10814,
+      "download_sha256": "731f9f554d8cd2c84d1a9765f81fd4526922635824de08ecd87f63765db43d26",
+      "content_type": "application/x-gzip",
+      "local_sha256": "731f9f554d8cd2c84d1a9765f81fd4526922635824de08ecd87f63765db43d26",
+      "local_bytes": 10814
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C3.tgz",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C3.tgz",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C3.tgz",
+      "bytes": 2831,
+      "download_sha256": "4cdce45845b4776151bf4face000f00660d7de9aa0cabf635355c7c765ea13b9",
+      "content_type": "application/x-gzip",
+      "local_sha256": "4cdce45845b4776151bf4face000f00660d7de9aa0cabf635355c7c765ea13b9",
+      "local_bytes": 2831
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C7.tgz",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C7.tgz",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Exemples/C7.tgz",
+      "bytes": 1815,
+      "download_sha256": "a3de6c2ceb87bd1f1f03a863c588ba501733f5e9a8dd2aa1e80d364ea1c03d67",
+      "content_type": "application/x-gzip",
+      "local_sha256": "a3de6c2ceb87bd1f1f03a863c588ba501733f5e9a8dd2aa1e80d364ea1c03d67",
+      "local_bytes": 1815
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-book.pdf",
+      "bytes": 2278662,
+      "download_sha256": "86f55bc3d9e4d37ee6744feaec84b9b605c0437e5c3b042f034d6f475e3ba4e8",
+      "content_type": "application/pdf",
+      "local_sha256": "86f55bc3d9e4d37ee6744feaec84b9b605c0437e5c3b042f034d6f475e3ba4e8",
+      "local_bytes": 2278662
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-book.pdf",
+      "bytes": 289575,
+      "download_sha256": "1193ba41ad62cb223d269e2f711ea4bd7b5bbd11973f28ab743f24758b95fba3",
+      "content_type": "application/pdf",
+      "local_sha256": "1193ba41ad62cb223d269e2f711ea4bd7b5bbd11973f28ab743f24758b95fba3",
+      "local_bytes": 289575
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-book.pdf",
+      "bytes": 263400,
+      "download_sha256": "9b99f41f7eaeed55509c1725e9f6f68653de31350301b24cd68de048d407168d",
+      "content_type": "application/pdf",
+      "local_sha256": "9b99f41f7eaeed55509c1725e9f6f68653de31350301b24cd68de048d407168d",
+      "local_bytes": 263400
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-book.pdf",
+      "bytes": 257813,
+      "download_sha256": "929aa4aa6b4f472925dc34efc8c641ada63c11be9aa3eba9639c9ece4568d393",
+      "content_type": "application/pdf",
+      "local_sha256": "929aa4aa6b4f472925dc34efc8c641ada63c11be9aa3eba9639c9ece4568d393",
+      "local_bytes": 257813
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-book.pdf",
+      "bytes": 290278,
+      "download_sha256": "f9fc7e6f24f2c872f675ec89022a54da48c52184e03edd1ee4605557f15b591c",
+      "content_type": "application/pdf",
+      "local_sha256": "f9fc7e6f24f2c872f675ec89022a54da48c52184e03edd1ee4605557f15b591c",
+      "local_bytes": 290278
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-book.pdf",
+      "bytes": 1357096,
+      "download_sha256": "645628901c3e692cea6c782dff205a10d88f8132551900885ba11d5678f6cabf",
+      "content_type": "application/pdf",
+      "local_sha256": "645628901c3e692cea6c782dff205a10d88f8132551900885ba11d5678f6cabf",
+      "local_bytes": 1357096
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-book.pdf",
+      "bytes": 1101408,
+      "download_sha256": "f99ce4aaf9c5215d92069a0992d50fe70c48df49e216384757d75e4cff888494",
+      "content_type": "application/pdf",
+      "local_sha256": "f99ce4aaf9c5215d92069a0992d50fe70c48df49e216384757d75e4cff888494",
+      "local_bytes": 1101408
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-book.pdf",
+      "bytes": 1063584,
+      "download_sha256": "4e4dfaadb9864bc6bddf02f7b79222e16bfc4d947ada373cf86c7317e173f497",
+      "content_type": "application/pdf",
+      "local_sha256": "4e4dfaadb9864bc6bddf02f7b79222e16bfc4d947ada373cf86c7317e173f497",
+      "local_bytes": 1063584
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-book.pdf",
+      "bytes": 4049834,
+      "download_sha256": "b4ad7de7b9e49484e08adff96c793f924bcac03b692f97e143fffb4521269d42",
+      "content_type": "application/pdf",
+      "local_sha256": "b4ad7de7b9e49484e08adff96c793f924bcac03b692f97e143fffb4521269d42",
+      "local_bytes": 4049834
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-book.pdf",
+      "bytes": 1436859,
+      "download_sha256": "65a68ce198870991ab60b5aa3f87f89742c4a44031ab688a1cc6587798edb6b5",
+      "content_type": "application/pdf",
+      "local_sha256": "65a68ce198870991ab60b5aa3f87f89742c4a44031ab688a1cc6587798edb6b5",
+      "local_bytes": 1436859
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/poly/poly-book.pdf",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/poly/poly-book.pdf",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/poly/poly-book.pdf",
+      "bytes": 8894765,
+      "download_sha256": "6cfd5f9e60e2d17f1baff2fb5398fc6f153da238196ef354f0002f585ba920bb",
+      "content_type": "application/pdf",
+      "local_sha256": "6cfd5f9e60e2d17f1baff2fb5398fc6f153da238196ef354f0002f585ba920bb",
+      "local_bytes": 8894765
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js",
+      "final_url": "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js",
+      "path": "Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js",
+      "bytes": 1382,
+      "download_sha256": "182222ac065896b494518316a8865e08f81f345143de8a8cccb15fa30e9d417e",
+      "content_type": "application/javascript; charset=utf-8",
+      "local_sha256": "182222ac065896b494518316a8865e08f81f345143de8a8cccb15fa30e9d417e",
+      "local_bytes": 1382
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js",
+      "final_url": "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js",
+      "path": "Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js",
+      "bytes": 18443,
+      "download_sha256": "7285646ea1d6480a26b5c3d66f75edac636a664b9ef84bbd5fb63122065bb668",
+      "content_type": "application/javascript; charset=utf-8",
+      "local_sha256": "7285646ea1d6480a26b5c3d66f75edac636a664b9ef84bbd5fb63122065bb668",
+      "local_bytes": 18443
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/chps/paam/paam.css",
+      "final_url": "https://cs.ip-paris.fr/courses/chps/paam/paam.css",
+      "path": "Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css",
+      "bytes": 285,
+      "download_sha256": "6a25163314bf78308b1c0e6a2f5766b6cbcf5621d4b5738e42529654fb9ca90d",
+      "content_type": "text/css",
+      "local_sha256": "6a25163314bf78308b1c0e6a2f5766b6cbcf5621d4b5738e42529654fb9ca90d",
+      "local_bytes": 285
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css",
+      "bytes": 9844,
+      "download_sha256": "e37b89a3faaf8c56aac633d4bccedc69e9eb59c469d65476e2c53d628a8dc1ac",
+      "content_type": "text/css",
+      "local_sha256": "e37b89a3faaf8c56aac633d4bccedc69e9eb59c469d65476e2c53d628a8dc1ac",
+      "local_bytes": 9844
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js",
+      "bytes": 8107,
+      "download_sha256": "c4ad8de93997269b3b16e8d1c9fba64e5bc2b251fb3d85a8df5f1710310f9cb9",
+      "content_type": "application/javascript",
+      "local_sha256": "c4ad8de93997269b3b16e8d1c9fba64e5bc2b251fb3d85a8df5f1710310f9cb9",
+      "local_bytes": 8107
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "bytes": 3927,
+      "download_sha256": "a531731ec8757beaf3f7ba63354a7280c6f03f364cde22378cf77d9383c14e4a",
+      "content_type": "text/css",
+      "local_sha256": "a531731ec8757beaf3f7ba63354a7280c6f03f364cde22378cf77d9383c14e4a",
+      "local_bytes": 3927
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "bytes": 359044,
+      "download_sha256": "793de64b2b9abc164ea7c066cdc60b196af57cdb0eb4507d652a3c2725ae08a7",
+      "content_type": "image/png",
+      "local_sha256": "793de64b2b9abc164ea7c066cdc60b196af57cdb0eb4507d652a3c2725ae08a7",
+      "local_bytes": 359044
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "bytes": 78047,
+      "download_sha256": "115dd6657ebfc3f8a446924f73989d7cd42a6884378371ac5a2faead50e9bd7e",
+      "content_type": "image/png",
+      "local_sha256": "115dd6657ebfc3f8a446924f73989d7cd42a6884378371ac5a2faead50e9bd7e",
+      "local_bytes": 78047
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "bytes": 482,
+      "download_sha256": "1804faba4daea94a2f39413307a77e6ce0ae2748822f59261381250720a38930",
+      "content_type": "text/css",
+      "local_sha256": "1804faba4daea94a2f39413307a77e6ce0ae2748822f59261381250720a38930",
+      "local_bytes": 482
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "bytes": 225383,
+      "download_sha256": "9c941caf9b19cfd14ab081c775d1922c01566e442694b6d9053d0b1cea17c26e",
+      "content_type": "image/png",
+      "local_sha256": "9c941caf9b19cfd14ab081c775d1922c01566e442694b6d9053d0b1cea17c26e",
+      "local_bytes": 225383
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "bytes": 226060,
+      "download_sha256": "4516b8ced2f7324a83f27c747a54abac392f11e1697c37309c317cc7627928f5",
+      "content_type": "image/png",
+      "local_sha256": "4516b8ced2f7324a83f27c747a54abac392f11e1697c37309c317cc7627928f5",
+      "local_bytes": 226060
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "bytes": 301640,
+      "download_sha256": "1d247056482ff9c1992c39fc97436a76252d1b92f1b8eec891241a6de8cac23f",
+      "content_type": "image/png",
+      "local_sha256": "1d247056482ff9c1992c39fc97436a76252d1b92f1b8eec891241a6de8cac23f",
+      "local_bytes": 301640
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "bytes": 6702,
+      "download_sha256": "3bea271947b0b6b8dbeea971570f56759650c11d31cb78471d3f5696e0625e7a",
+      "content_type": "application/javascript",
+      "local_sha256": "3bea271947b0b6b8dbeea971570f56759650c11d31cb78471d3f5696e0625e7a",
+      "local_bytes": 6702
+    },
+    {
+      "url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "final_url": "https://cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "path": "Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "bytes": 13218,
+      "download_sha256": "c679c3a3e8c25693d0534ec9aefa6668d48b6c2dd28d3c86be758a2d44b7d7f8",
+      "content_type": "text/css",
+      "local_sha256": "c679c3a3e8c25693d0534ec9aefa6668d48b6c2dd28d3c86be758a2d44b7d7f8",
+      "local_bytes": 13218
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Open+Sans&",
+      "final_url": "https://fonts.googleapis.com/css?family=Open+Sans&",
+      "path": "Supplementary/fonts.googleapis.com/css/index.html",
+      "bytes": 246,
+      "download_sha256": "faac1a0960db606a58c655115e02d473c523b8cb2b3d40b760259c3c42b04cae",
+      "content_type": "text/css; charset=utf-8",
+      "local_sha256": "faac1a0960db606a58c655115e02d473c523b8cb2b3d40b760259c3c42b04cae",
+      "local_bytes": 246
+    },
+    {
+      "url": "https://use.fontawesome.com/releases/v5.7.0/css/all.css",
+      "final_url": "https://use.fontawesome.com/releases/v5.7.0/css/all.css",
+      "path": "Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css",
+      "bytes": 54641,
+      "download_sha256": "afdc6bf2de981ffd7d370b76f44e7580572f197efbe214b9cfa4005d189d8eae",
+      "content_type": "text/css",
+      "local_sha256": "afdc6bf2de981ffd7d370b76f44e7580572f197efbe214b9cfa4005d189d8eae",
+      "local_bytes": 54641
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/infra-web-cours/current/tsp.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/infra-web-cours/current/tsp.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/infra-web-cours/current/tsp.css",
+      "bytes": 9844,
+      "download_sha256": "e37b89a3faaf8c56aac633d4bccedc69e9eb59c469d65476e2c53d628a8dc1ac",
+      "content_type": "text/css",
+      "local_sha256": "e37b89a3faaf8c56aac633d4bccedc69e9eb59c469d65476e2c53d628a8dc1ac",
+      "local_bytes": 9844
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/infra-web-cours/current/tsp.js",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/infra-web-cours/current/tsp.js",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/infra-web-cours/current/tsp.js",
+      "bytes": 8107,
+      "download_sha256": "c4ad8de93997269b3b16e8d1c9fba64e5bc2b251fb3d85a8df5f1710310f9cb9",
+      "content_type": "application/javascript",
+      "local_sha256": "c4ad8de93997269b3b16e8d1c9fba64e5bc2b251fb3d85a8df5f1710310f9cb9",
+      "local_bytes": 8107
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "bytes": 3927,
+      "download_sha256": "a531731ec8757beaf3f7ba63354a7280c6f03f364cde22378cf77d9383c14e4a",
+      "content_type": "text/css",
+      "local_sha256": "a531731ec8757beaf3f7ba63354a7280c6f03f364cde22378cf77d9383c14e4a",
+      "local_bytes": 3927
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "bytes": 359044,
+      "download_sha256": "793de64b2b9abc164ea7c066cdc60b196af57cdb0eb4507d652a3c2725ae08a7",
+      "content_type": "image/png",
+      "local_sha256": "793de64b2b9abc164ea7c066cdc60b196af57cdb0eb4507d652a3c2725ae08a7",
+      "local_bytes": 359044
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "bytes": 78047,
+      "download_sha256": "115dd6657ebfc3f8a446924f73989d7cd42a6884378371ac5a2faead50e9bd7e",
+      "content_type": "image/png",
+      "local_sha256": "115dd6657ebfc3f8a446924f73989d7cd42a6884378371ac5a2faead50e9bd7e",
+      "local_bytes": 78047
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "bytes": 482,
+      "download_sha256": "1804faba4daea94a2f39413307a77e6ce0ae2748822f59261381250720a38930",
+      "content_type": "text/css",
+      "local_sha256": "1804faba4daea94a2f39413307a77e6ce0ae2748822f59261381250720a38930",
+      "local_bytes": 482
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "bytes": 225383,
+      "download_sha256": "9c941caf9b19cfd14ab081c775d1922c01566e442694b6d9053d0b1cea17c26e",
+      "content_type": "image/png",
+      "local_sha256": "9c941caf9b19cfd14ab081c775d1922c01566e442694b6d9053d0b1cea17c26e",
+      "local_bytes": 225383
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "bytes": 226060,
+      "download_sha256": "4516b8ced2f7324a83f27c747a54abac392f11e1697c37309c317cc7627928f5",
+      "content_type": "image/png",
+      "local_sha256": "4516b8ced2f7324a83f27c747a54abac392f11e1697c37309c317cc7627928f5",
+      "local_bytes": 226060
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "bytes": 301640,
+      "download_sha256": "1d247056482ff9c1992c39fc97436a76252d1b92f1b8eec891241a6de8cac23f",
+      "content_type": "image/png",
+      "local_sha256": "1d247056482ff9c1992c39fc97436a76252d1b92f1b8eec891241a6de8cac23f",
+      "local_bytes": 301640
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "bytes": 6702,
+      "download_sha256": "3bea271947b0b6b8dbeea971570f56759650c11d31cb78471d3f5696e0625e7a",
+      "content_type": "application/javascript",
+      "local_sha256": "3bea271947b0b6b8dbeea971570f56759650c11d31cb78471d3f5696e0625e7a",
+      "local_bytes": 6702
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/COURS/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "bytes": 13218,
+      "download_sha256": "c679c3a3e8c25693d0534ec9aefa6668d48b6c2dd28d3c86be758a2d44b7d7f8",
+      "content_type": "text/css",
+      "local_sha256": "c679c3a3e8c25693d0534ec9aefa6668d48b6c2dd28d3c86be758a2d44b7d7f8",
+      "local_bytes": 13218
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/infra-web-cours/current/tsp.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/infra-web-cours/current/tsp.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/infra-web-cours/current/tsp.css",
+      "bytes": 9844,
+      "download_sha256": "e37b89a3faaf8c56aac633d4bccedc69e9eb59c469d65476e2c53d628a8dc1ac",
+      "content_type": "text/css",
+      "local_sha256": "e37b89a3faaf8c56aac633d4bccedc69e9eb59c469d65476e2c53d628a8dc1ac",
+      "local_bytes": 9844
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/infra-web-cours/current/tsp.js",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/infra-web-cours/current/tsp.js",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/infra-web-cours/current/tsp.js",
+      "bytes": 8107,
+      "download_sha256": "c4ad8de93997269b3b16e8d1c9fba64e5bc2b251fb3d85a8df5f1710310f9cb9",
+      "content_type": "application/javascript",
+      "local_sha256": "c4ad8de93997269b3b16e8d1c9fba64e5bc2b251fb3d85a8df5f1710310f9cb9",
+      "local_bytes": 8107
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css",
+      "bytes": 3927,
+      "download_sha256": "a531731ec8757beaf3f7ba63354a7280c6f03f364cde22378cf77d9383c14e4a",
+      "content_type": "text/css",
+      "local_sha256": "a531731ec8757beaf3f7ba63354a7280c6f03f364cde22378cf77d9383c14e4a",
+      "local_bytes": 3927
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/imt.jpg",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/imt.jpg",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/imt.jpg",
+      "bytes": 99044,
+      "download_sha256": "4059fc562eec464c395477a6937f4edb7d352ce4a6c5db0d0dd18e8e4d6ed537",
+      "content_type": "image/jpeg",
+      "local_sha256": "4059fc562eec464c395477a6937f4edb7d352ce4a6c5db0d0dd18e8e4d6ed537",
+      "local_bytes": 99044
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png",
+      "bytes": 359044,
+      "download_sha256": "793de64b2b9abc164ea7c066cdc60b196af57cdb0eb4507d652a3c2725ae08a7",
+      "content_type": "image/png",
+      "local_sha256": "793de64b2b9abc164ea7c066cdc60b196af57cdb0eb4507d652a3c2725ae08a7",
+      "local_bytes": 359044
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png",
+      "bytes": 78047,
+      "download_sha256": "115dd6657ebfc3f8a446924f73989d7cd42a6884378371ac5a2faead50e9bd7e",
+      "content_type": "image/png",
+      "local_sha256": "115dd6657ebfc3f8a446924f73989d7cd42a6884378371ac5a2faead50e9bd7e",
+      "local_bytes": 78047
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css",
+      "bytes": 482,
+      "download_sha256": "1804faba4daea94a2f39413307a77e6ce0ae2748822f59261381250720a38930",
+      "content_type": "text/css",
+      "local_sha256": "1804faba4daea94a2f39413307a77e6ce0ae2748822f59261381250720a38930",
+      "local_bytes": 482
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png",
+      "bytes": 225383,
+      "download_sha256": "9c941caf9b19cfd14ab081c775d1922c01566e442694b6d9053d0b1cea17c26e",
+      "content_type": "image/png",
+      "local_sha256": "9c941caf9b19cfd14ab081c775d1922c01566e442694b6d9053d0b1cea17c26e",
+      "local_bytes": 225383
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png",
+      "bytes": 226060,
+      "download_sha256": "4516b8ced2f7324a83f27c747a54abac392f11e1697c37309c317cc7627928f5",
+      "content_type": "image/png",
+      "local_sha256": "4516b8ced2f7324a83f27c747a54abac392f11e1697c37309c317cc7627928f5",
+      "local_bytes": 226060
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png",
+      "bytes": 301640,
+      "download_sha256": "1d247056482ff9c1992c39fc97436a76252d1b92f1b8eec891241a6de8cac23f",
+      "content_type": "image/png",
+      "local_sha256": "1d247056482ff9c1992c39fc97436a76252d1b92f1b8eec891241a6de8cac23f",
+      "local_bytes": 301640
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js",
+      "bytes": 6702,
+      "download_sha256": "3bea271947b0b6b8dbeea971570f56759650c11d31cb78471d3f5696e0625e7a",
+      "content_type": "application/javascript",
+      "local_sha256": "3bea271947b0b6b8dbeea971570f56759650c11d31cb78471d3f5696e0625e7a",
+      "local_bytes": 6702
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css",
+      "bytes": 13218,
+      "download_sha256": "c679c3a3e8c25693d0534ec9aefa6668d48b6c2dd28d3c86be758a2d44b7d7f8",
+      "content_type": "text/css",
+      "local_sha256": "c679c3a3e8c25693d0534ec9aefa6668d48b6c2dd28d3c86be758a2d44b7d7f8",
+      "local_bytes": 13218
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/tsp.png",
+      "bytes": 19680,
+      "download_sha256": "16a5c9a5654791ca97c3790ec629eb691e0bc603963ec9c303dba03d0b4d9389",
+      "content_type": "image/png",
+      "local_sha256": "16a5c9a5654791ca97c3790ec629eb691e0bc603963ec9c303dba03d0b4d9389",
+      "local_bytes": 19680
+    },
+    {
+      "url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/tsp/style.css",
+      "final_url": "https://www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/tsp/style.css",
+      "path": "Supplementary/www-inf.telecom-sudparis.eu/cours/infra-web-cours/wp/wp-content/themes/tsp-inf/tsp/style.css",
+      "bytes": 405,
+      "download_sha256": "23b3d8b45e37cf4b9b069a262a2df756f4fa4977e11fed90af1ab1224476020f",
+      "content_type": "text/css",
+      "local_sha256": "23b3d8b45e37cf4b9b069a262a2df756f4fa4977e11fed90af1ab1224476020f",
+      "local_bytes": 405
+    }
+  ],
+  "failures": {
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf",
+    "https://pages.saclay.inria.fr/gael.thomas/research/biblio/2021/dulong-dsn-nvcache.pdf": "HTTPSConnectionPool(host='pages.saclay.inria.fr', port=443): Max retries exceeded with url: /gael.thomas/research/biblio/2021/dulong-dsn-nvcache.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Poly/poly-1pp_french_2020.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/Public/Poly/poly-1pp_french_2020.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C1/C1-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C11/C11-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C13/C13-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C2/C2-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C3/C3-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C4/C4-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C5/C5-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C7/C7-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/C9/C9-slides.pdf",
+    "https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-slides.pdf": "404 Client Error: Not Found for url: https://www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-slides.pdf"
+  },
+  "validation": {
+    "pdfs_valid": 36,
+    "archives_valid": 5,
+    "broken_local_links": [],
+    "missing_content_pages": [
+      "https://www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/?page=ci1/TP/TP1&soluce=true",
+      "https://www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/?page=multicore/tp-multicore&wrap=true&soluce=true"
+    ]
+  }
+}

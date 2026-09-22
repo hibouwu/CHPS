@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>线程与同步 · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}.partie{display:block;font-size:20px;font-weight:700;color:#174767;margin:26px 0 14px}</style><style id="paam-answer-style">
+details.paam-answer{display:block;clear:both;border:1px solid #9fbdd3;border-left:4px solid #34789f;background:#f3f8fc;border-radius:5px;margin:18px 0;padding:12px 18px;font:16px/1.8 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif;color:#253b4b;counter-reset:none}
+details.paam-answer>summary{cursor:pointer;font-weight:700;color:#18557b;display:list-item}details.paam-answer[open]>summary{margin-bottom:12px}.paam-answer p{display:block;margin:12px 0}.paam-answer ul,.paam-answer ol{padding-left:1.7em}.paam-answer li{margin:7px 0}.paam-answer code{font-size:.9em;white-space:normal;overflow-wrap:anywhere}.paam-answer .answer-language{font-size:14px;border-top:1px solid #ccdce8;padding-top:10px;margin-top:16px}.paam-answer-note{display:block;padding:12px 16px;margin:18px 0;background:#eef5fa;border-left:4px solid #34789f;font-size:15px;color:#314c61}
+</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a aria-current="page" href="../tp-threads/tp-threads_zh.html">线程与同步</a><a href="../tp-locks/tp-locks_zh.html">锁算法</a><a href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a href="../tp-stm/tp-stm_zh.html">事务内存</a><a href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html">非易失性内存</a></nav><div><a href="tp-threads.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/01-threads_zh.md">中文讲义</a> · <a href="../../Lectures/01-threads.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。练习、问题和分节编号与英文原版一致；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content"><aside class="paam-answer-note">各题下方新增了可展开的补充答案与实现思路，题号与英文版一致。这些是自学补充内容，并非教师原站提供的官方答案；原题和原站参考代码继续保留。</aside>
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">线程与同步</h2>
+<div class="chapitre-content" id="chapitre-idm45726241872608">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 1：创建第一个线程程序</h3>
+<div class="exercice-content" id="exercice-idm45726242418048">
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.a.</h4>
+<div class="question-content" id="question-idm45726242238960">
+<p class="inline-paragraph">用 C 编写一个程序，通过 <code>pthread_create</code> 创建 N 个线程，其中 <code>N</code> 由程序的第一个参数给出。每个线程向终端输出 "[tid] Hello, World i!!!"，其中：</p>
+<ul>
+<li><code>tid</code> 是 <code>pthread_self</code> 返回的线程标识；</li>
+<li><code>i</code> 是 <code>main</code> 为每个线程依次分配的编号：第一个线程为 0，第二个为 1，依此类推。</li>
+</ul>
+<details class="paam-answer" data-question="1.a" id="answer-1-a" lang="zh-CN"><summary>补充答案与思路 · 1.a</summary><div class="paam-answer-body"><p>先解析并检查参数 N，准备 N 个 <code>pthread_t</code> 来保存创建成功的线程标识，再调用 <code>pthread_create</code> 启动各线程。入口函数取得自己的编号 i，用 <code>pthread_self()</code> 取得当前线程标识，并输出题目要求的消息。</p>
+<p><strong>每个线程都要有独立、在读取期间仍有效的参数。</strong> 不要把循环变量 <code>&amp;i</code> 反复传给所有线程：创建者还会修改它，新线程读取时编号可能已经改变。可为每个线程分配一份堆上的参数，在线程读完后释放；也可使用参数数组，但数组必须一直存活到所有使用者结束。如果主线程将调用 <code>pthread_exit</code>，不要让工作线程继续依赖主线程栈上的数组。</p>
+<p>检查每次创建是否成功，后续只 join 已成功创建的线程。<code>pthread_t</code> 是线程标识类型，不保证在所有 POSIX 实现上都是可用同一个 printf 格式输出的整数。原站 <code>hello.c</code> 可作思路参考，但其中的 N 固定为 20；完成本题还需改为读取程序参数。</p>
+<p>参阅：<a href="https://man7.org/linux/man-pages/man3/pthread_create.3.html">pthread_create</a>。</p>
+<p><a href="https://man7.org/linux/man-pages/man3/pthread_self.3.html">pthread_self</a></p></div><p class="answer-language"><a href="tp-threads.html#answer-1-a">English answer</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.b.</h4>
+<div class="question-content" id="question-idm45726241530816">
+<p class="inline-paragraph">现在让 <code>main</code> 在函数末尾输出 <code>Main quitting</code>。使用 3 个线程，多运行几次程序。为什么有时会先输出 Main quitting，再输出三个 Hello, World？</p>
+<details class="paam-answer" data-question="1.b" id="answer-1-b" lang="zh-CN"><summary>补充答案与思路 · 1.b</summary><div class="paam-answer-body"><p><code>pthread_create</code> 启动线程，但不会等它输出消息。创建者与新线程谁先运行，由调度（scheduling）决定；没有额外同步时，main 可以先执行到自己的输出语句。</p>
+<p>因此，创建线程的先后顺序不能保证消息的输出顺序。要保证 Main quitting 在最后，必须先等待工作线程完成相应工作，例如使用后面题目中的 <code>pthread_join</code>；加一个固定时长的 sleep 并不能建立这种保证。</p>
+<p>参阅：<a href="https://man7.org/linux/man-pages/man3/pthread_create.3.html">线程创建后的调度</a>。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-1-b">English answer</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.c.</h4>
+<div class="question-content" id="question-idm45726241991072">
+<p class="inline-paragraph">将线程数设为 20，多运行几次。为什么程序经常没有输出满 20 次 Hello, World？</p>
+<details class="paam-answer" data-question="1.c" id="answer-1-c" lang="zh-CN"><summary>补充答案与思路 · 1.c</summary><div class="paam-answer-body"><p>从 <code>main</code> 返回会结束整个进程（process），仍在运行或尚未得到执行机会的工作线程也随之结束。主线程若很快走到函数末尾，一部分线程可能还没执行到 <code>printf</code>，所以看到的输出少于 20 行。</p>
+<p>这不说明线程数量上限就是当前看到的行数。首先检查 20 次 <code>pthread_create</code> 是否都成功，再检查退出与等待方式。后面通过 <code>pthread_exit</code> 或 join 改变进程退出的时机。</p>
+<p>参阅：<a href="https://man7.org/linux/man-pages/man7/pthreads.7.html">main 返回与线程终止</a>。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-1-c">English answer</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.d.</h4>
+<div class="question-content" id="question-idm45726242501072">
+<p class="inline-paragraph">在 <code>main</code> 末尾增加一次 <code>pthread_exit</code> 调用。为什么现在以 20 个线程启动时，总能看到 20 次 Hello, World？</p>
+<details class="paam-answer" data-question="1.d" id="answer-1-d" lang="zh-CN"><summary>补充答案与思路 · 1.d</summary><div class="paam-answer-body"><p><code>pthread_exit</code> 只结束调用它的线程（thread）。主线程这样结束时，其他线程可以继续执行；最后一个线程结束后，进程才正常退出。因此，在 20 个线程都创建成功、参数有效且工作线程正常完成的前提下，它们都有机会输出自己的消息。</p>
+<p><strong>它不等于“主线程等待后继续执行”。</strong> <code>pthread_exit</code> 不返回，所以不要把 Main quitting 放在它后面并期待被执行；它也不会把之前已经打印的 Main quitting 移到其他输出之后。</p>
+<p>参阅：<a href="https://man7.org/linux/man-pages/man3/pthread_exit.3.html">pthread_exit</a>。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-1-d">English answer</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.e.</h4>
+<div class="question-content" id="question-idm45726242346880">
+<p class="inline-paragraph">继续修改，使 Main quitting 一定在所有 Hello, World 都输出之后才出现。</p>
+<details class="paam-answer" data-question="1.e" id="answer-1-e" lang="zh-CN"><summary>补充答案与思路 · 1.e</summary><div class="paam-answer-body"><p>先创建所有工作线程并保存它们的标识，再依次对每个成功创建的线程调用 <code>pthread_join</code>。所有 join 成功返回后，才输出 Main quitting。由于工作线程在返回前已经输出消息，这样就能保证主线程的这条输出位于最后。</p>
+<p>不要在创建循环里每创建一个线程就立即 join 它，否则下一线程要等前一个结束后才会创建，实验几乎变成串行执行。join 的调用顺序不会指定工作线程之间的输出顺序，只保证全部完成以后 main 才继续。</p>
+<p>此时所有工作线程都已结束，main 可以正常返回；不再需要靠 <code>pthread_exit</code> 维持进程存活。</p>
+<p>参阅：<a href="https://man7.org/linux/man-pages/man3/pthread_join.3.html">pthread_join</a>。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-1-e">English answer</a></p></details></div>
+</div>
+<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242421952">
+<div class="code code-block">
+<div class="code-url"><a download="hello.c" href="hello.c">hello.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+
+#define N 20
+
+void* hello(void* _arg) {
+  int* p = _arg;
+  printf("[%llx] Hello from %d\n", (unsigned long long)pthread_self(), *p);
+  free(p);
+  return NULL;
+}
+
+int main(int argc, char* argv[]) {
+  pthread_t tid[N];
+  void* retval;
+
+  for(int i=0; i&lt;N; i++) {
+    int* p = malloc(sizeof(*p));
+    *p = i;
+    pthread_create(&amp;tid[i], NULL, hello, p);
+  }
+
+  for(int i=0; i&lt;N; i++)
+    pthread_join(tid[i], &amp;retval);
+
+  printf("Quitting\n");
+  
+  pthread_exit(NULL);
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 2：共享计数器</h3>
+<div class="exercice-content" id="exercice-idm45726242711440">
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 2.a.</h4>
+<div class="question-content" id="question-idm45726241559520">
+<p class="inline-paragraph">先增加一个名为 <code>counter</code> 的全局变量，初值为 0。每个线程在输出 Hello, World 后将它加一。最后，在 <code>main</code> 调用 <code>pthread_exit</code> 之前输出 <code>counter</code> 的值。</p>
+<p>以 100 个线程运行时，为什么输出的计数器值经常小于 100？修改程序，使程序结束时计数器等于线程数。</p>
+<details class="paam-answer" data-question="2.a" id="answer-2-a" lang="zh-CN"><summary>补充答案与思路 · 2.a</summary><div class="paam-answer-body"><p>需要区分两个问题。</p>
+<ol>
+<li><strong>读取过早。</strong> 如果 main 还没有等待工作线程完成，读取计数器时，一些递增可能尚未发生。若已完整保留 1.e 的 join，这个原因就已排除。</li>
+<li><strong>递增发生竞争。</strong> 普通整数上的 <code>counter++</code> 不保证原子性。用读—改—写模型看，两个线程都读到 0，各自算出 1，再各写回 1，就丢失了一次更新（lost update）。严格按 C 语义，无同步的冲突访问还构成数据竞争（data race），导致未定义行为（undefined behavior），不能把所有运行结果限制为这个简单模型。</li>
+</ol>
+<p>修正时，让所有递增在同一把互斥锁（mutex）保护下执行，并在主线程 join 全部工作线程以后读取最终值。读取时已经不存在并发写入；若还要在运行期间读取计数器，则这些读取也须遵守相同的同步规则。</p>
+<p>也可以使用原子计数器及原子递增，但仍需要处理“什么时候读取”的问题。<strong>只加 join 不会修复工作线程之间的竞争，只加原子递增也不会等待所有线程完成。</strong> 正确同步后，在每个成功创建的线程恰好递增一次的前提下，最终值应等于线程数。</p>
+<p>可对照：<a href="../../Lectures/01-threads_zh.md#lost-update">线程与同步讲义</a>。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-2-a">English answer</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 2.b.</h4>
+<div class="question-content" id="question-idm45726242180816">修改程序，使它只在计数器等于线程数时输出 "Main quitting"。<details class="paam-answer" data-question="2.b" id="answer-2-b" lang="zh-CN"><summary>补充答案与思路 · 2.b</summary><div class="paam-answer-body"><p>可以用计数器作为共享条件，让主线程通过条件变量（condition variable）等待它达到 N。</p>
+<ul>
+<li>工作线程先完成自己的 Hello, World 输出，再获取互斥锁，递增 <code>counter</code>；当它变成 N 时通知等待者，然后解锁。</li>
+<li>main 获取同一把锁，用 <code>while (counter &lt; N)</code> 检查谓词（predicate）；条件不满足就调用 <code>pthread_cond_wait(&amp;done, &amp;mutex)</code>。</li>
+<li>wait 在等待期间释放锁，使工作线程可以递增；返回前重新取得锁。退出 while 后，才输出 Main quitting。</li>
+</ul>
+<p>必须用 while 重查条件，以处理虚假唤醒（spurious wakeup）等情况。如果最后一次通知发生在 main 开始等待之前，计数器已经保存了完成状态，main 会直接跳过等待，因此不依赖条件变量保存过去的通知。</p>
+<p>若要回收 joinable 线程资源，之后仍应 join 所有工作线程。<code>counter == N</code> 只说明各线程已完成递增之前的工作，不一定说明它们已经执行到入口函数的末尾。</p>
+<p>参阅：<a href="https://man7.org/linux/man-pages/man3/pthread_cond_wait.3p.html">条件等待与谓词检查</a>。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-2-b">English answer</a></p></details></div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 3：生产者与消费者</h3>
+<div class="exercice-content" id="exercice-idm45726242452384">
+<p>本练习实现生产者／消费者模型。主线程作为生产者，从标准输入逐行读取文本并放入队列；其他线程作为消费者，按 FIFO（先进先出）顺序从队列中取出这些行并输出。</p>
+<p>使用链表实现队列：第一个节点保存最早入队的行，最后一个节点保存最新入队的行。为避免每次入队都遍历整个链表，需要同时保存指向第一个节点和最后一个节点的指针。</p>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3.a.</h4>
+<div class="question-content" id="question-idm45726242004512">先实现单消费者的单播队列：只有一个消费者从队列取消息。队列为空时，消费者必须通过 <code>pthread_cond_wait</code> 休眠。节点被消费后，要记得释放其内存。<details class="paam-answer" data-question="3.a" id="answer-3-a" lang="zh-CN"><summary>补充答案与思路 · 3.a</summary><div class="paam-answer-body"><p>用头指针 head、尾指针 tail、一把 mutex 和一个条件变量管理队列。单播（unicast）意味着每条消息只由一个消费者取走，本题先只创建一个消费者。</p>
+<p>生产者为每一行准备独立存储，在持锁时把新节点接到 tail 后面；原队列为空时，同时设置 head，再更新 tail 并通知消费者。消费者持锁检查队列，若为空便在 while 循环中调用 <code>pthread_cond_wait</code>；非空时摘下 head，如果队列因此变空，也要将 tail 置空。</p>
+<p>摘下节点后，单消费者独占这个节点，便可解锁、输出消息，再释放消息和节点。不要让所有节点都指向同一个会被下一次输入覆盖的缓冲区。要满足“逐行读取”，可用 <code>getline</code> 或合适的 <code>fgets</code> 处理，而不是用按空白分词的 <code>%s</code> 输入。</p>
+<p>可选完善：在同一把锁下维护 closed 标志。输入结束后设置 closed 并唤醒等待者；消费者只在“队列为空且输入已结束”时退出，否则继续排空队列。原站 <code>spsc.c</code> 用词输入和退出字符串演示同步，并不是完整的逐行输入与 EOF 处理程序。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-3-a">English answer</a></p></details><details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242476352">可以下载 <a href="Makefile">Makefile</a>。<div class="code code-block">
+<div class="code-url"><a download="spsc.c" href="spsc.c">spsc.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;stdint.h&gt;
+
+#define MAX_LENGTH 256
+#define xstr(s) str(s)
+#define str(s) #s
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+
+struct node {
+  struct node* next;
+  char msg[MAX_LENGTH];
+};
+
+struct node* head = NULL;
+struct node* tail = NULL;
+
+void* consumer(void* _arg) {
+  int i = (int)(uintptr_t)_arg;
+
+  for(;;) {
+    pthread_mutex_lock(&amp;mutex);
+    while(head == NULL)
+      pthread_cond_wait(&amp;cond, &amp;mutex);
+
+    struct node* n = head;
+    head = n-&gt;next;
+    if(!head)
+      tail = NULL;
+    pthread_mutex_unlock(&amp;mutex);
+
+    printf("[%d] Receive: %s\n", i, n-&gt;msg);
+    free(n);
+  }
+
+  return 0;
+}
+
+void producer() {
+  for(;;) {
+    struct node* cur = malloc(sizeof(*cur));
+
+    scanf("%"xstr(MAX_LENGTH)"s", cur-&gt;msg);
+
+    if(strncmp(cur-&gt;msg, "exit", MAX_LENGTH) == 0)
+      exit(0);
+
+    cur-&gt;next = NULL;
+    
+    pthread_mutex_lock(&amp;mutex);
+    if(tail)
+      tail-&gt;next = cur;
+    else
+      head = cur;
+    tail = cur;
+    pthread_cond_signal(&amp;cond);
+    pthread_mutex_unlock(&amp;mutex);
+  }
+}
+
+int main(int argc, char** argv) {
+  if(argc != 2) {
+    fprintf(stderr, "Usage: %s nb-threads\n", argv[0]);
+    exit(1);
+  }
+
+  int n = atoi(argv[1]);
+  pthread_t tids[n];
+
+  for(int i=0; i&lt;n; i++)
+    pthread_create(tids + i, NULL, consumer, (void*)(uintptr_t)i);
+
+  producer();
+  
+  for(int i=0; i&lt;n; i++) {
+    void* retval;
+    pthread_join(tids[i], &amp;retval);
+  }
+
+  printf("Main quitting\n");
+  
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3.b. 共享内存中的原子广播（选做，1/2）</h4>
+<div class="question-content" id="question-idm45726242619760">将程序改成多播队列：每个消费者都必须按 FIFO 顺序接收并输出每一行。仍需正确释放链表节点。<details class="paam-answer" data-question="3.b" id="answer-3-b" lang="zh-CN"><summary>补充答案与思路 · 3.b</summary><div class="paam-answer-body"><p>广播（broadcast）要求每个消费者都收到每条消息。仅把 <code>pthread_cond_signal</code> 换成 <code>pthread_cond_broadcast</code> 不够：如果仍让第一个醒来的消费者摘掉 head，其他消费者就再也看不到这条消息。</p>
+<p>一种容易理解的基础方案是让所有消费者围绕当前 head 同步推进。每个节点有序号和剩余消费者数 remaining，初值为固定的消费者总数 N；每个消费者记录自己上一次处理的序号，防止重复处理同一节点。</p>
+<p>在同一把 mutex 下，消费者等待“head 存在且自己尚未处理它”，处理当前消息，再把 remaining 减一。为简化这一版本，可以在锁内完成输出。只有 remaining 变为 0 时，才摘下并释放 head、更新必要的 tail 状态，再广播唤醒各消费者处理下一节点。生产者加入消息时也要唤醒相关等待者。</p>
+<p>这样每条消息恰好处理 N 次，每个消费者保持 FIFO 顺序；代价是快消费者需要等慢消费者。原子广播这里强调各消费者看到相同的消息顺序，不表示整个程序只需一条硬件原子指令。以下一题解除这种逐节点共同推进的限制。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-3-b">English answer</a></p></details></div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3.c. 共享内存中的原子广播（选做，2/2）</h4>
+<div class="question-content" id="question-idm45726241937968">在广播版本上，尝试让各消费者独立向前处理，不必等其他消费者都处理完前一个节点。你的初始版本可能让所有消费者一起处理一个节点，然后才进入下一个；现在要解除这种同步推进的限制。每个消费者内部仍须遵守上一题要求的 FIFO 顺序。<details class="paam-answer" data-question="3.c" id="answer-3-c" lang="zh-CN"><summary>补充答案与思路 · 3.c</summary><div class="paam-answer-body"><p>给每个消费者一个独立游标（cursor），指向它的下一条未读消息，同时为节点维护剩余使用者计数（reference count）。快消费者处理完自己的当前消息后可以继续向后走，无需等待其他消费者；它不能跳过自己的旧消息，所以仍保持自身的 FIFO 顺序。</p>
+<p>一种便于推理的实现仍用全局 mutex：生产者追加节点时，将该节点发布给所有已经到达链尾、正在等新消息的消费者；消费者在锁内复制当前消息、保存后继并前移自己的游标，再递减节点计数。解锁后用副本输出，输出完才处理自己的下一条消息。锁仅保护队列状态和游标操作，不要求所有消费者一起处理同一节点。</p>
+<p>只有当所有消费者都越过节点，而且生产者和共享队列指针也不再需要它时，才可以摘链并释放；若它是最后一个节点，还要同步修正 tail。某个消费者已读完，不足以说明该节点可释放。实现也可使用哨兵节点，但同样必须明确最后一个节点与等待新消息的游标如何衔接。</p>
+<p><strong>原站参考代码有一处需要修正：</strong> <code>mpmc.c</code> 在 <code>free(cons)</code> 后还调用 <code>pthread_mutex_unlock(&amp;cons-&gt;mutex)</code>，访问了已经释放的对象。不能按这个顺序照抄。正确释放需要先证明没有其他使用者，并完成解锁及必要的同步对象清理；简单移动一行 free 并不能替代这个生命期证明。</p>
+</div><p class="answer-language"><a href="tp-threads.html#answer-3-c">English answer</a></p></details><details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726241937680">
+<div class="code code-block">
+<div class="code-url"><a download="mpmc.c" href="mpmc.c">mpmc.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;unistd.h&gt;
+
+#define MAX_LENGTH 256
+#define xstr(s) str(s)
+#define str(s) #s
+
+struct node {
+  char msg[MAX_LENGTH];
+  struct node* next;
+  size_t cpt;
+  pthread_mutex_t mutex;
+  pthread_cond_t cond;
+};
+
+struct thread_arg {
+  struct node* fake;
+  size_t id;
+};
+
+struct node* new_node(size_t n) {
+  struct node* node = malloc(sizeof(*node));
+  
+  node-&gt;next = NULL;
+  node-&gt;cpt = n;
+  pthread_mutex_init(&amp;node-&gt;mutex, NULL);
+  pthread_cond_init(&amp;node-&gt;cond, NULL);
+
+  return node;
+}
+
+struct thread_arg* new_arg(size_t id, struct node* fake) {
+  struct thread_arg* arg = malloc(sizeof(*arg));
+
+  arg-&gt;fake = fake;
+  arg-&gt;id = id;
+  
+  return arg;
+}
+
+void* consumer(void* _arg) {
+  struct thread_arg* arg = _arg;
+  struct node* cons = arg-&gt;fake;
+  size_t id = arg-&gt;id;
+
+  free(arg);
+
+  for(;;) {
+    bool was_free = false;
+    
+    pthread_mutex_lock(&amp;cons-&gt;mutex);
+    while(cons-&gt;next == NULL)
+      pthread_cond_wait(&amp;cons-&gt;cond, &amp;cons-&gt;mutex);
+    char buf[MAX_LENGTH];
+    strncpy(buf, cons-&gt;msg, MAX_LENGTH);
+    struct node* tmp = cons-&gt;next;
+    if(--cons-&gt;cpt == 0) {
+      was_free = true;
+      free(cons);
+    }
+    pthread_mutex_unlock(&amp;cons-&gt;mutex);
+
+    cons = tmp;
+
+    if(strncmp(buf, "exit", MAX_LENGTH) == 0) {
+      printf("===== [%zu] exiting ======\n", id);
+      pthread_exit(NULL);
+    } else {
+      printf("[%zu] receive: %s%s\n", id, buf, was_free ? " (free the node)" : "");
+      // simulate different speeds, consummer i is faster than consummer i+1
+      //usleep((id-1)*100000);
+    }
+  }
+}
+
+// here, the thread_arg is just here if we want to test with multiple producers
+void producer(struct thread_arg* _arg) {
+  struct thread_arg* arg = _arg;
+  struct node* prod = arg-&gt;fake;
+  size_t id = arg-&gt;id;
+
+  free(arg);
+
+  char* poeme[] =
+    {
+      "Avec", "ses", "quatre", "dromadaires",
+      "Don", "Pedro", "d’Alfaroubeira",
+      "courut", "le", "monde", "et", "l’admira",
+      "il", "fit", "ce", "que", "je", "voudrais", "faire",
+      "si", "j’avais", "quatre", "dromadaires",
+      "exit"
+    };
+  size_t i = 0;
+  
+  for(;;) {
+    //char msg[MAX_LENGTH];
+    //scanf("%"xstr(MAX_LENGTH)"s", msg);
+    char* msg = poeme[i++];
+    
+    struct node* next = new_node(prod-&gt;cpt);
+
+    pthread_mutex_lock(&amp;prod-&gt;mutex);
+    printf("[%zu] produce: %s\n", id, msg);
+    prod-&gt;next = next;
+    strncpy(prod-&gt;msg, msg, MAX_LENGTH);
+    pthread_cond_broadcast(&amp;prod-&gt;cond);
+    pthread_mutex_unlock(&amp;prod-&gt;mutex);
+
+    if(strncmp(msg, "exit", MAX_LENGTH) == 0)
+      return;
+
+    prod = next;
+  }
+}
+
+int main(int argc, char** argv) {
+  if(argc != 2) {
+    fprintf(stderr, "Usage: %s nb-threads\n", argv[0]);
+    exit(1);
+  }
+
+  int n = atoi(argv[1]);
+  pthread_t tids[n];
+
+  struct node* list = new_node(n);
+  
+  for(int i=0; i&lt;n; i++)
+    pthread_create(tids + i, NULL, consumer, new_arg(i + 1, list)); // 1...n are the consummers
+
+  producer(new_arg(0, list)); // 0 is the producer
+  
+  for(int i=0; i&lt;n; i++) {
+    void* retval;
+    pthread_join(tids[i], &amp;retval);
+  }
+
+  printf("Main quitting\n");
+  
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><aside class="translator-notes"><h3>阅读时留意</h3><p>最后一道广播题的英文存在拼写问题。这里按其上下文解释为：各消费者可以独立前进，但每个消费者自己的接收顺序仍须符合 FIFO。单播与广播对节点释放时机的要求不同，译文不替代该部分的实现分析。</p></aside><footer>来源：<a href="tp-threads.html">同目录英文原版</a>。中文题面、补充答案和原站参考代码分别标注。参考代码保留原样，本轮未编译或执行。外部参考网站仍需联网。</footer></div></body></html>

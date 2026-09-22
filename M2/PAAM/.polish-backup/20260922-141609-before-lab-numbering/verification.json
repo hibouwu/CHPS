@@ -1,0 +1,111 @@
+[
+  {
+    "page": "Official/Labs/tp-locks/tp-locks_zh.html",
+    "exercises": 1,
+    "questions": [
+      "1.a.",
+      "1.b.",
+      "1.c.",
+      "1.d.",
+      "1.e.",
+      "1.f."
+    ],
+    "parts": [],
+    "english_sha256": "c02dca5aed6234717cdb71c32a676fc5a604165e8cc2f45cd6aaf911fd286e3a"
+  },
+  {
+    "page": "Official/Labs/tp-non-blocking/tp-non-blocking_zh.html",
+    "exercises": 4,
+    "questions": [
+      "1.a.",
+      "1.b.",
+      "1.c.",
+      "1.d.",
+      "1.e.",
+      "1.f.",
+      "4.a.",
+      "4.b.",
+      "4.c.",
+      "4.d.",
+      "4.e.",
+      "4.f.",
+      "4.g."
+    ],
+    "parts": [
+      "第 1 部分：带锁版本",
+      "第 2 部分：无锁版本"
+    ],
+    "english_sha256": "2be244f586756fd63994992d5726f28d3db12e7f7928ac35cf8013112c9861a8"
+  },
+  {
+    "page": "Official/Labs/tp-numa/tp-numa_zh.html",
+    "exercises": 1,
+    "questions": [
+      "1.a.",
+      "1.b.",
+      "1.c.",
+      "1.d.",
+      "1.e.",
+      "1.f.",
+      "1.g.",
+      "1.h.",
+      "1.i.",
+      "1.j.",
+      "1.k.",
+      "1.l."
+    ],
+    "parts": [],
+    "english_sha256": "85f5bd3925dea64e7add1d4f79dcf02d6e17a2d15bae291d5ff032c96fbdbbc3"
+  },
+  {
+    "page": "Official/Labs/tp-nvmm/tp-nvmm_zh.html",
+    "exercises": 1,
+    "questions": [
+      "1.a.",
+      "1.b.",
+      "1.c.",
+      "1.d.",
+      "1.e.",
+      "1.f.",
+      "1.g.",
+      "1.h.",
+      "1.i."
+    ],
+    "parts": [],
+    "english_sha256": "4c0b959c2de39489c497fabf9105bd9fd05eb8573a0e8a44dbd811c5e9d33b6f"
+  },
+  {
+    "page": "Official/Labs/tp-stm/tp-stm_zh.html",
+    "exercises": 1,
+    "questions": [
+      "1.a.",
+      "1.b.",
+      "1.c.",
+      "1.d.",
+      "1.e.",
+      "1.f.",
+      "1.g.",
+      "1.h."
+    ],
+    "parts": [],
+    "english_sha256": "63474c965b87ec9f5280a529cccb4ecfbc524bf57171f0396c3f97fe3ccdc0e9"
+  },
+  {
+    "page": "Official/Labs/tp-threads/tp-threads_zh.html",
+    "exercises": 3,
+    "questions": [
+      "1.a.",
+      "1.b.",
+      "1.c.",
+      "1.d.",
+      "1.e.",
+      "2.a.",
+      "2.b.",
+      "3.a.",
+      "3.b.",
+      "3.c."
+    ],
+    "parts": [],
+    "english_sha256": "5e1228bea35c890e844f35126c79befc1705d38c4b4978f12d8ba8cf2f0f770e"
+  }
+]

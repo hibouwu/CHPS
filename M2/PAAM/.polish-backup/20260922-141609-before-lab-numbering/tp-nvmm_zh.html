@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>非易失性内存 · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a href="../tp-threads/tp-threads_zh.html">线程与同步</a><a href="../tp-locks/tp-locks_zh.html">锁算法</a><a href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a href="../tp-stm/tp-stm_zh.html">事务内存</a><a href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html" aria-current="page">非易失性内存</a></nav><div><a href="tp-nvmm.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/06-nvmm_zh.md">中文讲义</a> · <a href="../../Lectures/06-nvmm.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。问题编号为本地阅读所加；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">非易失性主存</h2>
+<div class="chapitre-content" id="chapitre-idm45726242747616">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">一个简单的写缓存</h3>
+<div class="exercice-content" id="exercice-idm45726241270992">
+<p>本练习在非易失性内存中实现写缓存，以改善 I/O 性能。这里实现的代码不处理读取，因此并不完整。完整算法见 Rémi Dulong 等人在 DSN’21 发表的论文 <a href="https://pages.saclay.inria.fr/gael.thomas/research/biblio/2021/dulong-dsn-nvcache.pdf">NVCache: A Plug-and-Play NVMM-based I/O Booster for Legacy Systems</a>。</p>
+<p>实现 <code>int my_pwrite(int fd, const void* buf, size_t n, off_t off)</code>。它在接口意图上类似 <code>pwrite</code>：把 buf 起始的 n 字节写到文件 fd 的偏移 off 处。不过，my_pwrite 先将写操作追加到 NVMM 日志；一个异步的清理线程（cleanup thread）再从日志取出操作，调用普通 <code>pwrite</code> 将它们写入磁盘文件。</p>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1</h4>
+<div class="question-content" id="question-idm45726242007376">
+<p class="inline-paragraph">考虑到你可能没有 NVMM 硬件，本题用内存映射的持久文件模拟。编写程序，创建一个 128MB 的 <code>nvmm.dat</code>，将它映射到内存，并把文件第一个字节加一。多次运行后，用 <code>hexdump -C nvmm.dat</code> 检查该字节是否每次递增。</p>
+
+<div class="remarque">检查 <code>open</code>、<code>ftruncate</code> 和 <code>mmap</code> 的返回值。</div>
+<div class="remarque">这里使用普通文件而非真正的 NVMM，因此把 <code>MAP_SHARED_VALIDATE | MAP_SYNC</code> 替换成 <code>MAP_SHARED</code>。</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 2</h4>
+<div class="question-content" id="question-idm45726241536848">
+<p class="inline-paragraph">原题要求使用 gcc 的 <code>-march=native</code> 编译选项，并下载、包含下面的 nvmm.h，以使用 pwb、pfence 和 psync。</p>
+
+<div class="code code-block">
+<div class="code-url"><a download="nvmm.h" href="nvmm.h">nvmm.h</a></div>
+<pre><code>#ifndef _NVMM_H_
+#define _NVMM_H_
+
+// note: compile with the option -march=native
+
+#include &lt;stdbool.h&gt;
+
+#if defined(__CLWB__)
+//#pragma message "Using clwb as pwb implementation"
+static void pwb(void *p) { asm volatile("clwb (%0)\n\t" : : "r"(p) : "memory"); }
+static void pfence()     { asm volatile("sfence" ::: "memory"); }
+static void psync()      { asm volatile("sfence" ::: "memory"); }
+#elif defined(__CLFLUSHOPT__)
+//#pragma message "Using clflushopt as pwb implementation"
+static void pwb(void *p) { asm volatile("clflushopt (%0)\n\t" : : "r"(p) : "memory"); }
+static void pfence()     { asm volatile("sfence" ::: "memory"); }
+static void psync()      { asm volatile("sfence" ::: "memory"); }
+#else
+//#pragma message "Using default clflush as pwb implementation, try to compile with -march=native"
+static void pwb(void *p) { asm volatile("clflush (%0)\n\t" : : "r"(p) : "memory"); }
+static void pfence()     { asm volatile("" ::: "memory"); }
+static void psync()      { asm volatile("" ::: "memory"); }
+#endif
+
+//
+// Intel-specific optimization for Intel processors
+//
+// An Intel processor executes speculativly the instructions. When we spinloop on a boolean, it means that the processor
+// will execute many load in advance, and suppose that the load returns false (we are in the spinloop while the condition is false).
+//
+// When the condition becomes true, the processor has to abort the execution of the speculative loads, which significantly slows
+// down the execution of the load when the condition becomes true, and thus hampers reactivity when the condition becomes true.
+static bool asm_pause() { asm volatile("pause"); return true; }
+
+#if defined(__HAS_NVMM__)
+
+// If we actually have a NVMM, use the standard flags that allows Linux to directly mmap the PMEM in the virtual address space.
+// These flags only work for a DAX file system
+#define MMAP_NVMM_FLAGS  (MAP_SHARED_VALIDATE | MAP_SYNC)
+
+#else
+
+// If we don't have a NVMM, we simulate a NVMM by just using a volatile memory region.
+// In this case, we have to mmap it with this flag since a volatile memory region is not a DAX file system.
+#define MMAP_NVMM_FLAGS  MAP_SHARED
+
+#endif
+
+#endif
+</code></pre>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3</h4>
+<div class="question-content" id="question-idm45726242279456">
+<p class="inline-paragraph">添加 <code>my_pwrite</code>，暂时让它直接调用普通 <code>pwrite</code>。在 main 中向 <code>out.dat</code> 写入 "hello"，共 1024 次，偏移依次为 0、5 等位置。使用 <code>hexdump -C out.dat</code> 检查结果。</p>
+
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 4</h4>
+<div class="question-content" id="question-idm45726241625536">
+<p class="inline-paragraph">接下来定义主要结构和变量，下载并包含下面的文件：</p>
+
+<div class="code code-block">
+<div class="code-url"><a download="struct.h" href="struct.h">struct.h</a></div>
+<pre><code>#ifndef _STRUCT_H_
+#define _STRUCT_H_
+
+#include &lt;stdbool.h&gt;
+#include &lt;sys/types.h&gt;
+
+#define NB_ENTRIES (64*1024)
+#define CACHE_LINE 64
+
+struct operation {
+  union {                // first cache line
+    // the cache line can either be accessed through these fields...
+    struct {
+      _Atomic bool committed; // _Atomic because committed is accessed in parallel by both the main an cleanup threads
+      int          fd;        // the cleanup thread has to write the n bytes of buf at the offset off of the file fd
+      size_t       n;
+      off_t        off;
+    };
+    // ...or by using the variable first_cache_line
+    char           first_cache_line[CACHE_LINE];
+  };
+  union {                // second cache line
+    // the cache line either can accessed as a buffer (the content of the written buffer)...
+    char           buf[CACHE_LINE];
+    // ...or by using the variable second_cache_line
+    char           second_cache_line[CACHE_LINE];
+  };
+};  // note: we suppose that we call my_pwrite with buffers of at most 64 bytes
+
+// the content stored in persistent memory (nvmm = non-volatile main memory == persistent memory)
+struct nvmm {
+  struct operation operation[NB_ENTRIES]; // a circular buffer of pending operations
+  size_t           tail;                  // the cleanup thread applies the operations from tail
+  // if nvmm-&gt;operations[nvmm-&gt;tail]-&gt;committed == false, it means that we don't have any operation to apply
+};
+
+extern struct nvmm*   nvmm; // pointer to NVMM
+extern _Atomic size_t head; // where we add the entries in the log
+                            // _Atomic because several threads may call my_pwrite in parallel
+
+#endif
+</code></pre>
+</div>
+<p><code>struct operation</code> 描述一次写操作，按原题结构占两条缓存行：第一条由 union 定义，存放元数据；第二条是 <code>buf</code>，存放写入的数据。元数据包括：</p>
+<ul>
+<li><code>commit</code>：为 true 时，表示该日志项包含一条已提交的写操作；</li>
+<li><code>fd</code>、<code>n</code>、<code>off</code>：描述目标文件、写入长度与偏移。</li>
+</ul>
+<p>第二条缓存行保存本次写入的数据缓冲区。</p>
+<p>NVMM 中的日志由 <code>struct nvmm</code> 表示，包含：</p>
+<ul>
+<li>操作数组 <code>operation</code>；</li>
+<li>尾索引 <code>tail</code>，指向最早加入、尚待处理的操作。</li>
+</ul>
+<p>易失内存中还保存：</p>
+<ul>
+<li>指向 NVMM 映射区的指针 <code>nvmm</code>；</li>
+<li>易失的头索引 <code>head</code>，新操作写入该位置。</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 5</h4>
+<div class="question-content" id="question-idm45726241363696">
+<p class="inline-paragraph">利用这些结构实现写入加速。在 <code>my_pwrite</code> 中，将新操作加入 <code>head</code> 位置。若 <code>head + 1</code> 等于 <code>tail</code>，说明日志已满，my_pwrite 必须等待。</p>
+
+<p>同时实现清理线程：检查 <code>tail</code> 位置操作的 <code>commit</code> 标志。标志为 true 后，调用普通 <code>pwrite</code> 写入目标文件，再调用 <code>fsync</code> 确保数据到达磁盘。fsync 返回后，该日志项才不再需要；清理线程可以推进 tail，并将新 tail 刷写到 NVMM。</p>
+<div class="remarque">将日志作为循环缓冲区处理，索引递增和满空判断都要考虑回绕。</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 6</h4>
+<div class="question-content" id="question-idm45726242116592">
+<p class="inline-paragraph">使用 <code>clock_gettime</code> 和 <code>CLOCK_MONOTONIC</code>，比较以下三种情况：</p>
+
+<ul>
+<li>只调用 <code>pwrite</code>；</li>
+<li>调用 <code>pwrite</code> 后紧接 <code>fsync</code>，确保写入持久；</li>
+<li>调用 <code>my_pwrite</code>。</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 7</h4>
+<div class="question-content" id="question-idm45726241784256">
+<p class="inline-paragraph">接下来处理崩溃恢复。程序重新启动后，从 <code>tail</code> 开始检查日志，将其中所有已提交的操作重新应用到文件。崩溃前的文件描述符不能在新进程中继续使用；为简化问题，假定所有操作的 fd 都对应 <code>out.dat</code>，恢复时使用重新打开该文件得到的描述符。</p>
+
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 8 · 批量处理</h4>
+<div class="question-content" id="question-idm45726241523376">
+<p class="inline-paragraph">日志中有多条操作时，每写一条就调用 fsync 的效率较低。修改清理线程，让它传播多条操作后只调用一次 <code>fsync</code>。</p>
+
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 9 · 选做：批处理后的恢复顺序</h4>
+<div class="question-content" id="question-idm45726241276208">
+<p class="inline-paragraph">批处理可能引入一个恢复错误。假设日志已满，即 <code>head + 1</code> 等于 <code>tail</code>。清理线程消费两个条目后，把 tail 加 2，主线程就能新增 e1、e2。若两个新条目已经传播到 NVMM，但新的 tail 尚未持久化，此时发生崩溃，恢复程序仍从旧 tail 开始，会把 e2 当成最旧的写入：e1 位于旧 head，即旧 tail 前一项，e2 则占用了旧 tail。如果日志中的较旧条目 e0 与 e2 写同一个位置，恢复时 e0 反而会覆盖 e2；正确顺序应由较新的 e2 覆盖 e0。</p>
+
+<p>原题提出使用两个 tail 变量修正这个问题：</p>
+<ul>
+<li><code>persistent_tail</code>：保存在 NVMM，供清理线程和恢复过程使用；</li>
+<li><code>volatile_tail</code>：保存在易失内存，只有清理线程对 persistent_tail 的推进已可靠传播到 NVMM 后，才允许同步推进它。原题此处提到使用 <code>pwb</code>／<code>pfence</code>。主线程以 <code>head + 1 == volatile_tail</code> 判断是否必须等待，便只能在持久 tail 已正确越过 e2 之后，重新使用空间来写 e1 和 e2。</li>
+</ul>
+<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242739360">可以下载 <a href="Makefile">Makefile</a>。<div class="code code-block">
+<div class="code-url"><a download="soluce.c" href="soluce.c">soluce.c</a></div>
+<pre><code>#include &lt;sys/mman.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdatomic.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;time.h&gt;
+#include &lt;stdlib.h&gt;
+#include "nvmm.h"
+#include "struct.h"
+
+struct nvmm*   nvmm;
+_Atomic size_t head;
+_Atomic size_t vtail;
+_Atomic bool   stop;
+
+size_t random_crash;
+
+double gettime() {
+  struct timespec ts;
+  clock_gettime(CLOCK_MONOTONIC, &amp;ts);
+  return ts.tv_sec*1e0 + ts.tv_nsec*1e-9;
+}
+
+void* get_nvmm(const char* path, size_t size) {
+  int fd = open(path, O_RDWR | O_CREAT, 0644);
+  assert(fd != -1);
+  
+  ftruncate(fd, size);
+  
+  char* res = mmap(NULL, sizeof(*nvmm), PROT_READ | PROT_WRITE, MMAP_NVMM_FLAGS, fd, 0);
+  assert(res != MAP_FAILED);
+
+  return res;
+}
+
+void* cleanup_thread(void* arg) {
+  size_t tail = nvmm-&gt;tail;
+  size_t cur_jobs = 0;    // current number of jobs since the last sync
+  size_t max_jobs_per_sync = NB_ENTRIES / 2; // at most NB_ENTRIES / 2 jobs between two syncs
+  size_t total_jobs = 0;  // statistics
+  size_t total_syncs = 0; // statistics
+  
+  while(true) {
+    struct operation* cur = &amp;nvmm-&gt;operation[tail];
+
+    if(atomic_load(&amp;cur-&gt;committed) &amp;&amp; cur_jobs &lt; max_jobs_per_sync) {
+      // the cleanup thread has to apply an operation
+      if(random_crash) {
+        if(!(rand() % random_crash)) {
+          printf("---- random crashed (%zu) after %zu syncs, %zu + %zu propagated operations, have a nice day!----\n",
+                 random_crash, total_syncs, total_jobs, cur_jobs);
+          exit(0);
+        }
+      }
+    
+      //printf("proceed %zu\n", tail);
+      pwrite(cur-&gt;fd, cur-&gt;buf, cur-&gt;n, cur-&gt;off);
+      fsync(cur-&gt;fd);
+      cur-&gt;committed = false;
+      pwb(&amp;cur-&gt;first_cache_line);
+      pfence();
+      
+      tail = (tail + 1) % NB_ENTRIES;
+
+      cur_jobs ++;             // a sync is required
+    } else if(cur_jobs) {
+      //printf("--- sync ---\n");
+      total_jobs += cur_jobs;  // statistics
+      total_syncs ++;          // statistics
+      cur_jobs = 0;            // sync is no longer required
+      
+      nvmm-&gt;tail = tail;       // advance tail, the max_jobs_per_sync operation are applied
+      pwb(&amp;nvmm-&gt;tail);        
+      psync();                 // ensures that the tail is actually written to PMEM
+
+      atomic_store(&amp;vtail, tail); // and then makes the tail visible to the other threads
+    } else if(atomic_load(&amp;stop)) {
+      printf("[cleanup] Stats: %zu jobs and %zu syncs\n", total_jobs, total_syncs);
+      return NULL;
+    } else
+      asm_pause();
+  }
+}
+
+int my_pwrite(int fd, const void* buf, size_t n, off_t off) {
+  size_t index;
+  size_t next_index;
+
+  // check whether the operation buffer is full
+  // here we use vtail because, if we use tail instead, we could have this execution:
+  //   - cleanup thread propagate operations
+  //   - advance nvmm-&gt;tail, but pwb/psync are not yet executed
+  //   - this thread adds a new operation op_last since the thread observes that tail lets a room between head and tail
+  //   - crash while nvmm-&gt;tail not yet propagated to PMEM
+  //   - at recover, we will apply op_last since nvmm-&gt;operation[nvmm-&gt;tail] contains op_last
+  //     this is an error! op_last should be applied after all the other pending operations, not before
+  //     the problem is that at recovery, the runtime "think" that the operations that was at the location of op_last is not yet applied
+  do {
+    index = atomic_load(&amp;head);
+    next_index = (index + 1) % NB_ENTRIES;
+  } while((atomic_load(&amp;vtail) == next_index || !atomic_compare_exchange_strong(&amp;head, &amp;index, next_index)) &amp;&amp; asm_pause());
+
+  struct operation* cur = &amp;nvmm-&gt;operation[index];
+
+  memcpy(cur-&gt;buf, buf, n &lt; CACHE_LINE ? n : CACHE_LINE);
+  pwb(cur-&gt;second_cache_line);
+  
+  cur-&gt;fd = fd;
+  cur-&gt;n = n;
+  cur-&gt;off = off;
+
+  pwb(&amp;cur-&gt;first_cache_line); // write back fd, n and off
+  pfence();                    // ensures fd, n and off reaches NVMM before committed
+
+  atomic_store(&amp;cur-&gt;committed, true);
+  
+  pwb(&amp;cur-&gt;first_cache_line); // write back committed
+  pfence();                    // ensures that after a call to my_pwrite, buf is persisted
+  
+  return 0;
+}
+
+void recovery(int fd) {
+  size_t total_jobs = 0;
+  
+  for(size_t i=0; i&lt;NB_ENTRIES; i++) {
+    struct operation* op = &amp;nvmm-&gt;operation[(nvmm-&gt;tail + i) % NB_ENTRIES];
+
+    if(op-&gt;committed) {
+      total_jobs ++;
+      pwrite(fd, op-&gt;buf, op-&gt;n, op-&gt;off);
+    }
+  }
+
+  if(total_jobs) {
+    printf("[recovery]: Found %zu old jobs\n", total_jobs);
+    fsync(fd);
+    
+    for(size_t i=0; i&lt;NB_ENTRIES; i++) {
+      nvmm-&gt;operation[i].committed = false;
+      pwb(nvmm-&gt;operation[i].first_cache_line);
+      pfence(); // ensure that in case of crash, we remove the oldest pwrite before the newer ones
+    }
+  }
+
+  nvmm-&gt;tail = 0;
+  pwb(&amp;nvmm-&gt;tail);
+  pfence();
+}
+
+
+int main(int argc, char** argv) {
+  if(argc != 2) {
+    fprintf(stderr, "%s N\n", argv[0]);
+    fprintf(stderr, "   - if N = 0 =&gt; never crash\n");
+    fprintf(stderr, "   - otherwise, crash with a probability of 1/N in the cleanup thread\n");
+    exit(1);
+  }
+
+  random_crash = atoi(argv[1]);
+  srand(time(NULL));
+  
+  nvmm = get_nvmm("nvmm.dat", sizeof(*nvmm));
+
+  int fd = open("out.dat", O_RDWR | O_CREAT | O_TRUNC, 0644);
+  assert(fd != -1);
+
+  recovery(fd);
+    
+  pthread_t tid;
+  pthread_create(&amp;tid, NULL, cleanup_thread, NULL);
+
+  size_t nb_ops = 65536;
+  double start = gettime();
+  
+  for(size_t i=0; i&lt;nb_ops; i++) {
+    char buf[] = "hello";
+    size_t length = strlen(buf);
+    my_pwrite(fd, buf, length, (i*length) % (1024 * 5));
+  }
+
+  double end = gettime();
+
+  atomic_store(&amp;stop, true);
+  void* retval;
+  pthread_join(tid, &amp;retval);
+
+  printf("[main]: %f microseconds per operation\n", (end - start)*1e6 / nb_ops);
+
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+</div><aside class="translator-notes"><h3>阅读时留意</h3><p>普通文件 mmap 适合练习日志布局与恢复流程，但不等同于真实 NVMM 的掉电持久性；CPU 缓存写回也不代替普通文件系统的持久化同步。-march=native 不保证任何机器都具有附件所需的持久内存指令。选做题要求先确认 persistent_tail 已持久，再发布 volatile_tail；原文仅列 pwb/pfence，所需完成保证应与讲义中的 psync 及实际平台实现对照。</p></aside><footer>来源：<a href="tp-nvmm.html">同目录英文原版</a>。中文翻译不增加实验答案，也不代表所附代码已经编译或验证。外部参考网站仍需联网。</footer></div></body></html>

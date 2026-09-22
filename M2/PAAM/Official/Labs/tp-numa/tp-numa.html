@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - tp-numa</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../../Exams/2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../../Exams/2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../../Exams/2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../../Exams/2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../../Exams/2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../../Exams/2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../../Exams/2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241579760">Non-Uniform Memory Access Architecture</h2>
+<div class="chapitre-content" id="chapitre-idm45726241579760">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241511648">NUMA architecture</h3>
+<div class="exercice-content" id="exercice-idm45726241511648">
+    In this exercice, we will try to measure the time to access memory on a NUMA machine.
+
+    <div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242712000"></h4>
+<div class="question-content" id="question-idm45726242712000">
+      Before everything, you will have to connect to the test machine "arya".
+      For that, ask your professor.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242716480"></h4>
+<div class="question-content" id="question-idm45726242716480">
+      Explore the NUMA topology with the tool <span class="code"><span class="code-container">lstopo-no-graphics</span></span>.
+      Try to understand the output in order to know the number of NUMA nodes,
+      the memory on each NUMA node, the number of processing units (logical processors) per NUMA node.
+      What are the size of the L1, L2 and L3 caches?
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241702432"></h4>
+<div class="question-content" id="question-idm45726241702432">
+      In order to measure the time to read memory, a thread will read several times a large buffer.
+      We call this thread the test thread.
+      Then, we will also add some noise in order to measure the memory access performance when you have memory traffic
+      generated by other threads, which we call the noisy threads.
+      Write an application in C that takes the following arguments:
+      <ul>
+<li>The first argument, which we call <span class="code"><span class="code-container">test_pu</span></span>, is an integer that gives the processing unit on which the
+          test thread is running,</li>
+<li>The second argument, which we call <span class="code"><span class="code-container">test_node</span></span>, is an integer that gives the NUMA node where we will
+          allocate the buffer accessed by the test thread,</li>
+<li>The third argument, which we
+          call <span class="code"><span class="code-container">test_buffer</span></span>, gives the size of the buffer accessed by the test thread in kilo-bytes,</li>
+<li>The fourth argument, which we call
+          <span class="code"><span class="code-container">test_workload</span></span>, gives the number of kilo bytes accessed by the test thread.
+          For example, if <span class="code"><span class="code-container">test_buffer</span></span> is equal to 1 and
+          <span class="code"><span class="code-container">test_workload</span></span> is equal to 2, the test thread will access twice the entire buffer.</li>
+<li>The fifth argument, which we call <span class="code"><span class="code-container">noisy_config</span></span> configures the noisy threads.
+          This argument can have the following values:
+          <ul>
+<li>none: we don't have noisy threads,</li>
+<li>spread: we run a noisy thread on each processing unit, except the one used by the test thread,
+              and each noisy thread access a buffer located in the NUMA node (n + 1) % number_of_nodes, where
+              n is the NUMA node of the processing unit of the noisy thread, and number_of_nodes the total number
+              of nodes.</li>
+<li>overload: as in spread, except that all the noisy threads access buffers located
+              in a given NUMA node (see next argument below),</li>
+</ul>
+</li>
+<li>The sixth argument, which we call <span class="code"><span class="code-container">noisy_node</span></span> is an integer that gives the NUMA node accessed by the noisy
+          threads in the overload configuration.</li>
+</ul>
+<p class="inline-paragraph">At this step, you just to have to ensure that you have the adequate number of arguments and to extract their values.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241908608"></h4>
+<div class="question-content" id="question-idm45726241908608">
+<p class="inline-paragraph">We will now extract the numa topology with the hwloc library.
+        For that, you can reuse the code below, to extract the numa topology.
+        You have to link your executable with the <span class="code"><span class="code-container">hwloc</span></span> library, i.e., with <span class="code"><span class="code-container">-lhwloc</span></span>.
+        If your application is correct, it should output your numa topology.
+        The central data structure that you will use is the <span class="code"><span class="code-container">numa</span></span> topology.
+        It contains an array with the numa nodes, and an array with the processing units.
+        Each processing unit is associated to a numa node, and the numa node contains an array with its processing units.</p>
+<p></p>
+<div class="code code-block">
+<div class="code-url"><a download="main.c" href="main.c">main.c</a></div>
+<div class="code-container" data-code-prettify="" data-code-url="../paam/tp-numa/main.c"></div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242763120"></h4>
+<div class="question-content" id="question-idm45726242763120">
+<p class="inline-paragraph">Create the test thread and ensure that the test thread runs on the <span class="code"><span class="code-container">test_pu</span></span> processing unit,
+        To identify the processing unit <span class="code"><span class="code-container">test_pu</span></span>, you have to find it in the <span class="code"><span class="code-container">numa-&gt;pus</span></span> array
+        by comparing <span class="code"><span class="code-container">test_pu</span></span> with <span class="code"><span class="code-container">numa-&gt;pus[i].obj-&gt;logical_index</span></span>.
+        With <span class="code"><span class="code-container">hwloc</span></span>, you can bind a thread to a given processing unit by using the
+        <span class="code"><span class="code-container">hwloc_set_cpubind</span></span> function:</p>
+<p></p>
+<div class="code code-block"><div class="code-container">hwloc_set_cpubind(topology, numa-&gt;pus[0].obj-&gt;cpuset, HWLOC_CPUBIND_THREAD);</div></div>
+<div class="attention">
+        Instead of the processing unit at index 0, you have to use the one with the test_pu logical index.
+      </div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241472784"></h4>
+<div class="question-content" id="question-idm45726241472784">
+      If <span class="code"><span class="code-container">noisy_config</span></span> is equal to spread or overload, starts the noisy threads
+      on the different PUs (except the one used by the test thread).
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241754720"></h4>
+<div class="question-content" id="question-idm45726241754720">
+<p class="inline-paragraph">At this step, we allocate the buffers accessed by the noisy threads.
+        We consider that the noisy threads continuously access sequentially buffers of 32 megabytes because
+        a buffer of 32 megabytes does not fit in a L3 cache, which ensures that a noisy thread
+        will actually generate traffic to the memory controllers.
+        The buffer have to be allocated as follow:</p>
+<p></p>
+<ul>
+<li>when the application runs in spread mode, on the node N + 1, where N is the node on which the
+          noisy thread runs,</li>
+<li>when the application runs in overload mode, on the <span class="code"><span class="code-container">noisy_node</span></span> node.</li>
+</ul>
+<p>To allocate memory from a given memory node, you can reuse this code:</p>
+<div class="code code-block"><div class="code-container">  char* buf = hwloc_alloc_membind(topology,
+                                  32 * 1024 * 1024,
+                                  numa-&gt;pus[0].node-&gt;obj-&gt;nodeset,
+                                  HWLOC_MEMBIND_BIND,
+                                  HWLOC_MEMBIND_STRICT | HWLOC_MEMBIND_BYNODESET | HWLOC_MEMBIND_NOCPUBIND );</div></div>
+<div class="attention">
+        Instead of the processing unit at index 0, you have to use the one with the test_pu logical index.
+      </div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241398576"></h4>
+<div class="question-content" id="question-idm45726241398576">
+<p class="inline-paragraph">The noisy threads have to continuously access their buffers of 32MB. For the moment,
+        the program will thus not terminate.
+        In order to ensure that the noisy threads actually access memory and not the L1 cache,
+        a noisy thread has to access each cache line of its buffer only once. For this reason, we
+        consider that the buffer as an array of <span class="code"><span class="code-container">struct cache_line</span></span> where this structure is defined
+        as follow:</p>
+<p></p>
+<div class="code code-block"><div class="code-container">struct cache_line {
+  union {
+    char _content[64]; // 64 bytes in each cache line
+    int  value;
+  };
+};</div></div>
+<p>A noisy thread has thus to access execute an infinite number of times a loop that accesses
+        the <span class="code"><span class="code-container">32 * 1024 * 1024 / sizeof(struct cache_line)</span></span> cache lines of the buffer.
+        For that purpose, the thread can simply read the field <span class="code"><span class="code-container">value</span></span>.</p>
+<p>Note that if you compile your application with in optimized mode (-02 or -O3), the compiler
+        will detect that the loop does not compute anything and will simply eliminate it.
+        For this reason, you can either compile your code without any optimization, or you can
+        compute something useful. For example, you can define a variable <span class="code"><span class="code-container">r</span></span>
+        and add the value of each cache line to <span class="code"><span class="code-container">r</span></span> at each step of the loop.
+        In this case, you will also have to write <span class="code"><span class="code-container">r</span></span> in a global variable at the end
+        of the loop in ensure that the compiler will not eliminate the computation of <span class="code"><span class="code-container">r</span></span>
+        itself.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241159232"></h4>
+<div class="question-content" id="question-idm45726241159232">
+<p class="inline-paragraph">Now that our noisy threads are making noise, we can implement the test thread.
+        The test thread has to allocate a buffer of <span class="code"><span class="code-container">test_buffer</span></span> kilobytes
+        from the NUMA node <span class="code"><span class="code-container">test_node</span></span>.
+        Modify your code accordingly (you can reuse some part of the
+        code given at the previous question.</p>
+<p></p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726240783056"></h4>
+<div class="question-content" id="question-idm45726240783056">
+<p class="inline-paragraph">At this step, we want to actually access the buffer.
+        First, instead of accessing each byte of the buffer, we want to access complete cache lines
+        in order to measure the time to access memory.
+        For this reason, we will reuse the <span class="code"><span class="code-container">struct cache_line</span></span> defined in the previous question.</p>
+<p></p>
+<p>Then, we will consider the buffer as an array of <span class="code"><span class="code-container">struct cache_line</span></span>
+        and we will access the integer <span class="code"><span class="code-container">value</span></span> of each cache line.
+        We consider that by accessing <span class="code"><span class="code-container">value</span></span>, we access 64 bytes: accessing the other bytes
+        will only add noise to our measures.
+        For this reason, in order to access <span class="code"><span class="code-container">test_workload</span></span> kilobytes, we have to
+        access <span class="code"><span class="code-container">test_workload * 1024 / 64</span></span> cache lines.
+        We define this value as <span class="code"><span class="code-container">num_access</span></span>.</p>
+<p>Modify your application in order to access <span class="code"><span class="code-container">num_access</span></span> times the cache lines
+        of the buffer sequentially (just read the <span class="code"><span class="code-container">value</span></span> field of each cache line).
+        Don't forget to restart from the beginning of the buffer when num_access becomes bigger
+        than <span class="code"><span class="code-container">test_buffer * 1024 / 64</span></span>.</p>
+<p>Use also <span class="code"><span class="code-container">clock_gettime</span></span> in <span class="code"><span class="code-container">CLOCK_MONOTONIC</span></span> to repport
+        the time to access a cache line.
+        You can simply measure the time taken by the loop and divides this time by <span class="code"><span class="code-container">num_access</span></span>.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241628048"></h4>
+<div class="question-content" id="question-idm45726241628048">
+<p class="inline-paragraph">Currently, we are not really measuring the time to access memory because we access the buffer
+        sequentially.
+        Because of this sequential access,
+        the processor quickly detects the pattern and starts to prefetch the cache lines in advances.</p>
+<p></p>
+<p>In order to avoid the prefetching mechanism, we will randomly access to different locations inside
+        the buffer.
+        However, if we execute the <span class="code"><span class="code-container">rand()</span></span> function in our loop that accesses the buffer,
+        instead of measuring the time to access memory, we will mainly measure the performance of <span class="code"><span class="code-container">rand()</span></span>.
+        For this reason, we will pre-compute the random locations and directly store them in the buffer
+        in the <span class="code"><span class="code-container">value</span></span> field.
+        Then, in the access loop, you will start with the cache line at index <span class="code"><span class="code-container">cur = 0</span></span>, and at each
+        step of the loop, you will continue
+        with the cache line at index <span class="code"><span class="code-container">cache_lines[cur]</span></span>, where <span class="code"><span class="code-container">cache_lines</span></span>
+        is a pointer to the buffer.</p>
+<p>When you prepare the buffer with the random indexes, you have to ensure that each cache line is visited once.</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241515392"></h4>
+<div class="question-content" id="question-idm45726241515392">
+<p class="inline-paragraph">You can now measure the memory access performance of the machine:</p>
+<p></p>
+<ul>
+<li>For the L1 cache, you have to ensure that <span class="code"><span class="code-container">test_buffer</span></span> is largely smaller
+          than the L1 cache (for example 2 kilobytes), and to configure the noisy thread in none mode,</li>
+<li>For the L2 cache, you can use the same configuration, but with a larger buffer (128 kilobytes for example),</li>
+<li>For the L3 cache, you can use the same configuration, but with a larger buffer (1 megabyte for example),</li>
+<li>For a local access, you can use the same configuration, but with a larger buffer (32 megabytes for example),
+          and you have to ensure that the memory accessed by the test thread comes from the memory node of the
+          test thread,</li>
+<li>For a remote access, you just have to change the allocation node of the buffer used by the test thread,</li>
+<li>If you want to add noise, you can activate the noisy threads in spread or overload modes.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242457248"></div>
+<div class="solution-content" id="solution-idm45726242457248">
+    You can find an approximate solution that directly relies on pthread_setaffinity and mbind instead of hwloc
+    <a href="../../Supplementary/www-inf.telecom-sudparis.eu/COURS/CSC5001/Supports/multicore_tp-multicore.html">here</a> (last exercise).
+  </div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "english" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

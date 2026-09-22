@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - cf1</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-non-blocking/tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../../Labs/tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726242176624">PAAM – Contrôle final 2018-2019</h2>
+<div class="chapitre-content" id="chapitre-idm45726242176624">
+<div style="width: 100%; text-align: center;">
+		Durée: 2h, tout document autorisé
+	</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242429120">Questions de cours (5 points)</h3>
+<div class="exercice-content" id="exercice-idm45726242429120">
+		Dans cet exercice, lorsqu'on vous demande de justifier,
+		il vous ait demandé de rédiger des réponses concises et synthétiques
+		de moins de cinq lignes.
+
+		<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242813920">1 point – facile</h4>
+<div class="question-content" id="question-idm45726242813920">
+			Dans une machine NUMA, qu'est-ce qui ralentit le plus l'application :
+			quand le réseau d'interconnexion sature parce que tous les cœurs
+			accèdent de façon aléatoire à tous les bancs mémoires,
+			ou quand un contrôleur mémoire sature parce que tous les cœurs y accèdent ?
+			Justifiez.
+      
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241245264"></div>
+<div class="solution-content" id="solution-idm45726241245264">
+        Le contrôleur mémoire. En effet, si tous les cœurs accèdent de façon aléatoire
+        à la mémoire, la charge s'équirépartie sur les différents liens entre les nœuds
+        NUMA, alors que si tous les cœurs accèdent au même banc mémoire, 
+        toute la charge arrive sur un unique contrôleur mémoire.
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241580896">1 point – facile</h4>
+<div class="question-content" id="question-idm45726241580896">
+			On suppose un modèle mémoire TSO. On suppose qu'un thread 1 exécute la fonction <span class="code"><span class="code-container">t1</span></span>
+			et qu'un thread 2 exécute la fonction <span class="code"><span class="code-container">t2</span></span>. Pour quelle raison le thread 2
+			peut ne jamais effectuer son affichage ? Quelle modification faut-il apporter
+			au code pour corriger le problème ?
+			
+			<div class="code code-block"><div class="code-container">int s = 0;
+char* msg = NULL;
+
+void t1() {
+  msg = "coucou";
+  s = 1;
+}
+
+void t2() {
+  while(s == 0) { 
+  }
+  printf("Coucou !\n");
+}</div></div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241596848"></div>
+<div class="solution-content" id="solution-idm45726241596848">
+        Le compilateur peut optimiser le code et s'apercevoir que, comme <span class="code"><span class="code-container">s</span></span> n'est
+        pas modifié dans <span class="code"><span class="code-container">t2</span></span>, il n'y a aucune raison de relire la variable
+        après une lecture initiale. Dans ce cas, le compilateur va remplacer le code de
+        la boucle par un code équivalent à celui-ci :
+        <div class="code code-block"><div class="code-container">if(s == 0)
+  while(true) { }</div></div>
+        et <span class="code"><span class="code-container">t2</span></span> n'atteindra donc jamais le <span class="code"><span class="code-container">printf</span></span>.
+        Pour corriger le problème, il suffit de marquer la variable <span class="code"><span class="code-container">s</span></span> comme
+        volatile.
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241787440">1 point – facile</h4>
+<div class="question-content" id="question-idm45726241787440">
+			Pour quelle raison le code (corrigé) de la question suivante affiche forcément
+			"Coucou" avec un modèle mémoire TSO alors qu'il peut se terminer sur une faute
+			de segmentation avec un modèle mémoire plus relâché ? Justifiez.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241035184"></div>
+<div class="solution-content" id="solution-idm45726241035184">
+        Avec un modèle mémoire relâché,
+        il est possible que l'écriture dans <span class="code"><span class="code-container">s</span></span> effectuée par <span class="code"><span class="code-container">t1</span></span>
+        soit propagée aux autres cœurs avant l'écriture dans <span class="code"><span class="code-container">msg</span></span>
+        Dans ce cas, <span class="code"><span class="code-container">t2</span></span> peut observer un <span class="code"><span class="code-container">s != 0</span></span> et
+        un <span class="code"><span class="code-container">msg == NULL</span></span>, ce qui conduit à une faute de segmentation.
+        De la même façon, il est possible que la lecture de <span class="code"><span class="code-container">msg</span></span>
+        soit effectuée avant la lecture de <span class="code"><span class="code-container">s</span></span> par <span class="code"><span class="code-container">t2</span></span>,
+        ce qui conduit exactement au même problème.
+        Ces deux cas sont impossibles en TSO car TSO empêche le réordonnancement des
+        lectures après les lectures (read after read) et celles des écritures après les écritures
+        (write after write).
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726240994640">1 point – facile</h4>
+<div class="question-content" id="question-idm45726240994640">
+			Dans un hyperviseur, pourquoi peut-on exécuter nativement un processus alors que
+			ce n'est pas possible pour le système d'exploitation ?
+			Justifiez.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241507008"></div>
+<div class="solution-content" id="solution-idm45726241507008">
+        Un processus n'exécute pas d'instructions privilégiées et interagit avec le système
+        via un appel système. On peut donc l'exécuter nativement pourvu que l'hyperviseur
+        redirige les appels systèmes vers le code du système invité. Ce n'est pas possible
+        pour le système invité car il utilise des instructions privilégiées qui peuvent
+        entrer en conflit avec les actions effectuées par l'hyperviseur.
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242359712">1 point – facile</h4>
+<div class="question-content" id="question-idm45726242359712">
+			Expliquez pourquoi, avec une mémoire transactionnelle matérielle, une transaction
+			peut avorter alors que le thread s'exécute seul ?
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241958272"></div>
+<div class="solution-content" id="solution-idm45726241958272">
+        Une TM matérielle peut avorter lorsque le cache est plein. Il suffit donc d'exécuter
+        une transaction qui accède à une grande quantité de mémoire pour la faire systématiquement
+        avortée, même si le thread s'exécute seul.
+      </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242081232">Le verrou lecteur-écrivain (15 points)</h3>
+<div class="exercice-content" id="exercice-idm45726242081232">
+		Cet exercice a pour but de concevoir un verrou lecteur-écrivain.
+		Ce verrou synchronise l'accès à une section critique.
+		Ce verrou définit deux façon d'accéder à la section critique :
+		<ul>
+<li>[accès en lecture] si un thread accède à la section critique en lecture
+				(on dit que c'est un lecteur), le thread
+				a la garantie qu'il n'existe pas d'écrivain. En revanche, il peut y avoir
+				d'autres lecteurs s'exécutant en parallèle.</li>
+<li>[accès en écriture] si un thread accède à la section critique en écriture
+				(on dit que c'est un écrivain), le thread a la garantie qu'il n'existe ni
+				lecteurs ni écrivains.</li>
+</ul>
+<p></p>
+		L'avantage d'un verrou lecteur-écrivain par rapport à un verrou
+		classique est que le verrou lecteur-écrivain augmente le parallélisme pour les lecteurs.
+		
+		<p></p>
+		D'un point de vu technique, le verrou lecteur-écrivain offre quatre fonctions :
+		<ul>
+<li>
+<span class="code"><span class="code-container">void pread(struct rwlock* lock)</span></span> :
+				appelée par à un thread avant d'entrer en section critique en temps que lecteur.</li>
+<li>
+<span class="code"><span class="code-container">void vread(struct rwlock* lock)</span></span>nbsp;:
+				appelée par à un thread pour quitter une section critique en temps que lecteur.</li>
+<li>
+<span class="code"><span class="code-container">void pwrite(struct rwlock* lock)</span></span> :
+				appelée par à un thread avant d'entrer en section critique en temps qu'écrivain.</li>
+<li>
+<span class="code"><span class="code-container">void vwrite(struct rwlock* lock)</span></span> :
+				appelée par à un thread pour quitter une section critique en temps qu'écrivain.</li>
+</ul>
+<div class="partie">Approche pessimiste à base de mutex POSIX</div>
+		Dans un premier temps, nous utilisons une approche pessimiste reposant sur
+		des mutex POSIX.
+		Dans cette configuration, <span class="code"><span class="code-container">pread</span></span> doit bloquer tant qu'il existe
+		un écrivain alors que <span class="code"><span class="code-container">pwrite</span></span> doit bloquer tant qu'il existe
+		soit un écrivain, soit des lecteurs.
+
+		<p></p>
+		Vous pouvez définir la structure <span class="code"><span class="code-container">rwlock</span></span> de la façon qui vous convient le mieux, mais
+		nous vous conseillons d'utiliser la structure <span class="code"><span class="code-container">rwlock</span></span> suivante :
+		<div class="code code-block"><div class="code-container">struct rwlock {
+  pthread_mutex_t wlock;      /* verrou bloquant les écrivains */
+  pthread_mutex_t rlock;      /* verrou pour synchroniser les lecteurs */
+  int             nb_readers; /* donne le nombre de lecteurs dans la section critique */
+};</div></div>
+<p></p>
+		Initialement, les deux mutex <span class="code"><span class="code-container">wlock</span></span> et <span class="code"><span class="code-container">rlock</span></span> sont libres,
+		et <span class="code"><span class="code-container">nb_readers</span></span> vaut 0.
+
+		<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241984432">4 points – moyen</h4>
+<div class="question-content" id="question-idm45726241984432">
+			Mettez en œuvre les quatre fonctions <span class="code"><span class="code-container">pread</span></span>, <span class="code"><span class="code-container">vread</span></span>,
+			<span class="code"><span class="code-container">pwrite</span></span> et <span class="code"><span class="code-container">vwrite</span></span>. 
+			Pour vous guider, les écrivains se synchronisent uniquement en utilisant <span class="code"><span class="code-container">wlock</span></span>,
+			et seul le premier lecteur a besoin de prendre ce verrou pour empêcher les écrivains d'entrer en section
+			critique.
+
+			<div class="remarque">
+				Répondre à cette question devrait nécessiter une quinzaine de lignes de code.
+			</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726241755616"></div>
+<div class="solution-content" id="solution-idm45726241755616">
+<div class="code code-block"><div class="code-container" data-code-prettify="c">void pwrite(struct rwlock* rwlock) {
+  pthread_mutex_lock(&amp;rwlock-&gt;wlock);
+}
+
+void vwrite(struct rwlock* rwlock) {
+  pthread_mutex_unlock(&amp;rwlock-&gt;wlock);
+}
+
+void pread(struct rwlock* rwlock) {
+  pthread_mutex_lock(&amp;rwlock-&gt;rlock);
+  if(!rwlock-&gt;nb_readers)
+    pthread_mutex_lock(&amp;rwlock-&gt;wlock);
+  rwlock-&gt;nb_readers++;
+  pthread_mutex_unlock(&amp;rwlock-&gt;rlock);
+}
+
+void vread(struct rwlock) {
+  pthread_mutex_lock(&amp;rwlock-&gt;rlock);
+  if(!--rwlock-&gt;nb_readers)
+    pthread_mutex_unlock(&amp;rwlock-&gt;wlock);
+  pthread_mutex_unlock(&amp;rwlock-&gt;rlock);
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241423056">2 points – difficile</h4>
+<div class="question-content" id="question-idm45726241423056">
+			L'algorithme simple que vous avez mis en œuvre peut entraîner des famines.
+			En effet, une fois qu'il existe des lecteurs, un écrivain qui souhaite prendre
+			le verrou <span class="code"><span class="code-container">wlock</span></span> verra les nouveaux lecteurs passer devant lui.
+			Modifiez votre algorithme pour empêcher les lecteurs d'entrer en section critique
+			si il existe un écrivain qui souhaite entrer en section critique.
+
+			<div class="remarque">
+				Le code nécessaire pour empêcher les lecteurs d'entrer en section
+				critique lorsqu'il existe des écrivains nécessite de modifier une unique fonction
+				et ne devrait pas nécessiter plus de deux lignes de code.
+			</div>
+<div class="remarque">
+				Il est possible qu'avec votre mise en œuvre, la problème de famine
+				n'existe pas. Si c'est le cas, au lieu de répondre à la question,
+				expliquez pourquoi.
+			</div>
+<div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242863312"></div>
+<div class="solution-content" id="solution-idm45726242863312">
+        Avec la solution naïve proposée à la question précédente,
+        tant qu'il existe des lecteurs, les écrivains sont mis en attente.
+        Il suffit donc d'imaginer des arrivées et départs de lecteurs en continue
+        pour empêcher les écrivains de progresser. Une solution simple à ce problème
+        consiste en empêcher les lecteurs d'entrer en section critique si il existe
+        des lecteurs. Pour cela, il suffit de bloquer le verrou lecteur si il existe un
+        écrivain :
+        <div class="code code-block"><div class="code-container" data-code-prettify="c">void pwrite(struct rwlock* rwlock) {
+  pthread_mutex_lock(&amp;rwlock-&gt;rlock);
+  pthread_mutex_unlock(&amp;rwlock-&gt;rlock);
+  pthread_mutex_lock(&amp;rwlock-&gt;wlock);
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="partie">Approche pessimiste versus optimiste</div>
+		On souhaite maintenant mettre en œuvre une pile offrant trois opérations :
+		<ul>
+<li>
+<span class="code"><span class="code-container">void push(int n)</span></span> : ajoute un élément en haut de la pile,</li>
+<li>
+<span class="code"><span class="code-container">int pop()</span></span> : retire l'élément se trouvant en haut de la pile.</li>
+<li>
+<span class="code"><span class="code-container">int size()</span></span> : compte le nombre d'éléments se trouvant dans la pile.</li>
+</ul>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242252272">3 points – facile</h4>
+<div class="question-content" id="question-idm45726242252272">
+			Donnez le code des structures de données
+			et des trois fonctions sachant qu'on vous demande de mettre en œuvre la pile
+			à l'aide d'une liste chaînée (si vous construisez votre pile comme un tableau, la réponse sera considérée comme
+			fausse). Plutôt que d'utiliser des verrous classiques, on vous demande d'utiliser un verrou
+			lecteur-écrivain pour synchroniser l'accès à la pile.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242270352"></div>
+<div class="solution-content" id="solution-idm45726242270352">
+<div class="code code-block"><div class="code-container">
+struct node {
+  struct node* next;
+  int          value;
+};
+
+struct node* stack = 0;
+struct rwlock lock;
+
+void push(int n) {
+  struct node* new = malloc(sizeof(*new));
+  new-&gt;value = n;
+
+  pwrite(&amp;lock);
+  new-&gt;next = stack;
+  stack = new;
+  vwrite(&amp;lock);
+}
+
+int pop() {
+  pwrite(&amp;lock);
+  int res = stack-&gt;value;    // null case management not requested
+  struct node* node = stack;
+  stack = stack-&gt;next;
+  free(node);
+  vwrite(&amp;lock);
+
+  return res;
+}
+
+int size() {
+  int n = 0;
+  pread(&amp;lock);
+  for(struct node* cur=stack; cur; cur=cur-&gt;next)
+    n++;
+  vread(&amp;lock);
+  return n;
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241048512">2 point – facile</h4>
+<div class="question-content" id="question-idm45726241048512">
+			Donnez les modifications que vous devez apporter à votre code pour utiliser une mémoire
+			transactionnelle ? Pour cela, vous supposerez que vous disposez d'une construction
+			<span class="code"><span class="code-container">atomic { ... }</span></span> permettant de définir un bloc atomique.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242736416"></div>
+<div class="solution-content" id="solution-idm45726242736416">
+        Il suffit de remplacer les sections critiques (les couples <span class="code"><span class="code-container">pwrite</span></span>/<span class="code"><span class="code-container">vwrite</span></span>
+        et <span class="code"><span class="code-container">pread</span></span>/<span class="code"><span class="code-container">vread</span></span>) par des blocs atomiques.
+      </div>
+</div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242387056">2 points – moyen</h4>
+<div class="question-content" id="question-idm45726242387056">
+			Si il existe beaucoup de lecteurs et peu d'écrivains, quelle solution vous semble la plus efficace
+			sachant qu'on utilise une mémoire transactionnelle matérielle.
+			Justifiez (de façon concise en cinq lignes maximum).
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242604352"></div>
+<div class="solution-content" id="solution-idm45726242604352">
+        Toutes les réponses, pourvues qu'elles soient clairement justifiées, peuvent être admises.
+
+        Une première réponse peut être la suivante.
+        La solution avec une mémoire transactionnelle est probablement meilleure.
+        En effet, le verrou est appliqué à toute la liste alors que la mémoire transactionnelle
+        détecte les conflits à la granularité du nœud.
+        Si on imagine une grande liste la probabilité de conflit écrivain/lecteur
+        à l'échelle de toute la liste est beaucoup plus grande que celle à l'échelle
+        d'un nœud. Moins de threads progressent avec les verrous, donc
+        la mémoire transactionnelle est meilleure.
+        
+        <p></p>
+        Une autre réponse possible peut être la suivante.
+        La solution avec des verrous est probablement meilleure.
+        Si le nombre d'écriture est très faible, les deux solutions vont passer à l'échelle
+        (très rare d'être bloqué avec le verrou car peu de demande en écriture, très rare
+        d'avoir un conflit avec une mémoire transactionnelle car peu de demande en écriture).
+        Avec une mémoire transactionnelle, on payera en revanche un surcout pour chaque accès
+        à une variable (instrumentation du code) alors que ce n'est pas le cas avec le verrou,
+        donc le verrou devrait être plus efficace.
+
+        <p></p>
+        Remarquez que ces deux réponses ne sont pas en contradiction.
+        Pour la première réponse, on considère qu'il y a suffisamment d'écritures pour que les conflits
+        lecteurs/écrivains existent à l'échelle de la liste, alors qu'avec la seconde
+        réponse, on considère que le nombre de ces conflits est négligeable.
+      </div>
+</div>
+</div>
+</div>
+<div class="partie">Approche pessimiste sans verrou POSIX (partie difficile, à faire à la fin)</div>
+		On souhaite maintenant mettre en œuvre le verrou lecteur-écrivain sans utiliser
+		de mutex POSIX. Pour cela, nous vous proposons d'utiliser la structure suivante :
+		<div class="code code-block"><div class="code-container">union rwlock {
+  struct {
+    uint64_t nb_readers : 63;
+    uint64_t has_writer : 1;
+  };
+  uint64_t state;
+};</div></div>
+
+		Le mot clé <span class="code"><span class="code-container">union</span></span> permet de placer la structure anonyme interne
+		et la variable <span class="code"><span class="code-container">state</span></span> au même endroit en mémoire.
+		Les deux points suivi de nombres indiquent le nombre de bits utilisés par les champs.
+		Dans notre cas, la structure anonyme fait donc <span class="code"><span class="code-container">63 + 1 = 64</span></span> bits, c'est-à-dire
+		la taille d'un entier 64 bits comme <span class="code"><span class="code-container">state</span></span>. 
+
+		<p></p>
+		Pour illustrer, voici comment
+		on peut utiliser cette structure :
+		<div class="code code-block"><div class="code-container">void f(struct rwlock* rwlock) {
+  union rwlock old;
+  old-&gt;state = rwlock-&gt;state; /* copie les 64 bits de rwlock dans old */
+                              /* old-&gt;nb_readers et rwlock-&gt;nb_readers sont donc égaux */
+                              /* et old-&gt;has_writer et rwlock-&gt;has_writer sont donc égaux */
+
+  union rwlock new;
+  new-&gt;state = old-&gt;state;    /* idem, on copie de nouveau les 64 octets */
+  new-&gt;has_writer = 0; 
+  /* on peut aussi remplacer les 64 bits de rwlock avec une opération atomique */
+  __sync_val_compare_and_swap(&amp;rwlock-&gt;state, old-&gt;state, new-&gt;state);
+
+  /* ou décrémenter rwlock-&gt;nb_readers avec une opération atomique */
+  __sync_fetch_and_add(&amp;rwlock-&gt;nb_readers, -1);
+}</div></div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242366624">2 points – très difficile</h4>
+<div class="question-content" id="question-idm45726242366624">
+			Donnez les codes des quatre fonctions d'accès aux verrous. L'ensemble
+			du code fait entre 20 et 25 lignes.
+
+      <div class="solution-container">
+<div class="solution-toggle toggle" data-toggle-to="solution-idm45726242031200"></div>
+<div class="solution-content" id="solution-idm45726242031200">
+<div class="code code-block"><div class="code-container">union rwlock {
+  struct {
+    uint64_t nb_readers : 63;
+    uint64_t has_writer : 1;
+  };
+  uint64_t state;
+};
+
+void pread(struct rwlock* rwlock) {
+  union rwlock initial;
+  union rwlock newstate;
+  do {
+    initial-&gt;has_writer = 0;
+    initial-&gt;nb_readers = rwlock-&gt;nb_readers;
+    newstate-&gt;nb_readers = initial-&gt;nb_readers + 1;
+    newstate-&gt;has_writer = 0;
+  } while(__sync_val_compare_and_swap(&amp;rwlock-&gt;state, initial-&gt;state, newstate-&gt;state) != initial-&gt;state);
+}
+
+void vread(struct rwlock* rwlock) {
+  __sync_fetch_and_add(&amp;rwlock-&gt;nb_readers, -1);
+}
+
+void pwrite(struct rwlock* rwlock) {
+  union rwlock initial;
+  union rwlock newstate;
+  do {
+    initial-&gt;nb_readers = 0;
+    initial-&gt;has_writer = 0;
+    newstate-&gt;nb_readers = 0;
+    newstate-&gt;has_writer = 1;
+  } while(__sync_val_compare_and_swap(&amp;rwlock-&gt;state, initial-&gt;state, newstate-&gt;state) != initial-&gt;state);
+}
+
+void vwrite(struct rwlock* rwlock) {
+  rwlock-&gt;has_writer = 0;
+}</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "french" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

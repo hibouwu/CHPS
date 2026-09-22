@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="" name="description"/>
+<meta content="Gaël Thomas" name="author"/>
+<title>CSC5101 – Advanced Programming of Multicore Architectures - tp-non-blocking</title>
+<link href="../../Supplementary/fonts.googleapis.com/css/index.html" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.css" rel="stylesheet" type="text/css"/>
+<link href="../../Supplementary/cs.ip-paris.fr/courses/chps/paam/paam.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+<a class="logo" href="https://www.ip-paris.fr/en">
+<img alt="IP Paris" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png"/>
+</a>
+<a class="title" href="../../Pages/paam.html">
+<h1>CSC5101 – Advanced Programming of Multicore Architectures</h1>
+</a>
+<a class="tagline" href="https://cs.ip-paris.fr/courses/tracks/pds/">
+				Parallel and Distributed Systems track			</a>
+<div class="navbar dropdown-area">
+<div class="navbar-toggler dropdown-button" id="main-menu"><!-- style='background-color: cyan;'> -->
+<div class="navbar-toggler-icon"></div>
+</div>
+<div class="navbar-menu tsp-menu" data-toggler="main-menu"><!-- style='background-color: lightgreen;'> -->
+<div id="chapters-list">
+<ul>
+<li>
+		Organization
+		<ul>
+<li>
+				Past exams
+        
+
+<ul>
+<li><a href="../../Exams/2022-2023/cf1-en.html">Exam 2022/2023 (in english)</a></li>
+<li><a href="../../Exams/2021-2022/cf1-en.html">Exam 2021/2022 (in english)</a></li>
+<li><a href="../../Exams/2020-2021/cf1.html">Exam 2020/2021 (in french)</a></li>
+<li><a href="../../Exams/2019-2020/cf1.html">Exam 2019/2020 (in french)</a></li>
+<li><a href="../../Exams/2018-2019/cf1.html">Exam 2018/2019 (in french)</a></li>
+<li><a href="../../Exams/2017-2018/cf1.html">Exam 2017/2018 (in french)</a></li>
+<li><a href="../../Exams/2016-2017/cf1.html">Exam 2016/2017 (in french)</a></li>
+</ul>
+</li>
+<li>
+<a href="../../Pages/planning.html">Schedule</a>
+</li>
+<li>
+<a href="../../Pages/all.html">All the subjects (printable)</a>
+</li>
+</ul>
+</li>
+<li>
+		Lessons
+		<ul class="chapitres">
+<li>
+<div class="chapter-id">0</div>
+<div class="chapter-title">Basic C programming</div>
+<div class="chapter-content">
+<ul>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c1-diapos.pdf">C language (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci1_TP_TP1.html">C language (lab in French)</a></li>
+<li><a href="http://www-inf.telecom-sudparis.eu/cours/CSC4103/Public/Diapos/c4-diapos.pdf">Pointers (lecture in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4103/Supports/ci4_TP_TP4.html">Pointers (lab in French)</a></li>
+<li><a href="../../Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/Supports/index.html">Kernel programming and threads</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">I</div>
+<div class="chapter-title">Threads and synchronizations</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/01-welcome.pdf">Introduction</a>
+</li>
+<li>
+<a href="../../Lectures/01-threads.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-threads/tp-threads.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">II</div>
+<div class="chapter-title">Lock algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/02-locks.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-locks/tp-locks.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">III</div>
+<div class="chapter-title">Non-blocking algorithms</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/03-non-blocking.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="tp-non-blocking.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">IV</div>
+<div class="chapter-title">Transactional memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/04-stm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-stm/tp-stm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">VI</div>
+<div class="chapter-title">Non-uniform memory architecture</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/05-numa.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-numa/tp-numa.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="chapter-id">V</div>
+<div class="chapter-title">Non-volatile memory</div>
+<div class="chapter-content">
+<ul>
+<li>
+<a href="../../Lectures/06-nvmm.pdf">Lecture</a>
+</li>
+<li>
+<a class="all-in-one" href="../tp-nvmm/tp-nvmm.html">Lab</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div> </div>
+<div class="navbar-search">
+<div class="dropdown-target fade-height" data-from="main-menu">
+<div class="dropdown-button d-none d-md-block" id="search"><i class="fas fa-search"></i></div>
+<form action="/courses/chps/paam/index.php" class="search-menu dropdown-target fade-height" data-from="search" role="search">
+<div>
+<input aria-label="Search" name="s" placeholder="Search" type="text"/>
+<button type="submit"><i class="fas fa-search"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="content cours">
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle" data-toggle-to="chapitre-idm45726241751200">Non-blocking algorithms</h2>
+<div class="chapitre-content" id="chapitre-idm45726241751200">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242889952">The lock free queue</h3>
+<div class="exercice-content" id="exercice-idm45726242889952">
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242325760"></h4>
+<div class="question-content" id="question-idm45726242325760">
+      Write a main function that creates N threads, where N is a parameter of the application.
+      The main function has to wait for the termination of the threads before exiting.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241458992"></h4>
+<div class="question-content" id="question-idm45726241458992">
+      Implements a queue of integer protected by a <span class="code"><span class="code-container">pthread_mutex_lock</span></span> (enqueue and dequeue functions).
+      Modify your application in order to enqueue K nodes and then dequeue K nodes in each thread,
+      where K is a parameter of the application.
+      Runs the application with N = 10 and K = 1'000'000 and verify that the queue is empty at the end of the run.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242875568"></h4>
+<div class="question-content" id="question-idm45726242875568">
+      Implements a lock-free queue of integer by using the algorithm presented during the lecture.
+      Don't forget to identify the atomic operations and to use the adequate C constructs.
+      Runs the application with N = 10 and K = 1'000'000 and verify that the lock-free queue is also empty at the end of the run.
+
+      <div class="remarque">
+        For the moment, don't try to free the nodes when they are removed from the queue.
+        You will see that freeing the nodes complicate the algorithm later.
+      </div>
+<div class="remarque">
+        In order to simplify debugging, you can add a function to print the state of the queue.
+      </div>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241734224"></h4>
+<div class="question-content" id="question-idm45726241734224">
+      By using <span class="code"><span class="code-container">clock_gettime</span></span> in <span class="code"><span class="code-container">CLOCK_MONOTONIC</span></span> mode,
+      identify which implementation (lock-free or protected by a <span class="code"><span class="code-container">pthread_mutex_lock</span></span>) gives the best result.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241466256"></h4>
+<div class="question-content" id="question-idm45726241466256">
+      Now, try to free a node in the lock-free queue implementation of <span class="code"><span class="code-container">dequeue</span></span>.
+      If your code is correct, the application should crash lamentably with a segmentation fault.
+      Try to understand why by taking look at <a href="https://en.wikipedia.org/wiki/ABA_problem">the ABA problem</a>.
+      When you think that you understand, check with your professor that your explanation is correct.
+	  </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726240800304">optional and difficult</h4>
+<div class="question-content" id="question-idm45726240800304">
+<p class="inline-paragraph">In order to avoid the ABA problem, we have to ensure that a node A is not reallocated when a thread uses it.
+        For that purpose, we will use hazard pointers
+        (Maged Michael, "Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects", TPDS 2004).</p>
+<p></p>
+<p>At high-level, when a thread reads a pointer X from a location L and wants
+        to perform a CAS to change the value of L from X to another value, it has to ensure
+        that X cannot be reallocated between the read and the CAS.
+        For that purpose, the thread registers X in a thread-local variable called hazard while it
+        uses X, and the algorithm has to ensure that X cannot be freed if one of the hazard variables
+        points to X.</p>
+<p>With the queue, when a thread reads the pointer X in head in <span class="code"><span class="code-container">dequeue</span></span>, it writes thus
+        X in hazard. Then, it re-reads head and if head is not equal to X, it restarts from the beginning.
+        Finally, if the compare-and-swap succeed, instead of freeing the node, the thread
+        writes 0 in its hazard pointer and adds X in a lock-free stack called free_nodes.</p>
+<p>Similarly, in enqueue, the thread has also to ensure that the tail is not freed during
+        one of the operations that modify tail.
+        For this reason, similarly, when the thread reads tail, it saves its value in its hazard pointer,
+        re-read tail in order to ensure that it was not yet potentially freed,
+        and writes 0 in its hazard location after the CAS.</p>
+<p>Finally, in enqueue, in order to allocate a node, a thread has now first to try to allocate
+        the node from free_nodes before allocating a new node with <span class="code"><span class="code-container">malloc</span></span>.
+        In details:</p>
+<ul>
+<li>the thread pops (with a lock-free algorithm) a pointer Z from the free_nodes stack,</li>
+<li>If Z is null (i.e., the stack is empty), the thread allocates a node with <span class="code"><span class="code-container">malloc</span></span>,</li>
+<li>otherwise
+          <ul>
+<li>if the thread finds the Z pointer in one of the hazard variables of the other threads,
+              it means that Z is still used by another thread. In this case, it has to re-push Z and to use
+              <span class="code"><span class="code-container">malloc</span></span> to allocate a new node,</li>
+<li>otherwise, the node is free and not used anymore, the thread can thus directly reuse it
+              to enqueue a new value without calling <span class="code"><span class="code-container">malloc</span></span>.</li>
+</ul>
+</li>
+</ul>
+<p>As an additional question, why a node can not appear twice in the free_nodes stack?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726241851280">The radix tree</h3>
+<div class="exercice-content" id="exercice-idm45726241851280">
+    Try to implement a lock free version of a radix tree. You can find a description
+    of a radix tree <a href="https://en.wikipedia.org/wiki/Radix_tree">here</a>.
+    In this exercise, consider that you cannot remove elements from the radix tree.
+  </div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242487280">The linked list</h3>
+<div class="exercice-content" id="exercice-idm45726242487280">
+    Restart the first exercice, but by considering a linked list, and without trying to free
+    the nodes.
+    If you still have time and was able to implement hazard pointers for the queue,
+    you can try to use hazard pointers to handle the ABA problem for linked lists (this question is difficult).
+  </div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle" data-toggle-to="exercice-idm45726242018544">A simple memory allocator</h3>
+<div class="exercice-content" id="exercice-idm45726242018544">
+<p>
+    In this exercice, we will implement a memory allocator.
+    Internally, the allocator manages <b>chunks</b>.
+    A chunk represents a memory region, which can be allocated or not.
+    A chunk consists of this structure:
+  </p>
+<div class="code code-block"><div class="code-container">struct chunk {
+  size_t size;
+  union {
+    struct chunk* next; /* next node when the chunk is free */
+    char content[0];    /* the content of the chunk when allocated */
+  };
+};</div></div>
+<p>
+      The interface consists then in two functions:
+    </p>
+<ul>
+<li>
+<span class="code"><span class="code-container">struct chunk* alloc_chunk(size_t size)</span></span>: allocate a chunk of size <span class="code"><span class="code-container">size</span></span>,</li>
+<li>
+<span class="code"><span class="code-container">void free_chunk(struct chunk* c)</span></span>: free the chunk <span class="code"><span class="code-container">c</span></span>.</li>
+</ul>
+<p>
+      When a chunk <span class="code"><span class="code-container">c</span></span> is free, it is stored in a global linked list named <span class="code"><span class="code-container">struct chunk* free_list</span></span>.
+      In this case, <span class="code"><span class="code-container">c-&gt;next</span></span> points to the next free chunk in the list <span class="code"><span class="code-container">free_list</span></span>.
+      When a chunk <span class="code"><span class="code-container">c</span></span> is allocated, it is not in <span class="code"><span class="code-container">free_list</span></span>.
+      In this case, the <span class="code"><span class="code-container">next</span></span> field is not used, and the user can store the content of an object in <span class="code"><span class="code-container">c-&gt;content</span></span>.
+    </p>
+<p>
+      In order to allocate a chunk, <span class="code"><span class="code-container">alloc_chunk</span></span> finds the first chunk <span class="code"><span class="code-container">c</span></span> large enough in the list <span class="code"><span class="code-container">free_chunk</span></span>, and remove <span class="code"><span class="code-container">c</span></span> from the list.
+      If <span class="code"><span class="code-container">c-&gt;chunk + sizeof(struct chunk)</span></span> is greater than <span class="code"><span class="code-container">size</span></span>, returning the whole chunk <span class="code"><span class="code-container">c</span></span> would lead to a memory waste.
+      In order to avoid the waste, in this case, <span class="code"><span class="code-container">alloc_chunk</span></span> has to break the chunk in two by creating a new chunk inside the content <span class="code"><span class="code-container">c</span></span>.
+    </p>
+<div class="tip-container">
+<div class="tip-toggle toggle" data-toggle-to="tip-idm45726241751952"></div>
+<div class="tip-content" id="tip-idm45726241751952">
+      At a high level, the algorithm of <span class="code"><span class="code-container">alloc_chunk</span></span> consists of:
+    <ul>
+<li>Find the first chunk <span class="code"><span class="code-container">c</span></span> in <span class="code"><span class="code-container">free_list</span></span> such that <span class="code"><span class="code-container">size &lt; c-&gt;size</span></span>,</li>
+<li>Remove <span class="code"><span class="code-container">c</span></span> from the list</li>
+<li>If <span class="code"><span class="code-container">size + sizeof(struct chunk) &lt; c-&gt;size</span></span>, then:
+        <ul>
+<li>Creates a new chunk <span class="code"><span class="code-container">struct chunk* d = (struct chunk*)((uintptr_t)c + size)</span></span>,</li>
+<li>Set <span class="code"><span class="code-container">d-&gt;size</span></span> to <span class="code"><span class="code-container">c-&gt;size - size</span></span>, and <span class="code"><span class="code-container">c-&gt;size</span></span> to <span class="code"><span class="code-container">size</span></span>,</li>
+<li>Free the chunk <span class="code"><span class="code-container">d</span></span>,</li>
+<li>Return <span class="code"><span class="code-container">c</span></span>.</li>
+</ul>
+</li>
+<li>Otherwise (i.e., if <span class="code"><span class="code-container">size  + sizeof(struct chunk) &gt;= c-&gt;size</span></span>), simply returns <span class="code"><span class="code-container">c</span></span>.</li>
+</ul>
+</div>
+</div>
+<div class="partie">Lock-based version</div>
+<p>
+      In this first part of the exercice, you will implement a lock-based version of the allocator.
+      For that, you need a global lock named <span class="code"><span class="code-container">pthread_mutex_t mutex</span></span>.
+    </p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241645968">free_chunk</h4>
+<div class="question-content" id="question-idm45726241645968">
+      Give the code of the <span class="code"><span class="code-container">free_chunk(struct chunk* c)</span></span>, which adds <span class="code"><span class="code-container">c</span></span> to <span class="code"><span class="code-container">free_list</span></span>.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726240799552">create_large_chunk</h4>
+<div class="question-content" id="question-idm45726240799552">
+      Give the code of a <span class="code"><span class="code-container">struct chunk* create_large_chunk()</span></span> function.
+      This function allocate a large chunk of 64*1024*1024 bytes, adequatly initializes its <span class="code"><span class="code-container">size</span></span> field and returns it.
+      This function does not add the new chunk in the list: the function simply returns the new chunk.
+      To allocate the chunk, you just have to use <span class="code"><span class="code-container">malloc</span></span>.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241912864">alloc_chunk</h4>
+<div class="question-content" id="question-idm45726241912864">
+      Give the code of <span class="code"><span class="code-container">alloc_chunk</span></span>.
+      If <span class="code"><span class="code-container">free_list</span></span> does not contain any chunk larger than <span class="code"><span class="code-container">c</span></span>, then, <span class="code"><span class="code-container">alloc_chunk</span></span> uses <span class="code"><span class="code-container">create_large_chunk</span></span> to create a new large chunk.
+      In this case, <span class="code"><span class="code-container">alloc_chunk</span></span> adds the new large chunk to the <span class="code"><span class="code-container">free_list</span></span>, and restarts to try to allocate a chunk.
+    </div>
+</div>
+<div class="partie">Lock-free version</div>
+<p>
+      In this second part of the exercice, you will implement a lock-free version of the algorithm step by step.
+      For that, we will start by simply considering <span class="code"><span class="code-container">free_list</span></span> as a lock-free stack.
+    </p>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242392208">pop</h4>
+<div class="question-content" id="question-idm45726242392208">
+      Give the code of a <span class="code"><span class="code-container">struct chunk* pop()</span></span> function.
+      If <span class="code"><span class="code-container">free_list</span></span> is NULL, <span class="code"><span class="code-container">pop</span></span> return NULL, otherwise, the function pops the first element from <span class="code"><span class="code-container">free_list</span></span>.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241091472">push</h4>
+<div class="question-content" id="question-idm45726241091472">
+      Give the code of a <span class="code"><span class="code-container">void push(struct chunk* head, struct chunk* tail)</span></span> function.
+      <span class="code"><span class="code-container">head</span></span> is a list that ends with <span class="code"><span class="code-container">tail</span></span>.
+      The function pushes all the elements from <span class="code"><span class="code-container">head</span></span> to <span class="code"><span class="code-container">tail</span></span> (both included).
+      Note that it should not be necessary to traverse the list from <span class="code"><span class="code-container">head</span></span> to <span class="code"><span class="code-container">tail</span></span>.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726241517264">free_chunk</h4>
+<div class="question-content" id="question-idm45726241517264">
+      Give the code of the <span class="code"><span class="code-container">free_chunk</span></span> function.
+    </div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle" data-toggle-to="question-idm45726242147632">alloc_chunk</h4>
+<div class="question-content" id="question-idm45726242147632">
+      Give the code of the <span class="code"><span class="code-container">alloc_chunk</span></span> function.
+      By leveraging <span class="code"><span class="code-container">push</span></span>, <span class="code"><span class="code-container">pop</span></span> and <span class="code"><span class="code-container">create_large_chunk</span></span>, you can avoid using any atomic operation in <span class="code"><span class="code-container">alloc_chunk</span></span>.
+    </div>
+</div>
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- ispell-local-dictionary: "english" -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div>
+</div>
+<!-- Local Variables: -->
+<!-- ispell-dictionary: "english" -->
+<!-- mode: web -->
+<!-- mode: flyspell -->
+<!-- coding: utf-8 -->
+<!-- End: -->
+</div></div>
+<div class="footer">
+<div class="logo">
+<table class="borderless" style="text-align: left">
+<tr>
+<td>
+<a href="https://www.ip-paris.fr/en/">
+<table class="borderless">
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 20px">
+<img alt="IP Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ipparis.png" width="64"/>
+</span>
+</td>
+<td>
+<b style="font-variant: small-caps;">Institut<br/>
+                Polytechnique<br/>
+                de Paris</b>
+</td>
+</tr>
+</table>
+</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.polytechnique.edu/en/">
+<img alt="Polytechnique" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/x.png" width="38"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.ensta-paristech.fr/en">
+<img alt="ENSTA" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/ensta.png" width="46"/>
+</a>
+</span>
+<span class="inline-block" style="margin-right: 8px">
+<a href="https://www.telecom-paris.fr/en/">
+<img alt="Telecom Paris" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tp.png" width="45"/>
+</a>
+</span>
+<span class="inline-block">
+<a href="https://www.telecom-sudparis.eu/en/">
+<img alt="Telecom SudParis" height="64" src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/ipparis/tsp.png" width="45"/>
+</a>
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="address">
+<p><b><a class="hide-link" href="https://www.ip-paris.fr/en">
+	Institut Polytechnique de Paris</a></b></p>
+<p>5, Avenue Le Chatelier<br/>
+  F-91764 Palaiseau Cedex France</p>
+</div>
+<div class="copyright">
+        Ⓒ 2020–2026 Institut Polytechnique de Paris
+			</div>
+</div>
+<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+<div>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="../../Supplementary/cdn.jsdelivr.net/gh/google/code-prettify@master/loader/lang-lisp.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/wp/wp-content/themes/tsp-inf/menu.js"></script>
+<script src="../../Supplementary/cs.ip-paris.fr/courses/infra-web-cours/infra-web-cours/current/tsp.js"></script>
+</div>
+</body>
+</html>

@@ -6,6 +6,8 @@ C 与 Linux 工具、构建和测试、性能分析、实验方法与神经网�
 
 ## 从这里开始
 
+- [教师公开实验仓库](#教师公开实验仓库)
+
 - [TD / TP：题目、解答与代码](Exercises/README.md)
 
 - [教师原版课程导航](<Official/README.md>)
@@ -238,3 +240,17 @@ C 与 Linux 工具、构建和测试、性能分析、实验方法与神经网�
 ## 补充练习
 
 [链表练习源码与 CMake 配置](Materials/glhpc/L3ListeChainee/)
+
+## 教师公开实验仓库
+
+教师提供的原始题目和代码模板可直接从下列仓库获取。它们与带个人用户名后缀的作业仓库不同，不包含个人后续解答和实验结果。
+
+| 实验 | 公开仓库 |
+|---|---|
+| Lab 1 | [M1-CHPS/glhpc-lab1](https://github.com/M1-CHPS/glhpc-lab1) |
+| Lab 2 | [M1-CHPS/glhpc-lab2](https://github.com/M1-CHPS/glhpc-lab2) |
+| Lab 3 | [M1-CHPS/glhpc-lab3](https://github.com/M1-CHPS/glhpc-lab3) |
+| Lab 4 | [M1-CHPS/glhpc-lab4](https://github.com/M1-CHPS/glhpc-lab4) |
+| Lab 5 | [M1-CHPS/glhpc-lab5](https://github.com/M1-CHPS/glhpc-lab5) |
+| Lab 6 | [M1-CHPS/glhpc-lab6](https://github.com/M1-CHPS/glhpc-lab6) |
+| Lab 7 | [M1-CHPS/glhpc-lab7](https://github.com/M1-CHPS/glhpc-lab7) |

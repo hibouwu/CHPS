@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>线程与同步 · PAAM 实验中文版</title><style>*{box-sizing:border-box}body{margin:0;color:#243446;background:#f5f7fa;font:17px/1.85 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif}.page{max-width:1050px;margin:32px auto;background:white;padding:28px 48px 64px;border-radius:10px}header{border-bottom:1px solid #dce4ec;padding-bottom:20px}h1{font-size:24px;margin:0 0 10px}h2{font-size:30px;line-height:1.45;margin:30px 0 16px}h3{font-size:24px;line-height:1.5;margin:32px 0 16px;border-bottom:2px solid #d8e4ed;padding-bottom:8px}h4{font-size:19px;line-height:1.6;margin:0 0 12px;color:#174767}a{color:#14648f;text-decoration:underline;text-underline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 0}nav a[aria-current=page]{font-weight:700;color:#172f44}p{margin:14px 0}ul,ol{padding-left:1.8em}li{margin:6px 0}.question-container{border-left:3px solid #b8cedf;margin:24px 0;padding:16px 20px;background:#fbfcfe}.question-container .question-container{background:white}.objectif,.intro-note,.translator-notes{padding:16px 20px;background:#eef5fa;border-radius:5px;margin:20px 0}.intro-note{font-size:15px;color:#506477}.translator-notes h3{font-size:19px;margin-top:0}code{font-family:"DejaVu Sans Mono",monospace;font-size:.87em;background:#edf1f5;padding:2px 4px;border-radius:3px}pre{background:#f0f3f6;padding:18px;overflow-x:auto;line-height:1.5;font-size:15px;border-radius:5px;tab-size:4}pre code{padding:0;background:transparent;font-size:inherit}.code-url{font-size:15px;margin:8px 0}.code-block{margin:18px 0}details.solution{border:1px solid #bed1df;border-radius:5px;padding:12px 18px;margin:22px 0;background:#fff}summary{cursor:pointer;color:#18557b;font-weight:600}details[open]>summary{margin-bottom:16px}.solution-content{font-size:16px}footer{margin-top:40px;border-top:1px solid #dce4ec;padding-top:15px;font-size:14px;color:#607180}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #cbd4dd;padding:8px}@media(max-width:650px){.page{padding:20px;margin:0;border-radius:0}body{font-size:16px}.question-container{padding:12px}h2{font-size:26px}}@media print{body{background:white}.page{max-width:none;margin:0;padding:0}details{break-inside:avoid}.question-container{break-inside:avoid}nav{font-size:12px}}.partie{display:block;font-size:20px;font-weight:700;color:#174767;margin:26px 0 14px}</style></head>
+<body><div class="page"><header><h1>PAAM 实验 · 中文版</h1><nav aria-label="实验目录"><a aria-current="page" href="../tp-threads/tp-threads_zh.html">线程与同步</a><a href="../tp-locks/tp-locks_zh.html">锁算法</a><a href="../tp-non-blocking/tp-non-blocking_zh.html">非阻塞算法</a><a href="../tp-stm/tp-stm_zh.html">事务内存</a><a href="../tp-numa/tp-numa_zh.html">NUMA</a><a href="../tp-nvmm/tp-nvmm_zh.html">非易失性内存</a></nav><div><a href="tp-threads.html" lang="en">English · 英文原版</a> · <a href="../../Lectures/01-threads_zh.md">中文讲义</a> · <a href="../../Lectures/01-threads.md">英文讲义</a> · <a href="../README.md">实验目录</a></div></header>
+<p class="intro-note">根据同目录英文原版翻译，保留题目顺序、选做部分与原站提供的代码。练习、问题和分节编号与英文原版一致；明显的原文疑点单独标作译注。参考内容默认折叠，代码和附件可离线查看。</p>
+<div class="main" id="main-content">
+<div class="chapitre-container">
+<h2 class="chapitre-toggle toggle">线程与同步</h2>
+<div class="chapitre-content" id="chapitre-idm45726241872608">
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 1：创建第一个线程程序</h3>
+<div class="exercice-content" id="exercice-idm45726242418048">
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.a.</h4>
+<div class="question-content" id="question-idm45726242238960">
+<p class="inline-paragraph">用 C 编写一个程序，通过 <code>pthread_create</code> 创建 N 个线程，其中 <code>N</code> 由程序的第一个参数给出。每个线程向终端输出 "[tid] Hello, World i!!!"，其中：</p>
+<ul>
+<li><code>tid</code> 是 <code>pthread_self</code> 返回的线程标识；</li>
+<li><code>i</code> 是 <code>main</code> 为每个线程依次分配的编号：第一个线程为 0，第二个为 1，依此类推。</li>
+</ul>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.b.</h4>
+<div class="question-content" id="question-idm45726241530816">
+<p class="inline-paragraph">现在让 <code>main</code> 在函数末尾输出 <code>Main quitting</code>。使用 3 个线程，多运行几次程序。为什么有时会先输出 Main quitting，再输出三个 Hello, World？</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.c.</h4>
+<div class="question-content" id="question-idm45726241991072">
+<p class="inline-paragraph">将线程数设为 20，多运行几次。为什么程序经常没有输出满 20 次 Hello, World？</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.d.</h4>
+<div class="question-content" id="question-idm45726242501072">
+<p class="inline-paragraph">在 <code>main</code> 末尾增加一次 <code>pthread_exit</code> 调用。为什么现在以 20 个线程启动时，总能看到 20 次 Hello, World？</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 1.e.</h4>
+<div class="question-content" id="question-idm45726242346880">
+<p class="inline-paragraph">继续修改，使 Main quitting 一定在所有 Hello, World 都输出之后才出现。</p>
+</div>
+</div>
+<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242421952">
+<div class="code code-block">
+<div class="code-url"><a download="hello.c" href="hello.c">hello.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+
+#define N 20
+
+void* hello(void* _arg) {
+  int* p = _arg;
+  printf("[%llx] Hello from %d\n", (unsigned long long)pthread_self(), *p);
+  free(p);
+  return NULL;
+}
+
+int main(int argc, char* argv[]) {
+  pthread_t tid[N];
+  void* retval;
+
+  for(int i=0; i&lt;N; i++) {
+    int* p = malloc(sizeof(*p));
+    *p = i;
+    pthread_create(&amp;tid[i], NULL, hello, p);
+  }
+
+  for(int i=0; i&lt;N; i++)
+    pthread_join(tid[i], &amp;retval);
+
+  printf("Quitting\n");
+  
+  pthread_exit(NULL);
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 2：共享计数器</h3>
+<div class="exercice-content" id="exercice-idm45726242711440">
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 2.a.</h4>
+<div class="question-content" id="question-idm45726241559520">
+<p class="inline-paragraph">先增加一个名为 <code>counter</code> 的全局变量，初值为 0。每个线程在输出 Hello, World 后将它加一。最后，在 <code>main</code> 调用 <code>pthread_exit</code> 之前输出 <code>counter</code> 的值。</p>
+<p>以 100 个线程运行时，为什么输出的计数器值经常小于 100？修改程序，使程序结束时计数器等于线程数。</p>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 2.b.</h4>
+<div class="question-content" id="question-idm45726242180816">修改程序，使它只在计数器等于线程数时输出 "Main quitting"。</div>
+</div>
+</div>
+</div>
+<div class="exercice-container">
+<h3 class="exercice-toggle toggle">练习 3：生产者与消费者</h3>
+<div class="exercice-content" id="exercice-idm45726242452384">
+<p>本练习实现生产者／消费者模型。主线程作为生产者，从标准输入逐行读取文本并放入队列；其他线程作为消费者，按 FIFO（先进先出）顺序从队列中取出这些行并输出。</p>
+<p>使用链表实现队列：第一个节点保存最早入队的行，最后一个节点保存最新入队的行。为避免每次入队都遍历整个链表，需要同时保存指向第一个节点和最后一个节点的指针。</p>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3.a.</h4>
+<div class="question-content" id="question-idm45726242004512">先实现单消费者的单播队列：只有一个消费者从队列取消息。队列为空时，消费者必须通过 <code>pthread_cond_wait</code> 休眠。节点被消费后，要记得释放其内存。<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726242476352">可以下载 <a href="Makefile">Makefile</a>。<div class="code code-block">
+<div class="code-url"><a download="spsc.c" href="spsc.c">spsc.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;stdint.h&gt;
+
+#define MAX_LENGTH 256
+#define xstr(s) str(s)
+#define str(s) #s
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+
+struct node {
+  struct node* next;
+  char msg[MAX_LENGTH];
+};
+
+struct node* head = NULL;
+struct node* tail = NULL;
+
+void* consumer(void* _arg) {
+  int i = (int)(uintptr_t)_arg;
+
+  for(;;) {
+    pthread_mutex_lock(&amp;mutex);
+    while(head == NULL)
+      pthread_cond_wait(&amp;cond, &amp;mutex);
+
+    struct node* n = head;
+    head = n-&gt;next;
+    if(!head)
+      tail = NULL;
+    pthread_mutex_unlock(&amp;mutex);
+
+    printf("[%d] Receive: %s\n", i, n-&gt;msg);
+    free(n);
+  }
+
+  return 0;
+}
+
+void producer() {
+  for(;;) {
+    struct node* cur = malloc(sizeof(*cur));
+
+    scanf("%"xstr(MAX_LENGTH)"s", cur-&gt;msg);
+
+    if(strncmp(cur-&gt;msg, "exit", MAX_LENGTH) == 0)
+      exit(0);
+
+    cur-&gt;next = NULL;
+    
+    pthread_mutex_lock(&amp;mutex);
+    if(tail)
+      tail-&gt;next = cur;
+    else
+      head = cur;
+    tail = cur;
+    pthread_cond_signal(&amp;cond);
+    pthread_mutex_unlock(&amp;mutex);
+  }
+}
+
+int main(int argc, char** argv) {
+  if(argc != 2) {
+    fprintf(stderr, "Usage: %s nb-threads\n", argv[0]);
+    exit(1);
+  }
+
+  int n = atoi(argv[1]);
+  pthread_t tids[n];
+
+  for(int i=0; i&lt;n; i++)
+    pthread_create(tids + i, NULL, consumer, (void*)(uintptr_t)i);
+
+  producer();
+  
+  for(int i=0; i&lt;n; i++) {
+    void* retval;
+    pthread_join(tids[i], &amp;retval);
+  }
+
+  printf("Main quitting\n");
+  
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3.b. 共享内存中的原子广播（选做，1/2）</h4>
+<div class="question-content" id="question-idm45726242619760">将程序改成多播队列：每个消费者都必须按 FIFO 顺序接收并输出每一行。仍需正确释放链表节点。</div>
+</div>
+<div class="question-container">
+<h4 class="question-toggle toggle">问题 3.c. 共享内存中的原子广播（选做，2/2）</h4>
+<div class="question-content" id="question-idm45726241937968">在广播版本上，尝试让各消费者独立向前处理，不必等其他消费者都处理完前一个节点。你的初始版本可能让所有消费者一起处理一个节点，然后才进入下一个；现在要解除这种同步推进的限制。每个消费者内部仍须遵守上一题要求的 FIFO 顺序。<details class="solution"><summary>原站参考内容（点击展开）</summary><div class="solution-content" id="solution-idm45726241937680">
+<div class="code code-block">
+<div class="code-url"><a download="mpmc.c" href="mpmc.c">mpmc.c</a></div>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;unistd.h&gt;
+
+#define MAX_LENGTH 256
+#define xstr(s) str(s)
+#define str(s) #s
+
+struct node {
+  char msg[MAX_LENGTH];
+  struct node* next;
+  size_t cpt;
+  pthread_mutex_t mutex;
+  pthread_cond_t cond;
+};
+
+struct thread_arg {
+  struct node* fake;
+  size_t id;
+};
+
+struct node* new_node(size_t n) {
+  struct node* node = malloc(sizeof(*node));
+  
+  node-&gt;next = NULL;
+  node-&gt;cpt = n;
+  pthread_mutex_init(&amp;node-&gt;mutex, NULL);
+  pthread_cond_init(&amp;node-&gt;cond, NULL);
+
+  return node;
+}
+
+struct thread_arg* new_arg(size_t id, struct node* fake) {
+  struct thread_arg* arg = malloc(sizeof(*arg));
+
+  arg-&gt;fake = fake;
+  arg-&gt;id = id;
+  
+  return arg;
+}
+
+void* consumer(void* _arg) {
+  struct thread_arg* arg = _arg;
+  struct node* cons = arg-&gt;fake;
+  size_t id = arg-&gt;id;
+
+  free(arg);
+
+  for(;;) {
+    bool was_free = false;
+    
+    pthread_mutex_lock(&amp;cons-&gt;mutex);
+    while(cons-&gt;next == NULL)
+      pthread_cond_wait(&amp;cons-&gt;cond, &amp;cons-&gt;mutex);
+    char buf[MAX_LENGTH];
+    strncpy(buf, cons-&gt;msg, MAX_LENGTH);
+    struct node* tmp = cons-&gt;next;
+    if(--cons-&gt;cpt == 0) {
+      was_free = true;
+      free(cons);
+    }
+    pthread_mutex_unlock(&amp;cons-&gt;mutex);
+
+    cons = tmp;
+
+    if(strncmp(buf, "exit", MAX_LENGTH) == 0) {
+      printf("===== [%zu] exiting ======\n", id);
+      pthread_exit(NULL);
+    } else {
+      printf("[%zu] receive: %s%s\n", id, buf, was_free ? " (free the node)" : "");
+      // simulate different speeds, consummer i is faster than consummer i+1
+      //usleep((id-1)*100000);
+    }
+  }
+}
+
+// here, the thread_arg is just here if we want to test with multiple producers
+void producer(struct thread_arg* _arg) {
+  struct thread_arg* arg = _arg;
+  struct node* prod = arg-&gt;fake;
+  size_t id = arg-&gt;id;
+
+  free(arg);
+
+  char* poeme[] =
+    {
+      "Avec", "ses", "quatre", "dromadaires",
+      "Don", "Pedro", "d’Alfaroubeira",
+      "courut", "le", "monde", "et", "l’admira",
+      "il", "fit", "ce", "que", "je", "voudrais", "faire",
+      "si", "j’avais", "quatre", "dromadaires",
+      "exit"
+    };
+  size_t i = 0;
+  
+  for(;;) {
+    //char msg[MAX_LENGTH];
+    //scanf("%"xstr(MAX_LENGTH)"s", msg);
+    char* msg = poeme[i++];
+    
+    struct node* next = new_node(prod-&gt;cpt);
+
+    pthread_mutex_lock(&amp;prod-&gt;mutex);
+    printf("[%zu] produce: %s\n", id, msg);
+    prod-&gt;next = next;
+    strncpy(prod-&gt;msg, msg, MAX_LENGTH);
+    pthread_cond_broadcast(&amp;prod-&gt;cond);
+    pthread_mutex_unlock(&amp;prod-&gt;mutex);
+
+    if(strncmp(msg, "exit", MAX_LENGTH) == 0)
+      return;
+
+    prod = next;
+  }
+}
+
+int main(int argc, char** argv) {
+  if(argc != 2) {
+    fprintf(stderr, "Usage: %s nb-threads\n", argv[0]);
+    exit(1);
+  }
+
+  int n = atoi(argv[1]);
+  pthread_t tids[n];
+
+  struct node* list = new_node(n);
+  
+  for(int i=0; i&lt;n; i++)
+    pthread_create(tids + i, NULL, consumer, new_arg(i + 1, list)); // 1...n are the consummers
+
+  producer(new_arg(0, list)); // 0 is the producer
+  
+  for(int i=0; i&lt;n; i++) {
+    void* retval;
+    pthread_join(tids[i], &amp;retval);
+  }
+
+  printf("Main quitting\n");
+  
+  return 0;
+}
+</code></pre>
+</div>
+</div></details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><aside class="translator-notes"><h3>阅读时留意</h3><p>最后一道广播题的英文存在拼写问题。这里按其上下文解释为：各消费者可以独立前进，但每个消费者自己的接收顺序仍须符合 FIFO。单播与广播对节点释放时机的要求不同，译文不替代该部分的实现分析。</p></aside><footer>来源：<a href="tp-threads.html">同目录英文原版</a>。中文翻译不增加实验答案，也不代表所附代码已经编译或验证。外部参考网站仍需联网。</footer></div></body></html>
