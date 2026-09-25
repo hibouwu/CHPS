@@ -11,7 +11,7 @@
 | ✅ 要上 | DA — 数据与学习 | [s3/DA](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/DA>) | 教师讲义、2021–2024 年试卷。 SiteCHPS 已有 DA。 |
 | ✅ 要上 | PAAM — 多核体系结构高级编程 | [s3/paam](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/paam>) | 线程、锁、非阻塞、STM、NUMA、NVMM 讲义，中文笔记与实验。 SiteCHPS 已有 PAAM。 |
 | ✅ 要上 | IMMC — 连续介质力学导论 | [s3/MC](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/MC>) | IMMC 教师课件、TD、考试与解答；MC 是这里的目录简称。 SiteCHPS 已有 IMMC。 |
-| ✅ 要上 | APM — 硬件加速器体系结构与编程 | [s3/gpu](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/gpu>) | APM_Cours1–3.pdf、CUDA 练习及 TP 解答；已核对课件标题和教师 Julien Jaeger。 SiteCHPS 尚未收录 APM，可优先补充。 |
+| ✅ 要上 | APM — 硬件加速器体系结构与编程 | [s3/gpu](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/gpu>) | APM_Cours1–3.pdf、CUDA 练习及 TP 解答；已核对课件标题和教师 Julien Jaeger。[SiteCHPS APM 入口](APM/README.md)已收录这些材料。 |
 | ✅ 要上 | EDP — 性能评估 | [s3/edp](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/edp>) | 性能评估讲义、TD、TP 和论文；已核对课件标题及教师 Soraya Zertal。此处 EDP 不是偏微分方程。[SiteCHPS EDP 入口](EDP/README.md)已收录这些材料。 |
 | ✅ 要上 | MPNA — 高级数值方法与编程 | [s4/mpna](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s4/mpna>) | README 明确标注 M2 CHPS MPNA，包含矩阵乘法等代码练习。 SiteCHPS 尚未收录 MPNA，可优先补充。 |
 
@@ -19,7 +19,7 @@
 
 ## ✅ 同一门课的补充材料
 
-- ✅ [APM 的独立 TP2](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/tp2>)：题目首页明确写 APM 2025–2026，内容为 CUDA Streams 和异步传输。
+- ✅ [APM 的独立 TP2 题目](APM/TP/tp2_sujet_2025-2026.pdf)：首页明确写 APM 2025–2026，内容为 CUDA Streams 和异步传输；[原始来源目录](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/tp2>)仍保留。
 - ✅ [IMMC 打印笔记](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/打印/MC>)：中文章节、TD 与复习材料。
 - ✅ [IMMC 合并笔记](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/打印/MC_merged.pdf>)：合并打印文件。
 - ✅ [PAAM 打印笔记](</home/jianyeshi/文档/xwechat_files/wxid_y56tych82rv222_9fdb/msg/file/2026-09/m2笔记/m2笔记/s3/打印/paam>)：中文章节、TD 和往年理论题。
@@ -47,4 +47,4 @@
 - IHPS 方向课：PPCS、AOC、COA、CQ、ISM。
 - SiteCHPS 当前已有 AOC、COA、CQ；PPCS 和 ISM 尚未收录。Kokkos 的课程归属仍待确认。
 
-如果接下来补全 SiteCHPS，可继续整理这份笔记里的 **APM、MPNA**；EDP 已归档到 [课程目录](EDP/README.md)。本页的原始链接仍指向同学笔记来源，课程归档状态以对应课程目录为准。
+如果接下来补全 SiteCHPS，可继续整理这份笔记里的 **MPNA**；[APM](APM/README.md) 和 [EDP](EDP/README.md) 已归档。本页保留部分同学笔记来源链接，课程归档状态以对应课程目录为准。
