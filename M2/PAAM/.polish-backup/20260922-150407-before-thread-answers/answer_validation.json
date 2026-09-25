@@ -1,6 +1,6 @@
 {
-  "questions": {
-    "tp-threads.html": [
+  "tp-threads_zh.html": {
+    "answers": [
       "1.a",
       "1.b",
       "1.c",
@@ -12,7 +12,12 @@
       "3.b",
       "3.c"
     ],
-    "tp-threads_zh.html": [
+    "question_numbering_unchanged": true,
+    "original_content_preserved": true,
+    "local_answer_links_valid": true
+  },
+  "tp-threads.html": {
+    "answers": [
       "1.a",
       "1.b",
       "1.c",
@@ -23,10 +28,9 @@
       "3.a",
       "3.b",
       "3.c"
-    ]
-  },
-  "question_text_and_existing_code_preserved": true,
-  "answers_default_collapsed": true,
-  "new_links_checked": true,
-  "note": "Programming questions contain implementation approaches, not newly executed full solutions."
+    ],
+    "question_numbering_unchanged": true,
+    "original_content_preserved": true,
+    "local_answer_links_valid": true
+  }
 }

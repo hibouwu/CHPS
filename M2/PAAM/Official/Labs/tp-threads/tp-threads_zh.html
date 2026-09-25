@@ -42,7 +42,7 @@ details.paam-answer>summary{cursor:pointer;font-weight:700;color:#18557b;display
 <p class="inline-paragraph">将线程数设为 20，多运行几次。为什么程序经常没有输出满 20 次 Hello, World？</p>
 <details class="paam-answer" data-question="1.c" id="answer-1-c" lang="zh-CN"><summary>补充答案与思路 · 1.c</summary><div class="paam-answer-body"><p>从 <code>main</code> 返回会结束整个进程（process），仍在运行或尚未得到执行机会的工作线程也随之结束。主线程若很快走到函数末尾，一部分线程可能还没执行到 <code>printf</code>，所以看到的输出少于 20 行。</p>
 <p>这不说明线程数量上限就是当前看到的行数。首先检查 20 次 <code>pthread_create</code> 是否都成功，再检查退出与等待方式。后面通过 <code>pthread_exit</code> 或 join 改变进程退出的时机。</p>
-<p>参阅：<a href="https://man7.org/linux/man-pages/man7/pthreads.7.html">main 返回与线程终止</a>。</p>
+<p>参阅：<a href="../../Lectures/01-threads_zh.md#lifecycle">main 返回与线程终止</a>。</p>
 </div><p class="answer-language"><a href="tp-threads.html#answer-1-c">English answer</a></p></details></div>
 </div>
 <div class="question-container">

@@ -1,0 +1,288 @@
+% HPC Metrics Homework: Chinese Translation + Full Solutions
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}
+
+\title{高性能计算性能度量题目（中文题目 + 中文解答）}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Amdahl 定律}
+
+以下问题互相独立：
+
+\subsection{题 1：顺序部分为 4\% 时 2$^n$ 处理器的加速比与效率}
+
+已知顺序比例：
+
+\[
+seq = 0.04
+\]
+
+Amdahl 加速比：
+\[
+S(p) = \frac{1}{seq + \frac{1-seq}{p}}
+\]
+
+计算 $p = 2^n, n=2\dots 7$。
+
+结果：
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+$n$ & $p$ & 加速比 $S(p)$ & 效率 $E=S(p)/p$ \\ \hline
+2 & 4 & 3.57 & 0.89 \\
+3 & 8 & 6.41 & 0.80 \\
+4 & 16 & 10.03 & 0.63 \\
+5 & 32 & 14.08 & 0.44 \\
+6 & 64 & 17.27 & 0.27 \\
+7 & 128 & 19.42 & 0.15 \\
+\end{tabular}
+\end{center}
+
+最大加速比：
+\[
+S_{\max} = \frac{1}{0.04} = 25
+\]
+
+\subsection{题 2：由加速比反推顺序比例}
+
+Karp--Flatt 因子：
+
+\[
+e = \frac{1/Acc - 1/p}{1 - 1/p}
+\]
+
+此 $e$ 表示有效顺序部分（包含通信、同步等开销）。
+
+程序 A 和 B 的结果如下：
+
+\paragraph{程序 A：}
+\begin{center}
+\begin{tabular}{c|c|c}
+p & 加速比 & 顺序比例 $e$ \\ \hline
+2 & 1.9 & 0.0526 \\
+3 & 2.73 & 0.0496 \\
+4 & 3.47 & 0.0494 \\
+5 & 4.16 & 0.0485 \\
+6 & 4.8 & 0.0479 \\
+7 & 5.38 & 0.0477 \\
+8 & 5.93 & 0.0478 \\
+\end{tabular}
+\end{center}
+
+程序 A 的顺序部分几乎恒定，扩展性好。
+
+\paragraph{程序 B：}
+\begin{center}
+\begin{tabular}{c|c|c}
+p & 加速比 & 顺序比例 $e$ \\ \hline
+2 & 1.94 & 0.0309 \\
+3 & 2.72 & 0.0463 \\
+4 & 3.34 & 0.0509 \\
+5 & 3.82 & 0.0569 \\
+6 & 4.2 & 0.0629 \\
+7 & 4.49 & 0.0690 \\
+8 & 4.72 & 0.0758 \\
+\end{tabular}
+\end{center}
+
+程序 B 的 $e$ 随 p 增大，说明并行开销随处理器数量迅速增加，可扩展性差。
+
+\subsection{题 3：一般 Amdahl 模型推导}
+
+\subsubsection*{(a) p 处理器加速比}
+
+\[
+S(p) = \frac{1}{seq + \frac{1-seq}{p}}
+\]
+
+最大加速比：
+\[
+S_{\max} = \frac{1}{seq}
+\]
+
+\subsubsection*{(b) 处理器数量 $p\to\infty$}
+
+\[
+S(\infty)= \frac{1}{seq}
+\]
+
+\subsubsection*{(c) 若 seq = k/n}
+
+\[
+S(p)=\frac{1}{k/n + (1-k/n)/p}
+\]
+
+当 $n\to\infty$：
+
+\[
+S(p) \to p
+\]
+
+表示程序规模越大，可并行比例越高，加速比越接近线性提升。
+
+
+\section{标量 / 向量模式}
+
+向量化模式速度为 20 倍，假设向量化比例为 $v$，加速比：
+
+\[
+S(v)=\frac{1}{(1-v)+v/20}
+\]
+
+\subsection{题 (a) 图形略}
+使用上述公式即可绘制加速比随 $v$ 的变化曲线。
+
+\subsection{题 (b) 获得加速比 2 所需向量化比例}
+
+\[
+2 = \frac{1}{1-v+v/20}
+\]
+\[
+v \approx 52.6\%
+\]
+
+\subsection{题 (c) 最大加速比一半的向量化比例}
+最大加速比：$20$。半数为 $10$。
+
+\[
+10 = \frac{1}{1-v+v/20}
+\]
+
+解得：
+\[
+v = 95\%
+\]
+
+\subsection{题 (d)}
+向量化比例为 70\%，若无法升级硬件，可通过提升向量化比例获得相同性能，包括：循环展开、SIMD、数据对齐、重写内存访问模式、使用编译器提示等。
+
+
+\section{MIPS / MFLOPS 性能度量}
+
+\subsection{题 2.1 Whetstone 基准测试}
+
+时钟频率：$16.67\,\text{MHz}$。
+
+\subsubsection*{(a) MIPS}
+协处理器：$CPI=10$：
+\[
+MIPS \approx 1.67
+\]
+
+软件模拟：$CPI=6$：
+\[
+MIPS \approx 2.78
+\]
+
+\subsubsection*{(b) 指令总数}
+协处理器，$t=1.08$：
+\[
+N\approx 1.8\times 10^6
+\]
+
+软件模拟，$t=13.6$：
+\[
+N\approx 3.8\times 10^7
+\]
+
+\subsubsection*{(c) 每个浮点操作的整数指令数}
+\[
+\frac{3.8\times10^7}{195578} \approx 190-200
+\]
+
+\subsubsection*{(d) MFLOPS}
+协处理器：
+\[
+MFLOPS = \frac{195578}{1.08\times 10^6} \approx 0.18
+\]
+
+
+\subsection{题 2.2 两台系统对比}
+
+\subsubsection*{(a) MIPS 公式}
+无协处理器：
+\[
+MIPS_{no} = \frac{I+YF}{W\times 10^6}
+\]
+
+带协处理器：
+\[
+MIPS_{cop} = \frac{I+F}{B\times 10^6}
+\]
+
+\subsubsection*{(b) 求 I}
+已知 $F=8\times10^6, Y=50, W=4$：
+
+\[
+I=8\times10^7
+\]
+
+\subsubsection*{(c) 求 B}
+\[
+B=1.1\text{秒}
+\]
+
+\subsubsection*{(d) MFLOPS}
+\[
+MFLOPS \approx 7.27
+\]
+
+\subsubsection*{(e) 是否应购买协处理器？}
+执行时间从 4 秒降至 1.1 秒，MFLOPS 显著提升，即使 MIPS 降低，整体性能明显提升，因此应购买。
+
+
+\section{Gustafson--Barsis 定律}
+
+\subsection{题 1}
+p=8, seq=0.14：
+\[
+Acc=8 - 0.98 = 7.02
+\]
+
+\subsection{题 2}
+要求 $Acc(10)\ge 7.02$：
+\[
+seq \le 33.1\%
+\]
+
+
+\section{Karp--Flatt 指标}
+
+\subsection{Cray Y-MP/8}
+表格略，结果：
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+p & 加速比 & 效率 & e \\ \hline
+2 & 1.95 & 0.98 & 0.023 \\
+3 & 2.88 & 0.96 & 0.021 \\
+4 & 3.76 & 0.94 & 0.021 \\
+8 & 6.96 & 0.87 & 0.021 \\
+\end{tabular}
+\end{center}
+
+扩展性极佳。
+
+\subsection{Aliant FX/40}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+p & 加速比 & 效率 & e \\ \hline
+2 & 1.90 & 0.95 & 0.053 \\
+3 & 2.65 & 0.88 & 0.065 \\
+4 & 3.22 & 0.81 & 0.080 \\
+\end{tabular}
+\end{center}
+
+扩展性较差，开销随 p 增大明显。
+
+\end{document}
+
+

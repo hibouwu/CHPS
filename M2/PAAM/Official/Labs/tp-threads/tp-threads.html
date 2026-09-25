@@ -233,7 +233,7 @@ details.paam-answer>summary{cursor:pointer;font-weight:700;color:#18557b;display
 <p></p>
 <details class="paam-answer" data-question="1.c" id="answer-1-c" lang="en"><summary>Added answer and approach · 1.c</summary><div class="paam-answer-body"><p>Returning from <code>main</code> terminates the entire process, including workers that are still running or have not yet been scheduled. If main reaches its end quickly, some workers may never reach <code>printf</code>, so fewer than 20 lines appear.</p>
 <p>The number of observed lines is not a thread-limit measurement. Check that all 20 calls to <code>pthread_create</code> succeeded, then check how main waits or exits. The following questions change the exit timing with <code>pthread_exit</code> or joins.</p>
-<p>Reference: <a href="https://man7.org/linux/man-pages/man7/pthreads.7.html">Returning from main and thread termination</a>.</p>
+<p>Reference: <a href="../../Lectures/01-threads.md#page-9">Returning from main and thread termination</a>.</p>
 </div><p class="answer-language"><a href="tp-threads_zh.html#answer-1-c">中文版答案</a></p></details></div>
 </div>
 <div class="question-container">
