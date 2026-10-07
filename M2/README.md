@@ -17,7 +17,7 @@
 | 公共课 | [DA — 数据与学习](DA/README.md) | 六章教师讲义及中文详解、实验、历年试卷、专题教程与参考书。 |
 | 公共课 | [PAAM — 多核体系结构高级编程](PAAM/README.md) | 中文合并笔记，涉及进程、线程、同步与多核编程。 |
 | 公共课 | [IMMC — 连续介质力学导论](IMMC/README.md) | 第 1–9 章教师课件与中文整理稿、TD 及考试资料。 |
-| 公共课 | [APM — 硬件加速器体系结构与编程](APM/README.md) | 三讲教师课件、合订与打印版，以及 CUDA TD/TP 材料。 |
+| 公共课 | [APM — 硬件加速器体系结构与编程](APM/README.md) | 三讲教师 PDF 及带本地图片的提取文本，以及 CUDA TD/TP 材料。 |
 | 公共课 | [EDP — 性能评估](EDP/README.md) | 四份教师课件、TD/TP、中文对照笔记和专题论文。 |
 | IHPS 方向课 | [AOC — 高性能微处理器体系结构与代码优化](AOC/README.md) | 课程讲义、向量化练习、SGEMM 实验包和参考论文。 |
 | IHPS 方向课 | [COA — 高级编译](COA/README.md) | 课程网页与 Markdown、课件 PDF、Lab 1–4 代码包，以及历史 TD 压缩包。 |

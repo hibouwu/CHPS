@@ -1,568 +1,1116 @@
-# 非线性方法：SVM、局部方法与集成学习
+# 非线性方法：SVM、局部方法与集成：原课件忠实译本
 
-M2 CHPS · Nicolas Vayatis
+> 正文按原课件顺序逐段翻译，不作摘要式压缩；例子、练习、重复正文、公式、图表及文献均保留。图中文字保留原图语言。原课件错误与必要辨析以独立“译注”标明。
 
-> 对照来源：[原课件](<05_NLM.pdf>)，共 90 页；[原文转换稿](<05_NLM.md>)。按原页顺序翻译并合并重复标题。第 2–31 页是上一课的复习，在这里仍保留其定义、推导和图示。正文含为自学补充的解释；图解与实质性修正就地说明。
+[原 PDF](05_NLM.pdf) · [原文转换稿](05_NLM.md) · [逐块对应清单](Translation-audit/2026-09-28-coverage.json) · [课程目录](../README.md)
 
-这一篇继续处理分类边界不适合用单一线性函数描述的情况。核方法改变输入的表示，局部方法根据邻近样本作判断，集成方法组合多个预测器。它们控制复杂度的方式也不同。
+<details>
+<summary>本讲目录（点击展开）</summary>
 
-第 2–31 页复习上一篇分类课的内容。已掌握线性 SVM 时，可以直接从[核 SVM](#kernel-svm)进入新内容，再读[局部方法](#local-methods)、[决策树](#decision-trees)、[Bagging 与随机森林](#bagging)和[Boosting](#boosting)。最后的[替代损失](#surrogate-loss)解释这些算法为何不直接优化分类错误率。
+- [非线性方法：SVM、局部方法与集成](#section-01)
+- [回顾：分类数据的概率模型](#section-02)
+- [分类问题的形式化](#section-03)
+- [评价准则：分类器的误差](#section-04)
+- [实践中的留出法](#section-05)
+- [生成式方法的局限](#section-06)
+- [非参数线性判别算法](#section-07)
+- [感知机算法（Rosenblatt，1958）](#section-08)
+- [一般感知机算法](#section-09)
+- [Novikoff 定理](#section-10)
+- [场景 1：具有良好泛化能力的超平面](#section-11)
+- [Karush–Kuhn–Tucker 条件](#section-12)
+- [规范最优超平面](#section-13)
+- [基于局部性的非线性模型](#section-14)
+- [无需优化的正则化：直方图](#section-15)
+- [这类正则化的组成要素](#section-16)
+- [从直方图到机器学习](#section-17)
+- [两类常见的局部方法](#section-18)
+- [局部方法 1：k 近邻（k-NN）](#section-19)
+- [局部方法 2：基于划分的方法（决策树）](#section-20)
+- [关于局部方法的要点](#section-21)
+- [浅层且高效的机器学习算法：集成方法](#section-22)
+- [集成方法：出发点](#section-23)
+- [决策树集成：一般原理](#section-24)
+- [决策树集成：得到的分类器](#section-25)
+- [决策树集成：三种常见方法](#section-26)
+- [集成方法 1：Bagging 与随机森林](#section-27)
+- [一般而言，bootstrap 是什么？](#section-28)
+- [集成方法 2：Boosting](#section-29)
+- [推断原则](#section-30)
+- [经验风险最小化（ERM）](#section-31)
+- [高效算法](#section-32)
 
-[课程目录](README.md) · [读完后检查](#self-check)
+</details>
 
-## 要解决的问题（第 1 页）
+**数据科学与机器学习导论**
 
-线性边界不能表达所有分类关系。这里研究三条路线：通过核函数在特征空间中建立线性分隔；根据邻近样本或局部区域预测；组合多个简单预测器。最后用凸替代损失与正则化把这些方法重新联系起来。
+Nicolas Vayatis
 
-继续考虑垃圾邮件识别：单看某一个词是否出现，往往不足以分类，还需要考虑多个特征之间的组合。k-NN 参考与新邮件相近的已知邮件，决策树逐层判断邮件特征，集成方法组合多条规则，核 SVM 则通过特征空间中的相似性建立分类边界。它们提供了不同的办法，表达单一线性边界难以描述的关系。
+<a id="section-01"></a>
 
-## 复习：分类的概率模型（第 2–5 页）
+## 非线性方法：SVM、局部方法与集成
 
-$(X,Y)$ 服从未知分布 $P$，$X\in\mathcal X$，$Y\in\{-1,+1\}$。生成式描述给出类别先验 $p=\mathbb P(Y=+1)$ 和类条件分布 $P_+=\mathcal L(X\mid Y=+1)$、$P_-=\mathcal L(X\mid Y=-1)$；判别式描述关注输入边际分布 $P_X$ 与后验
+<a id="section-02"></a>
 
-$$
-\eta(x)=\mathbb P(Y=+1\mid X=x).
-$$
+## 回顾：分类数据的概率模型
 
-它们分别对应 $P(dx,dy)=P_Y(dy)P_{X\mid Y}(dx\mid y)$ 和 $P(dx,dy)=P_X(dx)P_{Y\mid X}(dy\mid x)$，不表示输入、标签相互独立。
+### 监督分类的概率模型
 
-设类条件密度为 $f_+,f_-$，则
+- $(X, Y)$：一对概率分布 $P$ 未知的随机变量。
+- $X \in \mathcal{X}$：可测空间上的观测，例如 $\mathbb{R}^d$。
+- $Y \in \{-1, +1\}$：二元标签／类别（为简单起见）。
 
-$$
-f_X(x)=pf_+(x)+(1-p)f_-(x),\qquad
-\eta(x)=\frac{pf_+(x)}{pf_+(x)+(1-p)f_-(x)}.
-$$
+→ 如何从条件分布描述随机变量对 $(X, Y)$ 的联合分布 $P = \mathcal{L}(X, Y)$？
 
-在密度分母非零处，$\eta(x)>1/2$ 等价于 $pf_+(x)>(1-p)f_-(x)$。
+### 联合分布的描述
 
-## 复习：分类、经验风险和留出法（第 6–10 页）
-
-由 $(x_i,y_i)_{i=1}^n$ 学习 $g:\mathbb R^d\to\{-1,+1\}$，常先学习实值 $f$ 再取符号。训练误差为
-
-$$
-\widehat L_n(g)=\frac1n\sum_{i=1}^n\mathbf1\{g(x_i)\ne y_i\}
-=\frac{\#\{i:g(x_i)\ne y_i\}}n.
-$$
-
-目标是对未来样本的风险 $L(g)=\mathbb P(g(X)\ne Y)$ 低，而不只是训练误差低。独立留出 $m$ 个样本后，
-
-$$
-\widehat L'_m(g)=\frac1m\sum_{j=1}^m\mathbf1\{g(X_{n+j})\ne Y_{n+j}\}
-$$
-
-可用于估计训练后模型的风险。交叉验证减少对单次划分的依赖，调参不能反复使用最终测试集。
-
-原文回顾判别分析与逻辑回归，提醒高斯、线性等建模先验及高维估计的限制。“所有模型都有偏差，但有些模型有用”强调模型需要适合任务。
-
-**校对说明：** 原题“生成式方法的局限”不能覆盖逻辑回归的类别归属；逻辑回归是判别式方法。
-
-## 复习：线性可分与超平面距离（第 11–16 页）
-
-课件区分完全可分、近似可分和不可线性分离三种情况。
-
-![线性可分样本](<Images/05_NLM/image_001.jpg>)
-
-![近似可分样本](<Images/05_NLM/image_002.jpg>)
-
-定义 $f(x)=b+\beta^Tx$，$b\in\mathbb R$、$\beta\in\mathbb R^d$。$H=\{x:f(x)=0\}$ 是超平面，分类约定为 $f(x)>0$ 取 $+1$，否则取 $-1$。
-
-对 $\beta\ne0$，单位法向量为 $\beta/\|\beta\|$，$x_0\in H$ 满足 $\beta^Tx_0=-b$。有符号距离为
-
-$$
-d(x,H)=\frac{\beta^T(x-x_0)}{\|\beta\|}=\frac{b+\beta^Tx}{\|\beta\|}.
-$$
-
-![超平面的法向量与距离](<Images/05_NLM/image_003.jpg>)
-
-**图解：** 图中的 $w$ 就是 $\beta$。几何距离排除了对参数整体缩放的影响。原文称这组方法为“非参数线性判别”，主要意指不显式拟合概率分布；固定维度的线性分类函数本身仍是有限参数模型。
-
-## 复习：感知机及收敛条件（第 17–19 页）
-
-简化感知机取 $b=0$、$\beta_0=0$，逐样本判断：若 $y_i\beta^Tx_i>0$，保持参数；否则 $\beta\leftarrow\beta+y_ix_i$。一般要多次遍历训练集。
-
-带截距时，设学习率 $\eta>0$、$R=\max_i\|x_i\|>0$，初始 $\beta=b=0$。按增广样本 $(x_i,R)$、参数 $(\beta,b/R)$ 的约定，若 $y_i(b+\beta^Tx_i)\le0$，则
+1. 生成式方法：$\mathcal{L}(X, Y) = \mathcal{L}(Y) \otimes \mathcal{L}(X \mid Y)$。
+- 混合模型，其参数为：
 
 $$
-\beta\leftarrow\beta+\eta y_ix_i,\qquad b\leftarrow b+\eta y_iR^2.
+p = \mathbb {P} \{Y = + 1 \} \in [ 0, 1 ]
 $$
 
-否则保持不变。若增广样本半径不超过 $\widetilde R$，并存在单位分隔向量使所有有符号函数间隔不小于 $\gamma>0$，Novikoff 定理给出错误更新次数界
+- $\mathbb{R}^d$ 上的条件分布：
 
 $$
-T\le\widetilde R^2/\gamma^2.
+P _ {+} = \mathcal {L} (X \mid Y = + 1) \quad \text{且} \quad P _ {-} = \mathcal {L} (X \mid Y = - 1)
 $$
 
-上述增广满足 $\widetilde R\le\sqrt2R$，从而有 $T\le2R^2/\gamma^2$。感知机支持在线更新，但不主动寻找最大间隔分隔面。
-
-**校对说明：** PDF 第 18 页截距更新中的 $y_i^2$ 应为 $y_i$；第 19 页 $T\le n$ 并不普遍成立，且原空间距离不能直接替代增广单位向量的间隔。这里与第 03 篇采用一致的修正。
-
-## 复习：最大间隔与软间隔（第 20–25 页）
-
-![从多个分隔面中选择较大间隔](<Images/05_NLM/image_004.jpg>)
-
-最大化 $M$，满足 $y_id(x_i,H)\ge M$。对可分数据规范化最小函数间隔为 1 后，等价于
+2. 判别式方法：$\mathcal{L}(X,Y)=\mathcal{L}(X)\otimes\mathcal{L}(Y\mid X)$。
+- $\mathbb{R}^{d}: P_{X} = \mathcal{L}(X)$ 上的边际分布。
+- 最佳预测：
 
 $$
-\min_{\beta,b}\frac12\|\beta\|^2,
-\qquad y_i(b+\beta^Tx_i)\ge1.
+\eta (x) = \mathbb {P} \{Y = + 1 \mid X = x \}, \quad \forall x \in \mathbb {R} ^ {d}
 $$
 
-此时单侧几何间隔是 $1/\|\beta\|$。
-
-![允许样本进入间隔的松弛变量](<Images/05_NLM/image_005.jpg>)
-
-若近似可分，引入 $\xi_i\ge0$，要求 $y_if(x_i)\ge1-\xi_i$。可以约束 $\sum_i\xi_i\le\Xi$，也可采用
+- 边际分布（“dP”表示分布的密度）：
 
 $$
-\min_{\beta,b,\xi}\frac12\|\beta\|^2+C\sum_i\xi_i,
-\qquad\xi_i\ge0,\quad\xi_i\ge1-y_if(x_i).
+d P _ {X} = p d P _ {+} + (1 - p) d P _ {-}
 $$
 
-最大间隔偏好简单稳定的分隔，松弛惩罚让它不必为少数困难样本无限扭曲；$C$ 决定二者的相对权重。
-
-## 复习：SVM 对偶、KKT 与支持向量（第 26–31 页）
-
-令非负乘子 $\alpha_i,\mu_i$ 对应间隔约束与 $-\xi_i\le0$。拉格朗日函数为
+- 后验概率（回归函数）：
 
 $$
-\mathcal L=\frac12\|\beta\|^2+C\sum_i\xi_i
-+\sum_i\alpha_i[1-\xi_i-y_i(b+\beta^Tx_i)]-\sum_i\mu_i\xi_i.
+\forall x \in \mathcal {X}, \qquad \eta (x) = \frac {p d P _ {+}}{p d P _ {+} + (1 - p) d P _ {-}} (x)
 $$
 
-驻点条件给出
+- 一个备注：
 
 $$
-\beta=\sum_i\alpha_iy_ix_i,\qquad\sum_i\alpha_iy_i=0,
-\qquad\alpha_i+\mu_i=C.
+\eta (x) > \frac {1}{2} \quad \Leftrightarrow \quad p d P _ {+} (x) > (1 - p) d P _ {-} (x)
 $$
 
-对偶为
+<a id="section-03"></a>
+
+## 分类问题的形式化
+
+### 二分类问题
+
+- 可用数据：$(x_1, y_1), \ldots, (x_n, y_n)$，$x_i \in \mathbb{R}^d$，$y_i \in \{-1, +1\}$。
+- 问题：已知 x，预测标签 y。
+- 要寻找：一个分类器 $g$：$\mathbb{R}^d \to \{-1, +1\}$。
+- 问题：找到一个能够良好“泛化”的分类器 $g$。
+- 思路：选择一个能够很好地“解释”数据、但又不过度解释的 $g$！
+- 具体而言：通常先寻找决策函数 $f: \mathbb{R}^{d} \to \mathbb{R}$，再将其与分类器 $g = \text{sgn}(f)$ 对应。
+
+<a id="section-04"></a>
+
+## 评价准则：分类器的误差
+
+- 给定一个观测 $x$，分类器 $g$ 作出预测 $g(x)$，将其与类别 $y$ 比较。
+
+分类器的误差 = 被错误分类的观测所占比例。
 
 $$
-\max_\alpha\sum_i\alpha_i-\frac12\sum_{i,j}\alpha_i\alpha_jy_iy_jx_i^Tx_j,
-\qquad0\le\alpha_i\le C,\quad\sum_i\alpha_iy_i=0.
+\hat {L} _ {n} (g) = \frac {1}{n} \sum_ {i = 1} ^ {n} \mathbb {I} _ {[ g (x _ {i}) \neq y _ {i} ]} = \frac {\# \{i : g (x _ {i}) \neq y _ {i} \}}{n}
 $$
 
-KKT 还要求 $\xi_i\ge0$、$y_if(x_i)-(1-\xi_i)\ge0$，以及
+这个误差也称为训练误差。
+
+- 如果分类器 $g$ 的训练误差低，就说它能够恰当地“解释”数据。
+
+<a id="section-05"></a>
+
+## 实践中的留出法
+
+- 将可用数据分为两个子集：
+- 训练集：$(X_1, Y_1), \ldots, (X_n, Y_n)$。
+- 测试集：$(X_{n+1}, Y_{n+1}), \ldots, (X_{n+m}, Y_{n+m})$。
+- 对任意分类器 $g$，测试误差 $\hat{L}_{m}^{\prime}(g) = \frac{1}{m}\sum_{j=1}^{m}\mathbb{I}_{[g(X_{n+j})\neq Y_{n+j}]}$ 是 $L(g)$ 的估计量（如果 $g$ 是学习得到的，可以对训练集取条件）。
+- 更好的实践：使用交叉验证，使 $L(g)$ 的估计更稳健。
+
+<a id="section-06"></a>
+
+## 生成式方法的局限
+
+- 上一讲提到的方法：判别分析、逻辑回归。
+- 参数统计模型：“所有模型都是错的”……
+- 很强的建模先验：“……但有些模型是有用的”。
+- 高斯框架。
+- 线性模型。
+- 维数灾难（参见 Bellman）。
+
+<a id="section-07"></a>
+
+## 非参数线性判别算法
+
+1. 两个群体线性可分。
+2. 两个群体近似线性可分。
+3. 两个群体不能线性分离。
+
+### 线性可分性
+
+![image](<Images/05_NLM/image_001.jpg>)
+
+场景 1
+
+![image](<Images/05_NLM/image_002.jpg>)
+
+场景 2
+
+- 决策函数的形式：
 
 $$
-\alpha_i[y_if(x_i)-(1-\xi_i)]=0,\qquad\mu_i\xi_i=0.
+f (x) = b + <   \beta , x >
 $$
 
-因此 $\alpha_i=0$ 时 $y_if(x_i)\ge1$；$0<\alpha_i<C$ 时恰在间隔边界；$\alpha_i=C$ 时在间隔边界或其内部，可能误分类也可能没有误分类。
+其中 $b \in \mathbb{R}$，$\beta \in \mathbb{R}^d$。
 
-令 $I=\{i:\widehat\alpha_i\ne0\}$，则
-
-$$
-\widehat\beta=\sum_{i\in I}\widehat\alpha_i y_ix_i,\qquad
-\widehat f(x)=\widehat b+\sum_{i\in I}\widehat\alpha_i y_ix_i^Tx.
-$$
-
-对自由支持向量 $j$，即 $0<\widehat\alpha_j<C$，
+- 方程 $f(x) = 0$ 在 $\mathbb{R}^d$ 中定义一个分隔超平面 $H$。
+- 对应的分类器：
 
 $$
-\widehat b=y_j-\sum_{i\in I}\widehat\alpha_i y_ix_i^Tx_j.
+\forall x \in \mathbb {R} ^ {d} \quad g _ {f} (x) = \left\{ \begin{array}{l l} + 1 & \text{若} f (x) > 0 \\ - 1 & \text{若} f (x) \leq 0 \end{array} \right.
 $$
 
-![支持向量与两侧间隔](<Images/05_NLM/image_006.jpg>)
+1. $\beta^{*}=\frac{\beta}{\|\beta\|}$ 是 H 的法向量。
 
-**图解：** 两侧边界相距 $2/\|\beta\|$。许多 $\widehat\alpha_i$ 可能为零，预测因此可以只保留支持向量。
+② $\forall x_{0} \in H, <\beta, x_{0} > = -b$
 
-**校对说明：** 原第 26 页松弛变量乘子项符号与后续 KKT 不一致，已按 $-\mu_i\xi_i$ 修复；原截距公式只写 $j\in I$，应补上自由支持向量条件。没有此类样本时应由可行区间求截距。
+3. 点 $x \in R^{d}$ 到 H 的有符号距离（可以为负！）为
+
+$$
+d (x, H) = <   \beta^ {*}, x - x _ {0} > = \frac {1}{\| \beta \|} (b + <   \beta , x >)
+$$
+
+其中 $x_0 \in H$。
+
+![image](<Images/05_NLM/image_003.jpg>)
+
+二维训练集的分隔超平面 $(\boldsymbol{w}, b) \in \mathbb{R}^{n} \times \mathbb{R}$。
+
+注意！这里 $w = \beta$……
+
+<a id="section-08"></a>
+
+## 感知机算法（Rosenblatt，1958）
+
+### 简化版本：b = 0
+
+生成参数 $\beta$ 的取值序列 $\beta_{0},\ldots,\beta_{n}$。
+
+1. 初始化：$\beta_{0} = 0$。
+2. 第 i 步：考虑数据对 $(x_{i}, y_{i})$，检查它是否被正确分类。
+
+$$
+\beta_ {i} = \left\{ \begin{array}{l l} \beta_ {i - 1} & \text{若} y _ {i} \cdot <   \beta_ {i - 1}, x _ {i} > > 0 \\ \beta_ {i - 1} + y _ {i} x _ {i} & \text{若} y _ {i} \cdot <   \beta_ {i - 1}, x _ {i} > \leq 0 \end{array} \right.
+$$
+
+<a id="section-09"></a>
+
+## 一般感知机算法
+
+### 感知机：一般版本
+
+- 参数：
+- 学习率 η。
+- 观测的半径 $R = \max_{1 \leq i \leq n} \|x_i\|$。
+
+### 算法
+
+1. 初始化：$\beta_{0}=0$，$b_{0}=0$。
+2. 第 i 步：如果 $(x_{i}, y_{i})$ 被超平面 $(b_{i-1}, \beta_{i-1})$ 错误分类，则：
+
+$$
+{\beta_ {i}} {= \beta_ {i - 1} + \eta y _ {i} x _ {i}}
+$$
+
+$$
+{b _ {i}} {= b _ {i - 1} + \eta y _ {i} ^ {2} R ^ {2}}
+$$
+
+> **译注：** 原课件截距更新含 $y_i^2$，在标签为 $\pm1$ 时会丢失符号；按增广向量 $(x_i,R)$ 的约定，应为 $b_i=b_{i-1}+\eta y_iR^2$。
+
+否则 $\beta_{i}=\beta_{i-1},\ b_{i}=b_{i-1}$。
+
+<a id="section-10"></a>
+
+## Novikoff 定理
+
+如果两个群体线性可分，则感知机算法在有限的 $T \leq n$ 步内收敛，其中：
+
+$$
+T \leq \frac {2 R ^ {2}}{M ^ {2}}
+$$
+
+这里，对某个分隔面 $H^*$，有 $M = \min_{1 \leq i \leq n} \{ y_i d(x_i, H^*) \}$。
+
+> **译注：** 原课件写出的 $T\le n$ 不普遍成立。标准感知机界按错误更新次数计数，使用同一增广空间中的样本半径和分隔间隔；不能直接把原空间的几何距离与增广间隔混用。
+
+- 感知机的缺点：泛化能力差。
+- 感知机的优点：序贯（在线）算法。
+
+<a id="section-11"></a>
+
+## 场景 1：具有良好泛化能力的超平面
+
+问题：是否存在与每个群体的距离都尽可能大的超平面？
+
+![image](<Images/05_NLM/image_004.jpg>)
+
+### 优化问题
+
+$$
+\max _ {\beta \in \mathbb {R} ^ {d}, b \in \mathbb {R}} M
+$$
+
+约束条件：
+
+$$
+\forall i = 1, \dots , n, \quad y _ {i} \cdot d (x _ {i}, H) \geq M
+$$
+
+回顾：
+
+$$
+d (x _ {i}, H) = \frac {1}{\| \beta \|} (b + <   \beta , x _ {i} >)
+$$
+
+约束：
+
+$$
+\forall i = 1, \dots , n, \quad y _ {i} \cdot \frac {1}{\| \beta \|} (b + <   \beta , x _ {i} >) \geq M
+$$
+
+完全可以设定：$M = 1 / \|\beta\|$。
+
+### 等价表述
+
+$$
+\min _ {\beta , b} \frac {1}{2} \| \beta \| ^ {2}
+$$
+
+约束条件：
+
+$$
+\forall i = 1, \dots , n, \quad y _ {i} \cdot (b + <   \beta , x _ {i} >) \geq 1
+$$
+
+![image](<Images/05_NLM/image_005.jpg>)
+
+$$
+\text{场景 2：松弛变量（续）}
+$$
+
+引入 $n$ 个附加变量（“松弛变量”或“弹簧”）：$\xi = (\xi_1, \ldots, \xi_n)$，满足 $\xi_i \geq 0, \forall i$。
+
+### 新的优化问题
+
+$$
+\min _ {\beta , b, \xi} \frac {1}{2} \| \beta \| ^ {2}
+$$
+
+约束条件：
+
+$$
+\forall i = 1, \dots , n, y _ {i} \cdot (b + <   \beta , x _ {i} >) \geq 1 - \xi_ {i}
+$$
+
+$$
+\xi_ {i} \geq 0
+$$
+
+$$
+\sum_ {i = 1} ^ {n} \xi_ {i} \leq \Xi
+$$
+
+### 拉格朗日表述 I
+
+$$
+\min _ {\beta , b, \xi} \frac {1}{2} \| \beta \| ^ {2} + C \sum_ {i = 1} ^ {n} \xi_ {i}
+$$
+
+约束条件：
+
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & \xi_ {i} \geq 0 \\ & \xi_ {i} \geq 1 - [ y _ {i} \cdot (b + <   \beta , x _ {i} >) ] \end{array}
+$$
+
+### 拉格朗日表述 II：拉格朗日乘子 $\alpha = (\alpha_{1}, \ldots, \alpha_{n})$、$\mu = (\mu_{1}, \ldots, \mu_{n})$
+
+$$
+\min _ {\beta , b, \xi} \frac {1}{2} \| \beta \| ^ {2} + C \sum_ {i = 1} ^ {n} \xi_ {i} - \sum_ {i = 1} ^ {n} \alpha_ {i} \left(y _ {i} \cdot (b + <   \beta , x _ {i} >) - (1 - \xi_ {i})\right) + \sum_ {i = 1} ^ {n} \mu_ {i} \xi_ {i}
+$$
+
+一阶条件（梯度为零）：
+
+$$
+\beta = \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} x _ {i}
+$$
+
+$$
+\sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} = 0
+$$
+
+$$
+\forall i = 1, \ldots , n, \alpha_ {i} = C + \mu_ {i}
+$$
+
+### 对偶表述
+
+$$
+\max _ {\alpha} \sum_ {i = 1} ^ {n} \alpha_ {i} - \frac {1}{2} \sum_ {i = 1} ^ {n} \sum_ {j = 1} ^ {n} \alpha_ {i} \alpha_ {j} y _ {i} y _ {j} <   x _ {i}, x _ {j} >
+$$
+
+约束条件：
+
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & 0 \leq \alpha_ {i} \leq C \\ \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} & = 0 \end{array}
+$$
+
+用 $\hat{\alpha} = (\hat{\alpha}_1, \ldots, \hat{\alpha}_n)$ 表示该问题的解。
+
+<a id="section-12"></a>
+
+## Karush–Kuhn–Tucker 条件
+
+Karush–Kuhn–Tucker 条件：
+
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & \alpha_ {i} (y _ {i} \cdot f (x _ {i}) - (1 - \xi_ {i})) = 0 \\ & y _ {i} \cdot f (x _ {i}) - (1 - \xi_ {i}) \geq 0 \\ & \alpha_ {i} + \mu_ {i} = C \\ & \mu_ {i} \xi_ {i} = 0 \\ & \beta = \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} x _ {i} \\ & \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} = 0 \end{array}
+$$
+
+系数与观测位置的联系：
+
+- 如果 $\hat{\alpha}_i = 0$，则 $y_i \cdot f(x_i) \geq 1 \Rightarrow$，点 $x_i$ 被正确分类，因为 $\mu_i = C > 0$，并且有 $\xi_i = 0$。
+- 如果 $0 < \hat{\alpha}_i < C$，则 $y_i \cdot f(x_i) = 1 \Rightarrow$，点 $x_i$ 位于间隔边界上，因为 $\mu_i > 0$ 且 $\xi_i = 0$。
+- 如果 $\hat{\alpha}_i = C$，则 $y_i \cdot f(x_i) \leq 1 \Rightarrow$，点 $x_i$ 越过间隔边界，因为 $\mu_i = 0$，所以 $\xi_i \geq 0$。
+
+> **译注：** $\widehat\alpha_i=C$ 时只能推出 $y_if(x_i)\le1$，包括等号；不能断言该点严格越过间隔边界或一定误分类。
+
+一个值得注意的现象！
+
+实际中，许多 $\hat{\alpha}_i$ 为零！
+
+### 定义
+
+$\hat{\alpha}_i \neq 0$ 对应支持向量。用 $I$ 表示 $\{1, \ldots, n\}$ 中相应索引构成的集合。
+
+### 解的表示
+
+决策函数：
+
+$$
+\hat {f} (x) = \hat {b} + \sum_ {i \in I} \hat {\alpha} _ {i} y _ {i} <   x _ {i}, x >
+$$
+
+其中：
+
+$$
+\hat {\beta} = \sum_ {i \in I} \hat {\alpha} _ {i} y _ {i} x _ {i}, I = \{i: \hat {\alpha} _ {i} \neq 0 \}
+$$
+
+$$
+\hat {b} = y _ {j} - \sum_ {i \in I} \hat {\alpha} _ {i} y _ {i} <   x _ {i}, x _ {j} >, \quad \text{对某个} j \in I
+$$
+
+<a id="section-13"></a>
+
+## 规范最优超平面
+
+![image](<Images/05_NLM/image_006.jpg>)
+
+⇒ SVM 的稀疏表示。
 
 <a id="kernel-svm"></a>
 
-## 从线性 SVM 到核 SVM（第 32–34 页）
-
-许多分类边界是非线性的。SVM 对偶只通过 $x_i^Tx_j$ 使用数据，预测也只需要新输入与支持向量的内积。因此可将 Gram 矩阵
-
-$$
-K=(x_i^Tx_j)_{i,j=1}^n
-$$
-
-替换为 $K=(k(x_i,x_j))_{i,j=1}^n$，其中 $k$ 是对称正半定核：任意有限样本的 Gram 矩阵均正半定。
-
-核 SVM 的对偶为
+- 大多数分类问题需要非线性分隔。
+- 构造最优间隔超平面的算法只通过内积 $< x_i, x_j >$ 使用观测，其中 $i, j$。
+- 决策函数依赖新点 $x$ 与支持向量 $x_i$ 之间的内积。
+- 核技巧：构造最优间隔超平面的算法只通过 Gram 矩阵的元素依赖于观测。
 
 $$
-\max_\alpha\sum_i\alpha_i-\frac12\sum_{i,j}\alpha_i\alpha_jy_iy_jk(x_i,x_j),
-\qquad0\le\alpha_i\le C,\quad\sum_i\alpha_iy_i=0.
+K = \big (<   x _ {i}, x _ {j} > \big) _ {1 \leq i, j \leq n}
 $$
 
-决策函数为
+- 核方法：用一个正定核替换标准内积。
 
 $$
-\widehat f(x)=\widehat b+\sum_{i\in I}\widehat\alpha_i y_i k(x_i,x).
+k: \mathcal {X} \times \mathcal {X} \to \mathbb {R}
 $$
 
-**校对说明：** PDF 第 34 页预测公式漏了 $y_i$。这里的 $\alpha_i$ 沿用带标签的非负对偶系数，因此必须补回；只有重新定义有符号系数后才能省略。
+于是 $K$ 变为以 $k(x_{i},x_{j})$ 为元素的矩阵。
 
-对特征映射 $\Phi$，若 $k(x,z)=\langle\Phi(x),\Phi(z)\rangle$，则仍是在特征空间里找线性超平面；它对应原输入空间中的非线性边界。核函数可以直接计算特征空间的内积，不必显式列出映射后的所有坐标。
+### 对偶表述
 
-## 核的例子与实践问题（第 35–36 页）
+$$
+\max _ {\alpha} \sum_ {i = 1} ^ {n} \alpha_ {i} - \frac {1}{2} \sum_ {i = 1} ^ {n} \sum_ {j = 1} ^ {n} \alpha_ {i} \alpha_ {j} y _ {i} y _ {j} k (x _ {i}, x _ {j})
+$$
 
-- 多项式核：$k_r(x,x')=(x^Tx')^r$，或 $k_{r,c}(x,x')=(x^Tx'+c)^r$；常用合法条件为 $r$ 非负整数、$c\ge0$。
-- 高斯径向基核：$k_\sigma(x,x')=\exp(-\|x-x'\|^2/(2\sigma^2))$，$\sigma>0$。
-- 原文还列出 sigmoid 形式 $k_{\kappa,\theta}(x,x')=\tanh(\kappa x^Tx'+\theta)$。
+约束条件：
 
-**校对说明：** sigmoid 形式不是对任意参数与输入域都正半定，不能与高斯核一样无条件使用标准凸核 SVM 理论。
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & 0 \leq \alpha_ {i} \leq C \\ \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} & = 0 \end{array}
+$$
 
-实践中要选择核、用验证数据调参、在独立测试数据上评价，并与其他方法比较；还需处理多分类与类别严重不平衡的情况。
+决策函数：
+
+$$
+\hat {f} (x) = \hat {b} + \sum_ {i \in I} \hat {\alpha} _ {i} k (x _ {i}, x)
+$$
+
+> **译注：** 原课件的核 SVM 决策函数漏了标签因子。若沿用上方对偶变量定义，应为 $\widehat f(x)=\widehat b+\sum_{i\in I}\widehat\alpha_i y_i k(x_i,x)$；只有把标签吸收到另一定义的系数中时才能省略它。
+
+其中 I 为支持向量的索引集合。
+
+- 多项式核。
+
+$$
+\begin{array}{r l} {k _ {r} (x, x ^ {\prime})} & {= (<   x, x ^ {\prime} >) ^ {r}} \\ {k _ {r, c} (x, x ^ {\prime})} & {= (<   x, x ^ {\prime} > + c) ^ {r}} \end{array}
+$$
+
+- 高斯径向基函数核（RBF）。
+
+$$
+k _ {\sigma} (x, x ^ {\prime}) = \exp \left(- \frac {\| x - x ^ {\prime} \| ^ {2}}{2 \sigma^ {2}}\right)
+$$
+
+- sigmoid 核（神经网络）。
+
+$$
+k _ {\kappa , \theta} (x, x ^ {\prime}) = \tanh (\kappa <   x, x ^ {\prime} > + \theta)
+$$
+
+> **译注：** sigmoid 形式并非对任意参数、任意输入集合都构成正定核；使用核 SVM 时还需检查其适用条件。
+
+- 选择核。
+- 参数调整：使用验证集。
+- 性能度量：测试集上的误差。
+- 与其他方法比较。
+- 扩展：
+- 超过两个类别的分类问题。
+- 各群体比例极不均衡的情形。
 
 <a id="local-methods"></a>
 
-## 局部方法：不靠统一的全局优化控制复杂度（第 37–43 页）
+<a id="section-14"></a>
 
-核 SVM 通过整体目标学习分类函数。局部方法换一种组织方式：先确定哪些样本可以共同参与当前预测，再在这些样本中平均或投票。邻域有多大、区域划得多细，就成为控制预测稳定性的选择。
+## 基于局部性的非线性模型
 
-除了显式惩罚全局目标，也可以通过邻域大小和划分粗细来约束函数。课件先以 Titanic 乘客年龄直方图说明：
+### 其他形式的正则化
 
-![较窄分箱的年龄直方图](<Images/05_NLM/image_007.jpg>)
+- 总体思路：不进行全局优化的正则化函数估计。
+- 两个方向：
+- 局部方法：最近邻与决策树。
+- 集成方法：Bagging、Boosting、随机森林。
 
-![较细分箱的年龄直方图](<Images/05_NLM/image_008.jpg>)
+<a id="section-15"></a>
 
-![较宽分箱的年龄直方图](<Images/05_NLM/image_009.jpg>)
+## 无需优化的正则化：直方图
 
-![最宽分箱的年龄直方图](<Images/05_NLM/image_010.jpg>)
+![image](<Images/05_NLM/image_007.jpg>)
 
-**图解：** 同一批年龄数据，分箱宽度从约 1 年到 15 年改变。窄分箱保留细节但波动大，宽分箱更平稳却可能掩盖结构；图中纵轴是人数计数。若作为密度估计，还应除以样本数与箱宽。
+![image](<Images/05_NLM/image_008.jpg>)
 
-这里有两个步骤：定义哪些样本算“局部”，再在局部聚合。无监督密度估计统计每个区域的频数；监督回归平均区域内标签值；监督分类对类别投票。
+![image](<Images/05_NLM/image_009.jpg>)
 
-**校对说明：** 直方图属于非参数密度估计，但与通常平滑核函数构造的核密度估计不是同义方法。
+![image](<Images/05_NLM/image_010.jpg>)
 
-局部方法的两种典型形式是最近邻与基于空间划分的规则。前者为每个查询找附近的点，后者使用预先学得的区域。对多分类数据 $(X_i,Y_i)$，$X_i\in\mathbb R^d$、$Y_i\in\{1,\ldots,C\}$，目标是在任意新位置 $x$ 预测类别。原文“independent variables”在此指自变量，不表示各特征统计独立。
+Titanic 乘客的年龄分布，分箱宽度从 1 年变化到 15 年。
 
-## k 近邻：定义与图解（第 44–46 页）
+<a id="section-16"></a>
 
-对查询 $x$，计算距离 $d(x,X_i)$，按从近到远得到 $X_{(1)},\ldots,X_{(n)}$，取最近 $k$ 个样本投票：
+## 这类正则化的组成要素
+
+- 直方图使用两个一般思想：局部性（分箱）与平均（分段常数函数）。
+- 定义局部：哪些训练数据可以认为接近待预测的点？
+- 平均（若结果离散则为投票）：对每个分箱内的值取平均。
+- 通过超参数选择进行正则化：寻找最优分箱大小，相当于寻找恰当的假设类。
+
+<a id="section-17"></a>
+
+## 从直方图到机器学习
+
+- 在前面的例子中，目标是根据从某个分布中抽取的样本估计该分布的密度函数；文献中将这一问题称为非参数密度估计或核密度估计。
+
+> **译注：** 直方图属于非参数密度估计；它与通常通过平滑核函数构造的核密度估计不应简单视为同义方法。
+
+- 密度估计可视为无监督学习问题。
+- 在监督学习设定下，通过平均（回归情形）或投票（分类情形）确定每个分箱上的函数值。平均／投票的通用名称是聚合／组合。
+
+<a id="section-18"></a>
+
+## 两类常见的局部方法
+
+- 最近邻：局部点是距离最近的点。
+- 基于划分的规则，也称决策树：局部点仅指输入空间某个划分单元内的点。
+
+这些方法适用于分类、回归及其他问题……但这里重点讨论分类。
+
+- 已知：
+- 考虑一个分类数据样本
 
 $$
-\widehat h(x,k)\in\arg\max_c\sum_{l=1}^k\mathbf1\{Y_{(l)}=c\}.
+(X _ {1}, Y _ {1}) \dots (X _ {n}, Y _ {n})
 $$
 
-距离或票数相同时需固定处理规则。算法原理用完整排序说明，实现中并不一定需要排序全部样本。
+其中 $X_{i} \in R^{d}$ 是自变量向量，
 
-![待分类的灰色查询点](<Images/05_NLM/image_011.jpg>)
+$Y_{i}\in \{1,\dots ,C\}$ 是标签。
 
-![计算查询点与样本的距离](<Images/05_NLM/image_012.jpg>)
+- 希望：
+- 在任意位置 x 预测标签 y。
 
-![按距离确定邻居顺序](<Images/05_NLM/image_013.jpg>)
+<a id="section-19"></a>
 
-![近邻标签投票](<Images/05_NLM/image_014.jpg>)
+## 局部方法 1：k 近邻（k-NN）
 
-**图解：** 候选类别用黄绿色、绿色和橙色表示。灰点依次经历距离计算、邻居选择、类别投票。原配图说明文字称使用 $k=3$，但投票小表计数为 2、1、1，共 4 票，两者不一致；前三个邻居中黄绿色仍有两票，因此该例的获胜类别没有改变。
+### k 近邻（1/4）：算法原理
 
-## k 近邻的超参数与理论（第 47–48 页）
+#### 1. 计算距离
 
-主要超参数是距离定义与邻居数 $k$，后者通常通过交叉验证选择。
+- 对所有 $i = 1, \ldots, n$，计算两两距离 $d(x, X_{i})$。
 
-![1 近邻的分类边界](<Images/05_NLM/image_015.jpg>)
+#### 2. 对训练数据排序
 
-![20 近邻的分类边界](<Images/05_NLM/image_016.jpg>)
+- 将数据点从最近的 $X_{(1)}$ 排到最远的 $X_{(n)}$，即 $d(x, X_{(1)}) \leq \ldots \leq d(x, X_{(n)})$。
 
-![邻居数量与误分类率](<Images/05_NLM/image_017.jpg>)
+#### 3. 预测 $\hat{h}(x,k)=$：k 个最近邻的多数投票
 
-**图解：** $k=1$ 对单点敏感，边界较碎；增加 $k$ 会平滑预测，但过大时不同类别混在一起，误差可能增加。图中的最佳 $k$ 只属于示例数据。
-
-在欧氏空间、独立同分布采样及适当的距离平局处理等标准条件下，如果
+- 考虑距离 $x$ 最近的 $k$ 个点的标签 $Y_{(1)}, \ldots, Y_{(k)}$，进行多数投票。
 
 $$
-k_n\to\infty,\qquad k_n/n\to0,
+\hat {h} (x, k) = \arg \max _ {c} \{\sum_ {l = 1} ^ {k} \mathbb {I} \{Y _ {(l)} = c \} \}
 $$
 
-则 $\mathbb E L(\widehat h(\cdot,k_n))\to L^*$。
+### k 近邻（2/4）：算法原理
 
-邻居数增加使投票稳定，邻居占总体比例减小使其保持局部。实际最优 $k$ 没有通用闭式解。原文说距离选择“没有理论线索”，这里应理解为不能从这些一致性条件直接得到对任意任务都最佳的距离；表示、量纲与领域知识仍然重要。
+#### kNN 算法
+
+0. 观察数据。
+
+![image](<Images/05_NLM/image_011.jpg>)
+
+假设要将灰色点分到某个类别。这里有三个可能的类别：黄绿色、绿色和橙色。
+
+1. 计算距离。
+
+![image](<Images/05_NLM/image_012.jpg>)
+
+首先计算灰色点与其他所有点之间的距离。
+
+#### 2. 找到邻居
+
+![image](<Images/05_NLM/image_013.jpg>)
+
+接下来按距离递增排列各点，找出最近邻。灰色点的最近邻就是数据空间中距离它最近的点。
+
+#### 3. 对标签投票
+
+![image](<Images/05_NLM/image_014.jpg>)
+
+该类别赢得投票！
+
+归入该类别。
+
+根据 k 个最近邻的类别，对预测类别标签进行投票。这里基于 k = 3 个最近邻预测标签。
+
+> **译注：** 原页图中文字写 k=3，但投票表中的计数为 2、1、1，共 4 票；此处按原文保留，并指出图文不一致。
+
+### 超参数
+
+- 选择 $\mathbb{R}^d$ 中点之间的距离 $d$。
+- 最近邻个数 k，通过交叉验证估计：
+
+![image](<Images/05_NLM/image_015.jpg>)
+
+![image](<Images/05_NLM/image_016.jpg>)
+
+![image](<Images/05_NLM/image_017.jpg>)
+
+- 回顾：分类误差 $L(h) = \mathbb{P}(Y \neq h(X))$，以及 $L^* = \inf L$。
+- 一致性结果：
+
+$$
+\mathbb {E} L \big (\hat {h} (\cdot , k _ {n}) \big) \to L ^ {*}
+$$
+
+条件为：当 $n \rightarrow \infty$ 时，$k_{n} \rightarrow \infty$ 且 $k_{n}/n \rightarrow 0$。
+
+- 最优 $k_{n}$ 没有闭式解；实践中使用交叉验证。
+- 距离的选择没有理论线索，它与数据表示及问题的物理性质有关。
+
+> **译注：** 原文的说法较强；这些一致性条件本身不能给出适合任意任务的最佳距离，但并不意味着距离选择完全没有理论研究。
 
 <a id="decision-trees"></a>
 
-## 基于划分的分类与决策树（第 49–51 页）
+<a id="section-20"></a>
 
-设输入空间被划分成不相交单元 $c=\{\gamma_j\}$。预测时找到 $x$ 所在的 $\gamma(x)$，对其中训练标签取多数票。
+## 局部方法 2：基于划分的方法（决策树）
 
-![分类树的判断规则](<Images/05_NLM/image_018.jpg>)
+### 基于划分的分类器（1/4）
 
-![与分类树对应的空间区域](<Images/05_NLM/image_019.jpg>)
+对固定划分计算预测。用 $c = \bigcup_{j} \gamma_{j}$ 表示划分，其单元为 $\gamma_{j}$。
 
-**图解：** 一条从根到叶的路径对应多个阈值判断，其交集就是一个区域；叶内统计给出该区域的预测。
+1. 找出 x 所在的单元 $\gamma(x)$。
+2. 考虑单元 $\gamma(x)$ 中的训练数据。
+3. 预测 $\hat{h}(x,c)=$：对单元 $\gamma(x)$ 中的训练数据进行多数投票。
 
-划分可以从数据学习：先在所有训练数据上寻找降低局部代价的简单切分，再分别对两个子集重复，称为递归划分。
+![image](<Images/05_NLM/image_018.jpg>)
 
-![树结构与递归划分的对应](<Images/05_NLM/image_020.jpg>)
+![image](<Images/05_NLM/image_019.jpg>)
 
-邮件分类树可以先判断某类词语的出现频率是否超过阈值，再在分支中判断链接数量等其他特征。训练决定先检查哪个特征、阈值放在哪里，以及每个叶子预测哪一类。沿一条路径走到叶子，就是逐步确定新邮件落入哪个区域。
+### 基于划分的分类器（2/4）：构建数据驱动的划分
 
-## 决策树的复杂度、剪枝与一致性（第 52–54 页）
+- 从所有训练数据开始，寻找一个使某个代价函数最小的简单分类器。
+- 对该分类器边界两侧的训练数据子集重复这一过程，$\longrightarrow$ 这称为递归划分。
 
-超参数包括节点内优化的代价、叶子最少样本数、最大深度和叶子总数。先生成树 $\widehat c$，再从底部剪枝，选择子树对应的划分：
+![image](<Images/05_NLM/image_020.jpg>)
+
+树表示
+
+X 定义域的递归划分
+
+### 基于划分的分类器（3/4）：超参数
+
+- 局部优化的代价函数：在单元层面，针对单元内的数据优化。
+- 每个单元中的最少点数。
+- 树的最大深度或单元总数，通过剪枝估计。剪枝相当于探索所有子划分（子树）构成的类，并优化如下惩罚准则：
 
 $$
-\arg\min_{c\text{ 为 }\widehat c\text{ 的剪枝结果}}
-\{\widehat L_n(h_c)+\lambda|c|\},
+\arg \min _ {c} \hat {L} _ {n} (h _ {c}) + \lambda | c |
 $$
 
-其中 $|c|$ 为叶子或区域数。
+其中 $c \subset \hat{c}$ 是从已学得的划分出发、自下而上剪枝得到的子划分集合。
 
-![剪枝前后的树](<Images/05_NLM/image_021.jpg>)
+![image](<Images/05_NLM/image_021.jpg>)
 
-**图解：** 剪掉贡献不足的分支，相当于合并过细的区域，用少量拟合损失换取较低复杂度。
-
-对规则网格，若单元是边长 $\delta_n$ 的 $d$ 维立方体，标准条件下
+- 规则划分情形：单元是 $\mathbb{R}^d$ 中边长为 $\delta_n$ 的超立方体。
 
 $$
-\delta_n\to0,\qquad n\delta_n^d\to\infty
-\quad\Longrightarrow\quad
-\mathbb E L(\widehat h(\cdot,\delta_n))\to L^*.
+\mathbb {E} L (\hat {h} (\cdot , \delta_ {n})) \to L ^ {*}
 $$
 
-区域要越来越小，同时局部有效样本要越来越多。数据驱动划分则需相应复杂度控制，课件指出 VC 与 Rademacher 理论可用于分析；不能把网格条件直接当作任意树算法的一致性证明。
+条件为：当 $n \rightarrow \infty$ 时，$n\delta_{n}^{d} \rightarrow \infty$ 且 $\delta_{n} \rightarrow 0$；需要每个单元中有足够多的数据点，并且单元直径随样本量增加而趋于零。
 
-## 局部方法的优点与限制（第 55–56 页）
+- 数据驱动的划分：VC 理论和 Rademacher 理论适用。
 
-标准 k-NN 预测依赖保存训练样本，查询成本可能较高。单棵深树对样本扰动可能敏感，小变动会导致不同分支。树的优势是可以写成逻辑规则，轴向阈值切分对各特征的严格单调变换较稳健；处理类别特征和缺失值的能力取决于具体算法与实现。
+<a id="section-21"></a>
 
-**校对说明：** 原文说两类方法性能低于最先进方法，这是课件的经验概括，不能作为所有任务中的固定排序。问题由此转向：能否保留树的局部规则优势，同时减轻不稳定性？
+## 关于局部方法的要点
 
-## 集成学习的动机与一般过程（第 57–62 页）
+### 主要局限
 
-原课件以 Netflix 竞赛的 BelKor 团队为例，说明组合方法的实践价值，并列出社会选择理论、遍历定理与统计聚合估计等相关视角。
+- $k$ 近邻方法需要存储全部训练数据，才能预测新输入的标签。
+- 决策树极不稳定。
+- 两者的预测性能都低于当时最先进的方法。
 
-从一个已有基础学习器出发，例如树、k-NN 或 SVM，根据训练数据生成多个不同预测函数。每个函数对新输入各自预测，再取平均或多数票。
+### 决策树的优点
 
-![多棵树共同投票](<Images/05_NLM/image_022.jpg>)
+- 可以处理缺失数据、类别数据和尺度变化。
+- 可以表述为逻辑规则，$\longrightarrow$ 可解释机器学习。
 
-![单棵树与聚合后的分类区域](<Images/05_NLM/image_023.jpg>)
+决策树中有哪些东西值得保留？
 
-**图解：** 每棵树的边界都有偏差，聚合后部分个体波动被抵消。若所有树完全相同，平均不会带来这种改善，因此需要考虑预测器之间的差异与相关性。
+<a id="section-22"></a>
 
-原文主要使用轴向切分的树作例子。**校对说明：** 一次切分、两个叶子的浅树才叫决策树桩；不能把所有轴向切分或完整决策树都称为树桩。
+## 浅层且高效的机器学习算法：集成方法
 
-三种典型方法为 Bagging（Breiman，1996）、随机森林（课件列 Amit–Geman，1997；Breiman，2000）以及 Boosting（Freund–Schapire，1996）。年份按课件文献线索保留。
+1. Bagging 与随机森林。
+2. Boosting。
+
+### 集成的动机：其他领域的线索
+
+- 技术：数据科学竞赛冠军将多种方法组合起来提高性能，例如 Netflix 挑战赛获胜者 BelKor 团队。
+- 决策理论：社会选择理论。
+- 概率论：遍历定理。
+- 非参数统计：聚合估计量。
+
+<a id="section-23"></a>
+
+## 集成方法：出发点
+
+- 假设已有一个性能尚可、希望进一步改进的机器学习算法，例如决策树、k-NN、SVM 等。
+- 集成的思想是：从相同训练数据与相同假设空间产生不同的函数。
+- 在接下来的示例及大部分讨论中，基础假设空间由通过正交切分得到的决策树构成；这样的切分称为决策树桩。
+
+<a id="section-24"></a>
+
+## 决策树集成：一般原理
+
+- 使用基础机器学习算法，例如决策树，生成一组弱预测器，即集成。
+- 对每个点 $x$，计算各预测器的预测。
+- 对各预测取平均或多数投票，得到集成的预测。
+
+![image](<Images/05_NLM/image_022.jpg>)
+
+<a id="section-25"></a>
+
+## 决策树集成：得到的分类器
+
+![image](<Images/05_NLM/image_023.jpg>)
+
+<a id="section-26"></a>
+
+## 决策树集成：三种常见方法
+
+- Bagging（Breiman，1996）。
+- 随机森林（Amit–Geman，1997；Breiman，2000）。
+- Boosting（Freund–Schapire，1996）。
 
 <a id="bagging"></a>
 
-## Bagging、随机森林与 bootstrap（第 63–66 页）
+<a id="section-27"></a>
 
-单棵树可能对训练集的小变化很敏感。Bagging 主动从不同的重采样数据训练模型，再汇总它们的预测；随机森林还在切分时引入特征随机性，避免各棵树总沿着同样的变量分裂。这里先看模型如何产生，再看预测如何合并。
+## 集成方法 1：Bagging 与随机森林
 
-设基础函数类为 $\mathcal H$，根据训练集 $D_n$ 和随机机制生成 $\widehat h_1,\ldots,\widehat h_T$。数值输出的聚合为
+### Bagging 与随机森林的假设空间是什么？
+
+- 用 $\mathcal{H}$ 表示基础假设空间，对应已有的那个表现不算出色的算法，例如决策树。
+- 用 $D_{n}$ 表示训练数据，并假设在给定 $D_{n}$ 的条件下，能够从 $\mathcal{H}$ 中抽样得到函数 $\hat{h}_1, \ldots, \hat{h}_t$，即集成。
+- 对由 $T$ 个函数组成的集成，Bagging／随机森林的输出是这些基于数据生成的“随机”函数的平均：
 
 $$
-\widehat f_T=\frac1T\sum_{t=1}^T\widehat h_t.
+\hat {f} _ {T} = \frac {1}{T} \sum_ {t = 1} ^ {T} \hat {h} _ {t}
 $$
 
-对于类别标签可使用投票，或先平均类别概率。它属于基础函数类的线性张成空间；更准确地说，等权平均属于相应凸组合集合，不等于任意实系数组合。
+- 这些方法的假设空间是基础假设空间 $\mathcal{H}$ 的线性张成空间。这个空间可能非常大！
 
-Bagging 通过 bootstrap 重采样训练不同模型。典型随机森林还在节点切分时随机选择部分候选特征，降低树间相关性；原课件强调它们在树生成规则上不同，通常不采用单树的剪枝过程。
+> **译注：** 上式实值平均函数属于基础函数类的凸包，因而属于线性张成空间；若随后取符号或最大概率类别，最终离散分类器不必属于这个空间。
 
-![bootstrap 有放回重采样](<Images/05_NLM/image_024.jpg>)
+- Bagging 与随机森林都依赖对训练数据进行 bootstrap 抽样。
+- 两者的区别在于构建每棵树时，对递归划分过程作了不同的规定；其中不进行剪枝。
 
-图中原数据为：
+<a id="section-28"></a>
 
-| 样本编号 | X | Y |
-|---|---:|---:|
+## 一般而言，bootstrap 是什么？
+
+| 观测编号 | X | Y |
+| --- | --- | --- |
+| 3 | 5.3 | 2.8 |
+| 1 | 4.3 | 2.4 |
+| 3 | 5.3 | 2.8 |
+
+![image](<Images/05_NLM/image_024.jpg>)
+
+| 观测编号 | X | Y |
+| --- | --- | --- |
 | 1 | 4.3 | 2.4 |
 | 2 | 2.1 | 1.1 |
 | 3 | 5.3 | 2.8 |
 
-三组重采样编号分别为 $(3,1,3)$、$(2,3,1)$、$(2,2,1)$。每组有三条记录，但由于有放回抽取，有的原记录重复，有的没有被抽到。分别拟合后再聚合。
+原始数据（Z）
 
-## Bagging 的理论线索（第 67 页）
+| 观测编号 | X | Y |
+| --- | --- | --- |
+| 2 | 2.1 | 1.1 |
+| 3 | 5.3 | 2.8 |
+| 1 | 4.3 | 2.4 |
 
-课件引用 Biau、Devroye、Lugosi（2008）：对特定理想化采样与聚合方案，Bagging 可使原本一般不一致的 1-NN 分类器达到一致性。
+| 观测编号 | X | Y |
+| --- | --- | --- |
+| 2 | 2.1 | 1.1 |
+| 2 | 2.1 | 1.1 |
+| 1 | 4.3 | 2.4 |
 
-**校对说明：** 这是有采样条件的结论，不能推广成“任何不一致算法做 Bagging 都会一致”。原文把“纯随机标签”列为 1-NN 的例外，也需要限定：与输入独立且正负均衡时 Bayes 风险为 $1/2$；仅仅标签随机、但类别比例不平衡，并不自动使 1-NN 达到 Bayes 风险。
+- 某个理想化 Bagging 版本的一致性结果。
+- 最重要的一点：Bagging 可以把不一致的规则变成一致规则！
+- Biau、Devroye 和 Lugosi（2008）研究了将 Bagging 应用于 1-NN。一般分类情形下，1-NN 不一致，零噪声或纯随机标签的情形除外。
+- 在对采样过程施加某些合理条件后，对 1-NN 分类器进行 Bagging 可以得到一致性。
+
+> **译注：** 上述结论依赖采样条件。“纯随机标签”的例外不能理解为任意与输入独立的标签分布：正负均衡是一个典型例外，类别比例不均衡时 1-NN 不会因此自动达到 Bayes 风险。
 
 <a id="boosting"></a>
 
-## Boosting 的历史与学习对象（第 68–71 页）
+<a id="section-29"></a>
 
-Boosting 则让前一轮的结果影响下一轮学习。每轮增加一个弱分类器，已有组合解释不好的样本会得到更多关注。因此要同时跟踪每个样本的权重，以及每个弱分类器在最终组合中的权重。
+## 集成方法 2：Boosting
 
-原文列出 Freund 与 Schapire（1996）、Friedman 的梯度解释与随机梯度提升工作（2001、2002）、Lugosi 与 Vayatis（2004）的一致性研究，以及 Chen 与 Guestrin（2016）的 XGBoost。Breiman 在 2000 年讲座中强调理解 Boosting 的理论意义；这些是历史语境中的评价。
+### Boosting 的历史视角
 
-输入是二分类训练集 $D_n=\{(X_i,Y_i)\}_{i=1}^n$，$Y_i\in\{-1,+1\}$，以及对称基础类 $\mathcal H$，即 $h\in\mathcal H$ 当且仅当 $-h\in\mathcal H$。迭代选择弱分类器与权重，输出
-
-$$
-\widehat f_T(x)=\sum_{t=1}^T w_t\widehat h_t(x),\qquad
-\widehat g(x)=\operatorname{sgn}(\widehat f_T(x)).
-$$
-
-$\Pi_t$ 是第 $t$ 轮在样本编号上的概率分布，基础分类器的加权错误率为
-
-$$
-\widehat\varepsilon_t(h)=\sum_{i=1}^n\Pi_t(i)\mathbf1\{h(X_i)\ne Y_i\}.
-$$
-
-$w_t$ 是模型权重，$\Pi_t(i)$ 是样本权重，两者不是同一个对象。Boosting 根据前面模型的表现改变下一轮要重点处理的样本。
-
-## AdaBoost 算法（第 72–73 页）
-
-初始化 $\Pi_1(i)=1/n$。对每轮 $t$：
+- 原始论文：Freund, Y. 与 Schapire, R. E.（ICML，1996）。
+- 将所求解的优化问题解释为随机梯度下降：Friedman, J. H.（CSDA，2002）。
+- Wald 纪念讲座（IMS，2000）：Leo Breiman 宣称，“理解 Boosting 是机器学习中最重要的问题”。
+- Boosting 一致性的证明：Lugosi, G. 与 Vayatis, N.（Annals of Statistics 含讨论的专刊，2004）。
+- 可扩展的实现 XGBoost：Chen, T. 与 Guestrin, C.（ACM SIGKDD，2016）。
+- 输入：
+- 数据样本 $D_{n} = \{(X_{i}, Y_{i}) : i = 1, \dots, n\}$，其中分类数据满足 $\{-1, +1\}$。
+- 弱分类器的基础假设类 $\mathcal{H}$，例如决策树；假设该类对称，即 $h \in \mathcal{H}$ 当且仅当 $-h \in \mathcal{H}$。
+- 迭代 $t = 1, \ldots, T$。
+- 计算权重 $w_{t} > 0$ 与弱分类器 $\widehat{h}_{t} \in H$。
+- 输出：
+- Boosting 分类器对如下弱分类器线性组合取符号：$\widehat{f}_n(x) = \sum_{t=1}^{T} w_t \widehat{h}_t(x)$。
+- 数据上的 Boosting 分布：定义在 $\{1, \ldots, n\}$ 上的一列离散概率分布，记为 $\Pi_t$，$t \geq 1$。
+- 加权训练误差：对任意弱分类器 $h \in \mathcal{H}$，以及 $t \geq 1$，
 
 $$
-\widehat h_t\in\arg\min_{h\in\mathcal H}\widehat\varepsilon_t(h),\qquad
- e_t=\widehat\varepsilon_t(\widehat h_t),
-\qquad w_t=\frac12\log\frac{1-e_t}{e_t},
+\widehat {\varepsilon} _ {t} (h) = \sum_ {i = 1} ^ {n} \Pi_ {t} (i) \mathbb {I} \{h (X _ {i}) \neq Y _ {i} \}
 $$
 
-$$
-\Pi_{t+1}(i)=\frac{\Pi_t(i)\exp[-w_tY_i\widehat h_t(X_i)]}{Z_t},
-$$
+### Boosting（3/7）
 
-其中 $Z_t$ 将权重归一化为总和 1。通常要求 $0<e_t<1/2$：错误率超过 $1/2$ 可在对称类中翻转预测；等于 $1/2$ 没有提升；等于零需单独处理，避免无限权重。
+原始算法：AdaBoost。
 
-![初始均匀加权样本](<Images/05_NLM/image_025.jpg>)
-
-![第一轮弱分类器与重加权](<Images/05_NLM/image_026.jpg>)
-
-![第二轮关注先前错误样本](<Images/05_NLM/image_027.jpg>)
-
-![第三轮继续修正](<Images/05_NLM/image_028.jpg>)
-
-![弱分类器加权组合后的边界](<Images/05_NLM/image_029.jpg>)
-
-**图解：** 单个弱分类器只用一次简单切分，误分点在下一轮获得更高相对权重。最后将多个弱规则加权，可形成比单一树桩更复杂的区域。
-
-## Boosting 的函数优化解释（第 74 页）
-
-定义经验指数风险
+1. 初始化：$\Pi_{1}$ 是 $\{1,\ldots,n\}$ 上的均匀分布。
+2. Boosting 迭代：对 $t = 1, \ldots, T$，寻找满足下式的弱分类器：
 
 $$
-\widehat A_n(f)=\frac1n\sum_{i=1}^n e^{-Y_if(X_i)}.
+\widehat {h} _ {t} = \underset {h \in \mathcal {H}} {\arg \min} \widehat {\varepsilon} _ {t} (h)
 $$
 
-课件要求解释：为什么 Boosting 可看作函数空间中的逐步下降？参考 Friedman（2001）《贪心函数逼近：梯度提升机》。
-
-对当前 $f$，加入 $wh$ 后，单个样本损失乘上 $e^{-wY_ih(X_i)}$。把当前指数损失归一化为 $\Pi_t(i)$，本轮目标就正比于
+然后令 $e_{t}=\widehat{\varepsilon}_{t}(\widehat{h}_{t})$，并取权重为
 
 $$
-(1-e_t)e^{-w}+e_te^w.
+w _ {t} = \frac {1}{2} \log \left(\frac {1 - e _ {t}}{e _ {t}}\right)
 $$
 
-对 $w$ 求导并置零，得到 $w=\tfrac12\log((1-e_t)/e_t)$。这说明 AdaBoost 的权重不是任意设定，而与沿弱学习器方向降低指数风险一致。一般梯度提升可以使用其他可微损失，不能都等同于指数损失 AdaBoost。
-
-## 迭代次数、学习率与训练误差为零之后（第 75–76 页）
-
-主要超参数是迭代次数 $T$ 和学习率 $\eta$。梯度提升常用 $f_t=f_{t-1}+\eta w_th_t$；较小学习率通常需要更多轮。应联合用验证数据确定学习率、树复杂度与停止时机。
-
-![不同学习率下的误差与迭代次数](<Images/05_NLM/image_030.jpg>)
-
-**图解：** 原图纵轴为 RMSE，展示学习率与训练轮数的交互影响；它是回归误差示例，不是前面 AdaBoost 分类错误率的直接曲线。
-
-![训练分类错误为零后测试误差继续下降的示例](<Images/05_NLM/image_031.jpg>)
-
-原文将这种现象作为尚需理解的问题，并猜测是否与聚合的正则化作用有关。分类错误率只看符号，即使它已为零，指数损失与间隔还可继续变化；图不能证明继续训练永远不发生过拟合，也不能把原文猜测当作已证明原因。
-
-## 课件列出的软件（第 77 页）
-
-Python：scikit-learn。R：rpart 用于递归划分，caret 用于分类与回归训练接口，xgboost 用于梯度提升。这里保留原课件的软件清单，不涉及当前版本、安装或 API 兼容性。
-
-## 推断原则：Bayes 风险与经验风险（第 78–80 页）
-
-对取值 $\pm1$ 的分类器，
+3. 更新 Boosting 分布：对任意 $i = 1, \ldots, n$，
 
 $$
-L(g)=\mathbb P(Yg(X)<0)=\mathbb E\mathbf1\{Yg(X)<0\},
-\qquad\widehat L_n(g)=\frac1n\sum_i\mathbf1\{Y_ig(X_i)<0\}.
+\Pi_ {t + 1} (i) \propto \Pi_ {t} (i) \exp \left(- w _ {t} Y _ {i} \cdot \widehat {h} _ {t} (X _ {i})\right)
 $$
 
-Bayes 规则为 $g^*(x)=\operatorname{sgn}(\eta(x)-1/2)$，$L^*=L(g^*)$；在 $\eta=1/2$ 时两种决策都可最优。
+![image](<Images/05_NLM/image_025.jpg>)
 
-经验风险最小化 ERM 需要处理两件事：计算上如何找到解；统计上如何控制经验风险与真实风险的偏差。Vapnik 理论及 Glivenko–Cantelli 一致收敛性质提供相关工具。
+![image](<Images/05_NLM/image_026.jpg>)
 
-**校对说明：** 原文称 ERM 为 NP 困难，应理解为某些丰富函数类上的零一损失优化具有这种困难，不是所有 ERM 问题都 NP 困难。
+![image](<Images/05_NLM/image_027.jpg>)
 
-## SVM 与 Boosting 的共同结构（第 81–83 页）
+![image](<Images/05_NLM/image_028.jpg>)
 
-SVM 在核特征空间选择最大间隔函数，Boosting 逐步构造简单函数的线性组合。从统计角度看，两者都可联系到在丰富函数类中降低凸替代风险，并控制函数复杂度。
+![image](<Images/05_NLM/image_029.jpg>)
 
-核方法使用核截面 $k(x_i,\cdot)$ 的线性组合，Boosting 使用简单分类器 $g_i\in\mathcal G$ 的线性组合：
-
-$$
-f=\sum_i a_i k(x_i,\cdot),\qquad\text{或}\qquad f=\sum_i w_i g_i.
-$$
-
-原文假设基础类 $\mathcal G$ 的 VC 维有限。
-
-**校对说明：** 原页写无限和却未给收敛条件。有限训练结果是有限和；若讨论完整核 Hilbert 空间，需要相应范数下的闭包，不能把任意无限实系数序列都当作合法函数。SVM 的常见原始形式是二次目标加线性约束，不是原文所说的“二次约束”。核映射也不无条件保证数据可分。原文对 Boosting 的高度评价仅作历史引述，不构成算法通用排名。
-
-## 核范数正则化与 hinge 损失（第 84–85 页）
-
-若 $f(x)=\sum_{i=1}^n a_i k(x_i,x)$，则相应再生核 Hilbert 空间范数满足
+- Boosting 可以解释为针对如下泛函进行的函数空间梯度下降：
 
 $$
-\|f\|_{\mathcal H_k}^2=\sum_{i,j}a_i a_jk(x_i,x_j).
+\hat {A} _ {n} (f) = \frac {1}{n} \sum_ {i = 1} ^ {n} \exp \left(- Y _ {i} f (X _ {i})\right)
 $$
 
-这里 $a_i$ 是有符号展开系数，已吸收前面对偶表达中的标签。暂略截距，SVM 可写为
+其中 f 所在的假设空间，是“简单”分类器集合 H 的线性张成空间。
 
-$$
-\min_f\frac12\|f\|_{\mathcal H_k}^2+C\sum_i\xi_i,
-\qquad\xi_i\ge(1-y_if(x_i))_+.
-$$
+- 练习：为什么？
 
-定义 $\varphi(u)=(1+u)_+$，消去 $\xi$ 后得
+参见：J. Friedman，Greedy Function Approximation: A Gradient Boosting Machine（贪心函数逼近：梯度提升机），The Annals of Statistics，第 29 卷第 5 期，2001。
 
-$$
-\min_f\frac12\|f\|_{\mathcal H_k}^2+C\sum_i\varphi(-y_if(x_i)).
-$$
+### Boosting（6/7）
 
-这个形式便于统计解释：范数控制函数的复杂度，hinge 控制分类间隔。若保留截距，一般将它作为单独的未惩罚参数。原文认为对偶更便于计算，这是特定问题尺度与求解器下的判断，不是普遍规则。
+#### 梯度提升的超参数
+
+- 迭代次数 $T$：越大，过拟合的可能性越高。
+- 步长 $\eta$ 固定：降低学习率往往可以改善泛化性能。
+
+![image](<Images/05_NLM/image_030.jpg>)
+
+### Boosting（7/7）：尚未完全解释的谜题
+
+尽管训练误差已经为零，测试误差仍随迭代继续下降。$\longrightarrow$ 是平均带来的正则化效应吗？？
+
+![image](<Images/05_NLM/image_031.jpg>)
+
+- Python：scikit-learn。
+- R：
+- rpart：递归划分。
+- caret：分类与回归训练（SVM、随机森林等）。
+- xgboost：极端梯度提升。
 
 <a id="surrogate-loss"></a>
 
-## 凸替代风险为什么能用于分类（第 86–88 页）
+<a id="section-30"></a>
 
-分类错误率只在预测类别改变时跳变，直接优化往往困难。算法因此使用更容易处理的损失。不过，更换训练目标以后还要回答：把新目标做小，是否仍会得到好的分类规则？下面区分“上界关系”和更强的分类校准要求。
+## 推断原则
 
-实值决策函数 $f$ 通过取符号产生分类器。原文用 $L(f)=\mathbb P(Yf(X)<0)$ 表达分类风险；若 $f(X)=0$ 可能有正概率，需要明确平局处理，否则该式会漏记零点上的分类错误。严谨评价可始终使用 $L(g_f)=\mathbb P(g_f(X)\ne Y)$。
-
-选择非负凸损失 $\varphi$，并按需要归一化使 $\varphi(u)\ge\mathbf1\{u\ge0\}$。定义
+- 一种误差度量：
 
 $$
-\begin{aligned}
-A(f)&=\mathbb E\varphi(-Yf(X))\\
-&=\mathbb E[\eta(X)\varphi(-f(X))+(1-\eta(X))\varphi(f(X))].
-\end{aligned}
+L (g) = \mathbb {P} \left\{Y \cdot g (X) <   0 \right\} = \mathbb {E} \left(\mathbb {I} _ {[ Y \cdot g (X) <   0 ]}\right)
 $$
 
-适当处理零点后，替代风险上界控制零一风险。但“$L\le A$”本身并不能证明最小化 $A$ 就能获得 Bayes 分类器。
-
-![零一、指数、hinge 与 sigmoid 形状的损失](<Images/05_NLM/image_032.jpg>)
-
-**图解：** 横轴是负间隔 $-Yf(X)$，右侧意味着预测方向错误。零一损失不连续；指数与 hinge 提供更便于优化的替代。图中 sigmoid 曲线并非全局凸，不能因为同画在这里就把它也列入本节的凸损失假设。
-
-## 目标函数与分类校准（第 89 页）
-
-记 $A^*=\inf_f A(f)$。对满足分类校准条件的损失，可使替代风险的近最优性转化为分类风险的近最优性。需要额外条件，不能只由凸性与非负性推出。
-
-对指数损失 $\varphi(u)=e^u$，当 $0<\eta(x)<1$ 时，逐点最优分数为
+- Bayes 分类器与 Bayes 误差：
 
 $$
-f^*(x)=\frac12\log\frac{\eta(x)}{1-\eta(x)}.
+\begin{array}{r l} {g ^ {*}} & {= \underset {g} {\arg \min} L (g) = \operatorname{sgn} \left(\eta - \frac {1}{2}\right)} \\ {L ^ {*}} & {= L (g ^ {*})} \end{array}
 $$
 
-其符号与 $\eta(x)-1/2$ 一致。若 $\eta=0$ 或 1，最优值通常通过分数趋向无穷达到下确界。
+- 经验准则：
 
-对 hinge 损失，$f^*(x)=\operatorname{sgn}(\eta(x)-1/2)$ 是一个可取的最优选择；$\eta=1/2$ 时 $[-1,1]$ 内均可最优，某些端点情形也不唯一。
+$$
+\hat {L} _ {n} (g) = \frac {1}{n} \sum_ {i = 1} ^ {n} \mathbb {I} _ {[ Y _ {i} \cdot g (X _ {i}) <   0 ]}
+$$
 
-更换训练损失是为了让问题可优化；分类校准说明在适当条件下，这种替换仍朝着正确的分类目标前进。函数类限制、正则化和优化误差仍需分别考虑。
+<a id="section-31"></a>
 
-## 延伸主题（第 90 页）
+## 经验风险最小化（ERM）
 
-后续方向包括可解释性与强化学习；目标可扩展到偏好学习、评分、排序、异常与新颖性检测；学习设置可扩展到在线、无监督、迁移、多任务、预算受限和主动学习。
+Vapnik 的理论（1995 年起）使人们能够发展针对高维数据分类的一致策略。
 
-<a id="self-check"></a>
+### ERM 的缺点
 
-## 读完后检查
+- 算法方面：NP-hard 问题。
+- 复杂度控制：需要 Glivenko–Cantelli 性质以避免过拟合。
 
-下面的问题用于自检，不是新增的原课件考题。先尝试用自己的话作答，再回到相应推导检查。
+### 但是
 
-1. k-NN 的邻居数、决策树的叶子大小、SVM 的惩罚参数分别怎样影响模型？为什么仅比较它们的训练误差不足以选方法？
-2. Bagging 怎样产生不同模型？Boosting 下一轮关注的数据由什么决定？两者怎样聚合预测？
-3. 训练分类错误率已经为零，为什么 Boosting 还可能继续降低它的训练目标？
-4. 一个损失是分类错误率的上界，是否已经足以保证最小化它得到正确的分类规则？还需要检查什么性质？
+高效方法在非常庞大的函数类中构建估计量！
 
-下一篇[深度学习](06_DL_zh.md)把函数表示改为多层复合，并将“怎样计算梯度”与“能否优化、能否泛化”分开讨论。
+<a id="section-32"></a>
+
+## 高效算法
+
+### 1. 支持向量机：Vapnik（1995）
+
+- 核技巧：将数据映射到一个 Hilbert 空间，使数据在其中近似线性可分。
+- 最大间隔超平面：带二次约束的凸优化。
+
+> **译注：** 按前文标准软间隔 SVM 的表述，目标是凸二次函数，约束为线性不等式；原文此处“二次约束”的说法不准确。
+
+### 2. Boosting：Freund（1990）；Freund、Schapire（1996）
+
+- 从简单分类器的类 H 开始。
+- 然后迭代构造简单分类器的线性组合，使经验误差下降。
+
+“Boosting 是世界上最好的开箱即用分类器。”——Breiman，1996。
+
+### 共同特征
+
+如果暂不考虑：
+
+1. 几何直觉；
+2. 各算法特有的动态过程，那么：
+
+Boosting 与 SVM 都可以看作：
+
+### 在庞大的函数空间中最小化带惩罚的凸风险的过程。
+
+它们的区别在于：
+
+- 估计量所属的类不同。
+- 风险不同。
+- 惩罚项不同。
+- 支持向量机：设 k 为正定核。
+
+$$
+\mathcal {F} = \left\{f = \sum_ {i = 1} ^ {+ \infty} \alpha_ {i} k (x _ {i}, \cdot): \alpha_ {i} \in \mathbb {R}, x _ {i} \in \mathcal {X} \right\}
+$$
+
+- Boosting：设 $\mathcal{G}$ 是 VC 维 $V$ 有限的简单分类器族。
+
+$$
+\mathcal {F} = \left\{f = \sum_ {i = 1} ^ {+ \infty} w _ {i} g _ {i}: w _ {i} \in \mathbb {R}, g _ {i} \in \mathcal {G} \right\}
+$$
+
+两种算法都构造函数的线性组合。
+
+> **译注：** 若使用无限和定义函数类，需要另行规定收敛条件；这里只是原课件对函数空间的简写。
+
+### SVM 的情形：回到拉格朗日表述 I
+
+设
+
+$$
+f (x) = \sum_ {i = 1} ^ {n} \alpha_ {i} k (x _ {i}, x)
+$$
+
+$$
+\| f \| _ {\mathcal {F}} = \sqrt {\sum_ {i , j} \alpha_ {i} \alpha_ {j} k (x _ {i} , x _ {j})}
+$$
+
+### 拉格朗日表述 I
+
+$$
+\min _ {f \in \mathcal {F}} \frac {1}{2} \| f \| _ {\mathcal {F}} ^ {2} + C \sum_ {i = 1} ^ {n} \xi_ {i}
+$$
+
+约束条件：
+
+$$
+\forall i = 1, \dots , n, \quad \xi_ {i} \geq \left(1 - y _ {i} \cdot f (x _ {i})\right) _ {+}
+$$
+
+设 $\varphi(x)=(1+x)_{+}$，称为 hinge loss（合页损失）。
+
+### 惩罚风险的最小化
+
+$$
+\min _ {f \in \mathcal {F}} \frac {1}{2} \| f \| _ {\mathcal {F}} ^ {2} + C \sum_ {i = 1} ^ {n} \varphi (- y _ {i} f (x _ {i}))
+$$
+
+### 说明
+
+- 这一表述对统计理论很重要。
+- 对优化而言，它不如对偶表述方便。
+- $\|f\|_{\mathcal{F}}$ 提供了对 $f$ 正则性的度量。
+- 决策函数：
+
+$$
+f: \mathcal {X} \to \mathbb {R}
+$$
+
+- 分类器：
+
+$$
+g (x) = g _ {f} (x) = \operatorname{sgn} (f (x)) \in \{- 1, + 1 \}
+$$
+
+- 自然的准则：
+
+$$
+L (f) = \mathbb {P} \left\{Y \cdot f (X) <   0 \right\} = \mathbb {E} \left\{\mathbb {I} _ {[ Y \cdot f (X) <   0 ]} \right\}
+$$
+
+- 损失函数：$\varphi$ 凸、非负，并且满足 $\varphi(x) \geq \mathbb{I}_{\mathbb{R}_+}(x)$。
+- 实用准则（$\varphi$ 风险）：
+
+$$
+\begin{array}{r l} A (f) & = \mathbb {E} \varphi (- Y f (X)) \\ & = \mathbb {E} \left[ \eta (X) \varphi (- f (X)) + (1 - \eta (X)) \varphi (f (X)) \right] \end{array}
+$$
+
+其中 $\eta(X)=\mathbb P\{Y=1\mid X=x\}$。
+
+> **译注：** 原页等号左侧写 $\eta(X)$，右侧使用固定输入 x；定义应统一写成 $\eta(x)=\mathbb P(Y=1\mid X=x)$。
+
+问题：最小化 A 是否等价于最小化 L？
+
+仅有如下关系：$L(f) \leq A(f)...$。
+
+![image](<Images/05_NLM/image_032.jpg>)
+
+### 目标函数
+
+- 泛函 $A$ 的极小点记为 $f^{*}$。
+- 最小 $\varphi$ 风险：$A^{*} = \min_{f} A(f) = A(f^{*})$。
+- 可以证明，$\operatorname{sgn}(f^{*}) = g^{*}$ 是最优分类器。
+- 还可以证明，分类误差的超额风险 $L(f) - L^*$ 由 $A(f) - A^*$ 控制。
+
+> **译注：** 分类校准结论需要对替代损失施加额外条件，不能仅由凸、非负、上界 0/1 损失推出。以下指数损失和 hinge 损失是具体例子；边界概率和并列最优情形还需单独处理。
+
+- 例子：
+- 指数损失（Boosting）。
+
+$$
+f ^ {*} (x) = \frac {1}{2} \log \left(\frac {\eta (x)}{1 - \eta (x)}\right)
+$$
+
+- 合页损失（SVM）。
+
+$$
+f ^ {*} (x) = \operatorname{sgn} (\eta (x) - 1 / 2) = g ^ {*} (x)
+$$
+
+- 可解释性。
+- 强化学习。
+- 将这些概念应用到其他问题：
+- 从目标角度：例如偏好学习、评分、排序、异常检测、新颖性检测等。
+- 从学习设定角度：在线学习、无监督学习、迁移学习、多任务学习、预算受限学习、主动学习等。

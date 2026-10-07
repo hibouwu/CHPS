@@ -1,561 +1,982 @@
-# 分类问题与参数化方法
+# 分类问题与参数方法：原课件忠实译本
 
-M2 CHPS · Nicolas Vayatis
+> 正文按原课件顺序逐段翻译，不作摘要式压缩；例子、练习、重复正文、公式、图表及文献均保留。图中文字保留原图语言。原课件错误与必要辨析以独立“译注”标明。
 
-> 对照来源：[原课件](<03_LMC.pdf>)，共 69 页；[原文转换稿](<03_LMC.md>)。按原课件顺序翻译，合并重复标题与过渡页，保留全部原图。正文含为自学补充的解释；图解和实质性公式修正分别注明。
+[原 PDF](03_LMC.pdf) · [原文转换稿](03_LMC.md) · [逐块对应清单](Translation-audit/2026-09-28-coverage.json) · [课程目录](../README.md)
 
-分类要根据输入作出类别决策，但模型不一定直接输出类别。它可以先估计概率，也可以产生一个分数，再通过比较或阈值作出决定。以下按这几条途径展开。
+<details>
+<summary>本讲目录（点击展开）</summary>
 
-先读[概率模型](#classification-model)，接着比较[LDA／QDA](#discriminant-analysis)与[逻辑回归](#logistic-model)。再用[ROC 与 AUC](#scoring)区分评分质量和阈值选择，最后读[最大间隔](#maximum-margin)。Fisher 投影和 Neyman–Pearson 检验可在主线清楚后回读。
+- [分类问题与参数方法](#section-01)
+- [分类数据：例子](#section-02)
+- [这些数据可以支持哪些决策？](#section-03)
+- [分类数据的概率模型](#section-04)
+- [分类问题的理论框架](#section-05)
+- [评价准则：分类器的误差](#section-06)
+- [分类中的过拟合（续）](#section-07)
+- [复杂度调整](#section-08)
+- [实践中的留出法](#section-09)
+- [方法 1：线性判别分析（LDA）与二次判别分析（QDA）](#section-10)
+- [线性判别分析（LDA）](#section-11)
+- [线性判别分析（续）](#section-12)
+- [二次判别分析（QDA）](#section-13)
+- [方法 2：Fisher 判别分析（FDA）](#section-14)
+- [方法 3：线性逻辑回归](#section-15)
+- [生成式方法的局限](#section-16)
+- [从分类到评分：ROC 曲线与 AUC](#section-17)
+- [Neyman–Pearson 分类器](#section-18)
+- [评分的最优解](#section-19)
+- [实用准则：ROC 曲线下面积（AUC）](#section-20)
+- [评分的性能度量](#section-21)
+- [评分的性能度量](#section-22)
+- [评分的性能度量](#section-23)
+- [非参数线性判别算法](#section-24)
+- [感知机算法（Rosenblatt，1958）](#section-25)
+- [一般感知机算法](#section-26)
+- [Novikoff 定理](#section-27)
+- [场景 1：具有良好泛化能力的超平面](#section-28)
+- [Karush–Kuhn–Tucker 条件](#section-29)
+- [规范最优超平面](#section-30)
 
-[课程目录](README.md) · [读完后检查](#self-check)
+</details>
 
-## 分类数据与实际决策（第 1–4 页）
+M2 CHPS
 
-原课件列举三个任务：医学诊断中，$X$ 是检查结果，$Y=+1$ 表示健康，$Y=-1$ 表示不健康；信用风险中，$X$ 是个人社会经济数据，$Y=+1$ 表示借款人可靠；垃圾邮件识别中，$X$ 是邮件描述特征，$Y=+1$ 表示垃圾邮件。
+**数据科学与机器学习导论**
 
-同样的数据可以支持两种不同决策：
+Nicolas Vayatis
 
-- **分类：** 预测新对象的类别，希望分类错误率低。
-- **评分与排序：** 给对象打分并排序，希望正例尽可能排在前面。
+<a id="section-01"></a>
 
-以垃圾邮件识别为例，“这封邮件是否进入垃圾箱”要求给出类别，是分类；“把最可疑的邮件排在前面，供人优先检查”要求给出顺序，是评分与排序。前者关心每封邮件是否判对，后者关心垃圾邮件是否排在正常邮件前面。
+## 分类问题与参数方法
 
-下面依次介绍概率模型、分类评价、LDA/QDA、Fisher 判别分析、逻辑回归、ROC/AUC、感知机和最大间隔分类。
+<a id="section-02"></a>
+
+## 分类数据：例子
+
+### 医学诊断
+
+- X：医学检查结果。
+- $Y$：诊断。
+- 如果患者健康，则 $Y = +1$；否则 $Y = -1$。
+
+### 信用风险
+
+- X：个人的社会经济数据。
+- $Y$：违约指标。
+- 如果借款人可靠，则 $Y = +1$；否则 $Y = -1$。
+
+### 垃圾邮件识别
+
+- X：邮件的描述特征。
+- $Y$：邮件的状态。
+- 如果邮件是垃圾邮件，则 $Y = +1$；否则 $Y = -1$。
+
+<a id="section-03"></a>
+
+## 这些数据可以支持哪些决策？
+
+### 1. 分类
+
+目标：预测新的标签 Y。
+
+如果分类错误率低，就认为结果令人满意。
+
+### 2. 评分
+
+目标：将 X 排列成一个列表。
+
+如果列表前端有许多 Y = +1 的对象，就认为结果令人满意。
+
+1. 分类数据的概率模型。
+2. 分类问题的理论框架。
+3. 经典的参数化（线性）分类方法。
+1. 判别分析（LDA/QDA）。
+2. Fisher 判别分析（FDA）。
+3. 线性逻辑回归。
+
+### 4. 从分类到评分（定向筛选）：ROC 曲线与 AUC 面积
+
+5. 感知机算法：线性且非参数！
 
 <a id="classification-model"></a>
 
-## 分类的概率模型（第 5–8 页）
+<a id="section-04"></a>
 
-同一组输入与标签可以按两个方向描述：先看各类别里会出现什么输入，或先给定输入再看标签的概率。两者描述的是同一个联合分布，但建模时需要估计的对象不同。
+## 分类数据的概率模型
 
-设 $(X,Y)$ 服从未知联合分布 $P$，$X\in\mathcal X$（例如 $\mathbb R^d$），暂取二元标签 $Y\in\{-1,+1\}$。
+### 监督分类的概率模型
 
-**生成式描述**先给出类别先验及类条件分布：
+- $(X, Y)$：一对概率分布 $P$ 未知的随机变量。
+- $X \in \mathcal{X}$：可测空间上的观测，例如 $\mathbb{R}^d$。
+- $Y \in \{-1, +1\}$：二元标签／类别（为简单起见）。
 
-$$
-p=\mathbb P(Y=+1),\qquad P_+=\mathcal L(X\mid Y=+1),\quad P_-=\mathcal L(X\mid Y=-1).
-$$
+→ 如何从条件分布描述随机变量对 $(X, Y)$ 的联合分布 $P = \mathcal{L}(X, Y)$？
 
-它对应联合分布的分解 $P(dx,dy)=P_Y(dy)P_{X\mid Y}(dx\mid y)$。
+### 联合分布的描述
 
-**判别式描述**关注输入边际分布 $P_X$ 和给定输入后的标签概率：
-
-$$
-\eta(x)=\mathbb P(Y=+1\mid X=x).
-$$
-
-它对应 $P(dx,dy)=P_X(dx)P_{Y\mid X}(dy\mid x)$。这里是条件分布分解，不能把原文的乘积符号理解为 $X,Y$ 独立。
-
-若类条件密度为 $f_+,f_-$，则
+1. 生成式方法：$\mathcal{L}(X, Y) = \mathcal{L}(Y) \otimes \mathcal{L}(X \mid Y)$。
+- 混合模型，其参数为：
 
 $$
-f_X(x)=pf_+(x)+(1-p)f_-(x),
-\qquad\eta(x)=\frac{pf_+(x)}{pf_+(x)+(1-p)f_-(x)}.
+p = \mathbb {P} \{Y = + 1 \} \in [ 0, 1 ]
 $$
 
-在分母非零处，$\eta(x)>1/2$ 等价于 $pf_+(x)>(1-p)f_-(x)$。
-
-生成式方法先问“各类会产生怎样的输入”，再由 Bayes 公式判断类别；判别式方法直接建模“看到这个输入后，各类别有多大可能”。
-
-## 二分类、训练误差与泛化（第 9–15 页）
-
-给定 $(x_i,y_i)_{i=1}^n$，希望学习 $g:\mathbb R^d\to\{-1,+1\}$，使它能预测未见数据。常先学习实值决策函数 $f$，再令 $g=\operatorname{sgn}(f)$；零点如何归类需要约定。
-
-训练错误率为
+- $\mathbb{R}^d$ 上的条件分布：
 
 $$
-\widehat L_n(g)=\frac1n\sum_{i=1}^n\mathbf1\{g(x_i)\ne y_i\}
-=\frac{\#\{i:g(x_i)\ne y_i\}}n.
+P _ {+} = \mathcal {L} (X \mid Y = + 1) \quad \text{且} \quad P _ {-} = \mathcal {L} (X \mid Y = - 1)
 $$
 
-低训练误差只说明当前样本拟合得好，不足以说明真实风险 $L(g)=\mathbb P(g(X)\ne Y)$ 小。
-
-![分类边界的过拟合](<Images/03_LMC/image_001.jpg>)
-
-![欠拟合、过拟合与适中复杂度](<Images/03_LMC/image_002.jpg>)
-
-**图解：** 过于简单的边界不能分开主要结构；为了围住每个训练样本而不断弯曲的边界，又可能把偶然点当成规律。图中的新样本提示我们，训练点上的正确性不等于新点上的正确性。
-
-![复杂度与风险控制](<Images/03_LMC/image_003.jpg>)
-
-**图解：** 随函数类扩大，经验风险通常下降，但控制经验误差与真实风险差距的项可能增加。图是权衡示意，不保证所有实际学习曲线都是同样的 U 形。
-
-留出法把数据分成训练集与独立测试集。训练好 $g$ 后，用
+2. 判别式方法：$\mathcal{L}(X,Y)=\mathcal{L}(X)\otimes\mathcal{L}(Y\mid X)$。
+- $\mathbb{R}^{d}: P_{X} = \mathcal{L}(X)$ 上的边际分布。
+- 最佳预测：
 
 $$
-\widehat L'_m(g)=\frac1m\sum_{j=1}^m\mathbf1\{g(X_{n+j})\ne Y_{n+j}\}
+\eta (x) = \mathbb {P} \{Y = + 1 \mid X = x \}, \quad \forall x \in \mathbb {R} ^ {d}
 $$
 
-估计风险。在独立同分布且测试集不参与训练、选模的条件下，可对训练集条件化来理解此估计。原文进一步提出交叉验证以减少对一次划分的依赖。
-
-调超参数时使用验证集或交叉验证，最终测试集保留到最后；反复按测试结果选模型会使它失去独立评价作用。
-
-## 方法一：多元高斯与混合模型（第 16–19 页）
-
-统一采用列向量，多元高斯密度为
+- 边际分布（“dP”表示分布的密度）：
 
 $$
-\mathcal N(x;\mu,\Sigma)=\frac1{(2\pi)^{d/2}|\Sigma|^{1/2}}
-\exp\left[-\frac12(x-\mu)^T\Sigma^{-1}(x-\mu)\right].
+d P _ {X} = p d P _ {+} + (1 - p) d P _ {-}
 $$
 
-其中 $\mu\in\mathbb R^d$，$\Sigma\in\mathbb R^{d\times d}$ 为正定协方差矩阵，$|\Sigma|$ 是行列式。对 $m$ 个独立样本，最大似然估计为
+- 后验概率（回归函数）：
 
 $$
-\widehat\mu=\frac1m\sum_{j=1}^m x^{(j)},\qquad
-\widehat\Sigma=\frac1m\sum_{j=1}^m(x^{(j)}-\widehat\mu)(x^{(j)}-\widehat\mu)^T.
+\forall x \in \mathcal {X}, \qquad \eta (x) = \frac {p d P _ {+}}{p d P _ {+} + (1 - p) d P _ {-}} (x)
 $$
 
-这是分母为 $m$ 的最大似然估计，不是分母 $m-1$ 的无偏协方差估计。
-
-![多元高斯的密度与等高线](<Images/03_LMC/image_004.jpg>)
-
-![二维混合模型的数据与等高线](<Images/03_LMC/image_005.jpg>)
-
-![二维混合模型的密度曲面](<Images/03_LMC/image_006.jpg>)
-
-**图解：** 均值确定云团中心，协方差决定延伸方向与离散程度；多个高斯分量加权叠加后，可以形成多个峰。
-
-多分类时设 $Y\in\{1,\ldots,K\}$，$X\mid Y=k\sim\mathcal N(m_k,\Sigma_k)$，密度为 $f_k$，先验为 $\pi_k$。后验为
+- 一个备注：
 
 $$
-\eta_k(x)=\mathbb P(Y=k\mid X=x)=\frac{\pi_kf_k(x)}{\sum_{j=1}^K\pi_jf_j(x)}.
+\eta (x) > \frac {1}{2} \quad \Leftrightarrow \quad p d P _ {+} (x) > (1 - p) d P _ {-} (x)
 $$
 
-**校对说明：** 原页把 $X\mid Y=k$ 称作“后验分布”，实际应为类条件分布；$Y\mid X=x$ 才是这里用于分类的后验。
+<a id="section-05"></a>
+
+## 分类问题的理论框架
+
+### 二分类问题
+
+- 可用数据：$(x_1, y_1), \ldots, (x_n, y_n)$，$x_i \in \mathbb{R}^d$，$y_i \in \{-1, +1\}$。
+- 问题：已知 x，预测标签 y。
+- 要寻找：一个分类器 $g$：$\mathbb{R}^d \to \{-1, +1\}$。
+- 问题：找到一个能够良好“泛化”的分类器 $g$。
+- 思路：选择一个能够很好地“解释”数据、但又不过度解释的 $g$！
+- 具体而言：通常先寻找决策函数 $f: \mathbb{R}^{d} \to \mathbb{R}$，再将其与分类器 $g = \text{sgn}(f)$ 对应。
+
+<a id="section-06"></a>
+
+## 评价准则：分类器的误差
+
+- 给定一个观测 $x$，分类器 $g$ 作出预测 $g(x)$，将其与类别 $y$ 比较。
+
+分类器的误差 = 被错误分类的观测所占比例。
+
+$$
+\hat {L} _ {n} (g) = \frac {1}{n} \sum_ {i = 1} ^ {n} \mathbb {I} _ {[ g (x _ {i}) \neq y _ {i} ]} = \frac {\# \{i : g (x _ {i}) \neq y _ {i} \}}{n}
+$$
+
+这个误差也称为训练误差。
+
+- 如果分类器 $g$ 的训练误差低，就说它能够恰当地“解释”数据。
+- 注意！如果只关注这类误差，就可能出现问题……
+
+![image](<Images/03_LMC/image_001.jpg>)
+
+![image](<Images/03_LMC/image_002.jpg>)
+
+<a id="section-07"></a>
+
+## 分类中的过拟合（续）
+
+欠拟合与过拟合
+
+负例；正例；新患者。
+
+<a id="section-08"></a>
+
+## 复杂度调整
+
+![image](<Images/03_LMC/image_003.jpg>)
+
+<a id="section-09"></a>
+
+## 实践中的留出法
+
+- 将可用数据分为两个子集：
+- 训练集：$(X_1, Y_1), \ldots, (X_n, Y_n)$。
+- 测试集：$(X_{n+1}, Y_{n+1}), \ldots, (X_{n+m}, Y_{n+m})$。
+- 对任意分类器 $g$，测试误差 $\hat{L}_{m}^{\prime}(g) = \frac{1}{m}\sum_{j=1}^{m}\mathbb{I}_{[g(X_{n+j})\neq Y_{n+j}]}$ 是 $L(g)$ 的估计量（如果 $g$ 是学习得到的，可以对训练集取条件）。
+- 更好的实践：使用交叉验证，使 $L(g)$ 的估计更稳健。
+
+<a id="section-10"></a>
+
+## 方法 1：线性判别分析（LDA）与二次判别分析（QDA）
+
+### 回顾：多元高斯分布
+
+### 多元高斯模型
+
+- 与一元情形类似。
+
+$$
+\mathcal {N} (\underline {{{{x}}}}; \underline {{{{\mu}}}}, \Sigma) = \frac {1}{(2 \pi) ^ {d / 2}} | \Sigma | ^ {- 1 / 2} \exp \left\{- \frac {1}{2} (\underline {{{{x}}}} - \underline {{{{\mu}}}}) \Sigma^ {- 1} (\underline {{{{x}}}} - \underline {{{{\mu}}}}) ^ {T} \right\}
+$$
+
+![image](<Images/03_LMC/image_004.jpg>)
+
+$$
+\begin{array}{l} \mu = \text{长度为 d 的行向量} \\ \Sigma = \text{d×d 矩阵} \end{array}
+$$
+
+$|\Sigma| = \text{矩阵行列式}$
+
+最大似然估计：
+
+$$
+\bar {\mu} = \frac {1}{m} \sum_ {j} x ^ {(j)}
+$$
+
+$$
+\bar {\Sigma} = \frac {1}{m} \sum_ {j} (\underline {{x}} ^ {(j)} - \underline {{\mu}}) ^ {T} (\underline {{x}} ^ {(j)} - \underline {{\mu}})
+$$
+
+（对 d×d 矩阵取平均。）
+
+> **译注：** 这里给出的是高斯均值与协方差的形式解。均值未知、协方差要求正定的非退化模型，需要中心化样本协方差正定才存在对应的最大似然解；样本不足或落在低维仿射子空间中时不能直接求逆。QDA 要逐类检查，LDA 检查合并类内散布矩阵。
+
+### 回顾：二维高斯混合
+
+![image](<Images/03_LMC/image_005.jpg>)
+
+b
+
+![image](<Images/03_LMC/image_006.jpg>)
+
+### 假设：参数化高斯混合模型
+
+- $X \in \mathbb{R}^d$，且 $Y \in \{1, \ldots, K\}$。
+- 后验分布采用高斯参数形式。
+
+$$
+\mathbb {P} (X \mid Y = k) \sim \mathcal {N} (m _ {k}, \Sigma_ {k}), \quad \text{密度} f _ {k}
+$$
+
+> **译注：** 原页写“后验分布”，但式中是给定类别后的输入分布，即类条件分布；类别后验是下一式中的 $\eta_k(x)$。
+
+- 第 $Y = k$ 类的混合参数为 $\pi_{k}$。
+- 于是可以写出：
+
+$$
+\eta_ {k} (x) = \mathbb {P} (Y = k \mid X = x) = \frac {\pi_ {k} f _ {k} (x)}{\sum_ {j = 1} ^ {K} \pi_ {j} f _ {j} (x)}
+$$
 
 <a id="discriminant-analysis"></a>
 
-## 线性判别分析 LDA（第 20–21 页）
+<a id="section-11"></a>
 
-假设所有类别共享协方差 $\Sigma_k=\Sigma$。则
+## 线性判别分析（LDA）
 
-$$
-\begin{aligned}
-\log\frac{\eta_k(x)}{\eta_j(x)}
-&=\log\frac{\pi_kf_k(x)}{\pi_jf_j(x)}\\
-&=x^T\Sigma^{-1}(m_k-m_j)
--\frac12(m_k^T\Sigma^{-1}m_k-m_j^T\Sigma^{-1}m_j)
-+\log\frac{\pi_k}{\pi_j}.
-\end{aligned}
-$$
-
-它对 $x$ 是仿射函数。因此可比较
+- 假设 $\Sigma_{k} = \Sigma, \forall k$。
+- 于是可以写出：
 
 $$
-\delta_k(x)=x^T\Sigma^{-1}m_k-\frac12m_k^T\Sigma^{-1}m_k+\log\pi_k,
-\qquad g(x)\in\arg\max_k\delta_k(x).
+\begin{array}{r l} \log \left(\frac {\eta_ {k} (x)}{\eta_ {j} (x)}\right) & = \frac {\pi_ {k} f _ {k} (x)}{\pi_ {j} f _ {j} (x)} \\ & = \log \left(\frac {f _ {k} (x)}{f _ {j} (x)}\right) + \log \left(\frac {\pi_ {k}}{\pi_ {j}}\right) \\ & = - \frac {1}{2} (m _ {k} + m _ {j}) ^ {T} \Sigma^ {- 1} (m _ {k} + m _ {j}) \\ & \quad + \log \left(\frac {\pi_ {k}}{\pi_ {j}}\right) + x ^ {T} \Sigma^ {- 1} (m _ {k} - m _ {j}) \end{array}
 $$
 
-![高斯类别与判别区域](<Images/03_LMC/image_007.jpg>)
+> **译注：** 原页第一行右边漏了 log，第三行的均值二次项也有笔误。正确展开为 $\log\frac{\eta_k(x)}{\eta_j(x)}=x^T\Sigma^{-1}(m_k-m_j)-\tfrac12(m_k^T\Sigma^{-1}m_k-m_j^T\Sigma^{-1}m_j)+\log\frac{\pi_k}{\pi_j}$。原式保留于上方。
 
-两个类条件高斯的二次项因共享协方差而抵消，留下线性边界。“线性”是由这个抵消推出来的，不是额外硬加的直线。
+- 关于 x 的线性方程！
 
-**校对说明：** PDF 第 20 页第一行右侧漏了对数，常数项又误写成两个 $(m_k+m_j)$ 的乘积；正确形式如上，也可写为 $-\tfrac12(m_k+m_j)^T\Sigma^{-1}(m_k-m_j)$。
+<a id="section-12"></a>
 
-## 二次判别分析 QDA 及协方差正则化（第 22–23 页）
+## 线性判别分析（续）
 
-若各类协方差不同，判别函数变为
+![image](<Images/03_LMC/image_007.jpg>)
 
-$$
-\delta_k(x)=-\frac12(x-m_k)^T\Sigma_k^{-1}(x-m_k)
-+\log\pi_k-\frac12\log\det\Sigma_k.
-$$
+<a id="section-13"></a>
 
-二次项不再普遍抵消，所以边界通常是二次曲面。代价是每类都要估计协方差，高维时数据需求更大。
+## 二次判别分析（QDA）
 
-原文提出在共享协方差与各类协方差之间插值（Friedman，1989）：
+- 矩阵 $\Sigma_{k}$、$\forall k$ 不同的情形。
+- 此时得到如下判别函数：
 
 $$
-\widehat\Sigma_k(\lambda)=\lambda\widehat\Sigma_k+(1-\lambda)\widehat\Sigma,
-\qquad0\le\lambda\le1.
+\delta_ {k} (x) = - \frac {1}{2} (x - m _ {k}) ^ {T} \Sigma_ {k} ^ {- 1} (x - m _ {k})
 $$
 
-**校对说明：** 原式右边第一项也写了 $(\lambda)$，造成自引用；此处改为未经这一步收缩的类内估计。$\lambda=0$ 使用共享协方差，$\lambda=1$ 使用各类协方差；还可考虑其他正则化或稀疏结构。插值本身不保证高维秩亏完全解决。
-
-## 方法二：Fisher 判别分析 FDA（第 24–27 页）
-
-LDA 从概率分布推出边界。Fisher 的出发点更直接：寻找一个投影方向，让两类在投影后容易区分。两种方法有联系，但下面优化的对象先是投影方向，方向确定后还需要给出分类阈值。
-
-原课件从两类高斯出发，寻找一个投影方向，使投影后的类中心尽量远，同时每类内部尽量集中。
-
-![投影后类别重叠较多的方向](<Images/03_LMC/image_008.jpg>)
-
-![投影后类别分离较好的方向](<Images/03_LMC/image_009.jpg>)
-
-**图解：** 相同二维点云，沿不同方向投影会产生不同重叠。只追求两个投影均值远还不够，还应考虑各自的分散程度。
-
-对 $i=1,2$，均值估计为 $\widehat\mu_i$。给定方向 $u$，投影均值与类内离差平方和为
-
 $$
-m_i(u)=u^T\widehat\mu_i,\qquad
-\widehat S_i^2(u)=\sum_{j:Y_j=i}(u^TX_j-m_i(u))^2.
++ \log (\pi_ {k}) - \frac {1}{2} \log d e t (\Sigma_ {k})
 $$
 
-最大化 Fisher 准则
+- 关于 $x!$ 的二次分界面。
+- 在高维情况下，估计矩阵 $\Sigma_{k}$ 的代价很高。
+- 那么，是带耦合项的 LDA，还是 QDA？
+- 思路：通过插值对矩阵作正则化。
 
 $$
-J(u)=\frac{(m_1(u)-m_2(u))^2}{\widehat S_1^2(u)+\widehat S_2^2(u)}
-=\frac{u^TS_Bu}{u^TS_Wu},
+\hat {\Sigma} _ {k} (\lambda) = \lambda \hat {\Sigma} _ {k} (\lambda) + (1 - \lambda) \hat {\Sigma}
 $$
 
-其中
+参见 Friedman（1989）。
+
+- 围绕正则化与稀疏性的变体。
+
+<a id="section-14"></a>
+
+## 方法 2：Fisher 判别分析（FDA）
+
+### Fisher 判别分析的原理
+
+- 假设：对 $\mathcal{L}(X \mid Y)$ 考虑两个高斯分布。
+- 启发式思路：考虑一个线性分隔面，使两个分布投影后的中心距离相对于投影总方差最大；投影方向取分隔面的法向量。
+
+![image](<Images/03_LMC/image_008.jpg>)
+
+![image](<Images/03_LMC/image_009.jpg>)
+
+更形式化地说：对 i = 1,2 使用以下记号。
+
+- 从高斯分布 $\mathcal{N}(\mu_i, \Sigma_i)$ 中采样得到二分类数据。
+- 参数的经验估计量 $\hat{\mu}_{i}$、$\hat{\Sigma}_{i}$。
+- 投影到向量 $u \in \mathbb{R}^d: m_i(u) = u^T \hat{\mu}_i$ 上的中心。
+- 投影后观测的离散程度：
 
 $$
-S_B=(\widehat\mu_1-\widehat\mu_2)(\widehat\mu_1-\widehat\mu_2)^T,
-\quad S_W=\sum_{i=1}^2\sum_{j:Y_j=i}(X_j-\widehat\mu_i)(X_j-\widehat\mu_i)^T.
+\hat {S} _ {i} ^ {2} (u) = \sum_ {j: Y _ {j} = i} \left(u ^ {T} X _ {j} - m _ {i} (u)\right) ^ {2}
 $$
 
-拉格朗日法给出广义特征值问题 $S_Bu=\lambda S_Wu$。若 $S_W$ 可逆且两类均值不同，则最佳方向满足
+- 对 $u \in \mathbb{R}^d$ 要最大化的准则：
 
 $$
-u\propto S_W^{-1}(\widehat\mu_1-\widehat\mu_2).
+J (u) = \frac {(m _ {1} (u) - m _ {2} (u)) ^ {2}}{\hat {S} _ {1} ^ {2} (u) + \hat {S} _ {2} ^ {2} (u)} = \frac {u ^ {T} S _ {B} u}{u ^ {T} S _ {W} u}
 $$
 
-方向确定后仍要选择分类阈值。FDA 关注有标签的类间分离，PCA 关注无标签的总体方差，两者一般不同。这个样本准则本身不要求数据必须高斯；高斯是假设解释的一种背景。
+其中 $S_{B}$ 和 $S_{W}$ 分别可解释为类间散布矩阵与类内散布矩阵。
+
+- 使用拉格朗日方法，通过求解以下特征值问题得到解：
+
+$$
+S _ {B} u = \lambda S _ {W} u
+$$
+
+如果 $S_{W}$ 满秩，则解有显式表达：
+
+$$
+u = S _ {W} ^ {- 1} \big (\hat {\mu} _ {1} - \hat {\mu} _ {2} \big)
+$$
+
+- 注意，方向 $u$ 与 PCA 得到的方向无关。
 
 <a id="logistic-model"></a>
 
-## 方法三：逻辑回归（第 28–29 页）
+<a id="section-15"></a>
 
-如果只关心给定输入后的类别概率，可以直接为后验概率选择一个参数化形式。逻辑回归采用对数优势比的线性假设，由它得到各类概率；训练时通过观测标签估计参数。
+## 方法 3：线性逻辑回归
 
-对 $K$ 类，直接假设相对参考类 $K$ 的对数优势比为线性函数：
-
-$$
-\log\frac{\eta_k(x)}{\eta_K(x)}=\theta_k^Tx,\qquad k=1,\ldots,K-1.
-$$
-
-因此
+- 设 $Y\in\{1,\ldots,K\}$，$X\in\mathbb R^d$。
+- 对 $k \in \{1, \ldots, K\}$，记 $\eta_k(x) = \mathbb{P}\{Y = k \mid X = x\}$。
+- 假设 $\forall k$，存在 $\theta_k \in \mathbb{R}^d$，使得
 
 $$
-\eta_k(x)=\frac{\exp(\theta_k^Tx)}{1+\sum_{j=1}^{K-1}\exp(\theta_j^Tx)},\quad k<K,
-\qquad\eta_K(x)=\frac1{1+\sum_{j=1}^{K-1}\exp(\theta_j^Tx)}.
+\log \left(\frac {\eta_ {k} (x)}{\eta_ {K} (x)}\right) = \theta_ {k} ^ {T} x
 $$
 
-**校对说明：** 参考类应取 $\theta_K=0$，原文的 $\theta_K=1$ 不正确。若需要截距，可以在输入中添加常数特征。
-
-LDA 通过输入的类条件分布推出后验；逻辑回归直接限制后验的对数优势比。逻辑回归是判别式方法，并不要求输入服从高斯。
-
-## 逻辑回归的拟合与数值求解（第 30–31 页）
-
-记所有参数为 $\theta=(\theta_1,\ldots,\theta_{K-1})$，概率为 $p_k(x,\theta)$。正确的对数似然是
+- 或者写成：
 
 $$
-\ell(\theta)=\sum_{i=1}^n\log p_{Y_i}(X_i,\theta).
+\eta_ {k} (x) = \frac {\exp (\theta_ {k} ^ {T} x)}{1 + \sum_ {j = 1} ^ {K - 1} \exp (\theta_ {j} ^ {T} x)}
 $$
 
-原式的固定下标 $k$ 应随样本真实类别取值。二分类推导改用 $Y_i\in\{0,1\}$，令 $p(x,\theta)=1/(1+e^{-\theta^Tx})$：
+并且 $\theta_{K}=1$。
+
+### 拟合逻辑回归模型
+
+- 记 $\theta = (\theta_1, \ldots, \theta_{K-1})$ 和 $\eta_k(x) = p_k(x, \theta)$。
+- 对数似然：
 
 $$
-\begin{aligned}
-\ell(\theta)
-&=\sum_i[Y_i\log p(X_i,\theta)+(1-Y_i)\log(1-p(X_i,\theta))]\\
-&=\sum_i[Y_i\theta^TX_i-\log(1+e^{\theta^TX_i})].
-\end{aligned}
+\ell (\theta) = \sum_ {i = 1} ^ {n} \log p _ {k} (X _ {i}, \theta)
 $$
 
-得分方程、Hessian 和 Newton 更新为
+- $K = 2$、$\theta \in \mathbb{R}^d$、$p(x, \theta) = p_1(x, \theta)$ 的情形。
 
 $$
-\nabla\ell(\theta)=\sum_iX_i(Y_i-p(X_i,\theta)),
+\begin{array}{l} \ell (\theta) = \sum_ {i = 1} ^ {n} \big (Y _ {i} \log p (X _ {i}, \theta) + (1 - Y _ {i}) \log (1 - p (X _ {i}, \theta)) \big) \\ = \sum_ {i = 1} ^ {n} \big (Y _ {i} \theta^ {T} X _ {i} - \log (1 + \exp (\theta^ {T} X _ {i})) \big) \end{array}
 $$
 
-$$
-H_\ell(\theta)=-\sum_iX_iX_i^Tp(X_i,\theta)(1-p(X_i,\theta)),
-$$
+- 得分方程：
 
 $$
-\theta_{t+1}=\theta_t-H_\ell(\theta_t)^{-1}\nabla\ell(\theta_t).
+\frac {\partial \ell}{\partial \theta} (\theta) = \sum_ {i = 1} ^ {n} X _ {i} \big (Y _ {i} - p (X _ {i}, \theta) \big) = 0
 $$
 
-该迭代可写成迭代重加权最小二乘。它使用当前概率更新权重，再求解下一步参数。Hessian 可逆等条件需要检查；完全可分的数据在无正则化时可能不存在有限的最大似然参数。
+- Hessian 矩阵：
 
-## 参数模型的局限（第 32 页）
+$$
+H _ {\ell} (\theta) = - \sum_ {i = 1} ^ {n} X _ {i} X _ {i} ^ {T} p (X _ {i}, \theta) \big (1 - p (X _ {i}, \theta) \big)
+$$
 
-原课件提醒：“所有模型都有偏差，但有些模型有用。”高斯、线性等先验降低了学习难度，同时也可能限制真实关系的表达；高维还会增加估计难度，即维数灾难（Bellman）。
+- Newton–Raphson 迭代格式：
 
-**校对说明：** 本页原题为“生成式方法的局限”，但前一节逻辑回归并非生成式方法。这里讨论的建模与维度限制有些适用于更广泛的参数模型，不能据标题把逻辑回归归为生成式。
+$$
+\theta_ {t + 1} = \theta_ {t} - (H _ {\ell} (\theta_ {t})) ^ {- 1} \frac {\partial \ell}{\partial \theta} (\theta_ {t})
+$$
+
+- 归结为加权最小二乘估计……
+
+<a id="section-16"></a>
+
+## 生成式方法的局限
+
+> **译注：** 原课件使用这个标题，但前面介绍的逻辑回归属于判别式方法，不属于生成式方法。
+
+- 参数统计模型：“所有模型都是错的”……
+- 很强的建模先验：“……但有些模型是有用的”。
+- 高斯框架。
+- 线性模型。
+- 维数灾难（参见 Bellman）。
 
 <a id="scoring"></a>
 
-## 从分类到评分：两类错误（第 33–35 页）
+<a id="section-17"></a>
 
-前面用总体错误率比较分类器，但误报和漏报可能有不同代价。对垃圾邮件识别而言，把正常邮件拦住与漏掉一封垃圾邮件就是两种不同后果。接下来先把两类错误拆开，再研究同一个评分函数改变阈值时的表现。
+## 从分类到评分：ROC 曲线与 AUC
 
-分类错误可分为误报与漏报：
-
-$$
-L(g)=\mathbb P(g(X)=+1,Y=-1)+\mathbb P(g(X)=-1,Y=+1).
-$$
-
-假阳性率和真阳性率分别为
+- 分类误差的分解：
 
 $$
-\alpha(g)=\mathbb P(g(X)=+1\mid Y=-1),\qquad
-\beta(g)=\mathbb P(g(X)=+1\mid Y=+1).
+L (g) = \mathbb {P} \left\{g (X) = + 1, Y = - 1 \right\} + \mathbb {P} \left\{g (X) = - 1, Y = + 1 \right\}
 $$
 
-所以
+- 假阳性率。
 
 $$
-L(g)=(1-p)\alpha(g)+p(1-\beta(g)).
+\alpha (g) = \mathbb {P} \left\{g (X) = + 1 \mid Y = - 1 \right\}
 $$
 
-在 $0<p<1$ 时，固定错误率对应 $\alpha$–$\beta$ 平面上的直线：
+- 真阳性率。
 
 $$
-\beta=\frac{1-p}{p}\alpha+1-\frac Lp.
+\beta (g) = \mathbb {P} \left\{g (X) = + 1 \mid Y = + 1 \right\}
 $$
 
-![假阳性率与真阳性率平面的等错误率线](<Images/03_LMC/image_010.jpg>)
-
-**图解：** 横轴是误报率，纵轴是检出率；向左上方移动更有利。同一分类错误率对应怎样的直线，还取决于正例比例 $p$。
-
-## Neyman–Pearson 分类（第 36–38 页）
-
-考虑检验 $H_0:Y=-1$ 对 $H_1:Y=+1$。最优似然比统计量为
+- 注意到：
 
 $$
-T^*(x)=\frac{f_+(x)}{f_-(x)}=\frac{1-p}{p}\frac{\eta(x)}{1-\eta(x)}.
+L (g) = \mathbb {P} \{Y \neq g (X) \} = (1 - p) \alpha (g) + p (1 - \beta (g))
 $$
 
-此处 $\alpha$ 是第一类错误率，$\beta$ 是检验功效。固定允许的误报水平 $\alpha$ 后，在连续情形可选择
+### α–β 图
+
+- 对固定比例 $p$ 和固定分类误差 $L(g) = L$，有：
 
 $$
-R_\alpha^*=\{x:\eta(x)>Q^-(\eta,\alpha)\},
-\qquad g_\alpha^*(x)=2\mathbf1\{x\in R_\alpha^*\}-1,
+\beta = \left(\frac {1 - p}{p}\right) \alpha + 1 - \frac {L}{p}
 $$
 
-其中 $Q^-$ 是负类中 $\eta(X)$ 分布的 $1-\alpha$ 分位数。存在离散原子时，可能需要在阈值处随机化才能精确达到指定误报率。
+![image](<Images/03_LMC/image_010.jpg>)
 
-![固定误报率下的最优检出率](<Images/03_LMC/image_011.jpg>)
-
-记 $\beta^*(\alpha)=\beta(g_\alpha^*)$。这种规则最优化的是“误报受限时尽量检出”，不一定最小化总体分类错误率。Bayes 分类在对称错误代价下使用 $\eta=1/2$ 的阈值。
-
-**校对说明：** 原文说只有分位数恰为 $1/2$ 才能达到 Bayes 风险，表述过强：不同阈值若在有概率质量的区域产生同一决策，也可能达到同样风险。
-
-## ROC 曲线与最优评分（第 39–41 页）
-
-令评分 $s:\mathbb R^d\to\mathbb R$，超过阈值 $t$ 时报警：
+- 给定观测 $X$，检验
 
 $$
-\beta(s,t)=\mathbb P(s(X)\ge t\mid Y=+1),\qquad
-\alpha(s,t)=\mathbb P(s(X)\ge t\mid Y=-1).
+H _ {0}: Y = - 1 \quad \text{对立假设} \quad H _ {1}: Y = + 1
 $$
 
-降低阈值最终使两者都趋于 1；提高阈值最终使两者都趋于 0。因此检出与误报必须共同评价。
-
-![正负类评分分布的重叠](<Images/03_LMC/image_012.jpg>)
-
-![不同分离程度的理想 ROC 曲线](<Images/03_LMC/image_013.jpg>)
-
-ROC 是固定评分规则下，改变阈值得到的曲线：
+- 最优检验统计量（Neyman–Pearson）：
 
 $$
-t\longmapsto(\alpha(s,t),\beta(s,t)).
+T ^ {*} (X) = \frac {1 - p}{p} \cdot \frac {\eta (X)}{1 - \eta (X)}
 $$
 
-**图解：** 正负类评分重叠越少，越容易在较低误报下获得较高检出。对角线对应没有排序区分能力的基准，左上角是理想方向。
+• $\alpha = \text{第一类错误率}$
 
-后验概率 $\eta(x)$ 的严格递增变换保留排序，因此具有同样的最优 ROC 表现。评分不必本身等于概率才能正确排序。
+- $\beta =$：检验功效。
 
-## ROC 曲线下面积 AUC（第 42 页）
+<a id="section-18"></a>
 
-对独立同分布的 $(X,Y),(X',Y')$，
+## Neyman–Pearson 分类器
 
-$$
-\begin{aligned}
-\operatorname{AUC}(s)
-&=\int_0^1\operatorname{ROC}(s,\alpha)\,d\alpha\\
-&=\mathbb P(s(X)>s(X')\mid Y>Y')
-+\frac12\mathbb P(s(X)=s(X')\mid Y>Y').
-\end{aligned}
-$$
-
-随机取一个正例和一个负例，AUC 衡量正例得分更高的概率；打平记半分。它不是某个固定阈值的分类准确率。
-
-当 $0<p<1$ 时，最优 AUC 为
+- 对固定的 $\alpha$，拒绝域为：
 
 $$
-\operatorname{AUC}^*=\operatorname{AUC}(\eta)
-=\frac12+\frac{\mathbb E|\eta(X)-\eta(X')|}{4p(1-p)}.
+R _ {\alpha} ^ {*} = \left\{x: \eta (x) > Q ^ {-} (\eta , \alpha) \right\}
 $$
 
-最优 ROC 包络与候选 ROC 间的面积差，可以解释为相应的 $L_1$ 差距；任意两条相交 ROC 曲线拥有相近 AUC，并不意味着两曲线接近。
-
-## 全局评价与局部评价（第 43–47 页）
-
-原课件列出 ROC、Precision–Recall（精确率—召回率）和 Lift（提升）曲线，以及全局 AUC、部分 AUC（Dodd 与 Pepe，2003）和局部 AUC（Clémençon 与 Vayatis，2007）。
-
-![一条 ROC 整体优于另一条](<Images/03_LMC/image_014.jpg>)
-
-![两条 ROC 相交](<Images/03_LMC/image_015.jpg>)
-
-**图解：** 整体占优时容易比较；曲线相交时，优劣取决于工作区间，不能只看一个全局面积。
-
-![部分 AUC 的阴影区域](<Images/03_LMC/image_016.jpg>)
-
-![不同评分规则与筛选比例的关系](<Images/03_LMC/image_017.jpg>)
-
-![局部 AUC 的示意区域](<Images/03_LMC/image_018.jpg>)
-
-**图解：** 图中下降直线表示固定筛选比例，例如 $p\,\mathrm{TPR}+(1-p)\,\mathrm{FPR}=10\%$。相同筛选预算与相同 FPR 截断不是同一个约束：不同规则与预算线的交点可能有不同的 FPR。原文用这组图提醒我们，局部指标应与实际筛选目标一致。“部分 AUC 的不一致性”是该讨论语境中的标题，不能泛化为部分 AUC 没有用途。课件未给出局部 AUC 的完整定义，图示不能替代正式定义。
-
-## 线性分离的三个场景（第 48–53 页）
-
-原课件区分完全线性可分、近似线性可分、不可线性分离三种情形。
-
-![线性可分的样本](<Images/03_LMC/image_019.jpg>)
-
-![近似线性可分的样本](<Images/03_LMC/image_020.jpg>)
-
-线性决策函数为 $f(x)=b+\beta^Tx$，$b\in\mathbb R$、$\beta\in\mathbb R^d$。$f(x)=0$ 定义超平面 $H$，分类约定为 $f(x)>0$ 时取 $+1$，否则取 $-1$。
-
-对 $\beta\ne0$，单位法向量为 $\beta/\|\beta\|$，对任意 $x_0\in H$ 有 $\beta^Tx_0=-b$。有符号距离为
-
 $$
-d(x,H)=\frac{\beta^T(x-x_0)}{\|\beta\|}=\frac{b+\beta^Tx}{\|\beta\|}.
+Q^-(\eta,\alpha)=\mathcal L(\eta(X)\mid Y=-1)\text{ 的 }(1-\alpha)\text{ 分位数}.
 $$
 
-![超平面、法向量与距离](<Images/03_LMC/image_021.jpg>)
-
-**图解：** 图中 $w$ 对应正文的 $\beta$。分数 $f(x)$ 会随参数整体缩放而改变，有符号几何距离消除了这个任意缩放。
-
-**术语说明：** 原文的标题是“非参数线性判别”。这里主要强调不拟合类条件概率分布；固定维度的线性感知机本身仍有有限维参数，并非通常统计定义下的非参数模型。
-
-## 感知机算法（第 54–56 页）
-
-Rosenblatt（1958）的简化感知机取 $b=0$，初始 $\beta_0=0$。依次访问样本，若 $y_i\beta^Tx_i>0$ 则不变，否则更新 $\beta\leftarrow\beta+y_ix_i$。训练通常需要反复遍历样本。
-
-一般形式加入学习率 $\eta>0$ 和截距。令 $R=\max_i\|x_i\|>0$，采用增广样本 $(x_i,R)$、参数 $(\beta,b/R)$，在 $y_i(b+\beta^Tx_i)\le0$ 时更新
+- 定义分类器：
 
 $$
-\beta\leftarrow\beta+\eta y_ix_i,\qquad b\leftarrow b+\eta y_iR^2.
+g _ {\alpha} ^ {*} (x) = 2 \mathbb {I} \left\{x \in R _ {\alpha} ^ {*} \right\} - 1
 $$
 
-若增广常数取 1，则常见写法是 $b\leftarrow b+\eta y_i$。
+- 一般有 $L(g_{\alpha}^{*}) > L^{*}$，除非 $Q^{-}(\eta, \alpha) = 1/2$。
 
-**校对说明：** PDF 第 55 页写成 $\eta y_i^2R^2$，会让截距更新始终非负，已修正为 $\eta y_iR^2$。
+> **译注：** 原句的“除非”过强：不同阈值若在有概率质量的区域产生相同决策，也可能达到相同的 Bayes 风险；离散评分的精确误报水平还可能需要阈值处随机化。
 
-Novikoff 收敛结论的准确形式需要匹配增广约定：若样本 $\widetilde x_i$ 满足 $\|\widetilde x_i\|\le\widetilde R$，存在单位向量 $\widetilde w^*$ 使 $y_i\widetilde w^{*T}\widetilde x_i\ge\gamma>0$，则感知机错误更新次数满足
+- 令 $\beta^{*}(\alpha) = \beta(g_{\alpha}^{*})$。
+
+![image](<Images/03_LMC/image_011.jpg>)
+
+### 记号：评分规则的性能
+
+- 考虑一个检测器的响应 $s: \mathbb{R}^d \to \mathbb{R}$，即评分规则。
+- 命中对应 $Y = +1$，报警对应 $\{s(X) \geq t\}$。
+- 真阳性率与假阳性率：
 
 $$
-T\le\frac{\widetilde R^2}{\gamma^2}.
+\begin{array}{l l} \beta (s, t) = & \mathbb {P} \left\{s (X) \geq t \mid Y = + 1 \right\} \quad (\text {TPR}) \to \max \\ \alpha (s, t) = & \mathbb {P} \left\{s (X) \geq t \mid Y = - 1 \right\} \quad (\text {FPR}) \to \min \end{array}
 $$
 
-对上述增广有 $\widetilde R\le\sqrt2R$，故 $T\le2R^2/\gamma^2$。
+- 关键点：需要权衡，因为
 
-**校对说明：** 原页额外写 $T\le n$，这不是一般保证；也把分母间隔直接写成原空间到仿射超平面的距离 $M$，没有处理增广参数归一化。此处给出条件与符号一致的版本。感知机具有在线更新优势，但找到任意分隔面不等于找到具有最好泛化能力的分隔面；不能一概说它必然泛化差。
+$$
+\begin{array}{l l l l} \beta (s, t) \to 1 & \text{但} & \alpha (s, t) \to 1 & \text{当} t \to - \infty \\ \alpha (s, t) \to 0 & \text{但} & \beta (s, t) \to 0 & \text{当} t \to + \infty \end{array}
+$$
+
+### 理想 ROC 曲线
+
+![image](<Images/03_LMC/image_012.jpg>)
+
+![image](<Images/03_LMC/image_013.jpg>)
+
+- 对固定的规则 $s: \mathbb{R}^d \to \mathbb{R}$。
+- 评分规则 s 的 ROC 曲线：
+
+$$
+t \in \mathbb {R} \mapsto (\alpha_ {s} (t), \beta_ {s} (t))
+$$
+
+<a id="section-19"></a>
+
+## 评分的最优解
+
+- $X \in \mathbb{R}^d$：高维空间中的观测向量。
+- $Y \in \{-1, +1\}$：二元诊断，即分类数据。
+- 关键理论量（后验概率）：
+
+$$
+\eta (x) = \mathbb {P} \{Y = 1 \mid X = x \}, \quad \forall x \in \mathbb {R} ^ {d}
+$$
+
+- 最优评分规则：
+
+$\Rightarrow$ $\eta$ 的递增变换。
+
+<a id="section-20"></a>
+
+## 实用准则：ROC 曲线下面积（AUC）
+
+- 对任意评分规则 $s$，令：
+
+$$
+\begin{array}{l l} \text {AUC} (s) & = \int_ {0} ^ {1} \text {ROC} (s, \alpha) d \alpha \\ & = \mathbb {P} \{s (X) > s (X ^ {\prime}) | Y > Y ^ {\prime} \} \\ & \qquad + \frac {1}{2} \mathbb {P} \{s (X) = s (X ^ {\prime}) | Y > Y ^ {\prime} \} \end{array}
+$$
+
+其中 $(X, Y)$、$(X', Y')$ 独立同分布。
+
+- 最大 AUC：
+
+$$
+\mathrm{AUC} ^ {*} = \mathrm{AUC} (\eta) = \frac {1}{2} + \frac {\mathbb {E} (| \eta (X) - \eta (X ^ {\prime}) |)}{4 p (1 - p)},
+$$
+
+- AUC 意义下的收敛对应于 ROC 曲线的 $L_{1}$ 收敛。
+
+> **译注：** 这里应结合最优 ROC 包络理解面积差与 $L_1$ 差距。任意两条相交 ROC 曲线的 AUC 接近，不保证两条曲线接近。
+
+### 曲线
+
+- ROC 曲线。
+- （精确率—召回率曲线。）
+- （提升曲线。）
+
+### 汇总指标
+
+- AUC（全局度量）。
+- 部分 AUC。
+
+（Dodd 与 Pepe，2003。）
+
+### 局部 AUC
+
+（Clémençon 与 Vayatis，2007。）
+
+![image](<Images/03_LMC/image_014.jpg>)
+
+ROC 曲线。
+
+### 曲线
+
+- ROC 曲线。
+- （精确率—召回率曲线。）
+- （提升曲线。）
+
+### 汇总指标
+
+- AUC（全局度量）。
+- 部分 AUC（Dodd 与 Pepe，2003）。
+
+### 局部 AUC
+
+（Clémençon 与 Vayatis，2007。）
+
+![image](<Images/03_LMC/image_015.jpg>)
+
+ROC 曲线。
+
+<a id="section-21"></a>
+
+## 评分的性能度量
+
+### 曲线
+
+- ROC 曲线。
+- （精确率—召回率曲线。）
+- （提升曲线。）
+
+### 汇总指标
+
+- AUC（全局度量）。
+- 部分 AUC（Dodd 与 Pepe，2003）。
+- 局部 AUC（Clémençon 与 Vayatis，2007）。
+
+![image](<Images/03_LMC/image_016.jpg>)
+
+部分 AUC。
+
+<a id="section-22"></a>
+
+## 评分的性能度量
+
+### 曲线
+
+- ROC 曲线。
+- （精确率—召回率曲线。）
+- （提升曲线。）
+
+### 汇总指标
+
+- AUC（全局度量）。
+- 部分 AUC（Dodd 与 Pepe，2003）。
+- 局部 AUC（Clémençon 与 Vayatis，2007）。
+
+![image](<Images/03_LMC/image_017.jpg>)
+
+部分 AUC 的不一致性。
+
+<a id="section-23"></a>
+
+## 评分的性能度量
+
+### 曲线
+
+- ROC 曲线。
+- （精确率—召回率曲线。）
+- （提升曲线。）
+
+### 汇总指标
+
+- AUC（全局度量）。
+- 部分 AUC（Dodd 与 Pepe，2003）。
+- 局部 AUC（Clémençon 与 Vayatis，2007）。
+
+![image](<Images/03_LMC/image_018.jpg>)
+
+局部 AUC。
+
+<a id="section-24"></a>
+
+## 非参数线性判别算法
+
+1. 两个群体线性可分。
+2. 两个群体近似线性可分。
+3. 两个群体不能线性分离。
+
+### 线性可分性
+
+![image](<Images/03_LMC/image_019.jpg>)
+
+场景 1
+
+![image](<Images/03_LMC/image_020.jpg>)
+
+场景 2
+
+- 决策函数的形式：
+
+$$
+f (x) = b + <   \beta , x >
+$$
+
+其中 $b\in \mathbb{R},\beta \in \mathbb{R}^d$。
+
+- 方程 $f(x) = 0$ 在 $\mathbb{R}^d$ 中定义一个分隔超平面 $H$。
+- 对应的分类器：
+
+$$
+\forall x \in \mathbb {R} ^ {d} \quad g _ {f} (x) = \left\{ \begin{array}{l l} + 1 & \text{若} f (x) > 0 \\ - 1 & \text{若} f (x) \leq 0 \end{array} \right.
+$$
+
+1. $\beta^{*}=\frac{\beta}{\|\beta\|}$ 是 H 的法向量。
+
+② $\forall x_{0} \in H, <\beta, x_{0} > = -b$
+
+3. 点 $x \in R^{d}$ 到 H 的有符号距离（可以为负！）为
+
+$$
+d (x, H) = <   \beta^ {*}, x - x _ {0} > = \frac {1}{\| \beta \|} (b + <   \beta , x >)
+$$
+
+其中 $x_{0} \in H$。
+
+![image](<Images/03_LMC/image_021.jpg>)
+
+二维训练集的分隔超平面 $(\boldsymbol{w}, b) \in \mathbb{R}^{n} \times \mathbb{R}$。
+
+注意！这里 $w = \beta$……
+
+<a id="section-25"></a>
+
+## 感知机算法（Rosenblatt，1958）
+
+### 简化版本：b = 0
+
+生成参数 $\beta$ 的取值序列 $\beta_{0},\ldots,\beta_{n}$。
+
+1. 初始化：$\beta_{0} = 0$。
+2. 第 i 步：考虑数据对 $(x_{i}, y_{i})$，检查它是否被正确分类。
+
+$$
+\beta_ {i} = \left\{ \begin{array}{l l} \beta_ {i - 1} & \text{若} y _ {i} \cdot <   \beta_ {i - 1}, x _ {i} > > 0 \\ \beta_ {i - 1} + y _ {i} x _ {i} & \text{若} y _ {i} \cdot <   \beta_ {i - 1}, x _ {i} > \leq 0 \end{array} \right.
+$$
+
+<a id="section-26"></a>
+
+## 一般感知机算法
+
+### 感知机：一般版本
+
+- 参数：
+- 学习率 η。
+- 观测的半径 $R = \max_{1 \leq i \leq n} \|x_i\|$。
+
+### 算法
+
+1. 初始化：$\beta_{0}=0$，$b_{0}=0$。
+2. 第 i 步：如果 $(x_{i}, y_{i})$ 被超平面 $(b_{i-1}, \beta_{i-1})$ 错误分类，则：
+
+$$
+{\beta_ {i}} {= \beta_ {i - 1} + \eta y _ {i} x _ {i}}
+$$
+
+$$
+{b _ {i}} {= b _ {i - 1} + \eta y _ {i} ^ {2} R ^ {2}}
+$$
+
+> **译注：** 原课件截距更新含 $y_i^2$，在标签为 $\pm1$ 时会丢失符号；按增广向量 $(x_i,R)$ 的约定，应为 $b_i=b_{i-1}+\eta y_iR^2$。
+
+否则 $\beta_{i}=\beta_{i-1},\ b_{i}=b_{i-1}$。
+
+<a id="section-27"></a>
+
+## Novikoff 定理
+
+如果两个群体线性可分，则感知机算法在有限的 $T \leq n$ 步内收敛，其中：
+
+$$
+T \leq \frac {2 R ^ {2}}{M ^ {2}}
+$$
+
+这里，对某个分隔面 $H^*$，有 $M = \min_{1 \leq i \leq n} \{y_i d(x_i, H^*)\}$。
+
+> **译注：** 原课件写出的 $T\le n$ 不普遍成立。标准感知机界按错误更新次数计数，使用同一增广空间中的样本半径和分隔间隔；不能直接把原空间的几何距离与增广间隔混用。
+
+- 感知机的缺点：泛化能力差。
+- 感知机的优点：序贯（在线）算法。
 
 <a id="maximum-margin"></a>
 
-## 最大间隔与硬间隔 SVM（第 57–59 页）
+<a id="section-28"></a>
 
-![多个分隔超平面与最大间隔选择](<Images/03_LMC/image_022.jpg>)
+## 场景 1：具有良好泛化能力的超平面
 
-**图解：** 能分开训练点的直线可能很多。最大间隔选择离最近训练点尽可能远的分隔面，避免只满足“刚好分开”。
+问题：是否存在与每个群体的距离都尽可能大的超平面？
 
-几何目标是最大化 $M$，满足 $y_i d(x_i,H)\ge M$。利用参数整体缩放不改变超平面，将最小函数间隔规范为 1，得到等价问题：
+![image](<Images/03_LMC/image_022.jpg>)
 
-$$
-\min_{\beta,b}\frac12\|\beta\|^2,
-\qquad y_i(b+\beta^Tx_i)\ge1,\quad i=1,\ldots,n.
-$$
-
-此时单侧间隔为 $1/\|\beta\|$。这个规范化依赖样本可分，不能对不可分数据直接要求所有约束成立。
-
-## 软间隔与松弛变量（第 60–62 页）
-
-![间隔内的样本与松弛变量](<Images/03_LMC/image_023.jpg>)
-
-引入 $\xi_i\ge0$，允许 $y_if(x_i)\ge1-\xi_i$。可在总预算 $\sum_i\xi_i\le\Xi$ 下最小化 $\|\beta\|^2/2$，或采用惩罚形式
+### 优化问题
 
 $$
-\min_{\beta,b,\xi}\frac12\|\beta\|^2+C\sum_{i=1}^n\xi_i,
-\qquad\xi_i\ge0,\quad\xi_i\ge1-y_i(b+\beta^Tx_i),\quad C>0.
+\max _ {\beta \in \mathbb {R} ^ {d}, b \in \mathbb {R}} M
 $$
 
-$\xi_i=0$ 表示满足间隔；$0<\xi_i<1$ 时通常分类正确但进入间隔；$\xi_i>1$ 表示落到错误一侧。消去松弛变量后，惩罚项就是 $C\sum_i\max(0,1-y_if(x_i))$，与第 02 篇的 hinge 损失相接。
-
-## 拉格朗日函数、对偶与 KKT（第 63–65 页）
-
-下面的推导有两个目的：把带约束的最小化问题改写为对偶问题，并利用互补松弛解释哪些样本真正决定边界。阅读时先跟住每个乘子对应哪条约束，再看消去原变量后留下了什么。
-
-令 $\alpha_i,\mu_i\ge0$。统一使用约束 $1-\xi_i-y_if(x_i)\le0$ 与 $-\xi_i\le0$，拉格朗日函数为
+约束条件：
 
 $$
-\mathcal L=\frac12\|\beta\|^2+C\sum_i\xi_i
-+\sum_i\alpha_i(1-\xi_i-y_i(b+\beta^Tx_i))-\sum_i\mu_i\xi_i.
+\forall i = 1, \dots , n, \quad y _ {i} \cdot d (x _ {i}, H) \geq M
 $$
 
-驻点条件是
+回顾：
 
 $$
-\beta=\sum_i\alpha_iy_ix_i,\qquad\sum_i\alpha_iy_i=0,
-\qquad C-\alpha_i-\mu_i=0.
+d (x _ {i}, H) = \frac {1}{\| \beta \|} (b + <   \beta , x _ {i} >)
 $$
 
-因此 $0\le\alpha_i\le C$。代回得到对偶问题
+约束：
 
 $$
-\max_\alpha\sum_i\alpha_i-\frac12\sum_{i,j}\alpha_i\alpha_jy_iy_jx_i^Tx_j,
-\qquad0\le\alpha_i\le C,\quad\sum_i\alpha_iy_i=0.
+\forall i = 1, \dots , n, \quad y _ {i} \cdot \frac {1}{\| \beta \|} (b + <   \beta , x _ {i} >) \geq M
 $$
 
-KKT 条件还包括原始可行性、乘子非负和互补松弛：
+完全可以设定：$M = 1 / \|\beta\|$。
+
+### 等价表述
 
 $$
-y_if(x_i)-(1-\xi_i)\ge0,\quad\xi_i\ge0,
+\min _ {\beta , b} \frac {1}{2} \| \beta \| ^ {2}
+$$
+
+约束条件：
+
+$$
+\forall i = 1, \dots , n, \quad y _ {i} \cdot (b + <   \beta , x _ {i} >) \geq 1
+$$
+
+![image](<Images/03_LMC/image_023.jpg>)
+
+$$
+\text{场景 2：松弛变量（续）}
+$$
+
+引入 $n$ 个附加变量（“松弛变量”或“弹簧”）：$\xi = (\xi_1, \ldots, \xi_n)$，满足 $\xi_i \geq 0, \forall i$。
+
+### 新的优化问题
+
+$$
+\min _ {\beta , b, \xi} \frac {1}{2} \| \beta \| ^ {2}
+$$
+
+约束条件：
+
+$$
+\forall i = 1, \dots , n, y _ {i} \cdot (b + <   \beta , x _ {i} >) \geq 1 - \xi_ {i}
 $$
 
 $$
-\alpha_i[y_if(x_i)-(1-\xi_i)]=0,\qquad\mu_i\xi_i=0.
+\xi_ {i} \geq 0
 $$
 
-**校对说明：** PDF 第 63 页的 $+\sum_i\mu_i\xi_i$ 与第 64–65 页使用的非负乘子及 $\alpha_i\le C$ 不一致。此处改成负号，相应驻点条件改为 $\alpha_i+\mu_i=C$，使整个推导一致。
-
-## 支持向量及解的表示（第 66–68 页）
-
-由 KKT 可知：
-
-- $\widehat\alpha_i=0$：$\mu_i=C>0$，所以 $\xi_i=0$，$y_if(x_i)\ge1$。
-- $0<\widehat\alpha_i<C$：$\xi_i=0$ 且 $y_if(x_i)=1$，样本位于间隔边界。
-- $\widehat\alpha_i=C$：$y_if(x_i)=1-\xi_i\le1$，可能在边界、间隔内部或错误一侧，不一定已经误分类。
-
-令 $I=\{i:\widehat\alpha_i\ne0\}$，这些样本称为支持向量。解可以表示为
-
 $$
-\widehat\beta=\sum_{i\in I}\widehat\alpha_i y_ix_i,
-\qquad\widehat f(x)=\widehat b+\sum_{i\in I}\widehat\alpha_i y_ix_i^Tx.
+\sum_ {i = 1} ^ {n} \xi_ {i} \leq \Xi
 $$
 
-若存在 $0<\widehat\alpha_j<C$ 的样本，则
+### 拉格朗日表述 I
 
 $$
-\widehat b=y_j-\sum_{i\in I}\widehat\alpha_i y_i x_i^Tx_j.
+\min _ {\beta , b, \xi} \frac {1}{2} \| \beta \| ^ {2} + C \sum_ {i = 1} ^ {n} \xi_ {i}
 $$
 
-**校对说明：** 原式只要求 $j\in I$，条件不够；软间隔下必须使用位于间隔边界的自由支持向量。若没有这样的点，需要用可行性条件确定截距区间。
+约束条件：
 
-![最优超平面与支持向量](<Images/03_LMC/image_024.jpg>)
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & \xi_ {i} \geq 0 \\ & \xi_ {i} \geq 1 - [ y _ {i} \cdot (b + <   \beta , x _ {i} >) ] \end{array}
+$$
 
-**图解：** 两条规范间隔边界为 $f(x)=\pm1$，宽度为 $2/\|\beta\|$。许多对偶系数可能为零，因此预测可只保留支持向量。这里的稀疏性发生在样本系数上，与 LASSO 的特征系数稀疏是不同对象。
+### 拉格朗日表述 II：拉格朗日乘子 $\alpha = (\alpha_{1}, \ldots, \alpha_{n})$、$\mu = (\mu_{1}, \ldots, \mu_{n})$
 
-## 后续内容（第 69 页）
+$$
+\min _ {\beta , b, \xi} \frac {1}{2} \| \beta \| ^ {2} + C \sum_ {i = 1} ^ {n} \xi_ {i} - \sum_ {i = 1} ^ {n} \alpha_ {i} \left(y _ {i} \cdot (b + <   \beta , x _ {i} >) - (1 - \xi_ {i})\right) + \sum_ {i = 1} ^ {n} \mu_ {i} \xi_ {i}
+$$
 
-课程将继续讨论无标签的聚类、其他非参数与非线性分类算法，以及通过正则化调节复杂度。原文法语“classification non supervisée”在这个语境中译为“无监督聚类”，避免和有标签分类混淆。
+一阶条件（梯度为零）：
 
-<a id="self-check"></a>
+$$
+\beta = \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} x _ {i}
+$$
 
-## 读完后检查
+$$
+\sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} = 0
+$$
 
-下面的问题用于自检，不是新增的原课件考题。先尝试用自己的话作答，再回到相应推导检查。
+$$
+\forall i = 1, \ldots , n, \alpha_ {i} = C + \mu_ {i}
+$$
 
-1. LDA 与逻辑回归都可能给出线性边界，它们分别对什么对象作了建模假设？
-2. 保持评分函数不变，只提高分类阈值，误报率和检出率怎样变化？为什么 AUC 不由这一个阈值决定？
-3. 一组样本已经线性可分，为什么还能有很多不同的分隔面？感知机与最大间隔方法分别怎样作出选择？
-4. 在软间隔 SVM 中，进入间隔的点是否一定被误分类？请结合有符号分数与松弛变量解释。
+### 对偶表述
 
-下一篇[无监督学习与降维](04_UL_zh.md)转向没有类别标签时的数据表示；[非线性方法](05_NLM_zh.md)则继续扩展这一篇的分类器。
+$$
+\max _ {\alpha} \sum_ {i = 1} ^ {n} \alpha_ {i} - \frac {1}{2} \sum_ {i = 1} ^ {n} \sum_ {j = 1} ^ {n} \alpha_ {i} \alpha_ {j} y _ {i} y _ {j} <   x _ {i}, x _ {j} >
+$$
+
+约束条件：
+
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & 0 \leq \alpha_ {i} \leq C \\ \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} & = 0 \end{array}
+$$
+
+用 $\hat{\alpha} = (\hat{\alpha}_1, \ldots, \hat{\alpha}_n)$ 表示该问题的解。
+
+<a id="section-29"></a>
+
+## Karush–Kuhn–Tucker 条件
+
+Karush–Kuhn–Tucker 条件：
+
+$$
+\begin{array}{r l} \forall i = 1, \ldots , n, & \alpha_ {i} (y _ {i} \cdot f (x _ {i}) - (1 - \xi_ {i})) = 0 \\ & y _ {i} \cdot f (x _ {i}) - (1 - \xi_ {i}) \geq 0 \\ & \alpha_ {i} + \mu_ {i} = C \\ & \mu_ {i} \xi_ {i} = 0 \\ & \beta = \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} x _ {i} \\ & \sum_ {i = 1} ^ {n} \alpha_ {i} y _ {i} = 0 \end{array}
+$$
+
+系数与观测位置的联系：
+
+- 如果 $\hat{\alpha}_i = 0$，则 $y_i \cdot f(x_i) \geq 1 \Rightarrow$，点 $x_i$ 被正确分类，因为 $\mu_i = C > 0$，并且有 $\xi_i = 0$。
+- 如果 $0 < \hat{\alpha}_i < C$，则 $y_i \cdot f(x_i) = 1 \Rightarrow$，点 $x_i$ 位于间隔边界上，因为 $\mu_i > 0$ 且 $\xi_i = 0$。
+- 如果 $\hat{\alpha}_i = C$，则 $y_i \cdot f(x_i) \leq 1 \Rightarrow$，点 $x_i$ 越过间隔边界，因为 $\mu_i = 0$，所以 $\xi_i \geq 0$。
+
+> **译注：** $\widehat\alpha_i=C$ 时只能推出 $y_if(x_i)\le1$，包括等号；不能断言该点严格越过间隔边界或一定误分类。
+
+一个值得注意的现象！
+
+实际中，许多 $\hat{\alpha}_i$ 为零！
+
+### 定义
+
+$\hat{\alpha}_i \neq 0$ 对应支持向量。用 $I$ 表示 $\{1, \ldots, n\}$ 中相应索引构成的集合。
+
+### 解的表示
+
+决策函数：
+
+$$
+\hat {f} (x) = \hat {b} + \sum_ {i \in I} \hat {\alpha} _ {i} y _ {i} <   x _ {i}, x >
+$$
+
+其中：
+
+$$
+\hat {\beta} = \sum_ {i \in I} \hat {\alpha} _ {i} y _ {i} x _ {i}, I = \{i: \hat {\alpha} _ {i} \neq 0 \}
+$$
+
+$$
+\hat {b} = y _ {j} - \sum_ {i \in I} \hat {\alpha} _ {i} y _ {i} <   x _ {i}, x _ {j} >, \quad \text{对某个} j \in I
+$$
+
+> **译注：** 由等式确定截距时应选取满足 $0<\widehat\alpha_j<C$ 的自由支持向量；任取非零系数的支持向量不一定满足边界等式。
+
+<a id="section-30"></a>
+
+## 规范最优超平面
+
+![image](<Images/03_LMC/image_024.jpg>)
+
+⇒ SVM 的稀疏表示。
+
+- 无监督分类（没有标签）。
+- 其他分类算法：非参数、非线性。
+- 复杂度调整与优化问题的正则化。

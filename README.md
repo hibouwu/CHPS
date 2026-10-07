@@ -29,7 +29,7 @@ The collection covers M1 and part of M2, covering numerical computing, parallel 
 
 Lecture notes, exercises, exams and references for the common courses and the IHPS track.
 
-[M2 — DA · PAAM · IMMC · AOC · COA · CQ](M2/README.md)
+[M2 — DA · PAAM · IMMC · APM · EDP · AOC · COA · CQ](M2/README.md)
 
 ## PPN project
 

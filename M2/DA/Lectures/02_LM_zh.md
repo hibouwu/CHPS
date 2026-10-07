@@ -1,593 +1,894 @@
-# 线性模型与稀疏性
+# 线性模型与稀疏性：原课件忠实译本
 
-M2 CHPS · Nicolas Vayatis
+> 正文按原课件顺序逐段翻译，不作摘要式压缩；例子、练习、重复正文、公式、图表及文献均保留。图中文字保留原图语言。原课件错误与必要辨析以独立“译注”标明。
 
-> 对照来源：[原课件](<02_LM.pdf>)，共 75 页；[原文转换稿](<02_LM.md>)。按原课件顺序翻译，合并重复标题与过渡页；各节标注 PDF 页码。正文含为自学补充的解释；图解与原文勘误单独标注。原图中的英文保留，含义在图旁用中文说明。
+[原 PDF](02_LM.pdf) · [原文转换稿](02_LM.md) · [逐块对应清单](Translation-audit/2026-09-28-coverage.json) · [课程目录](../README.md)
 
-上一篇区分了模型能力不足与有限数据估计不准。这一篇用线性回归把这两件事算清楚，再讨论变量过多、变量相关以及关系非线性时该怎样修改模型。
+<details>
+<summary>本讲目录（点击展开）</summary>
 
-先沿[最小二乘与投影](#least-squares)读到[误差分解](#regression-risk)，再比较[LASSO](#lasso)与[岭回归](#ridge)。理解两种惩罚之后，进入[核方法](#kernels)。AIC 的详细推导、结构化稀疏性与对偶推导适合随后回读；相关内容仍保留在原页顺序中。
+- [线性模型与稀疏性](#section-01)
+- [监督机器学习：机器学习中的偏差—方差分解](#section-02)
+- [统计学线性模型回顾：回归情形](#section-03)
+- [线性回归中的最小二乘估计](#section-04)
+- [线性模型中最小二乘计算的证明](#section-05)
+- [基于链式法则的另一种证明](#section-06)
+- [所有学生都（应该）知道的内容：回归中的偏差—方差权衡](#section-07)
+- [机器学习如何接续线性回归](#section-08)
+- [从经典统计到机器学习](#section-09)
+- [高维插曲：一个令人意外的事实](#section-10)
+- [从经典统计到机器学习：处理高维问题](#section-11)
+- [对线性回归而言，“高维”意味着什么](#section-12)
+- [A. 稀疏性与线性模型：调整模型维度](#section-13)
+- [稀疏线性回归模型](#section-14)
+- [两种表述：约束优化与惩罚优化](#section-15)
+- [稀疏性与线性模型：模型选择](#section-16)
+- [线性模型中的模型选择](#section-17)
+- [线性模型中的模型选择](#section-18)
+- [选读材料：赤池信息准则的推导](#section-19)
+- [高维情况下的 AIC](#section-20)
+- [A. 稀疏性与线性模型：从数理统计到优化](#section-21)
+- [线性模型的 LASSO：从 $\ell _ { 0 }$ 到 $\ell _ { 1 }$](#section-22)
+- [机器学习算法之“母”：惩罚优化](#section-23)
+- [A. 稀疏性与线性模型：结构化稀疏性](#section-24)
+- [A. 稀疏性与线性模型：岭回归](#section-25)
+- [统计中的不适定问题：高维最小二乘回归](#section-26)
+- [统计中最早的正则化方法：岭回归](#section-27)
+- [岭回归估计量的推导](#section-28)
+- [对偶优化问题：表述与 KKT 条件](#section-29)
+- [对偶优化问题：求解](#section-30)
+- [对偶优化问题：结果的解释](#section-31)
+- [Elastic Net：兼得 LASSO 与 Ridge 的优点？](#section-32)
+- [LASSO 与 Elastic Net：正则化路径比较](#section-33)
+- [超参数调整：交叉验证](#section-34)
+- [练习：比较三种惩罚](#section-35)
+- [B. 估计非线性函数](#section-36)
+- [核的魔力：核岭回归](#section-37)
+- [基本核的例子](#section-38)
+- [核机器学习估计：可行吗？](#section-39)
+- [C. 推广：应用于其他估计问题](#section-40)
 
-[课程目录](README.md) · [读完后检查](#self-check)
+</details>
 
-## 从什么实际问题出发（第 1–2 页）
+**数据科学与机器学习导论**
 
-这一篇讨论监督学习中的误差分解，随后用线性回归推导它，再研究高维情况下的变量选择、正则化和核方法。
+Nicolas Vayatis
 
-以房价预测为例：每条成交记录包含面积、房龄等特征和成交价格，我们希望从这些记录中学习一个函数，预测新房屋的价格。后文的线性模型、稀疏性和正则化，分别回答“怎样组合这些特征”“哪些特征需要保留”“怎样避免把有限样本中的偶然差异当成规律”。
+<a id="section-01"></a>
 
-## 一般设定与符号（第 3 页）
+## 线性模型与稀疏性
 
-学习的目标是最优决策函数 $h^*:\mathcal X\to\mathcal Y$，其中 $\mathcal X$ 是输入空间，$\mathcal Y$ 是标签空间。
+<a id="section-02"></a>
 
-输入包括带标签训练集
+## 监督机器学习：机器学习中的偏差—方差分解
 
-$$
-D_n=\{(X_1,Y_1),\ldots,(X_n,Y_n)\}
-$$
+### 一般设定与记号
 
-以及候选函数组成的假设空间 $\mathcal H$。输出是根据 $D_n$ 估计的函数 $\widehat h\in\mathcal H$。类内参照是 $\bar h$：假设空间中真实风险最小的函数。在合适的采样与估计条件下，更多数据可以帮助 $\widehat h$ 接近它。
-
-## 机器学习的核心权衡（第 4 页）
-
-用 $L(h)$ 衡量函数在真实数据分布上的误差。若最小值存在，则
-
-$$
-L(\bar h)=\inf_{h\in\mathcal H}L(h),\qquad L(h^*)=\inf_h L(h).
-$$
-
-任意学习结果满足
-
-$$
-L(\widehat h)-L(h^*)
-=\underbrace{L(\widehat h)-L(\bar h)}_{\text{估计误差}}
-+\underbrace{L(\bar h)-L(h^*)}_{\text{近似误差}}.
-$$
-
-![假设空间与两类误差](<Images/02_LM/image_001.jpg>)
-
-**图解：** $h^*$ 是理想函数，$\bar h$ 是允许的模型家族中最好的函数，$\widehat h$ 是有限数据训练出的函数。图中位置关系用来示意风险差，不能直接当作函数间的欧氏距离。
-
-假设只根据面积预测房价，真实的平均价格随面积呈弯曲变化，而模型只允许直线 $ax+b$。即使掌握了充分的数据，最好的直线也无法完全贴合真实曲线，这是近似误差。实际只有有限成交记录时，拟合出的直线还可能偏离那条最好的直线，这是估计误差。两种原因分别指向改变模型家族和改善数据。这里的风险差分解与后面平方损失下的严格偏差—方差分解有联系，但并非同一个定义。
-
-## 关于近似误差的研究（第 5 页）
-
-- Cybenko（1989）：由 sigmoid 与仿射函数复合后作有限线性组合，在一定条件下可对 $d$ 维单位立方体上的连续函数作一致逼近。这是类似 Stone–Weierstrass 定理的稠密性结论。
-- Barron（1994）：逼近误差上界涉及描述目标函数正则性的量。
-- 对回归中的核方法，课件列出 Smale（2003）、Steinwart（2008）的理论工作。
-- 对深度学习，课件列出 Grohs、Perekrestenko、Elbrächter 与 Bölcskei（2019）的工作。
-- 原课件将分类情形描述为困难且仍有开放问题。
-
-**校对说明：** 这些是课件当时的文献线索和研究判断，不作为当前研究现状的全面结论。逼近定理说明某类函数可以表达目标，不保证有限样本训练能找到它。
-
-## 回归模型与向量记法（第 6–8 页）
-
-目标为 $h^*:\mathbb R^d\to\mathbb R$。观测是独立同分布样本，模型写成
-
-$$
-Y_i=h^*(X_i)+\varepsilon_i,\qquad i=1,\ldots,n,
-$$
-
-其中噪声与输入独立；后续推导还假设噪声均值为零。将所有样本合起来：
+- 学习目标：最优决策函数 $h ^ { \ast } : \mathcal { X }  \mathcal { V }$。$\mathcal { X } \mathrm { : }$ 是定义域集合，Y 是标签集合。
+- 学习的输入：
+- 训练数据：一组带标签的数据
 
 $$
-\mathbf Y=\mathbf h^*+\varepsilon\in\mathbb R^n,
-\quad \mathbf Y=(Y_1,\ldots,Y_n)^T,
-\quad \varepsilon=(\varepsilon_1,\ldots,\varepsilon_n)^T.
+D _ {n} = \{(X _ {1}, Y _ {1}), \dots , (X _ {n}, Y _ {n}) \}
 $$
 
-对任意 $h\in\mathcal H$，定义它在训练输入上的预测向量
+其大小为 n，其中各 $( X , Y ) ^ { \prime } s$ 属于 $\mathcal { X } \times \mathcal { V }$。
+
+- 假设空间：候选决策函数 $h : \mathcal { X }  \mathcal { Y }$ 的集合 $\mathcal { H }$。
+- 学习的输出：利用训练数据 $D _ { n }$ 估计得到、位于假设空间 $\mathcal { H }$ 中的经验决策函数 $\widehat { h }$。
+- $\mathcal { H } \mathrm { : }$ 中的参照：该类中的最佳决策函数 $\bar { h }$（数据越多，$\widehat { h }$ 越接近 $\bar { h } )$）。
+
+### 机器学习中的关键权衡
+
+- 对任意决策函数 h，用 $L ( h )$ 表示其误差度量。
+- 有 $L ( \bar { h } ) = \operatorname* { i n f } _ { \mathcal { H } } L$，以及 $L ( h ^ { * } ) = \mathsf { i n f } L$。
+- 对任意输出 $\widehat { h }$，误差具有如下偏差—方差类型的分解：
 
 $$
-\mathbf h=(h(X_1),\ldots,h(X_n))^T,
-\qquad \mathcal H(X)=\{\mathbf h:h\in\mathcal H\}.
+L (\widehat {h}) - L (h ^ {*}) = \underbrace {L (\widehat {h}) - L (\bar {h})} _ {\text{估计误差（随机）}} + \underbrace {L (\bar {h}) - L (h ^ {*})} _ {\text{近似误差（确定性）}}
 $$
 
-向量范数为 $\|u\|^2=\sum_{i=1}^n u_i^2$。
+假设类 H
 
-$h$ 是能接受新输入的函数，$\mathbf h$ 只是这个函数在当前 $n$ 个输入上的输出列表。例如，房价预测函数可以接受任意新房屋的特征，而预测向量列出的是当前这批房屋各自的预测价格。后面的投影就是在这些 $n$ 维预测向量组成的空间中进行的。
+![image](<Images/02_LM/image_001.jpg>)
 
-## 最小二乘估计与高斯线性模型（第 9–11 页）
+### 关于近似误差
 
-最小二乘估计选择最接近观测的预测向量：
+Cybenko（1989）：一个具有 Stone–Weierstrass 风格的稠密性结果，表明 sigmoid 与线性函数复合后所得函数的线性组合，在 d 维单位立方体上的连续函数空间中，关于上确界范数稠密。
+
+- Barron（1994）：近似误差界包含一个刻画目标函数光滑程度的参数。
+- 回归设定下这一问题的研究状况：
+  - 对核方法：Smale（2003）、Steinwart（2008）的工作提供了完整理论。
+  - 对深度学习：Grohs、Perekrestenko、Elbrächter 和 Bölcskei（2019）的近期工作。
+- 在分类设定下，这是一个困难的问题，仍有待解决……
+
+<a id="section-03"></a>
+
+## 统计学线性模型回顾：回归情形
+
+- 学习目标：$h ^ { * } : \mathbb { R } ^ { d }  \mathbb { R }$。
+- 观测：独立同分布的随机变量对 $( X _ { i } , Y _ { i } ) \in \mathbb { R } ^ { d } \times \mathbb { R }$。
 
 $$
-\widehat{\mathbf h}_n\in\arg\min_{\mathbf h\in\mathcal H(X)}\frac1n\|\mathbf Y-\mathbf h\|^2.
+Y _ {i} = h ^ {*} (X _ {i}) + \varepsilon_ {i}, \quad i = 1, \dots , n
 $$
 
-若噪声独立且服从 $\mathcal N(0,\sigma^2)$，最小二乘估计也对应回归参数的最大似然估计。课件进一步假设函数类对应一个 $d$ 维线性空间，且
+其中 $\varepsilon _ { i }$ 是与 $X$ 独立的随机噪声变量。
+
+- 下面使用如下向量记法：
 
 $$
-\varepsilon\sim\mathcal N_n(0,\sigma^2I_n).
+\mathbf {Y} = \mathbf {h} ^ {*} + \varepsilon
 $$
 
-线性模型包括普通线性回归 $h(x)=\sum_{k=1}^d\beta_kx^{(k)}$，以及固定 Fourier、样条、小波等基函数后的线性展开。加性模型 $h(x)=\sum_k f_k(x^{(k)})$ 和固定分段点的分段常数回归，也可在选择适当基之后进入这个框架。
+其中三项都属于 $\mathbb { R } ^ { n }$。
 
-“线性”主要指对待估计系数线性。例如，可以先把面积 $x$ 变成特征 $1,x,x^2$，再写成 $h(x)=\beta_0+\beta_1x+\beta_2x^2$。它对面积是二次函数，但对待估计的系数仍然线性。
+- $\mathbb { R } ^ { n }$ 中的元素：
+
+$$
+\mathbf {Y} = \left(Y _ {1}, \dots , Y _ {n}\right) ^ {T},
+$$
+
+$$
+\varepsilon = \left(\varepsilon_ {1}, \dots , \varepsilon_ {n}\right) ^ {T}
+$$
+
+- 像向量：对任意 $h \in \mathcal H$，用粗体表示
+
+$$
+\mathbf {h} = \left(h (X _ {1}), \dots , h (X _ {n})\right) ^ {T}
+$$
+
+- 数据点经 $\mathcal { H }$ 中的函数映射后得到的像集合为
+
+$$
+\mathcal {H} (X) = \left\{\mathbf {h} = \left(h \left(X _ {1}\right), \dots , h \left(X _ {n}\right)\right) ^ {T},: h \in \mathcal {H} \right\}
+$$
+
+- $\mathbb { R } ^ { n }$ 中的范数：
+
+$$
+\forall u = \left(u _ {1}, \ldots , u _ {n}\right) ^ {T} \in \mathbb {R} ^ {n}, \| u \| ^ {2} = \sum_ {i = 1} ^ {n} u _ {i} ^ {2}
+$$
+
+- 最小二乘估计（LSE）的定义：
+
+$$
+\widehat {\mathbf {h}} _ {\mathbf {n}} = \underset {\mathbf {h} \in \mathcal {H} (X)} {\arg \min} \frac {1}{n} \| \mathbf {Y} - \mathbf {h} \| ^ {2}
+$$
+
+其中 ${ \mathcal { H } } ( X ) = \{ \boldsymbol { \mathsf { h } } = ( h ( X _ { 1 } ) , \ldots , h ( X _ { n } ) ) ^ { T } , : h \in { \mathcal { H } } \}$。
+
+- 假设线性模型为高斯模型，即噪声变量独立同分布、服从均值为零且方差固定并已知的高斯分布，则最小二乘估计也对应最大似然估计。
+- 假设空间 $\mathcal { H }$ 是秩为 $d$ 的线性函数类。
+- 噪声向量 $\boldsymbol { \varepsilon } = ( \varepsilon _ { 1 } , \ldots , \varepsilon _ { n } ) ^ { T }$ 是 $\mathbb { R } ^ { n }$ 中服从分布 ${ \mathcal { N } } _ { n } ( 0 , \sigma ^ { 2 } I _ { n } )$ 的高斯随机向量。
+
+记号：$\boldsymbol { x } = ( \boldsymbol { x } ^ { ( 1 ) } , \ldots , \boldsymbol { x } ^ { ( d ) } ) ^ { T } \in \mathbb { R } ^ { d }$。
+
+- 线性回归：$\begin{array} { r } { h ( x ) = \sum _ { k = 1 } ^ { d } \beta _ { k } x ^ { ( k ) } } \end{array}$。
+- 基／框架展开（Fourier、样条、小波等）。
+- 加性模型：$h ( x ) = \sum _ { k = 1 } ^ { d } f _ { k } ( x ^ { ( k ) } )$。
+- 分段常数回归（考虑分段点）。
 
 <a id="least-squares"></a>
 
-## 线性回归的最小二乘解（第 12–14 页）
+<a id="section-04"></a>
 
-前面已经规定预测是特征的线性组合，剩下的问题是确定组合系数。把每个样本的预测误差相加，可以得到一个关于系数的二次函数；下面通过求导找到它的最小点，再解释这个解的几何含义。
+## 线性回归中的最小二乘估计
 
-设设计矩阵 $\mathbf X\in\mathbb R^{n\times d}$，第 $i$ 行为 $X_i^T$，参数 $\beta\in\mathbb R^d$。假设 $d\le n$ 且 $\operatorname{rank}(\mathbf X)=d$。
+- 用 $\pmb { \mathsf { X } } \in \mathbb { R } ^ { n \times d }$ 表示数据矩阵，$\boldsymbol { \beta } \in \mathbb { R } ^ { d }$ 表示待估计参数。
+- 假设：X 满秩，其秩等于 d，并假设 $d \leq n$。
+- 最小二乘估计的定义：$\begin{array} { r } { \widehat { \beta } _ { \mathfrak { n } } = \arg \min _ { \beta \in \mathbb { R } ^ { d } } \frac { 1 } { n } \| \pmb { \mathsf { Y } } - \pmb { \mathsf { X } } \beta \| ^ { 2 } } \end{array}$。
+- 最小二乘估计：$\widehat { \mathbf { h } } _ { \mathbf { n } } = \mathbf { X } \widehat { \beta } _ { \mathbf { n } } = \mathbf { X } ( \mathbf { X } ^ { T } \mathbf { X } ) ^ { - 1 } \mathbf { X } ^ { T } \mathbf { Y } = \widehat { \Pi } \mathbf { Y }$。
 
-$$
-\widehat\beta_n=\arg\min_\beta R(\beta),
-\qquad R(\beta)=\frac1n\|\mathbf Y-\mathbf X\beta\|^2.
-$$
+![image](<Images/02_LM/image_002.jpg>)
 
-按列向量约定求梯度：
+<a id="section-05"></a>
 
-$$
-\nabla R(\beta)=\frac2n\mathbf X^T(\mathbf X\beta-\mathbf Y).
-$$
-
-令梯度为零，得到正规方程与解：
+## 线性模型中最小二乘计算的证明
 
 $$
-\mathbf X^T\mathbf X\widehat\beta_n=\mathbf X^T\mathbf Y,
-\qquad \widehat\beta_n=(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\mathbf Y.
+\widehat {\beta} _ {\mathbf {n}} = \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} R (\beta) \text{其中} R (\beta) = \frac {1}{n} \| \mathbf {Y} - \mathbf {X} \beta \| ^ {2}
 $$
 
-因此
+- 计算梯度：
 
 $$
-\widehat{\mathbf h}_n=\mathbf X\widehat\beta_n=\widehat\Pi\mathbf Y,
-\qquad \widehat\Pi=\mathbf X(\mathbf X^T\mathbf X)^{-1}\mathbf X^T.
+\frac {d}{d \beta} \left((\mathbf {Y} - \mathbf {X} \beta) ^ {T} (\mathbf {Y} - \mathbf {X} \beta)\right) = - 2 \mathbf {Y} ^ {T} \mathbf {X} + 2 \beta^ {T} \mathbf {X} ^ {T} \mathbf {X} \in \mathbb {R} ^ {1 \times d}
 $$
 
-![最小二乘的正交投影](<Images/02_LM/image_002.jpg>)
-
-**图解：** 设计矩阵的列张成所有可实现的训练预测向量。最小二乘把 $\mathbf Y$ 投影到这个子空间，残差与整个子空间正交。
-
-另一种推导使用链式法则。暂省 $1/n$，令 $e(\beta)=\mathbf Y-\mathbf X\beta$、$\ell(e)=\|e\|^2$，按原文行导数约定：
+- 凸函数极小点的一阶条件：
 
 $$
-\frac{dR}{d\beta}=\frac{\partial\ell}{\partial e}\frac{\partial e}{\partial\beta}
-=(2e^T)(-\mathbf X)=-2(\mathbf Y-\mathbf X\beta)^T\mathbf X.
+\mathbf {Y} ^ {T} + \beta^ {T} \mathbf {X} ^ {T} \mathbf {X} = 0
 $$
 
-第 $j$ 个分量是 $\sum_{k=1}^n(\partial\ell/\partial e_k)(\partial e_k/\partial\beta_j)$。两个因子的形状分别为 $1\times n$ 和 $n\times d$。
+> **译注：** 原课件该行漏了 $\mathbf Y^T$ 后的 $\mathbf X$。一阶条件应为 $-\mathbf Y^T\mathbf X+\beta^T\mathbf X^T\mathbf X=0$。
 
-**校对说明：** PDF 第 13 页的一阶条件漏写了 $\mathbf Y^T$ 后的 $\mathbf X$；此处已按上一行导数修正。上式是解析表达，数值实现通常求解线性系统，不要求显式构造逆矩阵。
+- 最终结果：$\widehat { \beta } _ { \mathfrak { n } } = ( \mathsf { X } ^ { T } \mathsf { X } ) ^ { - 1 } \mathsf { X } ^ { T } \mathsf { Y }$。
+
+<a id="section-06"></a>
+
+## 基于链式法则的另一种证明
+
+- 设 $R ( \beta ) = \ell ( e ( \beta ) )$，其中 $\ell ( e ) = \| e \| ^ { 2 }$，且 $\boldsymbol { e } ( \beta ) = \boldsymbol { \mathsf { Y } } - \boldsymbol { \mathsf { X } } \beta$。
+- 链式法则：$\frac { d R } { d \beta } = \frac { \partial \ell } { \partial e } \frac { \partial e } { \partial \beta }$，其中第 $j \mathrm { - t h }$ 个元素为：
+
+$$
+\frac {d R}{d \beta} [ j ] = \sum_ {k = 1} ^ {n} \frac {\partial \ell}{\partial e} [ k ] \frac {\partial e}{\partial \beta} [ k, j ]
+$$
+
+- 注意：$\frac { \partial \ell } { \partial e } = 2 e ^ { T } \in \mathbb { R } ^ { 1 \times n }$，且 $\frac { \partial e } { \partial \beta } = - { \pmb X } \in \mathbb { R } ^ { n \times d }$。
+- 最后得到：$\frac{dR}{d\beta}=-2e^T\mathbf X=-2(\mathbf Y-\mathbf X\beta)^T\mathbf X$。
 
 <a id="regression-risk"></a>
 
-## 回归中的偏差与方差（第 15–19 页）
+<a id="section-07"></a>
 
-现在先不问怎样算出解，而问这个解为何会有预测误差。将观测分成真实均值和噪声，再分别观察投影对它们的作用，就能看出模型遗漏了什么，又把多少噪声带进了预测。
+## 所有学生都（应该）知道的内容：回归中的偏差—方差权衡
 
-这里考察在固定设计点上对无噪声均值向量的预测风险：
-
-$$
-L(\widehat{\mathbf h}_n)=\frac1n\mathbb E\|\mathbf h^*-\widehat{\mathbf h}_n\|^2.
-$$
-
-由 $\widehat{\mathbf h}_n=\widehat\Pi(\mathbf h^*+\varepsilon)$ 得
+- 模型：$\pmb { \mathsf { Y } } = \pmb { \mathsf { h } } ^ { * } + \varepsilon \in \mathbb { R } ^ { n }$。
+- 最小二乘估计的计算：$\widehat { \mathbf { h } } _ { \mathbf { n } } = \widehat { \Pi } \mathbf { Y }$，其中 $\widehat { \Pi } = \pmb { \mathsf { X } } ( \pmb { \mathsf { X } } ^ { T } \pmb { \mathsf { X } } ) ^ { - 1 } \pmb { \mathsf { X } } ^ { T }$。
+- 一种风险的定义：
 
 $$
-\mathbf h^*-\widehat{\mathbf h}_n
-=(I_n-\widehat\Pi)\mathbf h^*-\widehat\Pi\varepsilon.
+L (\widehat {\mathbf {h}} _ {\mathbf {n}}) = \frac {1}{n} \mathbb {E} \big (\| \mathbf {h} ^ {*} - \widehat {\mathbf {h}} _ {\mathbf {n}} \| ^ {2} \big)
 $$
 
-正交投影满足 $\widehat\Pi^2=\widehat\Pi$，且 $I_n-\widehat\Pi$ 与 $\widehat\Pi$ 的像空间正交，所以交叉项为零：
+### 偏差—方差分解（1/2）：推导
+
+- 首先注意到 $\widehat { \mathbf { h } } _ { \mathbf { n } } = \widehat { \Pi } \mathbf { Y } = \widehat { \Pi } ( \mathbf { h } ^ { * } + \varepsilon )$，于是
 
 $$
-L(\widehat{\mathbf h}_n)
-=\underbrace{\frac1n\|(I_n-\widehat\Pi)\mathbf h^*\|^2}_{\text{平方偏差}}
-+\underbrace{\sigma^2\frac dn}_{\text{方差}}.
+\mathbf {h} ^ {*} - \widehat {\mathbf {h}} _ {\mathfrak {n}} = (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} - \widehat {\Pi} \varepsilon
 $$
 
-若设计也是随机的，可再对设计取期望；不能把这个固定设计结论直接当作任意新输入上的风险公式。
-
-$d/n$ 的来源如下：若 $Z\sim\mathcal N_n(0,I_n)$，$\Pi$ 是到 $r$ 维子空间的正交投影，则
+- 注意，$\widehat { \Pi } : \mathbb { R } ^ { n } \to \mathbb { R } ^ { n }$ 是到 $\mathcal { H } ( X )$ 上的正交投影。
 
 $$
-\Pi Z\sim\mathcal N_n(0,\Pi),\qquad \|\Pi Z\|^2\sim\chi_r^2,
-\qquad \mathbb E\|\Pi Z\|^2=r.
+\widehat {\Pi} \circ \widehat {\Pi} = \widehat {\Pi}
 $$
 
-取 $r=d$、$\varepsilon=\sigma Z$，得到 $\mathbb E\|\widehat\Pi\varepsilon\|^2=\sigma^2d$。
-
-每增加一个可拟合方向，也给噪声增加了一个进入预测的方向。增加特征可能减少表达上的不足，却增加噪声拟合。这正是模型选择需要惩罚复杂度的原因。此处预测目标是均值；若目标是独立的新带噪观测，还需计入相应的不可约噪声。
-
-## 从经典统计走向高维学习（第 20–25 页）
-
-接下来的问题是：噪声不是加性的怎么办？分类等其他任务怎么办？怎样从线性扩展到非线性？非线性函数类用什么代替维度 $d$ 衡量复杂度？$d/n$ 是否仍是合适的误差尺度？若 $d>n$ 又会怎样？
-
-高维不仅意味着 $d\gg1$，也可能意味着 $d\gg n$。参数数量与函数集合的有效复杂度需要分别考察。
-
-![高维球的体积集中](<Images/02_LM/image_003.jpg>)
-
-对固定 $0<\epsilon<1$，单位球外壳占总体积的比例为
+- 由于 $I _ { n } - { \widehat { \Pi } }$ 和 $\widehat { \Pi } .$ 的像空间正交：
 
 $$
-\frac{\operatorname{vol}(B_d(0,1)\setminus B_d(0,1-\epsilon))}{\operatorname{vol}(B_d(0,1))}
-=1-(1-\epsilon)^d\longrightarrow1.
+\begin{array}{r} L (\widehat {h} _ {n}) = \frac {1}{n} \mathbb {E} \big (\| \mathbf {h} ^ {*} - \widehat {\mathbf {h}} _ {\mathbf {n}} \| ^ {2} \big) \\ = \frac {1}{n} \mathbb {E} \big (\| (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} \| ^ {2} + \| \widehat {\Pi} \varepsilon \| ^ {2} \big) \end{array}
 $$
 
-**图解：** 高维球的大部分体积集中在靠近边界的薄壳中，低维几何直觉不能直接照搬。原文列出的阅读材料是 Donoho（2000）的《高维数据分析：维度的诅咒与益处》和 Vershynin（2018）的《高维概率》。
+### 偏差—方差分解（2/2）：结果
 
-对线性回归，高维可能导致 $\mathbf X^T\mathbf X$ 病态或秩亏。秩亏时系数解不唯一，Moore–Penrose 伪逆给出最小欧氏范数解 $\widehat\beta=\mathbf X^+\mathbf Y$；拟合向量仍是到列空间的唯一正交投影。岭正则化是改善稳定性的另一条路径。
-
-后续分为：A. 稀疏性与线性模型；B. 非线性函数估计；C. 向其他估计任务推广。
-
-## A. 稀疏线性模型：调节模型维度（第 26–30 页）
-
-如果大量变量只带来噪声，保留全部变量可能不如选择其中一部分。但相关变量事先未知，所以变量选择也必须进入学习过程：一种办法直接限制使用多少个变量，另一种办法对每个被使用的变量增加代价。
-
-仍设 $\mathbf Y=\mathbf X\beta^*+\varepsilon$，噪声零均值且独立于设计。若部分变量没有信息，希望识别真正相关的变量。非零系数的位置称为支持集：
+- 利用一个额外的技术结果（见下一页）：
 
 $$
-m^*=\{j:\beta_j^*\ne0\}\subseteq\{1,\ldots,d\},
-\qquad \|\beta\|_0=\sum_{j=1}^d\mathbf1\{\beta_j\ne0\}.
+\begin{array}{r l} & L (\widehat {h} _ {n}) = \frac {1}{n} \mathbb {E} \big (\| \mathbf {h} ^ {*} - \widehat {\mathbf {h}} _ {\mathbf {n}} \| ^ {2} \big) \\ & \quad = \frac {1}{n} \mathbb {E} \big (\| (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} \| ^ {2} + \| \widehat {\Pi} \varepsilon \| ^ {2} \big) \\ & \quad = \underbrace {\frac {1}{n} \mathbb {E} \big (\| (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} \| ^ {2} \big)} _ {\text{偏差}} + \underbrace {\sigma^ {2} \frac {d}{n}} _ {\text{方差}} \end{array}
 $$
 
-$\ell_0$ 记号表示非零项计数，严格说不是范数。两种建模方式是：
+- 用于模型选择，例如 AIC，即 Akaike Information Criterion（赤池信息准则）。
+
+### d/n 项的解释
+
+高斯随机向量投影的范数性质：
+
+- 假设 $\mathbf { Z }$ 是 $\mathbb { R } ^ { n }$ 中服从 $ { \mathcal { N } _ { n } } ( 0 ,  { I _ { n } } )$ 的高斯随机向量，H 是 $\mathbb { R } ^ { n }$ 的线性子空间，$\Pi : \mathbb { R } ^ { n }  \mathbb { R } ^ { n }$ 是到 $\mathcal { H }$ 的线性投影。
+- 则随机向量 $\Pi _ { \mathcal { H } } \mathbf { Z }$ 在 $\mathbb { R } ^ { n }$ 上服从高斯分布 $\mathcal { N } _ { n } ( 0 , \Pi )$（高斯随机向量的线性变换仍为高斯随机向量）。
+- 此外，$\|\Pi Z\|^2$ 服从卡方分布，并且
 
 $$
-\text{Ivanov：}\quad\min_\beta\|\mathbf Y-\mathbf X\beta\|^2
-\quad\text{满足}\quad\|\beta\|_0\le k,
-\quad 0\le k\le\min(n,d),
+\mathbb {E} (\| \Pi \mathbf {Z} \| ^ {2}) = \dim (\mathcal {H})
 $$
 
-$$
-\text{Tikhonov：}\quad\min_\beta\{\|\mathbf Y-\mathbf X\beta\|^2+\lambda\|\beta\|_0\},\quad\lambda>0.
-$$
+> **译注：** 上述性质要求正交投影。若投影子空间维度为 r，则平方范数服从自由度为 r 的卡方分布。
 
-第一种直接限制变量数，称为最佳子集选择；第二种给每个非零系数收取代价。
+<a id="section-08"></a>
 
-**校对说明：** 原文将两种形式不等价归因于“不光滑”。关键是 $\ell_0$ 选择的非凸、离散结构，不能保证每个约束水平都有对应的惩罚系数；不光滑本身并不足以推出不等价。原文还提到前向分阶段回归等启发式方法在约 $k\simeq35$ 的规模上的经验，以及 Bertsimas 等（2016）的混合整数优化工作；这个数字是课件背景，不能当作通用规模上限。
+## 机器学习如何接续线性回归
 
-## 稀疏惩罚为什么与方差相关（第 31–35 页）
+1. 如果噪声不是加性的，会怎样？回归以外的任务呢？
+2. 从线性模型到非线性模型。
+3. 在非线性模型中，什么量替代维度 d 来衡量复杂度？
+4. d/n 的速率对更大的假设类是否也具有代表性？如果 d 大于 n 呢？
 
-最小二乘风险中的方差项随所用维度增长，因此考虑用 $\lambda\|\beta\|_0$ 惩罚变量数。但惩罚系数应该取多少，需要进一步推导。
+<a id="section-09"></a>
 
-令 $m\subseteq\{1,\ldots,d\}$ 表示选择的变量，全部子集组成 $\mathcal M$，总数为 $2^d$。当 $d=3$ 时，分别有 1 个空集、3 个单变量子集、3 个双变量子集和 1 个三变量子集。空集在另外保留截距时对应常数模型；没有截距时对应零预测。
+## 从经典统计到机器学习
 
-取出对应列形成 $\mathbf X_m\in\mathbb R^{n\times|m|}$，在满列秩条件下
-
-$$
-\widehat\theta_n^{(m)}=(\mathbf X_m^T\mathbf X_m)^{-1}\mathbf X_m^T\mathbf Y.
-$$
-
-每个候选子模型把未选变量的系数限制为零，这不代表真实系数在这些位置一定为零。预测风险为
+- 处理高维模型：
 
 $$
-r_m=\frac1n\mathbb E\|\mathbf X\theta^*-\mathbf X_m\widehat\theta_n^{(m)}\|^2.
+d \gg 1, d \gg n
 $$
 
-理论上最佳的模型 $\bar m\in\arg\min_m r_m$ 称为 oracle 参照，因为计算它需要未知真实信号。课件提出可由数据计算的选择准则：
+- 重新审视维度：
+
+参数个数与函数集合复杂度的比较。
+
+<a id="section-10"></a>
+
+## 高维插曲：一个令人意外的事实
+
+![image](<Images/02_LM/image_003.jpg>)
+
+99%
+
+- 外壳与总体积之比：
 
 $$
-\widehat m\in\arg\min_{m\in\mathcal M}
-\{\|\mathbf Y-\mathbf X_m\widehat\theta_n^{(m)}\|^2+2|m|\sigma^2\}.
+\frac {v o l (B _ {d} (0 , 1) - B _ {d} (0 , 1 - \varepsilon))}{v o l (B _ {d} (0 , 1))} = 1 - (1 - \varepsilon) ^ {d} \rightarrow 1 \text{当} d \rightarrow \infty
 $$
 
-此处假设 $\sigma^2$ 已知。它是高斯已知方差情形下与 AIC 选模等价的形式，也与 $C_p$ 风险估计相联系。
+### 综述性观点文章
 
-## 选读：AIC 形式的推导（第 36–42 页）
+D. Donoho（2000），High Dimensional Data Analysis: The Curses and Blessings of Dimensionality（高维数据分析：维度的诅咒与馈赠）。
 
-![子模型的最小二乘投影](<Images/02_LM/image_004.jpg>)
+### 数学著作
 
-令 $\widehat\Pi_m=\mathbf X_m(\mathbf X_m^T\mathbf X_m)^{-1}\mathbf X_m^T$，则预测为 $\widehat\Pi_m\mathbf Y$，误差分解为
+Roman Vershynin（2018），High-Dimensional Probability（高维概率）。
+
+<a id="section-11"></a>
+
+## 从经典统计到机器学习：处理高维问题
+
+A. 稀疏性与线性模型。
+
+B. 估计非线性函数。
+
+C. 推广。
+
+<a id="section-12"></a>
+
+## 对线性回归而言，“高维”意味着什么
+
+- 到目前为止，假设 $n \geq d$ 且 $( \pmb { \mathsf { X } } ) = d$。
+- 当 d 增大时，可能或将会出现两种情况：
+- 计算逆矩阵 $( { \pmb X } ^ { T } { \pmb X } ) ^ { - 1 }$ 时不稳定。
+- 数据矩阵 X 秩亏。
+- 秩亏情形（但仍有 $n \geq d )$）：
+- 最小二乘问题存在多个解……
+- 在投影矩阵中使用 Moore–Penrose 伪逆来代替 $( { \pmb X } ^ { T } { \pmb X } ) ^ { - 1 }$，可得到一个最小二乘估计。
+- 这个最小二乘估计是使 $\ell _ { 2 } { \mathrm { - } } \mathsf { n o r m }$ 最小的解。
+- 对不稳定性的补救：使用（岭）正则化……
+
+<a id="section-13"></a>
+
+## A. 稀疏性与线性模型：调整模型维度
+
+- 向量记号：
+
+响应向量 $\mathbf { Y } \in \mathbb { R } ^ { n }$，输入数据矩阵 $\textsf { X } ( { \mathsf { s i z e } } \ n \times d )$。
+
+- 以向量形式表示的线性模型：
 
 $$
-\mathbf X\theta^*-\widehat\Pi_m\mathbf Y
-=(I_n-\widehat\Pi_m)\mathbf X\theta^*-\widehat\Pi_m\varepsilon.
+\mathbf {Y} = \mathbf {X} \boldsymbol {\beta} ^ {*} + \varepsilon
 $$
 
-两项正交，因此
+其中 ε 是均值为零、与 X 独立的随机噪声向量。
+
+<a id="section-14"></a>
+
+## 稀疏线性回归模型
+
+- 直觉：如果模型中的某些变量不提供信息，但我们不知道具体是哪些变量，会怎样？
+- 稀疏性假设：设真实参数 $\beta ^ { * }$ 仅涉及一部分变量，这个变量子集称为支撑集。
 
 $$
-r_m=\frac1n\|(I_n-\widehat\Pi_m)\mathbf X\theta^*\|^2+\sigma^2\frac{|m|}{n}.
+m ^ {*} = \{j: \beta_ {j} ^ {*} \neq 0 \} \subset \{1, \dots , d \}
 $$
 
-训练残差则满足
+任意 β 的 $\ell _ { 0 }$“范数”：$\| \beta \| _ { 0 } = \sum _ { j = 1 } ^ { d } \mathbb { I } \{ \beta _ { i } \neq 0 \}$。
+
+<a id="section-15"></a>
+
+## 两种表述：约束优化与惩罚优化
+
+1. Ivanov 表述：在 $0$ 与 min $\{ n , d \}$ 之间选取 k。
 
 $$
-\mathbf Y-\widehat\Pi_m\mathbf Y=(I_n-\widehat\Pi_m)(\mathbf X\theta^*+\varepsilon),
+\min _ {\beta \in \mathbb {R} ^ {d}} \| \mathbf {Y} - \mathbf {X} \beta \| _ {2} ^ {2} \quad \text{满足} \| \beta \| _ {0} \leq k
 $$
 
-$$
-\frac1n\mathbb E\|\mathbf Y-\widehat\Pi_m\mathbf Y\|^2
-=\frac1n\|(I_n-\widehat\Pi_m)\mathbf X\theta^*\|^2
-+\sigma^2\frac{n-|m|}{n}
-=r_m+\sigma^2\frac{n-2|m|}{n}.
-$$
-
-所以对每个固定候选模型，风险的无偏估计为
+2. Tikhonov 表述：取 $\lambda > 0$。
 
 $$
-\widehat r_m=\frac1n\|\mathbf Y-\widehat\Pi_m\mathbf Y\|^2
-+\sigma^2\frac{2|m|-n}{n}.
+\min _ {\beta \in \mathbb {R} ^ {d}} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| _ {2} ^ {2} + \lambda \| \beta \| _ {0} \right\}
 $$
 
-去掉对所有模型相同的常数并乘以 $n$，便得到前面的选模准则。选读部分到此结束。
+- Tikhonov 表述看起来是 Ivanov 表述的拉格朗日形式。
+- 但由于 $\ell _ { 0 }$ 范数缺乏光滑性，这里的两种表述并不等价。
 
-增加一个变量会让训练残差变小，即使它只拟合了噪声。修正项补偿这种乐观偏差。单个固定模型的无偏性，不意味着在许多模型中选出最小值之后仍然无偏。
+> **译注：** 原文将不等价归因于“不光滑”，这个归因不充分。这里的关键是非凸性及离散的支撑选择；非光滑的凸问题在适当条件下仍可以建立约束形式与惩罚形式的对应。
 
-**校对说明：** PDF 第 39–40 页的卡方陈述漏了尺度：应是 $\|\widehat\Pi_m\varepsilon\|^2/\sigma^2\sim\chi^2_{|m|}$，以及 $\|(I_n-\widehat\Pi_m)\varepsilon\|^2/\sigma^2\sim\chi^2_{n-|m|}$；第二式还需括号。这里采用修正后的推导。
+- 带 $\ell _ { 0 }$ 约束的 Ivanov 表述称为最佳子集选择问题。已有基于启发式的算法，例如前向逐步回归，在 $k \simeq 3 5$ 以内效果尚可。近期进展：参见 Bertsimas 等（2016）的混合整数优化（MIO）表述。
+- 从现在起重点讨论 Tikhonov 正则化。
 
-## 高维选模的计算代价与凸松弛（第 43–45 页）
+<a id="section-16"></a>
 
-即使准则可以计算，遍历所有子集也不可行：共有 $2^d$ 个子集，大小接近 $d/2$ 的子集数量为 $\binom d{\lfloor d/2\rfloor}$，按 Stirling 近似约为 $2^d\sqrt{2/(\pi d)}$。原文的“约 $e^{d/2}$”只能表达指数增长的意图，不是这个计数的准确渐近式。
+## 稀疏性与线性模型：模型选择
 
-实际方法常用逐次加入或删除变量的贪心策略，例如前向分阶段回归和前向—后向算法，只探索部分子集。另一条路线是同时估计系数与非零位置：把非凸的 $\ell_0$ 惩罚替换为凸的 $\ell_1$ 惩罚。
+### 建立联系：Tikhonov 惩罚与方差
+
+回顾：
+
+- 带 $\ell _ { 0 }$ 惩罚的 Tikhonov 表述：取 $\lambda > 0$。
+
+$$
+\min _ {\beta \in \mathbb {R} ^ {d}} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| _ {2} ^ {2} + \lambda \| \beta \| _ {0} \right\}\tag{1}
+$$
+
+- 最小二乘估计 ${ \widehat { \beta } } \mathbf { : }$ 的误差偏差—方差分解：
+
+$$
+\frac {1}{n} \mathbb {E} \big (\| \mathbf {X} \beta^ {*} - \mathbf {X} \widehat {\beta_ {\mathbf {n}}} \| ^ {2} \big) \simeq \text{偏差} + \sigma^ {2} \frac {d}{n}\tag{2}
+$$
+
+其中 d 是数据维度，$\sigma ^ { 2 }$ 是高斯噪声的方差。
+
+现在的问题：偏差—方差分解（2）能否解释（1）？这个惩罚项是否正确？
+
+<a id="section-17"></a>
+
+## 线性模型中的模型选择
+
+- 模型：$\pmb { \gamma } = \pmb { \mu } _ { \ b { \mu } } + \varepsilon$。
+- 考虑 $\beta ^ { * }$ 的一个模型：它由 $\{ 1 , \ldots , d \}$ 的索引子集 m 给出。
+- 例子：在维度 $d = 3$ 下，有：
+- 1 个大小为 $| m | = 0 ;$ 的模型：常数模型。
+- 3 个大小为 $| m | = 1 ; \{ 1 \} , \{ 2 \} , \{ 3 \}$ 的模型。
+- 3 个大小为 $| m | = 2 \colon \{ 1 , 2 \} , \{ 2 , 3 \} , \{ 1 , 3 \}$ 的模型。
+- 1 个大小为 $| m | = 3 \colon \{ 1 , 2 , 3 \}$ 的模型。
+
+可能有 8 个版本的最小二乘估计，称为约束最小二乘估计（$| m | = 3$ 的情形除外，它没有约束）。
+
+<a id="section-18"></a>
+
+## 线性模型中的模型选择
+
+- 考虑索引 $\{ 1 , \ldots , d \}$ 中变量子集 m 的集合 $\mathcal { M }$，这样的集合 m 共有 $2 ^ { d }$ 个。
+- 对每个 $m \in { \mathcal { M } }$，有一个维度为 $| m |$ 的标准线性回归模型。换言之，对那些 $j \notin m _ { \cdot }$，有 $\theta _ { j } ^ { * } = 0$。
+- 用 $\mathsf { X } _ { m }$ 表示 X 的一个大小为 $n \times | m |$ 的子矩阵，它只包含索引属于 m 的列。
+- 对每个模型 $m \in { \mathcal { M } }$，计算约束最小二乘估计 $\widehat { \theta } _ { n } ^ { ( m ) } = ( \mathsf { X } _ { m } ^ { T } \mathsf { X } _ { m } ) ^ { - 1 } \mathsf { X } _ { m } ^ { T } \mathsf { Y } \in \mathbb { R } ^ { | m | }$。
+- 最终估计量是在所有 $m \in { \mathcal { M } }$ 上的 ${ \widehat { \theta } } _ { n } ^ { ( m ) }$ 中选出的“最佳”估计量。
+- 用 $\mathsf { X } _ { m }$ 表示大小为 $n \times | m |$ 的数据矩阵。
+- 预测器的风险：$r _ { m } = \frac { 1 } { n } \mathbb { E } \big ( \| \mathbf { X } \theta ^ { * } - \mathbf { X } _ { m } \widehat { \theta } _ { n } ^ { ( m ) } \| ^ { 2 } \big )$。
+- 理论上的最佳估计量（称为预言机）：
+
+$$
+\widehat {\theta} _ {n} ^ {(\overline {{m}})} \quad \text{其中} \quad \overline {{m}} = \underset {m \in \mathcal {M}} {\arg \min} r _ {m}
+$$
+
+- 使用赤池信息准则（AIC）的惩罚最小二乘：
+
+$$
+\widehat {m} = \underset {m \in \mathcal {M}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} + 2 | m | \sigma^ {2} \right\}
+$$
+
+（假设 $\sigma ^ { 2 }$ 已知，则可由数据计算。）
+
+<a id="section-19"></a>
+
+## 选读材料：赤池信息准则的推导
+
+### 线性回归中的最小二乘估计
+
+- 用 $\mathsf { X } _ { m }$ 表示数据矩阵 $( n \times | m | )$，用 ${ \widehat { \theta } } _ { n } ^ { ( m ) }$ 表示最小二乘估计。
+- 预测向量：$\mathsf { X } _ { m } \widehat { \theta } _ { n } ^ { ( m ) } = \mathsf { X } _ { m } ( \mathsf { X } _ { m } ^ { T } \mathsf { X } _ { m } ) ^ { - 1 } \mathsf { X } _ { m } ^ { T } \mathsf { Y } = \widehat { \Pi } _ { m } \mathsf { Y }$。
+
+![image](<Images/02_LM/image_004.jpg>)
+
+### 偏差—方差分解（1/2）：推导
+
+- 注意，$\widehat { \Pi } _ { m } : \mathbb { R } ^ { n }  \mathbb { R } ^ { n }$ 是到 m 中各方向所张成空间的正交投影：
+
+$$
+\widehat {\Pi} _ {m} \circ \widehat {\Pi} _ {m} = \widehat {\Pi} _ {m}
+$$
+
+- 有 $\begin{array} { r } { \pmb { \chi } _ { m } \widehat { \theta } _ { n } ^ { ( m ) } = \widehat { \Pi } _ { m } \pmb { \Upsilon } = \widehat { \Pi } _ { m } ( \pmb { \Upsilon } \theta ^ { \ast } + \pmb { \varepsilon } ) } \end{array}$，于是
+
+$$
+\mathbf {X} \theta^ {*} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} = (I _ {n} - \widehat {\Pi} _ {m}) \mathbf {X} \theta^ {*} - \widehat {\Pi} _ {m} \varepsilon
+$$
+
+- 投影算子的性质：$I _ { n } - \widehat { \Pi }$ 和 $\widehat { \Pi }$ 的像空间正交。
+- 因此：
+
+$$
+\begin{array}{r l} {r _ {m}} & {= \frac {1}{n} \mathbb {E} \left(\| (I _ {n} - \widehat {\Pi} _ {m}) \mathbf {X} \theta^ {*} \| ^ {2} + \| \widehat {\Pi} _ {m} \varepsilon \| ^ {2}\right)} \\ & {= \frac {1}{n} \mathbb {E} \left(\| (I _ {n} - \widehat {\Pi} _ {m}) \mathbf {X} \theta^ {*} \| ^ {2}\right) + \sigma^ {2} \frac {| m |}{n}} \end{array}
+$$
+
+因为 $\| \widehat { \Pi } _ { m } \varepsilon \| ^ { 2 }$ 服从自由度为 $| m |$ 的卡方分布（多元高斯向量投影的性质）。
+
+### 赤池信息准则（1/2）：推导
+
+- 类似地，可以推导出：
+
+$$
+\frac {1}{n} \mathbb {E} \big (\| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} \big) = \frac {1}{n} \mathbb {E} \big (\| (I _ {n} - \widehat {\Pi} _ {m}) \mathbf {X} \theta^ {*} \| ^ {2} \big) + \sigma^ {2} \frac {(n - | m |)}{n}
+$$
+
+事实上，$\begin{array} { r } { \mathsf { \pmb { Y } } - \mathsf { \pmb { X } } _ { m } \widehat { \theta } _ { n } ^ { ( m ) } = \big ( I _ { n } - \widehat { \Pi } _ { m } \big ) ( \mathsf { \pmb { X } } \theta ^ { * } + \varepsilon ) } \end{array}$，且 $\| I _ { n } - \widehat { \Pi } _ { m } \varepsilon \| ^ { 2 }$ 服从自由度为 $n - | m |$ 的卡方分布。
+
+- 联合这两个恒等式，可将预测误差与风险联系起来：
+
+$$
+\frac {1}{n} \mathbb {E} \big (\| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} \big) = r _ {m} + \sigma^ {2} \frac {(n - 2 | m |)}{n}
+$$
+
+### 赤池信息准则（2/2）：误差的经验估计量
+
+- 已经得到：
+
+$$
+r _ {m} = \frac {1}{n} \mathbb {E} \big (\| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} \big) + \sigma^ {2} \frac {(2 | m | - n)}{n}
+$$
+
+- 误差的无偏估计量（假设方差已知）：
+
+$$
+\widehat {r} _ {m} = \frac {1}{n} \| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} + \sigma^ {2} \frac {(2 | m | - n)}{n}
+$$
+
+- 赤池信息准则：
+
+$$
+\widehat {m} = \underset {m \in \mathcal {M}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} + 2 | m | \sigma^ {2} \right\}
+$$
+
+选读材料结束。
+
+<a id="section-20"></a>
+
+## 高维情况下的 AIC
+
+- 当 d 很大时，这样做是否实用？
+- 最坏情况下，需要遍历大约 $e ^ { d / 2 }$ 个模型，其中 $| m | \simeq d / 2 .$。
+
+<a id="section-21"></a>
+
+## A. 稀疏性与线性模型：从数理统计到优化
+
+### 解决计算负担：凸性的力量
+
+实用的模型选择方法主要是贪心启发式方法，每次增加和／或移除一个变量，以探索整个模型空间的一部分；整个模型空间的规模随维度呈指数增长。例子包括前向逐步回归、前向—后向算法等。
+
+- 问题：是否能够同时针对未知参数 $\beta$ 及其支撑索引子集进行优化？
+- 答案是肯定的，代价是进行所谓的松弛：把带 $\ell _ { 0 }$ 惩罚的非凸表述替换为带 $\ell _ { 1 }$ 惩罚的凸化问题。
 
 <a id="lasso"></a>
 
-## LASSO 与正则化路径（第 46–48 页）
+<a id="section-22"></a>
 
-定义 $\|\beta\|_1=\sum_{j=1}^d|\beta_j|$。LASSO 估计为
+## 线性模型的 LASSO：从 $\ell _ { 0 }$ 到 $\ell _ { 1 }$
 
-$$
-\widehat\beta_\lambda\in\arg\min_\beta
-\{\|\mathbf Y-\mathbf X\beta\|^2+\lambda\|\beta\|_1\},\qquad\lambda>0.
-$$
-
-![LASSO 正则化路径](<Images/02_LM/image_005.jpg>)
-
-**图解：** 改变惩罚强度，会得到一系列系数向量 $\lambda\mapsto\widehat\beta_\lambda$。图中的曲线追踪各个系数如何进入、退出或缩小。$\ell_1$ 在零点的折角使部分系数可以精确为零。
-
-课件给出如下形式的预测误差上界：
+- 考虑对前述问题作松弛，用 $\ell _ { 1 } { \mathrm { - } } \mathsf { n o r m }$ 替代 $\ell _ { 0 } - \mathsf { n o r m }$。
 
 $$
-\frac1n\mathbb E\|\mathbf X\beta^*-\mathbf X\widehat\beta\|^2
-\le C\|\beta^*\|_1\sqrt{\frac{\log d}{n}}.
+\| \beta \| _ {1} = \sum_ {j = 1} ^ {d} | \beta_ {j} |
 $$
 
-**校对说明：** 原页没有列出完整条件；此类结论依赖设计归一化、噪声假设及 $\lambda$ 的选择，不能对任意数据直接套用。
-
-由此得到通用形式：
+- 新估计量称为 ${ \mathsf { L } } { \mathsf { A } } { \mathsf { S } } { \mathsf { S } } { \mathsf { O } }$：对任意 $\lambda > 0$，
 
 $$
-\operatorname{Criterion}(h)=\text{训练误差}(h)+\lambda\,\text{惩罚}(h).
+\widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \| \beta \| _ {1} \right\}
 $$
 
-训练误差由损失函数决定，惩罚控制函数复杂度或结构，$\lambda$ 通常通过交叉验证选择。
+- 通过构建所谓正则化路径 $\lambda  \widehat { \beta } _ { \lambda }$ 的高效算法求近似解。
 
-## 结构化稀疏性：Group LASSO 与 Fused LASSO（第 49–52 页）
+![image](<Images/02_LM/image_005.jpg>)
 
-![不同的稀疏结构](<Images/02_LM/image_006.jpg>)
-
-**图解：** 稀疏性可以作用于单个系数，也可以要求按组、按空间或时间结构保留系数。结构惩罚把已有的领域知识写进目标函数。
-
-把变量划成 $G$ 组，组 $g$ 大小为 $d_g$，对应设计子矩阵 $\mathbf X^{(g)}$ 和系数 $\beta^{(g)}$。Group LASSO 为
+- 理论依据：可以证明，当 $n , d \to \infty$ 时，
 
 $$
-\widehat\beta_\lambda\in\arg\min_\beta
-\left\{\|\mathbf Y-\mathbf X\beta\|^2
-+\lambda\sum_{g=1}^G\sqrt{d_g}\|\beta^{(g)}\|_2\right\}.
+\frac {1}{n} \mathbb {E} \big (\| \mathbf {X} \beta^ {*} - \mathbf {X} \widehat {\beta} \| ^ {2} \big) \leq C \| \beta^ {*} \| _ {1} \sqrt {\frac {\log d}{n}}
 $$
 
-组内采用欧氏范数、组间求和，鼓励整组归零，而不是要求被选中组内部也稀疏。例如同一测量来源的多个特征可以作为一组；是否合理取决于任务。
+<a id="section-23"></a>
 
-若系数有时间顺序，希望相邻位置保持一致，可用 Fused LASSO：
+## 机器学习算法之“母”：惩罚优化
+
+- 将学习过程写成对依赖于数据的准则的优化：
+
+准则(h) = 训练误差(h) + λ 惩罚(h)。
+
+- 训练误差：与损失函数相关的数据拟合项。
+- 惩罚项：决策函数的复杂度。
+- 常数 λ：通过交叉验证过程调整的平滑参数。
+
+<a id="section-24"></a>
+
+## A. 稀疏性与线性模型：结构化稀疏性
+
+### 将人的先验放进惩罚项：稀疏模式
+
+![image](<Images/02_LM/image_006.jpg>)
+
+### 最简单的结构化惩罚：Group LASSO
+
+- 参数 $\beta ^ { * }$ 的分组结构：设 G 是 $\{ 1 , \ldots , d \}$ 中索引子集的分组数。对 $g = 1 , \ldots , G$，用 $\mathbf { \boldsymbol { x } } ( \bar { g } )$ 表示 X 中由第 $\boldsymbol { g }$ 组变量组成的子矩阵，用 $\beta ^ { ( g ) }$ 表示施加于第 $\boldsymbol { g }$ 组变量的系数向量；$d _ { g }$ 是第 g 组的大小。
+- Group LASSO 表述：
 
 $$
-\widehat\beta\in\arg\min_\beta
-\left\{\|\mathbf Y-\mathbf X\beta\|^2+\lambda\|\beta\|_1
-+\mu\sum_{j=2}^d|\beta_j-\beta_{j-1}|\right\}.
+\widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \sum_ {g = 1} ^ {G} \sqrt {d _ {g}} \| \beta^ {(g)} \| \right\}
 $$
 
-![Fused LASSO 的分段常数信号恢复](<Images/02_LM/image_007.jpg>)
+![image](<Images/02_LM/image_007.jpg>)
 
-**图解：** 灰点是带噪信号，红线是分段常数的拟合。最后一项惩罚相邻差异，鼓励分段常数结构；顺序必须有实际含义。
+- 强制时间上的一致性，会引入如下惩罚项：
+
+$$
+\widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \| \beta \| _ {1} + \mu \sum_ {j = 2} ^ {d} | \beta_ {j} - \beta_ {j - 1} | \right\}
+$$
 
 <a id="ridge"></a>
 
-## 岭回归：解决不适定与不稳定（第 53–57 页）
+<a id="section-25"></a>
 
-前面的稀疏方法关注哪些变量应当保留。另一种困难是：多个变量高度相关，稍微改变数据，拟合系数就可能变化很大。岭回归通过惩罚过大的系数来稳定估计，即使不删除变量，也可能降低预测误差。
+## A. 稀疏性与线性模型：岭回归
 
-正则化思想可追溯到 20 世纪 60 年代的 Ivanov、John、Lavrent’ev、Tikhonov 等工作，用来稳定不适定问题的解。
+### 惩罚优化：其他惩罚项？
 
-当 $d>n$ 时，$\mathbf X^T\mathbf X$ 不可逆，最小二乘系数有无穷多个解。岭回归加入平方范数惩罚：
-
-$$
-\widehat\beta_\lambda=\arg\min_\beta
-\{\|\mathbf Y-\mathbf X\beta\|^2+\lambda\|\beta\|_2^2\},\quad\lambda>0.
-$$
-
-令 $F(\beta)=(\mathbf Y-\mathbf X\beta)^T(\mathbf Y-\mathbf X\beta)+\lambda\beta^T\beta$，则
+- 到目前为止：由线性函数 $h \in \mathcal H$ 构成的假设类，以及诱导稀疏性的各种惩罚项。
 
 $$
-\nabla F(\beta)=2\mathbf X^T(\mathbf X\beta-\mathbf Y)+2\lambda\beta=0,
+\text{准则} (h) = \text{训练误差} (h) + \lambda \text{惩罚项} (h)
 $$
 
-$$
-\widehat\beta_\lambda=(\mathbf X^T\mathbf X+\lambda I_d)^{-1}\mathbf X^T\mathbf Y.
-$$
+- 这个思想可追溯到 20 世纪 60 年代（Ivanov、John、Lavrent’ev、Tikhonov），当时惩罚项被用作不适定问题解的正则化器。
 
-由于 $\lambda>0$，矩阵正定，解唯一。但当 $d$ 很大时，求解 $d\times d$ 系统仍可能昂贵。
+<a id="section-26"></a>
 
-岭回归抑制过大的系数、稳定相关特征下的估计，通常不把系数精确变成零。公式假设全部系数受罚；若包含通常不惩罚的截距，需要相应调整。
+## 统计中的不适定问题：高维最小二乘回归
 
-## 岭回归的对偶问题（第 58–60 页）
+- 假设 d 大于 n。
+- 求解最小二乘优化问题时，可以看到方程数少于变量数：这就是欠定线性系统的情形。
+- 另一种说法是，$\mathbf { x } ^ { \tau } \mathbf { x }$ 不满秩，因而不可逆，并且有无穷多个解。
 
-同一个预测函数可以按特征系数表示，也可以借助训练样本表示。对偶推导从第一种写法走向第二种写法；这样既能比较两种线性系统的大小，也能看清哪些地方只用到了内积。后面的核方法就从这里接上。
+<a id="section-27"></a>
 
-引入残差 $r=\mathbf X\beta-\mathbf Y$：
+## 统计中最早的正则化方法：岭回归
 
-$$
-\min_{\beta,r}\frac12\|r\|^2+\frac\lambda2\|\beta\|^2,
-\qquad r=\mathbf X\beta-\mathbf Y.
-$$
-
-拉格朗日函数为
+- Ridge 估计量是下列惩罚优化问题的解：对任意 $\lambda > 0$，
 
 $$
-\mathcal L(\beta,r,\alpha)=\frac12\|r\|^2+\frac\lambda2\|\beta\|^2
-+\alpha^T(r-\mathbf X\beta+\mathbf Y).
+\widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \| \beta \| _ {2} ^ {2} \right\}
 $$
 
-对原变量求驻点得 $\beta(\alpha)=\mathbf X^T\alpha/\lambda$、$r(\alpha)=-\alpha$。代回得到要最大化的对偶函数
+<a id="section-28"></a>
+
+## 岭回归估计量的推导
+
+- 记目标函数为：
 
 $$
-g(\alpha)=\alpha^T\mathbf Y-\frac12\|\alpha\|^2-\frac1{2\lambda}\|\mathbf X^T\alpha\|^2.
+F (\beta) = \left(\mathbf {Y} - \mathbf {X} \beta\right) ^ {T} \left(\mathbf {Y} - \mathbf {X} \beta\right) + \lambda \beta^ {T} \beta
 $$
 
-于是
+- 利用 F 的凸性和可微性，通过求解下式得到解：
 
 $$
-\widehat\alpha=\lambda(\mathbf X\mathbf X^T+\lambda I_n)^{-1}\mathbf Y,
-\qquad\widehat\beta=\frac1\lambda\mathbf X^T\widehat\alpha.
+\nabla F (\beta) = 2 \mathbf {X} ^ {T} (\mathbf {X} \beta - \mathbf {Y}) + 2 \lambda \beta = 0
 $$
 
-新输入的预测是
+- 解为：
 
 $$
-x^T\widehat\beta=\frac1\lambda\sum_{i=1}^n\widehat\alpha_i\,x^TX_i.
+\widehat {\beta} _ {\lambda} = \left(\mathbf {X} ^ {T} \mathbf {X} + \lambda I _ {d}\right) ^ {- 1} \mathbf {X} ^ {T} \mathbf {Y}
 $$
 
-恒等式
+因为 ${ \pmb { \times } } ^ { T } { \pmb { \times } } + \lambda I _ { d }$ 总是可逆的。
+
+- 当 d 很大时，计算仍然困难……
+
+<a id="section-29"></a>
+
+## 对偶优化问题：表述与 KKT 条件
+
+- 岭回归优化的等价表述：
 
 $$
-\mathbf X^T(\mathbf X\mathbf X^T+\lambda I_n)^{-1}
-=(\mathbf X^T\mathbf X+\lambda I_d)^{-1}\mathbf X^T
+\min _ {\beta \in \mathbb {R} ^ {d}, r \in \mathbb {R} ^ {n}} \left\{\frac {1}{2} \| r \| ^ {2} + \frac {\lambda}{2} \| \beta \| ^ {2} \right\} \quad \text{满足} r = \mathbf {X} \beta - \mathbf {Y}
 $$
 
-说明原始解和对偶解相同。
-
-原问题围绕 $d$ 个特征系数组织，对偶围绕 $n$ 个样本系数组织。若 $n\ll d$，求解较小的 $n\times n$ 系统可能更方便。更关键的是，训练与预测只需要样本间的内积，为核方法留下了入口。
-
-**校对说明：** PDF 第 59 页代回拉格朗日函数时漏写 $\|\mathbf X^T\alpha\|$ 的平方；上面给出补全并整理后的对偶函数。
-
-## Elastic Net 与超参数（第 61–63 页）
-
-Zou 与 Hastie（2005）讨论了 LASSO 的几个局限：在常见条件下，当变量数大于样本数时，其稀疏解的活跃变量数受到样本数限制；强相关变量中可能只选一个且选择不稳定；相关性强时，岭回归可能有更好的预测表现。原图引用中的“不良定义”应结合原论文条件理解，不能说 LASSO 一般不存在解或总是不唯一。
-
-Elastic Net 组合两种惩罚：
+- 乘子向量为 $\alpha$ 的拉格朗日表述：
 
 $$
-\widehat\beta\in\arg\min_\beta
-\{\|\mathbf Y-\mathbf X\beta\|^2+\lambda\|\beta\|_1+\mu\|\beta\|_2^2\}.
+\mathcal {L} (\beta , r, \alpha) = \frac {1}{2} \| r \| ^ {2} + \frac {\lambda}{2} \| \beta \| ^ {2} + \alpha^ {T} (r - \mathbf {X} \beta + \mathbf {Y})
 $$
 
-![LASSO 系数路径](<Images/02_LM/image_008.jpg>)
-
-![Elastic Net 系数路径](<Images/02_LM/image_009.jpg>)
-
-**图解：** 两幅路径图用于比较不同惩罚下系数的进入与变化；Elastic Net 同时保留稀疏选择和平方惩罚的稳定作用，相关变量更可能一起进入。具体路径取决于数据及横轴参数化。
-
-$\lambda,\mu$ 是超参数，也称平滑或正则化参数，通常用交叉验证选择。它们不应通过最终测试集调节。
-
-## 练习：三种惩罚的区别（第 64 页）
-
-设 $Y\sim\mathcal N(\beta^*,1)$，$\beta\in\mathbb R$。分别求解
+- Karush–Kuhn–Tucker 条件：令关于原变量 $\beta , r ,$ 的梯度为零，得到：
 
 $$
-\text{(i)}\ \frac12(Y-\beta)^2+\lambda\mathbf1\{\beta\ne0\},\qquad
-\text{(ii)}\ \frac12(Y-\beta)^2+\lambda|\beta|,\qquad
-\text{(iii)}\ \frac12(Y-\beta)^2+\lambda\beta^2.
+\beta (\alpha) = \frac {1}{\lambda} \mathbf {X} ^ {T} \alpha \quad \text{且} \quad r (\alpha) = - \alpha
 $$
 
-将估计量画成无约束最小二乘解 $Y$ 的函数，解释硬阈值、软阈值与收缩。
+<a id="section-30"></a>
 
-**校对说明：** 原页 (i) 只有常数 $+\lambda$，按字面最小值总在 $\beta=Y$，不会产生题目要求的硬阈值。上式根据“比较三种惩罚”的题意补上指示函数，属于明确标注的题意修复。对应关系是：硬阈值在 $|Y|>\sqrt{2\lambda}$ 时保留 $Y$，低于阈值时置零，等号时两解并存；软阈值为 $\operatorname{sgn}(Y)(|Y|-\lambda)_+$；平方惩罚给出 $Y/(1+2\lambda)$。
+## 对偶优化问题：求解
+
+- 于是，岭回归优化的一种等价表述为：
+
+$$
+\mathcal {L} (\beta (\alpha), r (\alpha), \alpha) = \frac {1}{2} \| \alpha \| ^ {2} + \frac {1}{2 \lambda} \| \mathbf {X} ^ {T} \alpha \| + \alpha^ {T} \left(- \alpha - \frac {1}{\lambda} \mathbf {X X} ^ {T} \alpha + \mathbf {Y}\right)
+$$
+
+> **译注：** 原课件的 $\|\mathbf X^T\alpha\|$ 漏了平方。补上平方后，代回并整理得到对偶函数 $g(\alpha)=\alpha^T\mathbf Y-\tfrac12\|\alpha\|^2-\tfrac1{2\lambda}\|\mathbf X^T\alpha\|^2$，对偶问题是最大化该函数。原文的代入中间式完整保留在上方。
+
+- 解为：
+
+$$
+\widehat {\alpha} = \lambda \left(\mathbf {X X} ^ {T} + \lambda I _ {n}\right) ^ {- 1} \mathbf {Y} \quad \text{且} \quad \widehat {\beta} = \frac {1}{\lambda} \mathbf {X} ^ {T} \widehat {\alpha}
+$$
+
+<a id="section-31"></a>
+
+## 对偶优化问题：结果的解释
+
+- 对 $x \in \mathbb { R } ^ { d }$ 的预测可用 α 表示。
+
+$$
+x ^ {T} \widehat {\beta} = \frac {1}{\lambda} x ^ {T} \mathbf {X} ^ {T} \widehat {\alpha} = \frac {1}{\lambda} \sum_ {i = 1} ^ {n} \widehat {\alpha} _ {i} x ^ {T} X _ {i}
+$$
+
+- 可以利用恒等式：
+
+$\pmb { \mathsf { X } } ^ { T } \left( \pmb { \mathsf { X } } \pmb { \mathsf { X } } ^ { T } + \lambda \pmb { I } _ { n } \right) ^ { - 1 } = \left( \pmb { \mathsf { X } } ^ { T } \pmb { \mathsf { X } } + \lambda \pmb { I } _ { d } \right) ^ { - 1 } \pmb { \mathsf { X } } ^ { T }$ 来验证两个解相同。
+
+- 重要观察：优化与函数求值只需要 $x ^ { \prime } s$ 与数据点 $X _ { i } ^ { \prime } s$ 之间的两两内积。
+
+<a id="section-32"></a>
+
+## Elastic Net：兼得 LASSO 与 Ridge 的优点？
+
+- 动机（引自 Zou 与 Hastie，2005）：
+
+(a) 在 $p > n { \mathrm { ~ c a s e } }$ 的情形下，由于凸优化问题自身的性质，LASSO 在达到饱和之前最多选择 n 个变量。对于变量选择方法，这似乎是一项限制。此外，除非系数的 $L _ { \mathrm { l } } \mathrm { - n o r m }$ 上界小于某个值，否则 LASSO 不是良好定义的。
+
+(b) 如果一组变量之间的两两相关性非常高，LASSO 倾向于只从中选择一个变量，而不在意具体选中哪个。参见第 2.3 节。
+
+(c) 对通常的 $n > p$ 情形，如果预测变量之间高度相关，经验上观察到 LASSO 的预测性能不如岭回归（Tibshirani，1996）。
+
+> **译注：** 以上是原课件引用 Zou 与 Hastie（2005）的论述，不能脱离该文的条件把它解释为所有 LASSO 问题都不存在解或都不唯一。
+
+- 组合 $\ell _ { 1 }$ 与 $\ell _ { 2 }$ 惩罚。
+
+$$
+\widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \| \beta \| _ {1} + \mu \| \beta \| _ {2} ^ {2} \right\}
+$$
+
+<a id="section-33"></a>
+
+## LASSO 与 Elastic Net：正则化路径比较
+
+![image](<Images/02_LM/image_008.jpg>)
+
+![image](<Images/02_LM/image_009.jpg>)
+
+<a id="section-34"></a>
+
+## 超参数调整：交叉验证
+
+- 如何选择参数 λ 和 $\mu ?$？它们称为超参数、平滑参数或正则化参数。
+- 这是控制机器学习方法过拟合效应时普遍遇到的问题。
+- 交叉验证过程将在后续课程中展开。
+
+<a id="section-35"></a>
+
+## 练习：比较三种惩罚
+
+- 考虑如下玩具问题：$Y \sim { \mathcal { N } } _ { 1 } ( \beta ^ { * } , 1 )$，其中 $\beta$ 是实值参数，$( d = 1 )$。
+- 分别最小化下面三个函数，求出相应的三个估计量：
+
+$$
+(\mathrm{i}) \frac {1}{2} (Y - \beta) ^ {2} + \lambda , (\mathrm{ii}) \frac {1}{2} (Y - \beta) ^ {2} + \lambda | \beta |, (\mathrm{iii}) \frac {1}{2} (Y - \beta) ^ {2} + \lambda \beta^ {2}
+$$
+
+- 以无约束最小二乘估计为自变量，画出这些估计量的函数图像，并解释惩罚估计过程中使用的术语：硬阈值、软阈值、收缩。
 
 <a id="kernels"></a>
 
-## B. 从非线性输入关系到线性特征模型（第 65–66 页）
+<a id="section-36"></a>
 
-线性回归允许我们先构造特征，再学习系数。因此不必立刻放弃已有求解方法：先把输入映射到能表达弯曲关系的特征，再问这些特征的内积能否直接计算。下面的二次多项式把这一步写出来。
+## B. 估计非线性函数
 
-二维输入的二次多项式可写成六维特征：
+### 从非线性到线性：多项式回归例子
 
-$$
-\Phi(x_1,x_2)=(1,\sqrt2x_1,\sqrt2x_2,\sqrt2x_1x_2,x_1^2,x_2^2)^T.
-$$
-
-直接展开可验证
+- 考虑维度为 $d = 2$ 的多项式回归：它对应一个维度为 $d ^ { \prime } = 7$ 的线性模型，特征向量为：
 
 $$
-\Phi(x)^T\Phi(x')=(x^Tx'+1)^2=:K(x,x').
+\Phi (x _ {1}, x _ {2}) = \left(1, \sqrt {2} x _ {1}, \sqrt {2} x _ {2}, \sqrt {2} x _ {1} x _ {2}, x _ {1} ^ {2}, x _ {2} ^ {2}\right) ^ {T}
 $$
 
-$K$ 称为多项式核。它通过原输入直接计算高维特征空间的内积，不必显式列出所有特征。
+> **译注：** 原页写作 7 维，但所列特征向量只有 6 个分量；与该向量一致的维度应为 6。
 
-**校对说明：** 原页写 $d'=7$，但列出的特征恰好六个；应为 $d'=6$。
-
-## 核岭回归（第 67 页）
-
-岭回归对偶中，把 $X_i^TX_j$ 替换为 $K(X_i,X_j)$，便得到核版本。定义 Gram 矩阵 $\mathbf K_{ij}=K(X_i,X_j)$，用吸收尺度后的系数 $c$ 表示：
+- 注意：
 
 $$
-c=(\mathbf K+\lambda I_n)^{-1}\mathbf Y,
-\qquad f(x)=\sum_{i=1}^n c_iK(x,X_i).
+\Phi (x) ^ {T} \Phi (x ^ {\prime}) = (x ^ {T} x ^ {\prime} + 1) ^ {2}
 $$
 
-这里的 $c$ 对应前面线性对偶的 $\widehat\alpha/\lambda$，避免混淆不同页的系数约定。
+- 称 $K ( x , x ^ { \prime } ) = ( x ^ { T } x ^ { \prime } + 1 ) ^ { 2 }$ 为多项式核。核具有这样一个性质：可以表示为高维特征空间中的内积。特征空间是原始 d 维输入空间经 Φ 映射得到的像空间，其维度可能非常大。
 
-算法仍求解一个 $n\times n$ 系统，预测仍是与训练样本相似度的加权和，但它可以表达原输入空间中的非线性函数。原文说算法复杂度不变，指这种求解结构没有改变；核计算成本、存储和样本数规模仍需考虑。
+<a id="section-37"></a>
 
-## 常见核、核距离与序列核（第 68–70 页）
+## 核的魔力：核岭回归
 
-- 线性核：$K(x,z)=x^Tz$。
-- 多项式核：$K(x,z)=(x^Tz)^q$ 或 $(1+x^Tz)^q$，$q$ 为非负整数。
-- 高斯核：$K(x,z)=\exp(-\|x-z\|_2^2/(2\sigma^2))$。
-- 原课件的 Laplace 核参数化：$K(x,z)=\exp(-\|x-z\|_2/(2\sigma^2))$；这里分母是尺度参数，不应机械等同于高斯方差。
+- 在线性岭回归中已经看到，无论问题表述还是预测求值，真正用到的依赖数据的量，只有 $X _ { i } ^ { T } X _ { j }$ 与 $x ^ { T } X _ { i }$ 的两两内积。
+- 基本上，可以将任意一个内积替换为相应点对的核函数值，而完全不改变求解的算法复杂度。于是能够估计下列非线性函数中的参数 $\alpha _ { i }$：
 
-![特征映射与核诱导的距离](<Images/02_LM/image_010.jpg>)
-
-核诱导的特征距离满足
+> **译注：** 这里保留原文的算法复杂度说法。替换内积不改变基于 Gram 矩阵求解的框架，但具体核函数的求值代价与存储成本仍需另外考虑。
 
 $$
-\begin{aligned}
-d_K(x_1,x_2)^2
-&=\|\Phi(x_1)-\Phi(x_2)\|_{\mathcal H}^2\\
-&=\langle\Phi(x_1),\Phi(x_1)\rangle+\langle\Phi(x_2),\Phi(x_2)\rangle
--2\langle\Phi(x_1),\Phi(x_2)\rangle\\
-&=K(x_1,x_1)+K(x_2,x_2)-2K(x_1,x_2).
-\end{aligned}
+f (x) = \sum_ {i = 1} ^ {n} \alpha_ {i} K (x, X _ {i})
 $$
 
-仅用核值就能计算特征空间距离。若不同输入被映到同一点，它在原输入空间只是伪度量。
+<a id="section-38"></a>
 
-文本、生物序列等结构化对象也能定义核。例如字符串 `CGGSLIAMMWFGV` 的连续长度 3 子串为 `CGG, GGS, GSL, SLI, LIA, IAM, AMM, MMW, MWF, WFG, FGV`。令 $\Phi_u(x)$ 表示子串 $u$ 在 $x$ 中出现的次数，则
+## 基本核的例子
 
-$$
-K(x,x')=\sum_{u\in A^k}\Phi_u(x)\Phi_u(x')
-$$
+- 线性核：$\operatorname { K } ( \mathbf { x } , \mathbf { z } ) = \mathbf { x } \cdot z$。
+- 多项式核：$\operatorname { K } ( \mathbf { x } , z ) = ( \mathbf { x } \cdot z ) ^ { \mathrm { d } } \circ r \operatorname { K } ( \mathbf { x } , z ) = ( 1 + \mathbf { x } \cdot z ) ^ { \mathrm { d } }$。
+- 高斯核：$\begin{array} { r } { \mathrm { K } ( \mathrm { x } , z ) = \exp \left[ - \frac { \left| \left| x - z \right| \right| ^ { 2 } } { 2 \sigma ^ { 2 } } \right] } \end{array}$。
+- Laplace 核：$\begin{array} { r } { \mathrm { K } ( \mathrm { x } , z ) = \exp \left[ - \frac { | | x - z | | } { 2 \sigma ^ { 2 } } \right] } \end{array}$。
 
-是 $k$-spectrum 核，$A$ 为字母表。原文将示例称为 DNA 序列，但其字符不限于 DNA 碱基字母，故此处按一般生物序列字符串理解。
-
-## 核估计是否可计算，以及其他损失（第 71–75 页）
-
-核提供了灵活的建模方式，接下来仍需判断惩罚最小二乘是否可实际求解。除了改变惩罚，也可改变数据拟合项，适应不同任务：
+![image](<Images/02_LM/image_010.jpg>)
 
 $$
-\text{岭回归：}\quad\min_\beta\frac1n\sum_{i=1}^n\frac12(y_i-\beta^Tx_i)^2+\lambda\|\beta\|_2^2,
+\begin{array}{l} d _ {K} \left(\mathbf {x} _ {1}, \mathbf {x} _ {2}\right) ^ {2} = \| \Phi \left(\mathbf {x} _ {1}\right) - \Phi \left(\mathbf {x} _ {2}\right) \| _ {\mathcal {H}} ^ {2} \\ \qquad = \langle \Phi \left(\mathbf {x} _ {1}\right) - \Phi \left(\mathbf {x} _ {2}\right), \Phi \left(\mathbf {x} _ {1}\right) - \Phi \left(\mathbf {x} _ {2}\right) \rangle_ {\mathcal {H}} \\ \qquad = \langle \Phi \left(\mathbf {x} _ {1}\right), \Phi \left(\mathbf {x} _ {1}\right) \rangle_ {\mathcal {H}} + \langle \Phi \left(\mathbf {x} _ {2}\right), \Phi \left(\mathbf {x} _ {2}\right) \rangle_ {\mathcal {H}} - 2 \langle \Phi \left(\mathbf {x} _ {1}\right), \Phi \left(\mathbf {x} _ {2}\right) \rangle_ {\mathcal {H}} \\ d _ {K} (\mathbf {x} _ {1}, \mathbf {x} _ {2}) ^ {2} = K (\mathbf {x} _ {1}, \mathbf {x} _ {1}) + K (\mathbf {x} _ {2}, \mathbf {x} _ {2}) - 2 K (\mathbf {x} _ {1}, \mathbf {x} _ {2}) \end{array}
+$$
+
+- 为处理字符串（文本、DNA 序列等）这样的结构化数据，人们设计了专门的核。
+- 用于 DNA 序列的谱核示例：
+
+核的定义
+
+- $\mathbf{x} = \text{CGGSLIAMMWFGV}$ 的 3-spectrum（长度为 3 的子串谱）是：(CGG, GGS, GSL, SLI, LIA, IAM, AMM, MMW, MWF, WFG, FGV)。
+- 令 $\Phi_u(\mathbf{x})$ 表示 $u$ 在 $\mathbf{x}$ 中的出现次数。$k$-spectrum 核定义为 $K(\mathbf{x}, \mathbf{x}') := \sum_{u \in A^k} \Phi_u(\mathbf{x}) \Phi_u(\mathbf{x}')$。
+
+> **译注：** 原页称这是 DNA 序列示例，但字符串含有 DNA 四种碱基字母以外的字符；这里保留原例，不改变核的计数定义。
+
+<a id="section-39"></a>
+
+## 核机器学习估计：可行吗？
+
+- 核函数具有良好的建模性质。
+- 问题是：最小二乘意义下的惩罚优化是否可行？
+
+<a id="section-40"></a>
+
+## C. 推广：应用于其他估计问题
+
+### 惩罚优化：还有哪些变体？
+
+- 到目前为止：由线性函数 $h \in \mathcal H$ 构成的假设类，以及不同的惩罚项。
+
+$$
+\text{准则} (h) = \text{训练误差} (h) + \lambda \text{惩罚项} (h)
+$$
+
+- 从现在起：使用其他损失函数来改变训练误差。
+
+$$
+\text{准则} (h) = \text{训练误差} (h) + \lambda \text{惩罚项} (h)
+$$
+
+几个例子：
+
+岭回归：
+
+线性 SVM：
+
+$$
+\min _ {\boldsymbol {\beta} \in \mathbb {R} ^ {p}} \frac {1}{n} \sum_ {i = 1} ^ {n} \frac {1}{2} (y _ {i} - \boldsymbol {\beta} ^ {\top} \mathbf {x} _ {i}) ^ {2} + \lambda \| \boldsymbol {\beta} \| _ {2} ^ {2}.
 $$
 
 $$
-\text{线性 SVM：}\quad\min_\beta\frac1n\sum_{i=1}^n\max(0,1-y_i\beta^Tx_i)+\lambda\|\beta\|_2^2,
+\min _ {\boldsymbol {\beta} \in \mathbb {R} ^ {p}} \frac {1}{n} \sum_ {i = 1} ^ {n} \max (0, 1 - y _ {i} \boldsymbol {\beta} ^ {\top} \mathbf {x} _ {i}) + \lambda \| \boldsymbol {\beta} \| _ {2} ^ {2}.
 $$
 
-$$
-\text{逻辑回归：}\quad\min_\beta\frac1n\sum_{i=1}^n\log(1+e^{-y_i\beta^Tx_i})+\lambda\|\beta\|_2^2.
-$$
+逻辑回归：$\underset { \beta \in \mathbb { R } ^ { p } } { \min } \frac { 1 } { n } \sum _ { i = 1 } ^ { n } \vert \boldsymbol { \mathrm { o g } } \left( 1 + e ^ { - y _ { i } \beta ^ { \top } \boldsymbol { \mathbf { x } } _ { i } } \right) + \lambda \vert \vert \beta \vert \vert _ { 2 } ^ { 2 } .$。
 
-后两式采用 $y_i\in\{-1,+1\}$。
+![image](<Images/02_LM/image_011.jpg>)
 
-![不同损失函数的比较](<Images/02_LM/image_011.jpg>)
-
-**图解：** 不同损失给同一种预测偏差赋予不同代价。平方损失适合这里的连续值回归；hinge 和 logistic 损失通过有符号间隔 $y_if(x_i)$ 评价分类。符号相同不代表任务和评价目标相同。
-
-后续课程继续讨论线性分类、特征工程、变量选择、表示学习，以及从线性模型迁移到非线性模型时能够保留的结构。
-
-<a id="self-check"></a>
-
-## 读完后检查
-
-下面的问题用于自检，不是新增的原课件考题。先尝试用自己的话作答，再回到相应推导检查。
-
-1. 最小二乘中的设计矩阵、参数向量和预测向量，各自收集了什么？为什么“系数有多个解”不一定意味着训练点上的拟合向量也不唯一？
-2. 当变量数多于样本数时，原来的求逆公式哪里失效？伪逆、岭回归和变量选择分别增加了什么约定或约束？
-3. LASSO 与岭回归都能缩小系数，为什么前者还可能把部分系数精确压到零？请回看一维阈值练习。
-4. 核岭回归保留了哪个求解结构，又改变了模型允许表达的函数？这里的“对参数线性”和“对原始输入线性”是否相同？
-
-下一篇[分类问题与参数化方法](03_LMC_zh.md)把输出从连续数值改为类别，继续考察概率、决策和损失怎样对应。
+- 其他任务：用于分类的线性模型。
+- 表示问题：特征工程、变量选择、表示学习。
+- 从线性模型到非线性模型：哪些部分可以保留？

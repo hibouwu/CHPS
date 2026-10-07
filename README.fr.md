@@ -29,7 +29,7 @@ La collection couvre le M1 et une partie du M2 : calcul numérique, programmatio
 
 Notes, supports, exercices, annales et références du tronc commun et du parcours IHPS.
 
-[M2 — DA · PAAM · IMMC · AOC · COA · CQ](M2/README.md)
+[M2 — DA · PAAM · IMMC · APM · EDP · AOC · COA · CQ](M2/README.md)
 
 ## Projet PPN
 

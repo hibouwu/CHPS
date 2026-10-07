@@ -2,7 +2,7 @@
 
 S. Zertal · Master 2 CHPS
 
-[课程目录](../README.md) · [原始 PDF](td1_metrics.pdf) · [第一课中文笔记](../Notes/edpcm1.md)
+[课程目录](../README.md) · [原始 PDF](td1_metrics.pdf) · [第一课中文笔记](../CM/1_edpCpl_zh.md)
 
 ## 1 Loi d'Amdahl
 

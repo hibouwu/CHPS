@@ -1,0 +1,17 @@
+| Question | File / process                                                  | Result                                                                              |
+|----------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Q1       | trace_0.csv, trace_1.csv, trace_2.csv, trace_3.csv, trace_4.csv | 200000 requests                                                                     |
+| Q2       | trace_2.csv                                                     | 16640000 s                                                                          |
+| Q3       | trace_3.csv                                                     | 200000 writes                                                                       |
+| Q4       | trace_4.csv                                                     | 3679416320 bytes                                                                    |
+| Q5       | trace_1.csv                                                     | 24576 bytes                                                                         |
+| Q6       | trace_4.csv                                                     | 3717173248 bytes (lower bound)                                                      |
+| Q7       | trace_3.csv                                                     | 10 processes                                                                        |
+| Q8       | trace_2.csv, PID 9999                                           | 198007 requests                                                                     |
+| Q9       | trace_1.csv                                                     | Same timestamp                                                                      |
+| Q10      | trace_0.csv, trace_3.csv                                        | Constant size                                                                       |
+| Q11      | trace_2.csv, trace_4.csv                                        | Approx. normal (heuristic)                                                          |
+| Q12      | trace_2.csv                                                     | 200000 reads (all processes)                                                        |
+| Q13      | trace_1.csv, trace_3.csv                                        | IDs ignored: repeated I/O; IDs included: None                                       |
+| Q14      | trace_0.csv, trace_1.csv                                        | trace_0.csv line 177087: ID=-177085, mode=r; trace_1.csv line 1655: ID=1653, mode=x |
+| Q15      | trace_2.csv                                                     | 16639984 s (last - first submission)                                                |

@@ -29,7 +29,7 @@
 
 公共课与 IHPS 方向的课程讲义、笔记、习题、考试和参考资料。
 
-[M2 — DA · PAAM · IMMC · AOC · COA · CQ](M2/README.md)
+[M2 — DA · PAAM · IMMC · APM · EDP · AOC · COA · CQ](M2/README.md)
 
 ## PPN 项目
 

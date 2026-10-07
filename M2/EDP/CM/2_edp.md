@@ -2,9 +2,9 @@
 
 Soraya Zertal · Master 2 CHPS · Li-PaRAD / UVSQ
 
-[课程入口](../README.md) · [教师课件 PDF](2_edp.pdf)
+[Sommaire du module](../README.md) · [Diaporama PDF — 59 pages](2_edp.pdf) · [Notes en chinois](2_edp_zh.md)
 
-保留课件正文顺序，合并连续重复的幻灯片标题；内容订正在相应位置标为“校注”，依据见[审校说明](../审校说明.md)。
+Version relue le 30 septembre 2026 à partir du PDF de 59 pages. L’ordre du diaporama, ses exemples et ses figures sont conservés ; les titres répétés sont regroupés. Les précisions mathématiques sont distinguées du texte du cours. Voir la correspondance des pages en fin de document et le [compte rendu de relecture](../审校说明.md).
 
 ## Plan du cours
 
@@ -22,11 +22,11 @@ Il existe deux classes de workloads (charges de travail) : charges réelles et s
 
 Observées ou mesurées sur un système réel pendant une exécution.
 
-Uniques et ne peuvent être réitérées.
+Une exécution réelle est unique et son contexte complet ne se reproduit pas exactement. Une trace enregistrée peut cependant être rejouée, avec les limites de ce qu’elle a capturé.
 
 ### Les charges synthétiques
 
-Creées selon des caractéristiques bien déterminées pour représenter un contexte/comportement spécifique.
+Créées selon des caractéristiques bien déterminées pour représenter un contexte/comportement spécifique.
 
 Peuvent être réitérées à l’infini.
 
@@ -68,7 +68,7 @@ L’analyse porte sur le stockage de données:
 
 Le système analysé est le système de stockage mais on considère le disque puisqu’il est le composant qui délivre le service analysé.
 
-Le métrique utilisé pour l’analyse doit être au niveau système et non au niveau disque. Plutôt le temps de réponse moyen, débit en TPS...etc que le temps d’accés disque.
+La métrique utilisé pour l’analyse doit être au niveau système et non au niveau disque. Plutôt le temps de réponse moyen, débit en TPS...etc que le temps d’accès disque.
 
 ## Sélection : Niveau de détail
 
@@ -110,17 +110,17 @@ Faible : donnant juste la tendance du comportement dans le temps,
 
 Fort : retraçant avec exactitude tous les événements survenus dans le système,
 
-Intermediaire : retraçant les changement essentiels qui forment la tendance du comportement du système.
+Intermédiaire : retraçant les changements essentiels qui forment la tendance du comportement du système.
 
 ## Sélection
 
-> 校注：负载高低的“最好／最坏”取决于考察吞吐量还是响应时间；真实负载的原始运行难以完全复现，但记录的轨迹可重放。
+> **Précision.** Les qualificatifs « meilleur » et « pire » dépendent de la métrique. Une trace peut être rejouée sans reproduire tout le contexte de l’exécution originale.
 
 ### Autres considérations pour la sélection
 
 De bon usage pour la calibration de résultats
 
-Niveau de charge reflète les régimes sous lesquels un système peut opérer : l’utilisation du système à sa capacité maximale (meilleur cas), en dessous de sa capacité (pire cas) ou à un niveau habituellement observé (cas typique).
+Le niveau de charge doit couvrir les régimes pertinents : faible charge, charge typique et proximité de la saturation. Un régime favorable au débit ne l’est pas nécessairement au temps de réponse ; les expressions « meilleur cas » et « pire cas » dépendent de la métrique choisie.
 
 Répétition: pour obtenir les ”mêmes” résultats à chaque exécution avec les mêmes charges.
 
@@ -144,11 +144,11 @@ $$
 
 Le niveau de confiance est $1-\alpha$. Pour une population normale de variance inconnue, utiliser $t_{1-\alpha/2,n-1}$ à la place de $z_{1-\alpha/2}$.
 
-> 校注：原课件将 1、2、3 倍标准误分别对应 68%、95%、99%；准确的正态覆盖率约为 68.27%、95.45%、99.73%。双侧 95%、99% 应分别使用约 1.960、2.576，不能把 $3\sigma$ 当成准确的 99%。
+> **Précision.** Les coefficients 1, 2 et 3 donnent environ 68,27 %, 95,45 % et 99,73 % sous la loi normale. Pour un intervalle bilatéral à 95 % ou 99 %, les valeurs sont environ 1,960 et 2,576.
 
 ## Workloads : Caractérisation
 
-Quelque soit le type de workload, on en extrait les caractéristiques clés pour représenter le contexte de l’étude.
+Quel que soit le type de workload, on en extrait les caractéristiques clés pour représenter le contexte de l’étude.
 
 ### Intérêt
 
@@ -193,7 +193,7 @@ $$
 
 Temps de réponse moyen : moyenne arithmétique pour des requêtes de même poids. Une vitesse moyenne sur des distances égales utilise la moyenne harmonique.
 
-> 校注：总体缓存未命中率应为总未命中次数除以总访问次数，即按访问次数加权；不能普遍使用几何平均。几何平均适用于正的比值或乘法因子，需明确聚合目的。
+> **Précision.** Le taux global de défauts de cache est le nombre total de défauts divisé par le nombre total d’accès. Il correspond à une moyenne arithmétique pondérée par les accès, pas généralement à une moyenne géométrique. Cette dernière convient à des rapports positifs ou à des facteurs multiplicatifs.
 
 ### Moyenne pondérée
 
@@ -205,7 +205,7 @@ $$
 \bar{X} = \frac{\sum_{i = 1} ^{n} p _{i} x _{i}}{\sum_{i = 1} ^{n} p _{i}}
 $$
 
-$P _{j}$ : non négatifs.
+$p_i\geq0$ et $\sum_i p_i>0$.
 
 ### Facteur de dispersion
 
@@ -217,7 +217,7 @@ $$
 \operatorname{var} (X) = \sigma^{2} = \frac{1}{n - 1} \sum_{i = 1} ^{n} (X _{i} - \bar{X}) ^{2}
 $$
 
-> 校注：本段沿用课件的 σ 记号，但分母 n−1 给出的是样本方差估计，通常记作 s²，以区别于总体方差。变异系数适用于有意义的比率尺度且均值非零的情形；样本标准差为零只表明这些观测值相同。
+> **Précision.** Le dénominateur $n-1$ correspond à la variance empirique corrigée, habituellement notée $s^2$. Le coefficient de variation nécessite une échelle de rapports pertinente et une moyenne non nulle.
 
 On en déduit l’écart type
 
@@ -233,7 +233,7 @@ $$
 
 ### Remarque 1
 
-Si l’écart type est nul, cela signifie que le paramètre est constant
+Si l’écart type empirique est nul, toutes les valeurs observées sont identiques ; cela ne prouve pas que le paramètre sera constant lors de toute exécution future.
 
 ### Remarque 2
 
@@ -259,9 +259,9 @@ Pour une proportion $p\in(0,1)$, une convention empirique définit $Q_p=\inf\{x:
 
 ### Exemples :
 
-Le premier décile (10-quantile) est la plus petite valeur de l’echantillon dont 10% de ce même échantillon sont en dessous.
+Le premier décile (10-quantile) est la plus petite valeur de l’échantillon pour laquelle au moins 10 % des observations sont inférieures ou égales à cette valeur.
 
-Le troisième quartile (4-quantile) est la plus petite valeur de l’echantillon dont 75% de ce même échantillon sont en dessous.
+Le troisième quartile (4-quantile) est la plus petite valeur de l’échantillon pour laquelle au moins 75 % des observations sont inférieures ou égales à cette valeur.
 
 ### Exemple :
 
@@ -286,7 +286,7 @@ Avec les valeurs répétées du tableau, on a au moins 50 % des observations inf
 L’écart interquartile vaut $Q_3-Q_1$. Son importance s’interprète dans les unités et l’échelle des données.
 Un écart inter-quartile important (resp. faible) indique une distribution hétérogène (resp. homogène).
 
-Dans notre exemple précédent : l’écart inter-quartile est important (8), donc distribution hétérogène.
+Dans l’exemple précédent, $Q_3-Q_1=15-7=8$. Cette valeur décrit la largeur de la moitié centrale des observations ; son importance dépend des unités et de l’échelle du problème.
 
 ### Médiane : définition
 
@@ -326,17 +326,17 @@ Modes : 32, 48, 58, 60 c’est les valeurs les plus fréquentes.
 
 ### Représentation graphique de la variabilité
 
-> 校注：箱线图须注明须线规则，5%／95% 分位数只是其中一种约定。
+> **Précision.** La convention des moustaches doit être précisée ; les quantiles à 5 % et 95 % ne sont qu’une possibilité. La moyenne n’est pas affichée automatiquement dans toute boîte à moustaches.
 
 Un outil statistique graphique permettant une représentation très appropriée lorsqu’une grande variabilité est constatée dans un échantillon : Box plot (boite à moustache).
 
 ### Intérêt :
 
-Avoir de manière visuelle claire, l’étendue de 50% de l’échantillon (situé entre les 25% et les 75%), la position de la médiane et la moyenne, sans oublier les outliers. Les écarts de la boite des points correspondants au 5% et 95% de l’echantillon sont représentés.
+Avoir de manière visuelle claire, l’étendue de 50% de l’échantillon (situé entre les 25% et les 75%), la position de la médiane et la moyenne, sans oublier les outliers. Les écarts de la boite des points correspondants au 5% et 95% de l’échantillon sont représentés.
 
 ### Exemple de box plot:
 
-![工作负载响应时间箱线图](Images/2_edp_01.jpg)
+![Temps de réponse selon le pas d’accès, page 32 du PDF](Images/2_edp_01.jpg)
 
 ### Analyse plus fine de la variabilité
 
@@ -346,9 +346,9 @@ Il faut privilégier l’identification de ces classes composant l’échantillo
 
 ### Classification
 
-> 校注：k-means 需要数值特征，类别特征须先作适当编码；编码和距离选择会影响结果。
+> **Précision.** k-means utilise des caractéristiques numériques. Des catégories doivent être encodées de façon appropriée ; le codage et le choix de la distance influencent le résultat.
 
-La technique du k − means permet de faire une classification efficace et repose sur le calcul de la distance ou l’éloignement entre les diferents éléments (points) de l’echantillon. L’éloignement peut être quantitatif (temps, taille, débit ) et qualitatif (arrivée d’évènement)
+La technique du k − means permet de faire une classification efficace et repose sur le calcul de la distance ou l’éloignement entre les différents éléments (points) de l’échantillon. L’éloignement peut être quantitatif (temps, taille, débit ) et qualitatif (arrivée d’évènement)
 
 ### Classification avec le k-means
 
@@ -358,7 +358,7 @@ Le plus souvent en HPC, les données analysées sont quantitatives et la mesure 
 
 2. Former les classes en calculant la distance de chaque point des centres Ctr et les associer à la classe dont le centre est le plus proche.
 
-3. Calcul des nouveaux centres $C t r _{n e w}$ : Les barycentres des classes formées précédement.
+3. Calcul des nouveaux centres $C t r _{n e w}$ : Les barycentres des classes formées précédemment.
 
 4. Ré-itérer les point 2 et 3 avec $\mathrm{Ctr}\leftarrow\mathrm{Ctr}_{\mathrm{new}}$ jusqu’à convergence
 
@@ -380,29 +380,13 @@ $$
 
 La convergence est atteinte lorsque les classes d’une itération sont identiques à celles de l’itération précédente.
 
-Possibilité de s’arrêter aprés un nombre défini d’itérations (sans condition sur les classes)
+Possibilité de s’arrêter après un nombre défini d’itérations (sans condition sur les classes)
 
 ### Exemple graphique de classification k-means :
 
-Oa. Données d'entrée
+![Itérations de k-means, page 39 du PDF](Images/2_edp_02.jpg)
 
-0b. initialisation
-
-1a. assignation
-
-![k-means 迭代示例](Images/2_edp_02.jpg)
-
-1b. calcul des points moyens
-
-2a. assignation
-
-2b. calcul des points moyens
-
-3a. assignation
-
-3b. calcul des points moyens
-
-4a. assignation clusters stables (fin)
+0a : données d’entrée ; 0b : initialisation de quatre centres. Les étapes suivantes alternent assignation au centre le plus proche et calcul des barycentres, jusqu’aux classes stables de l’étape 4a.
 
 ### Autres outils : Histogrammes
 
@@ -456,7 +440,7 @@ Utilisation en rafales
 
 Utilisations périodiques (ON/OFF), heavy tailed,...etc
 
-Utilisation fixe :
+### Utilisation fixe
 
 Les dates qui fixent le timing des charges sont séparées par un temps fixe δt
 
@@ -470,7 +454,7 @@ $$
 
 ### Utilisation ordinaire (standard):
 
-Cas typique, les arrivées suivent une loi de poisson et les temps inter-arrivées une loi exponentielle avec un paramètre λ (la fréquence)
+Dans le modèle de Poisson homogène de taux $\lambda>0$, le nombre d’arrivées pendant une durée $\Delta$ suit une loi de Poisson de paramètre $\lambda\Delta$, et les intervalles entre arrivées sont indépendants et exponentiels de taux $\lambda$.
 
 La génération des dates d’arrivées :
 
@@ -512,9 +496,11 @@ Pour la génération des temps d’arrivées des événements composant le workl
 
 Il existe des variantes qui précisent la distribution des événements au sein de la rafale.
 
+La formule géométrique suppose $0<p<1$ et produit une taille entière positive, de moyenne $1/p$ ; pour $p=1$, la taille vaut toujours 1. Si le taux des rafales est $\lambda_b$ et leurs tailles sont indépendantes des dates, le taux moyen des événements est $\lambda_b/p$.
+
 ## Génération : addressing
 
-> 校注：离散地址应按范围取整，例如 $\lfloor uM\rfloor$，其中 $0\le u<1$、$M$ 为地址个数。
+> **Précision.** Pour des adresses discrètes, arrondir vers le bas : $\lfloor uM\rfloor$, avec $0\le u<1$ et $M$ adresses.
 
 Les adresses d’accès aux caches/disques et autres supports peuvent être uniformément distribuées sur la totalité de l’espace d’adressage comme elles peuvent montrer une certaine localité spatiale avec une concentration sur certaines zones (hot spots).
 
@@ -524,12 +510,12 @@ hot spots : la génération des adresses se fait selon une loi uniforme avec des
 
 La génération d’adressage uniforme :
 
-Générer des valeurs u (adresses) selon une loi uniforme dans l’intervalle [0..1]
+Tirer $u$ uniformément dans $[0,1)$ pour obtenir un indice d’adresse discret parmi $M$ adresses.
 
 Adapter ces adresses à la taille de l’espace d’adressage du système à analyser :
 
 $$
-a d r = u * A d d r e s s i n g \_c a p a c i t y
+\mathrm{adr}=\lfloor uM\rfloor\in\{0,\ldots,M-1\}
 $$
 
 La génération de hot spots :
@@ -550,7 +536,7 @@ Charge à source unique : voir précédemment.
 
 Le cours propose une génération par une loi d’Erlang à $k$ étapes.
 
-> 校注：Erlang 描述独立指数等待时间之和，$k$ 是阶段数，并非一般意义上的源数量。多个独立泊松源的叠加仍为泊松过程；不能仅凭“多源”推出 Erlang 到达间隔。
+> **Précision.** Erlang décrit une somme de temps exponentiels indépendants ; $k$ est un nombre d’étapes. La superposition de sources de Poisson indépendantes reste un processus de Poisson : le nombre de sources ne suffit pas à justifier un intervalle d’Erlang.
 
 Remarque :
 
@@ -558,11 +544,11 @@ $\operatorname{Erlang}(1,\lambda)=\operatorname{Exp}(\lambda)$
 
 ## Génération : nombre de sources multiples
 
-### Génération de charge à k sources $( k > 1 )$
+### Modèle à $k$ étapes $(k>1)$
 
 Dans ce modèle, les temps inter-arrivées suivent une loi d’Erlang à $k$ étapes. Avec le facteur $1/(\lambda k)$ de la formule ci-dessous, le taux de chaque étape est $k\lambda$ et la moyenne totale vaut $1/\lambda$. Les $u_i$ doivent être indépendants.
 
-Donner une valeur à une variable aléatoire u suivant une loi Uniforme sur [0..1],
+Tirer $k$ variables indépendantes $u_1,\ldots,u_k$ uniformes sur $(0,1)$.
 
 Utiliser cette valeur et celle du taux d’arrivée λ pour calculer le temps inter-arrivée par :
 
@@ -586,7 +572,8 @@ Une portion d’un code utilisateur qui caractérise le mieux le comportement de
 
 ### Exemples
 
-Calcul : les benchmarks SPEC, Linpack , Livermore, NAS Entrées/Sorties : Bonnie, IOzone
+- Calcul : SPEC, Linpack, Livermore, NAS.
+- Entrées/sorties : Bonnie, IOzone.
 
 ## Workloads réels : Applications utilisateurs
 
@@ -594,7 +581,7 @@ Il s’agit d’exécuter l’application utilisateur à analyser ou celle repr�
 
 Collecter les charges générées pendant cette exécution.
 
-Les re-utiliser eventuellement dans des contextes d’exécution différents dans le futur ou bien,
+Les réutiliser éventuellement dans des contextes d’exécution différents dans le futur ou bien,
 
 En déduire les principales caractéristiques et les représenter par des lois de distributions pour multiplier les cas d’analyse possibles.
 
@@ -614,6 +601,33 @@ changement de contexte,
 
 Seek (disque),
 
-reception ou envoi de messages...etc
+réception ou envoi de messages...etc
 
 Avec leurs datations, leurs nombres en une unité de temps, leurs tailles...etc
+
+## Correspondance avec le diaporama
+
+Pagination physique du PDF, couverture comprise. Les pages 1–3 présentent le module et le plan.
+
+| Pages PDF | Partie de cette version |
+|---|---|
+| 1–3 | Présentation et plan |
+| 4–5 | Introduction |
+| 6–8 | Sélection : service |
+| 9–10 | Niveau de détail |
+| 11–12 | Représentativité et alignement |
+| 13–15 | Charge, répétition, confiance |
+| 16–20 | Caractérisation et moyennes |
+| 21–23 | Dispersion |
+| 24–30 | Quantiles, médiane, mode |
+| 31–33 | Box plot et variabilité |
+| 34–39 | Classification k-means |
+| 40–41 | Histogrammes |
+| 42 | Paramètres à générer |
+| 43–46 | Timing fixe et poissonien |
+| 47–49 | Rafales |
+| 50–52 | Addressing |
+| 53–54 | Sources et modèle Erlang |
+| 55–56 | Charges réelles et benchmarks |
+| 57–58 | Applications utilisateurs |
+| 59 | Paramètres collectés |
