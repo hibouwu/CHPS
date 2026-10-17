@@ -1,0 +1,40 @@
+\usepackage{fvextra}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{needspace}
+\AddToHook{cmd/subsection/before}{\Needspace{7\baselineskip}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\footnotesize}
+\fvset{breaklines=true,breakanywhere=true}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{5pt}
+\setlength{\headheight}{15pt}
+\renewcommand{\arraystretch}{1.18}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small APM · 2026-2027}
+\fancyhead[R]{\small DST · 22/10/2026}
+\fancyfoot[C]{\thepage}
+\titleformat{\section}{\Large\bfseries\color{teal}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\newcommand{\sectionbreak}{\clearpage}
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+  \vspace*{22mm}
+  {\large ARCHITECTURE ET PROGRAMMATION\par}
+  {\large D'ACCÉLÉRATEURS MATÉRIELS\par}
+  \vspace{18mm}
+  {\Huge\bfseries\color{teal}\@title\par}
+  \vspace{9mm}
+  {\Large CM1 · CM2 · CM3\par}
+  \vspace{4mm}
+  {\Large TD1 · TD2 · TP1\par}
+  \vspace{16mm}
+  {\large DST · 22/10/2026\par}
+  \vfill
+  {\normalsize\@date\par}
+  \vspace{8mm}
+  {\small M2 CHPS · 2026-2027\par}
+  \end{titlepage}}
+\makeatother

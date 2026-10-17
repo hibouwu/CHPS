@@ -1,0 +1,3715 @@
+{
+  "date": "2026-10-16",
+  "translated_segments": 402,
+  "bilingual_tables": 12,
+  "files": {
+    "01_intro/01_data_and_learning.md": {
+      "baseline_sha256": "deb35aa4bed7c8f876522c657493a491fcd5eedd9b94e6f7cbd8ad61e7315eab",
+      "sha256": "4762c661ce8d177391aaf6c4ba54da7d5774673302c1552c9b2bb49248bada34",
+      "baseline_recovered_exactly": true
+    },
+    "01_intro/02_algorithms_and_pipeline.md": {
+      "baseline_sha256": "a001b8867f375608d3c40bdf86e2d1e652152f64d8fe4915d79eb3b30be546bd",
+      "sha256": "d439c69abf1b3a8af7c9337f3882b76a3949dc9ca5c83ec357d0be8b2923814f",
+      "baseline_recovered_exactly": true
+    },
+    "01_intro/03_information_and_pac.md": {
+      "baseline_sha256": "d6c618eb3ab4e9539f02228fe17c4cb4890e4048fc1be6f67c878d2032f69f7d",
+      "sha256": "07ebbc565600e5bf5700fa781ad56165c36919de85e4cfe01da14a3f6c9e0d85",
+      "baseline_recovered_exactly": true
+    },
+    "01_intro/04_hypotheses_and_bias_variance.md": {
+      "baseline_sha256": "98012697a47a0079ff74699ddb78e103753c4b6ede83b55b20a7e5aed86909e3",
+      "sha256": "abba43d37b471bf81dfe616945e57e61fb097a96c77bdf7955225e17c81d08e7",
+      "baseline_recovered_exactly": true
+    },
+    "01_intro/05_linear_models.md": {
+      "baseline_sha256": "8849bc0fcb6aea1ed99e3373e1778a214a6bc155083f88009246e64a07f826fc",
+      "sha256": "b42f888915f1e8cecc84574871c8249ae7055ae696c9c42f62a8465f0886ab93",
+      "baseline_recovered_exactly": true
+    },
+    "01_intro/06_empirical_and_true_risk.md": {
+      "baseline_sha256": "cb3d1dd9936c71dcdb876c477c3cea5b8215c77f89a7446fd567b6240949472d",
+      "sha256": "db3e2a614b137fa5e4748461812557585fa198d7ca05aef388f8017151407fe2",
+      "baseline_recovered_exactly": true
+    },
+    "01_intro/07_bayes_and_learning_bounds.md": {
+      "baseline_sha256": "d870458b3df25037b51a460850e65276b50d68a9796cc82e12327924a6cf5baa",
+      "sha256": "1955c99d452c8886ee5fb1056b6768614f8303137f03b5f3d119fd4390ad4510",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/01_linear_models_and_least_squares.md": {
+      "baseline_sha256": "8887f5078d0c6e5d277fbe57dc01de4c7112ed508fbc05f5db6a5aae02abc4e6",
+      "sha256": "27c516339fdef1fce3aec6d0d87e2ee718a02dbd18d09a3f8810da47488541ce",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/02_generalization_and_high_dimensions.md": {
+      "baseline_sha256": "2265f2ff34083807d80f6a097de8ba7f128d39f1c75c0e7096210ecad983b441",
+      "sha256": "afcf5b3d05433992f7dfe6e047b7abdb3882d1be4179fb51791cb704f63200dc",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/03_sparsity_and_model_selection.md": {
+      "baseline_sha256": "8d2e4e583e9d860f55ef99181c7dc641d8667c3fed7e8044d852c96afdc45d0e",
+      "sha256": "741fb2b65c39bd8f1ef85ca8156b8362999e18078c2881c825beb88962d35b1c",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/04_lasso_and_structured_sparsity.md": {
+      "baseline_sha256": "32ac6cbd35ba09866e34d327fde419360a728212a43819839820dfa612dc6f04",
+      "sha256": "b47c88ae4a157ca08a31f246aa49a253c8c7cd496fa79cdd603fa8af5f4390df",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/05_ridge_and_duality.md": {
+      "baseline_sha256": "2cd3d087dbdc4bbf7975a70ec9066b58fec4a93f168a357f7613a5d639946279",
+      "sha256": "28ade922fe7eb08818b0b6760ee1a489743b36f0773cdc3cf7be2be097f15e8a",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/06_regularization_and_validation.md": {
+      "baseline_sha256": "cd1952a95d8c61fc73d575651d8ace669c9c6359569c908ebe4b6270fcb9f9e1",
+      "sha256": "19e20e22e5b5d1919d518b65914dfa4b0f8d1992975654621d10fc012dc5a80e",
+      "baseline_recovered_exactly": true
+    },
+    "02_LM/07_kernels_and_extensions.md": {
+      "baseline_sha256": "5ec55a7447bccbd30da6bbd7a795a10b4f1a105febb25febb61f408a14215fbf",
+      "sha256": "f9bf38a038314a083813a926637c2a0129b0eeee43b5a52662b0560d35b1e232",
+      "baseline_recovered_exactly": true
+    }
+  },
+  "segments": [
+    {
+      "id": 0,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 21,
+      "chinese_sha256": "9d556d45574b0139dba56edc36c648de1a250129e9f11ad0f53a128102d4dcf9",
+      "english_sha256": "582d4a5c68f1ada9e1cdebf7fdcf4a760783b566594e61b99685e5f6655cec5d",
+      "kind": "text",
+      "target_line": 21
+    },
+    {
+      "id": 1,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 23,
+      "chinese_sha256": "a7e43181f17102e9986f38c4c28c5b5ed0337dc412fff6f1a279604e3d4f87e2",
+      "english_sha256": "dd1ab62a835e394aa7f517d272f006fb2a84b40a33b7a6a3ae831b9975d3d858",
+      "kind": "text",
+      "target_line": 25
+    },
+    {
+      "id": 2,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 25,
+      "chinese_sha256": "5e0ac676ebf854192de5d4870b14952a739c0c41acef4be2a62a0c17bde9e896",
+      "english_sha256": "a702db70ab2904cda785a38c62f1b23aeeb77ffed1ca6383675d62cba14af352",
+      "kind": "text",
+      "target_line": 29
+    },
+    {
+      "id": 3,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 50,
+      "chinese_sha256": "10744c43feff7e92c9ec980fbba509a3d2b67870a75bca6ff48828f15437b343",
+      "english_sha256": "d3024f85e824dbfd1caea04855ed8ce5a2d7052e0ad04b4f0b7bf8c96d747bee",
+      "kind": "text",
+      "target_line": 56
+    },
+    {
+      "id": 4,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 52,
+      "chinese_sha256": "091172b7fc5d20294a15d372b94a0585e5fc1ea8307151bb281cee279eb91416",
+      "english_sha256": "672ccfdedfa5d6970d5ca1eae567ef7b2b65241f3467a3713a8943072a728001",
+      "kind": "text",
+      "target_line": 60
+    },
+    {
+      "id": 5,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 54,
+      "chinese_sha256": "b88ece60926e05e2d3796b01fb75c86490370acbd0a657d2d1fccde732afdf93",
+      "english_sha256": "96bb1b4695be3efc36baf8dc4fad872e2c02536e37c367a1455aca5d5ead2714",
+      "kind": "text",
+      "target_line": 64
+    },
+    {
+      "id": 6,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 61,
+      "chinese_sha256": "6ce28af54505c79f37850df9b0187f4b78f7b86c4d0b710e54338ec626fa37e2",
+      "english_sha256": "c24fc0b381afafc87f474517e5df370a7c9b0729be4e7d0417063d3fc9e8ee48",
+      "kind": "text",
+      "target_line": 73
+    },
+    {
+      "id": 7,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 63,
+      "chinese_sha256": "9431f97a583cf23291048d2b51f12591668a1294b585a9f9976230253c2099da",
+      "english_sha256": "a86cf8ab7738b9777121d796eebc6603edf585c1eddb377a7693f08780adfffd",
+      "kind": "text",
+      "target_line": 77
+    },
+    {
+      "id": 8,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 112,
+      "chinese_sha256": "c2cc51a9bcfb73836dc88ec6d5c8a8ec9c6c4f02c22721dcc96557b625c8661f",
+      "english_sha256": "6ace5c284f017bed1310458171245bb65ce6f3da081ed989423adcfa0ecd2298",
+      "kind": "text",
+      "target_line": 128
+    },
+    {
+      "id": 9,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 114,
+      "chinese_sha256": "87cfcc1c19fb6a0d3900dadea4171a5a1d3f1d91af276210bb331ecfecc6de95",
+      "english_sha256": "6d95b1cf9d3e94b66f095676ddf31c838f6eed1f60532dfc5c328ef5090bf049",
+      "kind": "text",
+      "target_line": 132
+    },
+    {
+      "id": 10,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 116,
+      "chinese_sha256": "2a657fb247f2d9dc1497f7c2d7dc046b9175e20c4864e69cb7cb3f0827f17ce6",
+      "english_sha256": "9ea6f19321dd4a4a126652e42a2d7835846bbae8dd29bcc62966c7275ba29697",
+      "kind": "text",
+      "target_line": 136
+    },
+    {
+      "id": 11,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 118,
+      "chinese_sha256": "e14d732dbd4180088f5f10ff4f68811998e5cbf59b74c5cb2cf56af99ca7f579",
+      "english_sha256": "6875a6a649bbb022480d64c61cc7d19e7bd7f8bd798897dd2749c27eeccbe23d",
+      "kind": "text",
+      "target_line": 140
+    },
+    {
+      "id": 12,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 127,
+      "chinese_sha256": "138661e7473da33819c84307810e4d4cc57913a94abf22d9533af30566f53caa",
+      "english_sha256": "1f3d5799991fd2fb82d107a0b56f39e81b3ba39f863169b1c52fc7e75ef3786f",
+      "kind": "text",
+      "target_line": 151
+    },
+    {
+      "id": 13,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 154,
+      "chinese_sha256": "2d361ffc8b8e1c824532fa1ce58cabc04eff8dcc4a84e0d3c888475832b01a0d",
+      "english_sha256": "52f3cb756674ecf50bf79ed9a9dbb29e357cf42eae1699ad62d5bda347a0e7f3",
+      "kind": "text",
+      "target_line": 186
+    },
+    {
+      "id": 14,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 156,
+      "chinese_sha256": "188b81048cd5582c578b8d6728b4878db981b2aa05650bf5652ae8c5f9a465c4",
+      "english_sha256": "2708d8f334ce26b393bb20f2505d84d9dd696d010b3ebcdd0395328dc1d865e8",
+      "kind": "text",
+      "target_line": 190
+    },
+    {
+      "id": 15,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 158,
+      "chinese_sha256": "ca2a803a3711a2ca79185df14eeb682e2d12edbc9d8a97114011e74896c4c5ad",
+      "english_sha256": "c50b5af4de4b588c1c573a6e991c9deb787ccfff67d801dd42c2c5fe0055fa64",
+      "kind": "text",
+      "target_line": 194
+    },
+    {
+      "id": 16,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 160,
+      "chinese_sha256": "edd951152bda511a77f9803f4a3c27c1a0c3a6de322a86ca0aa34adc1ef0432e",
+      "english_sha256": "286d639db8652a8baac50535b72aa7de55009bbad2b1e052d5696e73fd7d049c",
+      "kind": "text",
+      "target_line": 198
+    },
+    {
+      "id": 17,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 166,
+      "chinese_sha256": "863739f04056d4ec1ffd4b323300ed3357881932e843eafe86593f4bff5ef41a",
+      "english_sha256": "d4e18aa47aad0feb3e2152931cc27a8f163ae798a3ade470b6891a21fb9a2c73",
+      "kind": "text",
+      "target_line": 206
+    },
+    {
+      "id": 18,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 168,
+      "chinese_sha256": "027582fa0189fc21e1a88af010b6220403ca660353b8bccaffce21b6dbf3fb9d",
+      "english_sha256": "a5b2fd0439dbc744c8867ebb988eed37775f0092aa99f3bbc31db856b4191334",
+      "kind": "text",
+      "target_line": 210
+    },
+    {
+      "id": 19,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 170,
+      "chinese_sha256": "ed6a5231f4e3f315b32739c4ee09db28ef00067b30bb0da9b41dca97463f9784",
+      "english_sha256": "53244c39363b0fc559554a1a74d9f6b2af927459fc233f03db03f2d95075a335",
+      "kind": "text",
+      "target_line": 214
+    },
+    {
+      "id": 20,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 194,
+      "chinese_sha256": "6e069d9aaa22deaf85b661633febd80b5a50973d7dafe31257847d8e1fae838d",
+      "english_sha256": "bc76fdf488f527b00bf5f9ca2732688092c783f3ef62a3ef27cb28879ebc4abd",
+      "kind": "text",
+      "target_line": 240
+    },
+    {
+      "id": 21,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 196,
+      "chinese_sha256": "e71c855d98e2258bd30e5f487ca793842adfc80d15a5473a307962e2cc5a6aab",
+      "english_sha256": "574157ac99eceb33d8a26b3b8df0c8a4a4bd6de02a59443b112a7f3f372d6c0d",
+      "kind": "text",
+      "target_line": 244
+    },
+    {
+      "id": 22,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 198,
+      "chinese_sha256": "d84bf8f6925314b0e1c7753e831c7704ca224790b13881125fb01dfcb86afb68",
+      "english_sha256": "6678269fe8b9c7ecdfe649a5efbb8fa92683fb1865dd7d01b4f07a916cd19b84",
+      "kind": "text",
+      "target_line": 248
+    },
+    {
+      "id": 23,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 200,
+      "chinese_sha256": "ce7024bdb130720baf2c1a828b573a0e8acd579d81a36037dd41289884678ef8",
+      "english_sha256": "0ed2fd16e5eb5588954bedbbb67f6a33ea25de614dfe207760a1ec8fe5c36c99",
+      "kind": "text",
+      "target_line": 252
+    },
+    {
+      "id": 24,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 241,
+      "chinese_sha256": "d5bc240a8a2d914e3e11ad8ff719f46e69a0d627f3f6dfd324ee92414a0cf9d7",
+      "english_sha256": "67f57fc1344dcc2aab12399345cad753c9643e8fd502498ecaafc92347d1b0a9",
+      "kind": "text",
+      "target_line": 295
+    },
+    {
+      "id": 25,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 243,
+      "chinese_sha256": "c0c98173f92caf09d1afe77495535f759076374a6daa112ff9d3a1ebfe4d1bca",
+      "english_sha256": "c6c7f8b475979204b242776bb113cb3daa60610eedce66616e39afa58af71a0b",
+      "kind": "text",
+      "target_line": 299
+    },
+    {
+      "id": 26,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 245,
+      "chinese_sha256": "1339510ae78cc18bb418265b4ff1c8a63100d8f59e8a66741272dea257597057",
+      "english_sha256": "30eb4b8be8823a0b4d70bff7c31d83c7ba95e103df2152d37ab3156d4d7fddfb",
+      "kind": "text",
+      "target_line": 303
+    },
+    {
+      "id": 27,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 247,
+      "chinese_sha256": "93da50579afdfad7b5b906a31b608b6fa839ce4d3c4ab367b75a1fd9a67ac6c7",
+      "english_sha256": "533821be9b87c3d3688eefdf466a7fbe331246fc1d765d8e91779bb1d30b0f6d",
+      "kind": "text",
+      "target_line": 307
+    },
+    {
+      "id": 28,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 249,
+      "chinese_sha256": "6e4d914af30f104fdecab6c65a978ae7e92fceea9fa47561179badcbf3b03cc2",
+      "english_sha256": "d9ec80b740e400307a63e78cf5a720efc5f9109b62f35b64d5358c6bffb4876e",
+      "kind": "text",
+      "target_line": 311
+    },
+    {
+      "id": 29,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 291,
+      "chinese_sha256": "e79e28f1afae30672016d87b424e58b64e50453ebad5d7ad0e5e3252c81820d3",
+      "english_sha256": "a902711477ee74a1a356a9339ee7bbea08730589084c084c930bb030eead2895",
+      "kind": "text",
+      "target_line": 355
+    },
+    {
+      "id": 30,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 293,
+      "chinese_sha256": "82023732f589900e83ab31c7686a32884322a819b2dc195a23a0318703caf719",
+      "english_sha256": "ff28f2315b3868274f2feb817aa79f575f572c08e1973627cf662aced211bf27",
+      "kind": "text",
+      "target_line": 359
+    },
+    {
+      "id": 31,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 301,
+      "chinese_sha256": "db745e670ac6ce014a62236dda9dec92ad8b5cbc9a5ca75ebef05165b711307a",
+      "english_sha256": "49e969fc28a223380b6a6c082ecf7f1de8824d511f435ec1098d03a84c1a07e4",
+      "kind": "text",
+      "target_line": 369
+    },
+    {
+      "id": 32,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 303,
+      "chinese_sha256": "3bf61b4e368304167cb0b86a057e7efaadbb7914d04eb238b00ff49a946b95df",
+      "english_sha256": "d7b36a67fa3e1c46d138825202e0af018a7299ba5fb1b45262ec13c8043087a0",
+      "kind": "text",
+      "target_line": 373
+    },
+    {
+      "id": 33,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 305,
+      "chinese_sha256": "97caf3e43542c43f73405b2544d0e25a43bf172c65500c80b4a1125c85c05e47",
+      "english_sha256": "0558ec6e1374304f21debd620228f809903217f40fca2b31521fb907d8f9d1c6",
+      "kind": "text",
+      "target_line": 377
+    },
+    {
+      "id": 34,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 307,
+      "chinese_sha256": "5bcfd5c4bce90ebfac23fecb63d93b880257ad2d25c9ed33ae5e6ed0847af49f",
+      "english_sha256": "7ca1e57eeb55e42ae8455944afe4355292e8ac2d951668f3fdef9b11e65481d4",
+      "kind": "text",
+      "target_line": 381
+    },
+    {
+      "id": 35,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 309,
+      "chinese_sha256": "7be1ec80a298eda45b39d1438b30218bd332b481d370bba70b79255837b98b81",
+      "english_sha256": "d73e6aab0f69e160de9242e68293ab4db93f6483a2bd52a83f7f8891d66d4d96",
+      "kind": "text",
+      "target_line": 385
+    },
+    {
+      "id": 36,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 311,
+      "chinese_sha256": "464e3d5a6f0568ae3411a796b4b5bed90236049b67b3992f97ef46b1a40748af",
+      "english_sha256": "d2ee234c191cd768cb8ec09c33e9d56aaba3fa7a5c051e6479670a13da74613f",
+      "kind": "text",
+      "target_line": 389
+    },
+    {
+      "id": 37,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 34,
+      "chinese_sha256": "27527c2949694b73b7707d387d57cf334b93788e3ee58ed4322c14a70d059aa0",
+      "english_sha256": "db2f6689ccdcd438dee4155a1a3abda11110679f94e6dbe36fa58c6515b34e57",
+      "kind": "text",
+      "target_line": 34
+    },
+    {
+      "id": 38,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 36,
+      "chinese_sha256": "8b0c66029b2667f9746e5a879739708d9d5ecbeaa0f7eeea9718ab6bacc58882",
+      "english_sha256": "0a366bfb7d7c18521976b3833567f71852dd245188f6dee69fc4087921b5300d",
+      "kind": "text",
+      "target_line": 38
+    },
+    {
+      "id": 39,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 38,
+      "chinese_sha256": "9e014e8a17fc57a8aa1c9118246d86df52ec4af2cc6addbf961665fbce645737",
+      "english_sha256": "a7846bc8f3447727f82f5129d6dbf894b59987268c554e4ac72630899f46a715",
+      "kind": "text",
+      "target_line": 42
+    },
+    {
+      "id": 40,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 65,
+      "chinese_sha256": "758d0224344c73b48e23ec6a0b84574acadd98668744fbeef7c6c77d9c1f0280",
+      "english_sha256": "c9a78b3fe3f29a447c8b85d81d5d437370eb0ec094d96ce0407bcf44d3bd2a52",
+      "kind": "text",
+      "target_line": 71
+    },
+    {
+      "id": 41,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 67,
+      "chinese_sha256": "00bfb060baff6050a1342ec0676634121723ea4af9184c22ec26929fbcbe3f61",
+      "english_sha256": "2a62e29c7f12ff649ea87cb91469c0db24d63f0b735f54ef0099ac05b1fbdac0",
+      "kind": "text",
+      "target_line": 75
+    },
+    {
+      "id": 42,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 69,
+      "chinese_sha256": "bb85d5b60072a94ced0cbbdb4e0ea5a0e225c853402b53ad19dbafe7eabf49ed",
+      "english_sha256": "867191b2d1ea54fc610c0460f136d88e43dc5af2681ad3cefba603fb75188928",
+      "kind": "text",
+      "target_line": 79
+    },
+    {
+      "id": 43,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 92,
+      "chinese_sha256": "c16f0980f06e2dbbc0422210bde554c309b0c34e0d261674d5276be1556293d2",
+      "english_sha256": "2f0fc25bdba59cfca6b07f14d281246b58e726ab9c4ea44944b64364b9bad1c5",
+      "kind": "text",
+      "target_line": 104
+    },
+    {
+      "id": 44,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 94,
+      "chinese_sha256": "9df8730b324d951241b26faf6a0136c605cd50743cda53a08a2b266ad78f69fc",
+      "english_sha256": "a0d777b635783fe9ac185ffd930f6392b53fe0811ccb6c2421256670722fd66e",
+      "kind": "text",
+      "target_line": 108
+    },
+    {
+      "id": 45,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 96,
+      "chinese_sha256": "e78be1542cc88d2abbcdc0afd0085f403f9c97c191569c64136e81a7956ae24e",
+      "english_sha256": "0f3c3d535e586eab0c143969c630a874988ffc136f063b94a5c62de585baa653",
+      "kind": "text",
+      "target_line": 112
+    },
+    {
+      "id": 46,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 132,
+      "chinese_sha256": "bf9d015e5af4cbcaea03dbf7ec7c257a19276208847c26dd0219f94b0d9a8195",
+      "english_sha256": "088f9a18d8f91ba6dd8ec6e734417b1eeedd6d5b6972c9c265b4e71454d9367b",
+      "kind": "text",
+      "target_line": 150
+    },
+    {
+      "id": 47,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 136,
+      "chinese_sha256": "6520cbdaac6a264fd8216efc8e9aff3b1301fed72ed7275cfec52bcc61f9adf4",
+      "english_sha256": "3285741e24588168477c9672c816577f48674930169d94ce1536c4a577dc988f",
+      "kind": "text",
+      "target_line": 156
+    },
+    {
+      "id": 48,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 138,
+      "chinese_sha256": "ff8a6a10e9e09207d41b98e94f125d1a0a6a161af40db6679a0b78339a311b25",
+      "english_sha256": "f5d9c1ce5feb8ac39bf716a37ed947a8f44add92f480becaf964de94408ca41d",
+      "kind": "text",
+      "target_line": 160
+    },
+    {
+      "id": 49,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 140,
+      "chinese_sha256": "b6a348cabbaac31a8eabd7ad9955d9ccbbe3fad33a1ef6886cf521f9d0f69309",
+      "english_sha256": "5fa685e73615741c3a0e34f212622af63878ce468a8abf401337186cbe131025",
+      "kind": "text",
+      "target_line": 164
+    },
+    {
+      "id": 50,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 142,
+      "chinese_sha256": "e166c46c6d0082e6e622988bedd3ba2c7f07dfb7e90a2fefcdd6ed10038a9a8e",
+      "english_sha256": "a071a03635639424a16dce0f4e0e0d5cc4b95d685ee88a440a0bc64efcdfa317",
+      "kind": "text",
+      "target_line": 168
+    },
+    {
+      "id": 51,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 144,
+      "chinese_sha256": "a833acb81a8ac919d961777ea08d3b7b26435ce36c29ef693baecdad804676d9",
+      "english_sha256": "8715b2209dff23f053d3073bdc598e0a862f758084ebcd2ddf4a2bdcf2b5d748",
+      "kind": "text",
+      "target_line": 172
+    },
+    {
+      "id": 52,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 146,
+      "chinese_sha256": "3ae7f462ea0e87192f8a9e6e095b0f278e93681c4a7f4b58f58ea135b7ed8ad9",
+      "english_sha256": "30fa0027990e67beb429113ecf2af91b0f3d97bd50f59f24ed1a05dff5d7c30a",
+      "kind": "text",
+      "target_line": 176
+    },
+    {
+      "id": 53,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 148,
+      "chinese_sha256": "75c8741414ae69d9c2fdb0a068fec1c5f5393044166b7386cd2ef93c76ccd787",
+      "english_sha256": "990a7256b17286d86eaa7485a9f5af959c693d93b33d7b1c19b06418d3011263",
+      "kind": "text",
+      "target_line": 180
+    },
+    {
+      "id": 54,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 173,
+      "chinese_sha256": "a1fa6c6ed9dffd7cf991f7952755a9d3309be55d5961f1dd879f9cc552386c78",
+      "english_sha256": "73b772b16aab6e63f0e0b08bc9da7342a993b3b2a97e53721102438492f992be",
+      "kind": "text",
+      "target_line": 211
+    },
+    {
+      "id": 55,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 175,
+      "chinese_sha256": "3d1b52a31157639b25fb9e63e7dbe54b53b48c5984b2f725dc712ddf7948d91a",
+      "english_sha256": "637f38eeeb10f62961ca9ead7401d7452a9d881007a3feb43d52ff9e234ad0ec",
+      "kind": "text",
+      "target_line": 215
+    },
+    {
+      "id": 56,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 177,
+      "chinese_sha256": "b33a20b06494c34c9608344fbb18de5eb415ac7d659872025edab86a2e0bc4d8",
+      "english_sha256": "8dd32a1019671af57d7027de5fb17ab137c315aef9d6c016cd225ac0a09478bb",
+      "kind": "text",
+      "target_line": 219
+    },
+    {
+      "id": 57,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 224,
+      "chinese_sha256": "437e22eaacdca4a99642518f6fec90f8de4810a9dccaee9cb88062f24c3948cf",
+      "english_sha256": "314229cb0a0429196923da997c2c1d290e5bfa8fd23c3b6c171250ec90209474",
+      "kind": "text",
+      "target_line": 268
+    },
+    {
+      "id": 58,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 226,
+      "chinese_sha256": "65f01c8c0cf7dc46d165f9605569e8450551c0635034d35088eb42dc3cd8f40a",
+      "english_sha256": "cc82e7261150355eaa1e8357f852c08742f9f01eb92184900dd060e2d1c2eec4",
+      "kind": "text",
+      "target_line": 272
+    },
+    {
+      "id": 59,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 228,
+      "chinese_sha256": "7bc261cc149e4bdc8583579a600ee3c8f64f4a6a639decf958c05833d6309dff",
+      "english_sha256": "0615eb1ec0d9b1293bb654398f682e2d9636a5067578aa1c5981d120c48cac4c",
+      "kind": "text",
+      "target_line": 276
+    },
+    {
+      "id": 60,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 230,
+      "chinese_sha256": "d9ffa76ffbd9f05a6ff14952ca08c7222b5ff9daf8b3f7d87a8a82803232f01e",
+      "english_sha256": "e3bfd240f2d51dae72010457a4d499075bc49990b9927ee41253ebbd0438a695",
+      "kind": "text",
+      "target_line": 280
+    },
+    {
+      "id": 61,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 232,
+      "chinese_sha256": "dafd246ad8f0d74cfbace49f57dd82b1a7a0424aef1ff7bb856184ee757effe4",
+      "english_sha256": "5d0e82a86fbe7a8e0fbe96d012e1636a132923c198a5f8d11659fe347aeaf353",
+      "kind": "text",
+      "target_line": 284
+    },
+    {
+      "id": 62,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 234,
+      "chinese_sha256": "774ab3127ae3e57fad9aa04850888b51bff59a475e82830a90e9db2e30c1cbed",
+      "english_sha256": "264653d2b2d6c64db4c3f10e1edb0cfc8bef19c7d0b5f2f1f77b3ec1ebd7e424",
+      "kind": "text",
+      "target_line": 288
+    },
+    {
+      "id": 63,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 268,
+      "chinese_sha256": "a4a6dc1c37e206c56300eeb98190bc094183de0e4143ce65db3d090e16631131",
+      "english_sha256": "faacbd296127416e53872a683985fd8edbbbebc6562881d3ed431f24bbdb7426",
+      "kind": "text",
+      "target_line": 324
+    },
+    {
+      "id": 64,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 270,
+      "chinese_sha256": "0941b7b0a3b07d2d6b39c92ecaf33f67b3a03e518748af53c1ffceb0d9a41e7e",
+      "english_sha256": "9a141cdeb68dec9c35d87ad12e1a7833624262a226cb1c73a00253664c8a28ab",
+      "kind": "text",
+      "target_line": 328
+    },
+    {
+      "id": 65,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 272,
+      "chinese_sha256": "a81c6e661ab3b6a0d697ac37dbdb54df6c4e01254d87f1e08eea457a46cb73a6",
+      "english_sha256": "392a77f3b001b8e803f538b1b542b8fb686434dd820dca67e8cd8cf9a31d339e",
+      "kind": "text",
+      "target_line": 332
+    },
+    {
+      "id": 66,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 34,
+      "chinese_sha256": "58501788a471f0ff7468414f60c92528e671b9c53993ee5abcc43562d38d6e0c",
+      "english_sha256": "9a38bfb6acb35982224be62310e2aa8f52ff72978afe36ff36a8ac77a699f632",
+      "kind": "text",
+      "target_line": 34
+    },
+    {
+      "id": 67,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 36,
+      "chinese_sha256": "f1cba56c31e7fa505aff389e20751e6b4c67ed17eef007102d4982417b93b0b5",
+      "english_sha256": "7a600dc91eebafdf161c47fcccbd9f7748b6f79648ba6cc8af230b912138cb4a",
+      "kind": "text",
+      "target_line": 38
+    },
+    {
+      "id": 68,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 38,
+      "chinese_sha256": "e3d3072fcb853ee4be43ff94cff40dfea6ab4f9220d0e73f59d067b4d99d258c",
+      "english_sha256": "efc3958745fdec0ad460d18c909fcfe66583a38f3e88156c82a561999661ac24",
+      "kind": "text",
+      "target_line": 42
+    },
+    {
+      "id": 69,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 40,
+      "chinese_sha256": "c3051aafa4cc135a42021c6ff3757a94f705dffa96b3ad14705c46b183caa344",
+      "english_sha256": "2e58a0ef1ccc14f83043f0a576703c5ddc327bb4cfeb438b61676e3d31c2f4ba",
+      "kind": "text",
+      "target_line": 46
+    },
+    {
+      "id": 70,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 91,
+      "chinese_sha256": "7e3d30e6591b83bb9269b133b7e19f929064c1462172119eac17ae6093b65215",
+      "english_sha256": "1ddc208459dce3041206ea0a9285bd720dfbc004c3af64155e9bf0a6e569f725",
+      "kind": "text",
+      "target_line": 99
+    },
+    {
+      "id": 71,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 93,
+      "chinese_sha256": "4ed223bea4a8ee75567098bbea712133b69064360dee2fe84e0b695fcc01e0eb",
+      "english_sha256": "802545285f77cfeb27370cc31723d970d5d041b3dc94f52d9231abe2b1e3335d",
+      "kind": "text",
+      "target_line": 103
+    },
+    {
+      "id": 72,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 95,
+      "chinese_sha256": "d5b09be23ff3aac686b0e8b16e26d898845202d2676785250c97d868977573a6",
+      "english_sha256": "989d44e38531de19ae3e63f7216f03b29439037d09c82df61502519ffca0e69b",
+      "kind": "text",
+      "target_line": 107
+    },
+    {
+      "id": 73,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 98,
+      "chinese_sha256": "d672574a5f4640d51192c809bd54d6547bd7fd004cca7f4f3c6c492db753ee99",
+      "english_sha256": "a2e49be5dde45fba9b05ab43b9d043b05b6d851ecea8a7cd25860e28ba2c6105",
+      "kind": "summary",
+      "target_line": 112
+    },
+    {
+      "id": 74,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 100,
+      "chinese_sha256": "5196edf4cb20595d3baa2a1f17725218f03bf262ddcadd5149f5e8f84cbab104",
+      "english_sha256": "b7325aa358fd32007d52b33db251b188c4f5f3c67d72eb95a1b83fe0dbbbe393",
+      "kind": "text",
+      "target_line": 114
+    },
+    {
+      "id": 75,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 102,
+      "chinese_sha256": "42c196064e89109af87a7c3a6bdfde46331f22c6587d6f8a9b0922d0a2668507",
+      "english_sha256": "503f649ad154061e7a4535a31c78db245576adb799372244e1fc2c0e2552dc0a",
+      "kind": "text",
+      "target_line": 118
+    },
+    {
+      "id": 76,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 138,
+      "chinese_sha256": "1638e78af7fb288d126bbd9f89a4b2c4958ad866fa676681671f4253d2319c06",
+      "english_sha256": "d1d8e49eeb9b1b04047222c976376c4f1eb10aa2e30ea8411fca5504596fbc56",
+      "kind": "text",
+      "target_line": 156
+    },
+    {
+      "id": 77,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 140,
+      "chinese_sha256": "ddd1948da1de0e3c34aa8d13a9a2b9556691a88813a9f91f4e3c1a3fb15e659c",
+      "english_sha256": "5b86a64f34554c4299035dbbedd5a22e8322b83fe08f541a64f45b9e1f5cbd98",
+      "kind": "text",
+      "target_line": 160
+    },
+    {
+      "id": 78,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 142,
+      "chinese_sha256": "4b430eb5792fcfbe1f020614e1ad8c1ed30ad82f52f81710047ee2c65f992b31",
+      "english_sha256": "4bca74f4b47c9667b6d981ffadbe02e0ecfbb998516003caeebcc5569b545b37",
+      "kind": "text",
+      "target_line": 164
+    },
+    {
+      "id": 79,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 144,
+      "chinese_sha256": "8d49fcac176739d13f7ef937fd94b5af8671fd12dce9d776200d926445de0fe5",
+      "english_sha256": "b38568b017912d4c59aef85dde40546f582da070427a12bebf55ed7695cf35c6",
+      "kind": "text",
+      "target_line": 168
+    },
+    {
+      "id": 80,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 194,
+      "chinese_sha256": "f685623202cb132fa64516dd60fb1ca46416dbdc16c3f21b1a305db2b939d7da",
+      "english_sha256": "203be528c2bf05b458a1710edd70ec95d18e4303ef8dce999b9c2aa9236c0232",
+      "kind": "text",
+      "target_line": 220
+    },
+    {
+      "id": 81,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 198,
+      "chinese_sha256": "1ac0a68a03724e2d224ed554fea566fbbd1ee254a6bd6b39a84c1e6da9997d3a",
+      "english_sha256": "ea834d45bf4f85a0b4dc0638a4e19ff80d53256004926d2a09a604faad348dc8",
+      "kind": "text",
+      "target_line": 226
+    },
+    {
+      "id": 82,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 200,
+      "chinese_sha256": "58e2a4960c687cbe36c7f048326c032c827091f6ad0ed302494204215337bcce",
+      "english_sha256": "5b1f7ad6ba382bdadcbb14c407a3cda143b3dafc0beabf3dde25bd404d40fd75",
+      "kind": "text",
+      "target_line": 230
+    },
+    {
+      "id": 83,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 202,
+      "chinese_sha256": "5c237c1dff698fe024b8362486b3fbb0a3086ca63ee3e26091463f62502fc198",
+      "english_sha256": "1e32b7e45f57da93fb9cef1c4691be5269d99d684e25bd7d23de57e19e287122",
+      "kind": "text",
+      "target_line": 234
+    },
+    {
+      "id": 84,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 239,
+      "chinese_sha256": "863ac349d795daf87cd0c19ab38ff94d73a55342ca51fd668e6c619d7992b4ec",
+      "english_sha256": "83aad5985717a77002d964c8e9ca122cf7acda94f0801dffbb6252dcd483ef15",
+      "kind": "text",
+      "target_line": 273
+    },
+    {
+      "id": 85,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 241,
+      "chinese_sha256": "8980a77b9a0eeb74e48fe35a489f49d6afd426b915b30b4dbfb8e4f2f3c7fdd4",
+      "english_sha256": "8dce4c27902475c9972001af072f9067f060505c129db2c4496f1d3939e9f0c1",
+      "kind": "text",
+      "target_line": 277
+    },
+    {
+      "id": 86,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 244,
+      "chinese_sha256": "9c55c4a35f1cbd6eef5693e61e0b2601d0a78c2c01c174450861900685ba45ff",
+      "english_sha256": "dd8719741cfbd7a40666671975e395165130c3413cca46b1c90e5e92c8299b85",
+      "kind": "text",
+      "target_line": 282
+    },
+    {
+      "id": 87,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 246,
+      "chinese_sha256": "9ae3588041fc6bdbf65f753214350c1e7838a0de0751a86e5348b8bdac3e8409",
+      "english_sha256": "20a4fc968b5502611c974b6a011a06226e9e19a2316fd608716722554cec2689",
+      "kind": "text",
+      "target_line": 286
+    },
+    {
+      "id": 88,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 248,
+      "chinese_sha256": "4891a62c86e6fb881a72b9362fdd10211c5684ae8cbdb846a9898ef7de255183",
+      "english_sha256": "a92d8beaaf3f121456740eae95365ce381b1d5562a6b6ca2e96cbe2c0e4ab552",
+      "kind": "text",
+      "target_line": 290
+    },
+    {
+      "id": 89,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 251,
+      "chinese_sha256": "5cf547e2d729160fce3c6fe00a47d4c9ece8dbc68db484277aa7fa9806338fbf",
+      "english_sha256": "078d2697af3b6578dbfd83489372867bf004ce6bcef1632274d17f4ff4195c31",
+      "kind": "summary",
+      "target_line": 295
+    },
+    {
+      "id": 90,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 253,
+      "chinese_sha256": "014699093d635d96e91345d50e138a9e5bf518edd6f7966a8189cdb939a84532",
+      "english_sha256": "491f062a5e1a0580f1eb71d1c20660a7a5aa16936b98aef491fa9045e925ac69",
+      "kind": "text",
+      "target_line": 297
+    },
+    {
+      "id": 91,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 255,
+      "chinese_sha256": "fea90d6359b2f9143849ba471e847b3af15d1e1c03dbf5217d286e8e0a7b9966",
+      "english_sha256": "3ec2fbd57ef65bed258fca39e1fd88a9f012d9322b2a5556d236e2a65ab5a5f9",
+      "kind": "text",
+      "target_line": 301
+    },
+    {
+      "id": 92,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 261,
+      "chinese_sha256": "c13bd78e2f96719b3252335c11ae4ba3248a8ac97c29416ab5048913542b30bb",
+      "english_sha256": "b7f1ebd1a0e49f43a55439aacfa9be2aa5d8bfc62252f55028bc3733f138c268",
+      "kind": "text",
+      "target_line": 309
+    },
+    {
+      "id": 93,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 269,
+      "chinese_sha256": "4cab686d4e1c93a94a73f0f0352712975a7ada9256fb245caaca67f67c57baa0",
+      "english_sha256": "41c83d11e7ac1725c3803e27dc5f9c8e286274b3626efc0d30dbc71788bda211",
+      "kind": "text",
+      "target_line": 319
+    },
+    {
+      "id": 94,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 271,
+      "chinese_sha256": "2925eca5151d3fb5ad1e345b0e7f792532935d8b08cbbb796bf77a0ec4267cbe",
+      "english_sha256": "cccca2d5d0bb52a409261ca23de2b1db8b73eec037ec9020f010453df55fe03d",
+      "kind": "text",
+      "target_line": 323
+    },
+    {
+      "id": 95,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 278,
+      "chinese_sha256": "cbdb01903abe5aad2a1e90350f786f5ed1c2e3deb497f789432856a5d54b0a85",
+      "english_sha256": "32999bb9b8fa2875e30e4707e81fd01347b8773507905ce705ea2ed0af11cb07",
+      "kind": "text",
+      "target_line": 332
+    },
+    {
+      "id": 96,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 303,
+      "chinese_sha256": "2d743a68356f18e599997efc85c0f3030e2929e2f8c854ffcc3bc410ab21fcdc",
+      "english_sha256": "312ceb4b0bea92dd7649d4c677fe9f110f500d876f0d5d8526b2f3cebaf1aa9e",
+      "kind": "text",
+      "target_line": 359
+    },
+    {
+      "id": 97,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 307,
+      "chinese_sha256": "ad7485f5a27b3792b0022e54bb11c0cb215852c184206b6135b4030163b6e0e5",
+      "english_sha256": "16c57e6322036d7f0967512f62c9920dd00a5ceff41b6512f3015eab0a87f6e5",
+      "kind": "text",
+      "target_line": 365
+    },
+    {
+      "id": 98,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 309,
+      "chinese_sha256": "d4819ee4bfff29ca9ef947a9b303da25006c5170827bfe0c70a9aeb3c74a2638",
+      "english_sha256": "d44eeac602d0506ecd1ff3d9995253641911f36336039b5f9e6d5513b93f8e7d",
+      "kind": "text",
+      "target_line": 369
+    },
+    {
+      "id": 99,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 311,
+      "chinese_sha256": "eefb512aeb5f57e5e055f0b88ff1d62d63db4f7be0460a6e272da43fc8ed75cc",
+      "english_sha256": "f9472cf2afa629f957b13ba931e81942ee7b420f7bf5935a31dce578dbd3848e",
+      "kind": "text",
+      "target_line": 373
+    },
+    {
+      "id": 100,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 313,
+      "chinese_sha256": "f755d343fc2a2fe05f0e88bbaccac0c0d538229c3ce22750f566e9264820eac2",
+      "english_sha256": "8c022903f0716c035319027dec03a1dd860393081089afadacbd917cb354d7cf",
+      "kind": "text",
+      "target_line": 377
+    },
+    {
+      "id": 101,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 353,
+      "chinese_sha256": "45bb85ea90a585d5c0cb97864cad8d6905d988c518d18cd0c584a50a0d23c2a0",
+      "english_sha256": "6ecec23c6d816c7ac9a99c739ebdd1870b3568745aaaa7edeb0c7593c50f7d50",
+      "kind": "text",
+      "target_line": 419
+    },
+    {
+      "id": 102,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 355,
+      "chinese_sha256": "c7d8f6c69db71788f24705b5340259986d10807d2c0e93dd2d3ccc3018c6d3f5",
+      "english_sha256": "7af318c9e68e883f45c1a2820f3f8aecebc9cab292cdd6f0c871beb3f5ae1805",
+      "kind": "text",
+      "target_line": 423
+    },
+    {
+      "id": 103,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 358,
+      "chinese_sha256": "9bbad82e589dd04ddafa2ddcc1988c3077d092f12ee82e71386c3ddadef9bf84",
+      "english_sha256": "e34d101c44bc52b6d6256114f4051570981149a0b06385a9abf05ded9b0cdef6",
+      "kind": "summary",
+      "target_line": 428
+    },
+    {
+      "id": 104,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 360,
+      "chinese_sha256": "0975d3a44912544367bee0b16365601a2d48f0ae82a2a6e92d22d872c0992ce2",
+      "english_sha256": "5b04f0d05efb028e910f0f7e3e9194c9d553e054040af71d6506b350d0c653eb",
+      "kind": "text",
+      "target_line": 430
+    },
+    {
+      "id": 105,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 366,
+      "chinese_sha256": "acae5a1e00a1479b72a1a13ff51c98d86ae5fa9061127375b0a758c5639e63f7",
+      "english_sha256": "6785b36b19149e036f4c1ffef15b2ea96b83a4ab294b401de25ddc21111b29f9",
+      "kind": "text",
+      "target_line": 438
+    },
+    {
+      "id": 106,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 374,
+      "chinese_sha256": "314af693dd498e4a2cbb40b161aef13f35ef06692a4ee37fcaa03f5b933f71d3",
+      "english_sha256": "3cc2d3d99ca4d29582476a7a6de81914715d15a126ca3a9c211221ce97d08e77",
+      "kind": "text",
+      "target_line": 448
+    },
+    {
+      "id": 107,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 401,
+      "chinese_sha256": "5e8d18f54789fe6b4d71542959fb0cea143fd776338e188ce28fa58561b24088",
+      "english_sha256": "412058867d7e3f3eea42af9dfae7389b94514a12e601b751222fb95108b53982",
+      "kind": "text",
+      "target_line": 477
+    },
+    {
+      "id": 108,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 403,
+      "chinese_sha256": "43534f82828f912b2f47522cd847e76a03c0b56ba88e5b72b2d970bc664eada5",
+      "english_sha256": "e6c01c209733fa6f8616afaf1597a85574a53cb047f7ff4520afd091403a9575",
+      "kind": "text",
+      "target_line": 481
+    },
+    {
+      "id": 109,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 405,
+      "chinese_sha256": "d8d7205da8a735261ba64fcf9f739e3bbcb18b5df7361fbb4a278ba110714418",
+      "english_sha256": "c22bbf489ab32844ccb3afca4d5fb8d87df95058bd3f3dda3a61dba98b240422",
+      "kind": "text",
+      "target_line": 485
+    },
+    {
+      "id": 110,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 407,
+      "chinese_sha256": "b38748f0e1fbb633ca36e18499731a6eee020240b2a8559a8113fc2a6e77cbfa",
+      "english_sha256": "e2a687edd42434a1b33ed0e71dbd52b2554f4cd4339b5ef70a9ec9b38544ec15",
+      "kind": "text",
+      "target_line": 489
+    },
+    {
+      "id": 111,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 51,
+      "chinese_sha256": "39509514379cfe6203e8297ae0640e8683e02e84bf7b26f9bd20565d4ca0fabe",
+      "english_sha256": "de4ca5ce759bec4c36fe567126d8b3173208396567902386118607178483cdb6",
+      "kind": "text",
+      "target_line": 51
+    },
+    {
+      "id": 112,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 55,
+      "chinese_sha256": "e571d7404499a89dfad4494ccc76ca59a1b68b9e07b6dfee55756b20291fdb66",
+      "english_sha256": "0f8800ecacd84ec967046b81aa814a26de1e50e2f35e584b9622d2625e066cb6",
+      "kind": "text",
+      "target_line": 57
+    },
+    {
+      "id": 113,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 57,
+      "chinese_sha256": "6fce607e4d5d8ca0d9b48385f3b3398c243e056568b9b540ef79c5145b6d16d7",
+      "english_sha256": "d9b05f772d3fd769bc8ca215307ad45338b8aca41d480f38c48ea9926448f038",
+      "kind": "text",
+      "target_line": 61
+    },
+    {
+      "id": 114,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 59,
+      "chinese_sha256": "b89068f786ef13ffeab4b37274f34cae3a04361b2963659846c6a5b2f6e4858d",
+      "english_sha256": "ec8b5c5de8354b583bc794593a2448decc60cede114be11e847c2c1f7d1bc6a0",
+      "kind": "text",
+      "target_line": 65
+    },
+    {
+      "id": 115,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 94,
+      "chinese_sha256": "2c31d54b51c73dded6d7387888b79c1e300324164a2917fb021dd093bd891066",
+      "english_sha256": "94eaa8f7483f6ca85b91dfc763e67d4c05aa5d58ed700f2a03250426da604807",
+      "kind": "text",
+      "target_line": 102
+    },
+    {
+      "id": 116,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 96,
+      "chinese_sha256": "d3313a108722b81bf36e1772b69e1e241622daebbe1b8a3a392cc751974943a1",
+      "english_sha256": "52155aee3d1cda616c853877954bdef667a9086236616c661a6b3c488512ba7a",
+      "kind": "text",
+      "target_line": 106
+    },
+    {
+      "id": 117,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 98,
+      "chinese_sha256": "a8250ec053b445b42be843d43f21b0325f0c6ee44d2a3fcad4ea41c586d0c097",
+      "english_sha256": "1acb0300d138857497bc09e3e905e4f31335ed57ebda49f705d80c6ee428e9a3",
+      "kind": "text",
+      "target_line": 110
+    },
+    {
+      "id": 118,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 135,
+      "chinese_sha256": "84a87ac57d02ceedad37c29c95ad4c8e1003c9a157a4aabd7c69253f32c1cb22",
+      "english_sha256": "eed43d34a0c18220f3d19b01e72db18add99ce4341070794270a9ac687717464",
+      "kind": "text",
+      "target_line": 149
+    },
+    {
+      "id": 119,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 137,
+      "chinese_sha256": "e796e083930731eabf54978a554f9a48f5c0ff5e26ad822989bac446b41b1c39",
+      "english_sha256": "2bcf1b9da23a30582040d0ee25e410fa8cbf749e977511f911840c7f122528fa",
+      "kind": "text",
+      "target_line": 153
+    },
+    {
+      "id": 120,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 139,
+      "chinese_sha256": "449fb229a9c72733c2f10ddd3374a150ac1ed0297e4038d20a124eb31d817634",
+      "english_sha256": "6bf27d3f57f087c4e1169134e4bb1429d028f7f3d048f9a46335932d024ca029",
+      "kind": "text",
+      "target_line": 157
+    },
+    {
+      "id": 121,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 182,
+      "chinese_sha256": "a0dcc7a3509c2433b06d1ee78e238776da1769df389971671b9d15734c11c7c2",
+      "english_sha256": "d63ebd3faa8c75b127998215ffd62da75f282766482f4ae5d2ee369ecd72c8a4",
+      "kind": "text",
+      "target_line": 202
+    },
+    {
+      "id": 122,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 184,
+      "chinese_sha256": "237f77ad115b61badbc07856ab751bb075cf52e1f4fc9b5802b9c06c6b4c2fe6",
+      "english_sha256": "f36611c8aa3c8bc69c9e2667ecfa5a318d668786b57415c815eab597205f6b4a",
+      "kind": "text",
+      "target_line": 206
+    },
+    {
+      "id": 123,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 188,
+      "chinese_sha256": "6287a79058e28f403e96437287f096afbe1898ed7b4d8f4e4835f90527d8a7f0",
+      "english_sha256": "4d7f6e0757c4e439b9bc17be239046dd7769fd5edf4006643b7b0176638f6542",
+      "kind": "text",
+      "target_line": 212
+    },
+    {
+      "id": 124,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 190,
+      "chinese_sha256": "d4431ff56db70154997e5399491e41a7190d69075d5d957ebc33162658fe1b6b",
+      "english_sha256": "9f42d25e7743a2421308972719a83f776a26a1352f34e3b59baef0d8c2a0c95d",
+      "kind": "text",
+      "target_line": 216
+    },
+    {
+      "id": 125,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 192,
+      "chinese_sha256": "1338f41167925f44b698a47b1ad036ca8bb7ebccd5996c1b3e2ab4bbd05903d9",
+      "english_sha256": "27675bff6354f0a09b887a04344784766519c711b2c29d3c58a8ea238661727a",
+      "kind": "text",
+      "target_line": 220
+    },
+    {
+      "id": 126,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 195,
+      "chinese_sha256": "171f37eab12bc3aa705f0b9f3bfcfa340a0de9ae66cca4c4a89bc358543ad9d1",
+      "english_sha256": "844d19b25f031faedf30b05d3012c439b4f369680ebc8cbaf09c346ed2c8e0a3",
+      "kind": "summary",
+      "target_line": 225
+    },
+    {
+      "id": 127,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 197,
+      "chinese_sha256": "ef55d981d34397d53794be082207fc68e5f39e2da72d03a635d2ef7a5df4cc40",
+      "english_sha256": "2c848583d69ee07efd78c874079fb56ad31c3ebc7972281c4870307672d40e30",
+      "kind": "text",
+      "target_line": 227
+    },
+    {
+      "id": 128,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 203,
+      "chinese_sha256": "d45dec45193ad46cee7a1dc29eeb7475427c86ca55bcbc64f48fe4a071ce4caa",
+      "english_sha256": "7766220f5fffae485e883c68035a9a1efea5cf57e82be34557bb290bd3b2e6ac",
+      "kind": "text",
+      "target_line": 235
+    },
+    {
+      "id": 129,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 212,
+      "chinese_sha256": "992c2b7490bcaec36c906ce57d89be69d2b2ec6ca0a44f9991f4b37f37aa5108",
+      "english_sha256": "4d04a7fa060402cf1bfc2bd6d1b3fff481f6b051ba102ecacb22e92de4b1cd23",
+      "kind": "text",
+      "target_line": 246
+    },
+    {
+      "id": 130,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 249,
+      "chinese_sha256": "df89ea51d66d677b71592f24046a9759476b31ee760a0b9a8c813b9903c1ddc8",
+      "english_sha256": "206e674f203317675a7307406a772ceb8ea205a27b6cffceea3f60ffaa17e2c2",
+      "kind": "text",
+      "target_line": 285
+    },
+    {
+      "id": 131,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 261,
+      "chinese_sha256": "45ffb8897c2d9bad6b5e1a97fc649d897121f91b7b0280ccfa0ae4ec5444cd3e",
+      "english_sha256": "be844dc8bc1547f397b2864dd1b21a8e2e2aabfd1950754aa9b00dce8317ea2f",
+      "kind": "text",
+      "target_line": 299
+    },
+    {
+      "id": 132,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 263,
+      "chinese_sha256": "499783edb4f5b8f01c8017a59fc2f8216358e362467bee72e15b71072dea70ac",
+      "english_sha256": "f2351bf4a7bb4cba099d70e7a92a94847480642fbfcc348ef7640eb5060ac2f5",
+      "kind": "text",
+      "target_line": 303
+    },
+    {
+      "id": 133,
+      "file": "01_intro/04_hypotheses_and_bias_variance.md",
+      "baseline_line": 265,
+      "chinese_sha256": "f0a78946394d12f1af0558b8bcb6196954e1f6a97b27a1c85f1ef3fcc038b7e4",
+      "english_sha256": "dc867caba497f7ce542aaf3efe808760100cb5606bd86080f05b7d9e6e328e8d",
+      "kind": "text",
+      "target_line": 307
+    },
+    {
+      "id": 134,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 13,
+      "chinese_sha256": "b7009aaa3f48612b707524b0915e519a05b32e8a20792b47f191b342ef760060",
+      "english_sha256": "0b0a6695f75c659ad0213516ea91b935c7e910c596ddb8a4dc3df7afaea0f3ef",
+      "kind": "text",
+      "target_line": 13
+    },
+    {
+      "id": 135,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 15,
+      "chinese_sha256": "512251ad3a274214278fe044d1895791918e9bd1f911fb53762a88af7e7ea26e",
+      "english_sha256": "a115dc5ad747be1c402113cad16c10abf25738641c34786ca0ad4a6a61688ad6",
+      "kind": "text",
+      "target_line": 17
+    },
+    {
+      "id": 136,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 17,
+      "chinese_sha256": "07c9bcb04a2e8b2f5407f7460c8ee27ac92525b98b54cc8103c6b0a353574a96",
+      "english_sha256": "fe984d96cf2d0362c6ac0df3e4dd8595f42153bef28cb949da4f0cfa3cdd9f90",
+      "kind": "text",
+      "target_line": 21
+    },
+    {
+      "id": 137,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 23,
+      "chinese_sha256": "dc0b5cebd79cc713440ab8019e184a91d1c6f7f1a9a529ef229f7f10076c85e0",
+      "english_sha256": "22b2c4b3de881d47340be41e021285299b64258605d8c202905979ed52bc8fc3",
+      "kind": "text",
+      "target_line": 29
+    },
+    {
+      "id": 138,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 25,
+      "chinese_sha256": "582ed881feb85230d38bbc04c849e675232dde35816b33a1e0d3da9aaa78b3dc",
+      "english_sha256": "e289bd13fd0de384720fc7814acc23cad5df6bdc7e76c988929b920f9560d748",
+      "kind": "text",
+      "target_line": 33
+    },
+    {
+      "id": 139,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 33,
+      "chinese_sha256": "45cf7d323206aac14ea586b480b96d416b90c4baa796b20b6f4bb2cd920b8c80",
+      "english_sha256": "7a4bb6af62041a5bc9a19fb6a3a24985c29728ebcdab3d5251cadafa64f3ed80",
+      "kind": "text",
+      "target_line": 43
+    },
+    {
+      "id": 140,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 41,
+      "chinese_sha256": "2f7aa397b483dcc85394564236f97d4b744fd999e1a2ca2f33cc5467e7e312ab",
+      "english_sha256": "11fbfea30051772222c3ae56ec7761043b8cfb0224cb546365acfb72659c6220",
+      "kind": "text",
+      "target_line": 53
+    },
+    {
+      "id": 141,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 43,
+      "chinese_sha256": "52deef7519ef89c74939e2f91d4e609cd4e52a2a41b6b798647914386ebc8de3",
+      "english_sha256": "ee5fd3a435ff37ac17dda332bcca5d2f684155adb2ffc6b4e9162ad882de3a88",
+      "kind": "text",
+      "target_line": 57
+    },
+    {
+      "id": 142,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 46,
+      "chinese_sha256": "9d5bdd84ca30da53291440b86d0c2eae731cb5faf4ddf1fbc71a68819a40e7b8",
+      "english_sha256": "ca66a544b12c0cec7e911597980c1e8e7c239fe34ea653e8c33108323a0ea547",
+      "kind": "summary",
+      "target_line": 62
+    },
+    {
+      "id": 143,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 48,
+      "chinese_sha256": "4a391ea3dd85f85573dbf7a82dc4e8c9fc088db6c8a32b44036be01f0d9f7f4a",
+      "english_sha256": "db6a54f82f44fcf741208dfe188a095b3d85dd8c6188b2fad73b3e7e1b924e3a",
+      "kind": "text",
+      "target_line": 64
+    },
+    {
+      "id": 144,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 54,
+      "chinese_sha256": "137df93df37dde2361ddf08c7a06181d3acfe4920febf171287ee6d53fa95be9",
+      "english_sha256": "bf1a01ebc547da2e31eaf8833cc278748ac19a8c13faa2a17563b33e0ea1d408",
+      "kind": "text",
+      "target_line": 72
+    },
+    {
+      "id": 145,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 61,
+      "chinese_sha256": "52dc98b60288db82c3fbfcbbedac75b2a030f8848242ac08507a068d668767f9",
+      "english_sha256": "a71358c8a2bd64187d80a87a97c63d6217958b58d88ff48cbb4f57f4382234f1",
+      "kind": "text",
+      "target_line": 81
+    },
+    {
+      "id": 146,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 65,
+      "chinese_sha256": "3ab848a4e3abd735325f3e7115a6a7cf256e8b5ee2f79a6407aa8d5a523518f5",
+      "english_sha256": "7c8e356bd18f75a949df40f3c26edf3b644b991a063d0e7cd2060f35abb30ae3",
+      "kind": "text",
+      "target_line": 87
+    },
+    {
+      "id": 147,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 80,
+      "chinese_sha256": "7bf9205b7224cd37e5b21428551ec59be10a9413de2b6ca725b4d227cace711d",
+      "english_sha256": "278f5f623425493df721ff244e7023ba72c08caa183f930189a5af5bfa9c03a7",
+      "kind": "text",
+      "target_line": 104
+    },
+    {
+      "id": 148,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 111,
+      "chinese_sha256": "d160818b6cf23c28d68aeac27acd6978274dfdbd0e52815514bd6983e6df8957",
+      "english_sha256": "f36fe494bcfff21f39f040827433a0053fddb05609ca9271fda84f6be38f8b0b",
+      "kind": "text",
+      "target_line": 137
+    },
+    {
+      "id": 149,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 115,
+      "chinese_sha256": "664aa6af3613c49ba69f1e8fcde8032fd473bc8784ff496d37a08730294cb54d",
+      "english_sha256": "12d0973cb95060b7b5e6c14f97883e221bc4ebc4f425d13a62517d85b97d2080",
+      "kind": "text",
+      "target_line": 143
+    },
+    {
+      "id": 150,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 117,
+      "chinese_sha256": "65c9c346ac261748d68a21cf714fa8abdc6b2422932ecb82dfd4b7757e6dd9c5",
+      "english_sha256": "f65970615b1b42c5a9423c89636bf9b5af6a894647b4a24d5dc2c09195feb31b",
+      "kind": "text",
+      "target_line": 147
+    },
+    {
+      "id": 151,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 119,
+      "chinese_sha256": "199655d485e9caf590d5f9f09478c811d48bc3d5dbde0e821b0f9de3dde2fa81",
+      "english_sha256": "a67fd9014edb41849c0598dd1de1b6c1b1bdd97fdbcce2a21659a66867ce7760",
+      "kind": "text",
+      "target_line": 151
+    },
+    {
+      "id": 152,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 127,
+      "chinese_sha256": "6b73a5630c08c8bcb606c5dead9711144de7c87b63624dc5666f6f5193aa626d",
+      "english_sha256": "415210abb05c4c1eb30883d6aee405189b733de6915be9996196235e7fb9f208",
+      "kind": "text",
+      "target_line": 161
+    },
+    {
+      "id": 153,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 130,
+      "chinese_sha256": "6301c09e1040c3a26fd26a6d6d96a85f4200517340a41f60caccfa25c06601fc",
+      "english_sha256": "8fc257bdb9738bbae0197b3dd5d49a2d631dbb031a760b93261d3400519c53ac",
+      "kind": "summary",
+      "target_line": 166
+    },
+    {
+      "id": 154,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 132,
+      "chinese_sha256": "724adb3385dfec49ab65e801e910e5bbce28a421a9a91f0d00cba810f4fe6e9f",
+      "english_sha256": "fdfe65c0fa7662dd23e5ab31706c0d95c3d8a749eeaad390de59e18377100606",
+      "kind": "text",
+      "target_line": 168
+    },
+    {
+      "id": 155,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 140,
+      "chinese_sha256": "22a637d15cc5a7eefea29302af845eb47bdb49c8b31f13f8d075e478b2395538",
+      "english_sha256": "c7c4446d3dfc3b81854fe1cb63256c12361f488a18283310c467a1a75bdbe0b7",
+      "kind": "text",
+      "target_line": 178
+    },
+    {
+      "id": 156,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 147,
+      "chinese_sha256": "ea9545e6b551691058eab83eebf9fa48f8cf9e2b45048c92ac427abd7d2b5882",
+      "english_sha256": "c514b1687142119596c776910775ff4a177a3e7692bcd43a797055bf830db3a3",
+      "kind": "text",
+      "target_line": 187
+    },
+    {
+      "id": 157,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 175,
+      "chinese_sha256": "c94d6f85d5d8ffc30f550b3ed1cef0601ec24a6abd7c419e7062569b5c2532f0",
+      "english_sha256": "90e2c4eb7b7a5f6ddcdb6cfa933cf245c6f7a35fa33e913537baf4d8e1eec7e4",
+      "kind": "text",
+      "target_line": 217
+    },
+    {
+      "id": 158,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 208,
+      "chinese_sha256": "dbc8a0195f10af3719005e9985cb20e22f4944d804b79e411c8b4dcc96134ef4",
+      "english_sha256": "0e13ef003fcd85fda2fa825d1b4fc4ccab49c50543bac6128c0164413a1a1f41",
+      "kind": "text",
+      "target_line": 252
+    },
+    {
+      "id": 159,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 212,
+      "chinese_sha256": "9ae8b54365b47ed04654b5557821880fbe148e20a08bc8d7ac0adb8d87f191d8",
+      "english_sha256": "1cf0427602dc19a006db6bdf7109e3de629ef474834efc1d0ab578882941f615",
+      "kind": "text",
+      "target_line": 258
+    },
+    {
+      "id": 160,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 214,
+      "chinese_sha256": "49bea6de27ada0f8db91f7af455b3e4543807753c076de96891e90022efa44a2",
+      "english_sha256": "54e16299bc3bde6b802b7f5977189fa692ec56cc73aafb3bbc2938388e68ef2c",
+      "kind": "text",
+      "target_line": 262
+    },
+    {
+      "id": 161,
+      "file": "01_intro/05_linear_models.md",
+      "baseline_line": 216,
+      "chinese_sha256": "f7632c27dc34fc4abf065588b9d3c6237decb9babc5bb35d9b5c8b0df553365d",
+      "english_sha256": "b7d22b98a479a23eefc1d32d2b2c359de01f3a4132823ba45efa9f4d85598ea9",
+      "kind": "text",
+      "target_line": 266
+    },
+    {
+      "id": 162,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 45,
+      "chinese_sha256": "e5ad25720b32fd575a8b4f788c4fa6ff53fc9dc6b9dc0063fb18da8b0dcac10a",
+      "english_sha256": "a99ba99e46f6c2f5cd9e697d1e5154d957c9b74c4417e54de53412ad4c5a8090",
+      "kind": "text",
+      "target_line": 45
+    },
+    {
+      "id": 163,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 47,
+      "chinese_sha256": "cb18a3fc2e3f354562d9d644b93435f51bd2d768faa05bc53fe752cb144bd8b5",
+      "english_sha256": "99952b62d4ab2e05e24d4d6df27beb167862d0d0a2bf3e907ffdf964f8d075a4",
+      "kind": "text",
+      "target_line": 49
+    },
+    {
+      "id": 164,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 49,
+      "chinese_sha256": "4c0df3416481a9c19031ccbcaa3d79fac0588f34fe99bfab42eda2a3d5d96441",
+      "english_sha256": "0efbfdd25e5fd4873b5024a7e05c38286621a3c2b275a4d92cefce88d75b645a",
+      "kind": "text",
+      "target_line": 53
+    },
+    {
+      "id": 165,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 51,
+      "chinese_sha256": "77a5a3cf66bcb46089a3b161dfd924c21f10f78ed273fc6e8be9e4fc5c53b9fe",
+      "english_sha256": "3b5a20ffc7985b5b720916c7840bf8007c95e066c3970bf5bd1737ee6d7b3220",
+      "kind": "text",
+      "target_line": 57
+    },
+    {
+      "id": 166,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 124,
+      "chinese_sha256": "18c804d2e4703c97bcc47b6f07245f586fbe7a72429e6e5377529c11b108ae9a",
+      "english_sha256": "bada408c0601e2248babd54700ab91ab193ff74132190dcfc7ea2b2f4a7a4d89",
+      "kind": "text",
+      "target_line": 132
+    },
+    {
+      "id": 167,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 126,
+      "chinese_sha256": "4e9e0b5649a0153dd5bdecb76b057b19721f0fc3f8b690d0f1fd5d151ddf3bd7",
+      "english_sha256": "db6bc6f76faa191021158469ab1b7d6e32ffab7886cdf91a77de0f4ba87a4fa3",
+      "kind": "text",
+      "target_line": 136
+    },
+    {
+      "id": 168,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 128,
+      "chinese_sha256": "132e8dce8bdba6ad131780317709ab399afce4157619d8540dce9c85d56a9bfa",
+      "english_sha256": "bbc0f0ed80afa0dba5e3c67baed8154631549af123380f26ef2aabdff0285678",
+      "kind": "text",
+      "target_line": 140
+    },
+    {
+      "id": 169,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 160,
+      "chinese_sha256": "55d15c69d4bfc30e28ee2594ffedee292ca536bee9b482a0162e518282ea2cd5",
+      "english_sha256": "621bd4c5a2a0b25f5ab387f12e1d6c19e0ded70cdb645b42466db0ba82025940",
+      "kind": "text",
+      "target_line": 174
+    },
+    {
+      "id": 170,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 162,
+      "chinese_sha256": "7d37fb7b10fe421c5dde286e9b015f27a5dccbc4c3a0cd550618650d6352e7a9",
+      "english_sha256": "16362f50d00d4fab6793dff54390afe3bb4e169c90a0027f6ce8547e36a4b4c0",
+      "kind": "text",
+      "target_line": 178
+    },
+    {
+      "id": 171,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 171,
+      "chinese_sha256": "737529a4d3b4d97eb8dcbc915801992cea750770797f97e3a3ca5fdd214ecfc8",
+      "english_sha256": "0490b422504d270ed59d76a59aa5d569d782ea86f028f1a21c61db7b98decb43",
+      "kind": "text",
+      "target_line": 189
+    },
+    {
+      "id": 172,
+      "file": "01_intro/06_empirical_and_true_risk.md",
+      "baseline_line": 173,
+      "chinese_sha256": "9a24281551d729f9b42e5a37b8a23fe817f977f4b395c9f6ee7e8a95e342757e",
+      "english_sha256": "c11a0488a2c52b43c17e8afc46a1ced202c83d70fca006a72008fdfe880f2302",
+      "kind": "text",
+      "target_line": 193
+    },
+    {
+      "id": 173,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 24,
+      "chinese_sha256": "447871c252b64479fadf7968a980aff9cc41b8eef6eada5b29d21f6ddbeceb6e",
+      "english_sha256": "3a42df4f1c16d8c9a4967490ec4430e6c31ae31e691a1e030a0056669616cc77",
+      "kind": "text",
+      "target_line": 24
+    },
+    {
+      "id": 174,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 26,
+      "chinese_sha256": "59346df504724cf6e514459d2bfe01835f7925d11bed36ba6275c4d83a5ed53d",
+      "english_sha256": "1acb28a38b0b6c32e4e2e636214be467b2c95b14e2c5a53436c7c0d92893a1e2",
+      "kind": "text",
+      "target_line": 28
+    },
+    {
+      "id": 175,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 28,
+      "chinese_sha256": "197721479735d2b6b820adf8dc37618f88cd10371a627735e7355e53241b7ca6",
+      "english_sha256": "cade7cb96a522a257e4f87856fdf25adaa816be22ee8119613e640e05d9d1f05",
+      "kind": "text",
+      "target_line": 32
+    },
+    {
+      "id": 176,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 54,
+      "chinese_sha256": "7b3e06904f03e192cbd9bfd1876ed2f3cc286d964f63b11e02c5ed0fbe0b7568",
+      "english_sha256": "b9d2523569c8b030abbfeee466a110d22396a788e68f65fa9c992ba03285f3b1",
+      "kind": "text",
+      "target_line": 60
+    },
+    {
+      "id": 177,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 56,
+      "chinese_sha256": "76bd23c9e69a2a3f0ed82f84003170f81b10def58eedfbc5909863358c9f4058",
+      "english_sha256": "d5753105643aa54a9324d85f2f9d2b2d5b305b131174a540ce64b3ad566d326e",
+      "kind": "text",
+      "target_line": 64
+    },
+    {
+      "id": 178,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 58,
+      "chinese_sha256": "957a8e585f6036ba7b752b5a90a8216bef9a8fe21817fec48906110507d614c7",
+      "english_sha256": "f59fb17f5af89fa5696b392e6a1c68e967c9aadc877c87d49886592922628670",
+      "kind": "text",
+      "target_line": 68
+    },
+    {
+      "id": 179,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 60,
+      "chinese_sha256": "eceb38cdee25ba3632279c5ecbbdcd1e389d8d2c40b6e01b706b051320d21344",
+      "english_sha256": "5ead3f8546300c530320e892c1812d3381c6ef61848be25a11b98f782259d431",
+      "kind": "text",
+      "target_line": 72
+    },
+    {
+      "id": 180,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 92,
+      "chinese_sha256": "02613e8c729df30e46151b17d8865f61bdaf824524df2c4287da1725be910e24",
+      "english_sha256": "7d0a85da95effa27b3e9274fe5c95e9201bfea558fd45f2c7ef0b03dd873d4cd",
+      "kind": "text",
+      "target_line": 106
+    },
+    {
+      "id": 181,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 94,
+      "chinese_sha256": "dd0ad8e2d4fb2457823cd9c15b9d1aeae0fce31f309db777fe98bb6e9a808dcc",
+      "english_sha256": "357151aa4b040d92e556a1965f7e1c2014512a55332c5d081418f85e9f400f07",
+      "kind": "text",
+      "target_line": 110
+    },
+    {
+      "id": 182,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 96,
+      "chinese_sha256": "765aa8702d9279c26675c1a5c37ed0727da630dbe3ee7272b87cf8b11c0870bc",
+      "english_sha256": "09f57cc6a04951b8a42aabb057c381ea6e4558402b59ecbe69048e16bf268867",
+      "kind": "text",
+      "target_line": 114
+    },
+    {
+      "id": 183,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 104,
+      "chinese_sha256": "1caeec2c111c6c06ab8ea3859ad87b9b92c8741090c2c7267a5aec1b29aeea7c",
+      "english_sha256": "a336c9dadf420837e60d95f1ba5f35c4ff208dcbca9faaca8320812da444be64",
+      "kind": "text",
+      "target_line": 124
+    },
+    {
+      "id": 184,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 106,
+      "chinese_sha256": "b1428a06ad2244f6710f41562e491c4539d2b47b8ad965a41487393fb95c41dd",
+      "english_sha256": "30e8e6e2266da6d7c806a417344924d0cc894b16fa6392f5e1d1fff1e6a77a1b",
+      "kind": "text",
+      "target_line": 128
+    },
+    {
+      "id": 185,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 108,
+      "chinese_sha256": "819a47c03c1abbc3de1feee453ea04250a53be1331ff9558b19cbf3ae4870fdb",
+      "english_sha256": "ac84d2782e58fd5df5f23e2e938c4ae0c2d583f01edf8013563d3bec18836fd6",
+      "kind": "text",
+      "target_line": 132
+    },
+    {
+      "id": 186,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 115,
+      "chinese_sha256": "7ba2ad779b5d153cc1b9c4a917030a2820dfd53577a5c0dc231eee5501697fed",
+      "english_sha256": "96673aa2d8282ee0b4d146918cbd7db3d476f02d5e6cc8c9986513c162c58711",
+      "kind": "text",
+      "target_line": 141
+    },
+    {
+      "id": 187,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 118,
+      "chinese_sha256": "f3af36024a2042f54e0c79083b3a3f87ad2b33c4d957c722ce808a8d34fd5187",
+      "english_sha256": "a0aa5ebbfbe551119cc80548874e87f4c9f0412a9c466bfe7dab2fb069f04a2a",
+      "kind": "summary",
+      "target_line": 146
+    },
+    {
+      "id": 188,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 120,
+      "chinese_sha256": "0327a294ccc2a2b34db1f4d9eab12f2756a5c2578209d24515c73277c99564c5",
+      "english_sha256": "b01d37f8dce500656fd9234d8f6fda2e767bfb83b49546d5144e96b8e4d15b52",
+      "kind": "text",
+      "target_line": 148
+    },
+    {
+      "id": 189,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 126,
+      "chinese_sha256": "f8abc90b9df31f0c87f62a86cbc4d139735713c44cecbabb94c9745c9379b8b0",
+      "english_sha256": "dacbd0d8d0e168267a9a49ebd5cd5be51c4a7b7363b63368413a1a36b2346df7",
+      "kind": "text",
+      "target_line": 156
+    },
+    {
+      "id": 190,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 128,
+      "chinese_sha256": "93991a9f94f057293060e61068699cad619f1ff19ce50c9987bf06364c888d92",
+      "english_sha256": "7d24dbcac7eeddbd5e86905644eaba5722d37b5c7b788c59ac15b0575f589322",
+      "kind": "text",
+      "target_line": 160
+    },
+    {
+      "id": 191,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 135,
+      "chinese_sha256": "388e58a67fe51df544d04c81963b5e420c7e7e9360c6411eeb5734edcc2cd101",
+      "english_sha256": "8eac1e6cac98eb28e470df2c81f6430ce44cdddb59405d70920d6b9ed5620c61",
+      "kind": "text",
+      "target_line": 169
+    },
+    {
+      "id": 192,
+      "file": "01_intro/07_bayes_and_learning_bounds.md",
+      "baseline_line": 139,
+      "chinese_sha256": "e8142f1816b3ae67c6d6bd9af25af054f6701fe130ff0e80fe43f62aeaee32a8",
+      "english_sha256": "be84dcf0d78425bf2cf2d3e2a6a1305842be65ccccfd1a11bddf95a4b4bb73c2",
+      "kind": "text",
+      "target_line": 175
+    },
+    {
+      "id": 193,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 19,
+      "chinese_sha256": "8f6835cade85e23ae3e4b56012b468915b4b52772c5438d56f236a089208b033",
+      "english_sha256": "e5c93c66ffc1be36f1b0ae299d248d2cc18d902034ee370aa5d05af55722d7ab",
+      "kind": "text",
+      "target_line": 19
+    },
+    {
+      "id": 194,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 21,
+      "chinese_sha256": "7a15e7608542789ac77e8bfcd0cffaa2b044584cc3629c21ba8729d7c7d7e1a5",
+      "english_sha256": "98ab6091cff22ed0b8960d8d46e10613393367112aae263a90aa34d02df903aa",
+      "kind": "text",
+      "target_line": 23
+    },
+    {
+      "id": 195,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 23,
+      "chinese_sha256": "0a93a98c2e5b164867eee5577256bec893990bb09da0fe2ea729e3a28c7ec601",
+      "english_sha256": "68eff592db8e5f2cf38f93820a1bcf3176c7b6cde66b7867a9f22dac8f0e8286",
+      "kind": "text",
+      "target_line": 27
+    },
+    {
+      "id": 196,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 97,
+      "chinese_sha256": "f69d6ec9dd8e43d7817ac8605e06f968d986cf4d9436a2a5e336c69a10116765",
+      "english_sha256": "c83b68b1008077d0560476f8a0d4e73c3a8e7835d2b2ad61502083aa873766da",
+      "kind": "text",
+      "target_line": 115
+    },
+    {
+      "id": 197,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 99,
+      "chinese_sha256": "ae680689b4c92dc3ed4b83508b05ee25ecb8cfcb7f55aaae9cd4674473dbddd4",
+      "english_sha256": "74ac03981712e382bc67156c120857e7872ec54c12c8590ea8eee6e6ac17e2e4",
+      "kind": "text",
+      "target_line": 119
+    },
+    {
+      "id": 198,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 280,
+      "chinese_sha256": "80eb2560678fd2e543efdde5d2103831e7845e914d30408c5453716ca0bd0523",
+      "english_sha256": "6ce650a6a2b4181af6f149dde47fc07582a4ddd5256be669730392e3c06cc1e5",
+      "kind": "text",
+      "target_line": 302
+    },
+    {
+      "id": 199,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 282,
+      "chinese_sha256": "bdfc5f4e7135efa53b1fbeca2aa9a2b52331760a774e8155f5474a7fcca03670",
+      "english_sha256": "84f7a164bcdea5b1e38bdf1a187b567eb7497b22029b38a3da6848793da729f2",
+      "kind": "text",
+      "target_line": 306
+    },
+    {
+      "id": 200,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 288,
+      "chinese_sha256": "c3a9e8ff19cbbf3458904ee19914140eb4bf214e7ef588e428c86319f0e02235",
+      "english_sha256": "ffbbde95fd6bd159ff4c6f10760831604bd438362a9c01cfa04b21c28411de85",
+      "kind": "text",
+      "target_line": 314
+    },
+    {
+      "id": 201,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 290,
+      "chinese_sha256": "de7724a4ea72fb162589c9d38348446580249584c1a8259bde14e0aba8d2283e",
+      "english_sha256": "6b5381a79298b65b2689f417ba5317f219263d7ac662ed2d844a8c632e67931e",
+      "kind": "text",
+      "target_line": 318
+    },
+    {
+      "id": 202,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 292,
+      "chinese_sha256": "384ce03c6f5ca672ff3a4df720acc94d0140ab4c3ef0ccf93292d51c9294a754",
+      "english_sha256": "5b84028e0817db8f4d96e8ee060fb4be6c381f59563c4b8f4923a0a63a0f46c3",
+      "kind": "text",
+      "target_line": 322
+    },
+    {
+      "id": 203,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 323,
+      "chinese_sha256": "ce77c375c883c1306574f8e73c3265292330b04a3c8de989e2263d939ebefe24",
+      "english_sha256": "ee5756a7141217ce33bbbbe4dddc2e361baf89737f07d49055148982b3eeba59",
+      "kind": "text",
+      "target_line": 355
+    },
+    {
+      "id": 204,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 325,
+      "chinese_sha256": "8a9917ef15e8b7ba1a31cc23fd8c9ce8009ec23afbf40e8b8b0d8c89ab6de2d3",
+      "english_sha256": "0aa6fcef4e61634f67d0a9c00860654317b5cb213a9e4c5e84c1e77771df3cf6",
+      "kind": "text",
+      "target_line": 359
+    },
+    {
+      "id": 205,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 338,
+      "chinese_sha256": "47fe9a1c0c7057d1a0cae50f4b807905abe0ccb59567b66d671de8109763a76d",
+      "english_sha256": "e8541b902f581908b053777a716a2c7ce473bf3f3546af784ac203e62f96b15f",
+      "kind": "text",
+      "target_line": 374
+    },
+    {
+      "id": 206,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 348,
+      "chinese_sha256": "0327170bfe7bcf96224a63a5f38013a2c1fbaf0eba280aca415e7edec92fda4b",
+      "english_sha256": "782a5220955946d8c170ed32bfea9e6a444f0a4dfd6800d0f557bd92da146baf",
+      "kind": "text",
+      "target_line": 386
+    },
+    {
+      "id": 207,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 350,
+      "chinese_sha256": "ddfcaadbd719952fc81c4c29b9d97233083499224e58b4fa6338be6f59ca13cb",
+      "english_sha256": "772b173c36b2bd9403060c876dd23efa987b8d805649982b13cca1a4857a0b67",
+      "kind": "text",
+      "target_line": 390
+    },
+    {
+      "id": 208,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 357,
+      "chinese_sha256": "86d252769c4bd9797cb29bac60293c3cb828699b4b3a7d4052cf4c2e807acdb2",
+      "english_sha256": "4a9783550dcbc4be8e8617f3bf9e8f4c2193a6516b0e1832733a9bb95193dd3a",
+      "kind": "text",
+      "target_line": 399
+    },
+    {
+      "id": 209,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 360,
+      "chinese_sha256": "39362ffd555c1848f4cbf3f9240e259dcdfd14a20ba93df7ef2974766a7c12d4",
+      "english_sha256": "4c3bd55148b96576b6cbe47d390296380807bd41472cad2d593c2337db9d95c4",
+      "kind": "summary",
+      "target_line": 404
+    },
+    {
+      "id": 210,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 362,
+      "chinese_sha256": "0c775bbd616757508dd4949819d48b810284c12852dda0e674718b33568e3ecc",
+      "english_sha256": "ec27929c2f3af1f72034892dc5bf35914db966befc4c94eea85dc34abb1c0427",
+      "kind": "text",
+      "target_line": 406
+    },
+    {
+      "id": 211,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 370,
+      "chinese_sha256": "d6a7487195b5bf5374714c6ee26725817141538ceedd15f1cda5277cd3f65b38",
+      "english_sha256": "4854e010eae470eb564313bff62fba0912e7a019ef152cab62ed2f6bb16ee4a5",
+      "kind": "text",
+      "target_line": 416
+    },
+    {
+      "id": 212,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 402,
+      "chinese_sha256": "3c78605cb9f16ac6c069409cc82940a69420360f333eb1a04ac8a61ac583d0e9",
+      "english_sha256": "ff81ab682d20ca49273568f51c803dd5aab8fe4eef96319ad258ebe519c7ee5e",
+      "kind": "text",
+      "target_line": 450
+    },
+    {
+      "id": 213,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 411,
+      "chinese_sha256": "bac53cf03dd2dbf41b70d6caf1c1f4f8d68536a4a6c138f2411797fdb81cf39f",
+      "english_sha256": "69495ef39c2844580410054ac2dcb1a9364e54f679e1ff1bb77fe01e29eb467e",
+      "kind": "text",
+      "target_line": 461
+    },
+    {
+      "id": 214,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 419,
+      "chinese_sha256": "12d4bebd660b4bcf915435e081b5f414dad4a279cbe1771da6e59d90d60322db",
+      "english_sha256": "fd21e11996c5621c03bd78385b705d7c8ddcbfe1325db9b1eadb1e78055e5395",
+      "kind": "text",
+      "target_line": 471
+    },
+    {
+      "id": 215,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 421,
+      "chinese_sha256": "f58a0b017d07548256ba6b8f3f5712d6e070d0630e575c8313a135a4f74075bf",
+      "english_sha256": "116109bbbea2ac826a962fbe38682790e698e2a140188ab48bd4103bdc7e168e",
+      "kind": "text",
+      "target_line": 475
+    },
+    {
+      "id": 216,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 15,
+      "chinese_sha256": "31ccc6375adbe4fbec55d123094be8b838266c85a7e4e51d9d524bfb5fe648aa",
+      "english_sha256": "a2cd70bcb9d8266bef3047478edf376190ae77f2c46b212af5b12b0475c7388d",
+      "kind": "text",
+      "target_line": 15
+    },
+    {
+      "id": 217,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 17,
+      "chinese_sha256": "668464051108fdcf55389e4f4563d3820c4e4f1aa19bbf32fb48e99d3ed2a901",
+      "english_sha256": "c1adc395076988649d5d060b7fd9f6ed698fcae5c6475170ea7126832454e6e4",
+      "kind": "text",
+      "target_line": 19
+    },
+    {
+      "id": 218,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 110,
+      "chinese_sha256": "1e59c5948005f53728a65b27fd4690abe1bb0027eca12590b4fcd70ea510c55c",
+      "english_sha256": "4f9c536204bc7d31736d6951a2ff65826fea20294c03e014b89e00a580e1644a",
+      "kind": "text",
+      "target_line": 114
+    },
+    {
+      "id": 219,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 114,
+      "chinese_sha256": "f1c7d074b7f64a53dc82043278f6f5cd29c7203dd8608587cf9d2b3f3c3bd2b6",
+      "english_sha256": "f8203ce376efea52e3adb8d9828912f1c1bc09d3159c91741ab5bddce8ac73b1",
+      "kind": "text",
+      "target_line": 120
+    },
+    {
+      "id": 220,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 116,
+      "chinese_sha256": "2199c701f611c05f90df1c3c04604a49c6206d6354bf175523e57ba66c107524",
+      "english_sha256": "2a98a9cd4ee5a55d95f353d5e9379648885edcabea81bb5af51df836caebff1a",
+      "kind": "text",
+      "target_line": 124
+    },
+    {
+      "id": 221,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 118,
+      "chinese_sha256": "5e31a2212dacffc52b5fe808d106046cf9b90479973992eeb2a8c5ccee4a68bf",
+      "english_sha256": "42f49cc67b901097620dcfd2d0c3b1ddd12e624ab6f8af0324d01df8ff541ffb",
+      "kind": "text",
+      "target_line": 128
+    },
+    {
+      "id": 222,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 121,
+      "chinese_sha256": "cd323d3fce27182be295b44dbe8e77374118650cc81e9c2298d2ccd1714df137",
+      "english_sha256": "1b6af72b15c6ae136a8c6ac1326374b951bd39ce3b78df07f8b64894d5d35d3a",
+      "kind": "summary",
+      "target_line": 133
+    },
+    {
+      "id": 223,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 123,
+      "chinese_sha256": "ee2a9d34f29e7ad3d2836f9eedfa1e11dff9661af6da40800a797537bb35030a",
+      "english_sha256": "6617c6a9605f36a4cb9dfaba460a7ba458373795f68a68beecf26bd0b89e623b",
+      "kind": "text",
+      "target_line": 135
+    },
+    {
+      "id": 224,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 132,
+      "chinese_sha256": "e723f488e00b03af751ff37f00219db03859a520324922bb337f7746024c9b60",
+      "english_sha256": "e9866266146903aa331c794656208eb3ff042bed5ea85e1fabe81df6e4b50333",
+      "kind": "text",
+      "target_line": 146
+    },
+    {
+      "id": 225,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 185,
+      "chinese_sha256": "bfa0b781eb102d219028d3b0547d388ac7bec3ed5f702318512aa91a2a5e4f0e",
+      "english_sha256": "2de9cfa699c80ed7069e046830c6f86848ef3a39334109210a2c78697b1b44fc",
+      "kind": "text",
+      "target_line": 201
+    },
+    {
+      "id": 226,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 187,
+      "chinese_sha256": "bd43ad7aa6090cec63acd9cf949d0b5e8f7ca9135776fc66d9b3f3120bef1748",
+      "english_sha256": "dd92e7a3416495336312a42067794b0df20a6c7aaad92ac1c78de20074ba7582",
+      "kind": "text",
+      "target_line": 205
+    },
+    {
+      "id": 227,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 228,
+      "chinese_sha256": "3ba8ec8221f017ba6a4253a72c614833426f52fd7225f87b15095dec3a117cef",
+      "english_sha256": "82082e309165a5a2321176dbededea2c2c8d72eb5df2b600115c915f006692d9",
+      "kind": "text",
+      "target_line": 248
+    },
+    {
+      "id": 228,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 230,
+      "chinese_sha256": "f23182007e291dba42ec94e368fefb338927b30e2a35639a7df2345511419e6f",
+      "english_sha256": "65399c5013e5521e16e3c7f2be4737c7f778b99d4444e8c63a2740fc7c36f1d7",
+      "kind": "text",
+      "target_line": 252
+    },
+    {
+      "id": 229,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 238,
+      "chinese_sha256": "f66bb7f115bd5da2f1a668dc32911933f372123429d788def466b4ecacba0781",
+      "english_sha256": "e97c1522247c4f21989c59138d4ab8a25bcbeec19f4557532252de214eb6a154",
+      "kind": "text",
+      "target_line": 262
+    },
+    {
+      "id": 230,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 303,
+      "chinese_sha256": "8a1f6e1a91582d1e344ef90887ecd418c710cdca67df17fbc15c03d827e6a559",
+      "english_sha256": "064772b2868bedce9756090e1611af3429dc356222a1a022a06795eb23d98a6a",
+      "kind": "text",
+      "target_line": 329
+    },
+    {
+      "id": 231,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 305,
+      "chinese_sha256": "60360dc057074ba52bf1716f9d29c29320695bf7e42dc388b07bef7052737f6c",
+      "english_sha256": "c1a303157bcfa9b82594281ffc7ca3b46c0293e9dd615a32d9f8413a19c0f1f8",
+      "kind": "text",
+      "target_line": 333
+    },
+    {
+      "id": 232,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 313,
+      "chinese_sha256": "964144fc3fe99840d8a6ed38f31fe8e053df31dc6d5e4ff7d7bcd4b05db06405",
+      "english_sha256": "df6a2e0aa805d78fa7ef9e3e846ee4ba11cc006898b3866dd18f331ec5facd3d",
+      "kind": "text",
+      "target_line": 343
+    },
+    {
+      "id": 233,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 315,
+      "chinese_sha256": "23eea88308c2933c249021c47becff4a489ed69237d4df4bd86e5990e459a3aa",
+      "english_sha256": "d6d2999b27520fa68ffd597bc306b36db5a516f1426a278762c89b39767238f3",
+      "kind": "text",
+      "target_line": 347
+    },
+    {
+      "id": 234,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 321,
+      "chinese_sha256": "b8a3d67447188365ac8e65844917123260f8556750bf789c51d23dff727cb2e7",
+      "english_sha256": "55619ef892877028d280fc34f968a57444c1f757a39856a19b6190a8f4b96832",
+      "kind": "text",
+      "target_line": 355
+    },
+    {
+      "id": 235,
+      "file": "02_LM/02_generalization_and_high_dimensions.md",
+      "baseline_line": 323,
+      "chinese_sha256": "9a75df695a4103645e9159fc2994659fa008c5dfc6435c9f00cea7fd4ffe4c1c",
+      "english_sha256": "5181d29c77247dfc3154e7773ae9d9bec51c12380f98b07f8a412840b8813ea4",
+      "kind": "text",
+      "target_line": 359
+    },
+    {
+      "id": 236,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 58,
+      "chinese_sha256": "2f09826cfd49958a10f2a06f135f03722ee70d1088b3f67980aaabbdfb73993f",
+      "english_sha256": "c4421efc0ec049e69ecc53715cc7524ccd52f9f1ff4d56650068b1370c5efa5f",
+      "kind": "text",
+      "target_line": 58
+    },
+    {
+      "id": 237,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 60,
+      "chinese_sha256": "70f73fd36a8821ccd4ef8bb811b2bb95e99cd5d9bb59cdb621c371e625490f10",
+      "english_sha256": "e462d55bd4ecaffe9af8fc1dacdf58bd0a755458511421ff8d7d2ab73019559c",
+      "kind": "text",
+      "target_line": 62
+    },
+    {
+      "id": 238,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 66,
+      "chinese_sha256": "5d7b640bc2683e47068f55008a8535714b000c76e281c8411077e6bf4fda551d",
+      "english_sha256": "fc87198f05af2ad08cdf145cba2ed346546c833837215380928b10a2c8ded249",
+      "kind": "text",
+      "target_line": 70
+    },
+    {
+      "id": 239,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 68,
+      "chinese_sha256": "ceb8df8bb28a89c5b6853c4b1dc9b13300d8627d1f51b737f5f5d61bf4efae74",
+      "english_sha256": "0b06953a7927311aa0a1cd8017861b51ea871a1546e686f0ef284509e9c2a960",
+      "kind": "text",
+      "target_line": 74
+    },
+    {
+      "id": 240,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 103,
+      "chinese_sha256": "527afd427906cc4bd51aea73ec6cac13df4fbba064e4584cac80c2137fcd8e0f",
+      "english_sha256": "25c339cd8da9e9bcd369e113e58ea9943aab7d04e1b050f98807be1018476f99",
+      "kind": "text",
+      "target_line": 111
+    },
+    {
+      "id": 241,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 116,
+      "chinese_sha256": "752644e8353bad2effad59f7c28dabd80f0cf149aaf081b1569b71b85797c0c4",
+      "english_sha256": "46aacc8e5ced738cff57a922231d47656cce6fb391cf985128c6dbf11f758083",
+      "kind": "text",
+      "target_line": 126
+    },
+    {
+      "id": 242,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 118,
+      "chinese_sha256": "7a79385eefa312553b75c6d482ca33c15789592b9cb942dc59cdcf60b791e1d8",
+      "english_sha256": "0cb222b4ec6550e51a4fffa010f3d7b3c201039d4f469097ddabf85fc5515ad5",
+      "kind": "text",
+      "target_line": 130
+    },
+    {
+      "id": 243,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 121,
+      "chinese_sha256": "65b8eba5b2a5ab9ed26ffe3246a728fc36925ee7ccdbc64759657f08153b23c2",
+      "english_sha256": "2fc859874b3a6f0865220aa4b4db58db5695d5f69f3d30d76f3ac2be5c575236",
+      "kind": "summary",
+      "target_line": 135
+    },
+    {
+      "id": 244,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 123,
+      "chinese_sha256": "44343a6f11a93832aa09ad903d0758abac48b418241f15f172f6f7d364e8dd84",
+      "english_sha256": "40c1a8aa93e746810a47693e37e76cd49174bb98ccf4d1a1d0820c5d45490e70",
+      "kind": "text",
+      "target_line": 137
+    },
+    {
+      "id": 245,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 125,
+      "chinese_sha256": "8cf584f1478d82ed43c59b931c7390c48d94f4b56afbd5a1dbf56c174e762966",
+      "english_sha256": "47106c28ee875ee5bd43c0c4876e75746d2768cda093a40fe65bf63044ae694f",
+      "kind": "text",
+      "target_line": 141
+    },
+    {
+      "id": 246,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 131,
+      "chinese_sha256": "ea98062f23fbf6abc5113935861f42ea96c969a5cf0ed12a77671eb925f468f1",
+      "english_sha256": "d5333927b711f4e61a8eba6e0a880279666e5225a3cd0813d188357675f4a76a",
+      "kind": "text",
+      "target_line": 149
+    },
+    {
+      "id": 247,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 272,
+      "chinese_sha256": "b6d70fea2a9a7c8025b68703a182ad9cf9e969d783a6702e7e30867e29399311",
+      "english_sha256": "84993a5e301cd7eef16830e24d7f5cd0f1710a67ff6df78a995bb6554319f937",
+      "kind": "text",
+      "target_line": 292
+    },
+    {
+      "id": 248,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 274,
+      "chinese_sha256": "6109e21eb929daca21c39728c5cf16f288055a4b94563797b56adc9954eab1d9",
+      "english_sha256": "dca95c8592873f06604ae43cff829b8fdb9374f4bc2f1d6516950183b89b2858",
+      "kind": "text",
+      "target_line": 296
+    },
+    {
+      "id": 249,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 276,
+      "chinese_sha256": "58512c026da7a308acc37898b8ab8d719921ca368b8bf1df14df98f08c4ad9a1",
+      "english_sha256": "9951f04354f0de05e8993e2845f587b354783e87f38a8c7264c6f6450ff5fe54",
+      "kind": "text",
+      "target_line": 300
+    },
+    {
+      "id": 250,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 285,
+      "chinese_sha256": "823f4852f3d59128d7edc34b59dd409ef648652beda5e1481a4827fba37237d0",
+      "english_sha256": "c98b98ed9486f8d3ac9c3691d47101dd7410398674012e73c1853fef8b709cb8",
+      "kind": "text",
+      "target_line": 311
+    },
+    {
+      "id": 251,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 287,
+      "chinese_sha256": "6f89aca6324cbb4aa7a73c1cd2f1b89be7970b1f99ed6989a18a65a5cdaacfea",
+      "english_sha256": "e39e14e795256dc3cdec457e2a35dacff166788ccd0527690e2cafa5883d3f0a",
+      "kind": "text",
+      "target_line": 315
+    },
+    {
+      "id": 252,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 296,
+      "chinese_sha256": "b6df4a6988cf0fed276a5aeaa5ae9579609b09899d9b05d2334208385c7be145",
+      "english_sha256": "ad2ac4f2a3a56869981dcc4c964b7264053fdeb243730edf05706c6560226635",
+      "kind": "summary",
+      "target_line": 326
+    },
+    {
+      "id": 253,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 413,
+      "chinese_sha256": "de4a89b0f04d86d03ee7a1ccb923c15c98d439f20d8723e2666c2192dd5e4bac",
+      "english_sha256": "8446df05c4e6a4886561aa80b3593da8a71ae188d6e41fcb6390fca0a8ae46f4",
+      "kind": "text",
+      "target_line": 443
+    },
+    {
+      "id": 254,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 434,
+      "chinese_sha256": "8d99a6d8bfaeae04daef459999715578cbb7e4852e01dbc0844553a1b7d8713e",
+      "english_sha256": "19295373a5cdaa2d77eb43eef0bea6f0da693199efc4adcf1cfa4ed5137384b1",
+      "kind": "text",
+      "target_line": 466
+    },
+    {
+      "id": 255,
+      "file": "02_LM/03_sparsity_and_model_selection.md",
+      "baseline_line": 436,
+      "chinese_sha256": "0304ccf591067567bf812622888f955cc477127728eba1b7e0047737b314e75f",
+      "english_sha256": "6da23c2b18bf41e16b3f7ef94e01d6992c4296a069be310969d59ed659e7148d",
+      "kind": "text",
+      "target_line": 470
+    },
+    {
+      "id": 256,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 32,
+      "chinese_sha256": "9a48b94448c2b3c0dbaae6c50690329f4e64a926abbccb5652dd7e43529f1890",
+      "english_sha256": "9fe0bf903b8bd3def8600b75ba640b25a077b09786b39a49b30ba43ba01eb97c",
+      "kind": "text",
+      "target_line": 32
+    },
+    {
+      "id": 257,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 34,
+      "chinese_sha256": "1beab37fc9d73079c1b3b870fac667688812df893ccf08537062230547aa4f3e",
+      "english_sha256": "9dc655f2511cf7d820fbfe057484bcc9f26a6e1a08bd3ea3f36a54538f95cf33",
+      "kind": "text",
+      "target_line": 36
+    },
+    {
+      "id": 258,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 80,
+      "chinese_sha256": "4f2e70df18cebb3f37cfe856cb944e498a2f92f2908b7b62ad36feb563d0047d",
+      "english_sha256": "a01876dc85c1d1b59274a33e0b91b6916b4ca55a13fc5dc9aa253a75989e851c",
+      "kind": "text",
+      "target_line": 84
+    },
+    {
+      "id": 259,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 82,
+      "chinese_sha256": "426b88f24459fcac7d8487f8fc4421fae30796f107aed22e5fa6d182720cc272",
+      "english_sha256": "2c700cb205b15e606e672be05bcbcc94a0a0d6f0e20bfca8776d29dcf6a9317b",
+      "kind": "text",
+      "target_line": 88
+    },
+    {
+      "id": 260,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 88,
+      "chinese_sha256": "6cf3ff98b56f906f0aad5b1643507008310b0520f85431441ad797d40b4d0902",
+      "english_sha256": "fd2e5dab4e83033758b73854f836e8404bd7f470fcf1e445dd478677d5d12386",
+      "kind": "text",
+      "target_line": 96
+    },
+    {
+      "id": 261,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 96,
+      "chinese_sha256": "5079edaa0ed79a8c19763dcd8ef3ddc1d7f96cb6567c0e139352a17a1ecddc51",
+      "english_sha256": "ec7eb66c681f92b44ee13e754c7bb14d9cfc984d8427a167e319c7645e6249e8",
+      "kind": "text",
+      "target_line": 106
+    },
+    {
+      "id": 262,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 98,
+      "chinese_sha256": "5c5b5c0708ff00e9a533390a43ef473b170f0148d6123d165c1b73318e2e1000",
+      "english_sha256": "5bce8c3921a75547434bd78118ce8978ff323d67e823d5b4f7fad97d54e364bc",
+      "kind": "text",
+      "target_line": 110
+    },
+    {
+      "id": 263,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 104,
+      "chinese_sha256": "c18a01ab98d8bb60b96e37b09a9cc5ced1ac25eb0fdb0ad205fb14320686f1dc",
+      "english_sha256": "695b2a2638406a1f0926ed0ff8e5b7634ff4ae381599fee06da206b66c2edbf5",
+      "kind": "text",
+      "target_line": 118
+    },
+    {
+      "id": 264,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 106,
+      "chinese_sha256": "76d7c45d6c4b50dc8161b466a11c94871e7ef785b79de95adbdb499036f7940a",
+      "english_sha256": "9cd9f1222211b5791a8b5fef41200b615e3d50ef20a46265ad90a64118b92816",
+      "kind": "text",
+      "target_line": 122
+    },
+    {
+      "id": 265,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 109,
+      "chinese_sha256": "6a7279f742ae39231dc1d020b9fb041006b50e376b2561fd1d1fb0889a5bda2b",
+      "english_sha256": "eeb767e7b4cfa4c3289d2866a393fb6a239e1be026b486d296044c8a7ad355a6",
+      "kind": "summary",
+      "target_line": 127
+    },
+    {
+      "id": 266,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 111,
+      "chinese_sha256": "6f75e8865571ab2f8e85d6c7f9227ecc15b4bd0658652f4de65016ad9c229775",
+      "english_sha256": "fbcd071b90ae122d2e99b34ff9b3359b00870fb2715767c0f7d55d7621447ea5",
+      "kind": "text",
+      "target_line": 129
+    },
+    {
+      "id": 267,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 117,
+      "chinese_sha256": "789610b48b29a60be8fa752475c9371a6b48321471d6984ccfa58a1e5e370e1a",
+      "english_sha256": "3b3c3ca999ad09bcc6735c6821d9ef22cf2067fb38a8a2c5cc7c7971560b3912",
+      "kind": "text",
+      "target_line": 137
+    },
+    {
+      "id": 268,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 123,
+      "chinese_sha256": "9a0c5f9c17eb92e7e405310349571e79baa2c0f1fe129c71da0cbf1fdb039bed",
+      "english_sha256": "910656221e718817661f05f653d0ee0c1976410c4ccd8ccb53d860672f61a247",
+      "kind": "text",
+      "target_line": 145
+    },
+    {
+      "id": 269,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 125,
+      "chinese_sha256": "b85a53c7948351846f1e012928afbda1bf356c9bd897b75d790838c4b56d6980",
+      "english_sha256": "bef5a5be21311d7ddd9bc2931783abfdb1dfed31f1a6668974c3c2f75f208881",
+      "kind": "text",
+      "target_line": 149
+    },
+    {
+      "id": 270,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 159,
+      "chinese_sha256": "1711e373ae7d6bebfee7206e41d15ce2ea7b89826e73185800107f9b566d7b45",
+      "english_sha256": "2571f17840cdd4f88acf996943b6e060ed07d75a6c223cdc3ac24963de0f595f",
+      "kind": "text",
+      "target_line": 185
+    },
+    {
+      "id": 271,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 161,
+      "chinese_sha256": "9f0a5a567272d70ab213bfb5604df8f641c270f9123962830ffa9ba93d0c5f2d",
+      "english_sha256": "e8f28399afbe0238f2eea6beba07a9e98421385ea599db42af9e527e7cd00450",
+      "kind": "text",
+      "target_line": 189
+    },
+    {
+      "id": 272,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 163,
+      "chinese_sha256": "e945dbd5b55a657ee4e54b4742352163dc4748f81126e40cb33fb7b08a3f9d14",
+      "english_sha256": "09a84a123a28b863f9fff0d2b92ea5ee989a884608fab722407d3643d61f5c77",
+      "kind": "text",
+      "target_line": 193
+    },
+    {
+      "id": 273,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 166,
+      "chinese_sha256": "011a82a36c2e8b92ea82e91bab0aae492543e032171bb1f04c04b309e61f6805",
+      "english_sha256": "ddcf05498e9d9a51d7b986b139353b149f0bed270582fbc60a7c9a1d88df0b1d",
+      "kind": "summary",
+      "target_line": 198
+    },
+    {
+      "id": 274,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 168,
+      "chinese_sha256": "74b752a60d27bc10343681e708da7e72f5eac8d9648d09b06f91b9c22604f7e3",
+      "english_sha256": "0380d8f8643fc961cf93761a9261fe3462561f07d9698188066595fe46e07304",
+      "kind": "text",
+      "target_line": 200
+    },
+    {
+      "id": 275,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 170,
+      "chinese_sha256": "aa0ceed88e5eadd30c28615023674adf38f4c1fb0d7da4131e24dcd45435064e",
+      "english_sha256": "44d331fc90015f48dbd03ab5ce7271422a68f6dfa0e7e85e90e323581bfb4d56",
+      "kind": "text",
+      "target_line": 204
+    },
+    {
+      "id": 276,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 216,
+      "chinese_sha256": "a065841ffa104d9530c86c9357f69149a7ccad294b9f10d3fca1b7a9bbd1dc6a",
+      "english_sha256": "0efe444be9666cf4c68d1722309287f7cd7e35e5b0232afd2c0766c11bb3ae8b",
+      "kind": "text",
+      "target_line": 256
+    },
+    {
+      "id": 277,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 218,
+      "chinese_sha256": "213005f344080c02b0a15e8edff7c86daac99b1cfe2643adee8c369e75d68dd2",
+      "english_sha256": "ed30d8bbb1b92ed2b97d5db9cc4a3b8d4ac301543b7901c74156e4de6e57f714",
+      "kind": "text",
+      "target_line": 260
+    },
+    {
+      "id": 278,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 220,
+      "chinese_sha256": "2bcd897b1fcf84b4675929ef1c52c3afbc7d4354a65d7e6fe6211a4296df9e9c",
+      "english_sha256": "b63c4abb8c3b08cbda6b4f60630d8ff196a7e362834c2c8a9e10f8a03424ed63",
+      "kind": "text",
+      "target_line": 264
+    },
+    {
+      "id": 279,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 222,
+      "chinese_sha256": "271847e07c76131c0269c6dc8381f6ff99a696c7277c0af7d65982aa02157086",
+      "english_sha256": "cede1e5c3b40a83215d169564bba680a7f4772c06553e5b27840a3d615761777",
+      "kind": "text",
+      "target_line": 268
+    },
+    {
+      "id": 280,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 257,
+      "chinese_sha256": "f811bf182c6fdcdcf99c5a8539047881e77326dae900c5bb47c01d091f94f696",
+      "english_sha256": "10ab65446c759042489748e159dbfc848e1910f758d6c7c8876311ccd6045ef8",
+      "kind": "text",
+      "target_line": 311
+    },
+    {
+      "id": 281,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 259,
+      "chinese_sha256": "a502076f78fa92012655e53fec112809d883668e5286000488147ac6d016ab67",
+      "english_sha256": "fdd257e5d8844513e6c836c36cac2cfdcc5cc04cd4c6fccc8647f40a63bfe69e",
+      "kind": "text",
+      "target_line": 315
+    },
+    {
+      "id": 282,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 261,
+      "chinese_sha256": "421e347603729147d17bf71cdf266e8a2f25042c495356cdfd600a5f1060a23d",
+      "english_sha256": "b7423f246aa20677c15a53428243dc116766ac2e004cb8594f14ad19c03e0343",
+      "kind": "text",
+      "target_line": 319
+    },
+    {
+      "id": 283,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 268,
+      "chinese_sha256": "d059d397ff921209628b886e70f6bda04a0d6fd2685e29f28b79d6ecc0465db5",
+      "english_sha256": "40bb5d5082e02f2c84ee4ed5deec85c9a043ad23d8593bfdc27773d8d3f09b5f",
+      "kind": "text",
+      "target_line": 328
+    },
+    {
+      "id": 284,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 52,
+      "chinese_sha256": "ad55f1b5650dfcfb35c32727770b63d289c4197986e2ed9ce62ecdacbf864192",
+      "english_sha256": "4513807664cce75d9d7cd20959a3af97bfbaac4d55d579aacac7839e7132a19d",
+      "kind": "text",
+      "target_line": 52
+    },
+    {
+      "id": 285,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 54,
+      "chinese_sha256": "9589d82069b621804e84b439c060c0de677d1fd93d05630050414ed2025c2a26",
+      "english_sha256": "442ab27011aa95545ed0cda9997e093521b36686258b6b7476e6f057a635ef77",
+      "kind": "text",
+      "target_line": 56
+    },
+    {
+      "id": 286,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 73,
+      "chinese_sha256": "ca48c5d37ce6dae3929e419279b78042fc5f8f0a22dee145a21372650bd66db7",
+      "english_sha256": "fce76c4521a50c40b83cfb6aad8d0ff19261a8d177619269eeb7a344fb1b55b5",
+      "kind": "text",
+      "target_line": 77
+    },
+    {
+      "id": 287,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 75,
+      "chinese_sha256": "619ad18d1cd4b99f7139be04c898e0f8c87e7319f978ca2372cea4e43fc20282",
+      "english_sha256": "382ab9d93910f014644b7678a9731781455b3baa160e2766f66558f07c715425",
+      "kind": "text",
+      "target_line": 81
+    },
+    {
+      "id": 288,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 81,
+      "chinese_sha256": "a92e4ffc1ca71ec48c0cb2599b755fce30afb8a12e347397b85cfeb442eb87ea",
+      "english_sha256": "c256353c9a9e088a13cbc976eafa52147f8e14433d9e58ceebd853fbc5e427d4",
+      "kind": "text",
+      "target_line": 89
+    },
+    {
+      "id": 289,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 87,
+      "chinese_sha256": "35caba8d68299e322e3eda1c64f1667168331e24c525150cb9020fdf2cf87351",
+      "english_sha256": "7c36108ce764e888870b9c52d7ceb36eb936e3eec72443da3553ab1a2b675e26",
+      "kind": "text",
+      "target_line": 97
+    },
+    {
+      "id": 290,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 89,
+      "chinese_sha256": "4e53cf8ec1c4a1862e976ff3d4b9ad08172fdf13d6346f7b48138e1a8697bcdf",
+      "english_sha256": "83221d9374ec38b033db37604689d332a2eeafbf3f4917fc1155aa47e282aa09",
+      "kind": "text",
+      "target_line": 101
+    },
+    {
+      "id": 291,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 91,
+      "chinese_sha256": "c53d39f065702b67ef411f65e702ab097a4370c54e7d6bac638643ecdf79718e",
+      "english_sha256": "852fdfe08bc4af85ee8b59b5920a0e6b4093b41636dcc20b0e88c3321bc4a8d7",
+      "kind": "text",
+      "target_line": 105
+    },
+    {
+      "id": 292,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 137,
+      "chinese_sha256": "ee4bbeaacd52496098e1a81ba210d8f5d08eece40a612b5f373f3cdd54f83ea3",
+      "english_sha256": "d97ae7e465306cf3d46d8eb9566e5151555e53c53b7793bf96f81d29b37fac0a",
+      "kind": "text",
+      "target_line": 153
+    },
+    {
+      "id": 293,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 139,
+      "chinese_sha256": "66bb7590cb2d6809361fb1520b9547c22329997f5e59f4507799713042a4c11d",
+      "english_sha256": "31d36c1903ec81038956a069b42b03badc6fb4e12ab052209b8103e9e87cba4f",
+      "kind": "text",
+      "target_line": 157
+    },
+    {
+      "id": 294,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 146,
+      "chinese_sha256": "cca43fd0a37f40b9b6b2faca5b1cac0f179c781ec7bc9777a405a51252850432",
+      "english_sha256": "470da4d3097470418089b34abafafe671ac27bf8bbff08fa5ec541a90c403587",
+      "kind": "text",
+      "target_line": 166
+    },
+    {
+      "id": 295,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 149,
+      "chinese_sha256": "f955e48798080954b6fb599fba2d93d4b6135bdb41584bd613ded9aefc67d923",
+      "english_sha256": "55fb342304c815cdb8ecb5b2aaea6c163cfad8f213d9322b5989fd675d918064",
+      "kind": "summary",
+      "target_line": 171
+    },
+    {
+      "id": 296,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 151,
+      "chinese_sha256": "e5ead17a199045e1e8d89436baa45e4739fe058b825d051529610f00dba4431a",
+      "english_sha256": "84099326f0e9f8fc33c4cfe3db355027d7632fe1ef5023da58aa18ed9a38d107",
+      "kind": "text",
+      "target_line": 173
+    },
+    {
+      "id": 297,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 158,
+      "chinese_sha256": "7895758ff296e11b7a1c9f5d90887d0e7f05572f8bbf384b496e0685b30258e4",
+      "english_sha256": "1f3bdfffc9bc71e60ec4eefb87156408f037b42880712e49710e8f1ade5b688d",
+      "kind": "text",
+      "target_line": 182
+    },
+    {
+      "id": 298,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 160,
+      "chinese_sha256": "77cf64714335db47138ea25443faefcfd76eaad8d82e9edad3bd26dc2b124ad6",
+      "english_sha256": "0a75620d049ed5b89ee4b4c243038716ed248845c8edea85aecf7a010e232c1e",
+      "kind": "text",
+      "target_line": 186
+    },
+    {
+      "id": 299,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 172,
+      "chinese_sha256": "54b0278c8f3d792546089fa4adfd196a1c974de73b996ae7d584a066cbc511e6",
+      "english_sha256": "71f890536af7e85d4ca26f545dd572b2b16da34f693a3021fa6e915d3183c9d5",
+      "kind": "text",
+      "target_line": 200
+    },
+    {
+      "id": 300,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 179,
+      "chinese_sha256": "a23eb07947691a813467463558aa8cf8cce1984a3279e52061fa29b5e9ef110c",
+      "english_sha256": "103ce33dc30374b14e15c0db0baa1c523bedc66fd7454fa79ad1bc8ea1ef97b0",
+      "kind": "text",
+      "target_line": 209
+    },
+    {
+      "id": 301,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 223,
+      "chinese_sha256": "5493dbe275815e0e7d96a5019da2a35ba480f72b9740e969dd66b76ac9064612",
+      "english_sha256": "9bcc9de169949cadcdfeeb92773332c6ea3278f2d242eaaffec52cc60b420a51",
+      "kind": "text",
+      "target_line": 255
+    },
+    {
+      "id": 302,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 265,
+      "chinese_sha256": "a17c99524715e274bf2ca1aa5bbca5890d1fb7f52237561b35ae11b962ce2f02",
+      "english_sha256": "3d60ecee255ffa033ffbe97b82b35d720a428e2e81f019c136d4a44573e439d6",
+      "kind": "text",
+      "target_line": 299
+    },
+    {
+      "id": 303,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 267,
+      "chinese_sha256": "1b515ff9d1d0e95b518a93416c12d5267ba98ec101395403917a699239bf661f",
+      "english_sha256": "6297bb5c886850c8fff548378c14c72bc010a8c62ea59ad72373c8e539506075",
+      "kind": "text",
+      "target_line": 303
+    },
+    {
+      "id": 304,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 275,
+      "chinese_sha256": "b67d3e6d137ed13df621ba93cc83f39a03b53c34c7cc08d456ca253fc035550b",
+      "english_sha256": "b766f154cd7808e64d9aa2504d54c4dc1504844ee287657bb2d8d8c49c87744b",
+      "kind": "text",
+      "target_line": 313
+    },
+    {
+      "id": 305,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 278,
+      "chinese_sha256": "750b07c68164a227ee1320ecbccf285a9ced7abedcec850af75e9563eb90b42d",
+      "english_sha256": "e58344f710cc33ede4c9a5c1432f8469dbbe622dc748abedd43dc37e2cd70736",
+      "kind": "summary",
+      "target_line": 318
+    },
+    {
+      "id": 306,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 280,
+      "chinese_sha256": "292af9936a3f50db9e6f450bcfb9bd152f16bf8f568cb3e2178fb8d708362fc2",
+      "english_sha256": "01ab87ca995cbdf67fd3edc72e920933133ab2db29b185514b70b986a23b24df",
+      "kind": "text",
+      "target_line": 320
+    },
+    {
+      "id": 307,
+      "file": "02_LM/05_ridge_and_duality.md",
+      "baseline_line": 288,
+      "chinese_sha256": "7f1895c0e42327229ac8d048d444a9f91adbacac472ccd8ebbad5116687bdd1d",
+      "english_sha256": "466b8576d5d822d3743481143f30b1e7bf04d1168dc8e883f8b2e4974a9b81fb",
+      "kind": "text",
+      "target_line": 330
+    },
+    {
+      "id": 308,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 28,
+      "chinese_sha256": "520367657d2d74c207003aacd1dabc7fb1daa13b84366c2482bdf659f4a97265",
+      "english_sha256": "a333e793b768a1411a8e81483e12427f28de21c62c4f8cf4c784c84abe80fb4d",
+      "kind": "text",
+      "target_line": 28
+    },
+    {
+      "id": 309,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 41,
+      "chinese_sha256": "895a0f6b3a0706e1c27234ef77318989c84f24944f250133b0400853c54cd24a",
+      "english_sha256": "c0948f59afc124aee25044dfa783cd9234d29b1310d4181cdfde268062a71995",
+      "kind": "text",
+      "target_line": 43
+    },
+    {
+      "id": 310,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 43,
+      "chinese_sha256": "5b98b6172bf76714dd52e2dd585201404b3152ba69e3e91d4434e78c44a6b9ee",
+      "english_sha256": "219ba866b023aa898e3604b191404546188cfdc4081151caa92d64ed04839a98",
+      "kind": "text",
+      "target_line": 47
+    },
+    {
+      "id": 311,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 49,
+      "chinese_sha256": "6ba749f4cab4317b34286e69246ba053d0ad4b1f165c85f0a45934c09cb569ae",
+      "english_sha256": "0f33c048f67b518ce453e45b04b7e6764acb0be3a181618b6bc9f3ab4d41847f",
+      "kind": "text",
+      "target_line": 55
+    },
+    {
+      "id": 312,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 56,
+      "chinese_sha256": "2b1c85f0b50496dd4f08a94217821fd769e363ac8e3d73f6e70816b3ce74e7eb",
+      "english_sha256": "906e453eaa3c83f8932750e242276ca602cdc265ca0b628bf37b57233a8b5126",
+      "kind": "text",
+      "target_line": 64
+    },
+    {
+      "id": 313,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 64,
+      "chinese_sha256": "f567d1500419cadc4b0ee5b7558fdeff3b460899153ff0c458e6cffa0553956d",
+      "english_sha256": "555ca468ca8f41848c5945ad754050a75ec559878bd0379fcdff964f28439c89",
+      "kind": "text",
+      "target_line": 74
+    },
+    {
+      "id": 314,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 66,
+      "chinese_sha256": "82af5cb85b947df33c62eb8d4474054855b5696db7aeba376ea6b37afb139f51",
+      "english_sha256": "da3682b99bff292f6df77b9f53be27d587db3b2130a70f96e2d6293b89528fe4",
+      "kind": "text",
+      "target_line": 78
+    },
+    {
+      "id": 315,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 80,
+      "chinese_sha256": "7b4517648264d2f312f894f4ec9232924c068b72d209c154b4fd5a53486ea766",
+      "english_sha256": "69c16a11fc2e6d5e94439dee1f3cf7228506159ea039c2921aad762cb410d136",
+      "kind": "text",
+      "target_line": 94
+    },
+    {
+      "id": 316,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 82,
+      "chinese_sha256": "216068644646e3a64111909afb12c720d40718ec869cc2072dd8dc0559ef8091",
+      "english_sha256": "1e438a3f00b2d45130a7e696a26af55831f46f32ae72998d31ad8e9cfd41fffe",
+      "kind": "text",
+      "target_line": 98
+    },
+    {
+      "id": 317,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 105,
+      "chinese_sha256": "09ecba6e4af87dcd889dab1b0c9123352b973a93bc118ff72bdc0982bcc103cc",
+      "english_sha256": "0a43a20c0a9497d3a3c453d85fbd6e168b7a22472bc975a051a450e17965a736",
+      "kind": "text",
+      "target_line": 123
+    },
+    {
+      "id": 318,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 107,
+      "chinese_sha256": "e301472d89309f21b97747e5618b7c33c7178fd74006c8342ce04b11382dc515",
+      "english_sha256": "847969848edf3d0574aab057ec03a47fe773f5db646d7a78979167c0049df5d4",
+      "kind": "text",
+      "target_line": 127
+    },
+    {
+      "id": 319,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 109,
+      "chinese_sha256": "a3cff5a15265314eed5c709654efb21e111cbfdc601e2d2b7030b810898ddc0a",
+      "english_sha256": "2cc822a4713bbe26be1ceef69f46a6be2d9445f9163a0e8d76e40d9838f1dd23",
+      "kind": "text",
+      "target_line": 131
+    },
+    {
+      "id": 320,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 117,
+      "chinese_sha256": "e4b083d22df91b086d71ea19143b16160472c731afba10a54e7e484fd73ea533",
+      "english_sha256": "17088b9b1be7346264b606cb7bf6b9addbcaf61e33fc06a9da8abd01f21af767",
+      "kind": "text",
+      "target_line": 141
+    },
+    {
+      "id": 321,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 119,
+      "chinese_sha256": "a7a19b31acdd28d93e792b7bcc7c76c5081f0df7953acb188215d046cc268032",
+      "english_sha256": "38c563077958f847c6196768eea75dd6cd0ed27feef865d1a64088bd76730aa6",
+      "kind": "text",
+      "target_line": 145
+    },
+    {
+      "id": 322,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 121,
+      "chinese_sha256": "0d5d45936dc3562cb03dc3c65be32aece0d5ede57e882a0ddb0f3aa2a9539fd4",
+      "english_sha256": "d3e1ae2098dfdb2dcce3e096c9d6464001bc6f86b49180778ec53b7ff427a261",
+      "kind": "text",
+      "target_line": 149
+    },
+    {
+      "id": 323,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 123,
+      "chinese_sha256": "1da743689f945cc3b711894fdd33cf8f08b4c22af86223e862fbc6376c85d043",
+      "english_sha256": "a7a3d83ff200a1ace80732f4d98cec1db9b1639bf2bcfebc9b7842078352a803",
+      "kind": "text",
+      "target_line": 153
+    },
+    {
+      "id": 324,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 164,
+      "chinese_sha256": "d29c9a315e62ff6c577b42e31f064041f681b519c675503dca93d632e1c0c92e",
+      "english_sha256": "80f4e840bfe474288d762e35ee07633c83343129ccf17293ebd08f1123773fae",
+      "kind": "text",
+      "target_line": 202
+    },
+    {
+      "id": 325,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 166,
+      "chinese_sha256": "f5c438ba8f9e7f14f7598e1888593213851660d804b29f9c4e7718e1f4ba031f",
+      "english_sha256": "71e7466abf63a06999e6c85f2e6033a9a529943085d6cd0a9b80cf7cd06ba036",
+      "kind": "text",
+      "target_line": 206
+    },
+    {
+      "id": 326,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 168,
+      "chinese_sha256": "6bdcb2f2ec07990ec23dc33baa9349dd7437154fd5e7d346e810b16536dafc1f",
+      "english_sha256": "1b670c874eec685c4bf037732ae37eb119cf066e923f83bb0bf5b1fd1d165715",
+      "kind": "text",
+      "target_line": 210
+    },
+    {
+      "id": 327,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 176,
+      "chinese_sha256": "1124df667fee80b67f271e07ea8ecdeeec2a2811d8084624fd0d65cfe2209217",
+      "english_sha256": "ff144efe2ffac7ad7cb49b3d9c7157bf0a5787869f06665735d143d462f50d91",
+      "kind": "text",
+      "target_line": 220
+    },
+    {
+      "id": 329,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 180,
+      "chinese_sha256": "f2ef67d70d446bfb8c461d627ad519ff4f193bde06bb1dc2e500f0c65b494094",
+      "english_sha256": "1c14899053f967329f24aaf48d3f934b715a86f7080870dbc7a919bef41a8bdc",
+      "kind": "text",
+      "target_line": 226
+    },
+    {
+      "id": 330,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 182,
+      "chinese_sha256": "644b277630e5b10a9969ece9bbfadece68da6acc86f558be6f18b8ec701af28f",
+      "english_sha256": "8627be3b05ea5c3edb3c86c445a86229e364327ee860b003295ed65fcba19882",
+      "kind": "text",
+      "target_line": 230
+    },
+    {
+      "id": 331,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 185,
+      "chinese_sha256": "7bf323136ef17d4e666750272e02cbf6a5c315e912834b54cb0963a4c4543957",
+      "english_sha256": "8cd126ab7fbe6d26e295429ca2fee1f688cb991c4250c00ec283d74d0b4b88bf",
+      "kind": "summary",
+      "target_line": 235
+    },
+    {
+      "id": 332,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 187,
+      "chinese_sha256": "9ac9fb1ec7178883fbac35b377612a10322f7f3b5f20af202b5a84f87f8acdfc",
+      "english_sha256": "883e4b03c32306dd9ae020c55a8b188a214fe441defbd99e5364cc856085b2c4",
+      "kind": "text",
+      "target_line": 237
+    },
+    {
+      "id": 333,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 189,
+      "chinese_sha256": "2b153bf802095387f1b66eab8b1c43dc29fd439278329f139c1040f062f86be1",
+      "english_sha256": "0f3097f18f54ebcb7085e2f53a3de792ab0c464f13e894a6b4d93cf2a03c4cb6",
+      "kind": "text",
+      "target_line": 241
+    },
+    {
+      "id": 334,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 191,
+      "chinese_sha256": "e3d44c4001ab196fcbbd4e07ecf93af898dab1252c55087147ca416b2b557094",
+      "english_sha256": "a1827db24d8d137f1861b74e4f268faa7779cfb04b66e94df6003d2bfc12eb24",
+      "kind": "text",
+      "target_line": 245
+    },
+    {
+      "id": 335,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 26,
+      "chinese_sha256": "7d804d7a9304f4e092d035b41e9b17b9e75a28eaefa9a324ce6085d71b3bcef3",
+      "english_sha256": "1ec0d6ed7bdecaa6069f6fb78b8d30882c118e5dd0315fbe595dcc2ea3c1c2e6",
+      "kind": "text",
+      "target_line": 26
+    },
+    {
+      "id": 336,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 44,
+      "chinese_sha256": "e44989a00898a0b82d73d41086f1735a1d5e095d8b67690c431f7c3530895924",
+      "english_sha256": "3209699081c663fbe6ceb523b5eb4cc70f7c03163198589e2be422669d64cd87",
+      "kind": "text",
+      "target_line": 46
+    },
+    {
+      "id": 337,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 46,
+      "chinese_sha256": "a42a7cd9e8293490aa8e5754311e6efca5de0f73b84e6d0cf0b7fa3fbfe08853",
+      "english_sha256": "bb192d01a5e53d561ae8e0949206441f618c8a942a5b86d835a6559759c97c67",
+      "kind": "text",
+      "target_line": 50
+    },
+    {
+      "id": 338,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 48,
+      "chinese_sha256": "232da8fec83edf07e01616102c7a2ee93b3784ed2733052b6da5d6e3dea2dc02",
+      "english_sha256": "b0d170ad1ab7d0adc89640c0951c4ef1cc7d02df793391ee7846d0651d233bd8",
+      "kind": "text",
+      "target_line": 54
+    },
+    {
+      "id": 339,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 55,
+      "chinese_sha256": "de9f5142c7ea7b1c96302b51a352b97b081084a0837130567ccafc555c9bab3b",
+      "english_sha256": "2e25baa5db2930002b07a5fea6482d319e9d9d4d06d410fe3479526d9896093d",
+      "kind": "text",
+      "target_line": 63
+    },
+    {
+      "id": 340,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 57,
+      "chinese_sha256": "2ebf01baeaa01482245f3e36471f9905fd3ffde3fdde2a95ed0b2a29079d63c0",
+      "english_sha256": "382fd684a25028936518dd88eb747b9494841e59f31a1aa6896d65740017d524",
+      "kind": "text",
+      "target_line": 67
+    },
+    {
+      "id": 341,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 74,
+      "chinese_sha256": "b7709584cf115daaf61c504899d0c595e65369a3a90d37919ab4bb4f06242302",
+      "english_sha256": "6014d4d77fc9a4297e35f2b64bf1d6d39429c3aa5da58645009b1535c336f9a4",
+      "kind": "text",
+      "target_line": 86
+    },
+    {
+      "id": 342,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 82,
+      "chinese_sha256": "aaeaad14dbf373bb4c89c46f59f53dd05d1173ca8a233487f6d75a19f02cfac3",
+      "english_sha256": "ea520e61f1512509b4721299090f51e259e475591a884b5fa2c983f92782d6ff",
+      "kind": "text",
+      "target_line": 96
+    },
+    {
+      "id": 343,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 84,
+      "chinese_sha256": "4e5320883dbe28ec6fa1bb6682de3c63da7e89aa36a7775cabe436ab3ce96a2c",
+      "english_sha256": "80915f81b61a5caa9adb74706c9e290430976a19cc26243ccefedebbedf1e568",
+      "kind": "text",
+      "target_line": 100
+    },
+    {
+      "id": 344,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 91,
+      "chinese_sha256": "96b582147053ee57d0ee79c4d94ce8e7ffce35275501a8ba851165bda66ba3e0",
+      "english_sha256": "c8e02346a326096b742cea7331d37df3b72188fef3befca7c8f0dc23069caf31",
+      "kind": "text",
+      "target_line": 109
+    },
+    {
+      "id": 345,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 93,
+      "chinese_sha256": "01318d27729263ebab173acdb805b38e8563411c0a8285427247fb91466daf5e",
+      "english_sha256": "ef4322c1e3c5908598ee578065f3fc48c0957d50bac01f1e14628f4ea5e7ee8c",
+      "kind": "text",
+      "target_line": 113
+    },
+    {
+      "id": 346,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 103,
+      "chinese_sha256": "5cbd40c725e1099d392191fbfc1b45b3a0df621d344e03f196e33ada23ac55e0",
+      "english_sha256": "8a50f19ad84fe3243b879838696f3e34c41a52e82f21699fb33619c2e7b1ce3f",
+      "kind": "text",
+      "target_line": 125
+    },
+    {
+      "id": 347,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 109,
+      "chinese_sha256": "a8f4b1d33e3ae5d663dbf35618773bf1fbec58d8d31701f5434fe20e3f15bf8b",
+      "english_sha256": "f42ef15e0c6614b9dfc4f6be195fea0872d09612a1df5cb8e8a5544f9ed14536",
+      "kind": "text",
+      "target_line": 133
+    },
+    {
+      "id": 348,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 112,
+      "chinese_sha256": "b9a24f3f09e73b5dccec7c07a6bd0ef561e5d3c1a247d71a8e3283a92d6609c1",
+      "english_sha256": "235c79b1a90e613ad4325b7175e564a975517b3aed6fcbd7432ee7544ce7b820",
+      "kind": "summary",
+      "target_line": 138
+    },
+    {
+      "id": 349,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 114,
+      "chinese_sha256": "39e0b81edaa9bfe45edf52facde38f2b2f7b28f752ba9e5cef9546e934235653",
+      "english_sha256": "00a10b69638534f37de75dd9868311f99b98730bd2ab28f949c1c5fb456c2b1c",
+      "kind": "text",
+      "target_line": 140
+    },
+    {
+      "id": 350,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 120,
+      "chinese_sha256": "637f373959b335c3a8f262d0470cbf69e9753b24a4ad0c52cc405029f3ade29a",
+      "english_sha256": "48bb1b906555a30b72a0515743cb44328db79768cacdb685651f4945c0351f3e",
+      "kind": "text",
+      "target_line": 148
+    },
+    {
+      "id": 351,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 126,
+      "chinese_sha256": "524b4a4cb625956a8032c614d9e79d2763a76008e8c46dd8caa9b6a8891df2b7",
+      "english_sha256": "d7b4439ef8cc97aa813b7e06c5d2d2be3ad704e2284f4333778faa26c9300b3c",
+      "kind": "text",
+      "target_line": 156
+    },
+    {
+      "id": 352,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 128,
+      "chinese_sha256": "efdc3d05a91a98990106293dc05baafc153232a10aaa870a8d99b9f76846c1fe",
+      "english_sha256": "28b68f28b6b596854f895baaeba14071b81df542a326a99fc783dc0e9ff6831a",
+      "kind": "text",
+      "target_line": 160
+    },
+    {
+      "id": 353,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 134,
+      "chinese_sha256": "46c4eafb61ab508b74aca075e379b540dc8c927e899371fc868199c8352c01f5",
+      "english_sha256": "c34bdd3dab9d5f06d762e76c57f086f1932d3cf659aa36b519243c684ae967eb",
+      "kind": "text",
+      "target_line": 168
+    },
+    {
+      "id": 354,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 165,
+      "chinese_sha256": "ade9ac21c22bc9d5e476d26e93a99bca5c4f7375851e1cb699c13b1c98762943",
+      "english_sha256": "9c1dd35cbf93cee3362fe29c487b76515675789659eb75fb30b5c30bc5e3d361",
+      "kind": "text",
+      "target_line": 201
+    },
+    {
+      "id": 355,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 167,
+      "chinese_sha256": "81f2d99acdde303e72a79ee9d327b73b7f0446f889ef64e1c03df2f645ff4c15",
+      "english_sha256": "2ccd4d15f118fc810ba5cf9a964b4bade34cbbe4d5f2b8e5125b35839f80ec1b",
+      "kind": "text",
+      "target_line": 205
+    },
+    {
+      "id": 356,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 169,
+      "chinese_sha256": "b0fe7a9c11478748abff0770c9dfe8d181b438094ed71e0051ed849439be6d0d",
+      "english_sha256": "2ce06c4970e4381589e5c659719da7b4f11b42af3f8476bcc0322e3e77e4d155",
+      "kind": "text",
+      "target_line": 209
+    },
+    {
+      "id": 357,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 171,
+      "chinese_sha256": "cf78436ab451ed811645ffe98764c4fe736e9d5fc69d4b15b73b2195d0c211e3",
+      "english_sha256": "1035366c529b4abd5105e92448af0db4efd56ce324c753e3ff45d994747795e2",
+      "kind": "text",
+      "target_line": 213
+    },
+    {
+      "id": 358,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 203,
+      "chinese_sha256": "5f261410b2927ad5b55032b7765510005f60d4e6e6f366d05374006c57c02028",
+      "english_sha256": "a48b876611dff0b00f9b539db0d9fe35398ca753c55ff1b36ded73f4b9e4bf44",
+      "kind": "text",
+      "target_line": 247
+    },
+    {
+      "id": 359,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 207,
+      "chinese_sha256": "43d2c88092efbe6cb44e613d86daf6a09f7b46f25f1097805ccee41d94ae2a04",
+      "english_sha256": "514bb34ddf99f62ac1471fff942d51e8cc10a70a822ef975eac309862719c76c",
+      "kind": "text",
+      "target_line": 253
+    },
+    {
+      "id": 360,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 209,
+      "chinese_sha256": "3d9ee77bb08076f2bfbcab08e196d53020a0d0ef31d2615e20f3b24c8c892a39",
+      "english_sha256": "26a011f82c635ae05c7f3518cfd1b589d7fa071bd14f73e9b5e351484baab46a",
+      "kind": "text",
+      "target_line": 257
+    },
+    {
+      "id": 361,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 216,
+      "chinese_sha256": "fdd9679146bfb22e8e2ffe2d549d0088ae670d03bf1d7ebd4fbfe3fe6ba40404",
+      "english_sha256": "0f9d0219153d84a105bb6267aa8857ccb322b723b4e915643c5adb05dc4be1bf",
+      "kind": "text",
+      "target_line": 266
+    },
+    {
+      "id": 362,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 218,
+      "chinese_sha256": "a9155da372f6d1ef61ba6468c6cccdf6995077f930d533341c6b96d2ce92a588",
+      "english_sha256": "4f40f353583712eaf643da767ded298ff5ca84dc62784ed160888282ca840099",
+      "kind": "text",
+      "target_line": 270
+    },
+    {
+      "id": 363,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 237,
+      "chinese_sha256": "80a040f787b22cd6a317e34771276a6f8102b65588d30c437694018451f65a88",
+      "english_sha256": "3f34e4fe7946e768d6fd34476dd4547f7d62edccd68515a0e3f840e3f5f9f4e3",
+      "kind": "text",
+      "target_line": 291
+    },
+    {
+      "id": 364,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 239,
+      "chinese_sha256": "1006e3f969b12e278dc02115a463154fce1d82ff83b629d6ffa0b9cfb76b5c70",
+      "english_sha256": "31bb35c45766f1fe8798f8d9e45a31167e437c121cc23ea1d0c0c13927c1e311",
+      "kind": "text",
+      "target_line": 295
+    },
+    {
+      "id": 365,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 241,
+      "chinese_sha256": "5ab66715df0e9b66af29600bf4ae470f33a532db81e18362f5a0764c082ef2ef",
+      "english_sha256": "4f079cf7935c0284ec316d2292a4fee2c3b1fd0b3250c1cf658e4b69914b6f69",
+      "kind": "text",
+      "target_line": 299
+    },
+    {
+      "id": 366,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 243,
+      "chinese_sha256": "be4270cf289089003d9727a2c7f34931de37b17a8188206c2e99d86f1959bb94",
+      "english_sha256": "6902fd2714238caa315a48002cfd16c3045734df828d5ff605e48fc1daaf3d04",
+      "kind": "text",
+      "target_line": 303
+    },
+    {
+      "id": 367,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 301,
+      "chinese_sha256": "fd865fe79e62c2a771db41d5a3c97fd26a761320bf884b7db4de0d583787234f",
+      "english_sha256": "64732de32b3db94fda069e9af83c30ac6e5e91207fa8aad4c3ef3f9300b6930b",
+      "kind": "text",
+      "target_line": 363
+    },
+    {
+      "id": 368,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 303,
+      "chinese_sha256": "29b6e331545e0bbb5f04257620aa0881b4e159024fb93f9a753ff74fd5bf56f6",
+      "english_sha256": "de355100473ca8e3c09a43dfe42226a6e6558d03a7525ca2b18c51beb7c73e1b",
+      "kind": "text",
+      "target_line": 367
+    },
+    {
+      "id": 369,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 305,
+      "chinese_sha256": "5ea4db4b7640263663ea83c96687c22d9a264b6c6045cf7030038835006e29f3",
+      "english_sha256": "b4696bb8790d2e10c602dd565cf313ff190efda9aed36e3c39aa2fa22092868b",
+      "kind": "text",
+      "target_line": 371
+    },
+    {
+      "id": 370,
+      "file": "02_LM/07_kernels_and_extensions.md",
+      "baseline_line": 307,
+      "chinese_sha256": "0fc56769281b6a38c109959784827977234066a7bc66b335bf92ffbcfa7abd38",
+      "english_sha256": "763d9fb0e43d12a10a60da3b8937b67a23e3c25f20b70f8468aaa372c0c7c4d0",
+      "kind": "text",
+      "target_line": 375
+    },
+    {
+      "id": 371,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 130,
+      "chinese_sha256": "2f27a7932e03dea2197a96a83236b704a7f557e7e2824862bd81ad5e8749950e",
+      "english_sha256": "8cd12b470cf52d69eae6409239c78c2e438696633fbd85da8ad04ca5a92280a5",
+      "kind": "summary",
+      "target_line": 156
+    },
+    {
+      "id": 372,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 132,
+      "chinese_sha256": "5fb17cbdd920c10aa2a5bb5020472f50fd7ed1fb15379c38267807b933c5ac8d",
+      "english_sha256": "7742797531e473f85ed8d844e86ffa80ab46c893ebbd4d901234f544e06aea85",
+      "kind": "text",
+      "target_line": 158
+    },
+    {
+      "id": 373,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 134,
+      "chinese_sha256": "7441afbaabbddf88df7fef63247b1a025e7df4a36c4edc9d3c25bab1781b9b4e",
+      "english_sha256": "722a876db8c257490c67001967a5254c7ccdc49e98d9fee10e3b12436b548dba",
+      "kind": "text",
+      "target_line": 162
+    },
+    {
+      "id": 374,
+      "file": "01_intro/01_data_and_learning.md",
+      "baseline_line": 136,
+      "chinese_sha256": "b27ce63171874258541448d992329611956e35c8d9060d3a6828b492cdd1f85c",
+      "english_sha256": "97ca98b7ef22083b773658e858ac3c141314277869de6909e4f3783133f449c7",
+      "kind": "text",
+      "target_line": 166
+    },
+    {
+      "id": 375,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 151,
+      "chinese_sha256": "8262231149e233c23bce4d0d173d206ae5b6ea9e38c18276aed00163f6af6e3e",
+      "english_sha256": "b488013e12ebd04f733892e9ac4616471aea4e44fb4710b5905d83a79f64820d",
+      "kind": "summary",
+      "target_line": 185
+    },
+    {
+      "id": 376,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 153,
+      "chinese_sha256": "8f754ac0111ffed41af5bd0c785be080cfb0d68494278b852271621d47d910af",
+      "english_sha256": "22238e612fb2c5bfc5e7ff7b465d4cb09307f8f9451f5a74cdf8b3090d554c8c",
+      "kind": "text",
+      "target_line": 187
+    },
+    {
+      "id": 377,
+      "file": "01_intro/02_algorithms_and_pipeline.md",
+      "baseline_line": 155,
+      "chinese_sha256": "32fbceb8dba8c04aaea6388fc9c0f6adac797eb07c221f21808636f098f59e0a",
+      "english_sha256": "606ff5d438d608063198f121d167ea132db8b057c74064f7583af25120bc52d8",
+      "kind": "text",
+      "target_line": 191
+    },
+    {
+      "id": 378,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 410,
+      "chinese_sha256": "e238158924aa6bcb5e117618ce3cd1bc8584f203440ad2fd44c0e257b300a5e4",
+      "english_sha256": "9d50f261ef7304db85622964d26d8facd6c0599a50b1ffc6b307296ce1c6f081",
+      "kind": "summary",
+      "target_line": 494
+    },
+    {
+      "id": 379,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 412,
+      "chinese_sha256": "1799bb926148014d75e145865d8509986e84d4a16d00d281b1a701152cfc4f16",
+      "english_sha256": "1b685916af142fa3b4c83e879252c57ee772d738bd363d173d29f37f7587a5c2",
+      "kind": "text",
+      "target_line": 496
+    },
+    {
+      "id": 380,
+      "file": "01_intro/03_information_and_pac.md",
+      "baseline_line": 414,
+      "chinese_sha256": "3c411ca47f2ddcf224fd7a73b1e851b6381275dd7d227358a5a80d2264a99ffa",
+      "english_sha256": "8c66e620ce2623fb6da5cb265f51ef6f8ef3fd0493c4d59138af7d9d7e8b7250",
+      "kind": "text",
+      "target_line": 500
+    },
+    {
+      "id": 381,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 26,
+      "chinese_sha256": "42461d9a953435ea521b7aaabaa407fa11ee296bedf9230b58adbdd07ef2bce2",
+      "english_sha256": "f7a40c8b37dd11c71b8cc913783c964afaa59d3ee60378f2d4c469c781f7cb35",
+      "kind": "summary",
+      "target_line": 32
+    },
+    {
+      "id": 382,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 28,
+      "chinese_sha256": "c149b8e34dabad276f387458f61f55b250528ec62d3c0fa2d8dbe6a7ed7287b6",
+      "english_sha256": "d1549b8ca61594d876f69664228540f64db4d5020dfbc5c7828a81f0bfb974c9",
+      "kind": "text",
+      "target_line": 34
+    },
+    {
+      "id": 383,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 30,
+      "chinese_sha256": "f17e9250a9f157348a71a9e7c32647d038ecdb32c5dc07639efc423d089bc027",
+      "english_sha256": "e462532d4cfaa7f910de06dd284c1cd3e9272a4f70d700e8981a12f692d6daec",
+      "kind": "text",
+      "target_line": 38
+    },
+    {
+      "id": 384,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 32,
+      "chinese_sha256": "f17e5f05760ad4ac5eaa89d06a91401fe8afe00dfd50a771d2c40b82f95b8e70",
+      "english_sha256": "66ec81847d3fe7f3436d2deb1d956faa74aa2e1f32ae47c1c9a2143fe871ea9f",
+      "kind": "text",
+      "target_line": 42
+    },
+    {
+      "id": 385,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 37,
+      "chinese_sha256": "1479914ebdcf67897d6248ff4d2cb8cd0b59d2c8b1191bf54224691e6e3776e0",
+      "english_sha256": "335001444b43876bdb67d081b825d99808633b14b0e27ec34f0022cb869ac8c2",
+      "kind": "summary",
+      "target_line": 49
+    },
+    {
+      "id": 386,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 39,
+      "chinese_sha256": "d94325a88d130846b117cc0d4d010e56ef463fd5dbeffeebe5397596e07764f7",
+      "english_sha256": "233788c6d3090101e73041499cd6837ca399154c330162a65defb9e3d7c93f75",
+      "kind": "text",
+      "target_line": 51
+    },
+    {
+      "id": 387,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 41,
+      "chinese_sha256": "c4ee6a66928546c58f18d0b622fd1b7728657dcb00e5c9d3dc8cd04824b1e27d",
+      "english_sha256": "f899d3be04dba741c1f42330edd13aa5cc0dadda2d6ee7e714d933b661b93956",
+      "kind": "text",
+      "target_line": 55
+    },
+    {
+      "id": 388,
+      "file": "02_LM/01_linear_models_and_least_squares.md",
+      "baseline_line": 43,
+      "chinese_sha256": "374d85321a206b72e991716694e37609311a52c8f5d3e1e554f543f010308553",
+      "english_sha256": "81f25e75071ead1a6a3360329cefb4605a9e96806d9fc2cff700befdb64ff302",
+      "kind": "text",
+      "target_line": 59
+    },
+    {
+      "id": 389,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 175,
+      "chinese_sha256": "506c96d78fc98c12302e1822ac6659004be5b2e4694eb5d44aa3603f51068187",
+      "english_sha256": "ed935c3982ea009f9834fb822804fa09c5ca9877f2a3ca74b0cde8701cc83a20",
+      "kind": "summary",
+      "target_line": 211
+    },
+    {
+      "id": 390,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 177,
+      "chinese_sha256": "3360f539f6b7fa1cb800f661b33fa1f77dd8cbc60de4f09154c2d2003dd4c9bd",
+      "english_sha256": "9e0b9ed64194c4b7b992c0cfc1e3f281de8e8aa3735d7c286e1dd3771ff1373e",
+      "kind": "text",
+      "target_line": 213
+    },
+    {
+      "id": 391,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 179,
+      "chinese_sha256": "26e15de23269a5254e2d4f29936761e60868ec28cdc6cbf3c5fdb42647b1eee0",
+      "english_sha256": "52bb920f6f96df86a0f4deb2df7c572181b4311d335a4961b66fade3c3d8d354",
+      "kind": "text",
+      "target_line": 217
+    },
+    {
+      "id": 392,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 225,
+      "chinese_sha256": "a5c163fd18098cd7049526ce3936a74774aa909ed481602c14c428d243ec55c2",
+      "english_sha256": "bc53c91db6f44c0e1c460e38249844d113679c1d978e67e71b8c40ae18d28935",
+      "kind": "summary",
+      "target_line": 273
+    },
+    {
+      "id": 393,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 227,
+      "chinese_sha256": "78fb18d509844102d1a6fac6a4ba148910d7a9217995f842b374f54909769046",
+      "english_sha256": "665330dc126657ef4d344be3edfe3ddf78e8edf4aa989d86cb70a40c6b5fcecb",
+      "kind": "text",
+      "target_line": 275
+    },
+    {
+      "id": 394,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 233,
+      "chinese_sha256": "5328b6fe75346c669206d5cf655cbb20b8d01841a0eefba7dc5d19d9bccde93d",
+      "english_sha256": "cdd4b7c41a51d9ad7b4922faa622020af7b799824667729799792d9bc9de0fde",
+      "kind": "text",
+      "target_line": 283
+    },
+    {
+      "id": 395,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 240,
+      "chinese_sha256": "161fbaefcb2fa67f5557a5b91e076253b21ee3e26a593e3600b9539570dc41f9",
+      "english_sha256": "b8c1a2deceec1aa16c91380ff74219593c7680eebdf6dcb423aed6561a153033",
+      "kind": "text",
+      "target_line": 292
+    },
+    {
+      "id": 396,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 271,
+      "chinese_sha256": "3328bfc700b69730dad4a63bdee5512f30415f0af2fd01f0eaffe91d6e0a0d15",
+      "english_sha256": "913c9de96130efb292ab10c7cbae1846cdc252bf5ae3a2f4d73991fdb9247695",
+      "kind": "summary",
+      "target_line": 333
+    },
+    {
+      "id": 397,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 273,
+      "chinese_sha256": "7f0c06677f766f9504ca357798b87949d3a2065d97bcd8f1f00886e03dbffa4f",
+      "english_sha256": "fddcc4c7b53b4854822be13728282e61edafeb371020718a45ae2988de6ffbd1",
+      "kind": "text",
+      "target_line": 335
+    },
+    {
+      "id": 398,
+      "file": "02_LM/04_lasso_and_structured_sparsity.md",
+      "baseline_line": 275,
+      "chinese_sha256": "843ce2d64ec299496a0730d2050bfd57f7cddb78e09e4eeffc4f096d3d5c61c6",
+      "english_sha256": "2f4fabd3e434e9d171cad5e7c4e978ddf794ecc099c51d4f187eae343f318bf3",
+      "kind": "text",
+      "target_line": 339
+    },
+    {
+      "id": 399,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 126,
+      "chinese_sha256": "fd88e39a8cb7d4e890b294d4228fa3c300589b3f80f2873c8333e7bbc7611c06",
+      "english_sha256": "9381dcf7c1ade9a717cca656b9519aca19c3f55fcc32dec0fc0ae3498a96c99e",
+      "kind": "summary",
+      "target_line": 158
+    },
+    {
+      "id": 400,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 128,
+      "chinese_sha256": "e6fdde6a07d0c627c61fc801735fd6074de004c74a251f31eedc9b04e1834c7a",
+      "english_sha256": "7c68b6fdff9202855f62f4e5434f917395bcb29843b85093d73457ccccb6346a",
+      "kind": "text",
+      "target_line": 160
+    },
+    {
+      "id": 401,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 130,
+      "chinese_sha256": "cc28114df6fe9847a04d80cc488aff10a551cc10b219cb1e87e8cd096a2b0c6e",
+      "english_sha256": "19d6b931c7a675e8f6363641630f408d3a21bee6f8d67015ff49cdae1d8c5e78",
+      "kind": "text",
+      "target_line": 164
+    },
+    {
+      "id": 402,
+      "file": "02_LM/06_regularization_and_validation.md",
+      "baseline_line": 132,
+      "chinese_sha256": "ce5e578f83b4daaac73e9ccf0d8954de518b3bbf18d3889ec4e951aafb50ae1c",
+      "english_sha256": "19b63a39f10b683ab35458c3dfa2b1888324191ac69f276c5e3aebe77d31a051",
+      "kind": "text",
+      "target_line": 168
+    }
+  ],
+  "source_mapping": "2026-09-28-coverage.json",
+  "scope": "Core conceptual explanations, worked examples, mathematical notes, and technical derivations/extensions. Historical side discussions and provenance records retain their existing language.",
+  "validation": {
+    "exact_baseline_recovery_files": 14,
+    "source_mappings_preserved": 595,
+    "math_and_link_placeholders_verified": true,
+    "protected_existing_files": 1262,
+    "local_links_verified": 312,
+    "render": {
+      "files": 16,
+      "mathExpressions": 1841,
+      "images": 23,
+      "details": 32,
+      "mathErrors": 0,
+      "brokenImages": 0,
+      "foldInteractionPassed": true
+    }
+  }
+}

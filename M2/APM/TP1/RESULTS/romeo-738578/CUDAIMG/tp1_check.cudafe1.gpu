@@ -1,0 +1,480 @@
+typedef char __nv_bool;
+# 3035 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/driver_types.h"
+struct CUstream_st;
+# 50 "/usr/include/bits/types/struct_FILE.h" 3
+struct _IO_FILE;
+# 209 "/usr/lib/gcc/aarch64-redhat-linux/11/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 7 "/usr/include/bits/types/FILE.h" 3
+typedef struct _IO_FILE FILE;
+# 280 "/usr/include/c++/11/aarch64-redhat-linux/bits/c++config.h" 3
+typedef unsigned long _ZSt6size_t;
+# 157 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/crt/common_functions.h"
+___device__(extern  __no_sc__) __attribute__((__alloc_size__(1))) __attribute__((__malloc__)) __attribute__((__nothrow__)) void *malloc(size_t);
+# 158 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/crt/common_functions.h"
+___device__(extern  __no_sc__) __attribute__((__nothrow__)) void free(void *);
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 112 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError __cudaCDP2Malloc(void **, size_t);
+# 250 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) const char *__cudaCDP2GetErrorString(enum cudaError);
+# 252 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) enum cudaError __cudaCDP2GetDeviceCount(int *);
+# 265 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) enum cudaError __cudaCDP2Free(void *);
+# 528 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ const char *_ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c4318cudaGetErrorStringE9cudaError(enum cudaError);
+# 538 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError _ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c4318cudaGetDeviceCountEPi(int *);
+# 603 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError _ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c438cudaFreeEPv(void *);
+# 608 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError _ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c4310cudaMallocEPPvm(void **, size_t);
+#if !defined(__CUDABE__)
+# 153 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/crt/common_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) int printf(const char *__restrict__, ...);
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 2924 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/crt/device_functions.h"
+___device__(extern  __no_sc__) unsigned __cudaPushCallConfiguration(struct dim3, struct dim3, size_t, struct CUstream_st *);
+# 20 "Partie1/tp1_check.cu"
+__global__ __var_used__ extern void _Z6kernelPi(int *);
+#include "common_functions.h"
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 112 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError __cudaCDP2Malloc(
+# 112 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+void **p, 
+# 112 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+size_t s){
+# 113 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+{
+# 114 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+return cudaErrorUnknown;
+# 115 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+}}
+# 528 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ const char *_ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c4318cudaGetErrorStringE9cudaError(
+# 528 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+enum cudaError error){
+# 529 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+{
+# 530 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+return __cudaCDP2GetErrorString(error);
+# 531 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+}}
+# 538 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError _ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c4318cudaGetDeviceCountEPi(
+# 538 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+int *count){
+# 539 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+{
+# 540 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+return __cudaCDP2GetDeviceCount(count);
+# 541 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+}}
+# 603 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError _ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c438cudaFreeEPv(
+# 603 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+void *devPtr){
+# 604 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+{
+# 605 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+return __cudaCDP2Free(devPtr);
+# 606 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+}}
+# 608 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+___device__(static  __no_sc__) __inline__ enum cudaError _ZN43_INTERNAL_bd6a88c4_12_tp1_check_cu_84db3c4310cudaMallocEPPvm(
+# 608 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+void **devPtr, 
+# 608 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+size_t size){
+# 609 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+{  void **__T0;
+ size_t __T1;
+# 610 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+return ((__T0 = devPtr) , (void)(__T1 = size)) , (__cudaCDP2Malloc(__T0, __T1));
+# 611 "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/../targets/sbsa-linux/include/cuda_device_runtime_api.h"
+}}
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 20 "Partie1/tp1_check.cu"
+__global__ __var_used__ void _Z6kernelPi(
+# 20 "Partie1/tp1_check.cu"
+int *v){
+# 21 "Partie1/tp1_check.cu"
+{
+# 22 "Partie1/tp1_check.cu"
+(*v) = 1; 
+# 23 "Partie1/tp1_check.cu"
+}}

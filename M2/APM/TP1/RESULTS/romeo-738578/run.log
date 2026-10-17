@@ -1,0 +1,276 @@
+2026-10-09T14:27:23+02:00
+romeo-a057
+aarch64
+SLURM_JOB_ID=738578
+CPU affinity: pid 1149975's current affinity list: 280
+Architecture:                            aarch64
+CPU op-mode(s):                          64-bit
+Byte Order:                              Little Endian
+CPU(s):                                  288
+On-line CPU(s) list:                     0-287
+Vendor ID:                               ARM
+Model name:                              Neoverse-V2
+Model:                                   0
+Thread(s) per core:                      1
+Core(s) per socket:                      72
+Socket(s):                               4
+Stepping:                                r0p0
+Frequency boost:                         disabled
+CPU(s) scaling MHz:                      100%
+CPU max MHz:                             3438.0000
+CPU min MHz:                             81.0000
+BogoMIPS:                                2000.00
+Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm sb dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16 dgh
+L1d cache:                               18 MiB (288 instances)
+L1i cache:                               18 MiB (288 instances)
+L2 cache:                                288 MiB (288 instances)
+L3 cache:                                456 MiB (4 instances)
+NUMA node(s):                            36
+NUMA node0 CPU(s):                       0-71
+NUMA node1 CPU(s):                       72-143
+NUMA node2 CPU(s):                       144-215
+NUMA node3 CPU(s):                       216-287
+NUMA node4 CPU(s):                       
+NUMA node5 CPU(s):                       
+NUMA node6 CPU(s):                       
+NUMA node7 CPU(s):                       
+NUMA node8 CPU(s):                       
+NUMA node9 CPU(s):                       
+NUMA node10 CPU(s):                      
+NUMA node11 CPU(s):                      
+NUMA node12 CPU(s):                      
+NUMA node13 CPU(s):                      
+NUMA node14 CPU(s):                      
+NUMA node15 CPU(s):                      
+NUMA node16 CPU(s):                      
+NUMA node17 CPU(s):                      
+NUMA node18 CPU(s):                      
+NUMA node19 CPU(s):                      
+NUMA node20 CPU(s):                      
+NUMA node21 CPU(s):                      
+NUMA node22 CPU(s):                      
+NUMA node23 CPU(s):                      
+NUMA node24 CPU(s):                      
+NUMA node25 CPU(s):                      
+NUMA node26 CPU(s):                      
+NUMA node27 CPU(s):                      
+NUMA node28 CPU(s):                      
+NUMA node29 CPU(s):                      
+NUMA node30 CPU(s):                      
+NUMA node31 CPU(s):                      
+NUMA node32 CPU(s):                      
+NUMA node33 CPU(s):                      
+NUMA node34 CPU(s):                      
+NUMA node35 CPU(s):                      
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; CSV2, BHB
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+Fri Oct  9 14:27:23 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GH200 120GB             On  |   00000039:01:00.0 Off |                    0 |
+| N/A   45C    P0             86W /  900W |       3MiB /  97871MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+name, uuid, driver_version
+NVIDIA GH200 120GB, GPU-b33a44a9-c8ad-8ca3-de11-d66686e42513, 590.48.01
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Apr__9_19:27:48_PDT_2025
+Cuda compilation tools, release 12.9, V12.9.41
+Build cuda_12.9.r12.9/compiler.35813241_0
+g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
++ nvcc -O3 -arch=sm_90 --keep --keep-dir /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/CUDAIMG -c Partie1/tp1_check.cu -o /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/tp1_check.o
++ nvcc /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/tp1_check.o -o /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/tp1_check
+nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/tp1_check
+TEST PASSED !
+Device Number: 0
+  Device name: NVIDIA GH200 120GB
+  Memory Clock Rate (KHz): 2619000
+  Memory Bus Width (bits): 6144
+  Peak Memory Bandwidth (GB/s): 4022.784000
+  Device Compute Capability: 9.0
+  > Kernel Configuration information
+    - Warp Size: 32
+    - Max Threads Per Block: 1024
+    - Max size of each dimension of a Block: (1024, 1024, 64)
+    - Max size of each dimension of a Grid: (2147483647, 65535, 65535)
+  > Memory information
+    - Total Global Memory size (bytes): 102005473280
+    - Max Shared Memory size per block (bytes): 49152
+    - Max Constant Memory size (bytes): 65536
+
++ ls -l /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/CUDAIMG
+total 3
+-rw-r--r-- 1 hibouwu r260073 1479024 Oct  9 14:27 tp1_check.cpp1.ii
+-rw-r--r-- 1 hibouwu r260073 1341009 Oct  9 14:27 tp1_check.cpp4.ii
+-rw-r--r-- 1 hibouwu r260073      79 Oct  9 14:27 tp1_check.cudafe1.c
+-rw-r--r-- 1 hibouwu r260073 1283359 Oct  9 14:27 tp1_check.cudafe1.cpp
+-rw-r--r-- 1 hibouwu r260073   16843 Oct  9 14:27 tp1_check.cudafe1.gpu
+-rw-r--r-- 1 hibouwu r260073    1259 Oct  9 14:27 tp1_check.cudafe1.stub.c
+-rw-r--r-- 1 hibouwu r260073    3392 Oct  9 14:27 tp1_check.fatbin
+-rw-r--r-- 1 hibouwu r260073    9714 Oct  9 14:27 tp1_check.fatbin.c
+-rw-r--r-- 1 hibouwu r260073      34 Oct  9 14:27 tp1_check.module_id
+-rw-r--r-- 1 hibouwu r260073     464 Oct  9 14:27 tp1_check.ptx
+-rw-r--r-- 1 hibouwu r260073    2992 Oct  9 14:27 tp1_check.sm_90.cubin
++ cat /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/CUDAIMG/tp1_check.ptx
+//
+// Generated by NVIDIA NVVM Compiler
+//
+// Compiler Build ID: CL-35813241
+// Cuda compilation tools, release 12.9, V12.9.41
+// Based on NVVM 7.0.1
+//
+
+.version 8.8
+.target sm_90
+.address_size 64
+
+	// .globl	_Z6kernelPi
+
+.visible .entry _Z6kernelPi(
+	.param .u64 _Z6kernelPi_param_0
+)
+{
+	.reg .b32 	%r<2>;
+	.reg .b64 	%rd<3>;
+
+
+	ld.param.u64 	%rd1, [_Z6kernelPi_param_0];
+	cvta.to.global.u64 	%rd2, %rd1;
+	mov.u32 	%r1, 1;
+	st.global.u32 	[%rd2], %r1;
+	ret;
+
+}
+
++ nvcc -std=c++17 -O3 -arch=sm_90 -Xcompiler=-Wall,-Wextra Partie2/dgemm.cu -o /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm
++ cuobjdump --dump-resource-usage /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm
+
+Fatbin elf code:
+================
+arch = sm_90
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+Resource usage:
+ Common:
+  GLOBAL:0
+
+Fatbin elf code:
+================
+arch = sm_90
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+Resource usage:
+ Common:
+  GLOBAL:0
+ Function _Z12dgemm_kernelidPKdS0_dPd:
+  REG:32 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:576 TEXTURE:0 SURFACE:0 SAMPLER:0
+
+Fatbin ptx code:
+================
+arch = sm_90
+code version = [8,8]
+host = linux
+compile_size = 64bit
+compressed
+ptxasOptions = 
++ for n in 1 31 32 33 65
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 1 2 general
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=0.000191852 kernel_ms=0.007712000 gpu_with_copy_ms=0.035679899
+SAMPLE repeat=1 cpu_ms=0.000031665 kernel_ms=0.004064000 gpu_with_copy_ms=0.013472047
+RESULT N=1 repetitions=2 input=general alpha=0.75 beta=-0.50 cpu_ms=0.000111759 kernel_ms=0.005888000 gpu_with_copy_ms=0.024575973 cpu_gflops=0.017896 kernel_gflops=0.000340 effective_gflops=0.000081 kernel_speedup=0.018981 with_copy_speedup=0.004547 max_cpu_error=4.73591639875e-17 max_gpu_error=4.73591639875e-17 failures=0 validation=PASSED
++ for n in 1 31 32 33 65
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 31 2 general
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=0.011391938 kernel_ms=0.009824000 gpu_with_copy_ms=0.033151824
+SAMPLE repeat=1 cpu_ms=0.010591932 kernel_ms=0.007520000 gpu_with_copy_ms=0.021920074
+RESULT N=31 repetitions=2 input=general alpha=0.75 beta=-0.50 cpu_ms=0.010991935 kernel_ms=0.008672000 gpu_with_copy_ms=0.027535949 cpu_gflops=5.420520 kernel_gflops=6.870618 effective_gflops=2.163790 kernel_speedup=1.267520 with_copy_speedup=0.399185 max_cpu_error=4.47388823734e-16 max_gpu_error=4.47388823734e-16 failures=0 validation=PASSED
++ for n in 1 31 32 33 65
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 32 2 general
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=0.012672041 kernel_ms=0.010464000 gpu_with_copy_ms=0.031296164
+SAMPLE repeat=1 cpu_ms=0.011808239 kernel_ms=0.011552000 gpu_with_copy_ms=0.026240014
+RESULT N=32 repetitions=2 input=general alpha=0.75 beta=-0.50 cpu_ms=0.012240140 kernel_ms=0.011008000 gpu_with_copy_ms=0.028768089 cpu_gflops=5.354187 kernel_gflops=5.953488 effective_gflops=2.278080 kernel_speedup=1.111931 with_copy_speedup=0.425476 max_cpu_error=7.67839560388e-16 max_gpu_error=7.67839560388e-16 failures=0 validation=PASSED
++ for n in 1 31 32 33 65
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 33 2 general
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=0.013728160 kernel_ms=0.011584000 gpu_with_copy_ms=0.037055928
+SAMPLE repeat=1 cpu_ms=0.012608245 kernel_ms=0.007520000 gpu_with_copy_ms=0.022687949
+RESULT N=33 repetitions=2 input=general alpha=0.75 beta=-0.50 cpu_ms=0.013168203 kernel_ms=0.009552000 gpu_with_copy_ms=0.029871939 cpu_gflops=5.458148 kernel_gflops=7.524498 effective_gflops=2.406071 kernel_speedup=1.378581 with_copy_speedup=0.440822 max_cpu_error=2.16377032841e-15 max_gpu_error=2.16377032841e-15 failures=0 validation=PASSED
++ for n in 1 31 32 33 65
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 65 2 general
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=0.115584116 kernel_ms=0.012032000 gpu_with_copy_ms=0.033375807
+SAMPLE repeat=1 cpu_ms=0.126783736 kernel_ms=0.025472000 gpu_with_copy_ms=0.039616134
+RESULT N=65 repetitions=2 input=general alpha=0.75 beta=-0.50 cpu_ms=0.121183926 kernel_ms=0.018752000 gpu_with_copy_ms=0.036495971 cpu_gflops=4.532367 kernel_gflops=29.290209 effective_gflops=15.049607 kernel_speedup=6.462453 with_copy_speedup=3.320474 max_cpu_error=1.05058735604e-15 max_gpu_error=1.05058735604e-15 failures=0 validation=PASSED
++ compute-sanitizer --tool memcheck --error-exitcode 99 /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 33 1 general
+========= COMPUTE-SANITIZER
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=0.014911871 kernel_ms=0.367040008 gpu_with_copy_ms=0.414239708
+RESULT N=33 repetitions=1 input=general alpha=0.75 beta=-0.50 cpu_ms=0.014911871 kernel_ms=0.367040008 gpu_with_copy_ms=0.414239708 cpu_gflops=4.819918 kernel_gflops=0.195821 effective_gflops=0.173508 kernel_speedup=0.040627 with_copy_speedup=0.035998 max_cpu_error=2.16377032841e-15 max_gpu_error=2.16377032841e-15 failures=0 validation=PASSED
+========= ERROR SUMMARY: 0 errors
++ for n in 256 512 1024
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 256 5
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=11.971071828 kernel_ms=0.042879999 gpu_with_copy_ms=0.069439877
+SAMPLE repeat=1 cpu_ms=11.998367961 kernel_ms=0.038431998 gpu_with_copy_ms=0.057280064
+SAMPLE repeat=2 cpu_ms=11.959776282 kernel_ms=0.036736000 gpu_with_copy_ms=0.055551995
+SAMPLE repeat=3 cpu_ms=11.966112070 kernel_ms=0.035712000 gpu_with_copy_ms=0.054879580
+SAMPLE repeat=4 cpu_ms=11.953279842 kernel_ms=0.035615999 gpu_with_copy_ms=0.055615790
+RESULT N=256 repetitions=5 input=course alpha=1.00 beta=1.00 cpu_ms=11.966112070 kernel_ms=0.036736000 gpu_with_copy_ms=0.055615790 cpu_gflops=2.804121 kernel_gflops=913.393720 effective_gflops=603.325636 kernel_speedup=325.732577 with_copy_speedup=215.156739 max_cpu_error=0 max_gpu_error=0 failures=0 validation=PASSED
++ for n in 256 512 1024
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 512 5
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=205.259775743 kernel_ms=0.093152002 gpu_with_copy_ms=0.126368366
+SAMPLE repeat=1 cpu_ms=205.242111813 kernel_ms=0.091775998 gpu_with_copy_ms=0.121567864
+SAMPLE repeat=2 cpu_ms=205.478847958 kernel_ms=0.093567997 gpu_with_copy_ms=0.118623953
+SAMPLE repeat=3 cpu_ms=205.135519616 kernel_ms=0.092799999 gpu_with_copy_ms=0.118016265
+SAMPLE repeat=4 cpu_ms=205.660384148 kernel_ms=0.093759999 gpu_with_copy_ms=0.125183724
+RESULT N=512 repetitions=5 input=course alpha=1.00 beta=1.00 cpu_ms=205.259775743 kernel_ms=0.093152002 gpu_with_copy_ms=0.121567864 cpu_gflops=1.307784 kernel_gflops=2881.692843 effective_gflops=2208.111973 kernel_speedup=2203.492920 with_copy_speedup=1688.437791 max_cpu_error=0 max_gpu_error=0 failures=0 validation=PASSED
++ for n in 256 512 1024
++ /gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009/RESULTS/romeo-738578/bin/dgemm 1024 5
+DEVICE name=NVIDIA GH200 120GB cc=9.0 block=32x32
+SAMPLE repeat=0 cpu_ms=1845.980735961 kernel_ms=0.581568003 gpu_with_copy_ms=0.648479909
+SAMPLE repeat=1 cpu_ms=1846.001503989 kernel_ms=0.577567995 gpu_with_copy_ms=0.644447748
+SAMPLE repeat=2 cpu_ms=1846.396576148 kernel_ms=0.575904012 gpu_with_copy_ms=0.642751809
+SAMPLE repeat=3 cpu_ms=1846.268896013 kernel_ms=0.582687974 gpu_with_copy_ms=0.649055932
+SAMPLE repeat=4 cpu_ms=1846.641024109 kernel_ms=0.575936019 gpu_with_copy_ms=0.643007923
+RESULT N=1024 repetitions=5 input=course alpha=1.00 beta=1.00 cpu_ms=1846.268896013 kernel_ms=0.577567995 gpu_with_copy_ms=0.644447748 cpu_gflops=1.163148 kernel_gflops=3718.148630 effective_gflops=3332.285132 kernel_speedup=3196.626048 with_copy_speedup=2864.885327 max_cpu_error=0 max_gpu_error=0 failures=0 validation=PASSED

@@ -1,5 +1,7 @@
 # 第一讲课堂转录整合与核对
 
+2026-10-16：正文已迁入[第一课双语分篇](../01_intro_zh.md)，下方概念链接已更新。本文保留先前课堂整合阶段的记录与验证结果；分篇后的对应关系和验证见[双语分篇记录](2026-10-16-bilingual-split.md)。
+
 本次以整合前的完整中文译文为基线，只在对应概念旁添加解释。主文件：[第一讲中文版](../01_intro_zh.md)。
 
 ## 内容保留与阅读层次
@@ -18,19 +20,19 @@
 
 | 行范围 | 内容与处理 | 译文位置 |
 |---|---|---|
-| 1–34 | 教师经历、课程语言与学习方式；背景折叠，含混语句保留源文 | [这门课要求你会解释什么](../01_intro_zh.md#classroom-reading) |
-| 35–55 | 信息数字化、噪声、采样与处理链 | [从传感器读数到真正有用的决策](../01_intro_zh.md#classroom-data-decisions) |
-| 56–94 | 跌倒检测、跨专业协作、漏检与误报的不同后果 | [从传感器读数到真正有用的决策](../01_intro_zh.md#classroom-data-decisions) |
-| 95–136 | 大数据与数据湖、疫情排班、数据可用性；案例折叠 | [从传感器读数到真正有用的决策](../01_intro_zh.md#classroom-data-decisions) |
-| 137–163 | 预测、决策、知识和时间尺度；药物旁例不扩展成医疗结论 | [从传感器读数到真正有用的决策](../01_intro_zh.md#classroom-data-decisions) |
-| 164–211 | 访问、传感器、视频测量、医院与厂商数据碎片；案例折叠 | [从传感器读数到真正有用的决策](../01_intro_zh.md#classroom-data-decisions) |
-| 212–262 | 人参与、伦理、飞机思维实验；法律和安全说法标为未核实口述 | [从传感器读数到真正有用的决策](../01_intro_zh.md#classroom-data-decisions) |
-| 263–305 | 课程方法论范围；硬件、软件、部署、伪代码与实现 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro_zh.md#classroom-representation) |
-| 306–358 | 20 人 50 变量、高维点云、评价权重与降维；认知数字不作定量结论 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro_zh.md#classroom-representation) |
-| 359–379 | 不罗列食谱、用少量模型讲原则、课堂评价要求 | [这门课要求你会解释什么](../01_intro_zh.md#classroom-reading) |
-| 380–425 | 高斯与模型假设、重尾混合、评估自用和外购方法；边界折叠 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro_zh.md#classroom-representation) |
-| 426–491 | 信贷向量、账户时间顺序、网络关系、RGB 图像与展平辨析 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro_zh.md#classroom-representation) |
-| 492–521 | 监督标签与无监督结构；Capital One 例子在现有文件中中断 | [先看输出和已有标签，再确定问题类型](../01_intro_zh.md#classroom-task-types) |
+| 1–34 | 教师经历、课程语言与学习方式；背景折叠，含混语句保留源文 | [这门课要求你会解释什么](../01_intro/01_data_and_learning.md#classroom-reading) |
+| 35–55 | 信息数字化、噪声、采样与处理链 | [从传感器读数到真正有用的决策](../01_intro/01_data_and_learning.md#classroom-data-decisions) |
+| 56–94 | 跌倒检测、跨专业协作、漏检与误报的不同后果 | [从传感器读数到真正有用的决策](../01_intro/01_data_and_learning.md#classroom-data-decisions) |
+| 95–136 | 大数据与数据湖、疫情排班、数据可用性；案例折叠 | [从传感器读数到真正有用的决策](../01_intro/01_data_and_learning.md#classroom-data-decisions) |
+| 137–163 | 预测、决策、知识和时间尺度；药物旁例不扩展成医疗结论 | [从传感器读数到真正有用的决策](../01_intro/01_data_and_learning.md#classroom-data-decisions) |
+| 164–211 | 访问、传感器、视频测量、医院与厂商数据碎片；案例折叠 | [从传感器读数到真正有用的决策](../01_intro/01_data_and_learning.md#classroom-data-decisions) |
+| 212–262 | 人参与、伦理、飞机思维实验；法律和安全说法标为未核实口述 | [从传感器读数到真正有用的决策](../01_intro/01_data_and_learning.md#classroom-data-decisions) |
+| 263–305 | 课程方法论范围；硬件、软件、部署、伪代码与实现 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro/01_data_and_learning.md#classroom-representation) |
+| 306–358 | 20 人 50 变量、高维点云、评价权重与降维；认知数字不作定量结论 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro/01_data_and_learning.md#classroom-representation) |
+| 359–379 | 不罗列食谱、用少量模型讲原则、课堂评价要求 | [这门课要求你会解释什么](../01_intro/01_data_and_learning.md#classroom-reading) |
+| 380–425 | 高斯与模型假设、重尾混合、评估自用和外购方法；边界折叠 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro/01_data_and_learning.md#classroom-representation) |
+| 426–491 | 信贷向量、账户时间顺序、网络关系、RGB 图像与展平辨析 | [一行数据为什么是一个点，坐标为什么不能随意混排](../01_intro/01_data_and_learning.md#classroom-representation) |
+| 492–521 | 监督标签与无监督结构；Capital One 例子在现有文件中中断 | [先看输出和已有标签，再确定问题类型](../01_intro/01_data_and_learning.md#classroom-task-types) |
 
 ## 转录 2
 
@@ -38,12 +40,12 @@
 
 | 行范围 | 内容与处理 | 译文位置 |
 |---|---|---|
-| 1–29 | 早期对话、客服与 Siri 问答、反欺诈规则、混合系统；历史和产品断言加边界 | [从“人写规则”到“用数据估计规则”](../01_intro_zh.md#classroom-rules) |
-| 30–67 | 学习规则、黑箱、外推、责任与汽车类比；立法评论不当现行事实 | [从“人写规则”到“用数据估计规则”](../01_intro_zh.md#classroom-rules) |
-| 68–103 | 视频与行人子任务、标签、输入维度、分界面及语言模型类比 | [一张图像、一个标签与一个决策函数](../01_intro_zh.md#classroom-function) |
-| 104–121 | 线性与非线性、函数类限制、选择规则的标准 | [一张图像、一个标签与一个决策函数](../01_intro_zh.md#classroom-function) |
-| 122–166 | 理想最优、类内最优、数据估计、增加数据和扩大函数类的权衡 | [先分清三个函数，再读两种误差](../01_intro_zh.md#classroom-three-functions) |
-| 167–178 | 设计与训练两个阶段、架构选择依赖经验 | [先分清三个函数，再读两种误差](../01_intro_zh.md#classroom-three-functions) |
+| 1–29 | 早期对话、客服与 Siri 问答、反欺诈规则、混合系统；历史和产品断言加边界 | [从“人写规则”到“用数据估计规则”](../01_intro/01_data_and_learning.md#classroom-rules) |
+| 30–67 | 学习规则、黑箱、外推、责任与汽车类比；立法评论不当现行事实 | [从“人写规则”到“用数据估计规则”](../01_intro/01_data_and_learning.md#classroom-rules) |
+| 68–103 | 视频与行人子任务、标签、输入维度、分界面及语言模型类比 | [一张图像、一个标签与一个决策函数](../01_intro/01_data_and_learning.md#classroom-function) |
+| 104–121 | 线性与非线性、函数类限制、选择规则的标准 | [一张图像、一个标签与一个决策函数](../01_intro/01_data_and_learning.md#classroom-function) |
+| 122–166 | 理想最优、类内最优、数据估计、增加数据和扩大函数类的权衡 | [先分清三个函数，再读两种误差](../01_intro/01_data_and_learning.md#classroom-three-functions) |
+| 167–178 | 设计与训练两个阶段、架构选择依赖经验 | [先分清三个函数，再读两种误差](../01_intro/01_data_and_learning.md#classroom-three-functions) |
 | 179–248 | 课间闲谈、通勤、注册、活动、求职及混杂语句；原文保留，文末提供入口，不冒充概念讲解 | [课堂背景与原始记录](../01_intro_zh.md#classroom-provenance) |
 
 ## 转录 3
@@ -52,31 +54,31 @@
 
 | 行范围 | 内容与处理 | 译文位置 |
 |---|---|---|
-| 1–16 | 人工标注、专家成本、Mechanical Turk 语音识别疑点及平台状态口述 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro_zh.md#classroom-pipeline) |
-| 17–25 | 局部方法、距离、投票与树；“过时”保留为老师评价 | [局部方法先决定“谁和谁接近”](../01_intro_zh.md#classroom-local) |
-| 26–31 | 全局目标、函数与参数优化及大参数空间 | [在函数上优化，实际通常是在参数上优化](../01_intro_zh.md#classroom-global) |
-| 32–43 | 集成作为元方法、树组合、简单性与课堂侧重点 | [集成是在学习算法之上再加一层组织](../01_intro_zh.md#classroom-ensemble) |
-| 44–62 | 0/1 代价、平均损失、漏检 2 与误报 0.5；ERM 与正则化处交叉解释 | [两种错误代价不同时，最小化错误次数可能选错目标](../01_intro_zh.md#classroom-loss-cost) |
-| 63–101 | 复杂度、多项式次数、奥卡姆剃刀、结构约束和正则化权重 | [惩罚项为什么会改变我们选中的函数](../01_intro_zh.md#classroom-regularization) |
-| 102–124 | 通用逼近、显式与隐式正则化、损失表达纠错与实践经验 | [惩罚项为什么会改变我们选中的函数](../01_intro_zh.md#classroom-regularization) |
-| 125–136 | 历史展望图、监督／强化／迁移、组合技术 | [学习框架取决于可获得的反馈](../01_intro_zh.md#classroom-frameworks) |
-| 137–145 | 标注预算、复核、标签质量及建模目标 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro_zh.md#classroom-pipeline) |
-| 146–173 | 100 申请人、80 好客户、仅选 10 人；搜索与评分／排序 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro_zh.md#classroom-pipeline) |
-| 174–190 | 预处理、训练、独立评价和训练误差乐观性 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro_zh.md#classroom-pipeline) |
-| 191–196 | 上线监控、环境变化、模型更新、经验积累；处理流程处展开 | [经验平均与真实期望的区别](../01_intro_zh.md#classroom-population-risk) |
-| 197–202 | 本课程任务与方法范围、原则和实践 | [怎样把本讲方法用于选择和评价工具](../01_intro_zh.md#classroom-scope) |
-| 203–220 | 猜数、枚举与二分、最坏情况次数；口误辨析 | [用 1 到 100 的猜数游戏理解信息量](../01_intro_zh.md#classroom-twenty-questions) |
-| 221–229 | 比特、熵、均匀分布；负号、候选数量条件辨析 | [固定长度编码与熵分别在量什么](../01_intro_zh.md#classroom-entropy) |
-| 230–263 | 数据作为回答、零误差与一般 PAC、标签翻转与可学习性 | [一个带标签的样本，相当于回答了什么问题](../01_intro_zh.md#classroom-pac-meaning) |
-| 264–281 | 函数排除、能否均分、log 与 2 的幂的误译；借充电器插话留源文 | [为什么猜数能二分，任意数据未必能](../01_intro_zh.md#classroom-query-limit) |
-| 282–308 | ε、δ、可实现与有噪声样本阶、置信度极限与证明；相关补充见 ε/δ 与一致偏差块 | [怎样读样本量界，而不误读成万能配方](../01_intro_zh.md#classroom-sample-scaling) |
-| 309–334 | 无限函数类、采样成本、界与具体算法的区别 | [怎样读样本量界，而不误读成万能配方](../01_intro_zh.md#classroom-sample-scaling) |
-| 335–367 | 概率抽象、潜在因素、考试波动、不利样本与抽样失败 | [概率来自重复采样，主动学习则改变采样方式](../01_intro_zh.md#classroom-sampling) |
-| 368–391 | 主动查询、昂贵仿真、代理模型、在线对抗设定 | [概率来自重复采样，主动学习则改变采样方式](../01_intro_zh.md#classroom-sampling) |
-| 392–409 | 数据、假设类、三个函数及风险分解；分解块继续解释 | [符号中的“帽子”“横线”和“星号”各自提醒什么](../01_intro_zh.md#classroom-notation) |
-| 410–415 | 近似理论与估计理论；“只有三四篇论文”的口头夸张 | [表达得出来，与用有限数据学得到，是两回事](../01_intro_zh.md#classroom-approximation) |
-| 416–449 | 参数化分布、反复抽样、期望、展开平方、交叉项消失与向量版本 | [为什么要对“重新抽样得到的估计量”取平均](../01_intro_zh.md#classroom-parameter-mse) |
-| 450–460 | 预测噪声及下次线性模型预告；矩阵阅读指引 | [预测误差为什么比参数误差多一项噪声](../01_intro_zh.md#classroom-prediction-noise) |
+| 1–16 | 人工标注、专家成本、Mechanical Turk 语音识别疑点及平台状态口述 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro/02_algorithms_and_pipeline.md#classroom-pipeline) |
+| 17–25 | 局部方法、距离、投票与树；“过时”保留为老师评价 | [局部方法先决定“谁和谁接近”](../01_intro/02_algorithms_and_pipeline.md#classroom-local) |
+| 26–31 | 全局目标、函数与参数优化及大参数空间 | [在函数上优化，实际通常是在参数上优化](../01_intro/02_algorithms_and_pipeline.md#classroom-global) |
+| 32–43 | 集成作为元方法、树组合、简单性与课堂侧重点 | [集成是在学习算法之上再加一层组织](../01_intro/02_algorithms_and_pipeline.md#classroom-ensemble) |
+| 44–62 | 0/1 代价、平均损失、漏检 2 与误报 0.5；ERM 与正则化处交叉解释 | [两种错误代价不同时，最小化错误次数可能选错目标](../01_intro/06_empirical_and_true_risk.md#classroom-loss-cost) |
+| 63–101 | 复杂度、多项式次数、奥卡姆剃刀、结构约束和正则化权重 | [惩罚项为什么会改变我们选中的函数](../01_intro/02_algorithms_and_pipeline.md#classroom-regularization) |
+| 102–124 | 通用逼近、显式与隐式正则化、损失表达纠错与实践经验 | [惩罚项为什么会改变我们选中的函数](../01_intro/02_algorithms_and_pipeline.md#classroom-regularization) |
+| 125–136 | 历史展望图、监督／强化／迁移、组合技术 | [学习框架取决于可获得的反馈](../01_intro/02_algorithms_and_pipeline.md#classroom-frameworks) |
+| 137–145 | 标注预算、复核、标签质量及建模目标 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro/02_algorithms_and_pipeline.md#classroom-pipeline) |
+| 146–173 | 100 申请人、80 好客户、仅选 10 人；搜索与评分／排序 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro/02_algorithms_and_pipeline.md#classroom-pipeline) |
+| 174–190 | 预处理、训练、独立评价和训练误差乐观性 | [标签、任务、评估和上线后的变化，分别解决什么问题](../01_intro/02_algorithms_and_pipeline.md#classroom-pipeline) |
+| 191–196 | 上线监控、环境变化、模型更新、经验积累；处理流程处展开 | [经验平均与真实期望的区别](../01_intro/06_empirical_and_true_risk.md#classroom-population-risk) |
+| 197–202 | 本课程任务与方法范围、原则和实践 | [怎样把本讲方法用于选择和评价工具](../01_intro/02_algorithms_and_pipeline.md#classroom-scope) |
+| 203–220 | 猜数、枚举与二分、最坏情况次数；口误辨析 | [用 1 到 100 的猜数游戏理解信息量](../01_intro/03_information_and_pac.md#classroom-twenty-questions) |
+| 221–229 | 比特、熵、均匀分布；负号、候选数量条件辨析 | [固定长度编码与熵分别在量什么](../01_intro/03_information_and_pac.md#classroom-entropy) |
+| 230–263 | 数据作为回答、零误差与一般 PAC、标签翻转与可学习性 | [一个带标签的样本，相当于回答了什么问题](../01_intro/03_information_and_pac.md#classroom-pac-meaning) |
+| 264–281 | 函数排除、能否均分、log 与 2 的幂的误译；借充电器插话留源文 | [为什么猜数能二分，任意数据未必能](../01_intro/03_information_and_pac.md#classroom-query-limit) |
+| 282–308 | ε、δ、可实现与有噪声样本阶、置信度极限与证明；相关补充见 ε/δ 与一致偏差块 | [怎样读样本量界，而不误读成万能配方](../01_intro/03_information_and_pac.md#classroom-sample-scaling) |
+| 309–334 | 无限函数类、采样成本、界与具体算法的区别 | [怎样读样本量界，而不误读成万能配方](../01_intro/03_information_and_pac.md#classroom-sample-scaling) |
+| 335–367 | 概率抽象、潜在因素、考试波动、不利样本与抽样失败 | [概率来自重复采样，主动学习则改变采样方式](../01_intro/03_information_and_pac.md#classroom-sampling) |
+| 368–391 | 主动查询、昂贵仿真、代理模型、在线对抗设定 | [概率来自重复采样，主动学习则改变采样方式](../01_intro/03_information_and_pac.md#classroom-sampling) |
+| 392–409 | 数据、假设类、三个函数及风险分解；分解块继续解释 | [符号中的“帽子”“横线”和“星号”各自提醒什么](../01_intro/04_hypotheses_and_bias_variance.md#classroom-notation) |
+| 410–415 | 近似理论与估计理论；“只有三四篇论文”的口头夸张 | [表达得出来，与用有限数据学得到，是两回事](../01_intro/04_hypotheses_and_bias_variance.md#classroom-approximation) |
+| 416–449 | 参数化分布、反复抽样、期望、展开平方、交叉项消失与向量版本 | [为什么要对“重新抽样得到的估计量”取平均](../01_intro/04_hypotheses_and_bias_variance.md#classroom-parameter-mse) |
+| 450–460 | 预测噪声及下次线性模型预告；矩阵阅读指引 | [预测误差为什么比参数误差多一项噪声](../01_intro/04_hypotheses_and_bias_variance.md#classroom-prediction-noise) |
 | 461–470 | 当时实践课和教室编号、网页与方位说明；原文保留，文末折叠入口 | [课堂背景与原始记录](../01_intro_zh.md#classroom-provenance) |
 
 ## 特别核对的边界
@@ -104,3 +106,21 @@
 ## 文风修订
 
 根据后续要求，补充讲解已改为直接解释概念与展开例子的文章文风，移除反复的第三人称转述及“课堂解释”标题前缀。来源保留在段末引用中，口误、未核实说法和来源范围仍明确归属。上文逐字恢复检查记录的是首次整合时的结果；此后文风修订另行核对，全部数学表达式、图像引用、章节标题、导航锚点及折叠结构与修订前一致。
+
+## 去重修订（2026-10-15）
+
+同一辨析只保留最详细的一处：纠正原课件的内容并入对应译注，先把讲解中的条件、推导或例子补进译注，再删去讲解里的重复；讲解之间的重复也只留一处（三个函数的含义、估计误差与“方差”的类比、PAC 常数、向量 MSE、预测噪声项、转录未完整推导的说明等）。讲解中不再用“补充说明／补充例子”或“整理者”区分来源，折叠块标题去掉“补充”“课堂”前缀；新增一条译注说明“$\widehat h$ 越接近 $\hat h$”应为趋近 $\bar h$。原课件译文、公式、图像、章节标题与全部锚点未改动。
+
+## 阅读衔接修订（2026-10-16）
+
+按阅读评价中确认的方向，保留当前译文及既有讲解，作以下局部调整：
+
+- 两个短算例改为默认显示：三个风险值的误差分解、正则化权重改变模型选择。原段内容完整保留。
+- 在学习类型图旁补充半监督学习与关联分析的含义和例子。
+- 在一般 PAC 界前说明经验风险、真实风险与 ERM 的记号。
+- 将线性模型的阅读指引完整移到该节开头；用三个样本示范设计矩阵、参数估计、残差和新输入预测，再说明观测变化如何传到参数、预测方差与 d/n。详细计算保留为折叠块。
+- 在 Bayes 规则及一致性定义旁补充阅读解释；在原练习后给出分类与平方损失回归的解，连接行人检测代价、分类阈值与条件均值。完整条件风险推导可展开。
+
+本轮新增讲解和算例为教学补充，不改变原转录的覆盖范围。按精确编辑操作逆向还原，可恢复本轮开始时的全文；原有数学表达式全部保留，图片引用及原章节标题顺序一致。原始 PDF、转换稿、三份转录和其他五篇译本的哈希均未改变。
+
+已用有理数精确核算直线拟合、残差均方误差、单个观测变化对参数的影响、预测方差、非对称代价阈值与条件均值算例。当前 322 个数学表达式通过 KaTeX 解析；浏览器检查中 11 张图正常加载，两个核心短算例默认可见，新增折叠计算可正常展开。当前讲义的 98 个本地链接及锚点检查通过；本轮修改范围的 `git diff --check` 通过。

@@ -1,0 +1,604 @@
+{
+  "date": "2026-10-16",
+  "target": "02_LM_zh.md",
+  "baseline_sha256": "647054820385897a2bf45278f7c2a8ef4168d38800d63b9dfceb2f0ef00e3f2c",
+  "target_sha256": "52c67debf9c68fa416e958a81f5941a22233507ca42a1b815d3f448ed8ec1757",
+  "baseline_git_commit": "f2d6465b58e6696e17fb166f3bf9a277019b1cf8",
+  "baseline_lines": 894,
+  "target_lines": 1641,
+  "baseline_recovery_verified": true,
+  "protected_hashes": {
+    "Lectures/02_LM.md": "6228c966ce12be330174f8b30a17e97dfa6262e90019801664cef1e1adc9a026",
+    "Lectures/02_LM.pdf": "a598b9141fc49c0b0691a5d9a9fd24f3e65b685c95e405a95d95d3ef2378f94c",
+    "Lectures/02_part1.md": "5d5e068d37ebcf3c61db5657e6342315044622b260a4e25f5e8156cf148f0dde",
+    "Lectures/02_part2.md": "22826ffc64d4a24d80bd6fe3dbbb0d8192358b971221946b03f08e5268f8a74e",
+    "Lectures/02_part3.md": "7f81897743e6bbbd03b397e82730002cfc21137a714d10a7cd2280679a31f90c",
+    "Lectures/03_LMC_zh.md": "298dbab7e12f8a9618835d28f0ce0c0415e1ca877effffeebfd987c80ad39b78",
+    "Lectures/04_UL_zh.md": "4707d8333fd7da84651adf7bfd4fec517fbd222f62613233d74cdbcb0a056de4",
+    "Lectures/05_NLM_zh.md": "63a113b3f977d3a5ec70490bcb85e30f22bd701e7d61e3b36938d8172f45c1ec",
+    "Lectures/06_DL_zh.md": "bdda729697383de17416cf10c1141c321279abbfff7d40f90770b39ea2d8425f",
+    "Lectures/01_intro_zh.md": "7b8392dace516fe9f92d7cdd04eb381f9e7fea2c660106df2c59bd52809d2c43",
+    "README.md": "306b3bbad9f03064ac8f973a9ac9f6572f5790b2c23a37f8c24790ec34362ead"
+  },
+  "concept_explanations": 34,
+  "anchors": [
+    {
+      "anchor": "reading-example-navigation",
+      "line": 7
+    },
+    {
+      "anchor": "reading-model-and-learning",
+      "line": 65
+    },
+    {
+      "anchor": "reading-three-functions",
+      "line": 117
+    },
+    {
+      "anchor": "reading-linear-in-parameters",
+      "line": 215
+    },
+    {
+      "anchor": "reading-ls-example",
+      "line": 242
+    },
+    {
+      "anchor": "reading-normal-equation",
+      "line": 319
+    },
+    {
+      "anchor": "reading-fixed-design-risk",
+      "line": 353
+    },
+    {
+      "anchor": "reading-variance-directions",
+      "line": 411
+    },
+    {
+      "anchor": "reading-high-dimensional-regimes",
+      "line": 458
+    },
+    {
+      "anchor": "reading-orange-shell",
+      "line": 486
+    },
+    {
+      "anchor": "reading-rank-and-stability",
+      "line": 524
+    },
+    {
+      "anchor": "reading-sparse-support",
+      "line": 577
+    },
+    {
+      "anchor": "reading-budget-and-price",
+      "line": 615
+    },
+    {
+      "anchor": "reading-aic-example",
+      "line": 699
+    },
+    {
+      "anchor": "reading-subset-complexity",
+      "line": 804
+    },
+    {
+      "anchor": "reading-greedy-and-convexity",
+      "line": 823
+    },
+    {
+      "anchor": "reading-lasso-threshold",
+      "line": 855
+    },
+    {
+      "anchor": "reading-regularization-purpose",
+      "line": 918
+    },
+    {
+      "anchor": "reading-group-lasso",
+      "line": 963
+    },
+    {
+      "anchor": "reading-fused-lasso",
+      "line": 1001
+    },
+    {
+      "anchor": "reading-underdetermined",
+      "line": 1047
+    },
+    {
+      "anchor": "reading-ridge-shrinkage",
+      "line": 1063
+    },
+    {
+      "anchor": "reading-ridge-eigenvalues",
+      "line": 1111
+    },
+    {
+      "anchor": "reading-dual-dimensions",
+      "line": 1144
+    },
+    {
+      "anchor": "reading-dual-to-kernel",
+      "line": 1207
+    },
+    {
+      "anchor": "reading-elastic-net-example",
+      "line": 1256
+    },
+    {
+      "anchor": "reading-regularization-paths",
+      "line": 1293
+    },
+    {
+      "anchor": "reading-cross-validation",
+      "line": 1307
+    },
+    {
+      "anchor": "reading-penalty-exercise",
+      "line": 1355
+    },
+    {
+      "anchor": "reading-feature-map",
+      "line": 1416
+    },
+    {
+      "anchor": "reading-kernel-ridge-example",
+      "line": 1446
+    },
+    {
+      "anchor": "reading-kernel-shape",
+      "line": 1515
+    },
+    {
+      "anchor": "reading-string-kernel",
+      "line": 1539
+    },
+    {
+      "anchor": "reading-kernel-computation",
+      "line": 1561
+    },
+    {
+      "anchor": "reading-changing-the-loss",
+      "line": 1607
+    },
+    {
+      "anchor": "reading-sources",
+      "line": 1621
+    }
+  ],
+  "transcript_ranges": {
+    "02_part1.md": [
+      {
+        "start": 1,
+        "end": 18,
+        "treatment": "监督标签、决策函数；课次安排保留原始记录",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 19,
+        "end": 65,
+        "treatment": "新标签逐渐到来、半监督分布信息、更新与时间权重；公司和人物旁例不写成事实结论",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 66,
+        "end": 75,
+        "treatment": "模型一词与个人教学经历；个人经历留在原文",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 76,
+        "end": 111,
+        "treatment": "概率分布族、参数规模、函数族与已训练预测器",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 112,
+        "end": 123,
+        "treatment": "无监督问题也可通过似然目标进行优化",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 124,
+        "end": 138,
+        "treatment": "生成式模型问答；叙述混合了对抗训练与语言模型，保留原文供查阅，不移植为第二课技术结论",
+        "anchor": "reading-sources"
+      },
+      {
+        "start": 139,
+        "end": 147,
+        "treatment": "线性依赖参数、监督框架及总体最优参照",
+        "anchor": "reading-linear-in-parameters"
+      },
+      {
+        "start": 148,
+        "end": 168,
+        "treatment": "相似性推断、个体表示与个性化；营销史和人物刻板案例留在原文",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 169,
+        "end": 185,
+        "treatment": "无限函数族不等于全部函数、最优依赖准则、不可约误差",
+        "anchor": "reading-three-functions"
+      }
+    ],
+    "02_part2.md": [
+      {
+        "start": 1,
+        "end": 13,
+        "treatment": "多项式及基展开对参数线性",
+        "anchor": "reading-linear-in-parameters"
+      },
+      {
+        "start": 14,
+        "end": 20,
+        "treatment": "闭式解与数值求解；未沿用所有深度学习均使用平方损失的概括",
+        "anchor": "reading-normal-equation"
+      },
+      {
+        "start": 21,
+        "end": 39,
+        "treatment": "矩阵形状、最小二乘、正交投影及幂等性",
+        "anchor": "reading-ls-example"
+      },
+      {
+        "start": 40,
+        "end": 58,
+        "treatment": "梯度、常数比例与正规方程；对照 PDF 保留和解释原页笔误",
+        "anchor": "reading-normal-equation"
+      },
+      {
+        "start": 59,
+        "end": 64,
+        "treatment": "期望与经验量的区别，固定设计下的风险定义",
+        "anchor": "reading-fixed-design-risk"
+      },
+      {
+        "start": 65,
+        "end": 91,
+        "treatment": "正交分解、噪声投影和 d/n；用期望而非卡方方差解释 d/n",
+        "anchor": "reading-variance-directions"
+      },
+      {
+        "start": 92,
+        "end": 110,
+        "treatment": "变量数、样本数与高维情形；历史概括留在原文",
+        "anchor": "reading-high-dimensional-regimes"
+      },
+      {
+        "start": 111,
+        "end": 136,
+        "treatment": "求解规模、秩亏、病态与参数个数的区别",
+        "anchor": "reading-rank-and-stability"
+      },
+      {
+        "start": 137,
+        "end": 158,
+        "treatment": "高维橘子皮计算；明确均匀体积采样条件",
+        "anchor": "reading-orange-shell"
+      },
+      {
+        "start": 159,
+        "end": 170,
+        "treatment": "高维表示与个性化旁例；基本表示含义融入开篇，社会与医疗引申留在原文",
+        "anchor": "reading-model-and-learning"
+      },
+      {
+        "start": 171,
+        "end": 176,
+        "treatment": "学习要求、休息时间等当时安排，保留原始记录",
+        "anchor": "reading-sources"
+      }
+    ],
+    "02_part3.md": [
+      {
+        "start": 1,
+        "end": 34,
+        "treatment": "伪逆、最小范数、对角加载与 Ridge 的统计含义",
+        "anchor": "reading-ridge-eigenvalues"
+      },
+      {
+        "start": 35,
+        "end": 61,
+        "treatment": "支撑未知、零范数、选择变量与估计系数",
+        "anchor": "reading-sparse-support"
+      },
+      {
+        "start": 62,
+        "end": 83,
+        "treatment": "数量约束与惩罚定价，非凸选择使两种表述不完全等价",
+        "anchor": "reading-budget-and-price"
+      },
+      {
+        "start": 84,
+        "end": 95,
+        "treatment": "逐步选择、组合搜索与计算规模；未将随口规模当成通用算法上限",
+        "anchor": "reading-greedy-and-convexity"
+      },
+      {
+        "start": 96,
+        "end": 122,
+        "treatment": "子矩阵、预言机、AIC 与残差惩罚",
+        "anchor": "reading-aic-example"
+      },
+      {
+        "start": 123,
+        "end": 128,
+        "treatment": "模型组合数及大规模选择的偏差",
+        "anchor": "reading-subset-complexity"
+      },
+      {
+        "start": 129,
+        "end": 142,
+        "treatment": "同时选择结构与参数、Dropout 的旁支直觉",
+        "anchor": "reading-regularization-purpose"
+      },
+      {
+        "start": 143,
+        "end": 165,
+        "treatment": "凸松弛、LASSO 与 log d 依赖；未沿用年代或全局最小凸上界的口头说法",
+        "anchor": "reading-lasso-threshold"
+      },
+      {
+        "start": 166,
+        "end": 180,
+        "treatment": "路径图及系数随强度变化；未把路径说成每种模型大小的最佳子集解",
+        "anchor": "reading-regularization-paths"
+      },
+      {
+        "start": 181,
+        "end": 201,
+        "treatment": "过拟合、噪声与扰动、训练表现和预测表现",
+        "anchor": "reading-regularization-purpose"
+      },
+      {
+        "start": 202,
+        "end": 212,
+        "treatment": "λ、参数与超参数、网格搜索",
+        "anchor": "reading-cross-validation"
+      },
+      {
+        "start": 213,
+        "end": 228,
+        "treatment": "建模选择与外层搜索成本；AI 产品拟人化和社会议论保留原文",
+        "anchor": "reading-cross-validation"
+      },
+      {
+        "start": 229,
+        "end": 255,
+        "treatment": "变量分组、资料与行为两类信息；个人信贷和道德评价旁例保留原文",
+        "anchor": "reading-group-lasso"
+      },
+      {
+        "start": 256,
+        "end": 280,
+        "treatment": "组惩罚、组权重、组内稀疏；纠正 L1/L1 自动带来双层稀疏的说法",
+        "anchor": "reading-group-lasso"
+      },
+      {
+        "start": 281,
+        "end": 304,
+        "treatment": "顺序信息、差分惩罚与 fused LASSO",
+        "anchor": "reading-fused-lasso"
+      },
+      {
+        "start": 305,
+        "end": 325,
+        "treatment": "建模与求解的区别、物理关系作为约束；未沿用领域争议的笼统判断",
+        "anchor": "reading-fused-lasso"
+      },
+      {
+        "start": 326,
+        "end": 350,
+        "treatment": "Ridge、样本内积、对偶与核化；澄清样本 Gram 矩阵为 XXᵀ",
+        "anchor": "reading-dual-to-kernel"
+      },
+      {
+        "start": 351,
+        "end": 377,
+        "treatment": "Elastic Net、相关特征与路径；负系数和路径交叉不被当成错误",
+        "anchor": "reading-elastic-net-example"
+      },
+      {
+        "start": 378,
+        "end": 386,
+        "treatment": "核类型、宽度、次数及多超参数选择",
+        "anchor": "reading-kernel-shape"
+      },
+      {
+        "start": 387,
+        "end": 403,
+        "treatment": "核计算规模、结构化字符串与片段计数；成本主要按样本数讨论",
+        "anchor": "reading-string-kernel"
+      },
+      {
+        "start": 404,
+        "end": 409,
+        "treatment": "改变任务与损失、模型方法之间的迁移",
+        "anchor": "reading-changing-the-loss"
+      }
+    ]
+  },
+  "longest_exact_nonempty_line_overlap": {
+    "02_part1.md / 02_part2.md": 0,
+    "02_part1.md / 02_part3.md": 0,
+    "02_part2.md / 02_part3.md": 0
+  },
+  "pdf_restorations": [
+    {
+      "page": 3,
+      "reason": "恢复输入域到标签集的箭头和标签符号",
+      "before": "- 学习目标：最优决策函数 $h ^ { \\ast } : \\mathcal { X }  \\mathcal { V }$。$\\mathcal { X } \\mathrm { : }$ 是定义域集合，Y 是标签集合。",
+      "after": "- 学习目标：最优决策函数 $h^*:\\mathcal X\\to\\mathcal Y$。$\\mathcal X$ 是输入定义域，$\\mathcal Y$ 是标签集合。"
+    },
+    {
+      "page": 3,
+      "reason": "恢复观测对所属的输入与标签笛卡尔积",
+      "before": "其大小为 n，其中各 $( X , Y ) ^ { \\prime } s$ 属于 $\\mathcal { X } \\times \\mathcal { V }$。",
+      "after": "其大小为 n，其中各观测对 $(X,Y)$ 属于 $\\mathcal X\\times\\mathcal Y$。"
+    },
+    {
+      "page": 3,
+      "reason": "恢复候选决策函数的映射箭头",
+      "before": "- 假设空间：候选决策函数 $h : \\mathcal { X }  \\mathcal { Y }$ 的集合 $\\mathcal { H }$。",
+      "after": "- 假设空间：候选决策函数 $h:\\mathcal X\\to\\mathcal Y$ 的集合 $\\mathcal H$。"
+    },
+    {
+      "page": 7,
+      "reason": "恢复回归函数定义域到实数值域的映射箭头",
+      "before": "- 学习目标：$h ^ { * } : \\mathbb { R } ^ { d }  \\mathbb { R }$。",
+      "after": "- 学习目标：$h^*:\\mathbb R^d\\to\\mathbb R$。"
+    },
+    {
+      "page": 13,
+      "reason": "恢复 PDF 一阶条件中原有的负号；缺少 X 的原页笔误仍由译注解释",
+      "before": "\\mathbf {Y} ^ {T} + \\beta^ {T} \\mathbf {X} ^ {T} \\mathbf {X} = 0",
+      "after": "-\\mathbf {Y} ^ {T} + \\beta^ {T} \\mathbf {X} ^ {T} \\mathbf {X} = 0"
+    },
+    {
+      "page": 33,
+      "reason": "恢复被转换成无意义符号的线性模型 Y=Xβ*+ε",
+      "before": "- 模型：$\\pmb { \\gamma } = \\pmb { \\mu } _ { \\ b { \\mu } } + \\varepsilon$。",
+      "after": "- 模型：$\\mathbf Y=\\mathbf X\\beta^*+\\varepsilon$。"
+    },
+    {
+      "page": 38,
+      "reason": "恢复子模型预测与投影的矩阵等式",
+      "before": "- 有 $\\begin{array} { r } { \\pmb { \\chi } _ { m } \\widehat { \\theta } _ { n } ^ { ( m ) } = \\widehat { \\Pi } _ { m } \\pmb { \\Upsilon } = \\widehat { \\Pi } _ { m } ( \\pmb { \\Upsilon } \\theta ^ { \\ast } + \\pmb { \\varepsilon } ) } \\end{array}$，于是",
+      "after": "- 有 $\\mathbf X_m\\widehat\\theta_n^{(m)}=\\widehat\\Pi_m\\mathbf Y=\\widehat\\Pi_m(\\mathbf X\\theta^*+\\varepsilon)$，于是"
+    },
+    {
+      "page": 55,
+      "reason": "恢复 XᵀX 的矩阵记号",
+      "before": "- 另一种说法是，$\\mathbf { x } ^ { \\tau } \\mathbf { x }$ 不满秩，因而不可逆，并且有无穷多个解。",
+      "after": "- 另一种说法是，$\\mathbf X^T\\mathbf X$ 不满秩，因而不可逆，并且有无穷多个解。"
+    },
+    {
+      "page": 57,
+      "reason": "恢复 Ridge 正则化矩阵 XᵀX+λI 的记号",
+      "before": "因为 ${ \\pmb { \\times } } ^ { T } { \\pmb { \\times } } + \\lambda I _ { d }$ 总是可逆的。",
+      "after": "因为 $\\mathbf X^T\\mathbf X+\\lambda I_d$ 总是可逆的。"
+    },
+    {
+      "page": 74,
+      "reason": "恢复逻辑损失中的 log 运算及平方范数",
+      "before": "逻辑回归：$\\underset { \\beta \\in \\mathbb { R } ^ { p } } { \\min } \\frac { 1 } { n } \\sum _ { i = 1 } ^ { n } \\vert \\boldsymbol { \\mathrm { o g } } \\left( 1 + e ^ { - y _ { i } \\beta ^ { \\top } \\boldsymbol { \\mathbf { x } } _ { i } } \\right) + \\lambda \\vert \\vert \\beta \\vert \\vert _ { 2 } ^ { 2 } .$。",
+      "after": "逻辑回归：$\\min_{\\beta\\in\\mathbb R^p}\\frac1n\\sum_{i=1}^n\\log\\left(1+e^{-y_i\\beta^T\\mathbf x_i}\\right)+\\lambda\\|\\beta\\|_2^2$。"
+    }
+  ],
+  "render_validation": {
+    "mathExpressions": 682,
+    "mathParseErrors": 0,
+    "images": 12,
+    "brokenImages": [],
+    "mathErrors": 0,
+    "details": 18,
+    "tables": [
+      {
+        "columns": 2,
+        "rows": 4,
+        "uneven": false
+      },
+      {
+        "columns": 4,
+        "rows": 5,
+        "uneven": false
+      },
+      {
+        "columns": 3,
+        "rows": 3,
+        "uneven": false
+      },
+      {
+        "columns": 3,
+        "rows": 4,
+        "uneven": false
+      },
+      {
+        "columns": 5,
+        "rows": 4,
+        "uneven": false
+      },
+      {
+        "columns": 3,
+        "rows": 4,
+        "uneven": false
+      }
+    ],
+    "coreExplanationsVisible": true,
+    "foldInteractionPassed": true
+  },
+  "numerical_validation": {
+    "least_squares": {
+      "beta": [
+        2.0,
+        1.5000000000000002
+      ],
+      "SSE": 1.5000000000000002,
+      "projection_rank": 2
+    },
+    "rank_and_sensitivity": "passed",
+    "shell_percent": {
+      "2": 0.9974999999999956,
+      "3": 1.4925124999999984,
+      "1000": 99.3346031421168
+    },
+    "choose_100_20": 535983370403809682970,
+    "AIC_scores": [
+      40,
+      26,
+      25,
+      26
+    ],
+    "perturbation_predictions": "passed",
+    "regularization_example": {
+      "lasso": [
+        2.0,
+        0.0,
+        -1.0
+      ],
+      "ridge": [
+        1.0,
+        0.13333333333333333,
+        -0.6666666666666666
+      ],
+      "elastic_net": [
+        1.0,
+        0.0,
+        -0.5
+      ]
+    },
+    "threshold_minimizers": "passed, including ties",
+    "fused_penalties": [
+      6,
+      15
+    ],
+    "cross_validation_means": [
+      1,
+      0.6,
+      1.2
+    ],
+    "kernel_example": {
+      "weights": [
+        -0.1111111111111111,
+        0.2222222222222222
+      ],
+      "prediction": 1.8888888888888888
+    },
+    "primal_dual_identity": "passed for d>n and d<n",
+    "string_kernel": 4
+  },
+  "structural_validation": {
+    "original_sections_retained": 40,
+    "original_images_retained": 11,
+    "total_images": 12,
+    "anchors": 81,
+    "local_links_checked": 101,
+    "paired_details": 18,
+    "source_block_comments": 0,
+    "other_lecture_coverage_unchanged": true,
+    "mapping_entries": 339
+  }
+}

@@ -1,0 +1,4 @@
+JobID|JobName|Partition|State|ExitCode|Elapsed|AllocTRES
+738578|apm-tp1|instant|COMPLETED|0:0|00:00:22|billing=1,cpu=1,gres/gpu=1,mem=4G,node=1
+738578.extern|extern||COMPLETED|0:0|00:00:22|billing=1,cpu=1,gres/gpu=1,mem=4G,node=1
+738578.0|apm-tp1||COMPLETED|0:0|00:00:21|cpu=1,gres/gpu=1,mem=4G,node=1

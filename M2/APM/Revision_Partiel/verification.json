@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-15",
+  "pairs": [
+    {
+      "section": "00_orientation",
+      "heading_numbers": 4,
+      "code_blocks": 0,
+      "display_formulas": 0
+    },
+    {
+      "section": "01_fondements",
+      "heading_numbers": 15,
+      "code_blocks": 3,
+      "display_formulas": 7
+    },
+    {
+      "section": "02_cuda",
+      "heading_numbers": 15,
+      "code_blocks": 7,
+      "display_formulas": 5
+    },
+    {
+      "section": "03_multigpu",
+      "heading_numbers": 13,
+      "code_blocks": 4,
+      "display_formulas": 2
+    },
+    {
+      "section": "03b_openmp",
+      "heading_numbers": 2,
+      "code_blocks": 2,
+      "display_formulas": 0
+    },
+    {
+      "section": "04_exercices",
+      "heading_numbers": 15,
+      "code_blocks": 21,
+      "display_formulas": 6
+    },
+    {
+      "section": "05_autotest",
+      "heading_numbers": 5,
+      "code_blocks": 1,
+      "display_formulas": 0
+    }
+  ],
+  "documents": {
+    "fr": {
+      "local_links_checked": 43,
+      "bytes": 108717,
+      "pdf_pages": 39,
+      "pdf_bookmarks": 69
+    },
+    "zh": {
+      "local_links_checked": 43,
+      "bytes": 92679,
+      "pdf_pages": 31,
+      "pdf_bookmarks": 69
+    }
+  }
+}

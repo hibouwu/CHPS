@@ -23,7 +23,7 @@
 | 决策树与集成 | [05 非线性方法](../Lectures/05_NLM_zh.md) | 有递归划分和复杂度控制，变体题还需独立练习 |
 | PCA、低秩、字典学习 | [04 无监督学习](../Lectures/04_UL_zh.md) | 主要讲表示与降维，不能据“无监督”标题推定包含全部聚类算法 |
 | 网络、反向传播、优化 | [06 深度学习](../Lectures/06_DL_zh.md) | 已有基础讲解与条件说明 |
-| RANSAC 与稳健估计 | [Assignments1.ipynb](../Exercises/Assignments1.ipynb) | 有自行实现与扩展任务，六篇讲义未完整展开；作业引用的 Lab 和数据文件尚无对应本地文件 |
+| RANSAC 与稳健估计 | [作业一](../Exercises/Assignment1/README.md)第1、2题及[深入讲解](../Exercises/Assignment1/Assignments1_deepdive_zh.md) | 有自行实现与扩展任务，六篇讲义未完整展开 |
 | k-means、软 k-means、层次聚类 | 历年试卷；作业中也提到 k-means 扩展 | 六篇讲义未完整展开，不能只靠已译讲义覆盖这些题目 |
 | 概率图模型与条件独立 | 2023、2024 年试题 | 需补充联合分布分解、条件独立和 Bayes 推断；分类课的 Bayes 公式不等于完整图模型课程 |
 | Isolation Forest 与异常评分比较 | 2024 年第五题 | 六篇讲义仅提到异常检测方向，没有完整算法讲解 |
@@ -38,4 +38,4 @@
 
 **软 k-means 是开放设计题。** 概率分配方案并非唯一，回答必须同时说明目标、参数和更新规则。软目标的驻点不一定是硬 k-means 目标的局部最优；多次随机重启也不保证全局最优。
 
-[课程讲义目录](../Lectures/README.md)
+[DA 课程首页](../README.md)

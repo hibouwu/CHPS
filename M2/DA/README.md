@@ -2,7 +2,7 @@
 
 S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../README.md)
 
-六章教师讲义及忠实中文译本、实验、历年试卷、专题教程与参考书。
+六章教师讲义、实验、历年试卷、专题教程与参考书。第一、二课已整理为按主题分篇的中英对照讲义，包含概念解释与例题；其余四课提供完整中文译本。
 
 ## 阅读入口
 
@@ -42,18 +42,20 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 | 资源 | 格式 |
 |---|---|
 | [Lab1.ipynb](<Exercises/Lab1/Lab1.ipynb>)（第一节实验，含配套数据与图片） | IPYNB |
-| [Assignments1.ipynb](<Exercises/Assignments1.ipynb>) | IPYNB |
+| [作业一](<Exercises/Assignment1/README.md>)：题目[英文](<Exercises/Assignment1/Assignments1.ipynb>) · [中文](<Exercises/Assignment1/Assignments1_zh.ipynb>)，[中英解答](<Exercises/Assignment1/Assignments1_solution.ipynb>)，[中文深入讲解](<Exercises/Assignment1/Assignments1_deepdive_zh.html>)；另含点云数据与运行结果 | IPYNB / HTML / MD |
 
 ### 课程讲义
+
+从分篇目录开始阅读：[第一课：机器学习导论](Lectures/01_intro_zh.md) · [第二课：线性模型与稀疏性](Lectures/02_LM_zh.md)。原课件正文、核心概念解释、例题和技术推导均采用英文在前、中文紧随的排版。
 
 | 资源 | 格式 |
 |---|---|
 | [01_intro.md](<Lectures/01_intro.md>) | MD |
 | [01_intro.pdf](<Lectures/01_intro.pdf>) | PDF |
-| [01_intro_zh.md](<Lectures/01_intro_zh.md>) | MD |
+| [第一课：机器学习导论 · 双语分篇目录](<Lectures/01_intro_zh.md>) | MD |
 | [02_LM.md](<Lectures/02_LM.md>) | MD |
 | [02_LM.pdf](<Lectures/02_LM.pdf>) | PDF |
-| [02_LM_zh.md](<Lectures/02_LM_zh.md>) | MD |
+| [第二课：线性模型与稀疏性 · 双语分篇目录](<Lectures/02_LM_zh.md>) | MD |
 | [03_LMC.md](<Lectures/03_LMC.md>) | MD |
 | [03_LMC.pdf](<Lectures/03_LMC.pdf>) | PDF |
 | [03_LMC_zh.md](<Lectures/03_LMC_zh.md>) | MD |
@@ -66,7 +68,6 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 | [06_DL.md](<Lectures/06_DL.md>) | MD |
 | [06_DL.pdf](<Lectures/06_DL.pdf>) | PDF |
 | [06_DL_zh.md](<Lectures/06_DL_zh.md>) | MD |
-| [README.md](<Lectures/README.md>) | MD |
 
 ### 参考资料
 
