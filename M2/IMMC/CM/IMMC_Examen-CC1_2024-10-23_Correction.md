@@ -169,7 +169,9 @@ $$
 \operatorname{div}\vec V=\operatorname{Tr}\mathbb D=\frac{1}{J}\frac{\mathrm DJ}{\mathrm Dt}=\frac{1}{\mathrm dV}\frac{\mathrm D(\mathrm dV)}{\mathrm Dt},\qquad J=\det\mathbb F=\frac{\mathrm dV}{\mathrm dV_0}\tag{*2.2}
 $$
 
-> **Erratum théorique (PDF, p. 4, formule *2.2).** Le PDF assimile $\operatorname{div}\vec V$ (un taux en $\mathrm s^{-1}$) à $J-1=(\mathrm dV-\mathrm dV_0)/\mathrm dV_0$ (une variation relative sans unité). La relation correcte est la dérivée temporelle ci-dessus. Pour le champ de cette question, $\operatorname{div}\vec V=0$ et la condition initiale $J(0)=1$ donnent $J(t)=1$.\n\nSi la divergence est nulle le long du mouvement, il n’y a pas de variation du volume matériel : la transformation est isochore et le mouvement incompressible.
+> **Erratum théorique (PDF, p. 4, formule *2.2).** Le PDF assimile $\operatorname{div}\vec V$ (un taux en $\mathrm s^{-1}$) à $J-1=(\mathrm dV-\mathrm dV_0)/\mathrm dV_0$ (une variation relative sans unité). La relation correcte est la dérivée temporelle ci-dessus. Pour le champ de cette question, $\operatorname{div}\vec V=0$ et la condition initiale $J(0)=1$ donnent $J(t)=1$.
+
+Si la divergence est nulle le long du mouvement, il n’y a pas de variation du volume matériel : la transformation est isochore et le mouvement incompressible.
 
 Question 2.4 : Calculer le taux de déformation D. Quelles sont les unités de ses composantes ?
 

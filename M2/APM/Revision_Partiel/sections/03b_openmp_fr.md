@@ -36,4 +36,4 @@ Pour plusieurs boucles successives utilisant les mêmes tableaux, un environneme
 
 **Question type.** Pourquoi `map(from: y[0:N])` est-il insuffisant pour une mise à jour AXPY ? Parce que le calcul utilise la valeur initiale de `y` ; sans mapping préexistant, il faut aussi la rendre disponible sur le dispositif. Pourquoi `#pragma omp parallel for` ne suffit-il pas pour exprimer un offload ? Parce qu'il répartit le travail entre threads dans l'environnement courant, sans créer à lui seul une région target.
 
-Référence : [omp_is_initial_device](https://www.openmp.org/spec-html/5.0/openmpsu149.html). Le fragment illustre la sémantique ; aucune exécution GPU nouvelle n'est revendiquée ici.
+Référence : [omp_is_initial_device](https://www.openmp.org/spec-html/5.0/openmpsu149.html).

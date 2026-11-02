@@ -1,8 +1,14 @@
+# CC2：2024 年 11 月 13 日考试题与中文解答
+
+原卷与教师解答：[PDF](IMMC_Examen-CC2_2024-11-13_Correction.pdf)
+
 # 练习 1 ------ 课程问题与理解（QCM）
 
 请在 QCM 试卷首页填写学号与页码。直接勾选正确答案，无需证明。若答案错误不扣分。
 
 ## 问题 1.1
+
+Lister les champs donnés en description lagrangienne ($\alpha,\beta,\gamma$ sont des constantes).
 
 列出以拉格朗日描述给出的场（$\alpha, \beta, \gamma$ 为常数）： 
 
@@ -16,6 +22,8 @@ $$
 $$
 
 ## 问题 1.2
+
+Quelles équations impliquent forcément une déformation du milieu ?
 
 哪些方程必然意味着介质发生形变？ 
 
@@ -34,6 +42,10 @@ $$
 
 ## 问题 1.3
 
+Quelles affirmations sont vraies avec le champ de contraintes suivant ?
+
+A. Facette de normale $\mathbf e_1$ : contrainte normale $p$ ; B. Même facette : contrainte tangentielle $p$ ; C. Même facette : contrainte tangentielle nulle ; D. Facette de normale $\mathbf e_2$ : contrainte normale nulle ; E. Même facette : contrainte normale $p$ ; F. Même facette : contrainte tangentielle nulle.
+
 给定应力张量： 
 
 $$
@@ -51,37 +63,31 @@ $$
 \text{(A)}~ \text{在法向为 }\vec{e_1}\text{ 的面上，法向应力 }=p \quad \checkmark
 $$
 
- 
-
 $$
 \text{(B)}~ \text{在法向为 }\vec{e_1}\text{ 的面上，切向应力 }=p
 $$
-
- 
 
 $$
 \text{(C)}~ \text{在法向为 }\vec{e_1}\text{ 的面上，切向应力 }=0 \quad \checkmark
 $$
 
- 
-
 $$
 \text{(D)}~ \text{在法向为 }\vec{e_2}\text{ 的面上，法向应力 }=0
 $$
 
- 
-
 $$
 \text{(E)}~ \text{在法向为 }\vec{e_2}\text{ 的面上，法向应力 }=p \quad \checkmark
 $$
-
- 
 
 $$
 \text{(F)}~ \text{在法向为 }\vec{e_2}\text{ 的面上，切向应力 }=0 \quad \checkmark
 $$
 
 ## 问题 1.4
+
+Que peut-on dire de ce tenseur de contraintes, où $\tau$ est constant ?
+
+A. Traction pure ; B. Sphérique ; C. Cisaillement pur ; D. Biaxial ; E. À divergence nulle ; F. Déviatorique.
 
 应力张量： 
 
@@ -109,6 +115,10 @@ $$
 
 ## 问题 1.5
 
+Quel critère est le plus conservatif pour un cisaillement pur ?
+
+A. Tresca ; B. von Mises ; C. Aucun ; D. Cela dépend de l’amplitude du cisaillement.
+
 在纯剪切（幅值 $\tau$）下，哪个强度判据最严格？ 
 
 $$
@@ -119,6 +129,8 @@ $$
 $$
 
 ## 问题 1.6
+
+Quelles sont les équations d’équilibre statique d’un problème d’élasticité ?
 
 静力平衡方程： 
 
@@ -133,6 +145,8 @@ $$
 
 ## 问题 1.7
 
+Quelles relations de comportement correspondent à un fluide newtonien ?
+
 牛顿流体的本构关系： 
 
 $$
@@ -146,6 +160,10 @@ $$
 
 ## 问题 1.8
 
+Quels adjectifs caractérisent le champ de déplacement en élasticité linéaire ?
+
+A. Continu ; B. Nul ; C. Discontinu ; D. Régulier.
+
 线弹性连续介质中位移场的特征： 
 
 $$
@@ -157,6 +175,10 @@ $$
 
 ## 问题 1.9
 
+Quelles équations sont nécessaires à la résolution d’un problème de fluide newtonien ?
+
+A. Équation de Navier–Stokes ; B. Équation de Navier ; C. Conservation de la masse ; D. Conditions aux limites en déplacement ; E. Conditions aux limites en vitesse ; F. Conditions aux limites en effort.
+
 求解牛顿流体问题所需方程： 
 
 $$
@@ -165,14 +187,16 @@ $$
 \text{(C) 质量守恒方程}~\checkmark
 $$
 
- 
-
 $$
 \text{(E) 速度边界条件}~\checkmark \quad
 \text{(F) 应力边界条件}~\checkmark
 $$
 
 ## 问题 1.10
+
+Si l’énergie potentielle associée à un champ cinématiquement admissible est nulle, quelles en sont les implications ?
+
+A. Le champ est la solution exacte ; B. Le champ est la meilleure solution au sens énergétique ; C. L’énergie de déformation écrite en déplacement est nulle ; D. L’énergie de déformation écrite en effort est nulle ; E. L’énergie de déformation écrite en déplacement est compensée par le travail des efforts donnés dans ce champ ; F. Même compensation pour l’énergie écrite en effort.
 
 若运动学可容位移场的势能为零，则： 
 
@@ -181,6 +205,8 @@ $$
 $$
 
 # 练习 2 ------ 连续介质的运动学
+
+**Cinématique.** On donne le champ eulérien $\mathbf V(M,t)=-(vt/\tau)\mathbf e_1-(x_1/\tau)\mathbf e_2$, où $v,\tau>0$ sont constants. Les coordonnées initiales sont repérées à $t=0$.
 
 设参考直角坐标系为 $(O,\vec{e_1},\vec{e_2},\vec{e_3})$。 研究一个连续介质的运动，其欧拉速度场给定如下： 
 
@@ -192,9 +218,13 @@ $$
 
 ## 问题 2.1：常数 $v$ 与 $\tau$ 的单位
 
+En quelle(s) unité(s) s’expriment les constantes v et τ ?
+
 **解答：** $v$ 的单位为 $\mathrm{m·s^{-1}}$，$\tau$ 的单位为 $\mathrm{s}$。
 
 ## 问题 2.2：绘制速度场在 $t=0$ 与 $t=\tau$ 时的形式，并说明 $t=0$ 时的运动类型
+
+Tracer, dans le plan (O, $\mathbf e_1$ , $\mathbf e_2$ ), la forme du champ des vitesses à t = 0 et à t = τ . À t = 0, type de mouvement observe-t-on ?
 
 **解答：** 在 $t=0$ 与 $t=\tau$ 时有： 
 
@@ -207,6 +237,8 @@ $$
  当 $t=0$ 时，观察到的运动为沿 $(\vec{e_1},\vec{e_3})$ 平面的纯滑移，方向为 $\vec{e_2}$。
 
 ## 问题 2.3：求形变率张量 $D$，并说明各分量单位
+
+Calculer le tenseur du taux de déformation D. Quelles sont les unités de ses composantes ?
 
 **解答：** 形变率张量 $D$ 为速度梯度的对称部分，其分量单位为 $\mathrm{s^{-1}}$： 
 
@@ -228,6 +260,8 @@ D = \dfrac{1}{2}(\nabla \vec{V} + \nabla^T \vec{V})
 $$
 
 ## 问题 2.4：求运动的拉格朗日表示形式
+
+Déterminer la représentation lagrangienne $x_i=f_i(X_1,X_2,X_3,t)$, où les $X_i$ sont les coordonnées initiales à $t=0$.
 
 即求函数 $f_1,f_2,f_3$，使： 
 
@@ -269,6 +303,8 @@ $$
 
 ## 问题 2.5：求最初位于原点的点 $O$ 的轨迹
 
+En déduire l’expression, et tracer, la trajectoire du point initialement à l’origine O du repère.
+
 **解答：** 将 $\vec{M_0}=(X_1,X_2,X_3)=(0,0,0)$ 代入上式得： 
 
 $$
@@ -290,6 +326,8 @@ $$
  表示轨迹在 $(x_1,x_2)$ 平面上为一条立方曲线。
 
 ## 问题 2.6：求变换梯度算子 $F$ 及 Green--Lagrange 形变张量 $E$
+
+Calculer l’opérateur gradient de la transformation F, ainsi que l’opérateur des déformations de Green-Lagrange E. Quelles sont les unités des composantes de ces deux tenseurs ?
 
 并说明两者分量的单位。
 
@@ -318,6 +356,8 @@ $$
 
 ## 问题 2.7：求体积相对变化率
 
+Déterminer la variation relative de volume du milieu continu au cours du temps.
+
 **解答：** 体积比由变换梯度行列式给出： 
 
 $$
@@ -336,6 +376,8 @@ $$
  因此运动为**等体积（等容）**运动。
 
 ## 问题 2.8：在小扰动假设（HPP）下，求线性化形变张量 $\varepsilon$ 并给出假设成立条件
+
+Sous l’HPP, calculer le tenseur des déformations linéarisées $\boldsymbol\varepsilon$. À quelles conditions cette hypothèse est-elle valable ici ?
 
 **解答：** 位移场： 
 
@@ -387,9 +429,13 @@ $$
 
 ## 问题 2.9：此运动的特征
 
+Quelles sont les caractéristiques de ce mouvement ?
+
 **解答：** 该运动： - **非定常**（$\partial_t \vec{V} \neq 0$） - **不可压缩**（$\mathrm{div}\,\vec{V} = 0$） - **有旋的**（$\mathrm{rot}\,\vec{V} \neq 0$）
 
 # 练习 3 ------ 圆柱轴中的应力状态
+
+**Arbre cylindrique.** Le cylindre de hauteur $h$ et de section circulaire présente le champ de contrainte donné ci-dessous, dépendant du paramètre $A$. On examine l’équilibre, les torseurs aux bases et la limite élastique en torsion.
 
 考虑一个圆柱形轴，其母线与 $\vec{e_3}$ 轴平行，高度为 $h$。 其横截面为以 $O$ 为中心、半径为 $R$ 的圆。 该圆柱体两底面分别为： 
 
@@ -415,6 +461,8 @@ $$
 
 ## 问题 3.1：关于外加体力的推论
 
+Que peut-on dire des forces volumiques extérieures appliquées à la pièce ?
+
 **解答：** 由静力平衡方程（局部形式）： 
 
 $$
@@ -435,6 +483,8 @@ $$
  因此，体力为零（或可忽略）。
 
 ## 问题 3.2：求侧面 $\Sigma_{lat}$ 上的表面力密度
+
+Calculer la densité d’efforts surfaciques exercés sur Σlat .
 
 **解答：** 表面力密度 $\vec{T}_{lat}$ 与应力场关系为： 
 
@@ -467,6 +517,8 @@ $$
 
 ## 问题 3.3：计算底面 $\Sigma_0$ 与顶面 $\Sigma_h$ 上的表面力密度，并证明合力为零
 
+Quelles sont les densités d’efforts surfaciques s’exerçant sur les bases Σ0 et Σh ? Montrer que les résultantes des efforts s’exerçant sur les bases Σ0 et Σh sont nulles.
+
 **解答：** 在 $\Sigma_0$ 上，法向 $\vec{n}=-\vec{e_3}$： 
 
 $$
@@ -494,6 +546,8 @@ $$
 
 ## 问题 3.4：分别计算在 $O$ 与 $O'$ 点（两底面中心）处的力矩，并解释作用性质
 
+Calculer, respectivement aux points O et O′ (centres des bases Σ0 et Σh ), les moments des torseurs des efforts s’exerçant respectivement sur les bases Σ0 et Σh . Les exprimer en fonction des caractéristiques géométriques de l’arbre et du paramètre A. Interpréter la nature des actions mécaniques extérieures agissant sur cet arbre.
+
 **解答：** 底面 $\Sigma_0$ 上的力矩： 
 
 $$
@@ -504,8 +558,6 @@ $$
 \begin{pmatrix}-x_2\\x_1\\0\end{pmatrix}\,dS
 = A\int_{\Sigma_0}r^2\vec{e_3}\,dS
 $$
-
- 
 
 $$
 \Rightarrow \vec{H}_0 = A\pi R^4/2 \; \vec{e_3}
@@ -522,6 +574,8 @@ $$
 **结论：** 该圆柱轴承受一纯扭矩载荷。
 
 ## 问题 3.5：求主应力与 Tresca 等效应力，并确定最大位置
+
+Déterminer en tous points de la pièce les contraintes principales. Déterminer l’expression de la contrainte équivalente de Tresca. En quels points de l’arbre prend-elle sa valeur la plus grande ?
 
 **解答：** 解特征方程： 
 
@@ -547,6 +601,8 @@ $$
  最大值出现在 $r=R$，即外表面。
 
 ## 问题 3.6：已知材料屈服极限为 $\sigma_e$，求最大允许扭矩
+
+Sachant que la limite élastique du matériau de l’arbre est notée σe , calculer la valeur maximale du couple à ne pas dépasser.
 
 **解答：** Tresca 准则： 
 
@@ -576,6 +632,8 @@ $$
 
 # 练习 4 ------ 受拉梁
 
+**Poutre en traction.** Pour le problème élastique défini ci-dessous, distinguer les champs statiquement et cinématiquement admissibles. Étudier l’unicité, le champ de contrainte proposé et les formes possibles du déplacement.
+
 考虑一根长为 $L$ 的平行六面体梁，其轴线沿直角坐标系 $(O,\vec{e_x},\vec{e_y},\vec{e_z})$ 中的 $\vec{e_z}$ 方向。 其横截面为边长为 $a$ 的正方形，该方形截面以 $\vec{e_z}$ 轴为中心对称。 坐标原点 $O$ 位于底面 $z = 0$ 的中心。
 
 材料为各向同性、均匀的线弹性体，具有杨氏模量 $E$，泊松比 $\nu = 0.3$。 梁处于静力平衡状态，体力忽略不计。
@@ -593,6 +651,8 @@ T_L =
 $$
 
 ## 问题 4.1：建立完整问题（方程、边界条件、本构关系），并分类静态/运动学可容性
+
+Poser le problème complet (équations, conditions aux limites, relation de comportement) en catégorisant les admissibilités statique et cinématique.
 
 **解答：**
 
@@ -685,6 +745,8 @@ $$
 
 ## 问题 4.2：问题是否有唯一解？为什么？
 
+Le problème admet-il une solution unique ? Pourquoi ?
+
 **解答：**
 
 该问题**在应力与应变上**是适定且解唯一的（本构线性、边界条件充分）。 但在位移上，由于只在 $z=0$ 面约束法向位移，仍然允许：
@@ -707,6 +769,8 @@ $$
 $$
 
 ## 问题 4.3：说明该应力场形式的合理性，并用静态可容性求出 $g(z)$
+
+Justifier la forme de ce champ, puis utiliser l’admissibilité statique pour déterminer l’expression de la fonction g(z).
 
 **解答：**
 
@@ -749,6 +813,8 @@ $$
 
 ## 问题 4.4：利用本构关系求应变场 $\varepsilon$
 
+Appliquer la relation de comportement pour en déduire le champ des déformations $\boldsymbol\varepsilon$.
+
 **解答：**
 
 由 
@@ -771,6 +837,8 @@ $$
 
 ## 问题 4.5：位移场 $\vec{u}=(Cz+D)\vec{e_z}$ 是否为本问题的解？
 
+Le champ de déplacement u = (Cz + D)$\mathbf e_z$ (où C et D sont des constantes) est-il solution du problème ? Justifier.
+
 **解答：**
 
 该位移场仅有 $z$ 向分量，其应变为： 
@@ -789,6 +857,8 @@ $$
  故该位移场不能产生正确的横向压缩，应变场与前述本构结果不符，因此**不是**该问题的解。
 
 ## 问题 4.6：在什么条件下，位移场 $\vec{u}^\star = u(x)\vec{e_x} + v(y)\vec{e_y} + w(z)\vec{e_z}$ 是解？
+
+Sous quelle(s) condition(s) le champ de déplacement u⋆ = u(x)$\mathbf e_x$ +v(y)$\mathbf e_y$ +w(z)$\mathbf e_z$ est-il solution du problème ?
 
 **解答：**
 
@@ -821,6 +891,8 @@ $$
 
 # 练习 5 ------ 倾斜平板上的黏性流体
 
+**Fluide sur un plan incliné mobile.** Un fluide newtonien s’écoule sur un plan incliné ; les données sont la viscosité, la masse volumique, la pesanteur, l’inclinaison, la vitesse du plan et l’épaisseur de couche. Les conditions aux limites précisent l’adhérence au plan et les efforts sur la surface libre.
+
 考虑一刚性平面 $(\Pi)$，与水平面成角度 $\alpha$。该平面以恒定速度 
 
 $$
@@ -838,6 +910,8 @@ $$
 流体层厚度为常数 $h$。其上表面与大气接触，大气视为理想流体，压力恒为 $p_{\mathrm{atm}}$。
 
 ## 问题 5.1：给出问题假设，并写出控制该流动的方程与边界条件
+
+Donner les hypothèses du problème puis écrire les équations et conditions aux limites qui régissent l’écoulement.
 
 **解答：**
 
@@ -919,6 +993,8 @@ $$
 
 ## 问题 5.2：说明速度场与压强场可取形式
 
+Justifier les formes supposées $\mathbf V(x,y)=v(y)\mathbf e_x$ et $p(x,y)=p(y)$.
+
 $$
 \vec{V}(x,y) = v(y)\vec{e_x},\qquad p(x,y)=p(y)
 $$
@@ -943,6 +1019,8 @@ p(x,y) = p(y)
 $$
 
 ## 问题 5.3：从方程推导速度与压强的一般形式
+
+Montrer que l’on peut obtenir la forme de ces champs de vitesse et pression à partir des équations.
 
 $$
 v(y) = C_1y^2 + C_2y + C_3,\qquad p(y) = C_4y + C_5
@@ -1036,13 +1114,13 @@ $$
 v(y) = C_1y^2 + C_2y + C_3,\quad C_1 = -\dfrac{\rho g\sin\alpha}{2\mu}
 $$
 
- 
-
 $$
 p(y) = C_4y + C_5,\quad C_4=-\rho g\cos\alpha
 $$
 
 ## 问题 5.4：用边界条件完全确定速度与压强场
+
+Déterminer complètement les champs de vitesse et de pression en tout point du fluide à l’aide des conditions aux limites.
 
 **解答：**
 
@@ -1146,13 +1224,13 @@ v(y) = \dfrac{\rho g\sin\alpha}{2\mu}(2hy - y^2) - U
 = \dfrac{\rho g\sin\alpha}{2\mu}(2h - y)y - U
 $$
 
- 
-
 $$
 p(y) = \rho g\cos\alpha(h - y) + p_{\mathrm{atm}}
 $$
 
 ## 问题 5.5：绘制速度剖面，并计算平面所能输运的最大流层厚度 $h_{\max}$
+
+Tracer le profil des vitesses et calculer l’épaisseur hmax de la couche fluide que peut transporter le plan en fonction de µ, h, U , ρ, g et α.
 
 **解答：**
 
@@ -1205,6 +1283,8 @@ $$
 
 ## 问题 5.6：求保持平面运动所需的表面力密度，并求输运最大厚度流体时的功率
 
+Calculer la densité d’efforts qu’il faut appliquer pour maintenir le plan en mouvement. En déduire la puissance qu’il faut fournir pour transporter l’épaisseur maximale de fluide.
+
 **解答：**
 
 在下壁 $y=0$，法向 $\vec{n}=-\vec{e_y}$，故向流体的表面力密度为： 
@@ -1232,8 +1312,6 @@ $$
 v_y(y) = 2C_1y + C_2,\quad
 v_y(0) = C_2 = \dfrac{\rho g h\sin\alpha}{\mu}
 $$
-
- 
 
 $$
 p(0) = \rho g h\cos\alpha + p_{\mathrm{atm}}
@@ -1295,8 +1373,6 @@ $$
 \overrightarrow{OM} = x\vec{e_x} + y\vec{e_y} + z\vec{e_z}
 $$
 
- 
-
 $$
 \nabla = \vec{e_x}\dfrac{\partial}{\partial x}
 + \vec{e_y}\dfrac{\partial}{\partial y}
@@ -1310,8 +1386,6 @@ $$
 + \dfrac{\partial f}{\partial y}\vec{e_y}
 + \dfrac{\partial f}{\partial z}\vec{e_z}
 $$
-
- 
 
 $$
 \Delta f = \dfrac{\partial^2 f}{\partial x^2}
@@ -1386,4 +1460,3 @@ $$
 + \dfrac{\partial T_{zz}}{\partial z}
 \right)\vec{e_z}
 $$
-

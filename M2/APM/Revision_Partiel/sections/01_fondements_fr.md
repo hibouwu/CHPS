@@ -1,6 +1,6 @@
 ## 1. Architectures et premiers programmes CUDA
 
-Ce chapitre rassemble les notions du CM1 nécessaires pour expliquer un accélérateur, lire une architecture NVIDIA et écrire un premier kernel. La référence principale est le [CM1 de 96 pages](../CM/APM_Cours1_en.pdf). Les chiffres d'architecture ci-dessous sont les exemples du cours, pas une fiche des GPU actuellement disponibles.
+Ce chapitre correspond au [CM1](../CM/APM_Cours1_en.pdf) : expliquer un accélérateur, lire une architecture NVIDIA et écrire un premier kernel. Les chiffres d'architecture ci-dessous sont les exemples du cours, pas une fiche des GPU actuels.
 
 ### 1.1. Pourquoi utiliser un accélérateur ?
 
@@ -88,7 +88,7 @@ Pour Grace-Hopper, retenir surtout l'association d'un CPU et d'un GPU par une in
 | Directives | OpenMP Target, OpenACC | Régions à déporter, boucles parallèles et transferts |
 | Abstractions de plus haut niveau | Kokkos, RAJA, SYCL | Calcul exprimé via une bibliothèque ou une abstraction et traduit vers une cible |
 
-Avec CUDA, le programmeur écrit le travail d'un thread puis choisit la grille et les blocs. Avec une approche à directives, il annote des régions ou des boucles ; le compilateur prend en charge une partie de leur mise en œuvre sur la cible. Le CM3 développe OpenMP Target séparément.
+Avec CUDA, le programmeur écrit le travail d'un thread puis choisit la grille et les blocs. Avec une approche à directives, il annote des régions ou des boucles ; le compilateur prend en charge une partie de leur mise en œuvre sur la cible. OpenMP Target est traité au chapitre 3.
 
 **Trois objectifs distincts :** compiler sur une nouvelle machine, obtenir un résultat correct et y atteindre de bonnes performances. Une interface portable aide au premier objectif ; elle ne garantit pas à elle seule les deux autres. Les dépendances entre itérations et les déplacements de données doivent rester compris.
 
@@ -198,7 +198,7 @@ Vérification rapide : `grid = (2, 3, 2)`, `block = (4, 2, 2)`, `blockIdx = (1, 
 
 ### 1.12. Addition de vecteurs : suivre tout le trajet des données
 
-Le fragment ci-dessous exprime le cycle complet d'une opération, avec `a`, `b`, `c` déjà alloués côté host. Il adapte le CM1 en calculant la taille de grille et en conservant un nom unique pour le kernel. Pour garder le trajet des données visible, la gestion détaillée des erreurs CUDA est omise ; ce fragment ne constitue pas un compte rendu d'exécution GPU.
+Le fragment ci-dessous exprime le cycle complet d'une opération, avec `a`, `b`, `c` déjà alloués côté host. Il adapte le CM1 en calculant la taille de grille et en conservant un nom unique pour le kernel. Pour garder le trajet des données visible, la gestion détaillée des erreurs CUDA est omise.
 
 ```cpp
 #include <cuda_runtime.h>
@@ -265,6 +265,6 @@ Le calcul de `G` évite ici l'addition `N + B - 1` et son éventuel dépassement
 | Cycle de vie des données et compilation | 55-70 |
 | Threads, indices, lancement et programme | 71-96 |
 
-La page 87 présente également le **thread block cluster**, un regroupement entre grille et blocs, avec des mécanismes de lancement supplémentaires. Le présent chapitre garde ce repère sans reprendre son attribution historique à Blackwell comme un fait vérifié. Les graphiques Top500 et les tableaux de pics servent de contexte historique et ne sont pas développés en données actuelles.
+La page 87 présente également le **thread block cluster**, un regroupement entre grille et blocs, avec des mécanismes de lancement supplémentaires.
 
-Pour reprendre les explications en détail : [CM1 actuel](../CM/APM_Cours1_en.pdf), [support chinois enrichi](../CM/APM_Cours1_zh.md), [ancienne extraction](../CM/APM_Cours1.md). L'ancienne extraction repose sur 93 pages et ne remplace pas le PDF actuel. Les exemples de calcul et les mises en garde de ce chapitre sont des reformulations pédagogiques ; ils ne constituent pas une liste officielle de questions d'examen.
+Pour reprendre les explications en détail : [CM1](../CM/APM_Cours1_en.pdf) et [support chinois](../CM/APM_Cours1_zh_part1.md).

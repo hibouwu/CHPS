@@ -2,7 +2,7 @@
 
 ### 5.1 Dix questions à faire sans regarder les réponses
 
-Ces questions ont été préparées à partir des documents locaux. Elles ne constituent ni un ancien sujet de contrôle ni une prévision du DST. Écrire les réponses avant de consulter la section suivante.
+Ces questions d’autotest suivent le cours ; ce ne sont pas d’anciens sujets. Écrire les réponses avant de consulter la section suivante.
 
 1. Expliquer les relations entre grille, bloc, warp et SM. Un warp peut-il contenir des threads de deux blocs ?
 2. Pour `N=1000` et `64` threads par bloc, combien faut-il de blocs ? Combien de threads sont lancés et combien ne modifient aucune donnée ?

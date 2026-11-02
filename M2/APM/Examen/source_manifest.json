@@ -1,0 +1,22 @@
+[
+  {
+    "page": 1,
+    "file": "粘贴的图像.png",
+    "sha256": "f5893ad4671dcb5f158c1e2eb5f747296aee7c335276ca3a17a98ca988297118"
+  },
+  {
+    "page": 2,
+    "file": "粘贴的图像 (2).png",
+    "sha256": "0eeafd921ca27fab45fef8f2732f963a8b92d7fa9b5995799439516bb0cd9fc3"
+  },
+  {
+    "page": 3,
+    "file": "粘贴的图像 (3).png",
+    "sha256": "7d4899bd276f1ba60bf119969b30d6dc43c4f40d37c9b92b9c05502420f078e7"
+  },
+  {
+    "page": 4,
+    "file": "粘贴的图像 (4).png",
+    "sha256": "83376f28b9d74b5bee78942278d6ed8ffec5eb3caad98a7c0c22e39959609dbc"
+  }
+]

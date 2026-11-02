@@ -1,0 +1,22 @@
+\usepackage{fvextra}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{microtype}
+\AddToHook{cmd/section/before}{\Needspace{9\baselineskip}}
+\AddToHook{cmd/subsection/before}{\Needspace{10\baselineskip}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\footnotesize}
+\fvset{breaklines=true,breakanywhere=true}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{5pt}
+\setlength{\headheight}{15pt}
+\renewcommand{\arraystretch}{1.15}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small APM · CC1 · 2025-2026}
+\fancyhead[R]{\small UVSQ · M2}
+\fancyfoot[C]{\thepage}
+\titleformat{\section}{\Large\bfseries\color{teal}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\widowpenalty=10000
+\clubpenalty=10000

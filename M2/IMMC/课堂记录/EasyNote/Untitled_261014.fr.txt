@@ -1,0 +1,542 @@
+[00:28]
+J'étais sur les slides que j'ai mises en ligne, je vais— Je vais devoir faire une petite modif. Et récupérer ça. Désolé, pour le petit contretemps, j'ai un petit— Souci. Technique. Je vais commencer dans pas longtemps. Laissez-moi juste quelques— une ou deux minutes.
+
+[01:43]
+Petit retard à l'allumage. Est-ce que déjà, petite— Question comme ça : est-ce que vous pouvez me confirmer que vous m'entendez de manière claire et sans bruit parasite ? Bonjour monsieur. Oui, on vous entend bien. Ok, merci.
+
+[02:05]
+Alors, parfait. Ok. Bon, je viens de redéposer, normalement les slides. Mis à jour. Donc vous pouvez les récupérer. Directement. Sur eCampus. Pour pouvoir suivre en même temps. Et— Bon, je vais commencer sans la tablette, et puis je vais attendre que le fichier soit transmis pour pouvoir—
+
+[03:53]
+Reprendre depuis la tablette. Ce qui permettra d'annoter un petit peu le. Les éléments que je vais projeter. Hop. Alors, il faut que je partage ça. Hop. Il me semble que plus personne n'est en salle d'attente. Très bien. Et— Alors,.
+
+[04:35]
+Bon, vous n'hésitez pas à me couper, à m'interrompre, à lever la main, à vous signaler si jamais il y a une quelconque question. Alors, donc. Ce qui était prévu pour aujourd'hui, c'est qu'on termine le chapitre 4. J'en profiterai pour faire un petit QCM sur les contraintes.
+
+[04:58]
+Et— Et sur ce chapitre, et puis on pourra commencer à quelques— A priori, un petit TD sur, justement, sur ce chapitre 4, pour vous préparer pour l'examen, parce qu'a priori ce chapitre sera au programme de— enfin, du premier contrôle continu, qui compte pour une très faible proportion de la note.
+
+[05:23]
+Je vous rassure. Bon, après, pour l'instant, rien ne nous assure qu'on arrivera à le faire en présentiel, donc— Pour l'instant, concentrez-vous sur les. Éléments de cours, pour l'évaluation on verra ça plus tard. Alors, il me semble qu'on avait—
+
+[05:40]
+Qu'on avait traité, donc,. Après. Avoir traité la cinématique des milieux continus lors du chapitre 1, puis les déformations qu'on arrive à extraire de cette information une fois qu'on arrive à décrire la cinématique des milieux continus,.
+
+[05:58]
+On avait ensuite traité la notion de contrainte, donc comment est-ce qu'on schématise les efforts intérieurs au sein d'un milieu continu, au sein d'un solide ou d'un fluide, peu importe. Et. Là, dans le— dans le chapitre qui suit, donc le chapitre 4, on avait attaqué les premiers principes de la mécanique des mil
+
+[06:23]
+ieux continus en s'attaquant dans un premier temps— Au principe de conservation de la masse. Alors, on avait quand même introduit le lème fondamental, pour. La conservation des quantités, donc. Avec. Forme intégrale. On avait abordé le principe.
+
+[06:40]
+De conservation de la masse, et donc là on va pouvoir s'intéresser à tout ce qui concerne les équations d'équilibre mécanique d'un milieu continu. On passera très rapidement en revue les grands principes de la thermodynamique, mais on formalisera pas ces principes sous forme d'équations, mais par contre on s'
+
+[07:03]
+intéressera au théorème de l'énergie cinétique par la suite. Donc je vais reprendre là où on s'était arrêté. Sur. La. Conservation de la masse, il me semble qu'on avait dû s'arrêter du. Coup sur la notion d'incompressibilité.
+
+[07:19]
+A priori, on avait dû s'arrêter là. Donc j'étais revenu sur. La nuance entre un milieu incompressible et un mouvement incompressible, donc ça conduit à la même équation, mais c'est pas— on peut pas forcément revenir à la nature du milieu à partir du moment où on a pu obtenir l'équation divergence du champ de
+
+[07:45]
+vitesse est égal à 0. Donc ça, c'était la remarque sur laquelle on s'était quittés la dernière fois. Donc on va pouvoir attaquer les équations d'équilibre d'un milieu continu. Pour ça, on va premier. Écrire ce qu'on appelle l'équation d'équilibre local, donc.
+
+[07:58]
+Ça va être une équation différentielle. Sur l'espace. Et on introduira également les conditions limites qui concernent, en gros, l'équilibre mécanique, mais aux frontières du domaine. L'équation d'équilibre local, elle sera valable en tout point à l'intérieur du domaine—
+
+[08:17]
+Du milieu, on va dire, qu'on est en train d'étudier, et les conditions limites, ça nous permettra donc de. Résoudre l'équilibre au bord, et donc vu que l'équation d'équilibre local va nous donner des équations différentielles, sur l'espace, on a besoin de conditions limites pour pouvoir résoudre le problème complet
+
+[08:34]
+. Donc on va attaquer. Donc— Je vais peut-être déplacer ça, parce que ça va me générer— hop, voilà, ici. Et ça,. Très bien. Alors, donc, on peut— pour écrire les équations d'équilibre, sur un milieu continu, on considère que les actions de l'environnement, de l'extérieur, à ce milieu.
+
+[09:10]
+On peut les schématiser, les modéliser par deux types de forces. Des forces de type à distance, on va dire, donc qu'on va représenter par une densité volumique de force, qu'on va noter petit fv, ok, c'est. Ce qui va nous permettre de modéliser typiquement l'effet de la gravité, ou de forces à distance, comme des for
+
+[09:36]
+ces électromagnétiques. Et— L'autre type de force, ça va être des forces de contact, donc qu'on va modéliser par des densités surfaciques de force, qui peuvent être données ou non. Et qu'on va modéliser avec le vecteur t, qui représente une densité surfacique d'effort.
+
+[10:01]
+Donc ça peut être des forces de pression, des forces— Qui sont exercées par un milieu— un autre milieu solide sur un. Premier milieu solide. Ça peut être tout type d'effort. Donc— On parle— on peut parler d'effort volumique et d'effort surfacique
+
+[10:24]
+— voilà, c'est un petit peu le même jargon. Donc deux types d'effort. Alors, dans la grande majorité des cas, quand on s'intéresse à la. Tenue mécanique d'une pièce, ou d'une partie d'une structure, pour la partie solide, c'est assez fréquent qu'on néglige l'effet du poids.
+
+[10:43]
+C'est fréquent. Mais c'est pas— c'est pas le cas dans— Dans la totale. Des cas, quand vous dimensionnez un pylône pour. Par exemple pour. Un pylône électrique, bon bah l'effet de son poids sur lui-même va être déterminant sur sa tenue mécanique.
+
+[11:07]
+Donc— Donc dans ces cas-là, vous ne pouvez pas considérer ça comme négligeable. Dans d'autres cas, la tenue mécanique d'un pont va être obligée de prendre en compte l'effet du poids, voilà. Donc selon les cas, on négligera ou pas ces efforts volumiques, mais c'est assez fréquent qu'on les néglige, et qu'on s'int
+
+[11:35]
+éresse surtout aux efforts de contact, aux efforts surfaciques comme type de charge. Alors, du coup, sans démonstration, on va l'admettre, on— On va considérer l'équation d'équilibre local qui est donnée, là, sous forme de ce théorème, là, donc en tout point m du.
+
+[11:52]
+Domaine oméga qu'on va étudier, et. À tout. Instant, on va considérer que la divergence du champ de contrainte sigma— Auquel on va ajouter le champ de force volumique f indice v, donc qui est un champ de vecteurs, sera égale à ρ, la masse volumique, fois gamma, l'accélération du milieu.
+
+[12:19]
+Donc souvent, souvent. Cette quantité, on va travailler sur des problèmes qui sont statiques ou quasi statiques. Cette quantité, elle sera souvent nulle, pour des solides, c'est possible que sur— sur. Des problèmes fluides, cette quantité soit non nulle.
+
+[12:37]
+Voilà. Et donc. Étant donné que très fréquemment, on considère les forces volumiques comme nulles, et on considère un problème quasi statique, très. En fait, on va résoudre tout simplement divergence du champ de contrainte, donc divergence de sigma est égale à 0 en réalité, et c'est souvent l'équation.
+
+[13:02]
+Qu'on dit qu'on résout quand on résout un problème de mécanique. Donc cette équation on peut la qualifier d'équilibre local, ça. Représente aussi la conservation de la quantité de mouvement, donc en fait ça vient de la— tout simplement de la résolution du PFD, on peut redémontrer ça avec.
+
+[13:25]
+À partir du principe fondamental de la dynamique. Et bon bah, dans la plupart des cas, c'est la— La densité volumique d'effort est donnée, donc on peut. Remplacer le petit indice v par d, comme— Comme le fait que ce soit une donnée du problème.
+
+[13:45]
+Voilà. Donc ça, ça concerne— donc l'équation d'équilibre local qui va nous donner l'équation différentielle partielle lorsqu'on va résoudre le problème de— On va résoudre l'équilibre mécanique. Et à ça, on va devoir ajouter des conditions limites, et donc ce raisonnement, c'est un simple raisonnement de
+
+[14:10]
+continuité à la frontière. Si vous avez un— Un champ de force surfacique qui s'exerce sur la paroi ou sur la frontière de votre domaine, donc en d rond oméga, qui concerne la frontière de votre domaine,. On va pouvoir dire que le.
+
+[14:27]
+Vecteur contrainte— Au niveau de cette frontière, et. Orienté suivant la normale sortante au domaine, c'est. Ce vecteur contrainte, il doit être équilibré avec les. Forces surfaciques qui s'appliquent sur la frontière.
+
+[14:49]
+Et donc ça nous donne que en tout point m de cette frontière. On a le champ de contrainte calculé en ce point m, fois le vecteur normal calculé au niveau de cette frontière, donc qui est la normale sortante,. Qui est égale, en gros, au vecteur de—
+
+[15:06]
+De force surfacique appliqué au niveau de cette frontière, tout simplement. Donc cette deuxième équation, on parle d'équilibre frontière, ou d'équilibre au bord, on parle aussi de conditions limites en effort, et donc c'est ce qui va nous permettre de.
+
+[15:22]
+Déterminer la forme des constantes d'intégration qui vont provenir de— De la résolution— enfin des équations différentielles que vont nous donner l'équilibre local. Et ces conditions limites, elles peuvent être de différents types, c'est.
+
+[15:45]
+Quelque chose qu'on va voir, donc on peut avoir une densité surfacique d'effort qui est donnée, avec une partie— une composante normale à la. Frontière, si je considère que la frontière, là, c'est ma main, bah il peut y avoir une composante qui est des efforts qui va être normale.
+
+[16:04]
+Et puis il peut y avoir une composante de cisaillement, enfin tangentielle, à la frontière. Donc c'est. Cet effort surfacique, il n'est pas forcément orienté suivant la normale à la frontière. Par contre, on le recalcule à partir du tenseur de la forme du tenseur de contrainte au niveau de la frontière, fois cette
+
+[16:26]
+normale à la frontière. Alors. On peut avoir un autre type de conditions limites, hein, qui est un petit peu plus particulier. C'est si jamais c'est une condition en pression, donc la pression qui provient d'un. Gaz ou d'un fluide sous pression sur un solide, par exemple, bah.
+
+[16:41]
+Cette fois-là, les. Efforts surfaciques qu'il va exercer par le milieu qui exerce une pression, il va être complètement porté par la normale à la frontière. Donc bah du coup, ça s'écrit comme sigma au point m fois la normale au point m, ça va être égal à moins la— cette pression, fois la normale sortante au doma
+
+[17:05]
+ine. Alors je vais— j'ai réussi à récupérer les slides sur la tablette, donc je vais basculer sur la tablette, ce qui me permettra d'annoter— Donc je vais arrêter le partage, je vais relancer— Le partage à partir de la tablette,.
+
+[17:28]
+Ce qui devrait— alors si jamais vous avez des questions ou des points sur lesquels vous voulez revenir, n'hésitez pas à demander dans le. Chat,. Ou à tout simplement lever la main, c'est peut-être plus— plus facile. Pour moi, de voir qu'il y a— il.
+
+[17:45]
+Y a besoin de répondre à une question. Alors,. Donc normalement, vous avez— vous. Devez avoir— Les. Slides qui sont apparus,. Et je. Reprends au même— Au même endroit, mais là je vais pouvoir annoter un peu plus en direct les slides, ce qui devrait aider la compréhension.
+
+[18:15]
+Ça va me permettre de faire quelques— quelques petits schémas. Est-ce que vous pouvez me confirmer que ça marche bien, que vous voyez bien? Ok. Alors,. Donc. Si je reprends dans le premier cas, vous pouvez avoir la normale sortante.
+
+[18:47]
+Qui peut être orientée comme ça, et votre— votre vecteur d'effort surfacique, il peut ne pas être aligné. Dans ce deuxième cas, si vous avez la normale sortante. Qui est orientée comme ceci, au niveau de la frontière, eh bien l'effort qui est exercé par la pression, il est forcément.
+
+[19:08]
+Orienté suivant la normale. Et donc du coup, il vaut moins p fois la pression. Alors bon, là je l'ai— je ne l'ai pas forcément mis dans le bon sens, hein, mais il sera forcément aligné. Quand vous exercez une pression sur une paroi, bah forcément vous exercez un effort de compression sur la paroi, donc forcément c
+
+[19:33]
+'est opposé à la normale sortante à. Au domaine. Alors un autre— un autre cas qu'on va retrouver assez fréquemment, donc c'est le cas de conditions de surface libre, là dans ce cas-là, on. Fait— on va considérer que vous avez— c'est comme si vous aviez une pression nulle,.
+
+[19:52]
+Et donc en général quand on vous donne— Quand on vous donne aucune information sur ce qui se passe au niveau d'une frontière du domaine, bah c'est implicitement que la surface est libre— libre de contrainte. Alors il faut faire attention, hein, des fois on ne pense pas à l'écrire cette équation, et cette équation,
+
+[20:16]
+elle— elle vous donne une condition limite. Le fait qu'il n'y ait pas d'effort, bah ça veut dire que il y a une partie des composantes de votre tenseur de contrainte selon une certaine direction, hein, qui vont être nulles à ce niveau-là.
+
+[20:25]
+Donc ça vous donne une condition limite. Donc alors c'est assez fréquent qu'on— qu'on oublie d'utiliser ce type de surface, de condition, pour— pour arriver à résoudre le problème. Et donc si vous reprenez dans l'ordre, là, bah vous avez dans un premier temps ici, vous avez le cas géné— le cas général,.
+
+[20:47]
+Là vous avez un cas un peu plus particulier où forcément l'effort est réaligné avec la surface, et troisième cas où là vous avez. Vous. Vous avez aucun effort, donc c'est encore un cas particulier. Donc voilà pour cette— pour ces premières conditions limites.
+
+[21:12]
+Il y en a d'autres, un petit peu plus compliquées, alors des fois on va vous donner les conditions limites sous forme d'un torseur résultant, donc on vous— on ne va pas vous donner la distribution des efforts surfaciques en tout point de la— de—
+
+[21:20]
+De la frontière, on va juste vous donner l'effort résultant, et c'est souvent ce qu'on a, par exemple quand on a des mesures— Typiquement avec des cellules d'effort, des capteurs qui— enfin des capteurs qui nous permettent d'accéder à une valeur telle qu'un effort ou une force ou un couple, bah ces données-là, on
+
+[21:48]
+va les avoir sous forme de torseur résultant, donc ça va être une intégrale si vous voulez des efforts sur une partie de la frontière, sur une— sur une sous-partie de la frontière. Donc si on vous donne juste. La. Résultante,.
+
+[21:58]
+Dans ces cas-là, ça veut dire que vous allez pouvoir le relier à la distribution, mais par l'intermédiaire d'une intégrale. Donc dans ces cas-là, il faudra— il faudra passer par une hypothèse en se disant, bah je suppose que la distribution, elle— elle est uniforme ou elle a plutôt telle forme, pour arriver à
+
+[22:15]
+faire le lien. Donc c'est— C'est un type de condition qu'on retrouve assez fréquemment, surtout quand on doit faire le lien avec des. Mesures ou des données qui sont données au niveau plutôt global, plutôt que une distribution.
+
+[22:30]
+Donc voilà pour cet autre type de conditions limites. Vous pouvez également avoir des— un autre type de conditions qui est l'adhésion parfaite, ou contact collant, ce qui veut dire que dans ces cas-là, c'est comme si vous aviez deux milieux qui sont différents, par exemple vous êtes à l'interface entre des fib
+
+[22:55]
+res et la matrice dans un matériau composite, ou vous êtes— Vous étudiez par exemple une planète et vous— vous avez deux milieux différents, le noyau et le manteau, par exemple, au sein de votre planète, ces deux milieux différents, mais vous avez— vous considérez qu'il y a une condition d'adhésion parfaite
+
+[23:11]
+au niveau de l'interface entre les deux milieux, qui. Ces deux milieux se déforment, et donc au niveau de cette interface, bah vous allez avoir continuité du vecteur contrainte, quand vous passez. Donc d'une. Milieu 1 au. Milieu 2, vous avez la normale sortante ici, bah quand vous passez.
+
+[23:34]
+Vous avez du milieu 1 vers le milieu 2, vous allez passer d'un champ de contrainte à un autre champ de contrainte, eh bien normalement au niveau de l'interface vous avez continuité du vecteur contrainte. Donc le saut du champ de contrainte au niveau de cette interface, donc qu'on peut noter sigma.
+
+[23:51]
+De t,. Sûrement. Elle peut— elle peut être mouvante, hein, potentiellement, cette interface,. Ça correspond au— à l'écart entre le champ de contrainte dans le milieu 2 et dans le milieu 1, vous projetez ça sur— suivant la normale sortante, et donc ça veut.
+
+[24:09]
+C'est censé. Donner quelque chose de nul, ça veut dire que c'est équilibré au niveau de l'interface. Donc ça c'est pour la partie effort, et vous devez avoir également. Continuité du vecteur déplacement, parce que toutes les particules qui— qui étaient en face-à-face.
+
+[24:28]
+Au niveau de— de. L'interface, si vous avez continuité, bah elles restent encore face-à-face les unes des autres dans la configuration déformée. Et donc le— le champ de déplacement doit être continu au niveau de l'interface,.
+
+[24:45]
+Ça c'est si vous avez vraiment un contact bien— bien collé au niveau de l'interface. Alors ça c'est dans le cas où les deux milieux sont déformables. Si jamais il y a— on vous dit que, par exemple, il y a un milieu qui est collé à un milieu qui lui n'est pas déformable, un corps qui est beaucoup— beaucoup plus rig
+
+[25:08]
+ide, qu'on va considérer comme un corps rigide, et donc qui a un encastrement, bah du coup vous ne connaissez pas les efforts, parce qu'il n'y a pas d'effort dans le milieu qui lui est rigide, dans un milieu rigide il n'y a pas d'effort, donc vous ne connaissez pas la distribution des efforts.
+
+[25:25]
+Par contre, si jamais vous avez un encastrement, le déplacement lui est fixé comme nul, ok. Si vous prenez un— un cylindre qui est— qui est fixé à un plan, complètement collé, bah dans ces cas-là, la seule condition que vous pouvez avoir c'est déplacement nul au niveau de l'interface.
+
+[25:41]
+Alors on peut aller sur une autre condition qui est un petit peu plus compliquée, qui est le contact sans frottement. Dans ce cas-là, c'est vous considérez que vous avez deux milieux qui sont bien collés l'un à l'autre. Par contre.
+
+[25:54]
+Vous considérez que le milieu est— enfin que l'interface est lubrifiée, par exemple, et donc il n'y a pas d'adhérence entre. Les deux— entre les deux milieux, ce qui veut dire que il y en a un qui peut— qui peut se déformer dans le plan de l'interface.
+
+[26:14]
+C'est typiquement l'exemple qui est assez parlant, hein, c'est quand— si vous prenez un flan— un flan bi que vous déposez sur une assiette, bah généralement le flan il s'affaisse complètement dans le plan de l'assiette, parce que l'interface est lubrifiée, et puis bah on voit bien qu'il y a une— une grosse diff
+
+[26:29]
+érence de— De rigide. Entre les deux milieux, et donc dans ces cas-là, bah quand c'est entre deux milieux déformables, vous. Allez avoir les efforts— Vous allez avoir équilibre au niveau des efforts normaux,. Donc vous allez— vous allez considérer que la composante normale du tenseur des contraintes— du vec
+
+[26:56]
+teur contrainte va s'équilibrer entre les milieux 1 et 2,. Et pareil, il va y avoir continuité du déplacement normal, donc c'est ce qui apparaît ici. Alors donc. Si vous regardez ça— On va dire, c'est. Pardon, si vous. Plutôt cette partie-là, ça ça ça vous donne l'écart.
+
+[27:20]
+Du vecteur contrainte,. J'arrive pas à écrire aussi petit,. C'est l'écart du vecteur contrainte au niveau de la— et peut-être l'écrire là sera peut-être mieux, sera plus clair. Comme ça. Donc cette partie-là, ça correspond au vecteur— à l'écart.
+
+[27:50]
+Du vecteur contrainte au niveau de l'interface,. Et vous— vous prenez que la partie normale, que la composante normale, et cette partie normale, bah. Elle s'équilibre. Pareil. Pour le saut de déplacement,. Et si vous— Si vous regardez, dans les deux milieux, du coup la composante tangentielle du vecteur normal au
+
+[28:21]
+niveau de la— enfin la composante tangentielle du vecteur contrainte, au niveau de l'interface, que ce soit pour le milieu 1 ou pour le milieu 2, bah cette composante tangentielle doit être nulle. Il n'y a aucun effort, du coup, vu que ça— ça glisse librement dans le plan de l'interface, vous n'avez aucun effort tang
+
+[28:36]
+entiel qui peut— qui peut transiter au niveau de cette interface. Donc en gros, hein, ça veut dire que vous avez le— le vecteur— le vecteur t, hein, qui est— qui est tangent, qui est perpendiculaire à— à n. Au vecteur normal.
+
+[28:50]
+Donc ça c'est quand vous êtes entre un milieu— entre. Deux milieux déformables. S'il y a un des deux milieux qui est déformable et l'autre qui est rigide, bah en gros, hein, vous voyez que la— vous avez la composante tangentielle du— du tenseur des contraintes dans le milieu déformable.
+
+[29:07]
+Qui va être nulle, et puis le déplacement, vous avez— vous allez avoir le déplac— uniquement le déplacement normal qui va être nul. Vous n'avez aucune condition sur le— le déplacement dans— La composante tangentielle du déplacement, parce que c'est le— le glissement est laissé libre.
+
+[29:24]
+Donc ça, ça va— ça va être géré par d'autres équations. Alors ce type de— de conditions, hein, contact sans frottement, bah on dit que ça— ça correspond à une condition de symétrie, en réalité. Quand— Vous êtes en— Quand vous considérez qu'il y a une— une— un corps qui est défor— qui— qui est— qui est
+
+[29:48]
+rigide. Donc c'est— c'est les conditions de symétrie, c'est assez pratique pour— pour diminuer la taille d'un— d'un problème quand on voit qu'il y a une symétrie sur le— sur le problème, et également ça permet de réduire la— la taille, enfin ça permet de— à la fois de réduire la taille du problème et de— de
+
+[30:09]
+se débarrasser de— De— de certains mouvements de corps rigides. C'est assez pratique. Donc voilà pour— Pour. Pour ces différents types de conditions limites qu'on peut voir au niveau mécanique. Donc oui, hein, j'ai— j'avais oublié de le préc— de préciser, hein, mais donc la— la notation avec les doubles cro
+
+[30:35]
+chets, hein, ça correspond au saut d'une quantité quand on traverse— enfin quand on traverse. Quand virtuellement on passe d'un— d'un côté à l'autre d'une— d'une frontière. Donc c'était juste une— une petite remarque que j'aurais peut-être pu faire apparaître un peu plus tôt.
+
+[30:48]
+Est-ce que ça va pour ces différentes— Manières de traduire une condition aux limites dans un problème de— De mécanique? Bon, ok, très bien, merci pour votre retour. Donc on va pouvoir passer à la— à la suite. Donc ce qui veut dire, donc là, hein, vous avez les deux types d'équations qui— qui vont vous permett
+
+[31:21]
+re de— de résoudre la partie statique, la partie contrainte d'un— d'un problème. On verra ça par— dans— dans les. Chapitres qui vont suivre. Donc on va rappeler juste pour— pour mémoire les grands principes de la thermodynamique.
+
+[31:30]
+Premier et second principe:. Alors, c'est— C'est des. Que vous avez peut-être déjà vues en physique, en thermodynamique, hein, mais bon, le premier principe de la thermodynamique,. En gros, hein, ça— ça introduit la notion d'énergie interne, et ça— ça fait un bilan d'énergie, justement, sur— sur cette énergie
+
+[31:50]
+interne. Donc la variation— le— le principe, hein, c'est que la— la variation d'énergie interne,. Enfin la variation d'énergie, c'est à la fois l'énergie interne, donc l'énergie interne, on peut voir ça sous forme— ça peut être de la— de— de la chaleur qui est accumulée, ça peut être de l'énergie élastique
+
+[32:11]
+qui est accumulée dans— dans— dans le milieu, hein, typiquement, hein. Si vous compressez par exemple un— un— un ballon ou— ou— ou de l'air comprimé, typiquement, bah il y a de l'énergie qui est— qui est stockée à l'intérieur de— de votre milieu, qui peut être restituée sous forme mécanique, par exemple.
+
+[32:26]
+Et dans— dans l'énergie interne d'un milieu, vous avez aussi l'énergie cinétique, hein, bon, vous pouvez prendre l'exemple de— De— si vous considérez un milieu qui— qui correspond à la fois au— au sauteur à— à la perche et à sa perche, ce système-là, bah au fur et à mesure du moment où— au fur et à mesure de
+
+[32:53]
+— de son mouvement, au début il va y avoir juste de l'énergie cinétique qui est contenue, enfin qui correspond à— au déplacement à la fois de— du sauteur à la perche et de sa perche, quand il va— il va transférer toute son énergie cinétique dans la perche, qui va— qui va se— se plier, donc ça va être— plut
+
+[33:11]
+ôt qu'il est sous forme d'énergie élastique, et après ça va être restitué sous forme d'énergie mécanique, sous forme d'énergie potentielle, pour que le— Le sauteur puisse s'élever. Dans les airs. Donc voilà un peu le— le principe de la conservation de l'énergie.
+
+[33:24]
+Et en fait, ben, entre. Deux états, la variation de cette énergie cinétique, ben elle est égale à la somme du travail reçu et de la quantité de chaleur reçue par le système. Donc en partant de ce— ce premier principe, en fait, on— on arrive assez facilement, quand on l'exprime sous forme de variation de tempér
+
+[33:53]
+ature, enfin en fonction de température, on peut arriver à écrire l'équation de la chaleur, donc l'équation de la chaleur, c'est souvent une équation sur— que vous résolvez quand vous faites les tout premiers cours d'éléments finis, généralement, on travaille plutôt sur l'équation de la chaleur, qui.
+
+[34:03]
+Qui pour le coup est— Est plus. Simple que— que— qu'une équation de— de type mécanique, parce que c'est— c'est une équation qui porte sur— Sur une quantité scalaire, au lieu d'une quantité vectorielle. Donc c'est— c'est plus simple à résoudre.
+
+[34:25]
+Je vois qu'il y a une— C'est l'équation de la chaleur, il y a un seul "la", ça suffira. Alors ensuite, le— le second principe, c'est un— un principe qui permet d'introduire la notion d'irréversibilité. Donc en introduisant le prin— la notion d'entropie, donc on vous parle souvent de— l'évolution.
+
+[34:45]
+Entropique, hein, ben en gros, hein, c'est une inégalité qui fixe le sens d'évolution d'un système, et donc, ben, ça— ça conduit à— à la notion d'irréversibilité. Donc ça, ça peut nous servir notamment quand on veut— quand on veut faire apparaître, typiquement.
+
+[35:02]
+Les— les déformations plastiques irréversibles dans— dans un milieu. Mais bon, ça, dans le cadre de ce cours, ça— ça ne sera pas utile. Alors si on reprend. Bon, ça, c'était juste pour— pour— pour note. Mais ça permet d'introduire quand même la— la notion de— d'énergie cinétique, et donc on va arriver au th
+
+[35:26]
+éorème de— de l'énergie cinétique. Alors,. On va réintroduire le— le concept de puissance. Alors je viens de voir que mon slide n'est pas très bien mis en forme. Il va falloir que je re-bascule sur. Sur une autre slide. Normalement ça aurait dû.
+
+[36:03]
+Se répartir sur deux slides. Ça se fait— Bon, c'est pas grave. Il ne manque pas grand-chose. On va rester là-dessus. C'est pas grave. Donc là, on peut définir la puissance des efforts intérieurs. Donc— Donc une puissance, hein, c'est— c'est le produit de— d'une force et d'une vitesse, en réalité.
+
+[36:41]
+Et donc on peut démontrer— en gros. Que la puissance qui est— qui peut être attribuée. Aux efforts intérieurs au sein de la— de la matière, ben ça s'écrit, alors faites attention, il y a bien un moins devant, hein,. Donc ça— ça peut être l'intégrale— donc de la trace du pro— du produit entre les contraintes
+
+[37:13]
+et le tenseur taux de déformation. Donc contrainte— Et taux, ou vitesse de— de déformation. Et donc, bon, la trace d'un— d'un produit entre deux tenseurs, hein, c'est égal à— on peut l'écrire sous forme du— du produit contracté double entre ces deux tenseurs.
+
+[37:37]
+Donc on va admettre cette— cette forme-là, mais on peut— on peut la démontrer. Et donc, ben, cette puissance, elle va permettre de faire le lien avec— avec. L'énergie. Cinétique d'un problème. Donc là, vous voyez que c'est sous forme eulérienne, hein, on a.
+
+[37:59]
+Le tenseur des contraintes de Cauchy, sigma, et d le tenseur taux de déformation, mais si on était en représentation Lagrangienne,. Ben on aurait pu l'écrire avec une forme légèrement différente, cette fois on a toujours les contraintes qui sont représentées par un— un autre tenseur de contrainte, et.
+
+[38:24]
+Puis, ben, on a une— une vitesse de déformation avec la dérivée— Du— Du tenseur de déformation de— dérivée temporelle du tenseur taux de déformation. Du tenseur de déformation de Green-Lagrange. Et par contre, cette fois, on va intégrer sur le.
+
+[38:43]
+Domaine, dans sa— dans sa configuration initiale. Ok, donc le tenseur de contrainte, là, c'est le tenseur de contrainte de Piola-Kirchhoff dans sa deuxième forme. Ça, c'est un détail, on n'utilisera pas ça, mais c'est juste pour préciser que, suivant la d— la description qui est utilisée, eulérienne ou lagrang
+
+[39:08]
+ienne, on n'a pas forcément les mêmes— les mêmes formes pour les— pour décrire à la fois les contraintes et les déformations. Donc, euh. On sait que les— ben, pour déterminer les— les— la puissance des efforts extérieurs, ben.
+
+[39:22]
+On va tout simplement intégrer sur la frontière. Ou. Le volume les efforts volumiques Fv ou surfaciques T, sur le— le champ de— enfin, multiplié par le champ de vitesse,. Et on va intégrer ça soit sur le volume, soit sur la— sur la— la frontière, donc ici.
+
+[39:45]
+Là, vous avez la puissance des efforts extérieurs,. Et ici, vous avez la puissance des efforts intérieurs qu'on vient tout juste de— de— de décrire, et donc. Le— le théorème de l'énergie cinétique, il considère que dans le— le champ de vitesse qui correspond à la— à la solution,.
+
+[40:09]
+Dans le champ. De vitesse réel, ben. La dérivée de l'énergie cinétique, elle correspond à la somme de la puissance des efforts extérieurs et intérieurs. Ok, et en fait, bon, ce qui n'est pas écrit, hein, c'est en gros c'est une conséquence directe—
+
+[40:30]
+Des équations d'équilibre. On ne va pas le redémontrer,. Quand on part des équations d'équilibre, on peut tout redémontrer,. Pour arriver à— à cette forme. Voilà. Donc, euh, ça, ça. Peut— ça peut— ça peut servir pour aller sur des— sur— sur des principes comme le principe des puissances virtuelles.
+
+[41:04]
+On— on ne va pas— on ne va pas établir ici. Donc, là. Dessus, ça— ça conclut le. Chapitre sur les— Sur. Les grands principes de la thermodynamique. Et donc, euh, ben, ça peut— ça peut être l'occasion de— de procéder à des questions, mais ce que je vous invite à faire, c'est, euh, à—
+
+[41:38]
+À vous connecter sur Socrative,. Donc, je rappelle. Vous allez sur le site Socrative pour les étudiants, et vous allez dans— dans la salle qui correspond. À mon login, que je vais écrire de manière propre ici, et je vais. Lancer deux petits questionnaires, euh, d'ici—
+
+[42:10]
+Ça. Va prendre— Peut-être temps, c'est un questionnaire, on va faire le. Questionnaire sur les efforts et les contraintes. Je vais imposer le rythme. Voilà. Et je vais peut-être vous l'afficher directement, ce sera peut-être plus pratique.
+
+[42:34]
+Alors, je vais changer le partage.
+
+[42:43]
+Alors. 7. Grossir un petit peu. Donc ça reprend des notions sur les efforts, les torseurs, etc. Donc, si. On prend un champ de. Torseurs, avec R la résultante et M le moment au point P,. Comment est-ce qu'on peut transporter le. Moment
+
+[43:19]
+du champ A au champ B ? Alors, il peut y avoir plusieurs bonnes réponses. Donc, soit on peut exprimer le moment au point A en fonction du moment au point B, en rajoutant un. Effet de levier, avec le produit vectoriel d'un vecteur et de la résultante.
+
+[43:44]
+Mais dans quel sens doit être le vecteur ? Et dans quel sens on fait le produit vectoriel ? Ça, c'est une première question. Je vais passer sur ce qui est. Je ne vois pas de question, je ne vois pas de main qui se lève. Ok, on a une bonne partie des réponses qui sont déjà données, donc on va pouvoir passer à la question
+
+[44:19]
+... Suivante d'ici quelques minutes. Secondes. On reviendra par la suite. L'essentiel est que vous vous mettiez en situation. Donc, on passe à la question suivante. Quel peut être l'unité d'une contrainte ? Comment est-ce qu'on peut exprimer...
+
+[44:41]
+enfin, quelles unités on peut utiliser pour exprimer une. Contrainte ? Alors, est-ce qu'on peut l'exprimer en Pascal, en Newton, en Newton-mètre, en Newton par mètre, en Newton par mètre carré ? Donc ça, c'est quelque chose qu'on a déjà vu des.
+
+[45:01]
+Le cours chapitre numéro 3. Sur les contraintes. Donc ça, ça doit venir du tac au tac, normalement. Donc, le fait de. Connaître ça un petit peu sur le bout des doigts, ça vous permettra très rapidement de détecter une erreur manuelle.
+
+[45:30]
+Dans. Un résultat, si jamais vous avez arrivé à une formule pour une contrainte qui n'est pas homogène à l'unité. Dont on. Parle. Ok, donc on va passer à la question suivante. Si un tenseur de contrainte a la forme suivante, donc affichée ici, là,.
+
+[45:51]
+Sur. Image,. Que vaut la contrainte normale dans le plan de normale E1 ? Et dans le plan E2, est-ce que ça vaut A, B, C pour la contrainte normale dans le plan de normale E1 ? Et que vaut la contrainte normale dans le plan de. Normale E2, A, B ou C ?
+
+[46:20]
+Donc, en gros, a priori, vous devriez sélectionner deux réponses pour. Avoir bon. Donc là, normalement, pour répondre à cette question, il faut que vous passiez par. L'expression. Du vecteur contrainte dans les deux plans qui vous sont proposés, le plan de normale E1 et le plan de normale E2.
+
+[46:45]
+Et ensuite, depuis. L'expression de ces deux vecteurs contraintes, il faut en extraire la contrainte normale, a priori, en reprojetant sur la même normale. Donc c'est. Un calcul qui est. Assez simple. Le tout est de partir de. Bonnes formules.
+
+[47:13]
+Donc je vois qu'on a à peu près 9 réponses. Dès que j'en ai une quinzaine, on passe à la question suivante, et puis on passera à la correction par la suite. L'essentiel, c'est de vous mettre en situation et, comme ça, ça vous force à mieux.
+
+[47:43]
+Comprendre et à éventuellement poser des questions pour que je puisse repréciser les choses. Ok, on a à peu près 15 réponses, donc je vais passer à la question suivante. Donc, même question, même problème, mais cette fois on regarde la contrainte tangentielle.
+
+[48:03]
+Donc normalement, vous avez dû faire déjà une grosse. Partie du travail avec la question précédente. Et donc là, même chose, il faut avoir l'expression du vecteur contrainte dans les deux plans de normale E1 et de normale E2.
+
+[48:18]
+Et par contre, à partir de ces deux vecteurs contraintes, il faut en extraire cette fois la contrainte, mais tangentielle. Donc normalement, c'est la partie complémentaire de. La contrainte normale. Ok. Ok, bon, on va peut-être.
+
+[49:10]
+Enchaîner avec la question suivante. Il y a pas mal de réponses, et puis bon, a priori, si vous avez compris à la question précédente, normalement il n'y a pas de souci pour celle-là. Donc, question suivante : si un. De contrainte a la forme suivante, quelle contrainte sont nulles ?
+
+[49:30]
+Donc là, normalement, ça doit aller aussi vite. Donc là, cette fois, on vous demande d'inspecter ce qui se passe dans les trois plans de normale E1, E2 et E3. Et quelle contrainte sont censées être nulles pour chacun de ces plans ?
+
+[49:50]
+Est-ce que c'est la contrainte normale, est-ce que c'est la contrainte tangentielle, ou les deux ? Potentiellement. Donc là, a priori, si à force de faire ce type de calcul, vous. Allez être plus à l'aise, ça va aller de plus en plus vite.
+
+[50:15]
+Et donc, dès que j'aurai une quinzaine de réponses, on arrêtera le questionnaire, on va passer à la correction. Ok, bon, j'ai l'impression que ça n'avance plus trop. Donc on va arrêter le questionnaire là, et puis je vais vous proposer de passer à la correction.
+
+[50:59]
+Hop. On va s'arrêter là. Pour ce. Questionnaire, alors,. On va reprendre question par question. Donc la toute première question : qui correspondait en fait à la formule de transport du moment. On parle aussi de formule de Varignon.
+
+[51:22]
+Donc... Que j'essaye de vous faire afficher là. Et donc, globalement, c'est un petit peu mitigé. Mais le moyen mnémotechnique que vous pouvez garder en tête, c'est la formule de Babard, donc le moment en B, c'est égal au moment en A.
+
+[51:41]
+Plus BA vectoriel R. Et donc vous retrouvez BA, BA, R. Comme Babard. Mais étant donné que vous pouvez changer le signe de votre produit vectoriel. En intervertissant les deux, et puis en intervertissant le. Vecteur BA en AB, vous pouvez aussi l'avoir sous cette forme.
+
+[52:10]
+Donc voilà, vous aviez deux formes qui pouvaient fonctionner pour cette formule de transport du moment. Donc voilà, est-ce que ça suscite des questions ? Pas de réaction. Bon, ben je passe à la question suivante. N'hésitez pas à vous signaler.
+
+[52:31]
+Donc là, quelle est l'unité d'une contrainte ? Elle peut être exprimée en Pascal ou toutes ses unités dérivées, kilopascal, mégapascal, gigapascal, et aussi en newtons par mètre carré, parce qu'une contrainte, c'est une force divisée par une aire.
+
+[52:45]
+Donc les. Newtons par des mètres carrés ou des millimètres carrés, etc. Donc voilà. Vous avez. Exprimer ça aussi en barres ou en psi, il y a toute une panoplie d'une. Unité pour les. Contraintes et les pressions. Alors, donc, dans le cas de ce tenseur de contrainte, donc avec.
+
+[53:16]
+AC sur 0 sur la diagonale et B sur la hors de la diagonale, la contrainte normale dans le plan de normale E1, en gros, ça correspond à la composante 1-1 de votre tenseur des contraintes, donc A. Donc vous projetez une première fois suivant N, c'est.
+
+[53:34]
+Censé vous donner du coup. A. BC comme vecteur. Pour le vecteur normal. Et donc, si vous reprojetez ça suivant la normale E1, ça vous donne A. Si vous prenez le. Vecteur contrainte dans le plan de normale E2, du coup, ça vous donne B.
+
+[53:56]
+C. 0 comme composante, et. Du coup, si vous reprojetez suivant la direction 2, ça va vous donner la composante 2-2 du tenseur de contrainte, soit C. Donc on peut garder ces infos pour la question suivante. On avait AB0 pour le premier vecteur contrainte, et BC0 pour le second.
+
+[54:25]
+Du coup, pour les contraintes tangentielles, ça va être B dans les deux cas. Parce qu'on va projeter suivant, on va prendre la partie complémentaire du vecteur contrainte, et. La partie. Complémentaire de la contrainte normale dans le vecteur contrainte.
+
+[54:37]
+Donc il va rester que B dans les deux cas. Donc là, vous n'êtes pas trop trompé sur cette question. Et dernière question, donc on reprend le même problème, mais cette fois on va essayer d'identifier quelles sont les contraintes normales et tangentielles qui sont nulles.
+
+[54:54]
+Eh ben, en fait, c'est uniquement celles qui sont dans le plan de normale E3, comme vous voyez, toutes les composantes qui font intervenir la direction 3 sont nulles. Donc... On aurait eu un vecteur contrainte dans le plan de normale E3 qui est, lui, était nul, donc à la fois la contrainte normale et la contrainte tang
+
+[55:16]
+entielle étaient nulles. Donc voilà pour ce petit. Questionnaire. On va peut-être. Garder celui sur les sur les. Équations d'équilibre pour plus tard, et. Donc on peut... Donc ça, ça nous a fait une petite pause, on va pouvoir rebasculer sur le cours.Donc je vais changer le partage. Pour rebasculer sur la tablette. Si jamais ça vous fait réagir sur d'éventuelles questions, n'hésitez
+
+[55:38]
+Donc je vais changer le partage. Pour rebasculer sur la tablette.Le torseur. Des efforts extérieurs sur oméga, et. Est égal à 0 au torseur torseur nul, et. OK. Et donc, bah, du coup, ça veut dire que— Pardon, c'est toujours, c'est toujours la même question, hein.
+
+[56:12]
+Ben, on doit avoir— La résultante des. Efforts extérieurs— Sur oméga qui est égal à 0, et les moments la. Le moment des efforts extérieurs sur oméga calculés par rapport à l'origine, qui doit être égal à 0. Donc, pour la résultante.
+
+[56:39]
+Dans ces cas-là, on va prendre l'intégrale sur le volume des efforts volumiques. Au point M. Sur oméga. Plus la. Intégrale sur la frontière du domaine du vecteur T, donc le vecteur contrainte. Qui doit être égal à 0. Alors, on peut séparer ça en différentes contributions, hein, mais bon, là, celle-là, hop, pour
+
+[57:17]
+. Celle-là. Bon, bah, c'est moins Roger E3. On remplace par la forme du tenseur, du, de la forme des efforts, des efforts volumiques qui sont, qui sont appliqués, donc le poids. Et par contre, il va falloir, euh, séparer— Si je reprends suivant.
+
+[57:40]
+Les différentes frontières du domaine, donc là, on va avoir— Si on prend E— E2 comme ça, et. Ben, au-dessus, on va avoir S3+, en dessous, on va. Avoir la surface S3- par exemple. Et ainsi de suite. Ici, S2+, et. S2-, etc. Et en fait, on voit que, ben, sur presque.
+
+[58:16]
+Toutes les surfaces exceptées S3-, bah, il n'y a pas d'effort de contact, vu que c'est en contact avec l'air libre. On va considérer que c'est une condition de surface libre. Donc, on va avoir juste S3- sur lequel on n'aura pas d'effort de surface, donc on aura—
+
+[58:39]
+T2m, et. S. Plus si. On. Fait— D oméga— Moins— S3-, ben là, cette fois, on a qui. Chose de nulle. OK. Donc ça, ça. Nous intéresse pas. Par contre, le vec, la. Répartition des efforts surfaciques, là, ben, on peut relier ça— À sigma n.
+
+[59:22]
+Par l'intermédiaire des conditions volumiques. OK. Et donc, si on passe par le théorème de la divergence, hein, ben, sigma n, là, en fait, ça correspond à la divergence de sigma fois dv. Sur oméga, et. Donc, ben, on peut regrouper ça sur une même intégrale.
+
+[60:06]
+Donc, qui correspond à divergence de sigma— Moins Roger E3. Le tout intégré sur le volume, qui est égal à 0, et par le principe von Lem, fondamental de la mécanique des milieux continus, ben, du coup, ça veut dire qu'on a bien divergence de sigma moins Roger E3, qui est égal à 0.
+
+[60:30]
+Bon, on va passer rapidement à la question suivante, voilà comment on peut le retrouver. Donc, question 1-2, cette fois, on. Vous demande d'écrire les conditions limites. Alors,. Là, pour le coup, on n'était pas forcément obligés de passer par— on n'était pas forcément obligés de passer par là, en fait.
+
+[60:59]
+On pouvait simplement passer par sigma n, et puis divergence de sigma. Donc, pour ce qui est des conditions limites,. Ben, du coup, on peut écrire— Sur les différentes parties, hein, donc sur S1+, sur S1-, et. Ben, c'est libre d'effort, et.
+
+[61:29]
+Pareil sur S1-, sur S2+, sur S2-, sur S3+, et. C'est toujours le cas. Donc, ça veut dire que le vecteur contrainte pour. Tout point M, c'est égal à sigma de M fois N de M. Et ici, c'est égal à 0, quelle que soit M, qui. Appartient à S1+.
+
+[62:00]
+Bon, on va avoir exactement la même chose ici, ici, ici, et ici, et. À chaque fois. Donc, on va avoir, pour S1-, pour S2+, pour S2-, pour S3+, là où ça va changer, c'est pour S3-, là. On a contact avec le plan inférieur, et. Donc, dans ce cas-là, ben,
+
+[62:29]
+on ne sait pas. La forme, mais T2m, ben, on va pouvoir dire que c'est égal à sigma— De M fois N de M, et. On ne sait pas a priori quelle est la forme, mais en tout cas,. Ce qui est sûr, c'est que la normale sortante pour tous les points qui.
+
+[62:53]
+Sont positionnés dans cette. Partie de la frontière, ben. C'est moins le vecteur E3. Si je remonte, hein, sur mon schéma, et. Si je suis sur cette partie-là, la normale sortante, c'est moins E3. OK. Donc, ben, du coup, je devrais pouvoir—
+
+[63:23]
+L'écrire, et donc on peut. Considérer qu'a priori, on pourrait avoir une— Une pression de contact au niveau du sol. Mais bon, en tout cas, si— Si ça a cette forme, ben, en appliquant ça avec la forme du tenseur de contrainte qu'on avait, ça veut dire que, du coup,.
+
+[63:50]
+C'est comme si on avait 0, 0, 0, 0 dans la matrice A+. X3. Ici, enfin, dans— pour tous les points M, on se situe en X3 est égal à 0, ok, et. Donc A+B fois 0, et. Ici 0, 0, -1, pour le vecteur normal. Donc, avec cette condition limite, en gros,—
+
+[64:26]
+Excusez-moi, monsieur. Oui, pardon. Vous pouvez redire pourquoi X3 est égal à 0, s'il vous plaît ? Parce qu'on se situe dans la surf— sur la partie de la frontière. Qui est. Que je vais surligner ici en orange, et. Donc, à ce niveau-là, le.
+
+[64:50]
+La compo— enfin, si je considère que— Mon origine, elle se situe à la base de ma poutre, ben, la coordonnée X3, elle est égale à 0. Pour tous les points M qui appartiennent à ce point, à cette frontière-là. OK. Très bien. Alors, je.
+
+[65:13]
+Pas précisé juste avant, hein, mais. Bon, pour l'autre— pour l'autre condition limite, hein, ça aurait permis d'avoir— Une autre information. Donc, si je le réécris, ça veut dire que le vecteur contrainte, ici, ben, il serait égal, du coup,.
+
+[65:35]
+À 0, 0, -1. Alors, ça, c'est pour le. Cas où je suis en S3-. Si je regarde le cas où je suis en S3+,. Là, cette fois,. J'aurais dû le détailler, enfin, juste avant, hein,. Mais dans ce cas-là,. C'est N de M, ok, quand je suis dans S3+, ben, ça.
+
+[66:06]
+Correspond à X3 est égal à H, hein, on nous a dit que la— Que la poutre, elle avait une hauteur H, hein, j'ai oublié de le faire apparaître. Ici, voilà. J'ai une hauteur H, donc quand je suis sur la surface supérieure. Je suis en X3 égal à H, et par contre, mon vecteur normal, cette fois,.
+
+[66:30]
+Ben. Quand je suis ici, il est bien égal à E3. Il est bien dirigé vers le haut. Donc, ben, je vais recalculer tout ça, donc c'est censé me donner 0, 0, 0, 0, 0, 0, 0, A+B fois H, cette fois. Et— Ici, j'ai 0, 0, et 1, vu que c'est le vecteur E3.
+
+[66:59]
+Bon, ben, manifestement, ça me donne 0, 0, A+BH, et. La. Condition, hein, qui était donnée, c'est que, ben, c'était censé être égal à 0, et. Au vecteur nul, ce qui. Implique que, du coup, A+BH— C'est censé être égal à 0. Donc, on a écrit les conditions limites, et puis on a— on a pu les utiliser pour, justement, avoir
+
+[67:54]
+des informations sur les différents paramètres qui caractérisent l'évolution de notre champ de contrainte dans le milieu. Alors, la question suivante: on— On vous demande— De déterminer la pression de contact P— Alors, ben, l'expression de A, en fait, on a fait le calcul juste avant, hein,.
+
+[68:18]
+Donc, si on vous dit qu'il y a une pression de contact au niveau du sol,. Ça veut dire que. En. S3-, donc quand on est sur la surface inférieure, la frontière inférieure de notre poutre,. Ben. Du coup, on a le vecteur contrainte qui est égal à -P fois la normale.
+
+[68:41]
+OK, on a une condition de pression— Sur cette frontière. Et donc, dans ces conditions, ben, du coup, on peut dire que le vecteur P. Le vecteur. Contrainte qu'on avait calculé précédemment, hein, ben, il valait 0, 0, -1, et. Ben, du coup, c'est égal à 0, 0, -P.
+
+[69:16]
+Soit, de manière assez facile,. On détermine que la pression est égale à A,. Et vu ce qu'on a pu déterminer avant, ben, c'est égal à -BH. Et B, on avait déterminé sa forme, c'était égal à ρG,. Donc,. On a A qui est égal à -ρGH,.
+
+[69:55]
+Et la pression qui est égale à. ρGH. Ce qui nous permet d'avoir la forme complète— attendez. J'ai— La pression, j'ai un problème de signe quelque part,. Oui, pardon. C'était -P porté par N, euh. C'est là que j'ai un— j'ai un petit souci de signe, pardon.
+
+[70:42]
+J'ai fait une erreur,. N, c'est -E3, donc du coup, ça ne me donne pas -P, mais +P. Et donc, P, c'est égal à -A,. Qui est égal à -BH. A, on savait que c'était— Égal à -ρGH, donc j'ai bien +ρGH pour la pression. La force qui est exercée par le sol sur la poutre, eh bien, orientée vers le bas, c'est un principe d'action-réaction,
+
+[71:15]
+tout simple. Voilà. Euh, donc. Au final, ben, on peut. Écrire de manière complète le. La forme de notre tenseur de contrainte, donc tout simplement, c'est ρG. Fois X3-H. Sur la composante, 3, 3. Tout simplement. Donc là, en fait, hein, on est sur un exercice où on a juste supposé une forme pour le champ de contrainte
+
+[72:00]
+au sein du milieu, et on a utilisé les différentes informations sur. Sur les conditions limites pour pouvoir— Appliquer l'équilibre local— En tenant en compte de l'effet du poids, donc l'effort à distance, et des efforts sur les bords, pour pouvoir déterminer la forme complète.
+
+[72:22]
+Alors, ce que je n'ai pas fait,. C'est que je n'ai pas vérifié que toutes ces équations étaient bonnes. Mais— Mais a priori, si vous— si vous regardez, hein, pour chacune des frontières, ben, si vous prenez la normale sortante en S1, c'est E1, vous trouvez bien que le vecteur—
+
+[72:47]
+Normal est nul, avec la forme du tenseur de contrainte, et ainsi de suite,. Ça marche à chaque fois. Vous avez bien à chaque fois le vecteur qui est nul. Alors,. J'ai un YB qui cherche à entrer dans la salle, je ne vois pas qui c'est.
+
+[73:36]
+Je ne vois pas la salle d'attente. Ah, pardon, je vois qu'il y a une question de Naïla:. Est-ce que vous pouvez préciser la question? C'est la normale? Euh, non, c'était— ah, l'erreur de signe. Oui, le problème, c'était sur l'erreur, j'avais— j'avais oublié de prendre en compte le fait que la normale, quand on est sur
+
+[74:20]
+. Sur S3-,. Ben, en fait, la normale, c'est -E3. Et donc, du coup, ben, ça change le signe de P, ça faisait une erreur de signe. Euh,. Alors, j'ai vu qu'il y avait quelqu'un qui essayait de se connecter. Mais bizarrement, je ne retrouve pas—
+
+[74:54]
+La personne, bon, ce n'est pas grave. Donc voilà pour ce premier exercice. Et donc, on va pouvoir faire. La première pause, maintenant. Ça cadre avec le planning qui était prévu. On va peut-être enchaîner avec un autre exercice rapide, pour donner un—
+
+[75:15]
+Pour. Se mettre bien à l'aise sur ces types d'exercices, et puis on fera chapitre 5, qui était les 5 dans la foulée. Donc, je vous re— je vous propose qu'on reprenne vers 11 h 20, ok? Essayez de— d'être de retour à temps. Ça laisse le temps de prendre un peu l'air ou.
+
+[75:40]
+Un petit café, et on se retrouve d'ici 15 minutes. Si jamais vous avez des questions ou besoins que je revienne sur un point abordé plus tôt, je vous. Hésitez pas, vous pouvez déjà poser la question dans le chat, j'irai. Répondrai au moment de mon retour.

@@ -2,9 +2,9 @@
 
 Soraya Zertal · Master 2 CHPS · Li-PaRAD / UVSQ
 
-[课程入口](../README.md) · [教师课件 PDF](45_edp.pdf)
+[课程入口](../README.md) · [合并校订 PDF（45 页）](45_edp.pdf) · [中文讲义](45_edp_zh.md)
 
-保留课件正文顺序，合并连续重复的幻灯片标题；内容订正在相应位置标为“校注”，依据见[审校说明](../审校说明.md)。
+2026-11-02 同步：以 [2026 年教师原版（43 页）](<../CM + TD EDP/45_edp.pdf>) 为基础，保留 [2020 年旧版](Archives/45_edp_2020.pdf) 第 20–21 页的模拟器介绍。主 PDF 为合并校订阅读版，不是未经修改的教师原件；下文页码均指合并后的 45 页版。既有统计校注保留，依据见[审校说明](../审校说明.md)。
 
 ## Simulation
 
@@ -214,6 +214,8 @@ Mettre l’accent sur la vérification des cas spéciaux (corner conditions)
 
 ## Simulateurs populaires
 
+> 保留旧版第 20–21 页的补充内容；2026 年教师原版已删除这两页。
+
 ### Simulateur de Microprocesseur
 
 Multitude de simulateurs standards au niveau cycle : http://pages.cs.wisc.edu/ arch/www/tools.html
@@ -306,7 +308,7 @@ Résolution : niveau de détail de l’observation
 
 Taille en entrée : nombre de bits pour coder l’évènement
 
-Portabilité : quantité de modiffications à effectuer afin d’implémenter l’outil de mesure.
+Portabilité : quantité de modifications à effectuer afin d’implémenter/exécuter l’outil de mesure.
 
 ## Phase d’observation/collecte
 
@@ -400,7 +402,7 @@ $$
 F_{\mathrm{calculé}}>F_{1-\alpha;\,k-1,\,k(n-1)}.
 $$
 
-> 校注：原课件第 34 页将临界值与计算值的不等号方向写反。这里检验的是各组均值相等，使用组间与组内均方之比；并非把“两个方差相等”当作本节研究目标。不拒绝原假设也不等于证明均值相同。
+> 校注：2020 年旧版第 34 页的不等号方向有误；2026 年原版第 32 页已修正，合并校订版对应第 34 页。这里检验的是各组均值相等，使用组间与组内均方之比；合并 PDF 也同步修正了检验目标的文字。不拒绝原假设不等于证明均值相同。
 
 ## Phase de présentation
 
@@ -449,9 +451,9 @@ $$
 \bar X+z_{1-\alpha/2}\frac{s}{\sqrt n}\right].
 $$
 
-$\alpha$ est le niveau de signification ; le niveau de confiance vaut $1-\alpha$. Par exemple, une confiance de 95 % correspond à $\alpha=0.05$.
+$\alpha$ est le niveau de signification ; le niveau de confiance vaut $1-\alpha$. Les valeurs $\alpha=0.10$ et $0.05$ correspondent respectivement à des niveaux de confiance de 90 % et 95 %.
 
-> 校注：原课件第 38 页将显著性水平 $\alpha$ 写为 0.9 或 0.95，混淆了 $\alpha$ 与 $1-\alpha$。$n\ge30$ 只是经验提示，并非保证任意分布或相关样本都可套用正态近似。
+> 校注：2020 年旧版第 38 页把 $\alpha$ 写为 0.9 或 0.95；2026 年原版第 36 页虽改为 0.1 或 0.05，仍误称 0.9 或 0.95 为显著性水平。合并 PDF 第 38 页已明确区分 $\alpha$ 与 $1-\alpha$。$n\ge30$ 只是经验提示，并非保证任意分布或相关样本都可套用正态近似。
 
 ### Intervalles de confiance pour la moyenne : échantillons réduits
 
@@ -483,7 +485,7 @@ $$
 [c_1,c_2]\approx[6.50089,\ 9.37411]\ \mathrm{s}.
 $$
 
-> 校注：原稿代入时出现 7.95，与数据均值 7.9375 不一致，现按原始 8 个观测值重算。90% 描述重复构造区间的覆盖率，不是已有区间内“均值的概率”。
+> 校注：原稿代入时出现 7.95，与数据均值 7.9375 不一致，阅读版按原始 8 个观测值重算。区间估计的是总体平均写入时间，而非单次写入时间；合并 PDF 第 40 页已改为“temps moyen”，并按重复构造区间的覆盖率解释 90%。PDF 的舍入数值仍保留原样。
 
 ### Nombre de mesures à prévoir
 
@@ -542,9 +544,9 @@ La répartition entre les expériences du nombre de facteurs et du nombre de niv
 
 Le plan factoriel complet donne 81 combinaisons.
 
-Le tableau suivant est un plan orthogonal à 9 essais pour 4 facteurs à 3 niveaux, de type $L_9(3^4)$.
+Au lieu des 81 combinaisons du plan factoriel complet, le tableau suivant utilise 9 essais selon un plan orthogonal $L_9(3^4)$ pour 4 facteurs à 3 niveaux.
 
-> 校注：原稿将下表称为“星形设计”。逐对检查因子列，每对的 9 种水平组合各出现一次，符合该正交表的结构；它不能用 9 次试验独立估计全部交互作用。
+> 校注：2020 年旧版第 45 页将下表称为“星形设计”；2026 年原版第 43 页改写为 9 次实验，但其交互作用说明仍需限定。逐对检查因子列，每对的 9 种水平组合各出现一次，符合正交表结构；9 次试验不能独立估计全部交互作用。合并 PDF 第 45 页已采用上述说明。
 
 | Expérience | Fact1 | Fact2 | Fact3 | Fact4 |
 | --- | --- | --- | --- | --- |
@@ -557,3 +559,19 @@ Le tableau suivant est un plan orthogonal à 9 essais pour 4 facteurs à 3 nivea
 | 7 | A3 | B1 | C3 | D2 |
 | 8 | A3 | B2 | C1 | D3 |
 | 9 | A3 | B3 | C2 | D1 |
+
+
+## Repères de pagination
+
+| Contenu | PDF source 2026 | PDF consolidé |
+|---|---|---|
+| Introduction et simulation à événements discrets | 1–19 | 1–19 |
+| Simulateurs populaires (complément conservé de 2020) | — | 20–21 |
+| Monte Carlo et mesure | 20–31 | 22–33 |
+| ANOVA et test de Fisher | 32 | 34 |
+| Présentation et qualité de mesure | 33–35 | 35–37 |
+| Intervalle normal : α et niveau de confiance | 36 | 38 |
+| Intervalle de Student | 37 | 39 |
+| Exemple : temps moyen d’écriture | 38 | 40 |
+| Nombre de mesures à prévoir | 39–40 | 41–42 |
+| Plans d’expérience et tableau L₉ | 41–43 | 43–45 |

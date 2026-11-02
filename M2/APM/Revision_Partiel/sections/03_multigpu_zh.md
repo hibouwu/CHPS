@@ -1,10 +1,8 @@
 ## 3. CUDA API、上下文与多 GPU 编程
 
-主要来源：[CM3，101 页 PDF](../CM/APM_Cours3.pdf)。幻灯中混合了历史说明和示意代码；下文明确标出的澄清用于避免记住错误行为。最后一页讲的是 NCCL 2.19.3，不能当成所有后续版本的完整功能表。
+本章对应 [CM3](../CM/APM_Cours3.pdf)。课件最后一页讲的是 NCCL 2.19.3，不是后续所有版本的完整功能表。
 
-### 3.1 Runtime API 与 Driver API
-
-来源：CM3，第 4-10 页。
+### 3.1 Runtime API 与 Driver API（CM3 第 4-10 页）
 
 | 比较项 | Runtime API | Driver API |
 |---|---|---|
@@ -17,9 +15,7 @@
 
 两套 API 都访问同一个 GPU。Driver API 不保证更快，它的价值是更明确地控制资源和上下文。混合使用时，需要检查当前上下文，以及所用对象属于哪个上下文。
 
-### 3.2 上下文代表什么
-
-来源：CM3，第 13-25 页。
+### 3.2 上下文代表什么（CM3 第 13-25 页）
 
 上下文组织某个 GPU 的 CUDA 状态，包括常见的内存分配、地址空间、stream、事件等资源。分析一个指针时，要知道其分配归属和访问权限，不能只看 GPU 编号。
 
@@ -34,9 +30,7 @@
 
 **第 22 页的澄清：** 不应把“较新版本只剩主上下文”记成现行规则。Driver API 仍然提供 `cuCtxCreate`。显式上下文也并非天然“永远只属于一个线程”，其线程关联可以操作。参见 [NVIDIA 上下文管理文档](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__CTX.html)。
 
-### 3.3 选择 GPU 并检查错误
-
-来源：CM3，第 28-38 页。
+### 3.3 选择 GPU 并检查错误（CM3 第 28-38 页）
 
 `cudaGetDeviceCount(&count)` 返回当前进程可见的 GPU 数量。`cudaSetDevice(device)` 为调用它的主机线程选择 GPU，后续分配、stream、事件和内核启动都应关联到预期 GPU。
 
@@ -59,9 +53,7 @@ if (status != cudaSuccess) {
 
 切换当前 GPU 不会迁移已经分配的数据，也不会自动等待另一个 GPU 上先前提交的工作完成。
 
-### 3.4 使用 Driver API 操作上下文
-
-来源：CM3，第 39-49 页。
+### 3.4 使用 Driver API 操作上下文（CM3 第 39-49 页）
 
 | 函数 | 需要理解的效果 |
 |---|---|
@@ -77,9 +69,9 @@ if (status != cudaSuccess) {
 
 幻灯中三个参数的创建函数签名有版本适用范围，编译时应以所用 toolkit 的签名为准。考试更应掌握操作效果和资源归属，而非复制不完整片段。本段和表格的澄清与 [Driver API 官方文档](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__CTX.html)一致。
 
-### 3.5 UVA 与统一内存是两个概念
+### 3.5 UVA 与统一内存是两个概念（CM3 第 51-62 页）
 
-来源：CM3，第 51-62 页；统一内存见 CM2，第 41-50 页。
+统一内存见 CM2 第 41-50 页。
 
 课程把 UVA 的引入时间列为 CUDA 4.0。在支持的平台上，它把主机和各 GPU 的地址放入统一虚拟地址布局。因此，即使当前 GPU 改变，也可以根据地址识别其对应分配和位置。
 
@@ -111,9 +103,7 @@ if (canAccess) {
 
 `cudaMemcpyPeer` 或 `cudaMemcpyPeerAsync` 表达两个 GPU 分配之间的数据复制，有效路径取决于拓扑和可用能力。P2P 不表示“数据已经到达”，也不保证远端访问与本地访问同样便宜。生产数据、复制数据和消费数据之间仍需建立顺序。参见 [NVIDIA 对等设备内存访问文档](https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__PEER.html)。
 
-### 3.7 MPI 与 GPU 分配
-
-来源：CM3，第 64-69 页。
+### 3.7 MPI 与 GPU 分配（CM3 第 64-69 页）
 
 如果所有进程都使用默认 GPU，它们可能全部挤到 GPU 0。让所有进程执行同一个 `cudaSetDevice(1)`，也不会分散工作。课程提出轮转分配：
 
@@ -127,9 +117,9 @@ $$
 
 MPI 进程具有独立地址空间。只发送一个指针数值或上下文句柄，不能共享实际分配。交换数据需要专门机制，例如通信、适配实现对 GPU buffer 的支持，或显式进程间共享机制。这不意味着任意 MPI 都能直接接收 GPU 指针。
 
-### 3.8 主机端 OpenMP 与主上下文共享
+### 3.8 主机端 OpenMP 与主上下文共享（CM3 第 71-75 页）
 
-来源：CM3，第 71-75 页。这里是 OpenMP 创建 CPU 线程，再调用 CUDA；OpenMP `target` 卸载是另一种机制。
+这里是 OpenMP 创建 CPU 线程，再调用 CUDA；OpenMP `target` 卸载是另一种机制。
 
 ```cpp
 #pragma omp parallel
@@ -151,9 +141,7 @@ MPI 进程具有独立地址空间。只发送一个指针数值或上下文句�
 
 stream 组织 GPU 上的工作顺序，OpenMP 同步还负责 CPU 侧的交换和访问顺序。两个层次的同步不能互相替代。
 
-### 3.9 MPI + OpenMP + CUDA：组织方式与拓扑
-
-来源：CM3，第 76-82 页。
+### 3.9 MPI + OpenMP + CUDA：组织方式与拓扑（CM3 第 76-82 页）
 
 课程给出“每个 GPU 一个 MPI 进程，进程中多个主机线程配合 stream”的组织方式，便于共享分配和重叠工作。它是一个起点，不是所有程序达到最高性能的证明。
 
@@ -161,9 +149,7 @@ stream 组织 GPU 上的工作顺序，OpenMP 同步还负责 CPU 侧的交换�
 
 分析映射时应沿着数据路径看：CPU 核 → NUMA 内存 → GPU → 其他 GPU 或网络。一个 GPU 对某些核心近，对另一些核心远；最适合 GPU 的位置可能与 CPU 的最佳位置冲突。外部库也可能修改当前 device 或上下文，不能假定调用任何库以后这些状态都保持不变。
 
-### 3.10 NCCL：通信域、rank 与初始化
-
-来源：CM3，第 84-92 页。
+### 3.10 NCCL：通信域、rank 与初始化（CM3 第 84-92 页）
 
 NCCL 提供 GPU 间通信。这里的“clique”指参与一个通信域的 GPU 集合，可以只包含部分 GPU。必须区分三个编号：MPI rank、CUDA 设备本地编号，以及 NCCL 通信域内 rank。
 
@@ -181,9 +167,7 @@ NCCL 提供 GPU 间通信。这里的“clique”指参与一个通信域的 GPU
 
 这些区别，特别是 `ncclCommInitAll` 的单进程适用范围，已与 [NCCL 通信域官方文档](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/api/comms.html)核对。在一个进程中创建的句柄，不会因为广播了它的数值就能在其他进程中使用。
 
-### 3.11 集体通信、AllReduce 与异步执行
-
-来源：CM3，第 93-100 页。
+### 3.11 集体通信、AllReduce 与异步执行（CM3 第 93-100 页）
 
 | 操作 | 结果 |
 |---|---|
@@ -216,9 +200,7 @@ ncclGroupEnd();
 
 这里假设通信域、buffer 和 stream 都已初始化。应在 `ncclGroupEnd` 之后等待各 stream，不能在组中途等待。这样可避免第一项调用等待尚未提交的其他参与者。参见 [NCCL 成组调用文档](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/groups.html)。
 
-### 3.12 期中复习易错点
-
-来源：CM3，重点为第 22、36、78-80、84、90、101 页。
+### 3.12 期中复习易错点（CM3 第 22、36、78-80、84、90、101 页）
 
 1. **同一 GPU 不代表同一上下文。** 要检查进程、当前上下文和分配归属。
 2. **UVA 不等于统一内存。** 地址识别、访问授权和数据移动要分别分析。

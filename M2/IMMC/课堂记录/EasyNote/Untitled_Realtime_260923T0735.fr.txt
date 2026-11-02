@@ -1,0 +1,791 @@
+[00:19]
+Moi aussi, c'est bien. b Euh... Donc, je me présente: je suis Yohan Guillain, je suis maître de conférence à l'ENS Paris-Saclay. donc Je su suis enseignignant--chercheur, je fais mon enseignement au département de génie mécanique, je suis plutôt un... je suis un mécanicien, en gros. Je pense, juste là à, la enlever les petites impressions.
+
+[00:41]
+Et j'exerce mes activités de recherche au laboratoire de mécanique Paris-Saclay, plutôt sur des aspects mécaniques des matériaux, donc vous allez peut-être plutôt en général vous allez plutôt entendre parler de mécanique des structures, quand vous faites ces parcours-là. Mais on peut appliquer ça aussi à la mécanique des matériaux.
+
+[01:07]
+Donc, si jamais vous nous cherchez, mon bureau est en 1S15, donc pas très loin, en fait, au même étage qu'ici. Et je vous préviens tout de suite, vous aurezrez accès à cette présentation sur l'espace iCrampN+us, allez-y, installez-us. Donc, vous pouvez prendre des notes, c'est toujours bon, mais mais voilà, ne cherchez pas à tout récupérer, vous aurez accès à tous les supports.
+
+[01:36]
+Alors, je vais commencer cette première heure et demie juste par vous faire une longue introduction au module.e, Ça peut durer à peu près une Ça peut durer à peu près une heure, peut-être un peu plus. Et puis on va aborder quelques détails techniques, accès au Wi-Fi, accès à l'espace iCrampus, parce que je vais avoir besoin de me baser sur des ressources qui viennent pour que vous puissiez suivre. Et donc, si vous n'avez pas accès au Wi-Fi, vo vous n'avez pas accès à iCrampus, si vous n'avez pas accès à iCrampus,us, vous n'avez accès à pas grand-chose.
+
+[02:55]
+Donc, je vais commencer par vous présenter de manière assez large le. Juste rapidement, qui est en parcours plutôt informatique dans. La main, et plutôt aussi. Modélisation, simulation, qui. Ça a l'air d'être une partie de manière à peu près équitable. Donc, c'est je. Parle au début., Donc, bon, juste pour recadrer un peu les choses, pour certains d'entre vous, vous venez plutôt de l'informatique, donc peut-être que la mécanique, ça peut parfois beaucoup. Si on fait un peu d'étymologie: la mécanique, ça vient du grec, de l'art de construire une machine. On ne va pas construire des machines, je vous rassureure tout de suite. Mais on on va va dire dire une vision un peu plus moderne des choses, c'est de dire que c'est l'étude du comportement des systèmes physiques qui sont soumis d'une part à des forces, et du coup aussi qui entraînent des déplacements, des mouvements, et de mettre tout ça en relation. Bon, on n'est pas très loin d'une machine, mais il y a des efforts dans les machines, dans les moteurs, et vous avez des mouvements qui sont géniaux. OK?
+
+[03:34]
+Alors, par contre, nous, dans le cadre de cette U, on ne va pas s'intéresser uniquement au milieu qui sont indéformables, les corps rigides, donc en général quand on on commence la physique, la mécanique, on considère les corps comme des points matériels, ou même pas de volume, après on passe à l'étape au-dessus où on considère qu'ils ont en plus plus de ça une répartition de leur masse dans le volume, donc ça joue sur la manière dont ils se comportent. Mais sans se déformer, l'étape d'après, c'est de considérer: en plus, ils se déforment. OK?
+
+[03:59]
+La preuve, on est n'importe quelle mousse, vous tirez dessus, vous pouvez la déformer en plus qu'elle peut avoir un mouvement de corps rigide aussi. OK? Tout ça peut être combiné. On va apprendre qu'on peut décomposer le mouvement en différentes parties, tout ce qui est plutôt résiliidentent enielê, plus ce qui est plutôt translation dans l'espace, rotation, et puis en plus de ça, il peut y avoir toutes les déformations qui peuvent s'appliquer à un mouvement..
+
+[05:37]
+Donc, on va appliquer ça à la fois sur les déformations, mais on va relier ça aux efforts, les efforts qui transitent au sein de la matière, c'est ce qu'on appelle les contraintes, OK?K Donc, on va introduire ces notions qui peuvent être nouvelles pour vous. Et on va appliquer ça à différents cas d'application, alors on va pas vraiment l'appliquer de manière hyper à base, mais on va partir parler des sujets très analytiques, pour manipuler un peu les équations. Et l'objectif, c'est d'être capable de l'appliquer à des structures, des ponts, des bâtiments, des grues, ce que vous voulez, des matériaux, donc si vous regardez à une échelle fine ce qui se passe au sein de la matière, dans les alliages par exemple, dans les polymères, quand qu quand vous voulez solliciter, il se passe des choses au niveau de la microstructure, ça peut être intéressant de les modéliser. Et puis au niveau des écoulements, donc là c'est plutôt la mécanique non pas des solides, mais des fluides. Et quand je parle de fluides,es, ce n'est pas que les les liquides, c'est aussi les milieux gazeux, tous les modèles que vous pouvez, dont vous entendez parler là, quand on parle d'évolution du climat, c'est en partie basé sur de la mécanique des fluides. Parce que les gros impacts sur la météo ou le climat, c'est l'impact des courants marins, des courants d'air chaud, d'air froid, etc., et ça, c'est lié à un équilibre thermique un équilibre mécanique aussi, donc c'est lié à ça. Donc si c'est des choses qui vous intéressent, ça peut être intéressant. Météo France, pendant un très longtemp temps, ça a été un des plus gros calculateurs au monde. OK?
+
+[06:09]
+Et c'est basé en partie sur la mécanique. Parmi les applications enfin, les débouchés que vous pouvez avoir dans la simulation numérique, en. Mécanique, il y a a tout ce qui est lié à l'aéronautique et l'aérospatiale, OK?K? Don Si vous voulez, en termes d'acteurs, vous avez Safran, typiquement sur l'aéronautique, qui est un acteur majeur, vous pouvez avoir toujours le CNES, par exemple, qui est fusée a Ariane pour ce qui qui est de la partie aérospatiale, ou le NERA, pour.
+
+[06:38]
+Automobile, bon, ils sont de moins en moinsins dans la recherche, maintenant c'est ça s'éloigne un petit peu, mais bon, vous avez encore un petit peu de dés. Dans l'automobile. Le génie civil, on a encore des exemples de ponts qui s'effondondrent, des fois, ça arrive à pas si longtemps que ça. Donc il y a encore des problématiques à régler. Le béton, c'est un matériau très, très, très complexe, OK? Donc il y a à la fois les aspects structures, mais les aspects matériaux..
+
+[07:06]
+Ça, c'est quelque chose que j'ai rajouté cette année, il y a toute la partie biomécanique et biomédicale, tout ce qui est plutôt approche de la performance dans le sport, par exemple, on en vient à utiliser les simulations numériques qui sont basées sur la mécanique, mais du vivant. Alors des fois, quand il y a un peu d'équipement, on rajoute de la simulation de matériaux, par exemple. Et puis le biomédical, alors ça ne parlele peut-être pas, mais dans tous les.
+
+[07:34]
+Systèmes d'imagerie type scanner et IRM, avec to tous les outils d'IA qu'on peut y incorporer, on peut aussi ajouter un peu de physique, rajouter la connaissance du comportement des tissus qui pourraient être potentiellement des tumeurs ou des tissus sains, et en faisant de l'imagerie dynamique, on arrive à rajouter un peu de connaissance et d'avoir des informations beaucoup plus précises sur ce que peuvent donner les images.
+
+[07:59]
+Donc ça fait partie aussi des débouchés de connaître un petit peu la mécanique dynamique. Bon, et puis comme je l'ai dit juste avant, tout ce qui est lié à l'environnement, le climat, les transferts de masse chaude, froide, les transferts thermiques, etc.c. Voà pour ça. Pas de questions? À ce stade?
+
+[08:55]
+Très bien. Donc, ce qu'on va faire de manière un peu plus précise, pour rentrer un peu plus dans le dur, on va essayer de faire en sorte de vous faire comprendendrere l' l'enjeu de maîtriser un petit peu le comportement des milieux déformables, qu'ils soient solides, liquides, ou gaz., Et pour ça, je vais devoir vous introduire plein de concepts de base de la mécanique des milieux continues, comment est-ce qu'on traduit, comment est-ce qu'on peut représenter, par exemple, la cinématique d'un milieu, en gros l'étude du mouvement, OK, dans un fond de lieu, une fois que je suis capable de décrire le mouvement des corps, quels que qu'ils soient, je vais pouvoir déterminer comment ils se dé déforment, OK, parce que dans le mouvement, il y a une partie de mouvement de corps rigide, une partie liée à l'aspect indéformable, mais il y a une partie déformation. Il faudra extraire cette information de la cinématique.
+
+[10:13]
+Par ailleurs, on introduira les contraintes, les efforts, et puis du coup, on aura les contraintes et les déformations, un des aspects typiquement de la mécanique des matériaux, c'est d'être capable de relier ces deux informations. Par des modèles. Donc une fois qu'on a posé en fait tous ces concepts, on va voir qu'on peut introduire par les principes, les grands principes de la physique, et ça, si vous avez déjà fait un peu de physique, vous avez déjà entendu parler de premiers principes, de second principe, de conservation de l'énergie, vous avez entendu parler des lois de Newton, toutes ces lois un petit peu universelles, un système dont on va se servir pour construire des équations qui nous mèneront à résoudre des problèmes de DP, d'équations dérivées partielles, et donc on verra toutes les spécificités liées à la résolution de ces problèmes, on les appliquera d'une part aux problèmes sur les milieux solides, et sur les milieux fluides, et bon, ça on verra, mais on essaiera d'aborder un peu tout ce qui est lié aux outils numériques qui permettent d'implémenter ce type d'équations au format numérique pour résoudre des problèmes complexes.
+
+[10:42]
+Toute la, travail, on on va dire,, de manière analytique qu'on peut faire avec un papier et un crayon, en général, on peut se limiter à des formes de domaines qui sont très simples, des domaines type cylylindindrique, des parallélépipèddes, des sphères, et puis dès que la géométrie du problème et la direction des efforts devient un peu plus compliquée, vous prenez n'importe quel nte.
+
+[11:11]
+Pièce mécanique, là par exemple vous avez une a autre de turbine dans les moteurs d'avion, on est loin de la forme cylindrique, OK? Si vous faites l'hypothèse que OK, on me dévisse ça par un cylindre, vous cousupez une grosse partie des informations, donc pour arriver à faire des à avoir des informations sur comment ça se comporte, où sont les points critiques sur ce type de pièce, face à un chargement quel qu'il soit, il faut passer par de la modélisation, et des sim simululations numéries.
+
+[11:53]
+Et donc on verra comment est-ce qu'on passe de nos équations analytiques et de de notre modèle mathématique à un problème sous forme numérique. Si on a le temps, parce que la transition est un peu toute trouvée, donc bon, là vous avez le menu finalement qui qui reprend un peu tout ce que j'ai dit, juste avant, çaa c'est'est un peu le vous voyez apparaître petit à petit les chapitres qu'on va traiter, donc cette'est UueE, c'est une un UE de tr tronc commun, alors des fois c'est un petit peu difficile à vivre pour ceuxux qui sont sont plutôt en parcours informatique, donc bon, il faut essayer de s'approcher, mais bon, l'idée c'est de vous donner des.
+
+[12:19]
+Dééjà un jargon pour être capable de discuter avec les ingénieurs qui vont vous demander peut-être de coder des choses ou d'améliorer leurs codes, on prendrarait peut-être mieux les équations qui sont derrière et est-ce que ça représente.ente Mais bon, là cette annéee on passe à un module de 30 heures au total, donc à peu près 18 heures de CM et 12 heures de TD, ça c'est à peu près à la louche, avant on était plutôt à 35 heures, mais bon, ilut que je passe le même programme avec 5 heures de mos.
+
+[12:39]
+Donc si j'ai 5 heures de moins, c'est pas que je vais faire moins, c'est que vous, vous avez un peu plus travaillé à la maison, parce que la grosse une des justifications, c'est que vous avez besoin de plus de temps de travail en autonomie, donc 5 heures de moins en cours, mais a en priéoriorie peut-être 10 heures de plus plus de travail par personne.
+
+[13:06]
+À la louche, en fait. Et le travail personnel, ça va être peut-être reprendre les exercices qu'on fera en cours, vous aurez à les corriger, neus inquiétez pas, mais essayer d'en faire d'autres, peut-être de manière en. Autonomie, et puis si vous le souhaitez, vous pouvez venir me voir. Pour l'évaluation, on fait contrôle continu de voir sur table, sur papier, sans IA, je précise.e, Par cont
+
+[13:43]
+Par contre, vous pouvez utiliser l'IA pour vous accompagner dans la compréhension de ce qu'on va faire en cours, ça c'est aucun souci. Mais par contre, pendant les évaluations, c'est vot votrere cerveau du du pap papier et un crayon. Donc avec un petit contrôle continu intermédiaire, à peu près à mi-parcours, vu qu'on a moins de temps, là j'ai pas encore trouvé une manière de bien ins insérérer, donc je vais peut-être faire quelque chose de très très court, et alors çaa compte pour 25 %, donc au.
+
+[14:09]
+Je prendrai quand même le max de cette moyenne et de contrôle final. Si vous loupez complètement, vous pour prrez prenrezez un examen pour pour les les contrôles, c'est pas grave du tout, il n'y a pas d'impact. Par contre, vous pouvez prendre des points d'avance si vous réussississez. Du coup, vous avez un espace de cours e-campus, auquel vous n'avez a priori pas accès, de manière par.
+
+[14:34]
+Identifiant, vous avez peut-être pas enc encore vos identifiants e-campus, je ne sais pas, vous vo en rendez, du coup j'ai créé un accès anonyme, donc quand vous arrivez sur la page du cours, vous cliquez sur accès anonyme, et en utilisant ce mot mot de de passe très bien trouvé, avec le point d'exclamation grand M grand M, grand M grand M, petitit c 2026,, vous devriez avoir accès aux ressources, pour l'instant il n'y a pas grand-chose, il doit y avoir juste cette présentation.
+
+[14:58]
+Et ce sera nourri petit à petit avec tous les supports de cours, et en plus d'autres choses. Vous avez peut-être déjà accès ou peut-être pas si j'ai laissé des annees. Ou il doit y avoir quelques rappels de base, enfin de base, des rappels sur lesquels je vais me baser pour faire mon cours, donc si vous n'êtes pasau auup courant., il faudra rejo
+
+[15:48]
+J'essaie de faire des petits quiz réguliers en utilisant Socrative, donc c'est pas une évaluation, c'est juste une manière de voir si vous avez compris, et ça me permet de revenir sur les points où où je vois que to tout le monde est complètement à côté. Et donc bon, ça permet de faire des pauses dans l'apprentissage, ça varie les activités. Donc vu que c'est en ligne, si vous n'avez pas accès au Wi-Fi, ça va être problématique, le mieux c'est d'avoir configuré du ROM pour ça fonctionne partout, je sais pas si c'est opérationnel pour to tout le monde, ici à l'ENS vous avez un réseau invité ENS-Guest, mais vous devez enfin vous devez faire une demande à chaque fois, et ce sera valide que pour la journée complète.
+
+[16:21]
+Si vous avez besoin de me contacter, vous retrouverez mon adressese mail, de toute façon vous avez accès à cette présentation, donc vous pouvez soit la noter, mais de toute façon vous la retrouverez en récupérérant le support de cette présentation. Voilà, alors ça j'ai pas eu le temps de mettre à à jour avec les nouvelles maquettes, mais bon, a priori pour ceux qui proviennent du M1 CHPS, rapidement levez la main, M1 CHPS, ok, merci.
+
+[16:44]
+Ben, j'essaie de m'appuyuyer sur des cours, alors j'en ai même pas vérifié s'ils sont encore dans la maquette, mais bon, il y a quelques aspects li liés aux outils de base du calcul à la la H HTC, plutôt la partie mathématique, et des. Cours de techniques de modélisation de trireeF la fIibre. A prior
+
+[17:30]
+A priori, qui pourra vous être utile. Alors si on sort de, enfin des cours que vous avez potentiellement déjà eus, voilà les prérequis sur sur les lesquels on va s'appuyer pour tout ce qui est lié à la mécanique et la physique, si vous êtes un peu nouveau dans ce champ, ben il faudra vous mettre au point sur la mécanique et la cinématique du pointin,, le point matériel, quand on modélise des cor corps dans juste un point matériel avec une masse, sans considérer leur volume, et la répartition de la masse dans ce volume, donc avec les notions de position, vitesse d'accélération, étape d'après la mécanique et la cinématique du solide déformable, là cette fois on prend en compte le fait que ça occupe un volume avec une densité qui est potentiellement variable, juste.
+
+[18:05]
+Comme ça, les notions de force, de moment, de pression, ok, les tor tseurs, bon j'en referai quelques rappels sur les torseurs, mais voilà, essayez de vous familiariser avec cette notion, tout ce qui est unité, c'est toujours important de savoir ce qu'on maîtrise, une température c'est par exemple en degré de status, ou en Kel kelvin, une pression ça peut s'exprimer en barre, en pascal, etc., et vous essayez de commencer à se familiariser avec toutes ces unités, et comment on peut faire le lien entre une vitesse, une accélération, etc.
+
+[18:44]
+Donc ça c'est plututôt pour la mécanique, et la physique, pour tout ce qui est maths, bon les les m maths c c'est toujours le nerf de la guerre, quand on est à l'aise en maths on arrive à faire à peu près tout, voilà, là je vous ai donné un peu tout ce sur quoi on va s'appuyer, donc toutut ce qui est produit vectoriel, produit mixte, on est entre vecteurs, tout ce qui est dérivé partiel, total, un pe ex plusponentiel, voilà, tout ce qui est intégrale multiple, sur surface, volume, donc vous aurez, j'ai mis parfois des liens de certains cours sur lesquels vous pouvez vous appuyer, mais c'est juste pour vous donner des exemples, résolution d'équiladibifre, premier et second degré, alors je.
+
+[19:07]
+J'ai une fiche en cours de rédaction, je pourrais vous remettre sur l'espace e-campus, peut-être qu'elle y est déjà, tout ce qui est al algèbrere elidienne, bon là ça commence à monter un petit peu en gamme, algèbre vectoriel et tensoriel, donc là ça peut commencer à piquer un petit peu, mais bon, vous pouvez voir comme ça, comme du cal calcul indiciable, donc.
+
+[19:50]
+Notation indiciable, le principe de la sommation d'Einstein, tout ce qui est tenseur se focalisera sur ce qu'on manipulera beaucoup, les tenseurs du second corps, bon. On introduira un peu les tenseurs du quatrième ordre, mais au final on les manipulera pas beaucoup, tout ce qui est opérateur différentiel dans l'espace, gradient, divergence, Laplacien, rotationnel, et dès que vous identifiez une petite lacune dans dans vot votre cursus, n''hésitez pas à à cherchercher des ressources sur le n net,et, vous avez dessous le site pour en ligne, qui propose beaucoup de polycopies, ok, donc.
+
+[20:41]
+Alors, si j'essaie de parler un peu aux deux parcours, donc pour ceux qui font le parcours, enfin je sais pas si on l'utilise encore, ce terme B1 là, donc modélisation et simulation avec le calcul de performance, donc ça, enfin ce module, il va vous servir pour attaquer ces autres modules, qui vont apparaître petit à petit dans le cours de l'année, donc MSMF, modélisation et simulation en mécanique d'ét fluudes,es, moi je vais vous donner des bases sur les les équations, vous allez aller plus loin dans ce module, MEMDD, en gros c'est décompositionposition de domaine quand on met en place des calculs numériques sur des problèmes de mécanique, donc c'est tout ce qui est lié avec la méthode des éléments finis, pardon,
+
+[21:37]
+c'est une application bien spécifique de la partie plutôt méthode et simulation en mécanique et structure, donc c'est plututôt tout ce qui est lié aux éléments finis et aux calculs de fonctions, et le module RM de réduction de modèle, alors bon, peut-être que c'est pas, enfin ça vous sera utile, mais bon, la réduction de modèle, peut-être que ça, on peut appliquer ça af afin de. Sans forcément se focaliser directementement, je note juste que ces deux modules là, ils sont mutualisés avec le master MS2SC de l'ENS, qui a un master de mécanique, et où le niveau, on va va dire, en calcul de structure est assez poussé, donc potentiellement ça peut peut être un peu compliqué sur ces unités, mais les intervenants essayent de gérer ça, je sais pas si tous les modules sont encore partagés.
+
+[22:11]
+Alors, pour ceux qui font plututôt le parcours informatique, donc en gros ça va pas être un prérequis pour d'autres lieux du parcours, mais par contre l'objectif dans ce stud studio,io, ça va être de vous donner un peu de culture scientifique générale, ok, comprendre un peu le monde, pourquoi il y a des choses qui se passent, potentiellement, pourquoi les choses s'écoulent d'une certaine manière, etc., et quelques exemples d'applications, et du jargon pour être capable de dialoguer avec vos interlocuteurs par la suite, si vous êtes amenés à rester dans le calcul de performance et qu'il y a un lien avec la mécanique.
+
+[22:35]
+Une Une possibilité. Assez probable. Bon ben voilà, là j'ai prés présenté en gros le lieu un petit peu tous les détails un petit peu pratiques qui sont liés à lieu, et puis comment ça allait s'organiser, là je vais vous faire une petite présentation plutôt assez globale sur la mécanique des milieux continus.
+
+[24:57]
+Et le contexte, et puis les enjeux qui sont derrière. Alors, donc on essaye de représenter des milieux physiques dans lesquels on va considérer que les propriétés physiques varient de manière continue, ce qui en réalité n'est pas le cas, si vousus prenez ça un petit peu la physique, donc que ce soit pour pour les liquides, les gaz, les solides, quand on regarde à l'échelle macro, on peut se dire, bon ben ben voilà, c'est à peu près continue, mais c'est une hypothèse, c'est pas vraiment la réalité, alors quelques exemples de propriétés des milieux physiques, vous avez la masse volumique, la conductivité thermique, tout le monde bien rendu compte que quand vous touchez par exemple de l'acier qui est chauffé à un endroit très très vite, vous avez la chaleur qui arrive sur votre main, ok, il y a la conduc conductivité thermique des aciers, c'est assez fort, c'est un très mauvais exempololle, la conductivité électrique, ça c c'est plutôt pour les aspects électromagnétiques, la rigidité d'un matériau, enfin que ce soit un polymère ou un acier ou du du bois, c'est pas la même rigidité élastique, en lien vous avez la limite élastique, qui n'a pas forcément, enfin qui n'est pas forcément corrélée justement à la rigidité, enfin c'est la limite en effort à partir de laquelle votre matériau va rom romppre, ou va générer de la déformation irréversible, ok, et puis pour pour les fluides, on peut parler typiquement de viscosité, vo avez forcéément déjà, goûté, peut-être goûté différents miels, entre le miel de lavande et le miel d'acacia, vous voyez bien que ça s'écoule pas de la même manière, voire même le miel de lavande, ça s'éécoule, enfin c'est difficile de parler d'écoulement avec le miel de lavande, c'est très galère, c'est très cristallin, ça fait presque un un solide, et ça on peut relier ça à la viscosité du fluide, ok, alors du coup la mécanique des milieux continus, sur quoi ça repose, bon ben une représentation continue de la matière, bon, c'est une hypothèse, mais pour plein d'applications, ça marche très bien, la réalité, toute la matière est faite de vide, en réalité, vous avez vs.
+
+[27:09]
+Avec un noyau, et puis les électrons qui sont autour, et tout le reste c'est occupé par du vide, donc là la représentation qu'on en fait, elle est fausse, mais ça marche bien, quand on regarde l'échelle macroscopique, on considère un nombre assez important de particules, don donc on représente ça de manière continue, on décrit la cinématique, le mouvement,, enfin même on peut se dire quand il y a une charge qui s'applique sur une structure comme un pont, ben il y a pas vraiment de mouvement, en fait si les particules bougent un peu d dèsès que vous appliquez une force, c'est juste que ça se déplace tellement peu que vous ne voyez pas à l'œil nu, mais il y a de la déformation, et il y a des efforts qui transitent au sein de la matière, donc les efforts qui transitent au sein de la matière, enfin ça génère des contraintes, c'est ça, c'est comme ça qu'on modélise les effortss au sein de la matière, qu'elle soit solide et liquide, et les grands, enfin les grands principes, les grandes lois physiques, comme les lois de Newton, ben elles peuvent mener à des lois de conservation de la masse, par exemple, conservation de la quantité de mouvement, tout ça, ça va nous mener à des EDP, et on va pouvoir avec des relations de comportement qui sont liées à la mécanique d'un matériau, relier les déformations à des contraintes, et à ça, alors ça nous donne des équations qui nous permettent de voir ce qui se passe au sein de la matière, mais quand on applique un chargement, ben en gros on a des conditions limites, par exemple là, sur cette partie-là, je vais appliquer un effort, ou je vais imposer un déplacement, et pareilil de de l'autre côté. Je peux décider de bloquer le déplacement, ou d'appliquer un déplacement des deux côtés, au final vous voyyez que ça déforme, la structure, et du coup ben pour arriver à faire ça, moi j j'ai besoin de mes muscles, j'ai besoin d'appliquer des efforts, ok, donc il y a bien des efforts qui transitent au au sein de la matière, donc on peut par avoir des conditions initiales quand on étudie un problème de dynamique, ou un problème qui est stationnaire, donc ça don on peut avoir assez.
+
+[31:20]
+Alors, si on s'intéresse aux différentes échelles, et au domaine de validité de cette modélisation de la matière, ben vous pouvez raisonner à l'échelle de la structure, alors une structure ça peut être de 100 mètres jusqu'à 1 mètre, quand on regarde un un pont, ou une grosse pièce mécanique, bon on peut descendre un peu plus bas, enfin ça c'est la structure, on peut peut passer à l'échelle des pièces mécaniques, donc ça peut être de l'ordre d'un mètre, prenez un ski par exemple, c'est à peu pr près la taille caractéristique, c'est à peu près un mètre, on peut voir ça comme une pièce mécanique, mais typiquement, quand je vous ai montré les zones de turbines là, ben on est plutôt à l'échelle de d'une dizaine de centimètres, c'est des structures assez petites, mais on peut descendre jusqu'à l'échelle, donc en général quand on est sur des structures, on ra raisonne plutôt en termes de force et de déplacement, quand on en arrive au niveau de la pièce, on va plutôt raisonner en termes de contraintes et de déformation, si on descend un peu plus, et qu'on va regarder dans dans la microstructure des matériaux, par exemple les alliages, c'est constitué de tout un assemblage de grains qui sont orientés, c'est des cristaux qui sont orientés un pet petit peu d'un côté, des directions, ben c'est plutôt des structures qui sont de l'ordre d'une centaine de microns, ça peut descendre jusque au micromètre, bon là on va encore parler en termes de déformation, et on peut descendre encore un peu plus bas à l'échelle du cristal, donc regarder un grain tout seul, typiquement, ou à l'échelle de la molécule, là on commence à descendre en jouant un peu avec le feu là, vous voyez que le domaine de validité de la mécanique des milieux continus, il commence à être être quand même bien vert, là on est tr très limite en termes de validité de la planche, et puis bon enfin après vous avez d'autres approches, les approches ab initio, où vous allez vraiment prendre en compte vraiment l'impact de telle et telle atome sur le comportement mécanique, et on passe à ce qui va rentrer en jeu, c'est plutôt les distances entre les atomes, et les forces d'interaction, enfin si on parle de force d'interaction de Van der Waals, ce de physique, de chimie, potentiellement ça vous rappelle quelque chose, mais bon du coup, on peut appliquer la mécécanique des milieux continus sur toutes ces échelles-là, et ça la majeure partie des casas, ça marche bien, mais bon il faut quand même vous redonner quelques contre-exemples, vous regardez par exemple une céramique, donc là vous voyez vous  êtes à l'échelle 3 nanomètres, c'est vraiment très petit, vous voyez les atomes, là ben vous voyez que vous avez des orientations de cristaux qui sont pas les mêmes, donc là ben on commence à être un petit peu limite, on n'a pas une représentation, enfinfin la réalité n'est pas continue, si vous vous intéressez à une mousse, typiquement, bon ben là vousus av avez également une répartition entre de la matière et du vide, ok, c'est essentiellement du vide, une mousse, typiququementement, là ben typiquement c'est pas continu, on voudrait représenter ça avec un solide, mais en réalité c'est ça, un problème, enfin c'est un milieu biphasique avec de l'air, et un matériau aussi composéé, d'air, vo vous pouvez regarder aussi du côté des composites, donc à une échelle microscopique, ou mésoscopique, ça dépend, du terme qu'on prend, ben vous voyez que là si vous, là où on a une coupe, où vous avez des fibres qui sortent d'une forme d'écran, et là vous avez un pic différent, où les fibres elles sont orientées comme ça, et là ben ça sent encore un autre composite, vous voyez bien qu'il y a une fibre qui sort comme ça, ben là encore une fois on voit que c'est pas continu, c'est pas homogène, ok, c'est surtout pas continu quand vous commencez à avoir des fissures, c'est le cas ici, ok.
+
+[33:40]
+Alors, je vous ai donné des contre-exemples là où c'est pas censé marcher, mais qu'est-ce qu'on fait quand on, enfin quand on peut pas utiliser la mécanique des milieux continus, quels sont les autres approches, ça c'est plutôt pour de la culture, on peut faire appel à d'autres types de modélisation, donc on va pas abordorder, je vous rassure, c'est juste pour vo vous donner ça à titre d'info, on peut faire de la dynamique moléculaire, en gros on va essayer de perturber des chaînes de molécules en se basant sur les lois de Newton, et puis essayer de minimiser une certaine fonctionnnelelle pour que ça arrive à une espèce d'équilibre, donc c'est basé sur les équations de Newton, et c'est typiquement une représentation non continue, de de la matiatièreère,, et vous pouvez faire appel aux aux milieux discrets, doncc c'est typiquement le cas pour les milieux granulaires, ben vous allez représenter en fait la matière comme plein de particules qui sont plus ou moins en contact, ou qui sont à distance, et vous allez simuler en fait juste les interactions particule à particule, c'est une manière de représenter et là c'est des lois en général très simples, considérez que chacune des particules est un solide indéformable en réalité, mais vousus allez avoir des forces de contact, des forces d'adhésion, des forces de frottement, entre toutes ces particules, et ça va vous permettre de représenter le comp comportement des particules, donc c'est assez pratique typiquement. pour représenter par exemple de l'usinage là, vous voyez que ben vous avez un outil qui vient racler la surface, à partir du moment où l'effort que vous allez avoir entre deux particules dépasse une certaine valeur, ben vous rompez le lien, et donc très facilement vous pouvez faire ce ce type type de modélisation, de modélisation, mais c'est une vision très différente, bon et chacune des méthodes a des limites, alors elles sont tellement à jour parce que maintenant les puissances de calcul elles s'améliorent, mais et puis bon je dépanne, mais on peut aussi faire appel à to ce qui est intelligence artificielle, des modèles d'apprentissage, pour ne pas se baser sur les lois de la physique, mais juste sur l'observation des mesures,es, et et puis faire rentrer tout ça dans des modèles de.
+
+[34:19]
+Enfin dans des réseaux de neurones, tout ce qu'on peut faire avec, alors bon ben du coup maintenant que je vous ai donné un petit peu le cadre, un. Quelles sont les limites, qu'est-ce qu'on peut faire à la place, et là la mécanique des milieux continus, c'est une théorie qui permet l'étude des mouvements, des déformations, des efforts dans les milieux continus, une fois que vous avez dit ça, vous allez à peu près tout dire, et bon ben il y a un peu de redit par rapport à ce que j j'ai dit dans les slides d'avant, bon c'est histoire de bien faire rentrer ça, bon on on peut aussi appliquer ça pour.
+
+[35:45]
+La mécanique des milieux continus, c'est assez fréquent qu'on rajoute des aspects thermiques, en plus, ça c'est une autre physique, c'est plutôt avec une autre cohésion qu'on rajoute, et puis on peut aussi s'intéresser aux aspects acoustiques, également, donc les grands principes de la physique sur lesquels on va se baser, c'est conservation de la masse, hein, ne se perd, ne se crée, ne se transforme, bon, ok, c'est bon de parler, la conservation de la quantité de mouvement, donc c'est ça qui permet d'établir les équations des lois de Newton en réalité, et la conservation de l'énergie, conservation de l'énergie c'est ce qu'on va utiliser pour en partie pour les transferts thermimiques, mais c'est aussi ce qui nous permet de modéliser le fait que ben quand on va déformer un matériau au-delà de sa limite élastique, ben il va y avoir de l'énergie qui va être dissipée, soit sous forme de rupture, donc il va y avoir la libération d'énergie, enfin l'énergie sous forme d'énergie de surface, parce qu'on va créer des fissures, ou parce qu'on va créer de la déformation plastique, il y a de la dissipation qui est liée à ça, donc c'est typiquement dans la physique, acousti ce dontc on on a besoin pour modéliser le comportement des matériaux au-delà de la limite élastique, et la conservation de la masse, typiquement c'est qu quelque chose qu'on utilise pour l'étude des fluides, et.
+
+[36:45]
+Alors bon on s'intéressera au solide mais au fluide, bon les applications ça c'est encore de la redit, mais typiquement l'objectif sous-jacent c'est pas juste d'être capable de déterminer quel est le champ de déformation, le champ de contrainte dans un milieu, l'objectif c'est ensuite d'être capable de dire ça va tenir, ou ça pourrait éventuellement ne pas tenir, des foisis on se plante, et on arrive à ce type d'incident, l'objectif c'est d'avoir une connaissance la plus fine possible, pour être capable de soit dimensionner de manière hyper rigoureuse, c'est typiquement ce qu'on va faire dans le nucléaire, on va essayer de, ben d'avoir la structure la plus sûre possible, on s'en fout si c'est très très lourd, si c'est très gros, ce qui nous intéresse c c'est la sécurité, c'est ce qu'on veut être sûr qu'il n'y ait aucun risque d'incident, et pour c'est difficile à.
+
+[37:54]
+Prouver, ok, mais ça c'est vraiment une approche sur le nucléaire, vous êtes un équipementier sportif, vous faites des raquettes de tennis, des clubs de golf, si jamais sur les 1000 raquettes que vous allez produire il y en a une qui casse très vite, c'est pas très grave, les les spor sportifs qui aiment bien les casser, les les ra raquettes, etc., problème, mais est-ce que vous recherchez, c'est la performance, donc vous allezz chercher à avoir le matériau le plus performant jusqu'à vraiment la limite de l'utilisation, vous allez vous placer jusqu'à la limite de la sollicitation pour que ça tienne, et si vous allez un petit peu plus fort, ben potentiellement ça va casser, et par contre ça va être performant, c'est pas du tout la même chose, mais ça pour être capable de faire ça, il faut bien maîtriser ce qui se passe dans le matériau, dans la matière, si vous connaissez pas pas ça, vous faites des raquettes qui cassent ou qui sont trop lourdes, et vousus faites des 100 nucucléaires qui cassent, et ça voz.
+
+[39:08]
+Alors on peut appliquer ça sur les structures comme des avions, hein, doncc typiquement vous prenez un avion, il y a quatre types de forces qui s'appliquent sur votre avion, vous allez avoir la traction qui est générée par la la poussée des réacteurs, vous avez le poids on. Pas jouer contre, hein, le poids de l'avion, la seule chose que vous pouvez faire c'est faire un avion qui est de plus en plus léger pour que son poids soit le mo moindre possible, vous allez avoir la portance, bien évidemment il y a la portance, c'est l'avion ne vole pas, ok, il est exercé essentiellement par les ailes, et puis ben vous avez la force de traînée, hein, votre avion il il a beau être un peu aérodynamique, ben il y a toujours un frein à son avancée dans l'air qui est l'effet de l'aérodynamismisme qui génère de de la la traînée, bon des fois la traînée on aime bien ça, typiquement je sais pas si si on on en a par parmi n vous qui nage, la force de traînée c'est ce qui vous permet d'avancer quand on nage, c'est là où par exemple quand vous plongez votre main, vous cherchez à essayer de tracter le maximum d'eau, ok, donc pour ça vous cherchez à maximiser la force, ok.
+
+[39:52]
+Peut-être même avec ce volume, peut-être que vous nagagererez mieux, parce que on vaura mieux commencer à. Vo. Ben tout ça, au final, hein, alors là vous voyez les différents modes de déformation que vous pouvez avoir sur un avion, ben par l'effet de son poids, ben vous pouvez avoir une flexion globale de l'arme de votre avion, et puis vous pouvez aussi avoir une flexion ici au niveau des ailes, parce que vous avez l'effet de la force de portance, ok, bon après ça des fois ça se compense un petit peu avec le poids, mais bon, généralement on par peut avportoir en en vitesse de croisière, on a une équivalence entre la force de portance et le poids, etc.
+
+[41:04]
+Ça, enfin quand on va modéliser tout ça, ben la. L'objectif c'est d'arriver à retranscrire tous les phénomènes, mais à les modéliser sous forme mathématique, et ça des fois c'est la partie qui est un petit peu dure, parce que autant des fois on arrive à bien comprendre, à intuiter les phénomènes, les déformations, c'est quelque chose qu'on voit, les contraintes on a un peu plus de mal, parce que c'est des efforts qui transitent au sein de la matière, donc des fois on a un peu plus de mal à appréhender, mais on arrive à comprendre un peu les concepts, par contre des fois ce qui fait mal c'est quand on essaye de passer au modèle mathématique derrière, des fois c'est un petit peu plus dur, parce qu'il faut arriver à relier les maths et puis les concepts qui sont scientifiques, qui sont derrière, les concepts scientifiques, bon, une fois qu'on a notre problème mathématique, bon ben on est content, mais bon, on se limite à étudier des structures hyper simples, des cylindres, des sphhères, etc., c'est pas du tout cohérent avec la complexité des structures, dans lesquelles il y a des des assemblages, il y a des jeux, il y a plein de probles.
+
+[42:06]
+En plus, et donc ben ça va vite on on s' s'est rendu compte qu'il fallait être capable de mod modéliser ça de manière numérique pour pouvoir faire des modèles sur des pièces avec des géométries, des chargements plus complexes, et puis bon. Et puis une fois qu'on est capable de mettre ça sous forme numérique, on peut passer à des processus d'optimisation, on regarde une fonction coût, et là on on peut peut avoir toute une chaîne de calculs qui va nous optimiser tout simplement la forme, ou ou le choix du matériau, par exemple, pour construire nos structures, là vous avez un exemple des différents grands codes industriels, vous avez certainement pu entendre parler d'Abacus, d'Ansys, qui sont des codes commerciaux assez répandus dans l'industrie, là vous avez plutôt des codes de recherche, donc la la STM aussi est là, Aster, développé par EDF, et puis bon après c'est un peu autrement,
+
+[43:03]
+alors, là je vais basculer sur plus des illustrations de ce qu'on peut faire en termes de simulation numérique, donc globalement la simulation numérique c'est de reproduire numériquement un phénomène complelexe qu'on souhaiteite étudier, et qu'on narrive pas, qu' qu'on n'arrive plus à appréhender de manière analytique, parce que il devient trop complexe, on connaît les équations de base, mais la complexité géométrique, ou le fait de coupler différentes physiques, le rend complètement insolvable de manière analytique, donc on va prendrere notre modèle théorique, et ce qu' qu'on va faire, c'est qu'on va essayer de, après l'avoir traduit de manière m mathématique, ben on va le traduire numériquement, donc maintenant c'est un peu incontournable, hein, vous n'avezez plus un industriel ou un.
+
+[44:04]
+Ou même une startup qui va essayer de sortir un produit, qui est censé avoir une fonction mécanique sans en faire un modèle numérique pour faire un peu de simulation dessus, là ça n'existe plus, et vous avez de plus en plus, par contre, d'industriels ou de startups qui vont faire tout un modèle numérique, mais qui vont jamais faire de test grandeur nature sur leurs pièces avant de sortir le produuitit, parce que vo pasà, toujours un bon choix parce que des fois les modèles numériques, il n'y a que les ingrédients qu'on met dedans, il n'y a pas toute la complexité de la réalité, ok, et des fois on ne pense pas à modéliser tous les effets, notamment quand il y a des couplages multifysiques, la un thermique avec la mécanique, les pot potentiels changements de phase, etc., donc il y a la chimie qui vient jouer aussi là-dedans, des fois les effets électromagnétiques, maintenant avec les moteurs électriques, vous avez plein de problématiques qui sont liées justement au couplage entre la mécanique et les aspects électromagnétiques, ok.
+
+[45:09]
+Il y a plein de chososes intéressantes à à faire, donc en gros, si vous avez des données sur votre structure, bon là c'est un hélicoptère, n'importe quoi, un club de golf, par exemple, vous avez des données sur, vous savez quels sont les efforts qui s'appliquent à tel endroit, etc., vous connaissez la vitesse de rotation ou quoi, vous avez des données, vous êtes capable ensuite à partir des données, même sur la géométrie, de proposer un modèle théorique, faire une CAO typiquement, mais là en général vous passez t toujours par une simplification, hein, de là vous pouvez en extraire un maillage, et donc là vous avez un modèle numérique, et puis ben si vous injectez ça dans un code élément fini typiquement, qui va retranscrire ce qui se passe dans la mécanique du matériau, la mécanique des nuits continues, vous pouvez accéder à des des résultats de simulation, et savoir comment ça se déforme, où se concentrent les efforts, les contraintes, et du coup où sont les zones qui peuvent être critiques au regard du chargement qui est appliqué, au cours du service de l' l'hélicoptère ou de la pièce, ok.
+
+[45:53]
+Ben les applications j'ai déjà abordé ça, mais typiquement dans l'aéronautique, hein, vous allez à la fois avoir besoin de de modéliser les écoulements de fluides à l'intérieur des moteurs, parce que ben connaître les écoulements de fluides et les transferts thermiques, c'est ce qui va vous permettre de bien savoir quel est le chargement sur les zones de turbines qui arrivent tout au bout de la chaîne du moteur, là vous pouvez avoir les températures et les pressions, ok, et du coup être capable d'avoir les bonnes données pour savoir à combien à à quels efforts, à quelle température vos zones de turbines sont censées tenir.
+
+[47:32]
+Et donc l'avantage de la simulation numérique, c c'est que vous pouvez faire du dimensionnement sans avoir à faire trop de tests, trop d'essais grandeur nature, ça c'est hyper coûteux en réalité, donc là typiquement vous allez pour encore un moteur d'avion, vous pouvez simuler le potentiel éclatement d'un disque, alors dans un moteur d'avion, typiquement si vous avez de ces pièces qui cassent, globalement c'est pas grave, ça n'empêche pas le moteur de tourner, ok, ça arrive, par contre dès que vous avez la rupture de ces ailettes, enfin de ces zones de turbines, bon ben il faut inspecter, réparer, l'avion il ne reprendra pas de vol tant que ce ne sera pas réparé, ça c'est juste une petite houpe de turbine qui est fixée là, par exemple vous en avez plein sur ce disque, le disque c'est la partie centrale, qui tourne à une vitesse très importante, si le disque éclate, c'est'est votre avion, il y a très peu de chances qu'il atterrisse et même s'il atterrissait, enfin la vitesse à laquelle ça tourne, si il s'éclate, il y a très peu de chances que pas un bout qui passe par la partie passager, mais là enfin vu la vitesse et les matériaux utilisés, il n'y a pas de survivant, ça arrache tout, c'est la fin, donc typiquement c'est une pièce critique, pour pour laquelle on ne peut pas
+
+[48:07]
+Tolérer aucune fissure, ok, donc typiquement vous allez faire des simulations numériques avec différentes vitesses de rotation, par exemple, et vous allez pouvoir tracer des indicateurs de. Contraintes ou d'endommagements, enfin ce genre de choses, pour savoir ben déjà où sont les zones sensibles où on pourrait avoir un amorçage de fissure, et du coup ben retravailler le design de de votre disque pour éviter ces défauts, ok, ok.
+
+[48:32]
+Donc petit retour historique sur la simulation numérique, à partir de 1 1850 on a eu les premières méthodes analytiques de résolution pour la mécanique des nuits continues, à peu près un siècle plus tard, mais 1940, il y a quelqu'un qui a trouvé une méthode, la méthode des éléments finis, qui permettrait de.
+
+[48:56]
+Sortir du côté purement analytique, si on avait la puissance, enfin la puissance en termes de calcul, bon ben il a fallu attendre quand même 20 ans avant que la méthode puisse être mise en application sur des ordinateurs capables de l'appliquer, donc au début c'était les premiers codes de calcul, mais b bon c'était encore les carteses perforées, hein, donc c.
+
+[49:27]
+Les bons vie vieux temps de de l'informatiatique, et il a fallu attendre encore une vingtaine d'années pour que ça commence à se propager un petit peu avec l'essor de l'informatique et donc de l'industriel, on commençait un petit peu à, alors au départ il y avait surtout l'aérospatial, hein, qui faisait se perm permettre ça, mais petit à petit au cours des années 2000 on a commencé à être capable de faire tourner des codes éléments finis, typiquement sur des ordinateurs portables de l'époque, ok.
+
+[49:57]
+Bon alors les chiffres sont trop à jour, mais là maintenant depuis les années 2000 on est passé sur, on utilise beaucoup des clusters, des centres de calcul, mais bon avec un ordinateur portable vous arrivez à faire tourner dess. Avec très facile au moins un minimum de de grille numérique, ce qui permet de représenter des choses assez complexes, ok.
+
+[50:30]
+Alors bon. Qu'est-ce que ça mobilise comme discipline? Ben je vous en ai parlé, hein, il y a tout ce qui est lié à la ph physique, hein, comprendre ce qui se passe con. Les choses en jeu, le comportement des matériaux, comment on mobilise les efforts, tout ça, bon physique et sci sciencesences de l'ingénieur, l'aspect éctro-mécanique, il y a aussi toute une partie mathématique, parce que ben il faut être capable de retranscrire tous ces concepts sous forme d'outils mathématiques, et puis d'être capable de résoudre les problèmes, àis.
+
+[50:58]
+Il y a les aspects existence, unicité de solution, mais il y a aussi tout ce qui est lié aux méthodes numériques, donc typiquement les manipulations, et après il y a la partie implémentation, l'informatique, on a besoin d'avoir soit des scientifiques qui savent déjà coder, soit d'avoir ou d'avoir en plus de ça des informaticiens qui savent coder de manière efficace, qui savent paralyser des choses sans entacher la performance et sans entacher aussi la.
+
+[52:55]
+Des résultats, donc typiquement là vous avez un une représentation de la décomposition de domaine pour une pièce, vous allez donner un sous-domaine à résoudre. Un ordinateur, ou un processeur, et puis un autre sous-domaine à un autre, et il y aura toujours à chaque itération il y aura besoin de rassembler un peu tous les calculs pour s'assurer qu'on a bien continuité des résultats au niveau des interfaces entre les sous-domaines, vous pouvez appliquer ça à des calculs complexes non linéaires, typiquement quand vous avez des assemblages de pièces mécaniques souvent vous avez du jeu, vous avez des efforts de trèséc contraintes, etc., ça conduit à des liaisons qui se comportent de manière non linéaire, enfin les aspects compacts, ça rajoute des non linéarités, c'est assez complexe, et donc les aspects enfin la complexité elle peut venir du nombre de domaines ouverts, alors ça peut peut s'appliquer typiquement à la mécanique des structures, bon là vous avez typiquement une roue de voiture, enfin par exemple, vous pouvez avoir des assemblages, là encore une fois là vous avez un calcul éléments finis d'un assemblage boulonné, si'est comme on on ret retrouve encore beaucoup que ce soit dans l'aéronautique ou dans l'aérospatial, vous pouvez avoir des cas dans un cadre de vélo il me semble, ici vous avez des systèmes d'échangeurs thermiques, par exemple, ici bon c'est une image pas de très bonne qualité, mais vous avez un matériau composite une plaque trouée mais qui qui est composite, donc avec différents matériaux qui composent les différentes couches, ici vous avez plutôt un matériau un peu un matériau poreux, où vous voyez que ben du coup vous avez une percolation typiquement des efforts qui peuventuvent transiter au sein de la matière, euh.
+
+[54:25]
+Et si je reprends les termes qui sont pris là, ben le virtual testing c'est faire des essais mais de manière compllètement virtuelle, de manière numérique, et l'idée c'est de pr prédédire le comportement jusqu'à l'arrivée des différents matériaux, en mécanique des matériaux ben on va regarder une échelle beaucoup plus fine, typiquement si vous prenez une petite éprouvette d'un alliage ici, si vous faites une acquisition sur. De la microstructure du matériau, vo voyez que la couleur, elle correspond à une orientation du grain qui est différente à chaque fois, ben vous pouvez essayer de calculer voir ce qui se passe quel est l'impact de la microstructure sur les contraintes principales qui vont apparaître dans le matériau, donc là vous voyez que vous avez un champ qui est très hétérogène et qui n'est pas uniquement dicté par la géométrie, par la présence de de l'antenne mais qui est aussi dicté par la géométrie et l'orientation des grains, vous pouvezvez étudier des matériaux typiquement qui sont qui peuvent être utiles pour l'aéronautique ou pour l'absorption de chocs comme les mousses ou les les structures sandwich, b bon là vous avez un autre exemple d'un calcul de micrrostructure, vous pouvez vous intéresser à l'évolution de la microstructure également, et puis aux effets thermiques sur, typiquement quand vous élaborez un matériau, le procédé peut avoir un impact sur sa sur sa santé matière, ok.
+
+[55:06]
+La mécanique des fluides, bon ben je vous ai parlé des écoululements que vous aurez potentiellement besoin de caractériser dans les moteurs, ça peut être. Les écoulements de fluides dans des pompes par exemple, pour essayer de maximiser l'efficacité d'une pompe, hein, si vous arrivez à modéliser l'écoulement de fluide et éviter tout ce qui est turbulence pour que l'écoulement se passe bien, les grands écoulements, hein, to tout ce qui est lié au c climat, la météorologie, l'ococéanographie, hein, si on regarde à l'échelle plus grande, et puis voilà, c'est déjà pas mal, la.
+
+[56:04]
+Alors il y a deux aspects, hein, bon pour retrouver les aspects plutôt heureux, enfin reconstruction, hein, quand vous créez des prothèses, si vous si vous créez des prothèses qui ne reflètent pas la. Cinématique et la rigidité de. D'un membre qui est est valide, ben ça va être plus compliqué pour le patient d'arriver à s'adapter à ces prothèses, par exemple, vous avez le biomimétisme, hein, tout ce qui est robot, donc vous allez avoir besoin d'être capable de bien modéliser comment ça peut se déformer au sein de votre structure robotique, il y a les aspects plutôt médicaux, hein, alors être capable de modéliser toute la chaîne d'efforts que vous pouvez avoir dans une une colonne vertébrale quand vous avez par exemple un disque qui est abîmé, ou une petite sc scoliose, ben ben on a ça, ça permet de.
+
+[57:20]
+D'améliorer le choix des traitements, typiquement, et si on revient sur les aspects sportifs, hein, optimiser tout ce qui est technique d'entraînement ou les gestuelles pour arriver à des gestes qui sont soit plus efficaces, soit qui vont moins être fatigants pour les sportifs, et puis ben vous avez tout ce qui revient aussi avec les équipements sportifs, hein, typiquement les semelles, ce genre de choses, c'est pas mal si c'est pas juste complètement empirique en se disant ben si je'en rajouteoute un un peu de muscle ç là, ben c'est mieux pour le patient, il faut essayer de rajouter un peu de chance là-dessus, c'est ça, depuis une quinzaine d'années, en tout cas dans le domaine sportif, ils font vraiment de plus en plus appel à une approche scientifique et pas purement empirique en disant ben les sportifs quand ils v vont soululever de la fonte dix fois dans dans le mois, ben ils sont plus ils sont plus performants, maintenant il y a vraiment une approche très scientifique sur l'utilisation de l'entraînement, e.
+
+[57:47]
+Vo. Avoir besoin de la mécanique des données continues pour les. Usines modernes, on va dire, ben tout ce qui est fabrication additive, hein, quand vous avez un système de production de pi pièces avec par exemple laion. À l'air, ben quand vous allez porter jusqu'à fusion tout votre poudre, typiquement, pour générer une.
+
+[58:39]
+Générer de la matière, avec de l'impression 3D, ben le fait d'être passé par une température de fusion, ça fait que ça a chauffé, ça génère des des contraintes internes dans le matériau, ça il fa faut être capable de le modéliser pour savoir une fois que vous avez fait votre procédé pour imprimer votre pièce en 3D, potentiellement vous avez déjà des effortorts qui transitent dans la matière parce que vous avez des contraintes hein, interneses liées au au fait que ça a éauffé, que ça achangé de phase, etc., et ça si vous n'êtes pas capable de le modéliser, vous ne pouvez pas procéder à une optimisation typipiquement du trajet d'impression, des fois il vaut mieux faire un trajet plutôt dans un sens ou de manière concentrique plutôt que de faire juste des passages trèsès rapprochés, donc voilà le genre de choses comme ça, que ça peut apporter, objectif de la simulation numérique, ben c.
+
+[60:13]
+Actuellement, en gros, mais mais bon ça c'est de moins en moins vrai, on s'approche de plus en plus de ça, hein, vous voyez en fonction de l'échelle à laquelle vous êtes, donc là vous êtes à l'échelle de la structure, à l'échelle de l'avavion,ion, et puis là vous êtes vraiment à l'échelle d'un tout petit composant, bonon ben ben c'est facile de faire des des essais sur des petits composants, ça ne coûte pas très très cher, ok, quand vous voulez faire un essai sur une structure qui est un avion, un un essai taille réelle, là ça devientvient beaucoup plus compliqué, c'est des grosses structures, il vous faut des équipements assez énormes, donc c'est tout de suite beaucoup plus intéressant de faire de la simulation, mais il y a encore quelques années, on n'avait pas forcément les ressources de calcul capables de traiter des problèmes aussi gros, petit à petit, ben en fait on essaie de renverser la tendance pour être de plus en plus capable de de faire essentiellement de la simulation numérique sur les très grosses structures, pour éviter d'avoir à faire des des gros essais qui nous coûtent cher, qui sont coûteux en temps et en ressources, ok, la petite illustration avec une une im image qui est très très petite, pas très belle, là vous distinguez à peu près l'aile de l'avion, ok, et vous voyez par rapport à la position de référence de l'aile, ben là vo en gros on a appliqué un chargement pour la faire fléchir, et ben l'idée c'est d'instrumenter de mettre des capteurs pour voir essayer d'avoir accès aux efforts qui transitent comment ça se déforme localement, etc., voilà vous voyez que c'est une grosse expérience, pas tellement de.
+
+[61:07]
+Vouloir mener ça, ok, als. Quelques mots sur le laboratoire dans lequel j'effectue ma recherche, donc c'est le LMPS, laboratoire de mécanianique Paris-Saint-Pré, en réalité c'est la fusion de deux laboratoires anciennement le LMT qui était à Cachan, puis il y a le le LMS Paris-Saint-Pré, et du MSSMAT qui est côté Centrale Supply, donc en fait on est un laboratoire qui est à cheval sur le LMS et Centrale Supply, on a des locaux dans les deux établissements, et donc on peut de manière assez raisonnable dire que c'est un laboratoire qui se place comme un des leaders mondiaux dans d'une part tout ce qui est calcul de structure, et d'autre part dans tout ce qui est mécanique des matériaux, on a la chance d'avoir certains chercheurs qui sont vraiment des.
+
+[63:26]
+Précurseurs, en tout cas des grands noms dans certains aspects liés au calcul de structure et à la la mécanique des matériaux, e. Oui on est c'est un gros labo, on est 2 200 000 personnes, et bon ben ben on ne fait pas de la recherche essentiellement académique, on fait beauaucoup de recherche en partenariat avec des industriels, donc ben typiquement ça prend EDF de moins en moins, mais on on a beaucoup de thèses qui sont de type financement en CIFRE par exemple, donc parmi les thématiques, ben en lien avec le cal calcul de structure, le développement stratégique de calcul innovant pour la simulation, alors depuis quelques années on rajoute un un petit peu d'IA là-dedans, et on est aussi spécialisé dans la simulation des structures solides, mais aussi ça a quelque chose d'assez intéressant dans la mécanique des matériaux, la corrélation d'images, la corrélation d'images, en gros vous allez prendre des photos de de votre pièce qui se déforme petit à petit, vous avez mis un petit moouusticheetque, de la peinture, et en gros en voyant l'évolution de ce moustique, avec les différentes images, vous allez être capable de ret retrouver le champ de déplacement, et donc les déformations, qui sont suivies par la surface de votre matériau, mais on on peut peut le le faire aussi avec des données de tomographie, quand il y a un peu de contraste au sein du matériau, on peut peut faire de la corrélation d' d'imimagesag dees, et là on a des pointures au laboratoire sur ces aspects, et on est en lien assez étroit avec le secteur aéronautique spatial, mais pas uniquement, mais bon on va dire que ça représente une grosse partie de nos actions, bon ben j'avais dit à peu près une he heure, on y est à peu près, avant de t'attaquer la suite, je veux être sûr que tout le monde est bien axé à à la fois au wifi, donc soit en ay ayant bien configuré Eduroam sur votre ordinateur, sur votre tabletlette, votre ce que vous voulez, sur votre montre, peu importe, alors. Parce que vous aurez besoin d'accéder à l'espace ICRAN+, d'une part, mais vous aurez aussi besoin des fois d'accéder à.
+
+[64:00]
+Le départ uni, d'accéder au site Socrative quand je ferai des petits quiz, et ça par contre les quiz vous pouvez répondre avec vos téléphones sans forcément sortir les ordinateurs, donc ça peut être pratique, je le rappelle que, enfin vous l'avez peut-être déjà remarqué que ces cartes très mal les réseaux 4G 5G, à part à vous mettre juste à côté de la vitre, voilà, donc c'est pour ça que le wifi est un peu indispensable, sur sur ici, e.
+
+[64:57]
+Phototo, bon, ah oui c'est vrai, et. Alors, bon ça c'est juste un rappel, pour ceux qui sont à l'ENS, c'est bien votre login ENS qui vous permet d'accéder à vos mails typiquement, c'est exactement ce login-là, c'est pas votre adresse mail qu'il faut mettre, ok, alors en général ça marche mieux avec, et le mot de passe pareil, par contre pour l'USU, il y a un lien, enfin je crois que c'est lié avec numéro étudiant, mais je ne maîtrise pas du tout ça, e.
+
+[65:24]
+Vu que j'ai, enfin que que j'ai pris l'un des plus petitier,s, et euh, donc enfin l'idéal c'est de paramétrer une fois pour toutes, que vous soyez ici à l'USU, à l'ENSAM, partout en Europe, si vousus êtes dans un universitaire ou un labo, vous avez déjà, vous avez accès au wifi, donc c'est trèsès pratique, si vous n avavez pas fini votre inscription, potentiellementement vo vous n navez pas encore pris d' accès,s, vous pouvez passer par ces.
+
+[65:50]
+Astuces pour avoir accès aux aux réseaux, sachant que normalement on aura toujours cours ici sauf la semaine prochaine, enfin ici les mercredis, la la semaineine pro prochaine on aura cours vendredi, mais à Lyon cours, il me semble, le 2 octobre, vo. E. Il a fallu Unit. Échange de créneau avec madame Zafra, donc.
+
+[66:21]
+Ben ça peut être pratique si vous avez un accès également, oui bon alors avec avec le QR code normalement on peut retrouver assez facilement, et oui et j'aurais besoin que vous répondiez au questionnaire en ligne, qui est dans l'espace qui est accessible dans l'espace ICRAN+, il n'y a pas beaucoup de choses à remp rempllir, c'est plutôt nom, pr prénénom, qu'est-ce que vous avez fait avant, et est--ce que vous êtes à l'aise avec différents
+
+[67:30]
+ah, euh, à suivre, euh, diffs. Accééderder à à la liste des. Vous êtes en cours, ah si. Et donc là là, il y a moyen de rechercher ici. Je pense que quea la être la barre de recherche, ah oui elle est est pasès pratique par rapportport à la barre de recherche, vous cherchez INO ces infos, il I y aONI vous devriez tomber sur, enfin sur le lien vers le cours, l'ENS.
+
+[68:50]
+Non pas le mot de passe, l'ENS, l'espace, inf euh,. bon l'autre méthode ça peut être, puisque j'arrive à l'afficher, e. Ok, et donc pour y accéder, alors moi je suis déjà connecté, mais pendant que l'application, vo. Voilàà, vous pouvez cliquer sur accéder en tant qu'admin si vous arrivez.
+
+[70:04]
+Là vous pouvez entrer le mot de passe qui était sur ma présentation, vo. Comme ça ç ça vous laisse le temps de. Réglerler les les problèmes d'accès à l'espace ICRAN+, gardez bien le. Un petit marque-page. Par favoris pour retrouver le cours, vo. Vous inscri Donc une fois que que vo vous  êtes là, si.
+
+[71:39]
+Je me mets sur. Voilà, vo. Al encors je p pense que que je vais pas changer grand grand--chosose,e, je vais faire un un chapitre séparé, ok. Ça c'est caché, ok. Je vous propose qu'on passe à la pause d'un quart d'heure mainten De rejoindre, du coup, e. La plateforme Socrative, mais la plateforme Socrative étudiant, donc Socrative Student.
+
+[72:18]
+OK. Vous allez arriver sur une page web comme ici, vo vous pouvez installer l'appli si vous voulez, mais bon, je ne veux pas vous forcer à installer des applis sur vos terminaux. Et là, il faudra indiquer— On vous demandera tout simplement d're. Le nom de la salle, et. Ça correspond à mon login WMS.
+
+[72:51]
+Et donc, là, il y a— enfin, c'est un quiz juste pour vous familiariser avec l'interface. Il y a juste 2 questions bêtes, juste pour voir que vous pouvez sélectionner plusieurs réponses, parce que des fois je fais des quiz où il y a plusieurs réponses qui sont bes. Et le fait de vous faire des quiz, des des courses, c'est aussi pour vous entraîner, parce que dans les examens, je mets des QCM.M,
+
+[73:59]
+Donc l'idée, c'est que vous vous entraîniez un peu à répondre à ces petites questions.s. Et du jeup vo vous— Bonj. Bon, du coup, vous avez une première première question— Le nom de la salle, et. Vous l'avezez là là, donc vous vous connecteztez là-dessus. Juste pour— c'est l'objectif, c'est juste de vous familiariser avec l'interface.
+
+[75:09]
+Qui n'a pas encore émergé ? Je ne suis pas beaucoup de réponses au questionnaire, quoi. Enfin, par rapport au nombre de personnes présentes. Là, L' l'intérêt, c c'est plus de remplir d'ici la fin du mois, etc. Si vous n'êtes pas en classe.e, Ça, C'est Ça permettra de vous inscrire à l'espace eCampus si vous avez déjà vos accès.
+
+[75:33]
+Bon, du coup, on va passer à la question suivante. Tant pis si vous n'avez pas répondu à la dernière, de toute façon c'est une question oui/non, donc ce n'est pas de. Et par contre, voilà, là vous pouvez vous— Vous pou pouvezvez juste voir que vo Vous pouvez sélectionner une ou plusieurs réponses avant de valider vot votre réponse.
+
+[75:55]
+Et— Potentiellement, vous voyez que vous avez des flèches pour passer d'une question à une autre. Ne validez pas l'ensemble de vos réponses avant d'avoir répondu à toutes les questions. C'est qui qui avait— Pardon ? Nous, on n'a— Vo Vous voyez, vous n'avez pas les flèches parce que c'est moi qui impose ça.
+
+[76:38]
+Mais il y a différents modes que vous pouvez— Et vous avez raison. Bon, l'idée, c'est que soit des fois, pour voir— pour jauger à peu près comment vous maîtrisez un aspect et peut-être vous faire le questionnaire avant. Avant d'introduire les notions. Soit je vais— en gros, contrôler et tester ce que vous avez compris du du chapitre qu'on a fait soit le matin, soit la semaine d'avant. Ça me permettra d'avoir une idée un peu de—
+
+[76:58]
+Du taux d'assimilation, on va dire. Bon, allez, j'ai 13 réponses, on va dire, c'est assez. Voilà. Je termineine l'activité, tant pis pour ceux qui n'ont pas réussi à se conneccter. Et puis après, typiquement, on peut regarder les résultats que de tout le le monde qui a réussi, c'est magnifique.
+
+[77:18]
+Et puis—is, Et puis, alors, je neis plus ce que ça donne pour vous, mais typiquement, voilà, vous avez des explications. Peut-être affichées. Je vais essayer de rajouter des— alors, je ne sais pas si je vais av le temps de faire ça cette année, mais de rajouter des QCM dans eCampus. Pour que vous puississiez vous entraer.
+
+[77:53]
+Mais alors, c'est un petit peu— c'est un petit peu lourd, et ce n'est pas encore prêt. Eh bien, si. Ça c'est fait, là, bon, la prochaine fois qu'on fera un quiz, ce ne sera pas des questions bêtes comme ça, ce sera plutôt un lien avec vos cours, et don doncc vu qu'on a fini ça, je. Passe au cours.
+
+[78:28]
+On va rentrer dans le lieu. Tiens, tiens. Bon, je suis en train de faire les slides au fur et à mesure. Donc,c, les les années précédentes, je faisais le cours à la crêpe, mais là, vu que j'ai moins de temps, je vais faire des slides. C'est peut-être ça qu'il faut que je mette sur eCampus ?
+
+[80:58]
+Donc, ce que je vais mettre sur eCampus, c'est une version temporaire des slides. Ils ne sont pas travaillés non plus, ça ne va pas être très— ça ne va pas être TikTok.ok, je Je m'excuse d'avance. Mais ça me permettra d'aller plus plus vite. Bon, ça va. Et A Ah,h, vous avez les slides qui sont sont sur eCampus, là, mais dans la toute en haut de la partie cours.s,
+
+[81:19]
+Mais je vous préviens, c'est vraiment une version temporaire, donc ça ne vous permettra de suivre en même temps. Vous pouvez annoter, mais sans doute que je redéposerai une version. Peut-être que je redéposerai une version retravaillée, et puis là, de toute façon, il n'y a que les premiers chapitres.
+
+[81:43]
+Ok. Donc, il n'y a pas le menu complet, mais a priori, on va faire la cinématique aujourd'hui, et peut-être attaquer un petit peu les différents aspects. Donc, on va va commencer par la cinématique des milieux de contenu. Alors, dans un premier temps, on va essayer de de poser un petit peu les bases.es,
+
+[82:06]
+Comment on pose mathématiquement le repérage dans le temps, et dans l'espace ? Bien évidemment, si on veut parler de de cin cinématique, on a besoin de mettre en relation des positions repérages dans l'espace. Avec le temps, repérage montant. Ensuite, on reviendra un petit peu sur la notion de milieu continu, mais bon, ça se dira assez rapidement.
+
+[82:29]
+On parlera des différents— enfin, du mouvement et et des différentes représentations qu'on peut en avoir. Bon, peut-être que certains d'entre vous ont ont déjà entendu parler de représentation ou ou de de description Lagrangienne, et/ou Eulérienne du mouvement. On verra— on s'intéressera à quelques mouvements particuliers, enfin, à certaines propriétés de certains mouvements.
+
+[82:52]
+Et puis, on reviendra au cas un petit peu particulier, du mouvement des corps rigides, ou des corps indéformables.les. Les positions au corps déformables, enfin, lesquelles on va se focaliser petit à petit. Donc, on commence. Repérage dans le temps et dans l'espace, la notion de temps, et la notion d'observateur.
+
+[83:10]
+Donc, bon, ça va être— désolé, c'est des slidesides avec des gros papiers de texte, c'est peu ou prou ce qu'il y a exactement dans le polycopié auquel vous avez déjàà accès. Alors, par contre, c ce pol polycycopiéé de l'année dernière, il y aura peut-être des petits ajustements cette année.
+
+[83:36]
+Donc, on peut schématiser en mécanique classique, l'espacece des instants, voilà, sur— en gros, sur un axe. Bon, sur lequel on va avoir une origine qui va être le temps t0, et puis on va repérer en gros tous les potentiels instants de mesure, mais ça peut être quelque chose qui est continu, en réalité.
+
+[84:11]
+Jusqu'à, par exemple, si on se place ici à l'instant t qui nous intéresse, parce qu'on se place à une date bien spécifique, on va avoir une durée t, ici vous êtes sur un axe qui est sur— selon le vecteur direction u qui trace la direction d'évolution du temps. Et donc,c, votre vecteur qui permet de relier le temps initial d'observation et le temps actualisé, sa sachchant que vo vous pouvezvez avoir plein de temps d'observation différents.s, Et
+
+[84:41]
+Et même une— tendre vers une observation très continue. Là, vous allez pouvoir repérer ça avec un espace affine qui est orienté. Le temps ne s'écoule que dans une direction, malheureusement. Et donc, à chaque événement instantané, vous associez un élément t, donc de l'espace avec le t calligraphié, là, qui représente tout l'espace des instants, donc ça.
+
+[85:18]
+C'est représenté par une application affine qui est strictement croissante des instants dans l'espace des réels.s. Vu qu'on a un axe et une application qui est affine, on a besoin d'une origine, c'est notre instant t0. Et dans la très grande majorité des cas, voire quasi-totalalité, on prend souvent le t0 est égal à 0, donc c'est ce qui va constituer notre instant de référence, notre origine.
+
+[85:38]
+Bon, ça, j'en parle là, à ce moment-là, mais c'est le seul moment où j'en parle, en gros, c'est juste pour fixer les choses. Après, on va juste parler de temps initial t0, et de temps actuel t, qui pourrait prendre n'importe quelle valeur. Et là, maintenant, c'est bon, c'est réglé, on revient pas là-dessus.
+
+[85:59]
+C'est pas un point central, c'est juste pour donner un peu d'esprit. Maintenant, pour le repérage plutôt dans l'espace, on va avoir besoin de fixer ce qu'on appelle la. Notion d'observateur. Donc, on parle aussi d'espace d'observateur, ou de repère d'espace, bon, retenez observateur, ça suffit.
+
+[86:20]
+Donc, en gros, quandand vous modélisez, enfin, vous essayez de faire une expérience, vous allez avoir en gros un observateur, c'est si vous voulez, c'est un peu comme une boîte dans laquelle vous allez observer les choses, et, en gros, cette boîte, elle est censée être. Fixe, mais rigide, si vous voulez.
+
+[86:49]
+Et dedans, par contre, vous pouvez avoir des— par exemple, si on fixe l'observation, là, on pourrait se dire : mon observateur, c'est la pièce là, dedans, je peux avoir des mouvements d'air, par l'effet de la ventilation, de quelques aérations par les portes, etc. Il y a un champ de température, je peux l'observer soit de manière Eulérienne ou Lagrangienne, enfin, représenter de manière Eulérienne-Lagrangienne, mais je vais le faire dans le cadre de cette pièce. C'est mon observateur.
+
+[87:21]
+Un peu comme si c'était un référentiel. Et donc, typiquement, je vais considérer que les limites de ma pièce, là, c'est parfaitement rigide, ça ne bouge pas, ça me donne vraiment un repère, quoi, d'une certaine manière. Mais je peux avoir plusieurs repères dans mon observateur. Donc là, je vais pouvoir schématiser ça par un espace affine euclidien, du coup c'est mis dans du scalaire, orienté, et vu que je vais avoir besoin de traiter des surfaces des volumes, c'est dimensension 3.
+
+[87:55]
+Et si je m'intéresse à un solide, ça va juste être une partie bornée, typiquement, comme ça, cet espace-là, ça va être une partie bornée de mon observateur. Donc, quand on étudie— si on veut étudier plusieurs solides qui qui peuvent interagir, c'est possible. Soit qu'on les mette dans le même espace, soit qu'on utilise un espace par solide à modéliser.er.
+
+[88:36]
+Donc, globalement, si on a un observateur qu'on note avec un e calligraphié, là, on peut définir un point M qui est en mouvement par rapport à mon observateur, donc typiquement je prends une une particule de gaz, là, qui se balade, parce qu'il y a de la ventilation, ok, ben. Je peux retracer l'évolution de ce mouvement de particule, de ce point, alors c'est un point, c'est une représentation mathématique de la position d'une particule, typiquement, j'ai pas forcément besoin de connaître la position d'une particule pour la nommer, si vous voulez, mais je peux la repérer au travers de sa position.
+
+[89:10]
+Donc, en gros, je peux avoir une application quii,— du temp temps,s, va projetée dans dans l'espapace,ce, et à chaque instant t, va attribuer une position à chaque particule, avec un repère par un point M qui peut dépendre du temps. C comme ça que je' déaifinisn le temps. Et ça, après, si je rajoute une origine, du coup je peux le représenter non pas juste avec un point M qui dépend du temps, mais avec une notation vectorielle qui va de l'origine vers le point M, qui, lui, se balade.
+
+[89:38]
+Apr Après, mon origine est éventuellement dans certains repères, elle peut être mouvante, mais ça, c'est encore autre chose. Et donc, là, je peux avoir un espace vectoriel, du coup, qui est associé à mon espace d'observateur. Là encore, vous allez voir, enfin, je pense que c'est peut-être que c'est un peu trop abstrait, mais on va pas trop revenir sur ces concepts; c'est juste pour introduire un peu les outils de base sur lesquels on se base.
+
+[90:00]
+Après, on s'appuie. Donc, si on choisit une base, typiquement, on va prendre une base orthonormée, directe, c'est toujours beaucoup plus pratique, typiquement avec des vecteurs e1, e2, e3 qui peuvent être orientés un peu comme on veut dans notre espacece d'observateur.ur, On peut représenter le mouvement avec une application, donc,
+
+[90:29]
+On peut représenter le mouvement avec une application, donc, qui va aller de l'espace du temps vers. Les réels, avec pour chaque— comment— pour chaque coordonnée, pour chaque vecteur de ma base, je vais avoir une coordonnée xi, et je vais pouvoir représenter le vecteur OM, fonction du temps, comme étant la somme des xi de t portés par ei.
+
+[91:01]
+Et donc là, je peux déjà commencer à vous familiariser un petit peu avec le. Principe de la sommation d'Einstein.in, Donc, en gros, ça veut dire que je somme entre de i égal 1 jusqu'à 3, mais. Quand on commence à jouer avec des notations indicielles, ça devient très vite pénible de noter à chaque fois la somme qui va de i égal 1 jusqu'à 3.
+
+[91:31]
+Donc, vu qu'on fonctionne en 3D, le principe de la sommation d'Einstein, c'est : si je. M'alléger un un peu les choses, je pourrais me dire : à partir du moment où j'ai un indice qui se répète dans mon expression, je vaisais tout le temps faire la somme de cet indice de i égal 1 jusqu'à 3. Ok, et là, quand vous voyez cette expression-là, sommation d'Einstein, c'est qu'il faut le traduire comme ceci.
+
+[91:55]
+Ça permet d'alléger énormément les notations, surtout quand on travaille en indiciable. Quand on commence à faire des calculs à manipuler des équations tensorielles avec des gradients, des latenciens, des divergences, ça devient— c'est ingérable de maintenir ce type de notation, donc le le principe de la sommation d'Einstein est très pratique.
+
+[92:35]
+Donc, du coup, ch chacacune de ces fonctions scalaires, là, les xi, donc x1, x2, x3, et notez bien que c'est un petit x ici, ça. Constitue donc les coordonnées du vecteur OM dépendant du temps, donc le point M est mobile. Dans le repère orthonormé direct, R, qui est constitué de l'origine O, qui constitue mon origine pour mon vecteur OM, et de B, là, qui représente ma base de vecteurs orthonormés.
+
+[93:04]
+Et donc, de manière un peu plus jargon-visuelle, on parle de coordonnées du point M qui dép dépendend du temps. Donc, les coordonnées du point M actuel. Une fois qu'on a choisi un repère comme ça, c'est bon, on a tendance, très fréquemment, mais bon, ça suffit pour des modélisations assez simples, à confondre l'observservateur e, le solide et le repère qui va avec.
+
+[93:23]
+Et donc, vous ver verrez que généralement, essentiellement fonctionner avec un repère, par contre des fois on trava travaillera avec un repère qui est cartésien, des fois avec un repère cylindrique, ça colle bien avec la géométrie du solide sur lequel on on travaille, du milieu, tout simplement.
+
+[94:02]
+Voire même le repère sphérique. Quand on travaille sur des géométries sphériques ou que des fois le problème s'y prête bien. Ça arrive qu'avec des milieux qui ont plutôt une forme conique ou cylindrique, on utilise le repère sphériérique aussi. Alors, bon, j'ai défini la position de mon point M, je peux le repérer avec un vecteur, j'ai défini ses coordonnées, si je parle de cinématique, ça veut dire que je veux mettre ça en relation avec le temps, forcément j'ai une évolution des positions, donc du coup j'ai une vitesse.
+
+[94:39]
+Comment je passe des positions de mon point M, enfin des coordonnées de mon point M, à la vititesesssee,? vitesse que je note avec un grand V,,, un vecteur V, qui dépend du temp temps, c'est la vitesse du point M par rapport à mon repère R, parce que, typiquement, si je considère que le solide qui m'intéresse c'est celui-là, il se déplace par rapport à mon repère, et potentiellement les deux pourraient se déplacer en même temps, et dans ce cas-là, il n'y a a pas forcément de vitesse, il peut y avoir juste une vitesse relative, donc c'est la vitesse. Par rapport à mon repère.
+
+[95:13]
+Mais généralement, une bonne partie des cas, on prend un repère fixe pour simplifier les choses. Mais dans certains problèmes, c'est pas le cas. Donc comment ça s'explique? C'est tout simplement la dérivée temporelle totale— Du vecteur OM. Qui dépend du temps. Et donc du coup, vous connaissez peut-être aussi cette notation, il y a les dérivées temporelles pour les fonctions scalaires, on a juste un pet petitit point au-dessus pour exprimer que c'est la dérivée première par rapport au temps.
+
+[95:43]
+Et donc du coup, c'est tout simplement la somme des x1 point, x2 point, x3 point, à chaque fois sur les vecteurs 1, et 2 et 3. Donc, en gros, vous faites une dérivée par rapport au temps, et donc la vitesse à l'instant t du point M par rapport à R, si je le réécris avec ma notation d'Einstein, là, c'est xi point porté par ei.
+
+[96:03]
+Et là, c'est léger. Ça prend pas beaucoup de place.ce, et Et du coup, on Et du coup, on peut se focaliser sur l'essentiel de l'information. Bon, si on avait défini la vitesse à l'accélération, c'est trivial, il suffit de redériver encore une fois par rapport au temp temps pour accéder à l'accélération.
+
+[96:52]
+Donc l' accélération.ation. Gamma ici, et donc vous pouvez le voir comme la dérivée double du du vecteur position qui va de l'origine au point M qui dép dépend du temps, ou même la dérivée simple de la vitesse. Comme Pour l'instant, ça reste assez simple. Alors après, comme je vous le disais, on peut avoir des fois plusieurs repèresres, qui ne sont pas orient orientés pareil, et qui qui ne sont sont pas forcément fixes tous les deux, ils peuvent très bien bien être tous les deux en mouvement, et donc du coup, on peut avoir une composition des— enfin, on peut faire appel à la composition des vitesses, et généralement, dans la cinématique, une des difficultés, c'est d'arriver à relier les mouvements des solides ou des corps, les uns par rapport aux autres. Mais c'est'est rel relier les mouvouvementsements d'un d'un même même point point dans différents observateurs.s.
+
+[97:31]
+C'est un peu le lien avec la composition des mouvements, et bon, on va considérer que c'est acquis, on ne va'a pas pas beaucoup l'utiliser de t toute fa façon. Mais bon, si on a deux repères, un avec une origine et des vecteurs de base e 11,, 2, e 3,, et un autre repère R* avec une autre origine, O* et E1*, E2*, E3*, pour ces deux espaces d'observateurs, on on peut peut dire que la vitesse au temps t du point M par rapport au repère R, ça peut être la composition de la vitesse à l'instant t du point M par rapport au repère R*, avec.
+
+[98:00]
+Laquelle on va rajouter la vitesse de l'origine O* par rapport à R, donc ça c'est pour la partie translation.ation, ok Et à ça, on va rajouter la la partie rotation du repère, donc avec le vecteur omωéga qui représente la rotation du repère R* par rapport à R, vectoriel, produit vectoriel, le vecteur qui va de l'origine O* jusqu'au point M.
+
+[98:37]
+Donc ça, c'est de la cinématique de base, c'est de la composition des vitesses, c'est cei. Permet d'. Les vitessesses d'un même point, mais dans différents repères, dans différents espaces d'observation. Je vous rassure, on n'aura pas beaucoup à l'utiliser, mais ça fait partie deses. À garder en tête quand même quand on— si on veut avoir une certaine vision de la complexité qu'il peut y avoir derrière, même si nous, on va se restreindre à des problèmes plus simples.
+
+[98:56]
+Alors, on peut pouvoir pass passer maintenant à la notion de milieu continu, on a— on s'est donné les outils pour faire un repérage dans le temps et dans l'espace, et puis on va faire— on va combiner les deux pour avoir accès au mouvement des corps. Et caractériser leur position, leur vitesse, éventuellement leur accélération.
+
+[100:02]
+Donc, si vous avez déjà fait un pe peu de physique, somme des forces égale à ma, force lien avec l'accélération. Et la On peut voir qu'on a— c'est vraiment des outils dont on va avoir besoin. Alors, la notion de milieu continu, donc je vous ai un petit peu introduit ça dans la présentation de l'heure précédente, on essaye de décrire des mouvements de corps physiques qui sont déformables, mais par rapport à un observateur, donc par rapport à la pièce, par exemple, ou un repère, et donc l'idée des milieux continus, c'est qu'on se dit, ok, on ne va pas regarder à une échelle trop fine, trop proche des atomes, parce que là, on a pas une— on n'a pas une occupation continue du volume par la matière, mais si on regarde de loin, en fait, on peut considérer que c'est continu, que tous les— que toutes les positions— que tout le volume est occupé par de la matière, et on modélise comme ça, et ça va, parce qu'on regarde d'assezin.in.
+
+[101:08]
+Et au niveau des lois, en fait, force est de constater que ça marche aussi. Donc, on regarde à une échelle plutôt macro. Alors, des fois, on peut descendre un petit peu, on joue un petit peu avec la limite de validité, mais ça marche. Donc, en gros, à chaque instant, on suppose que un corps physique— donc qu'on veutut étudier, alors ça devrait être être cette trait, ça peut être cette gourde, la mousse, ce que vous voulez— on suppose que ça occupe un doma domaine continu de l'espace d'observateur, donc qui peut être borné, parce que cette gourde, elle n'occupe qu'une petite partie de l'espace complet, mais on considère que ça occupe de manière continue, et on va considérer, du coup, que que chaque particule qui constitueue ce domaine, que ce ce soit un fluide, un solide, ou quoi, ça occupe une partition de de volume matériel, dont la taille caractéristique peut être de 10-8 à 10-9.
+
+[101:38]
+Mais ça, ç ça marche quand on est là, dans le— je suis typiquement— Quand on est— quand on est sur Terre, parce qu'on a une certaine densité de la matière qui est propre à notre localisation.ation, Si vous voulez faire de la MMC dans l'espace, il y a quelques particules qui se baladent dans l'espace, c'est très peu dense, alors là, par contre, vos particuleses,— il ne fa faut pas considérer qu'elles ont cette taille-là, ça va être plutôt plusieurs mètres, voire des fois plus vous vous éloignez des corps, ça va être plusieurs kilomètres.
+
+[102:28]
+Donc ça dépend de la densité locale des particules dans votre domaine. Alors bon, ça, je vais le passer, c'est— mais bon, voilà, l'idéeé c'est de de vous donner un petit peu les ingrédients, les limites de la modélisation. Mais bon, généralement, pour la majeure partie des choses qu'on va modéliser, ici, si on se— si on se limite à des pièces mécaniques, à des structures, on reste à la sur surface terrestre, tout va bien. Mais bon, voilà, si on veut étudier l'impact de— comment dire— dégagement d'air qui sort d'une station spatiale, il faut reprendre un petit peu les bases et voir qu'on n'est plus dans dans un un cad cadre idéal qui est la surface terrestre.
+
+[103:04]
+Voilà. Bon, on a le repérage dans le temps, dans l'espace, et on connaît— enfin, on a un peu mieux caractérisé le milieu continu. J'aurais pu y passer beaucoup plus de temps, mais bon, ce n'est pas— ce n'est pas l'objectif. L'objectif, c'était quand même de vous donner— de vous donner des outils pour décrire le— et donc, du coup, le mouvement et ses représentations, on va voir les différents outils. Don Donc vous voyez qu'il y a différentes descriptions qui peuvent être utilisées, la description Lagrangienne, la description Eulérienne, deux grands scientifiques.
+
+[103:40]
+Donc, en lien avec la description Lagrangienne, on verra la notion de trajectoireire, on verra comment est-ce qu'on peut faire le lien entre les deux descriptions, parce que c'est juste— en réalité, c'est juste un changement de variable.le, ok, Onon ut utilise On utilise différentes variables pour représenter l'espace, pour se repérer dans l'espace, comment est-ce qu'on peut passer de l'une à l'autre,? donc du coup, comment est-ce qu'on peut faire ce changement de variable dans un sens comme dans l'autre, et puis on introduira la dérivée par rapport au au temps quand on est en représentation Eulérienne, c'est plus compliqué qu'une simple dérivée partielle en temps.
+
+[104:16]
+On pourra introduire les lignes de courant qui peuvent avoir un lien avec les trajectoires en surface. En fin de— en fin de sous-section. Eh bien, c'est parti. Alors, pour décrire le mouvement, donc je vous ai donné une manière de repérer les— de repérer les particules, ok, mais on on va se donner une— une application qu'on va noter φ, qui va aller de 0 à grand. P, Al alorss, ça peut peut être un peu tirillé, si vous voulez, c'est jusqu'au temps final de l'observation.ation.
+
+[105:22]
+Si je reprends mon schéma de to tout à l'heure, mettons, vous— ce qui vous intéresse, c'est d'étudier ce qui s'est passé entre t = 0 et grand P, et donc du coup, vous aurez des différentes phases qui iront entre t0 et t, mais qui seront bornées par ce— cette. Intervalle d'observation. Donc, qui va croiser l'intervalle de temps et ω0, ω0, ça va être ce qu'on appelle la configuration initiale du milieu auquel on s'intéresse, donc vos particules— l'ensemble des particules qui vous intéressent, par exemple la mousse, elles occupent au début de l'observation une sous-partie du domaine complet de votre espace, ok, qu'on va donner ω0. Si vous voulez, c'est l'union de tout le volume qui est occupé par les particules qui constituent votre milieu qui fait l' l'objet de l'étude.
+
+[105:49]
+Ça va pour ça. Ok, donc je vais croiser cette. Ce domaine dans la configuration initiale, à l'instant initial, avec la. L'intervalle de temps d'observation, donc mon milieu là, il peut— il peut se dép déplacer au cours du temps, se déformer, etc. Jusqu'à grand— jusqu'à l'instant grand P.
+
+[106:14]
+Et donc, je— je vais croiser ça pour arriver dans mon espace d'observateur. Donc, en gros, pour chaque instant et chaque position m0 qui correspond à la position initiale d'une particule, je vais pouvoir lui associer le point m qui correspond à l'application de transformation φ pour chaque instant, pour chaque point m0.
+
+[106:48]
+C'est-à-dire que vous prenez la configuration initiale qui est l'ensemble de toutes les— toutes les positions occupées par les particules dans votre domaine de départ, voz. Pouvoir décrire com comment ça se— enfin, à quoi ressemble la configuration au temps t, en appliquant une. Application linéaire qui est notée φ.
+
+[107:17]
+Donc, par exemple, vous prenez un des points m0 ici, bon, par exemple celui-là, vous appliquez la— La transformée— l'application de transformation φ au temps t, hop, ça vous amène là. Et si vous reproduisez ça pour l'ensemble des particules, donc l'ensemble des points m0, vous arrivez à la conf configuration actuelle. Oui, parce qu'elle est bijective.
+
+[107:36]
+Alors oui, pourquoi ? Parce que rien ne se perd. Exactement. Rien ne se perd, rien ne se crée, rien ne se transforme. Vous ne pouvez pas avoir une particule qui, pouf, apparaît, ça c n'est pas possible, et et vo vous ne pouvez pas pas avoiroir de particule qui disparaît. Sauf si on commence à prendre en compte les réactions nucléaires, mais bon, ça c'est— c'est encore autrere che.ose.
+
+[108:03]
+Et donc c'est bijectif, et ça, on le verra par la la sue. Euh, donc vous avez l'intervalle d'étude qui va de 0 à t en termes de temps, ω0 c'est la configuration initiale, l'union de toutes les particules dans leur position initiale, à l'instant initial t0, et— alors on parle de configuration initiale, de configuration de référence, voire quand on s'intéresse à la cinématique de milieu déformable, des fois on parle de configuration non déformée.
+
+[108:32]
+Dans l'état naturel, si vous— sans— sans qu'il y ait de charge— Et donc ce qui est important à retenir, c'est que dans la description Lagrangienne, vous voyez, on décrit le mouvement, donc—fin, on décrit le mouvement, mais on le décrit aussi, il est grandeur physique. Par exemple, la température, on va décrire la température au au cours cours du temps, mais en fonction des positions initiales. Donc on va— on va repérer les particules par rapport à la position, leur position initiale au début de l'observation.
+
+[108:54]
+Pas par rapport à la position qu'elles occupent au temps t, mais par rapport à la position qu'elles occupaient au tout début. C'est comme ça qu'on— qu'on fait le repérage. C'est une approche. Et donc, e. On a cette mesure, on a ce suivi de l'évolution des lignes des des propriétés physiques, sur une grille qui est attachée à la matière, en réalalité.
+
+[109:23]
+Là, par exemple, si je— au fur et à mesure que ça— ça se déplace, là, dans la grille, je vais repérer la température de ce point-là, en me référant à la position que que ça occupait au début de l'observation. Dans l'approche eulérienne, en général, j'ai une grille d'observation qui ne bouge pas, et je vois la matière qui passe, l'évolution de la vitesse, de la température, je mesure— je mesureure ou je— ou j'enregistre la la vitesse et la température des particules qui passent à côté de mon point de mesure, sans jamais bouger.
+
+[109:45]
+Je m'en fous de la— de qu quel— enfin,ra, j'ai aucun intérêt à savoir quelle est la particule, où est-ce qu'elle était avant, tout ce qui m'intéresse, c'est que les particules qui passent en ce point fixe, de l'espace, à l'instant t, la vitesse vaut tant, la température vaut tant, etc. Mais je n'identifie pas, de manière individuelle, les particules.
+
+[110:29]
+Donc, étant donné qu'on se réfère à chaque fois à la position dans la configuration initiale, ça veut dire qu'il y a une configuration qui est privilégiée et et donc c'est plutôt utile quand on s'intéresse au mouvement des solides, parce que, ben, les solides, il y a toujours— au début de de l'observation, généralement, on est dans la configuration au repos, si vous voulez, dans l'étatat naturel, et après on va se dire, ben, on applique un mouvement, on applique des efforts, et donc là, du coup, il il peut peut y avoir des variations dans les positionitionss, et et puis puis dans dans les les distanances entre les particules.es.
+
+[110:54]
+C'est ça qui génère, ess essentiellement, des déformations. Donc si on se place à t fixé, on reprend l'ensemble des points qui ont été transformés par l'application, du coup ça nous génèreère un nouvel ensemble, un nouveau domaine, qu'on peut noter ω, qui dépend du temps. Parce que que si je mettais positionné à cet instant ou à la moitié de l'intervalle entre t0 et t, ici, j'aurais pas eu le même ensemble de points.
+
+[111:19]
+Donc, cette configuration ω qui dépend du temps, on parle de configuration à l'instant t, de configuration actuelle, courante, ou déformée quand on s'intéresse au domaine déformé. C'est juste pour que vous— si tu— que vous arriviez à vous y retrouver, parce que le jargon, c'est jamais le le même en fonction des personnesnes qui font les énoncés et des cours.
+
+[112:01]
+Euh, donc, en réalité, la configuration ω de t, on peut peut dire dire que c'est l'image de. La configuration ω0, la configuration initiale, par l'application de la fonctionnelle φ à l'instant t. Donc, pour ceux qui ont peut-être déjà joué avec des outils d'analyse d'images, de modification d'images, vous avez plein de fonctions de transformation d'images pour tourner, pour faire un fisheye, par exemple, sur une zone de votre image. Bon, c'est typiquement le genre de transformation que vous pouvez appliquer sur une image.
+
+[112:42]
+Mais là, nous, on va se— on va se référer à des transformations qu'on ne peut faire que sur des corps physiques.qu Donc, vu qu'on n'a pas forcément beaucoup— enfin, on a beaucoup moins de choix que dans les transformations qu'on peut faire avec des— Des transformations d'images. Euh, donc des fois, on oublie d'utiliser le— on rajoute pas les parenthèses, là, pour le ω qui dépendend du temps. Des fois, on le met juste en indice, et puis mêmeême, des fo fois, on le le met pas du tout. Il y a ω0 et ω, ω0, c'est la config initiale, ω de manière implicite, c'est la configuration à l'instant t, ou à l'instant— à l'instant de l'étude.
+
+[113:23]
+Il est assez fréquent, des fois, on va vous demander d'étudier un mouvement avec plein de valeurs de t qui sont possibles, mais des fois, on va vous— on va s'intéresser à regarder juste l'instant à la— à l'instant initial, et puis l'instant final. C'est souvent le cas quand on travaille sur les solides. En gros, on a l'état naturel de notre— de notre éprouvette, et puis on applique le chargement, et puis paf, on s'intéresse à l'état déformé. On ajuste l'état de départ, l'état final, et puis basta. On cherche pas à voir la continuité entre les les deux.— Donc
+
+[114:04]
+Donc on aura pas forcément la dépendance ω. Euh, bon, ben voilà, je pense que j j'ai à peu près tout. Et donc, si vous prenez— là là, par exemple, pour passer de la configuration ω0 à ω de t, je me suisis dit, je— me positionne à t fixé, et je rassassemble toutes les particules et tout le vol volume qui est occupé par ces particules dans la configuration déformée.e, Je peux
+
+[114:49]
+Je peux aussi raisonner à m0 fixé. Je prends une particule, et donc un point m0 fixe, et cette fois je— au lieu de regarder l'espace des particules, je regarde une seule particule, par contre je vais varier le temps, je je trace toutes les positions occupées par ces particules au au cours cours du temps jusqu'à la fin de l'observation, et donc ça, c'est censé me faire une ligne, enfin, une courbe continue, qu'on peut appeler trajectoire.
+
+[115:28]
+Donc c'est la trajectoire du point m0 au cours de la transformation. C'est la suite des positions occupées par la particule. Et généralement, quand on parle d'équation de trajectoire, en fait, ça correspond exactement à la description Lag larangienne du mouvement. Typiquement, bon, je crois que ça arrive là.
+
+[115:56]
+Euh, voilà, c'est exactement ce que— ce qui arrivait sur le slide d'après. On se place à m0 fixé, l'ensemble des points m de t qui sont— qui correspondent à la— à l'application de la— de la fonction de transformation φ, pour chacun à l'instant t, mais pour un seul point m0, c'est la trajectoire de la particule.
+
+[116:24]
+Qui se trouvait en m0 à t = t0. Alors, sur les notations— Oui, ça, ça accepte pas mal de le rappeler, hein. Quand on est très rigoureux, on va écrire que O_m de t, le vecteur O_m de t, c'est égal à la transformation à l'instant t du vecteur O_m0, en gros, hein, le— c'est surtout le point m qui bouge.
+
+[117:14]
+De m0 à m, mais des fois on aura— on sera pas très rigoureux et on écricrira un petit vecteur m comme ça, c'est équivalent, voire même on oubliera de mettre le vecteur et on parlera juste du point m. Mais bon, ça dépend du contexte et de la rigueur avec laquelle on le fera. Donc, là, du coup, ces équations-là, donc les coordonnées x pour chaque vec vecteur de la base i, dépendant du temps, je vais pouvoir les écrire comme la transformation à l'instant t des coordonnées x1, x2, x3, qui représentent les trois coordonnées dans dans la configuration initiale.
+
+[117:51]
+Quand je prends les x minuscules, c'est les coordonnées actualisées, à l'instant t, les x1, x, x3, c'est les coordonnées initiales de ma particule. Et donc, avec ces équations-là, ça, c'est typiquement les équations qui régissent la représentation Lagrangienne du mouvement. Alors, des fois, on garde les minuscules, on rajoute le 0 qui est propre à la configuration ω0.
+
+[118:10]
+Ça dépend des notations. Soyez pas perdus si dans certains exercices vousus avez des fois cette notation-là, que j'essaye de ne pas utiliser. Moi, j'essaye de rester sur c. Donc, on peut, du coup, si on reprend ce principe-là, on peut écrire ça sous cette forme, ou sous cette forme également.
+
+[118:37]
+Euh, oui, paron. Là, le vecteur ou la position du point m0, c'est l'application de la transformée au point m0, mais en se mettant à t = 0. En gros, on n'a rien fait. Et donc, d'une certaine manière, ça permet de— de se donner déjà un outilil pour faire le lien entre— entre ces équations-là et ces équations-l.
+
+[119:02]
+Notamment pour le passage de la représentation.ation à Alors, j'ai eu la remarque, comme quoi c'était censé être bijectif comme application. On va parler des autres propriétés de cette— de cette fonction de transformation φ. Enfin, retenez bien,ien, hein, si— Si le point est passé, Il faut venir avec tout son matos ici.
+
+[119:45]
+Euh, oui, donc, c. Application ou fonction, si vous préférez,. De transformation et ce qui permet de— de transformer en gros les milieux de la configuriguration initiale. Alors, configuration actuelle. Ça, on le note ici. Ne retenez pas juste φ, mais également ce que ça représente. Donc, cette application, cette fonction, elle doit être su suffisamment régulière. Alors, pourquoi elle doit être assez régulière??
+
+[120:03]
+Parce que ça représente les positions et que pour avoir accès aux vitesses, qu' qu'est-ce que je vais faire? Je vais dériver par rapport au temps. Pour pouvoir dériver, il faut que ce soit dérivable, en tout cas par rapport au temps. Première chose. Mais elle ne doit pas être juste régulière par rapport à une évolution en temps, mais aussi par rapport à l'esce.ce.
+
+[120:40]
+Pour garder un aspectect continu. Si j'ai deses. Qui divergent comme ça, là, au fur et à mesure du temps,s, il faut qu'il se passe quelque chose. Il ne faut pas avoir des très fortes discontinuités. Alors, ça a des conséquences sur le jacobien, donc le déterminant de la matrice jacobienne. Alors, en général, ça, ça vous— ça rappelle des mauvais souvenirs de maths quand on fait des changements de de variables. hein, Les matrices jacobiennes, c'est ce qui vous permet de faire le lien entre les variables de— les variables que vous avez utilisées au départ et les variables que vous utilisez à la fin quand vous faites votre changement de variable pour vos intégrales, par exemple.
+
+[121:02]
+Vous ne pouvez pas utiliser le même paramétrage sans— sans prre en compte le jacobien. Là, c'est un petit peu le même principe. Entre les coordonnées actuelles et et les coordonnées initiales, vous avez un changementement de volume. Je prends, par exemple, une configuration initiale. Admettons, je— je vais avoir du mal à le faire avec mes bras, mais je fais ce dilater de la matière dans toutes les directions, le volume va augmenter.
+
+[121:22]
+Donc le système de— Pour faire mes intégrales, qui est basé sur les coordonnées de départ ou les coordonnées d'arrivée, il ne faut pas— il ne faut pas être le même. Je vais avoir un effet du changement de volume. Et donc, justement, le jacobien, qui est le déterminant de la matrice jacobienne, je peux le relier au.
+
+[121:52]
+Gradient de la fonction de transformation. Et je vais avoir des implications sur le fait que ma fonction, elle va être assez régulière, donc il traduit le rapport entre le volume actuel et le volume initial. Donc c'est le v actuel sur le volume actuel sur le volume initial. Ce jacobien. Donc, de manière très naturelle, à t = 0, ce jacobien, il est censé valoir 1. Le volume initial sur le volume actuel, quand l'actuel est égal à l'initial, forcément j'ai v0 sur v0, ça part de 1, forcément.
+
+[122:12]
+Je ne pe faux pas pas— je ne peux pas changer ça. Alors, φ doit être deux fois dérivable par rapport au temps.s, Donc ça, c'est pour être capable de passer des positions aux vitesses, puis aux accélérations. Alors, si je veux pouvoir traiteriter les chocs, il faut que je puisse avoir des discontinuités en temps, par contre.
+
+[122:33]
+Quand vous avez un choc, si vous avez fait la théorie des chocs, au départ vous avez deux vitesses pour deux corps, et puis après collision, paf, vous avez des discontinuités au niveau des vitesses. Donc typiquement, en un nombre fini d'instants qui serait des chocs, vous pouvez avoir des discontinuités par rapport au au temp temps. Mais bon, on ne va pas faire ça, pot potentiellement dans des modèèlesles plus compliqués, on pourrait le.
+
+[123:01]
+À t fixé, du coupup, e. m0 va être transformé en φ(t) pour m0. Donc ça, c'est cette application, ça doit être une bijection qui conserve l'orientation. Pourquoi? Par exemple, moi, vous pouvez faire tout ce que vous voulez m'écarteler ce que vous voulez, jamais vous n'arriverez à faire la transformation de moi en mon image miroir. Jamais vous n'arriverez à faire ça.
+
+[123:32]
+Admettons, vous m m'enlevez un bras, je'ai qu'une main droite, vous ne pourrez pas me faire avoir une main gauche, en me déformant par quelques— quelques procédés que ce soit. Ça, c'est une transformationation, que vous n'êtes pas capable de faire physiquement. Parce que l'image miroir ne conserve pas l'orientation. Vous passez d'une base directe à une base indirecte, quand vous faites une transformation miroir. Donc c'est un exemple parmi les transformations que vous pourrez faire.
+
+[124:07]
+Donc c'est une bijection, ça veut dire que chaque particule, si elle existe dans une configuration, elle doit encore exister dans la configuration de actuelle, et il n'y a pas de— il il n'y a pas de particule qui apparaît, il n'y a pas de particule qui disparaît. Bijection qui conserve l'orientation. Et donc pour ça, ça implique que votre jacobien, à n n'importe quel instant, mais pour une position initiale, il ne peut pas passer par 0. Parce que pour changer d'orientation, il faut que vous passiez par un jacobien qui soitit nul.
+
+[124:35]
+Et en plus de ça, φ, elle est continuement dérivable par rapport aux variables d'espace, donc j doit être continu si vous vous déplacez dans l'espace.ce, Vous pouvez regarder pour un point m0 ou un point m0 qui était juste à côté, ou encore un autre, en regardantant de manière continue, enfin en vous déplaçant dans l'espace, vous ne pouvez pas avoir de grosses variations de j. Ça doit évolueruer de manière continue.
+
+[124:54]
+Donc, si vous tenez compte du fait que à t = 0, ça vaut 1, que ça ne peut pas valoir 0, forcément, vu que ça évolue de manière continue, vous ne pouvez avoir que des valeurs positives du jacobien.ien. Donc là, on a cadré au moins un petit peu la forme que peut avoir notre fonction de transformation d'un point de de vue mathématique.
+
+[125:42]
+On peut rajouter d'autres cadres de régularité, notamment pour s'assurer qu'on a une existence de la solution quand on traite un problème de NDC. Mais bon, ce s sera suffisant pour notre cours. Alors, je vous ai— je vous avais montré une manière d'avoir accès à la vitesse, et je ne ne vous ai pas parlé de quelle vit vitesse il s'agissait.
+
+[126:29]
+Dans la description de la grangienne, toute grandeur physique, elle ne dépend que par— enfin, elle— on peut traiteriter son évolution parce que c'est une fonction du temps et de la position initiale. Et ça représente la valeur à l'instant t de la grandeur au point M, qui lui dépend du temps, mais en se basant sur la particule qui était à l'instant initial en m0. On se réfère toujours à la particule qui était ici au départ de la transformation.
+
+[127:01]
+Donc du coup, si on veut caractériser la vitesse de nos particules dans la représentation de la grangienne, cette fois, on ne va va plus utiliser une différentielle totale, enfin on pourrait, mais en réalité, comme m0 ne dépend— des constantes dans le temps, c'est quelque chose qui ne varie jamais par rapport au temps, la dérivée totale, c'est la dérivée partielle en temps.
+
+[127:35]
+Dans la représentation de la grangienne. Ça, vous pouvez retenir. En la grangienne, en représentation de la grangienne, la dérivée totale en temps, c'est égal à la dérivée partielle en temps. Ce qui simplifie vraiment les choses. Donc pour la vitessesse, on a juste besoin de dériver. La transformation des points d'un point m0 à l'instant t. Donc du coup, c'est bien la dérivée temporelle des x1, x2, x3.
+
+[128:10]
+Petit x1, petit x2, petit x3, qui sont exprimés en fonction des coes. Initiales. Et puis, pareil pour l'accélération, cette fois on dérive à l'instant 2 la fonction de transformation. Est-ce que ça va pour ça? Question.tion Bon, c'est à peu près tout sur la description de la grangienne. On refera le lien avec la description hellérienne.. Là, on a une autre approche pour définir le mouvement, avec l'approche hellérienne, enit.
+
+[128:38]
+On ne va pas retracer la position de ch chacune des particules à partir de leur configuration initiale. Là, il n'y a pas de configuration privilégiée. On oublie le fait qu'il pourrait y avoir une configuration initiale. Nous, ce qui nous intéresse dans la description hellérienne, c'est ce que vaut— alors, pour la description du mouvement, la vitesse, et c'est la vitesse qu'ont les particules quand elles passent en un point fixé de l'espace, à un instant t.
+
+[129:00]
+En gros, la description hellérienne, c'est quand vous regardez votre évier qui se vide, vous vous suivez pas les particules les unes par rapport aux autres. Vous regardez de manière un peu globale, en gros, vous vous regardez en deux secondes : vous avez une idée de comment s'organise le mouvement des particules parce que vous avez une.
+
+[129:19]
+Petite représentation du mouvement, vous avez des petites particules de poussière, par exemple, à la sur surfaceface, et ça va vous permettre de voir que vaut la vitesse en un point fixe de l'espace, mais à un certain instant. Ou vous avez une idée du flux sur une photo, par exemple, qui vous donne une certaine indication sur la vitesse des particules que vous avez prises en pho.
+
+[129:43]
+Donc là, en fait, on va juste— pour décrire le mouvement avec la représentation hellérienne, on a juste besoin d'avoir la vitesse à un instant t, enfin, et du coup à chaque instant t, la vitesse des particules qui passent par un point M. Et on va faire ça sur— on va essayer de répertorier ça sur une grille qui est fixe et qui n'est pas accrochée à la matière.
+
+[130:45]
+En gros, si j'essaye d'appliquer la vision hellérienne sur la déformation que j'ai faite tout à l'heure, que j'ai utilisée pour vous parler de la représentation de la grangienne, je vais garder ma grille d'observation qui ne va pas suivre la déformation de ma grille. Je vais continuer de regarder le point qui était sur le trait bleu, là, au fur et à mes mesure de la déformation, il va quitter sa position initiale. Moi, je vais continuer de regarder au même point pour voir quelle est la vitesse des particules. Mais je peux le faire pour la vitesse, si je cherche à représenter le mouvement, mais je peux aussi mesurer la température des particules qui passent juste à côté de moi. C'est ce que fait une sonde, pour la température, un—
+
+[131:32]
+On va voir. Un capteur de température, voil. Un thermomètre, pareil, voilà. Donc dans cette vision-là, il n'y a pas de configuration particulière, nous, ce qui no nous intéresse, c'est la la configuration à l'instant t. Et en fait, il y a vraiment cette vision de— je regarde à un instant t, paf, je vois le champ de vitesse, et si je fais ça à chaque instant, je je suis capable de reproduire la description hellérienne.
+
+[132:11]
+Donc ce qui m'intéresse, c'est la vitesse de la particule qui passe par le point M à l'instant t. Mon flux, d'où est-il bien?ent, Typiquement, ce que fait un radar qui est posté le long de la route, là, il s'en fout d'ooù vient la voiture qui roule à 150, mais ce qui l'intéresse, c'est de savoir que à l'instant t, la voiture, a immatriculée tant, est passée avec une vitesse de tant au niveau du radar.
+
+[133:02]
+Après, ce qu'elle a fait avant, ce qu'elle a fait après, ce. Sera un autre radar qui s'occupera de voir si elle a décéléré plus loin. Pour avoir l'évolution de la particule. Donc dans cette description, les grandeurs physiques, elles sont définies sur une gr grille fixe qui ne bouge pas.as. Sinon,
+
+[134:08]
+Parce que nous, on peut représenter ça mathématiquement avec des fonctions et tout, mais quand on essaye de se raccrocher à des mesures, par exemple, les mesures, elles sont faites typiquement sur une grille de mesures qui est fixe au départ et qui ne bouge pas.as. Donc voilà, alorsors, est-ce que, déjà, parce que c'est souvent un point qui pose un petit peu problème, entre les deux descriptions, est-ce que c'est à peu près clair, ou est--ce que vous voulez que je revienne sur un point, sur l' l'uneune ou l'autre description du mouvement?
+
+[134:40]
+La différence entre— Al Alorors, d'une certaine manière, c'est— on n n'utilise pas les mêmes variables d'espace pour repérer et pour ré-identifier les particules. Avec Lagrange, on repère les particules par rapport à leur coordonnée dans la position initiale. Donc c'est pour identififier les particules.
+
+[135:23]
+Là, on se base sur les coordonnées actuelles, donc les coordonnées du point occupé par la particule quand elle passe à l'instant t. Et donc, de fait, là, en fait, la grille d'observation bouge avec le cor corps, là, la grille d'observation est fixe. Donc bien bien évidemment, le paramétrage, il fait tououjours intervenir le temps, et.
+
+[136:16]
+On On va a toujours besoin du temps pour passer de la config initiale à l'actuelle. Donc on essaye d'exprimer les nouvelles— les positions actuelles soit en fonction du temps et des coordonnées initiales, soit ici— donc là, c'est plutôt x_i qui va être une fonction φ_i(t) et de X_i. en Comprendre, on on prend les— on utilise une combinaison de toutes les positions.
+
+[136:50]
+Là, ceon va va représenter,— alors je met mets un petit e devant, c. Que c'est en représentation hellérienne. Là, on va exprimer la vitesse, à l'instinstant t, pour une position position fixe actuelle de la particulule et donc on va l'exprimer comme étant une— alors je vais mettre, je ne sais pas, un f_i par exemple, une fonction pour chaque—
+
+[137:29]
+Un e_ii, pour quea marche, ce c'est probable. Ça va comme ç? Est-ce que ça clarifie les choses? C'était surtout l'aspect mathématique ou conceptuellement aussi? Conceptuellement ai. Conceptuellement. Enfin, moi j'aime bien bien le montrer comme ça, soit avec la vision hellérienne, vous mettez des radars partout pour avoir une idée du mouvement des voitures, ça vous donne juste la vitesse des particules des voitures quand elles passent à un endroitit qui est fixe, soit la vision lagrangienne, c'est que vous mettez des puces GPS dans toutes vos voitures, du coup vous enregistrez d'une certaine manière l'évolution à partir de là.
+
+[137:55]
+Position Initiale, et don donc si vous voulez avoir accès à la vitesse, il vous suffit de dériver ça par rapport au temps. Alors que là, vous avez la vitesse uniquement en certains points d'esce. Et ces points d'espace ne bougent pas. On aura l'occasion de revenvenir là-dus. Alors, ces deux représentations qui sont différentes, parce qu'elles n'utilisent pas le même repérage dans l'espace, en réalité, mais elles peuvent dialoguer.
+
+[138:43]
+On peut passer d'une représentation à l'autre, c'est un changement de variable en réalité, et donc il il y y a équivalence, il y a égalité entre une fonction scalaire f qui va être représentée en hellellérien, donc avec le petit e, mais là, de toute façon, on voit que c'est en hellérien parce que c'est fonction de t et de m, et pas m0, m c'est la position actuelle de la particule, et donc c'est comme si c'était la fonction f qu'on a s'il n'y a pas de E devant, c'est que plutôt du lagrangien, à l'instant t, de la l'application inverse de la transposée, si je repars de l'instant actuel, de la position actuelle, j'applique la transformation inverse, je rembobine et je reviens à la position initiale.
+
+[139:18]
+Et donc ça, c'est comme si c'était m0 en réalité. C'est juste un un changement de variable. Et donc de la même manière, je peux le faire dans l'autre sens, la représentation lagrangienne de la fonction scalaire f en fonction de t et et don donc de la position initiale, c'est comme si c'était la représentation hellérienne à la fonction f en représentation hellérienne, en me positionnant cette fois au point m qui correspond à la transformée de m0, et je coupe l'embout, enfin c'est juste une notation différente.
+
+[139:39]
+Donc là, j'ai écrit tout avec un espèce de paramétrage en m, et là en m0. Donc ça peut— vous pouvez avoir équivalenceence, mais par par contre les fonctions f en représentation lagrangienne et hellérienne, ce sont des fonctions qui ont des formes différentes, c'est juste qu'elles ne sont pas— elles ne font pas appel aux mêmes paramétrages de l'espace.
+
+[140:00]
+Mais elles ont des formes différentes, si vous regardez la forme de la fonction. C'est deux applications différentes. Par contre, elles représentent bien la même quantité, la même grandeur physique, et cette grandeur physique, elle elle s'applique bien pour la même particule en réalité. C'est juste qu'on ne repère pas la particule avec le même paramétrage dans l'espace.
+
+[140:24]
+Si vous avez retenu ça et que vous avez compris un peu cette gymnastique-là, vous av avez déjà fait une grosse partie du travail. Bon, du coup, on a une équivalence entre les deux descriptions, mais ça ne nous explique pas comment on fait pour passer de l'une à l'autre, parce que typiquement, si on vous donne l'expression d'un mouvement avec la vitesse hellérienne, donc avec la représentation hellérienne, comment est-ce qu'on pourrait faire pour repasser à à une vision plutôt lagrangien?
+
+[140:58]
+Si vous connaissez la description lagrangienne, vous avez ça, vous pouvez vous dire, ce que je veux finalement, la vitesse, en fait c'est x_i points, vo êtes d'accord avec ça? Mais il doit être exprimé en fonction, alors je vais mettre un autre bx. I, enfin du temps, et des x_i. Ça dépend du temps, et des coordonnées actuelles.
+
+[141:17]
+Je peux dire que la première éta étape, ce serait de pouir arriver à ça, ce serait déjà de bien déririverver par rapport au temps ces équations. Est-ce que vous êtestes d'accord? Au moins, j'aurais bien le même type de quantité, j'aurais au moins quelque chose qui correspond à une vitesse.
+
+[141:42]
+Sauf que là, c'est exprimé en fonction des des coordonnées initiales, donc ce n'est pas le bon paramétrage. J'ai le bon type de quantité, mais il n'est pas exprimé dans le bon paramétrage. Don Doncc pour repasser dans le bon paramétrage, il. Faudrait que j'arrive à faire un changement de variable pour changer le paramétrage des coordonnées initiales aux coordonnées actuelles.
+
+[142:11]
+Donc Soit ça, je peux le faire en identifiant que dans la forme obtenue là, donc ça veut dire qu'ici j'ai les x_i points comme étant— alors je vais prendre des des fonctions h_i, qui dépendent de t et de x_i. Et donc là, il faut que je passe un changement de variable. Donc soit j'arrive à identifier que que dans cette forme, je vois quelque chose qui ressemble à ça, ok.
+
+[142:32]
+J'arrive à identifier qu'il y a quelque chose qui ressemble à la forme de x1, par exemple, et donc je l'identifie et je le remplace, ça c'est une manière de faire, soit je faisais vraiment de manière beaucoup plus mathématique un changement de variable. Parce que je connais le lien entre ces deux, entre ces deux types de variables, finalement, j'ai trois équations scalaires qui me mettent en relation les petits x_i et les grands x_i.
+
+[143:01]
+Donc ça, c'est la première méthode, je n'en dis pas plus parce qu'on fera des exerciceses, pour s'entraîner. Pour aller dans l'autre sens, donc pour aller par là, du coup, j'ai cette— en gros, j'ai cette information. En réalité, il va falloir que je résous à nouveau. L'équation différentielle, parce que là, j'ai les x_i points fonction des x_i, en réalité.
+
+[143:18]
+Donc j'ai des équations différentielles qui port portent sur les différents petits x_i.i. Mais est-ce que ça suffit? Si j'ai un système d'équations différentielles et c'est une équation différentielle en temps, qu'est-ce qu'il me manque pour construire le système d'équations différentielles complet?
+
+[144:18]
+Les conditions initiales. Et les conditions initiales, c'est tout simplement que les x_i de t, ce sont en fait les. Φ_i de t = 0. Enfin, les x_i c'est égal à Φ_i de t = 0. Non, Parce que ça, c'est plutôta. Je vais peux relier, voilà, x_i de t = 0, c'est égal à xi. Tout simplement. Et donc ça, ça me fait une.
+
+[144:46]
+Condition initiale, et donc si je rajoute ça et ça, il est a un système de qualif. Est-ce que vous voulez. Donc là, en gros, en intégrant cette équation différentielle, vous avez une— vous allez faire apparaître des constantes d'intégration.ation, Qont correspondre en fait aux. Vous allez pouvoir déterminer à partir des conditions initiales.
+
+[145:45]
+Vous avez φ de. Autrement dit, c'est que vous avez φ de t = 0. De x_i qui est égal— enf à un parudamitètre à égalité 0. Donc voilà, vous avez grosso modo les— vous avez la preuve qu'on peut passer d'une représentation à l'autre sans trop de de difficulté, en fait. Alors, oui. Donc quand vous êtes en représentation Eulérienne, donc on a vu tout en haut là, là, je vous ai mis, en Lagrangien, la dérivée totale en temps, c'est égal à la— enfin, c'est exactement la dérivée partielle en temps.
+
+[146:31]
+En Eulérien, c. Pas Ça dans mes petites notes de côté. En Eulérien, alors j'utiliserai des fois juste la grande lettre E pour aller plus vite.e, En Eulérien, la dérivée totale en temps, ce n'est pas la dérivée partielle en temps. Typiquement, pour l'accélération, je prends cet exemple qui est assez parlant, si vous avez déjà conduit sur éventuellement, ou que vous êtes déjà, que vous avez été dans une voiture qui conduit sur le périph, c'est assez fréquent qu'à un moment vous passez de quatre voies à trois voies, et mécaniquement, tout le monde ralentit.
+
+[146:46]
+Quelqu'un qui est sur un pont et qui regarde à cet endroit, à ce niveau-là, les voitures ralentir, quand il regarde l'écoulement, il voit tout le temps la même chose, les voitures passent de 50 à 40 km/h, et puis peut-être après ça réaccélère, et pour lui il voit tout le temps la même chose.
+
+[147:06]
+La dérivée partielle en temps du champ de vitesse, pour lui, ne change pas. Par contre, les voitures, les particules, elles ressentent une accélération, une décélération, don doncc vous ne pouvez pas vous contenter de regarder la dérivée partielle en temps de la vitesse, des particules, dans représentation Eulérienne, pour caractériser l'accélération des particules.
+
+[147:41]
+Ce que— ce dont vous avez besoin, c'est le terme qui va arriver ici, là, de je ce sp troile un un peu la forme, qui représente le gradient de la fonction qui correspond à la vitesse, donc l'évolution de la vitesse par rapport à l'espace, et que vos particules, elles arrivent dans— elles se déplacent dans un ch champ où la vitesse globale des particules ralentit, et don du coup ça va générer un terme de ralentissement, si vous voulez, de décélération. Ici, dans le cas de l'exemple que j'ai pris du ralentissement. sur le
+
+[147:58]
+Donc là, je vous ai expliqué avec les mains pourquoi vous ne pouvavez pas se contenter juste de la dérivée partielle en temps.s, Apr Après, on peut redémontrer de manière rigoureuse, mathématiquement. Parce que cette fois, vous utilisez un paramétrage en fonction des coordonnées m qui sont fixes.
+
+[148:32]
+Donc, vous avez une grandeur F, avec sa représentation Lagrangienne, sa représentation Eulérienne, vous essayez de de relier les dérivées temporelles que que vous avez, comme cela, la dérivée totale de la représentation Eulérienne de la fonctionction scalaire F, parce que je ne parle pas de vitesse, là, c'est une température, par exemple, une température scalaire, ça correspond à la dérivée temporelle de la même fonction, mais sur c'est celle qui y estit paraméétréeé par rapport à m0, parce que que j j'ai remplacé m par sa transform— par la transformée de m0.
+
+[149:03]
+Et donc du coup, ça correspond, du du co coup, on a a vu que ce qu'il y a entre crochets, c'est exactement ça. C'est la représentation Lagrangne.ien Donc il y a équivalence entre la dérivée totale en temps d'une fonction en représentation Eulérienne, et l'équivalence, la même grandeur, mais une dérivée partielle en temp temps de la même quantité, mais en représentation Lagrangienne.
+
+[149:43]
+Et en gros, vous pouvez très bien le retrouver, vous faites la dérivée totale de cette fonction, et du coup, c'est censenséé être, alors moi je n'ai pas fait la— ce n'est pas la démonstration, mais vous avez la v— si vous passez par la diff différentielle, très rapidement, d deux de F, donc qui dépend de t et de m, si vous êtes habitué au différentiel, vous allez prendre la dérivée partielle en temps fois un petit dt, plus la dérivée partielle de F par rapport à m, fois un petit dm.
+
+[150:17]
+Vous divisez le tout par dt, et. Donc du coup ça vous donne la différence, la dérivée totale en temps de cette fonction-là, du coup vous n'avez plus que d de F sur dt, plus d de EF par rapport à l'espapace, fois dm sur dt, et ça, c'est la vitesse Eulérienne, en fait. Ça, La dérivée partielle d'une fonction scalalaire par rapport à l'espace, c'est le radio.io,
+
+[150:42]
+Le gradient en coordonnées Eulériennes. C'est exactement ce que vous retrouvez là. Donc dans la dérivée temporelle d'une quantité qui est décrite en représentation Eulérienne, vous avez le terme vraiment instationnaire, qui est la dérivée locale, et puis vous avez ce qu'on appelle le terme convectif, donc—
+
+[151:02]
+Quiui est lié à la variation du champ et au fait que les particules se déplacent dans un champ, par exemple ça pourrait être un champ de température, si vous avez un champ de températurere, et qu'il fait chaud ici et froid là, c'est les particules se déplacent de cette zone à cette zone-là, elles voient qu'elles perdent de la chaleur.ur,
+
+[151:23]
+Parce qu'elles se déplacent dans un champ où il fait chaud et puis petit à petit il fait fid. C'est exactement la même chose que pour l'accélération. Mais vu que c'est stationnaire, ici il fait tout le temps la même température, et au bout il fait tout le temps la même température. Vous saisissez l'origine des deux termes à peu près, vo.
+
+[151:52]
+Et donc justement, alors on peut parler de dérivée partielle, enfin de dérivée totale en temps, mais en fait dès qu'on commence à calculculer une dérivée en temps, on on parle de dérivée particulaire, et la dérivée particulaire en représentation Lagrangienne, en fait c'est tout simplement la dérivée partielle en temps, quand vous êtes en.
+
+[152:10]
+Représentation Eulérienne, il faut rajouter justement ce terme convectif. Alors il arrive des fois, là, dans le cadre de ce module, je la note bien avec un petit d, vous verrez des fois que la dérivée particulaire, on la note comme ça. Avec un grand D. Vous avezez peut-êtreêtre déjà vu ça—
+
+[152:40]
+Dans d'autres UE, dans d'autres textes. Pour la démonstration, on va passer, je crois que je vous l'ai faite un petitit peu rapidement, mais bon, je vous l'avais dans le colis. Je vais essayer de ne pas passer trop de temps sur les démonstrations, parce que ça aide à manipuler les termes. Donc là, je voulais montrer pour une grandeur sc scalaire, mais en fait ça marche pour tout type de grandeur, une grandeur vectorielle comme la vitesse, mais ça pourrait être aussi valable pour une déformation.
+
+[153:01]
+Une Grandeur tensorielle, enfin tenseur du second ordre. Du coup, là vous l'avez pour l'accélération, typiquement. Bon, l'accélération ici, en Lagrangien, vous pouvez l'exprimer comme étant la dérivée partielle en temps de la vitesse Lagrangienne, donc tout le temps avec un paramétrage sur les coordonnées initiales.
+
+[153:24]
+Mais c'est aussi égal à la dérivée totale en temps de la vitesse Eulérienne, avec le paramétrage par rapport aux coordonnées actuelles. Et donc du coup, si vous séparez ça en deux termes, le terme instationnaire local, et le terme convectif ici, avec le gradient de la vitesse Eulérienne, enfin oui, le gradient de la vitesse Eulérienne fois la vitesse Eulérienne, jusqu' ce que vous retrouvez ici.
+
+[153:58]
+Alors, là je note encore des petits indices E pour préciser qu'on est en représentation Eulérienne, petit à petit je je vais plus utiliser ça. Parce qu'en fait, ce qui va nous dire si on est en représentation Eulérienne ou Lagrangangienne, c'est tout simplement le paramétrage qui est utilisé ici. Est-ce que c'est en fonction des coordonnées initiales, ou actuelles? Est-ce qu'on utilise les grands X ou les petits X, les m0 ou les grands M, pour paramétrer et? pourour se repérer dans l'espace, pour repérer les particules??
+
+[154:31]
+Donc voilà, c'est à peu près ça, et puis oui, des fois la dérivée totale ça arrive, on la note avec juste un point par-dessus, vo. Dans les différents ouvuvrages.es, Alors, souvenez-vous, j'ai parlé des trajectoires, les trajectoires, c'est qu'on retrace toutes les positions qui sont occupées pour une particule avec une position de départ, m0, en faisant évoluer le temps.
+
+[155:12]
+Donc en gros c'est avoir cette équation-là pour chaque coordonnée initiale. Pour toutes les coordonnées initiales de tous les points, si je peux retracer toutes les particules. Si vous avez la fonction analytique de φ, votre fonction qui trans transforme votre milieu, vous pouvez l'appliquer pour le point M qui correspond aux coordonnées (0, 0, 0) par exemple, mais vous pouvez aussi l'appliquer pour (1, 0, 0), et donc du coup vous pouvez retracer les équations qui correspondent aux trajectoires de vos particules. Donc ça c'est une vision qui est des trajectoires, c.
+
+[155:43]
+Fortement associé à la vision Lagrangienne.ne, La vision Eulérienne, on a plutôt—ut. Des lignes de courant, alors il y a les lignes d'émission aussi, ça c'est marrant. Les lignes de courant, en gros, ce sont des lignes qui rejoignent tous les endroits où la vitesse est tangente.ente, Et donc ça se décrit mathématiquement comme ça.
+
+[156:05]
+En gros, si vous vous déplacez un petit peu dans l'espace, avec un petit dm, normalement si vous fa faitesites produit vectoriel avec la vitesse Eulérienne, vous obtenez le le vecteur milieu. Ça veut dire que vous avez tangence dans tout point de l'espace entre ce qui décrit une l'é évolutionvolution, comment va évoluer votre ligne de courant, et la vitesse Eulérienne.
+
+[156:35]
+Alors du coup ça vous donne des— pareil, des équations différentielles qu'il faut intégrer, mais surtoutut on ne sait pas, par rapport à l'esce. On fera des Des petites applications. Chose marrante, j'aurais pu rajouter, vous avez les lignes d'émission. Les lignes d'émission, c'est que vous êtes en représentation Eulériérienne, vous vous mettez en un point, en gros vous lâchez du colorant dans votre écoulement, et vous regardez ce que ça va donner au fur et à mesure du temps.
+
+[157:00]
+Donc c'est pour. Comme c. Ne correspond pas aux trajectoires, parce qu'à chaque fois que vous allez lâcher du colorant, ça ne va pas être les mêmes particules qui vont prendre le courant. Si vous avez un écoulement qui varie au cours du temps, au départ vos particules elles vont peut-être partir dans une direction, mais après elles vont peut-être aller dans une l' autautre direction.
+
+[157:23]
+Pensez par exemple à un mouvement, par exemple vous voulez un mouvement en rotation, par l'effet de la force centrifuge, ça va vous donnerner des espèces de spirales. Ce qui ne correspond pas forcément aux trajectoires des particules. Alors, oui, petite particularité sur les lignes de courant, moi je crois que ça va arriver après.
+
+[157:43]
+Si jamais vous avez un mouvement qui est stationnaire, trajectoires et lignes de courant sont conf confondues.es. Je crois que que ça va arriver après. Alors, vous êtes en description Eulérienne, donc vous avez une description du champ de vitesse pour chaque position à n'importe quel instant, c.
+
+[158:10]
+Si ce champ de vitesse ne dép dépend pas du temps, par définition on dit qu'il est stationnaire. Donc c'est une définition, mais c'est du jargon. Mais le fait que votre mouvement soit stationnaire, ça implique certaines propriétés. On va voir, on va voir la suite. Vous avez peut-être déjà entendu parler d'incomcompressibilité, alors souvent on parle de charge incompressible, donc c'est plutôt comme ça qu'on entend ça.
+
+[158:30]
+Les charges dans votre budget, il y a des choses, vo vous ne pouvez pas diminueruer la place qu'elles vont prendre. Bon ben là, on applique ça plutôt au volume des particules, et donc dans un un mouvement qui est dit incompressible, c'est la divergence du champ de vitesse Eulérienne qui va être égale à zéro, même si vous ne savez pas calculer une divergence pour l'instant.
+
+[159:01]
+Vous pouvez retenir que la divergence d'un champ de vitesse nul, ça correspond à un mouvement incompressible, sans changement de volume. Un volume constant, on parle de transformation isochore aussi. que vous avez déjà entendu par Et alors ce n'est pas irrationnel, c'est irrotationnel, irrotationnel ça veut dire qu'il n'y a rien. Un rotationnel, qui est égal à zéro, est l'opérateur différentiel rotationnel, c'est quelque chose qui permet d'extraire la courbure locale d'un champ.
+
+[159:22]
+On peut l'appliquer que pour des ch champs de vecteurs ou des tenseurs, pour au moins que vous ayez— que vous soyez à l'ordre 1, que vous n'ayez pas d'aspect rotationnel dans un champ de température, ça n'a pas de sens. Et donc si votre mouvement est irrotationnel, du coup a priori pour un mouvement il n'y a pas de rotation, ni au niveau local ni au niveau global.
+
+[159:40]
+Par contre si votre rotationnel est constant, c'est qu'à priori vous avez plutôt un mouvement de rotation de corps rigide dans votre mouvement. Alors si jamais vous êtes dans le cadre d'un mouvement stationnaire, vous avez— alors pas équivalence, mais les lignes de courant et les trajectoires qui sont confondues.
+
+[159:59]
+Ça veut dire que si vous cherchez à avoir les lignes de courant, et que vous avez déjà les équations de trajectoires, vous avez déjà la représentation Lagrangienne, ce ce n'est pas forcément très utile de vous embêter à résoudre ces équations. Vous pouvez directement dire que les lignes de courant sont confondues avec les trajectoires.
+
+[160:33]
+Néanmoins, c tr très important, si les trajectoires et les lignes de courant sont confondues, ça ne veut pas dire que le mouvement est stationnaire. Il y a a une une implication, mais pas une équivalence entre les deux. Typiquement, vous prenez un mouvement sinusousoïdal d'une particule qui mon monte et qui descend, bon ben la trajectoire et les lignes de courant sont bien confondues, on est est d'accordord, c'est juste une ligne droite, mais est-ce que le mouvement est stationnaire? Pas du tout. Accélération, décélération, accélération, décélération, etc.
+
+[161:04]
+Bon, c'est juste un petit garde-fou pour ne ne pas tout mélanger, si c'est stationnaire, les lignes sont confondues, les lignes et les trajectoires sont confondues, mais ce n'est pas la réciproque, ce n'est pas— On va s'intéresser maintenant au cas des corps rigides. Donc là, les mouvements particuliers, c'est valable pour les corps qui se déforment.ent,
+
+[161:27]
+Et faites attention, ce n'est pas parce qu'un mouvement est incompressible qu'il n'y a pas de déformation. La déformation ce n'est pas uniquement une variation de volume. Vous pouvez avoir des déformations qui se font à volume constant. On aura l'occasion de revenir là-dessus, mais de mélanger pas l'aspect incompressible et l'aspect des déformables.
+
+[161:54]
+Déformation.ation, Par contre le fait d'avoir un mouvement qui est incompressible, ça limite le type de déformation que peut subir votre milieu. Alors, on revient au cas des corps rigides, qui du coup, par définition, un corps rigide qui a quel type de mouvement il peut subir? Par Parmi ceux qu'on vient de voir, là, les trois, donc je vous rappelle, il y a stationnaire, incompressiblele, et irrotationnel.
+
+[162:34]
+Par définition, lequel des trois est obligatoire pour un corps rigide? Alors, qui dit irrotationnel? Personne. C'est bizarre, j'ai cru l'entre. Qui dit un stationnaire? Par définition. Qui dit un compressible? Un petit effet Mais oui, un compressible, ce n'est pas— ça ne contient pas toutes les— tous les typ types de déformation, mais l'incompressibilité implique— pardon, le fait que que ce ce soit compressibible implique qu'il y ait une déformation. Si le milieu n'est pas censé être déformable, vous ne pouvez pas le comprimer.
+
+[163:00]
+Alors, si on prend un milieu continu et que qu'on prend un milieu continu qui n'est pas forcément un corps rigide, mais qui suit un mouvement de corps rigide, alors pour— juste pour faire la la nuance, je suis un corps déformable, je peux même me casser une jambe, ça m'est arrivé il n'y a pas longtemps.
+
+[163:17]
+Quand bien même je suis déformable, je peux suivre un mouvement de corps rigide, je peux me déplacer justeuste en translation dans l'espace. Ou même en rotation.ation, Je ne veux pas le faire devant vous. Voici un un exemp exemple, comme ça, ça reste un peu très simple. Je ne veux pas le faire dans les autres axes.
+
+[163:54]
+Donc vous prenez un milieu continu qui suit un mouvement de corps rigide, ou un. Solide rigide. Vous suivez un mouvement de corps rigide, si et seulement si vous pouvez trouver, enfin si pour— enfin si vous avez pour tout point, pour tout couple de particules une particule m, une particule n, si le vecteur qui rejoint les positions actuelles du point n et du point m, des deux particulules que vous suivez dans l'espace, si vous pouvez la la représenter comme étant le produit d'une matrice du.
+
+[164:31]
+J'ai laissé ce type de notation, n'est-ce pas? Pour moi, quand je mets une double barre là là comme ça, c'est pour éviter de de faire du drape au tableau, après c'est compliqué. Mais c'est une matrice où un tenseur du second temps.s, Donc si vous pouvez le mettre, enfin vous pouvez l'exprimer comme étant le produit d'une matrice avec un vecteur, bon là j'aiai noté avec un point là qui correspond au produit contracté. Simple, le produit scalaire c'est le cas particulier du produit contracté simple entre deux vecteurs, là c'est le produit contracté simple entre un tenseur dans deux, et un vecteur.
+
+[164:53]
+Mais en réalité c'est un produit matrice-vecteur. Ça vous savezez faire généralement, vous auriez dû programmer pas mal de choses ici. Mais avec un opérateur matrice, Q qui a une forme bien spécifique, qui correspond à une isométrie directe, ou un opérateur orth pologonal si vous voulez, bref, une matrice de rotation.
+
+[165:15]
+Votre solide ou votre corps, que ce soit forcément un solide, qui va se déplacer suivant un mouvement de corps rigide, que si les le vecteur qui relie deux particules qui sont bien identifiées dès le départ, en en fait vous retrouvez le vecteur qu'en ne faisantant que des rotations de ce vecteur.
+
+[165:39]
+Il n'y a pas d'élongation de ce vecteur, il n'y a que des rotations. Et ça c'est valable pour chaque couple de particules, ça veut dire que c'est valable dans cette direction, dans cette direction, ici, là, là, là, là. Quel que soit le couple de particules. D'accord? On ne vous demande pas de montrer pour chacune des particules, mais on va voir qu'on a des moyens de montrer.
+
+[165:59]
+Donc si mon opérateur Q à ma matrice de rotation ce tenseur-là est une matrice de rotation, ça veut dire que le produit entre la transposée de cette famille avec cette notation pour la transposée, la notation francophone c'est un pet petit T devant, deux fois le là le T transposée arrive après la.
+
+[166:18]
+Matrice qu'on transpose. Donc le produit entre la transposée de la matrice Q et cette matrice Q me donne une identité, et c'est une isométrie positive, c'est bien une matrice de rotation pas une matrice qui permet de faire la transformation miroir de mon domaine, parce que le déterminant de cette matrice est aussi égal à 1.
+
+[167:07]
+C'est comme ça que je peux dé définir— enfin que je peux cadrer la forme de ma matrice Q. Donc si je me base là-dessus, en fait je peux représenter l'évolution du vecteur OM en fonction du temps, comme étant composé d'un vecteur qui. Constant dans l'espace mais qui dépend du temps, parce que quand je suis un mouvement de corps rigide, je peux très bien commencer lentement et puis accélérer, pour la partie translation, et pareil pour la partie rotation, j'ai une matrice Q qui pour le coup est homogène, elle est la même partout dans l'espace, ma matrice de rotation, vu que c'est un mouvementement de corps rigide, que je vais appliquer sur le vecteur OM0.
+
+[167:30]
+Donc je peux réexprimer ça comme quelqueque chose qui— ce vecteur-là, il leur. Qui permet de représenter la position actualisée qui dépend de l'espace, au travers de ce vecteur-là, enfin du du vec vecteur qui correspond à la position initiale de la particule, mais par contre ce qui caractérise le mouvement c'est le vecteur de translation, la matrice de rotation.
+
+[167:54]
+C'est la décomposition de n'importe quel mouvement de corps rigide en une partie translation et une partie rotation, c'est la base de la décomposition de la cinématique d'un corps. Et donc du coup, au lieu de le mettre sous cette forme, avec une matrice qui a une forme bien particulière, si c'est une matrice de rotation elle a une forme bien particulière, je peux mettre sous—
+
+[168:18]
+Je peux retrouver la vitesse de la particule m, enfin qui occupe la position n à un instant t, en fonction de la vitesse occupée par la particule m. En passant par un vecteur de rotation, et là je ne fais plus un produit— Matrice-vecteur, je fais un produit vectoriel entre un vecteur et un autre vec vecteur.
+
+[168:44]
+En gros, c'est le lien entre un produit vec vectoriel et un un tenseur en partie symétrique. Et ce vecteur rotation-là, il ne dépend que du temps, il ne dépend pas de l'espace, tout comme la matrice de rotation ne dépend que du temps et pas de l'espace. Donc on parle de vecteur de vitesse de rotation instantantanée.
+
+[169:37]
+Isométrie entre Dans le. L'entraînînement, ça n'a pas trop mal avancé, cinq minutes d'avance sur la scne. Sur l'attente de la séance. Question : avant qu'on aille manger, parce qu'on ne va peut-être pas commencer un nouveau chapitre, enfin enin. Est-ce que je vous teste tout de suite? Comme vous avez dit, je'ai rien Du coup, si on s'arrête maintenant, on essaie de reprendre dans une heure pile, je suis désolé, ça fait un peu short, mais c'est très condensé.
+
+[169:55]
+On reprend à 40, 13h40? C'est bon pour tout le monde?

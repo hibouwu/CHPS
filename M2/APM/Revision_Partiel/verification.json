@@ -46,14 +46,14 @@
   ],
   "documents": {
     "fr": {
-      "local_links_checked": 43,
-      "bytes": 108717,
-      "pdf_pages": 39,
+      "local_links_checked": 46,
+      "bytes": 105429,
+      "pdf_pages": 37,
       "pdf_bookmarks": 69
     },
     "zh": {
-      "local_links_checked": 43,
-      "bytes": 92679,
+      "local_links_checked": 46,
+      "bytes": 90077,
       "pdf_pages": 31,
       "pdf_bookmarks": 69
     }

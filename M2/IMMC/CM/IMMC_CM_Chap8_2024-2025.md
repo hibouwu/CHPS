@@ -126,7 +126,9 @@ Les champs de contrainte $\boldsymbol { \sigma } ^ { \star }$ et $\mathbf { K } 
 
 Proposition 8.8 La relation de comportement (8.4) est vérifiée presque partout dans $\Omega$ si et seulement si $\|\sigma-\mathbf K:\varepsilon(\vec u)\|_{\mathcal S}=0$. Sous une hypothèse de continuité des champs, elle vaut alors partout.
 
-> **Précision théorique (PDF, p. 3, proposition 8.8).** Une norme intégrale nulle donne en général une égalité presque partout ; l’égalité en chaque point demande une régularité supplémentaire.\n\n## 8.2.2 Erreur en relation de comportement
+> **Précision théorique (PDF, p. 3, proposition 8.8).** Une norme intégrale nulle donne en général une égalité presque partout ; l’égalité en chaque point demande une régularité supplémentaire.
+
+## 8.2.2 Erreur en relation de comportement
 
 Un couple $( \vec { u } , \sigma )$ est appelé solution approchée admissible du problème d’élasticité si $\vec { u }$ est CA et si $\sigma$ est $\mathsf { S A }$
 

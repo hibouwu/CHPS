@@ -1,5 +1,9 @@
 # 练习 1 -- 刚体旋转运动与变形
 
+题面见 [TD2](中文版/TD2_变形_2026-2027.md)。这里练习 1 为旋转、练习 2 为简单剪切，与今年题目顺序相反。
+
+**Rotation et déformation.** Un cylindre effectue une rotation rigide d’angle $\theta=\omega t$ autour de $(O,\mathbf e_3)$. On compare la mesure exacte de Green–Lagrange à la mesure linéarisée, puis on précise les restrictions imposées par l’HPP.
+
 我们考虑欧几里得空间 $E$，其正交基为 $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$。 以下关系定义了一个**绕轴 $(O, \vec{e}_3)$ 以角速度 $\omega$ 旋转的刚体**（见图 1.1）的运动。 $\vec{X}$ 和 $\vec{x}$ 分别表示质点在初始时刻 ($t=0$) 与当前时刻的空间位置：
 
 $$
@@ -16,6 +20,8 @@ $$
 ---
 
 ## 问题 1.1：给出该运动的拉格朗日描述与欧拉描述（参照 TD1）。
+
+Donner les descriptions lagrangienne et eulérienne de ce mouvement (déjà abordé dans le TD1).
 
 #### 解答：
 
@@ -37,11 +43,11 @@ $$
 
 ---
 
-求导可得： 
+求导可得：
 
 $$
 \begin{aligned}
-\dot{x}_1 &= \omega[-X_1\sin(\omega t) - X_2\cos(\omega t)] 
+\dot{x}_1 &= \omega[-X_1\sin(\omega t) - X_2\cos(\omega t)]
 \quad \text{由 (∗1.2) 可得 } \dot{x}_1 = -\omega x_2 \\[4pt]
 \dot{x}_2 &= \omega[X_1\cos(\omega t) - X_2\sin(\omega t)]
 \quad \text{由 (∗1.1) 可得 } \dot{x}_2 = \omega x_1 \\[4pt]
@@ -49,7 +55,7 @@ $$
 \end{aligned}
 $$
 
-因此对应的欧拉速度分量为： 
+因此对应的欧拉速度分量为：
 
 $$
 \boxed{
@@ -68,9 +74,11 @@ $$
 
 ## 问题 1.2：计算变换梯度张量 $F$ 与 Green-Lagrange 变形张量 $E$，并对结果进行评论。
 
+Calculer le tenseur gradient de la transformation F, puis le tenseur des déformations de Green-Lagrange E. Commenter le résultat obtenu.
+
 #### 解答：
 
-根据轨迹方程 $\varphi$ 对初始坐标求导，可以得到**变换梯度张量**： 
+根据轨迹方程 $\varphi$ 对初始坐标求导，可以得到**变换梯度张量**：
 
 $$
 F = \nabla_{\!X}\varphi = \dfrac{\partial \overrightarrow{OM}}{\partial \overrightarrow{OM_0}} =
@@ -84,7 +92,7 @@ $$
 
 ---
 
-Green--Lagrange 变形张量由 Green--Cauchy 右延伸张量 
+Green--Lagrange 变形张量由 右 Cauchy–Green 伸长张量
 
 $$
 C = F^T F
@@ -134,6 +142,8 @@ $$
 
 ## 问题 1.3：在小扰动假设下，给出线性化变形张量 $\boldsymbol{\varepsilon}$。
 
+En faisant l’hypothèse des petites perturbations, donner le tenseur des déformations linéarisées $\boldsymbol\varepsilon$.
+
 #### 解答：
 
 **回顾：** 在线性小变形假设（*Hypothèse des Petites Perturbations, HPP*）下，线性化变形张量 $\boldsymbol{\varepsilon}$ 定义为：
@@ -155,7 +165,7 @@ $$
 根据已知轨迹方程，可写出位移场：
 
 $$
-\vec{u}(t) = 
+\vec{u}(t) =
 \overrightarrow{OM}(t) - \overrightarrow{OM_0}
 =
 \begin{pmatrix}
@@ -216,6 +226,8 @@ $$
 
 ## 问题 1.4：应满足怎样的条件才能使小扰动假设（HPP）有效？
 
+Quelle est l’hypothèse à formuler sur θ pour que l’hypothèse HPP soit effectivement vérifiée ?
+
 #### 解答：
 
 为了使小扰动假设成立，必须满足：
@@ -229,99 +241,19 @@ $$
 \quad (∗1.14)
 $$
 
----
-
-考察函数 $\cos\theta - 1$ 与 $\sin\theta$ 及其绝对值在区间 $[-\pi, \pi]$ 上的变化：
+令 $\bar\theta$ 为 $\theta$ 模 $2\pi$ 后落在 $[-\pi,\pi]$ 的代表值。在参考构形附近，条件化为
 
 $$
-\begin{array}{cc}
-\text{左图：} & 
-\text{右图：}\\[6pt]
-f(\theta) = \cos\theta - 1,\; \sin\theta
-&
-f(\theta) = |\cos\theta - 1|,\; |\sin\theta|
-\end{array}
+|\bar\theta|\ll1\quad\text{（以弧度计）}.
 $$
 
-（此处原文对应图像：显示 $\sin$ 与 $\cos - 1$ 的曲线以及其绝对值在 $[-\pi, \pi]$ 区间的变化趋势。）
+因为 $\sin\bar\theta=\bar\theta+O(\bar\theta^3)$、$\cos\bar\theta-1=-\bar\theta^2/2+O(\bar\theta^4)$，位移梯度中的一阶旋转项很小时，二次项才能忽略。于是 $\boldsymbol\varepsilon=O(\bar\theta^2)$，在一阶近似中为零，与精确结果 $E=0$ 一致。
 
----
-
-可以区分以下情况：
-
-#### 情况 1：$\theta \in [-\pi/2, \pi/2]$
-
-若 $|\sin\theta| \ll 1$，则： 
-
-$$
-\begin{cases}
-\sin\theta \ll 1, & \text{若 } \theta \in [0, \pi/2]\\[4pt]
--\sin\theta \ll 1 \Rightarrow \sin(-\theta) \ll 1, & \text{若 } \theta \in [-\pi/2, 0]
-\end{cases}
-\quad (∗1.15)
-$$
-
-由于 $\arcsin$ 在 $[-\pi, \pi]$ 上为单调递增函数，因此：
-
-$$
-\begin{cases}
-\theta \ll \arcsin(1) = \pi/2, & \text{若 } \theta \in [0, \pi/2]\\[4pt]
--\theta \ll \arcsin(1) = \pi/2, & \text{若 } \theta \in [-\pi/2, 0]
-\end{cases}
-\quad (∗1.16)
-$$
-
-综合可得： 
-
-$$
-\theta \in [-\pi/2, \pi/2] \Rightarrow |\theta| \ll \pi/2
-\quad (∗1.17)
-$$
-
----
-
-#### 情况 2：$\theta \in [-\pi, -\pi/2) \cup (\pi/2, \pi]$
-
-在此区间，$\cos\theta - 1 < 0$，因此： 
-
-$$
-|\cos\theta - 1| \ll 1 \Leftrightarrow 1 - \cos\theta \ll 1 \Leftrightarrow \cos\theta \gg 0
-\quad (∗1.18)
-$$
-
- 由于 $\arccos$ 在 $[-\pi, \pi]$ 上为单调递减函数，可得： 
-
-$$
-|\theta| \ll \arccos(0) = \dfrac{\pi}{2}
-\quad (∗1.19)
-$$
-
----
-
-**最终结论：** 
-
-$$
-\boxed{|\,\theta\,| \ll \dfrac{\pi}{2}}
-$$
-
- 这就是小扰动假设成立的条件。
-
----
-
-**备注：**
-
-- 注意，这里的"无变形"在几何上是严格成立的（$E = 0$），但线性化近似 $\boldsymbol{\varepsilon}$ 中仍保留了旋转的分量，使其在数学上呈现微小的"伪变形"。
-
-- 因此，即使真实变形为零，线性化形式在 $\theta$ 不够小时仍可能产生非零项。
-
-- 下图给出了 $\arcsin(x)$ 与 $\arccos(x)$ 的曲线，表明两函数在 $[-1,1]$ 上的单调性：
-
-$$
-\text{左图： } y = \arcsin(x) \text{ （单调递增）} \quad
-\text{右图： } y = \arccos(x) \text{ （单调递减）}
-$$
+这不是“转角只要小于 $90^\circ$ 就能用”的判据。若要给具体允许角度，必须先指定误差容限；不需要用反三角函数的单调性推导。
 
 # 练习 2 -- 简单剪切运动
+
+**Glissement simple.** Dans une base cartésienne fixe, on considère le champ $\mathbf V=\alpha x_2\mathbf e_1$, avec $\alpha>0$ constant. On suit les particules à partir de leurs coordonnées initiales $\mathbf X$. Les figures décrivent la transformation d’un carré puis d’un cube de côté $\eta$.
 
 设 $(O, \vec{e}_1, \vec{e}_2, \vec{e}_3)$ 为一正交坐标系，其中点 $O$ 固定。 一个连续介质的运动由如下速度场定义：
 
@@ -335,6 +267,8 @@ $$
 
 ## 问题 2.1：求该运动的轨迹与流线。
 
+Quelles sont les trajectoires et lignes de courant de ce mouvement ?
+
 #### 解答：
 
 **回顾：**
@@ -343,7 +277,7 @@ $$
 
 - **流线**：在某固定时刻 $t$，为与欧拉速度场 $\vec{V}(M,t)$ 相切（或共线）的曲线。 它是"瞬时图像"，但可随时间演化。 流线由条件 $d\vec{M} \wedge \vec{V}(M,t) = \vec{0}$ 给出， 即 $d\vec{M}$ 与速度场共线。该条件涉及空间积分（非时间积分）。
 
-- 若运动为**非定常（instationnaire）**，轨迹与流线不同；若为**定常（stationnaire）**，两者重合。
+- 稳态时轨迹与流线重合；非稳态时不能直接判断它们是否重合。
 
 - 但注意，轨迹与流线重合并不一定意味着运动定常，例如振动平移的情况。
 
@@ -351,7 +285,7 @@ $$
 
 在本题中，速度场与时间无关，因此运动为**定常**。 于是轨迹与流线重合，我们只需计算轨迹方程 $\vec{M}(t) = \varphi(\vec{M}_0, t)$。
 
-由速度场可得： 
+由速度场可得：
 
 $$
 E\vec{V}(M,t) =
@@ -374,7 +308,7 @@ E\vec{V}(M,t) =
 \end{cases}
 $$
 
-初始条件： 
+初始条件：
 
 $$
 \begin{cases}
@@ -384,7 +318,7 @@ x_3(0) = X_3
 \end{cases}
 $$
 
-解得： 
+解得：
 
 $$
 \begin{cases}
@@ -394,7 +328,7 @@ x_3(t) = X_3
 \end{cases}
 $$
 
-即： 
+即：
 
 $$
 \boxed{
@@ -407,6 +341,8 @@ $$
 ---
 
 ## 问题 2.2：在时刻 $t=0$，考虑边长为 $\eta$ 的正方形 $OA_0B_0C_0$，其中
+
+On considère à l’instant $t=0$ le carré $OA_0B_0C_0$, de côté $\eta$, avec $\overrightarrow{OA_0}=\eta\mathbf e_1$ et $\overrightarrow{OB_0}=\eta\mathbf e_2$. Quelle est la transformée de ce carré à l’instant $t$ ?
 
 $$
 \overrightarrow{OA_0} = \eta \vec{e}_1, \qquad
@@ -430,11 +366,11 @@ $$
 \begin{pmatrix}\eta\\0\\0\end{pmatrix},\quad
 \overrightarrow{OB_0} =
 \begin{pmatrix}0\\\eta\\0\end{pmatrix},\quad
-\overrightarrow{OC_0} = 
+\overrightarrow{OC_0} =
 \begin{pmatrix}\eta\\\eta\\0\end{pmatrix}
 $$
 
-利用 $\varphi$ 的定义： 
+利用 $\varphi$ 的定义：
 
 $$
 x_1 = X_1 + \alpha X_2 t, \quad x_2 = X_2, \quad x_3 = X_3
@@ -459,9 +395,11 @@ $$
 
 ## 问题 2.3：若在 $t=0$ 时取一个立方体，其一面为上述方形 $OA_0B_0C_0$，求其在时刻 $t$ 的变换。
 
+On considère à l’instant t = 0, un cube dont une face correspond au carré OA0 B0 C0 . Quelle est la transformée de ce cube à l’instant t ?
+
 #### 解答：
 
-在初始状态中： 
+在初始状态中：
 
 $$
 \overrightarrow{OD_0} = \eta
@@ -495,9 +433,11 @@ $$
 
 ## 问题 2.4：回顾变换梯度张量的定义并给出其表达式。
 
+Rappeler la définition du tenseur de transformation et donner son expression.
+
 #### 解答：
 
-变换梯度张量（或称变换张量）$F$ 定义为： 
+变换梯度张量（或称变换张量）$F$ 定义为：
 
 $$
 F = \dfrac{\partial \overrightarrow{OM}}{\partial \overrightarrow{OM_0}} = \nabla_X \vec{\varphi}
@@ -525,9 +465,11 @@ $$
 
 ## 问题 2.5：计算 Green--Lagrange 变形张量 $E$，并求其主应变及主方向。
 
+Rappeler la définition du tenseur de déformation de Green-Lagrange et calculer son expression. Déterminer les déformations principales et les directions principales de déformation.
+
 #### 解答：
 
-Green--Lagrange 变形张量定义为： 
+Green--Lagrange 变形张量定义为：
 
 $$
 E = \dfrac{1}{2}(F^T F - I)
@@ -535,7 +477,7 @@ $$
 
  其中 $C = F^T F$ 为右 Cauchy--Green 张量。
 
-计算： 
+计算：
 
 $$
 C = F^T F =
@@ -557,7 +499,7 @@ C = F^T F =
 \end{pmatrix}
 $$
 
-于是： 
+于是：
 
 $$
 E = \dfrac{1}{2}(C - I) = \dfrac{\alpha t}{2}
@@ -570,13 +512,13 @@ $$
 
 ---
 
-为了得到主应变与主方向，求解特征方程： 
+为了得到主应变与主方向，求解特征方程：
 
 $$
 \det(E - \lambda I) = 0
 $$
 
-即： 
+即：
 
 $$
 \det
@@ -587,50 +529,44 @@ $$
 \end{pmatrix} = 0
 $$
 
-可得一特征值 $\lambda_1 = 0$，其余两个为： 
+记 $k=\alpha t$。主应变及其对应方向应成对写成
 
 $$
-\lambda_{2,3} = \dfrac{\alpha t}{4}\left[\alpha t \mp \sqrt{(\alpha t)^2 + 4}\right]
+\lambda_\pm=\frac{k^2\pm\sqrt{k^4+4k^2}}4,
+\qquad \lambda_0=0.
 $$
 
-主方向向量为：
+当 $k\ne0$ 时，解第一行 $-\lambda n_1+(k/2)n_2=0$，可取
 
 $$
-\vec{N}_1 = \vec{e}_3,\quad
-\vec{N}_2 \propto
-\begin{pmatrix}
-2\\[2pt]
-\alpha t + \sqrt{(\alpha t)^2 + 4}\\[2pt]
-0
-\end{pmatrix},
-\quad
-\vec{N}_3 = \vec{N}_1 \wedge \vec{N}_2 \propto
-\begin{pmatrix}
--\alpha t - \sqrt{(\alpha t)^2 + 4}\\[2pt]
-2\\[2pt]
-0
-\end{pmatrix}
+\mathbf n_\pm=
+\frac{(k,2\lambda_\pm,0)}{\sqrt{k^2+4\lambda_\pm^2}},
+\qquad \mathbf n_0=\mathbf e_3.
 $$
+
+将每个方向代回 $E\mathbf n=\lambda\mathbf n$ 可以检查配对是否正确。$k=0$ 时三个主值均为零，主方向不唯一。
 
 ---
 
 ## 问题 2.6：求沿方向 $\tau$（角度 $\phi = (\vec{e}_1, \tau)$）的小向量 $d\vec{M}_0$ 的长度平方增量。
 
+Calculer l’accroissement du carré de la longueur de $d\mathbf M_0=dl_0\boldsymbol\tau$, où $\boldsymbol\tau$ est un vecteur unitaire du plan $(\mathbf e_1,\mathbf e_2)$ faisant un angle $\varphi$ avec $\mathbf e_1$.
+
 #### 解答：
 
-定义： 
+定义：
 
 $$
 \Lambda(d\vec{M}_0) = \|d\vec{M}\|^2 - \|d\vec{M}_0\|^2
 $$
 
-代入 $d\vec{M} = F d\vec{M}_0$，得： 
+代入 $d\vec{M} = F d\vec{M}_0$，得：
 
 $$
 \Lambda(d\vec{M}_0) = (d\vec{M}_0)^T (F^T F - I) d\vec{M}_0 = (d\vec{M}_0)^T (2E) d\vec{M}_0
 $$
 
-设 $d\vec{M}_0 = dl_0\,\tau$，其中 
+设 $d\vec{M}_0 = dl_0\,\tau$，其中
 
 $$
 \tau =
@@ -641,7 +577,7 @@ $$
 \end{pmatrix}
 $$
 
-则： 
+则：
 
 $$
 \Lambda(d\vec{M}_0) = dl_0^2 \alpha t (\sin 2\phi + \alpha t \sin^2\phi)
@@ -651,15 +587,17 @@ $$
 
 ## 问题 2.7：求边矢量为 $d\vec{a}_0, d\vec{b}_0, d\vec{c}_0$ 的微小立方体在变形前后体积的变化。
 
+Soit un cube élémentaire de côtés $d\mathbf a_0,d\mathbf b_0,d\mathbf c_0$. Déterminer la variation de volume entre l’état non déformé et l’état déformé.
+
 #### 解答：
 
-体积定义为三重积： 
+体积定义为三重积：
 
 $$
 dV = \det(d\vec{a}, d\vec{b}, d\vec{c}) = \det(F)\det(d\vec{a}_0, d\vec{b}_0, d\vec{c}_0)
 $$
 
-因此： 
+因此：
 
 $$
 \dfrac{dV}{dV_0} = \det F = J
@@ -667,7 +605,7 @@ $$
 \dfrac{dV - dV_0}{dV_0} = J - 1
 $$
 
-计算： 
+计算：
 
 $$
 J = \det F =
@@ -678,7 +616,7 @@ J = \det F =
 \end{vmatrix} = 1
 $$
 
-因此： 
+因此：
 
 $$
 \boxed{\text{该变换为等体变换（isochore）}}
@@ -687,6 +625,8 @@ $$
 ---
 
 ## 问题 2.8：若速度场为
+
+Décrire le mouvement dont le champ des vitesses est $\mathbf V=\alpha x_2\mathbf e_1-\alpha x_1\mathbf e_2$.
 
 $$
 \vec{V} = \alpha \vec{e}_1(\vec{e}_2 \cdot \overrightarrow{OM}) - \alpha \vec{e}_2(\vec{e}_1 \cdot \overrightarrow{OM})
@@ -700,25 +640,27 @@ $$
 
 - 该运动是**定常的（stationnaire）**；
 
-- **纯旋转的（rotationnel）**；
+- **有旋的（rotationnel）**；
 
 - **不可压的（incompressible）**。
 
-因此，该运动为**以原点为中心的静态圆周旋转（稳态涡旋）**。
+因此，该运动为绕 $-\alpha\vec e_3$ 的稳态刚体旋转；“稳态”表示速度场不随时间变化，不表示物体静止。
 
 # 练习 3 -- 通过应变计测量变形
+
+**Mesure par jauges de déformation.** Les trois jauges d’une rosette mesurent l’allongement unitaire suivant leurs propres directions. Les angles successifs indiqués sur la figure sont des angles entre jauges : il faut reconstruire les orientations absolues avant de projeter le tenseur des déformations.
 
 # 题目背景说明
 
 **应变计法（Extensométrie）** 是一种通过在固体表面某点测量来确定变形张量各分量的技术。 该测量通常使用电阻丝应变计（其电阻与长度成比例）。 之后，通过材料本构关系可以从测得的应变得到应力分量。
 
-现有三个应变计（记作 I、II、III）构成一组"应变花"（rosette），围绕固体表面上一点 $O$ 布置。 它们分别测量沿三条相隔 $120^\circ$ 方向上的线性应变（即单位伸长率）：
+现有三个应变计（记作 I、II、III）构成一组"应变花"（rosette），围绕固体表面上一点 $O$ 布置。 它们测量面内三条方向的线性应变。原图中 $\alpha$ 是第一条方向与 $x$ 轴的夹角，$\beta,\gamma$ 是相邻方向的夹角；三个绝对方向为 $0^\circ,120^\circ,240^\circ$：
 
 $$
 \alpha = 0^\circ, \quad \beta = 120^\circ, \quad \gamma = 120^\circ.
 $$
 
-测得的数据如下： 
+测得的数据如下：
 
 $$
 \varepsilon_I = 0.5 \times 10^{-4}, \quad
@@ -732,22 +674,24 @@ $$
 
 ## 问题 3.1：计算点 $O$ 处的线性化变形张量分量，并确定最大单位伸长率的方向与数值。
 
+Calculer les composantes du tenseur des déformations $\boldsymbol\varepsilon$ au point $O$ dans le repère $(O,\mathbf e_x,\mathbf e_y)$. Déterminer la direction du plan pour laquelle l’allongement unitaire est maximal et donner sa valeur.
+
 #### 解答：
 
-**回顾：** 沿任意方向 $\vec{n}$ 的**单位伸长率**（或称"工程应变"、"相对伸长"）定义为： 
+**回顾：** 沿任意方向 $\vec{n}$ 的**单位伸长率**（或称"工程应变"、"相对伸长"）定义为：
 
 $$
 \delta(\vec{n}) = \dfrac{dl - dl_0}{dl_0} = \dfrac{\|F \cdot \vec{n}\| - \|\vec{n}\|}{\|\vec{n}\|}
 $$
 
- 其中 $F$ 为变换梯度张量。 设 $\vec{n}$ 为单位向量，则： 
+ 其中 $F$ 为变换梯度张量。 设 $\vec{n}$ 为单位向量，则：
 
 $$
 \delta(\vec{n}) = \sqrt{\vec{n} \cdot C \cdot \vec{n}} - 1
 = \sqrt{1 + 2\,\vec{n} \cdot E \cdot \vec{n}} - 1
 $$
 
- 在小扰动假设（HPP）下，有： 
+ 在小扰动假设（HPP）下，有：
 
 $$
 \boxed{\delta(\vec{n}) = \vec{n} \cdot \varepsilon \cdot \vec{n}}
@@ -758,7 +702,7 @@ $$
 
 ---
 
-因此，对三条应变计方向，有： 
+因此，对三条应变计方向，有：
 
 $$
 \begin{cases}
@@ -769,7 +713,7 @@ $$
 \quad (∗3.1)
 $$
 
-应变张量在 $(\vec{e}_x, \vec{e}_y)$ 平面内为对称形式： 
+应变张量在 $(\vec{e}_x, \vec{e}_y)$ 平面内为对称形式：
 
 $$
 \varepsilon =
@@ -786,7 +730,7 @@ $$
 
 #### 建立方程：
 
-三条测向单位向量分别为： 
+三条测向单位向量分别为：
 
 $$
 \begin{cases}
@@ -816,7 +760,7 @@ $$
 $$
 \begin{aligned}
 \varepsilon_I &= \vec{e}_I \cdot \varepsilon(O) \cdot \vec{e}_I
-= 
+=
 \begin{pmatrix}1 & 0\end{pmatrix}
 \begin{pmatrix}
 \varepsilon_{xx} & \varepsilon_{xy}\\[4pt]
@@ -824,12 +768,12 @@ $$
 \end{pmatrix}
 \begin{pmatrix}1\\0\end{pmatrix}
 = \varepsilon_{xx} \quad (∗3.4)\\[8pt]
-\varepsilon_{II} &= 
+\varepsilon_{II} &=
 \vec{e}_{II} \cdot \varepsilon(O) \cdot \vec{e}_{II}
 = \dfrac{1}{4}\Big[
 \varepsilon_{xx} - 2\sqrt{3}\,\varepsilon_{xy} + 3\varepsilon_{yy}
 \Big] \quad (∗3.5)\\[8pt]
-\varepsilon_{III} &= 
+\varepsilon_{III} &=
 \vec{e}_{III} \cdot \varepsilon(O) \cdot \vec{e}_{III}
 = \dfrac{1}{4}\Big[
 \varepsilon_{xx} + 2\sqrt{3}\,\varepsilon_{xy} + 3\varepsilon_{yy}
@@ -841,13 +785,13 @@ $$
 
 #### 解方程组：
 
-由 (∗3.4)： 
+由 (∗3.4)：
 
 $$
 \varepsilon_{xx} = \varepsilon_I
 $$
 
-由 (∗3.5)+(∗3.6)： 
+由 (∗3.5)+(∗3.6)：
 
 $$
 \varepsilon_{II} + \varepsilon_{III}
@@ -856,11 +800,11 @@ $$
 \varepsilon_{yy} = \dfrac{2(\varepsilon_{II} + \varepsilon_{III}) - \varepsilon_I}{3}
 $$
 
-由 (∗3.5)-(∗3.6)： 
+由 (∗3.5)-(∗3.6)：
 
 $$
 \varepsilon_{II} - \varepsilon_{III}
-= -\dfrac{\sqrt{3}}{2}\,\varepsilon_{xy}
+= -\sqrt{3}\,\varepsilon_{xy}
 \Rightarrow
 \varepsilon_{xy} = \dfrac{\varepsilon_{III} - \varepsilon_{II}}{\sqrt{3}}
 $$
@@ -875,7 +819,7 @@ $$
 \varepsilon_{III} = 2\times10^{-4}
 $$
 
-于是： 
+于是：
 
 $$
 \boxed{
@@ -885,7 +829,7 @@ $$
 }
 $$
 
-即： 
+即：
 
 $$
 \varepsilon = 10^{-4}
@@ -899,7 +843,7 @@ $$
 
 **结论：**
 
-该应变张量在基底 $(\vec{e}_x, \vec{e}_y, \vec{e}_z)$ 下为对角形式， 因此 $(\vec{e}_x, \vec{e}_y)$ 即为主方向基底。 其主应变分别为： 
+测得的**面内应变矩阵** 已经对角化，因此 $\vec e_x,\vec e_y$ 是面内主方向。表面测量不能单独确定全部三维应变分量。两个面内主应变为：
 
 $$
 \varepsilon_1 = 0.5\times10^{-4}, \quad
@@ -912,9 +856,11 @@ $$
 
 ## 问题 3.2：若三根应变计以 45° 间隔布置（$\alpha=0^\circ,\ \beta=45^\circ,\ \gamma=45^\circ$），测量结果为何？
 
+Que mesurerait-on si les jauges étaient disposées avec un angle de $45^\circ$ entre elles ($\alpha=0^\circ$, $\beta=45^\circ$, $\gamma=45^\circ$) ?
+
 #### 解答：
 
-角度给出： 
+角度给出：
 
 $$
 \begin{cases}
@@ -945,20 +891,20 @@ $$
 $$
 \begin{aligned}
 \varepsilon_I &= \vec{e}_I \cdot \varepsilon \cdot \vec{e}_I
-= (1,0)
+= 10^{-4}(1,0)
 \begin{pmatrix}
 0.5 & 0\\[4pt]
 0 & 2.5
 \end{pmatrix}
 \begin{pmatrix}1\\0\end{pmatrix}
 = 0.5\times10^{-4}\\[8pt]
-\varepsilon_{II} &= 
+\varepsilon_{II} &=
 \vec{e}_{II} \cdot \varepsilon \cdot \vec{e}_{II}
 = \dfrac{1}{2}(0.5 + 2.5)\times10^{-4}
 = 1.5\times10^{-4}\\[8pt]
 \varepsilon_{III} &=
 \vec{e}_{III} \cdot \varepsilon \cdot \vec{e}_{III}
-= (0,1)
+= 10^{-4}(0,1)
 \begin{pmatrix}
 0.5 & 0\\[4pt]
 0 & 2.5
@@ -970,7 +916,7 @@ $$
 
 ---
 
-**结果：** 
+**结果：**
 
 $$
 \boxed{

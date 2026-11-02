@@ -1,8 +1,12 @@
-# 练习 1 ------ 受拉梁
+# 练习 1：受自重的梁（实际受压）
 
-设一根梁承受自重并放置在地面上（见图 1.1）。梁的高度为 $h$，截面为正方形 $S$。材料均匀，密度为 $\rho$。
+题面与练习 3–5 见 [TD4](中文版/TD4_平衡方程_2026-2027.md)；这里展开前两道练习。
 
-工作坐标系为 $(O, \bm{e}_1, \bm{e}_2, \bm{e}_3)$，其中 $O$ 是梁与地面接触轴上的一点。竖直方向定义为 $\bm{e}_3$。梁上任意一点 $M$ 的位置向量为： 
+**Poutre sous son poids propre.** La poutre verticale, de hauteur $h$, de section carrée $S$ et de masse volumique $\rho$, repose sur le sol. L’axe $\mathbf e_3$ est orienté vers le haut et la force volumique est $-\rho g\mathbf e_3$. Le champ supposé possède seulement la composante $\sigma_{33}=a+bx_3$. Malgré le titre « traction », ce chargement est une compression.
+
+设一根梁承受自重并放置在地面上（见图 1.1）。梁的高度为 $h$，截面为正方形，面积为 $S$。材料均匀，密度为 $\rho$。
+
+工作坐标系为 $(O, \bm{e}_1, \bm{e}_2, \bm{e}_3)$，其中 $O$ 是梁与地面接触轴上的一点。竖直方向定义为 $\bm{e}_3$。梁上任意一点 $M$ 的位置向量为：
 
 $$
 \overrightarrow{OM} = x_1 \bm{e}_1 + x_2 \bm{e}_2 + x_3 \bm{e}_3 \tag{1.1}
@@ -24,17 +28,19 @@ $$
 
 ## 问题 1.1
 
+En utilisant l’équation d’équilibre local, déterminer la condition sur b pour que le solide soit en équilibre statique. Retrouver ce résultat à partir du Principe Fondamental de la Statique (PFS).
+
 利用局部平衡方程，确定常数 $b$ 的条件，使得固体处于静力平衡。并使用静力学基本原理 (PFS) 重新得到该结果。
 
 ### 解答 1.1
 
-局部平衡方程（或内部平衡）写作： 
+局部平衡方程（或内部平衡）写作：
 
 $$
 \text{div}\,\bm{\sigma} + \bm{f}_v = \bm{0} \quad (\text{静态})
 $$
 
- 即 
+ 即
 
 $$
 \begin{pmatrix}
@@ -51,7 +57,7 @@ $$
 \tag{*1.1}
 $$
 
-代入应力张量得： 
+代入应力张量得：
 
 $$
 \begin{pmatrix}
@@ -75,7 +81,7 @@ b - \rho g = 0
 \tag{*1.2}
 $$
 
-现在使用静力学基本原理（PFS）验证： 对体积 $\Omega$，体力与表面力平衡条件为： 
+现在使用静力学基本原理（PFS）验证： 对体积 $\Omega$，体力与表面力平衡条件为：
 
 $$
 \int_{\Omega} \bm{f}_v(M)\, dV
@@ -87,7 +93,7 @@ $$
 
  其中 $\bm{T}(M,\bm{n}(M)) = \bm{\sigma}(M)\cdot\bm{n}(M)$。
 
-代入具体形式： 
+代入具体形式：
 
 $$
 \int_{\Omega} (-\rho g \bm{e}_3) \, dV
@@ -99,7 +105,7 @@ $$
 \tag{*1.5}
 $$
 
-即： 
+即：
 
 $$
 -\rho g S h \bm{e}_3 + (a + bh)S\bm{e}_3 - aS\bm{e}_3 = \bm{0}
@@ -109,6 +115,8 @@ $$
 
 ## 问题 1.2
 
+Écrire les conditions aux limites sur les différentes faces de la poutre.
+
 写出梁各表面的边界条件。
 
 ### 解答 1.2
@@ -116,43 +124,58 @@ $$
 各面的边界条件如下（设地面接触压强为 $p$）：
 
 $$
-\begin{aligned}
-&\bm{T}(M) = \bm{\sigma}(M)\cdot\bm{e}_1 = \bm{0} \quad \forall M \in S_1^+ \text{（自由表面）} \tag{*1.7}\\
-&\bm{T}(M) = \bm{\sigma}(M)\cdot(-\bm{e}_1) = \bm{0} \quad \forall M \in S_1^- \text{（自由表面）} \tag{*1.8}\\
-&\bm{T}(M) = \bm{\sigma}(M)\cdot\bm{e}_2 = \bm{0} \quad \forall M \in S_2^+ \text{（自由表面）} \tag{*1.9}\\
-&\bm{T}(M) = \bm{\sigma}(M)\cdot(-\bm{e}_2) = \bm{0} \quad \forall M \in S_2^- \text{（自由表面）} \tag{*1.10}\\
-&\bm{T}(M) = \bm{\sigma}(M)\cdot\bm{e}_3 = \bm{0} \quad \forall M \in S_3^+ \text{（自由表面）} \tag{*1.11}\\
-&\bm{T}(M) = \bm{\sigma}(M)\cdot(-\bm{e}_3) = -p(-\bm{e}_3) \quad \forall M \in S_3^- \text{（地面接触压力）} \tag{*1.12}
-\end{aligned}
+\bm{T}(M) = \bm{\sigma}(M)\cdot\bm{e}_1 = \bm{0} \quad \forall M \in S_1^+ \text{（自由表面）} \tag{*1.7}
+$$
+
+$$
+\bm{T}(M) = \bm{\sigma}(M)\cdot(-\bm{e}_1) = \bm{0} \quad \forall M \in S_1^- \text{（自由表面）} \tag{*1.8}
+$$
+
+$$
+\bm{T}(M) = \bm{\sigma}(M)\cdot\bm{e}_2 = \bm{0} \quad \forall M \in S_2^+ \text{（自由表面）} \tag{*1.9}
+$$
+
+$$
+\bm{T}(M) = \bm{\sigma}(M)\cdot(-\bm{e}_2) = \bm{0} \quad \forall M \in S_2^- \text{（自由表面）} \tag{*1.10}
+$$
+
+$$
+\bm{T}(M) = \bm{\sigma}(M)\cdot\bm{e}_3 = \bm{0} \quad \forall M \in S_3^+ \text{（自由表面）} \tag{*1.11}
+$$
+
+$$
+\bm{T}(M) = \bm{\sigma}(M)\cdot(-\bm{e}_3) = -p(-\bm{e}_3) \quad \forall M \in S_3^- \text{（地面接触压力）} \tag{*1.12}
 $$
 
 ## 问题 1.3
+
+En déduire les expressions de a de la pression de contact p entre le sol et la poutre.
 
 由此推导出 $a$ 与接触压力 $p$ 的表达式。
 
 ### 解答 1.3
 
-在上表面 $S_3^+$（$x_3 = h$）处： 
+在上表面 $S_3^+$（$x_3 = h$）处：
 
 $$
 \bm{\sigma}(x_3 = h)\cdot\bm{e}_3 = \bm{0}
 \Rightarrow a + bh = 0
 $$
 
- 代入 $b = \rho g$： 
+ 代入 $b = \rho g$：
 
 $$
 a = -\rho g h
 $$
 
-在下表面 $S_3^-$（$x_3 = 0$）处： 
+在下表面 $S_3^-$（$x_3 = 0$）处：
 
 $$
 \bm{\sigma}(x_3 = 0)\cdot(-\bm{e}_3) = -p(-\bm{e}_3)
 \Rightarrow -a = p
 $$
 
- 代入上式： 
+ 代入上式：
 
 $$
 p = \rho g h
@@ -160,9 +183,11 @@ $$
 
 # 练习 2 ------ 边界条件
 
+**Sphère creuse sous pression.** Les rayons intérieur et extérieur sont $r_1,r_2$ et les pressions correspondantes sont $p_1,p_2$. Le champ sphérique est défini par les deux constantes $A,B$ dans les expressions partagées ci-dessous. La normale sortante du matériau pointe vers le centre sur la cavité.
+
 设一个空心球体，内半径为 $r_1$，外半径为 $r_2$。球体内侧承受内压 $p_1$，外侧承受外压 $p_2$。
 
-在以球坐标 $(r, \theta, \varphi)$ 为基础的局部坐标系中，应力张量 $\bm{\sigma}$ 已知形式如下： 
+在以球坐标 $(r, \theta, \varphi)$ 为基础的局部坐标系中，应力张量 $\bm{\sigma}$ 已知形式如下：
 
 $$
 \bm{\sigma} =
@@ -180,29 +205,31 @@ $$
 
 ## 问题 2.1
 
+Déterminer les valeurs des constantes A et B qui satisfont aux conditions aux limites.
+
 确定满足边界条件的常数 $A$ 和 $B$ 的数值。
 
 ### 解答 2.1
 
-回顾：若在连续介质边界 $\partial \Omega_T$ 上（法向为 $\bm{n}$）给定一个表面力（面力）分布 $\bm{T}_d$，则边界条件写作： 
+回顾：若在连续介质边界 $\partial \Omega_T$ 上（法向为 $\bm{n}$）给定一个表面力（面力）分布 $\bm{T}_d$，则边界条件写作：
 
 $$
 \bm{\sigma}(M) \cdot \bm{n}(M) = \bm{T}_d(M), \quad \forall M \in \partial \Omega_T
 $$
 
- 或简写为： 
+ 或简写为：
 
 $$
 \bm{\sigma} \cdot \bm{n} = \bm{T}_d
 $$
 
-若该分布为压力 $p$，则条件为： 
+若该分布为压力 $p$，则条件为：
 
 $$
 \bm{\sigma}(M) \cdot \bm{n}(M) = \bm{T}_d(M) = -p(M)\bm{n}(M), \quad \forall M \in \partial \Omega_T
 $$
 
- 或简写为： 
+ 或简写为：
 
 $$
 \bm{\sigma} \cdot \bm{n} = \bm{T}_d = -p\bm{n}
@@ -214,7 +241,7 @@ $$
 
 #### (1) 内壁 $r = r_1$：
 
-内侧压力为 $p_1$，法向外指（相对于介质）为 $\bm{n}(r_1) = -\bm{e}_r$， 因此： 
+内侧压力为 $p_1$，法向外指（相对于介质）为 $\bm{n}(r_1) = -\bm{e}_r$， 因此：
 
 $$
 \bm{\sigma}(r_1) \cdot \bm{n}(r_1) = -p_1 \bm{n}(r_1)
@@ -222,7 +249,7 @@ $$
 \bm{\sigma}(r_1) \cdot (-\bm{e}_r) = p_1 \bm{e}_r
 $$
 
-从径向分量得到： 
+从径向分量得到：
 
 $$
 - \sigma_r(r_1) = p_1
@@ -233,7 +260,7 @@ $$
 
 #### (2) 外壁 $r = r_2$：
 
-外侧压力为 $p_2$，法向外指 $\bm{n}(r_2) = \bm{e}_r$， 因此： 
+外侧压力为 $p_2$，法向外指 $\bm{n}(r_2) = \bm{e}_r$， 因此：
 
 $$
 \bm{\sigma}(r_2) \cdot \bm{n}(r_2) = -p_2 \bm{n}(r_2)
@@ -241,7 +268,7 @@ $$
 \bm{\sigma}(r_2)\cdot \bm{e}_r = -p_2 \bm{e}_r
 $$
 
-径向分量为： 
+径向分量为：
 
 $$
 A - \frac{2B}{r_2^3} = -p_2
@@ -250,7 +277,7 @@ $$
 
 ### 联立求解常数 $A$ 与 $B$
 
-由式（\*2.1）与（\*2.2）相减： 
+由式（\*2.1）与（\*2.2）相减：
 
 $$
 -\frac{2B}{r_1^3} + \frac{2B}{r_2^3} = -p_1 + p_2
@@ -260,7 +287,7 @@ B = \frac{p_1 - p_2}{2} \,
 \tag{*2.3}
 $$
 
-将（\*2.3）代入（\*2.1）： 
+将（\*2.3）代入（\*2.1）：
 
 $$
 A - \frac{2B}{r_1^3} = -p_1
@@ -275,6 +302,10 @@ $$
 
 - 常数 $B$ 的符号与 $p_1 - p_2$ 相同；
 
-- 若 $r_1$ 与 $r_2$ 大小相近且 $p_2 > p_1$，则 $A$、$B$ 都为正；
+- 对通常的非负压力，若 $p_2>p_1$，则 $B<0$，且 $p_1r_1^3-p_2r_2^3<0$，所以 $A<0$；
 
-- 若 $r_1$ 与 $r_2$ 大小相近且 $p_2 \ll p_1$，则 $A$、$B$ 都为负。
+- 若 $p_1>p_2$，则 $B>0$，而 $A$ 的符号须比较 $p_1r_1^3$ 与 $p_2r_2^3$，不能只凭压力大小判断；例如 $p_2=0<p_1$ 时两者均为正；
+
+- 若 $p_1=p_2=p$，则 $B=0$、$A=-p$，张量为均匀静水压缩 $-pI$。
+
+**教师解答勘误：** 原解答最后两条符号判断与已求得的公式相反；此处按公式代回边界条件修正。

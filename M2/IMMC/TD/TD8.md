@@ -1,5 +1,9 @@
 # 习题 1 ------ 重力坝
 
+题面与建模条件见 [TD8](中文版/TD8_能量方法_2024-2025_题面.md)；这里部分解答有额外扩展。
+
+**Barrage poids.** Le solide élastique est encastré sur $S_0$, libre sur $S_2$ et chargé sur $S_1$ par $\mathbf F=-p(x_2/h)\mathbf e_1$. Sur les deux faces latérales, le déplacement normal est nul et les tractions tangentielles sont nulles. Dans les coordonnées de la figure, le fond est à $x_2=-h$. On compare la formulation exacte à un champ approché cinématiquement admissible.
+
 研究在水作用下的重力坝的平衡问题。坝体假定为线弹性体，其几何与边界如图 1.1 所示。
 
 ![重力坝示意图。](Images/TD8/image1.png)
@@ -13,6 +17,8 @@ $$
  其中 $p$ 为已知常数。
 
 ## 问题 1.1
+
+Poser le problème et écrire les conditions aux limites. A-t-il une solution unique ?
 
 写出该问题的数学表述及边界条件。该问题是否具有唯一解？
 
@@ -90,6 +96,8 @@ $$
 （原文页脚：Correction de TD 1, Version du 29 octobre 2024）
 
 ## 问题 1.2
+
+Définir l’espace Uad des champs de déplacement cinématiquement admissibles. Exprimer l’énergie potentielle élastique.
 
 给出运动学可容许位移场的空间 $U_{\mathrm{ad}}$ 的定义，并写出弹性势能。
 
@@ -170,6 +178,8 @@ $$
 （原文页脚：Correction de TD 2, Version du 29 octobre 2024）
 
 ## 问题 1.3
+
+On cherche $\mathbf u^*=(x_2/h+1)(K_1\mathbf e_1+K_2\mathbf e_2)$. Vérifier que ce champ est cinématiquement admissible et calculer $K_1,K_2$. Est-ce la solution exacte du problème ?
 
 我们构造如下形式的试探位移场： 
 
@@ -445,6 +455,8 @@ $$
 
 # 习题 2 ------ 矩形块受压
 
+**Lopin en compression.** Le rectangle $[-a,a]\times[-b,b]$ est étudié en déformation plane. Les plateaux rigides imposent $\mathbf u(x_1,\pm b)=\mp U\mathbf e_2$ sans glissement ; les faces verticales sont libres et les forces volumiques sont nulles. Les symétries permettent de se limiter au quart du domaine. Les déplacements imposés non nuls conduisent à un espace admissible affine, puis à une formulation homogénéisée pour la méthode de Ritz.
+
 研究一个矩形弹性体（称为"块"或"试样"）在两块平行、平面且刚性的压板之间的平面变形， 如图 2.1 所示。假设压板与试样之间的接触无滑移。
 
 ![矩形块（试样）受压示意图。](Images/TD8/image.png)
@@ -473,6 +485,8 @@ $$
  其中 $\nu$ 为泊松比。
 
 ## 问题 2.1
+
+Poser le problème et écrire les conditions aux limites.
 
 写出问题的数学表达及边界条件。
 
@@ -554,6 +568,8 @@ $$
 
 ## 问题 2.2
 
+Définir l’espace Uad des champs de déplacement cinématiquement admissibles.
+
 定义运动学可容许位移场空间 $U_{\mathrm{ad}}$。
 
 ### 问题 2.2：解答
@@ -580,6 +596,8 @@ $$
 
 ## 问题 2.3
 
+On souhaite obtenir une solution approchée de ce problème par une méthode de type Ritz, par exemple. Pourquoi l’espace des champs de déplacement cinématiquement admissibles est un espace affine ? À partir d’un changement de variable, écrire une nouvelle formulation du problème à laquelle est associée un espace vectoriel U0 de champs de déplacement cinématiquement admissibles à zéro.
+
 为什么 $U_{\mathrm{ad}}$ 是仿射空间？ 如何通过变量替换得到相应的零位移可容许向量空间 $U_0$？
 
 ### 问题 2.3：解答
@@ -601,6 +619,8 @@ $$
 - 各 $\beta_i$ 为优化参数，通过最小化势能或互补能求得。
 
 ## 问题 2.4
+
+Déterminer une solution approchée dans un sous-espace vectoriel de dimension deux de $U_0$, engendré par $\mathbf u_{01}=x_1(x_2^2-b^2)\mathbf e_1/b^2$ et $\mathbf u_{02}=x_2(x_2^2-b^2)\mathbf e_2/b^2$.
 
 在 $U_0$ 的二维子空间中取基底： 
 
@@ -651,8 +671,6 @@ K\boldsymbol{\varepsilon}(\mathbf{u}) = \frac{1}{b^2}
 + 2\mu x_1x_2\beta_1(\mathbf{e}_1\otimes\mathbf{e}_2 + \mathbf{e}_2\otimes\mathbf{e}_1)
 $$
 
- 
-
 $$
 + [\lambda(x_2^2-b^2)\beta_1 + (\lambda+2\mu)((3x_2^2-b^2)\beta_2 - bU)]\,\mathbf{e}_2\otimes\mathbf{e}_2
 + \lambda[(x_2^2-b^2)\beta_1 + (3x_2^2-b^2)\beta_2 + bU]\,\mathbf{e}_3\otimes\mathbf{e}_3
@@ -666,8 +684,6 @@ e_d(\mathbf{u}) = \frac{1}{2b^4}\Bigl[
 (\lambda+2\mu)\bigl(\beta_2(b^2-3x_2^2)+bU\bigr)^2
 + 2\beta_1\lambda(b^2-x_2^2)\bigl(\beta_2(b^2-3x_2^2)+bU\bigr)
 $$
-
- 
 
 $$
 + \beta_1^2\bigl(2\mu(b^4-2x_2^2(b^2-x_1^2)+x_2^4) + \lambda(b^2-x_2^2)^2\bigr)
@@ -691,8 +707,6 @@ $$
 $$
 \frac{\partial E_p}{\partial \beta_1} = \frac{2a}{45b}\Bigl[2\beta_1(5a^2\mu + 6b^2(\lambda+2\mu)) + 3b\lambda(2b\beta_2 + 5U)\Bigr]=0,
 $$
-
- 
 
 $$
 \frac{\partial E_p}{\partial \beta_2} = \frac{4ab}{15}\,[3(\lambda+2\mu)\beta_2 + \lambda\beta_1] = 0.

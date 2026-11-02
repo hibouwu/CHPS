@@ -45,7 +45,9 @@ $$
 \frac {\mathrm{d} m}{\mathrm{d} t} = 0 \quad \Longleftrightarrow \quad \frac {\mathrm{d}}{\mathrm{d} t} \int_{\Sigma(t)}\rho\,\mathrm dV=0\qquad\text{pour toute partie matérielle }\Sigma(t)\tag{4.5}
 $$
 
-> **Précision théorique (PDF, p. 2, formule 4.5).** La phrase précédente dit « toute partie » matérielle ; pour en déduire la conservation locale, le bilan doit valoir pour chaque $\Sigma(t)$, et pas seulement pour le corps entier $\Omega(t)$.\n\nIl s’agit d’un bilan global sur toute partie matérielle $\Sigma(t)$. On a alors, sous forme locale :
+> **Précision théorique (PDF, p. 2, formule 4.5).** La phrase précédente dit « toute partie » matérielle ; pour en déduire la conservation locale, le bilan doit valoir pour chaque $\Sigma(t)$, et pas seulement pour le corps entier $\Omega(t)$.
+
+Il s’agit d’un bilan global sur $\Omega(t)$. On a alors, sous forme locale :
 
 $$
 \begin{array}{c c} \rho \det (\mathbb {F}) = \rho_ {0} & \text {en description lagrangienne} \\ \frac {\mathrm{d} \rho}{\mathrm{d} t} + \rho \operatorname{div} (\vec {V}) = \frac {\partial \rho}{\partial t} + \operatorname{div} (\rho \vec {V}) = 0 & \text {en description eulérienne} \end{array}\tag{4.6}
@@ -164,7 +166,9 @@ $$
 $$
 
 
-> **Erratum de frontière (PDF, p. 4, formule 4.19).** Le PDF utilise $\partial\Omega_T$ pour un encastrement, alors que la condition $\vec u=0$ est une condition de déplacement et relève de $\partial\Omega_u$ dans la convention du cours.\n\nCondition de contact sans frottement (ou contact glissant, glissement libre)
+> **Erratum de frontière (PDF, p. 4, formule 4.19).** Le PDF utilise $\partial\Omega_T$ pour un encastrement, alors que la condition $\vec u=0$ est une condition de déplacement et relève de $\partial\Omega_u$ dans la convention du cours.
+
+Condition de contact sans frottement (ou contact glissant, glissement libre)
 
 • entre deux milieux déformables $\Omega _ { 1 }$ et $\Omega _ { 2 }$ à la frontière Σ(t)
 

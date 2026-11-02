@@ -2,7 +2,7 @@
 
 ### 4.1. Parcours et correspondance avec les documents
 
-Le planning fourni place le DST le **22 octobre au matin**, après CM1-CM3, TD1, TD2 et TP1. Les sections 4.2-4.8 constituent donc le parcours principal. Les sections 4.9-4.14 rassemblent les anciens exercices utiles pour approfondir ; elles ne sont pas présentées comme des questions obligatoires du DST. Le TP2 d’optimisation de GEMM est prévu après le DST, le 22 octobre après-midi.
+Le planning fourni place le DST le **22 octobre au matin**, après CM1-CM3, TD1, TD2 et TP1. Les sections 4.2-4.8 constituent donc le parcours principal. Les sections 4.9-4.14 rassemblent les anciens exercices utiles pour approfondir ; elles servent d'approfondissement. Le TP2 d’optimisation de GEMM est prévu après le DST, le 22 octobre après-midi.
 
 | Document | Année portée par la source | Couverture dans cette section |
 |---|---|---|
@@ -13,7 +13,7 @@ Le planning fourni place le DST le **22 octobre au matin**, après CM1-CM3, TD1,
 | [Ancien TD noté SDF](../TDTP2025/TD/td2.pdf) | 2025-2026 | Q.1-Q.7 : volume 3D, échantillonnage, projection |
 | [TP2 streams : sujet](../TDTP2025/TP/tp2_sujet_2025-2026.pdf) / [corrigé](../TDTP2025/TP/tp2_correction.pdf) | Sujet 2025-2026, corrigé **2024-2025** | Q.1-Q.15 : transferts, dépendances, chronométrage |
 
-Les réponses théoriques ci-dessous ont été recomposées à partir des fichiers. Les extraits de TD2, SDF, tuilage et streams sont des solutions pédagogiques, **sans nouvelle exécution GPU**. Les seuls temps repris sont ceux du TP1 déjà mesuré, identifiés en 4.8. Les extraits CUDA supposent les en-têtes adaptés et un contrôle des erreurs ; `CUDA_CHECK` est disponible dans le code du TP1.
+Les extraits CUDA supposent les en-têtes adaptés et un contrôle des erreurs ; `CUDA_CHECK` est disponible dans le code du TP1.
 
 ### 4.2. TD1 Q.1-Q.5 : aplatir des indices
 
@@ -277,7 +277,7 @@ $$
 
 Si l’on compte littéralement le code avec `αsum+βC`, on ajoute `3N²` opérations, avant simplifications du compilateur. Les copies ne sont pas des FLOP.
 
-**Exemple historique vérifiable, pas une nouvelle mesure.** Le [journal](../TP1/RESULTS/romeo-738578/run.log) et les [mesures JSON](../TP1/RESULTS/romeo-738578/measurements.json) du **9 octobre 2026**, job ROMEO `738578`, décrivent un GH200, CUDA 12.9, FP64, `32×32` threads, une mise en chauffe puis cinq mesures. Le CPU de référence est une boucle naïve sur un seul cœur Grace. Le tableau donne les médianes de cinq essais ; la colonne kernel + D2H exclut allocations, initialisation et H2D initial. La restauration de C, la mise en chauffe et les vérifications restent hors mesure.
+**Exemple mesuré :** le [journal](../TP1/RESULTS/romeo-738578/run.log) et les [mesures JSON](../TP1/RESULTS/romeo-738578/measurements.json) du **9 octobre 2026**, job ROMEO `738578`, décrivent un GH200, CUDA 12.9, FP64, `32×32` threads, une mise en chauffe puis cinq mesures. Le CPU de référence est une boucle naïve sur un seul cœur Grace. Le tableau donne les médianes de cinq essais ; la colonne kernel + D2H exclut allocations, initialisation et H2D initial. La restauration de C, la mise en chauffe et les vérifications restent hors mesure.
 
 | N | CPU / ms | Kernel / ms | Kernel + D2H / ms | Kernel / GFLOP/s |
 |---:|---:|---:|---:|---:|
@@ -308,7 +308,7 @@ $$
 
 Le travail s’exprime en FLOP, pas en FLOP/s. $1\,\mathrm{MiB}=2^{20}$ octets, $1\,\mathrm{MB}=10^6$ octets. Le rapport `ρ=t_compute/t_data` compare deux bornes : `ρ>1` signifie que la borne calcul domine **dans ce modèle idéal**, pas que le kernel naïf mesuré est forcément limité par le calcul. Pour `β≠0`, ajouter la lecture du C initial au volume minimal.
 
-**Q.14 - Comparaison au pic.** Calculer `P_mesuré=F/t`, puis `P_mesuré/P_crête`. La précision et les instructions doivent correspondre : un kernel FP64 scalaire ne se compare pas à un pic FP32 ou Tensor Core. Le rapport FP64/FP32 dépend du GPU ; il ne vaut pas systématiquement 1/2. Aucun nouveau débit n’est mesuré ici.
+**Q.14 - Comparaison au pic.** Calculer `P_mesuré=F/t`, puis `P_mesuré/P_crête`. La précision et les instructions doivent correspondre : un kernel FP64 scalaire ne se compare pas à un pic FP32 ou Tensor Core. Le rapport FP64/FP32 dépend du GPU ; il ne vaut pas systématiquement 1/2.
 
 **Q.15 - Modèle de lignes de 128 B.** Pour `C=AB`, sans lecture du C initial, un thread lit N éléments de A, N de B et écrit un C. En FP64, le volume logique vaut `8(2N+1)` octets, soit **65544 octets** pour N=4096. Pour expliciter l’exercice, ignorer le partage de lignes entre threads et compter une écriture comme un transfert de ligne, sans allocation en écriture supplémentaire.
 
@@ -359,9 +359,9 @@ __global__ void tiled_gemm(int N, const double *A, const double *B,
 
 Lancer avec `block(T,T)`. Tous les threads participent aux deux barrières, y compris ceux dont la sortie est hors limites : ils chargent zéro et n’écrivent pas C. Ne pas placer les barrières dans un `if (row<N && col<N)` divergent. Pour `C=AB`, prendre `alpha=1,beta=0` et fournir néanmoins un C initialisé, puisque ce code lit explicitement `beta*C`.
 
-**Q.20 - Exécuter et vérifier le résultat.** Comparer la version tuilée à la version précédente et à une référence CPU avec les mêmes données et le même C initial. Tester une taille multiple de T et des frontières, par exemple `N=1,T-1,T,T+1,2*T+1`, avec valeurs positives et négatives et C non nul. Vérifier les valeurs finies et `abs(gpu-ref) <= atol + rtol*abs(ref)`, en choisissant la tolérance selon la précision, N et l’échelle des données. Une erreur variable d’un lancement à l’autre peut signaler les barrières manquantes ; vérifier aussi indices, zéros aux frontières et restauration de C. **Ce protocole est proposé, mais le kernel tuilé n’a pas été exécuté ici.**
+**Q.20 - Exécuter et vérifier le résultat.** Comparer la version tuilée à la version précédente et à une référence CPU avec les mêmes données et le même C initial. Tester une taille multiple de T et des frontières, par exemple `N=1,T-1,T,T+1,2*T+1`, avec valeurs positives et négatives et C non nul. Vérifier les valeurs finies et `abs(gpu-ref) <= atol + rtol*abs(ref)`, en choisissant la tolérance selon la précision, N et l’échelle des données. Une erreur variable d’un lancement à l’autre peut signaler les barrières manquantes ; vérifier aussi indices, zéros aux frontières et restauration de C. 
 
-**Q.21 - Gain FP32/FP64.** Mesurer les variantes avec les mêmes tailles, types, coefficients et périmètres, puis calculer `t_naïf/t_tuilé`. Le gain dépend des caches, débits arithmétiques, barrières et ressources par bloc. Les chiffres du corrigé concernent d’autres GPU ; **aucun gain du kernel ci-dessus n’a été mesuré dans cette préparation**.
+**Q.21 - Gain FP32/FP64.** Mesurer les variantes avec les mêmes tailles, types, coefficients et périmètres, puis calculer `t_naïf/t_tuilé`. Le gain dépend des caches, débits arithmétiques, barrières et ressources par bloc. Les chiffres du corrigé concernent d’autres GPU.
 
 ### 4.11. Approfondissement - SDF Q.1-Q.5 : échantillonner un volume
 
@@ -500,6 +500,6 @@ Utiliser `cudaStreamWaitEvent` pour les attentes et `cudaEventElapsedTime` pour 
 
 **Q.15 - GEMM multistream.** Découper A et C en paquets de lignes. Chaque stream transfère son A et son C initial si `β≠0`, calcule ses lignes, puis rapatrie son C. Tous les paquets utilisent **B entier** : le transférer une fois avant le pipeline et rendre cette disponibilité visible dans tous les streams. Adapter l’indice de ligne global ou passer des pointeurs décalés avec un nombre local de lignes ; conserver les gardes du kernel tuilé. Avec le kernel exact de 4.10, initialiser aussi C lorsque `beta=0`, ou modifier le calcul final pour qu’une branche `beta==0` écrive `alpha*sum` sans lire C ; sans cette adaptation, supprimer la copie de C laisserait une lecture de données non initialisées.
 
-Comparer coalescence et tuilage à données et périmètres égaux. Accélérer les transferts ne garantit pas un gain lorsque le GPU est déjà saturé. Les chiffres P5000 du corrigé ne prédisent pas un résultat GH200. Aucun gain multistream n’a été exécuté ou confirmé ici.
+Comparer coalescence et tuilage à données et périmètres égaux. Accélérer les transferts ne garantit pas un gain lorsque le GPU est déjà saturé. Les chiffres P5000 du corrigé ne prédisent pas un résultat GH200.
 
-**À refaire au tableau.** Parcours principal : indices, nombre de threads, répartition host/device, kernel avec bornes, C initial, rapport de surfaces pour π, chronométrage attendant le calcul et conversion ms/GFLOP/s. Approfondissement : deux barrières, dépendances de streams, projection SDF. Les performances et rendus absents des sources restent à mesurer, pas à inventer.
+**À refaire au tableau.** Parcours principal : indices, nombre de threads, répartition host/device, kernel avec bornes, C initial, rapport de surfaces pour π, chronométrage attendant le calcul et conversion ms/GFLOP/s. Approfondissement : deux barrières, dépendances de streams, projection SDF.

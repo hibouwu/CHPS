@@ -7,6 +7,8 @@
 
 # 题目描述
 
+**Écoulement de Poiseuille.** Un fluide homogène, newtonien et incompressible s’écoule en régime permanent dans un tube droit de rayon $R$ et d’axe horizontal $O\mathbf e_z$. Les pressions d’entrée et de sortie sont $P_0,P_L$, avec $\Delta P=P_0-P_L>0$. On néglige la pesanteur et on suppose un écoulement unidirectionnel. On cherche la vitesse, les débits et la contrainte à la paroi.
+
 考虑一均匀、牛顿型、不可压缩流体在一圆截面直管中的定常流动。 流体密度为 $\rho$，动力黏度为 $\mu$（体积黏度为 $\lambda$），管道半径为 $R$，管轴为水平的 $O\vec{e}_z$，如图 图 1 所示。
 
 入口截面 $S_0$ 处压力为 $P_0$，出口截面 $S_L$ 处压力为 $P_L$，记 $\Delta P = P_0 - P_L > 0$。忽略重力。 假设流动为单向流动。
@@ -22,6 +24,8 @@
 ![圆管 Poiseuille 流的几何示意（原图 1.1）](Images/TD7/image.png)
 
 ## 问题 1.1：在假设条件下写出方程与边界条件
+
+En tenant compte des hypothèses, écrire les équations et conditions limites du problème.
 
 #### 假设解释
 
@@ -138,6 +142,8 @@ $$
 
 ## 问题 1.2：求速度场与压力场，并计算平均速度 $V_m$，用 $V_m$ 表示速度分布
 
+En déduire les champs de vitesse et de pression. Calculer la vitesse moyenne Vm . Exprimer la distribution de vitesse en fonction de Vm .
+
 #### 连续性方程
 
 由 H4（或 H1+H5），质量守恒式 (\*1.1) 化为： 
@@ -225,14 +231,10 @@ $$
 \tag{*1.12}
 $$
 
- 
-
 $$
 \frac{\partial p}{\partial \theta} = 0 \quad\text{（与 H2 轴对称一致）},
 \tag{*1.13}
 $$
-
- 
 
 $$
 \frac{\partial p}{\partial z} = \mu\,\Delta v.
@@ -419,6 +421,8 @@ $$
 
 ## 问题 1.3：计算体积流量与质量流量
 
+Calculer le débit volumique et le débit massique.
+
 体积流量： 
 
 $$
@@ -453,6 +457,8 @@ Q_m = \rho\int_S \vec{V}\cdot\vec{n}\,dS
 $$
 
 ## 问题 1.4：求壁面剪应力 $\tau_p$
+
+Évaluer la contrainte de cisaillement à la paroi τp .
 
 壁面上的应力向量： 
 

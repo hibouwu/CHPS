@@ -6,7 +6,7 @@ Cours, exercices corrigés et autoévaluation · 22 octobre 2026
 
 ### 0.1 Séances prévues avant le contrôle
 
-Le calendrier photographié en cours indique un **DST le matin du 22 octobre 2026**. Les séances ci-dessous déterminent l'ordre de révision. Ce calendrier ne précise pas un programme exhaustif du contrôle, sa durée, la forme des questions ou les documents autorisés.
+Le calendrier indique un **DST le matin du 22 octobre 2026**. Les séances qui précèdent sont listées ci-dessous. Le calendrier ne précise ni le programme, ni la durée, ni la forme des questions, ni les documents autorisés.
 
 | Date | Matin | Après-midi |
 |---|---|---|
@@ -27,18 +27,16 @@ Voir la [photo du calendrier](Images/calendrier_cours_2026.jpg). Les chapitres 1
 | Document | Version et utilisation | Partie du dossier |
 |---|---|---|
 | [Diapositives CM1](../CM/APM_Cours1_en.pdf) | Version de 96 pages, avec le complément sur les ordonnanceurs Kepler | Chapitre 1 |
-| [Cours CM1 en chinois](../CM/APM_Cours1_zh.md) | Explications de séance intégrées ; l'ancienne extraction franco-anglaise correspond à 93 pages | Explications et vérification du chapitre 1 |
-| [Diapositives CM2](../CM/APM_Cours2.pdf) et [cours chinois](../CM/APM_Cours2_zh.md) | PDF actuel de 98 pages, numérotation des warps et chronométrage par événements | Chapitre 2 |
-| [Diapositives CM3](../CM/APM_Cours3.pdf) et [cours chinois](../CM/APM_Cours3_zh.md) | 101 pages ; certaines descriptions d'API nécessitent une qualification historique | Chapitre 3 |
-| [Énoncé TD1](../TD1%20%20APM/td1.pdf) et [réponses existantes](../TD1%20%20APM/td1.md) | 2026-2027, Q1-Q9 | Exercices de l'année, chapitre 4 |
-| [Énoncé TD2](../TD2/TD2/SUJET/td2.pdf) et [code CPU](../TD2/TD2/CODE/pi.c) | 2026-2027, Monte Carlo, Q1-Q6 | Exercices de l'année, chapitre 4 |
-| [Énoncé TP1](../TP1/SUJET/tp1.pdf), [réponses françaises](../TP1/SUJET/tp1.md), [réponses chinoises](../TP1/SUJET/tp1_zh.md) | 2026-2027, compilation et DGEMM en mémoire globale, Q1-Q12 | Exercices de l'année, chapitre 4 |
+| [Cours CM1 en chinois](../CM/APM_Cours1_zh_part1.md) | Explications de séance intégrées ; l'extraction du texte correspond à l'ancienne version de 93 pages | Chapitre 1 |
+| [Diapositives CM2](../CM/APM_Cours2.pdf) et [cours chinois · part1](../CM/APM_Cours2_zh_part1.md) / [part2](../CM/APM_Cours2_zh_part2.md) | PDF actuel de 98 pages, numérotation des warps et chronométrage par événements | Chapitre 2 |
+| [Diapositives CM3](../CM/APM_Cours3.pdf) et [cours chinois · part1](../CM/APM_Cours3_zh_part1.md) / [part2](../CM/APM_Cours3_zh_part2.md) | 101 pages ; certaines descriptions d'API nécessitent une qualification historique | Chapitre 3 |
+| [Énoncé TD1](../TD1%20%20APM/td1.pdf) et [corrigé bilingue](../TD1%20%20APM/td1.md) | 2026-2027, Q1-Q9 | Exercices de l'année, chapitre 4 |
+| [Énoncé TD2](../TD2/TD2/SUJET/td2.pdf), [corrigé bilingue](../TD2/TD2/SUJET/td2.md) et [code CPU](../TD2/TD2/CODE/pi.c) | 2026-2027, Monte Carlo, Q1-Q6 | Exercices de l'année, chapitre 4 |
+| [Énoncé TP1](../TP1/SUJET/tp1.pdf), [corrigé bilingue](../TP1/SUJET/tp1_zh.md), [version française](../TP1/SUJET/tp1.md) | 2026-2027, compilation et DGEMM en mémoire globale, Q1-Q12 | Exercices de l'année, chapitre 4 |
 | [Exemple OpenMP Target](../cmexos/ompgpuecAdd.c) | Addition vectorielle, map et vérification du lieu d'exécution | OpenMP Target, chapitre 3 |
-| [Ancien corrigé TP1](../TDTP2025/TP/tp1_correction.pdf) | En-tête 2024-2025, optimisation avec mémoire partagée | Compléments, chapitre 4 |
-| [Ancien sujet TP2](../TDTP2025/TP/tp2_sujet_2025-2026.pdf) et [ancien corrigé](../TDTP2025/TP/tp2_correction.pdf) | Sujet 2025-2026 et corrigé 2024-2025 : documents d'années différentes | Complément streams, chapitre 4 |
-| [Ancien sujet TD](../TDTP2025/TD/td2.pdf) | 2025-2026, fonction de distance 3D, différent du TD2 Monte Carlo actuel | Complément SDF, chapitre 4 |
-
-Les diapositives originales, les traductions existantes, les programmes et les archives de mesures restent à leur emplacement. Ce dossier regroupe les diapositives répétées, réorganise les thèmes pour la révision et rapproche chaque question de son explication. Les liens permettent de retrouver la formulation originale, les figures complètes ou les journaux de mesures. Les transcriptions de séance éclairent le contexte ; leurs nombres oraux ne servent pas de spécifications précises.
+| [Ancien corrigé TP1](../TDTP2025/TP/tp1_correction.pdf) et [version bilingue](../TDTP2025/TP/tp1_correction.md) | En-tête 2024-2025, optimisation avec mémoire partagée | Compléments, chapitre 4 |
+| [Ancien sujet TP2](../TDTP2025/TP/tp2_sujet_2025-2026.pdf), [ancien corrigé](../TDTP2025/TP/tp2_correction.pdf) et [version bilingue](../TDTP2025/TP/tp2.md) | Sujet 2025-2026 et corrigé 2024-2025 : documents d'années différentes | Complément streams, chapitre 4 |
+| [Ancien sujet TD](../TDTP2025/TD/td2.pdf) et [version bilingue](../TDTP2025/TD/td2.md) | 2025-2026, fonction de distance 3D, différent du TD2 Monte Carlo actuel | Complément SDF, chapitre 4 |
 
 ### 0.3 Utiliser les deux versions
 
@@ -46,11 +44,9 @@ Une première lecture en chinois permet de comprendre le déroulement des calcul
 
 Pour rédiger une réponse CUDA, préciser successivement le travail d'un thread, le passage des coordonnées aux indices, l'emplacement des données CPU/GPU, les dépendances entre opérations, puis la vérification du résultat et le périmètre du chronométrage. Lorsqu'un énoncé fixe un stockage matriciel, un nombre de threads ou une caractéristique matérielle, utiliser cette hypothèse. Une valeur donnée pour une génération de GPU ne constitue pas une constante universelle.
 
-Les remarques signalées comme explications ou corrections lèvent une omission, une différence de version ou une erreur manifeste du support. Les nouveaux exemples de code ne sont pas accompagnés d'une affirmation d'exécution GPU dans cette préparation.
-
 ## 1. Architectures et premiers programmes CUDA
 
-Ce chapitre rassemble les notions du CM1 nécessaires pour expliquer un accélérateur, lire une architecture NVIDIA et écrire un premier kernel. La référence principale est le [CM1 de 96 pages](../CM/APM_Cours1_en.pdf). Les chiffres d'architecture ci-dessous sont les exemples du cours, pas une fiche des GPU actuellement disponibles.
+Ce chapitre correspond au [CM1](../CM/APM_Cours1_en.pdf) : expliquer un accélérateur, lire une architecture NVIDIA et écrire un premier kernel. Les chiffres d'architecture ci-dessous sont les exemples du cours, pas une fiche des GPU actuels.
 
 ### 1.1. Pourquoi utiliser un accélérateur ?
 
@@ -138,7 +134,7 @@ Pour Grace-Hopper, retenir surtout l'association d'un CPU et d'un GPU par une in
 | Directives | OpenMP Target, OpenACC | Régions à déporter, boucles parallèles et transferts |
 | Abstractions de plus haut niveau | Kokkos, RAJA, SYCL | Calcul exprimé via une bibliothèque ou une abstraction et traduit vers une cible |
 
-Avec CUDA, le programmeur écrit le travail d'un thread puis choisit la grille et les blocs. Avec une approche à directives, il annote des régions ou des boucles ; le compilateur prend en charge une partie de leur mise en œuvre sur la cible. Le CM3 développe OpenMP Target séparément.
+Avec CUDA, le programmeur écrit le travail d'un thread puis choisit la grille et les blocs. Avec une approche à directives, il annote des régions ou des boucles ; le compilateur prend en charge une partie de leur mise en œuvre sur la cible. OpenMP Target est traité au chapitre 3.
 
 **Trois objectifs distincts :** compiler sur une nouvelle machine, obtenir un résultat correct et y atteindre de bonnes performances. Une interface portable aide au premier objectif ; elle ne garantit pas à elle seule les deux autres. Les dépendances entre itérations et les déplacements de données doivent rester compris.
 
@@ -248,7 +244,7 @@ Vérification rapide : `grid = (2, 3, 2)`, `block = (4, 2, 2)`, `blockIdx = (1, 
 
 ### 1.12. Addition de vecteurs : suivre tout le trajet des données
 
-Le fragment ci-dessous exprime le cycle complet d'une opération, avec `a`, `b`, `c` déjà alloués côté host. Il adapte le CM1 en calculant la taille de grille et en conservant un nom unique pour le kernel. Pour garder le trajet des données visible, la gestion détaillée des erreurs CUDA est omise ; ce fragment ne constitue pas un compte rendu d'exécution GPU.
+Le fragment ci-dessous exprime le cycle complet d'une opération, avec `a`, `b`, `c` déjà alloués côté host. Il adapte le CM1 en calculant la taille de grille et en conservant un nom unique pour le kernel. Pour garder le trajet des données visible, la gestion détaillée des erreurs CUDA est omise.
 
 ```cpp
 #include <cuda_runtime.h>
@@ -315,17 +311,15 @@ Le calcul de `G` évite ici l'addition `N + B - 1` et son éventuel dépassement
 | Cycle de vie des données et compilation | 55-70 |
 | Threads, indices, lancement et programme | 71-96 |
 
-La page 87 présente également le **thread block cluster**, un regroupement entre grille et blocs, avec des mécanismes de lancement supplémentaires. Le présent chapitre garde ce repère sans reprendre son attribution historique à Blackwell comme un fait vérifié. Les graphiques Top500 et les tableaux de pics servent de contexte historique et ne sont pas développés en données actuelles.
+La page 87 présente également le **thread block cluster**, un regroupement entre grille et blocs, avec des mécanismes de lancement supplémentaires.
 
-Pour reprendre les explications en détail : [CM1 actuel](../CM/APM_Cours1_en.pdf), [support chinois enrichi](../CM/APM_Cours1_zh.md), [ancienne extraction](../CM/APM_Cours1.md). L'ancienne extraction repose sur 93 pages et ne remplace pas le PDF actuel. Les exemples de calcul et les mises en garde de ce chapitre sont des reformulations pédagogiques ; ils ne constituent pas une liste officielle de questions d'examen.
+Pour reprendre les explications en détail : [CM1](../CM/APM_Cours1_en.pdf) et [support chinois](../CM/APM_Cours1_zh_part1.md).
 
 ## 2. CUDA avancé : mémoire, exécution et synchronisation
 
-Source principale : [CM2, PDF de 98 pages](../CM/APM_Cours2.pdf), version du 29 septembre 2026. Les ajouts des pages 8 et 53 et la signature de la page 95 sont intégrés. Cette synthèse regroupe les animations successives ; les exemples réécrits servent à comprendre et n'ont pas été exécutés pour ce dossier.
+Ce chapitre correspond au [CM2](../CM/APM_Cours2.pdf).
 
-### 2.1 Attributs de fonctions et structure d'un noyau
-
-Source : CM2, p. 3-7.
+### 2.1 Attributs de fonctions et structure d'un noyau (CM2, p. 3-7)
 
 | Déclaration | Lieu d'exécution | Usage dans le cours |
 |---|---|---|
@@ -348,9 +342,7 @@ __global__ void vecAdd(const double *a, const double *b,
 
 Le test `i < n` protège le dernier bloc lorsque la taille du problème n'est pas un multiple de la taille du bloc. Il ne doit pas être supprimé simplement pour éviter un branchement.
 
-### 2.2 Indices, types vectoriels et numérotation des warps
-
-Source : CM2, p. 8-9 et p. 53, ajout de 2026.
+### 2.2 Indices, types vectoriels et numérotation des warps (CM2, p. 8-9 et 53)
 
 | Objet | Signification |
 |---|---|
@@ -371,9 +363,7 @@ Pour `blockDim = (4, 4, 2)`, on obtient `t = x + 4y + 16z` : `(3,1,0)` donne 7 e
 
 Les types vectoriels imposent des règles d'alignement. Écrire `float4` ne garantit ni une instruction arithmétique vectorielle ni un gain de temps ; il faut que l'accès, l'alignement et le code produit s'y prêtent. La p. 8 ajoute un exemple de lecture vectorisée.
 
-### 2.3 Hiérarchie mémoire : portée et durée de vie
-
-Source : CM2, p. 11-19 et 55-58.
+### 2.3 Hiérarchie mémoire : portée et durée de vie (CM2, p. 11-19 et 55-58)
 
 | Espace | Visible par | Durée/usage à retenir |
 |---|---|---|
@@ -388,9 +378,7 @@ Deux blocs résidant sur le même SM ne partagent pas automatiquement leur table
 
 La mémoire constante est intéressante quand les threads d'un warp lisent la même adresse ; des adresses différentes peuvent réduire cet avantage. Les tailles de caches et leurs relations physiques avec la mémoire partagée dépendent de l'architecture.
 
-### 2.4 Allocation et copies : taille en octets et propriété du pointeur
-
-Source : CM2, p. 20-24 et 30-33.
+### 2.4 Allocation et copies : taille en octets et propriété du pointeur (CM2, p. 20-24 et 30-33)
 
 ```cpp
 double *d_a = nullptr;
@@ -405,9 +393,7 @@ cudaFree(d_a);
 
 Dans le modèle de mémoire séparée du cours, un pointeur obtenu par `cudaMalloc` ne peut pas être déréférencé par une boucle CPU ordinaire. Conserver les données sur le GPU entre plusieurs calculs réduit les transferts inutiles.
 
-### 2.5 Allocation 2D/3D et pitch
-
-Source : CM2, p. 25-40.
+### 2.5 Allocation 2D/3D et pitch (CM2, p. 25-40)
 
 `cudaMallocPitch(&ptr, &pitch, width, height)` alloue des lignes alignées. `width` est la largeur utile en octets ; `pitch` est la distance réelle en octets entre deux débuts de ligne, padding inclus. `height` compte les lignes. Le pitch n'est ni le nombre d'éléments ni la seule taille du padding.
 
@@ -433,9 +419,7 @@ Exemple : 100 `float` occupent 400 octets utiles. Si le pitch retourné vaut 512
 
 En 3D, `cudaMalloc3D` utilise `cudaExtent` et retourne un `cudaPitchedPtr` ; pour une allocation linéaire, la largeur est en octets. Le pas d'une tranche se déduit du pitch de ligne et de la hauteur stockée. `cudaMemcpy3D` regroupe positions, pointeurs ou tableaux CUDA, étendue et direction dans `cudaMemcpy3DParms`. Les `cudaArray` sont des objets spécialisés ; ils ne se manipulent pas comme un simple tableau C.
 
-### 2.6 Mémoire unifiée et coût des migrations
-
-Source : CM2, p. 41-50.
+### 2.6 Mémoire unifiée et coût des migrations (CM2, p. 41-50)
 
 La mémoire unifiée, introduite dans le cours avec CUDA 6.0, permet d'utiliser un même pointeur avec l'hôte et le GPU via `cudaMallocManaged` ou une variable `__managed__`. Le système gère l'accès et, selon la plateforme, les déplacements des données. Cela réduit la gestion manuelle, pas nécessairement le coût des transferts.
 
@@ -452,9 +436,7 @@ cudaFree(a);
 
 Les p. 46-50 comparent une alternance répétée GPU → CPU sur le même tableau à des phases regroupées. Le ping-pong peut provoquer des migrations répétées. Regrouper les accès est intéressant uniquement si les dépendances du programme autorisent ce changement d'ordre ; si chaque étape CPU prépare l'entrée GPU suivante, on ne peut pas déplacer toutes les étapes CPU à la fin.
 
-### 2.7 Coalescence des accès globaux
-
-Source : CM2, p. 51-54 ; ajout sur la numérotation des threads p. 53.
+### 2.7 Coalescence des accès globaux (CM2, p. 51-54)
 
 Pour analyser un chargement, écrire l'adresse lue par chaque thread d'un même warp lors de la même instruction. Des adresses proches et bien alignées demandent généralement moins de transactions que des adresses dispersées. La contiguïté entre les accès successifs d'un seul thread ne suffit pas.
 
@@ -470,9 +452,7 @@ Les p. 52-53 citent 128 octets, des paquets de 32 octets et jusqu'à deux instru
 
 La mémoire partagée permet de charger une tuile avec des accès globaux coalescés, puis de réutiliser ou réorganiser les données dans le bloc. Charger des éléments supplémentaires peut être utile, mais doit se justifier par une réduction du coût total.
 
-### 2.8 Mémoire partagée et conflits de banques
-
-Source : CM2, p. 54-58 et 98. Le modèle de banques ci-dessous est une explication de révision, pas une nouvelle mesure du cours.
+### 2.8 Mémoire partagée et conflits de banques (CM2, p. 54-58 et 98)
 
 Un conflit se produit lorsque plusieurs accès d'une même opération doivent utiliser une même banque pour des adresses distinctes, ce qui peut sérialiser le service. Il faut distinguer ce problème de la coalescence en mémoire globale.
 
@@ -486,9 +466,7 @@ Pour `float tile[32][32]`, lire une colonne avec `tile[threadIdx.x][col]` donne 
 
 La mémoire partagée dynamique se déclare avec `extern __shared__`. Sa taille est le troisième paramètre du lancement. Si plusieurs tableaux utilisent la même zone, leurs offsets doivent éviter tout chevauchement et respecter l'alignement de chaque type.
 
-### 2.9 Registres, occupation et divergence
-
-Source : CM2, p. 59-60 et 98. Les formules servent à expliciter les contraintes présentées.
+### 2.9 Registres, occupation et divergence (CM2, p. 59-60 et 98)
 
 Les registres d'un SM sont répartis entre ses threads résidents. Plus un thread consomme de registres, moins il peut rester de place pour d'autres blocs. La mémoire partagée par bloc, le nombre de threads et les limites matérielles de blocs/warps peuvent également limiter la résidence.
 
@@ -508,9 +486,7 @@ $$
 
 La divergence concerne les chemins suivis par les threads d'un même warp. Des chemins différents peuvent diminuer l'utilisation des unités. Des warps différents peuvent suivre des branches différentes sans créer ce même phénomène. Le but est de réduire la divergence coûteuse, pas d'interdire tous les `if`.
 
-### 2.10 Barrières, visibilité, `volatile` et opérations atomiques
-
-Source : CM2, p. 57, 90 et 93.
+### 2.10 Barrières, visibilité, `volatile` et opérations atomiques (CM2, p. 57, 90 et 93)
 
 | Outil | Garantie/usage | Ce qu'il ne remplace pas |
 |---|---|---|
@@ -525,9 +501,7 @@ Les threads d'un bloc doivent rencontrer les barrières selon un contrôle cohé
 
 `a[i]++` comprend une lecture, une addition et une écriture ; plusieurs threads peuvent perdre des incréments. `atomicAdd(&a[i], 1)` protège cette mise à jour, mais une forte contention sur une adresse peut coûter cher. Réduire localement puis combiner moins de résultats atomiques est une piste, sous réserve de l'ordre d'arrondi acceptable en flottant. Les types et largeurs supportés dépendent de la compute capability.
 
-### 2.11 Asynchronisme, streams et mémoire hôte verrouillée
-
-Source : CM2, p. 62-89. Les p. 68-83 illustrent progressivement une seule chronologie.
+### 2.11 Asynchronisme, streams et mémoire hôte verrouillée (CM2, p. 62-89)
 
 Un lancement asynchrone rend la main au CPU avant la fin du travail GPU. Dans un même stream, les opérations restent ordonnées : copie d'entrée → noyau A → noyau B → copie de sortie. Cette propriété vient de l'ordre du stream ; CUDA n'analyse pas les pointeurs pour découvrir arbitrairement les dépendances entre streams.
 
@@ -553,9 +527,7 @@ Ce fragment suppose les streams, l'événement et les buffers déjà créés. Il
 
 Pour les transferts hôte-GPU réellement asynchrones et leur recouvrement, utiliser une mémoire hôte page-locked, par exemple `cudaMallocHost` puis `cudaFreeHost`. La mémoire pageable peut entraîner une étape intermédiaire ou un blocage. Ne pas modifier/libérer la source H→D avant la fin de la copie ; ne pas lire/réutiliser la destination D→H avant sa fin. Le verrouillage des pages et l'attente de fin répondent à deux besoins différents.
 
-### 2.12 Événements et mesure du temps
-
-Source : CM2, p. 95 ; signature complète visible dans le PDF 2026.
+### 2.12 Événements et mesure du temps (CM2, p. 95)
 
 ```cpp
 cudaEvent_t start, stop;
@@ -575,9 +547,7 @@ Les événements encadrent un intervalle dans le stream ; `cudaEventElapsedTime`
 
 Un chronomètre CPU placé seulement autour de `<<<...>>>` mesure surtout la soumission. Pour mesurer tout le calcul depuis le CPU, attendre sa fin avant le second relevé. Toujours préciser le périmètre : noyau seul ou application, transferts inclus ou exclus, première initialisation et préchauffage inclus ou exclus. Aucun résultat de performance n'est produit par ce dossier.
 
-### 2.13 Erreurs, fonctions mathématiques et débogage
-
-Source : CM2, p. 92-97.
+### 2.13 Erreurs, fonctions mathématiques et débogage (CM2, p. 92-97)
 
 Vérifier le `cudaError_t` des fonctions CUDA et utiliser `cudaGetErrorString` pour le message. Après un lancement, `cudaGetLastError()` permet de détecter une erreur de lancement ; vérifier aussi la synchronisation suivante pour une erreur d'exécution asynchrone. Un lancement accepté ne prouve ni l'absence d'accès hors limites ni la justesse numérique.
 
@@ -585,9 +555,9 @@ Vérifier le `cudaError_t` des fonctions CUDA et utiliser `cudaGetErrorString` p
 
 Les fonctions mathématiques optimisées et `--use_fast_math` peuvent améliorer certains calculs en simple précision, au prix de changements numériques. Ce drapeau ne signifie pas « toutes les opérations en double précision sont accélérées sans modification du résultat ».
 
-### 2.14 Méthode de réponse et ordre des optimisations
+### 2.14 Méthode de réponse et ordre des optimisations (CM2, p. 98)
 
-Source : CM2, p. 98 ; application aux exercices dans la section 4.
+Application aux exercices : section 4.
 
 1. Identifier le travail d'un thread et vérifier les limites des indices.
 2. Réduire les transferts CPU-GPU et conserver les données réutilisées sur le GPU.
@@ -602,11 +572,9 @@ Pour expliquer une accélération, relier une modification à sa cause : moins d
 
 ## 3. API CUDA, contextes et programmation multi-GPU
 
-Source principale : [CM3, PDF de 101 pages](../CM/APM_Cours3.pdf). Les diapositives mélangent explications historiques et exemples schématiques ; les précisions identifiées ci-dessous servent à éviter d'apprendre un comportement incorrect. La dernière diapositive décrit NCCL 2.19.3, sans constituer un inventaire de toutes les versions ultérieures.
+Ce chapitre correspond au [CM3](../CM/APM_Cours3.pdf). La dernière diapositive décrit NCCL 2.19.3, pas toutes les versions ultérieures.
 
-### 3.1 Runtime API et Driver API
-
-Source : CM3, p. 4-10.
+### 3.1 Runtime API et Driver API (CM3, p. 4-10)
 
 | Point | Runtime API | Driver API |
 |---|---|---|
@@ -619,9 +587,7 @@ Source : CM3, p. 4-10.
 
 Les deux API donnent accès au même GPU. Le Driver API n'est pas une promesse d'accélération : son intérêt est le contrôle des ressources et de leur contexte. Mélanger les deux demande de vérifier quel contexte est courant et à quel contexte appartiennent les objets utilisés.
 
-### 3.2 Ce que représente un contexte
-
-Source : CM3, p. 13-25.
+### 3.2 Ce que représente un contexte (CM3, p. 13-25)
 
 Un contexte organise l'état CUDA associé à un GPU : allocations usuelles, espace d'adressage, streams, événements et autres ressources. Pour raisonner sur un pointeur, il faut connaître son allocation et les droits d'accès, pas seulement le numéro du GPU.
 
@@ -636,9 +602,7 @@ Le contexte primaire, présenté comme disponible depuis CUDA 4.0, est partagé 
 
 **Précision sur la p. 22 :** l'affirmation selon laquelle seuls les contextes primaires resteraient disponibles ne doit pas être mémorisée comme règle actuelle. Le Driver API fournit toujours `cuCtxCreate`. Un contexte explicite n'est pas non plus intrinsèquement « privé pour toujours » à un thread : son association peut être manipulée. Voir la [gestion des contextes NVIDIA](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__CTX.html).
 
-### 3.3 Choisir le GPU et vérifier les erreurs
-
-Source : CM3, p. 28-38.
+### 3.3 Choisir le GPU et vérifier les erreurs (CM3, p. 28-38)
 
 `cudaGetDeviceCount(&count)` renseigne le nombre de GPU visibles au processus. `cudaSetDevice(device)` sélectionne le GPU pour le thread hôte appelant ; les allocations, streams, événements et lancements suivants doivent être associés au GPU voulu.
 
@@ -661,9 +625,7 @@ Ce fragment suppose `local_rank` déjà défini. Le modulo n'est valide que si `
 
 Changer de GPU courant ne déplace pas une allocation existante et ne termine pas automatiquement les travaux déjà soumis à l'autre GPU.
 
-### 3.4 Manipuler les contextes avec le Driver API
-
-Source : CM3, p. 39-49.
+### 3.4 Manipuler les contextes avec le Driver API (CM3, p. 39-49)
 
 | Fonction | Effet à comprendre |
 |---|---|
@@ -679,9 +641,9 @@ Exemple de raisonnement : le thread utilise A ; il empile B ; les opérations qu
 
 La signature de création à trois paramètres des diapositives dépend de la version de l'API ; il faut utiliser la signature du toolkit compilant le programme. Pour l'examen, maîtriser les effets des opérations et la propriété des ressources est plus utile que recopier un fragment incomplet. Les précisions de ce paragraphe et du tableau sont cohérentes avec la [documentation Driver API](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__CTX.html).
 
-### 3.5 UVA et mémoire unifiée : deux notions différentes
+### 3.5 UVA et mémoire unifiée : deux notions différentes (CM3, p. 51-62)
 
-Source : CM3, p. 51-62 ; mémoire unifiée dans CM2, p. 41-50.
+Mémoire unifiée : CM2, p. 41-50.
 
 UVA, présenté comme introduit avec CUDA 4.0, organise les adresses de l'hôte et des GPU dans un espace virtuel unifié sur les systèmes compatibles. Une adresse peut ainsi être associée à son allocation et à son emplacement, même si le GPU courant change.
 
@@ -713,9 +675,7 @@ Ce fragment demande si GPU 0 peut accéder à GPU 1, puis active ce sens depuis 
 
 `cudaMemcpyPeer` ou `cudaMemcpyPeerAsync` expriment un transfert entre allocations de deux GPU. Le trajet efficace dépend de la topologie et des capacités disponibles. P2P ne signifie ni « la donnée est déjà arrivée » ni « tous les accès distants ont le coût d'un accès local ». Il faut encore ordonner production, copie et consommation. Référence : [NVIDIA, accès à la mémoire d'un device pair](https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__PEER.html).
 
-### 3.7 MPI et affectation des GPU
-
-Source : CM3, p. 64-69.
+### 3.7 MPI et affectation des GPU (CM3, p. 64-69)
 
 Si tous les processus utilisent le GPU par défaut, ils peuvent tous charger GPU 0. Faire le même `cudaSetDevice(1)` dans tous les processus ne répartit pas davantage le travail. Le cours propose une distribution cyclique :
 
@@ -729,9 +689,9 @@ La distribution cyclique n'équilibre pas nécessairement le coût : les rangs p
 
 Les processus MPI ont des espaces d'adressage distincts. Envoyer la valeur brute d'un pointeur ou d'un handle de contexte ne partage pas l'allocation. Les échanges demandent un mécanisme prévu pour cela : communications, prise en charge de buffers GPU par une implémentation MPI adaptée, ou mécanisme interprocessus explicite. Ces possibilités n'impliquent pas que tout MPI accepte directement un pointeur GPU.
 
-### 3.8 OpenMP côté hôte et partage du contexte primaire
+### 3.8 OpenMP côté hôte et partage du contexte primaire (CM3, p. 71-75)
 
-Source : CM3, p. 71-75. Il s'agit ici de threads CPU OpenMP qui appellent CUDA ; l'offload OpenMP `target` est un autre mécanisme.
+Il s'agit ici de threads CPU OpenMP qui appellent CUDA ; l'offload OpenMP `target` est un autre mécanisme.
 
 ```cpp
 #pragma omp parallel
@@ -753,9 +713,7 @@ Chaque thread hôte doit choisir son GPU avant ses appels CUDA. Des threads d'un
 
 Les streams ordonnent le travail GPU ; les mécanismes OpenMP ordonnent aussi les échanges et accès du côté CPU. Ces deux niveaux de synchronisation ne sont pas interchangeables.
 
-### 3.9 MPI + OpenMP + CUDA : organisation et topologie
-
-Source : CM3, p. 76-82.
+### 3.9 MPI + OpenMP + CUDA : organisation et topologie (CM3, p. 76-82)
 
 Le cours présente un processus MPI par GPU, avec plusieurs threads hôtes et des streams, comme une organisation favorable au partage des allocations et au recouvrement. C'est un modèle de départ, pas une preuve que cette configuration maximise tous les programmes.
 
@@ -763,9 +721,7 @@ Les p. 78-80 doivent être lues avec précaution : les nombres 16 ou 128 ne sont
 
 Pour évaluer un placement, suivre le trajet des données : cœur CPU → mémoire NUMA → GPU → autre GPU ou réseau. Un GPU proche de certains cœurs peut être éloigné d'autres ; le meilleur placement GPU peut concurrencer le meilleur placement CPU. Une bibliothèque externe peut aussi modifier le device ou le contexte courant : ne pas supposer que cet état reste inchangé après tout appel.
 
-### 3.10 NCCL : communicateurs, rangs et initialisation
-
-Source : CM3, p. 84-92.
+### 3.10 NCCL : communicateurs, rangs et initialisation (CM3, p. 84-92)
 
 NCCL fournit des communications entre GPU. Une « clique » désigne ici les GPU participant à un communicateur ; elle peut ne couvrir qu'un sous-ensemble. Il faut distinguer trois numéros : rang MPI, identifiant CUDA local du device et rang dans le communicateur NCCL.
 
@@ -783,9 +739,7 @@ Dans le modèle étudié, un GPU ne doit pas représenter plusieurs rangs du mê
 
 Ces distinctions, notamment la portée mono-processus de `ncclCommInitAll`, sont vérifiées dans la [documentation officielle des communicateurs NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/api/comms.html). Un handle créé dans un processus ne devient pas utilisable dans les autres en diffusant seulement sa valeur.
 
-### 3.11 Collectives, AllReduce et exécution asynchrone
-
-Source : CM3, p. 93-100.
+### 3.11 Collectives, AllReduce et exécution asynchrone (CM3, p. 93-100)
 
 | Opération | Résultat attendu |
 |---|---|
@@ -818,9 +772,7 @@ ncclGroupEnd();
 
 Les communicateurs, buffers et streams sont supposés déjà initialisés. Attendre les streams après `ncclGroupEnd`, pas au milieu du groupe. Cette précision évite qu'un premier appel attende un autre participant encore non soumis ; voir [NCCL, appels groupés](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/groups.html).
 
-### 3.12 Points de vigilance pour le partiel
-
-Source : CM3, notamment p. 22, 36, 78-80, 84, 90 et 101.
+### 3.12 Points de vigilance pour le partiel (CM3, p. 22, 36, 78-80, 84, 90 et 101)
 
 1. **Même GPU ne veut pas dire même contexte.** Vérifier processus, contexte courant et allocation.
 2. **UVA ne veut pas dire mémoire unifiée.** Identifier séparément adressage, accès autorisé et mouvement des données.
@@ -871,13 +823,13 @@ Pour plusieurs boucles successives utilisant les mêmes tableaux, un environneme
 
 **Question type.** Pourquoi `map(from: y[0:N])` est-il insuffisant pour une mise à jour AXPY ? Parce que le calcul utilise la valeur initiale de `y` ; sans mapping préexistant, il faut aussi la rendre disponible sur le dispositif. Pourquoi `#pragma omp parallel for` ne suffit-il pas pour exprimer un offload ? Parce qu'il répartit le travail entre threads dans l'environnement courant, sans créer à lui seul une région target.
 
-Référence : [omp_is_initial_device](https://www.openmp.org/spec-html/5.0/openmpsu149.html). Le fragment illustre la sémantique ; aucune exécution GPU nouvelle n'est revendiquée ici.
+Référence : [omp_is_initial_device](https://www.openmp.org/spec-html/5.0/openmpsu149.html).
 
 ## 4. Exercices corrigés et lecture de code
 
 ### 4.1. Parcours et correspondance avec les documents
 
-Le planning fourni place le DST le **22 octobre au matin**, après CM1-CM3, TD1, TD2 et TP1. Les sections 4.2-4.8 constituent donc le parcours principal. Les sections 4.9-4.14 rassemblent les anciens exercices utiles pour approfondir ; elles ne sont pas présentées comme des questions obligatoires du DST. Le TP2 d’optimisation de GEMM est prévu après le DST, le 22 octobre après-midi.
+Le planning fourni place le DST le **22 octobre au matin**, après CM1-CM3, TD1, TD2 et TP1. Les sections 4.2-4.8 constituent donc le parcours principal. Les sections 4.9-4.14 rassemblent les anciens exercices utiles pour approfondir ; elles servent d'approfondissement. Le TP2 d’optimisation de GEMM est prévu après le DST, le 22 octobre après-midi.
 
 | Document | Année portée par la source | Couverture dans cette section |
 |---|---|---|
@@ -888,7 +840,7 @@ Le planning fourni place le DST le **22 octobre au matin**, après CM1-CM3, TD1,
 | [Ancien TD noté SDF](../TDTP2025/TD/td2.pdf) | 2025-2026 | Q.1-Q.7 : volume 3D, échantillonnage, projection |
 | [TP2 streams : sujet](../TDTP2025/TP/tp2_sujet_2025-2026.pdf) / [corrigé](../TDTP2025/TP/tp2_correction.pdf) | Sujet 2025-2026, corrigé **2024-2025** | Q.1-Q.15 : transferts, dépendances, chronométrage |
 
-Les réponses théoriques ci-dessous ont été recomposées à partir des fichiers. Les extraits de TD2, SDF, tuilage et streams sont des solutions pédagogiques, **sans nouvelle exécution GPU**. Les seuls temps repris sont ceux du TP1 déjà mesuré, identifiés en 4.8. Les extraits CUDA supposent les en-têtes adaptés et un contrôle des erreurs ; `CUDA_CHECK` est disponible dans le code du TP1.
+Les extraits CUDA supposent les en-têtes adaptés et un contrôle des erreurs ; `CUDA_CHECK` est disponible dans le code du TP1.
 
 ### 4.2. TD1 Q.1-Q.5 : aplatir des indices
 
@@ -1152,7 +1104,7 @@ $$
 
 Si l’on compte littéralement le code avec `αsum+βC`, on ajoute `3N²` opérations, avant simplifications du compilateur. Les copies ne sont pas des FLOP.
 
-**Exemple historique vérifiable, pas une nouvelle mesure.** Le [journal](../TP1/RESULTS/romeo-738578/run.log) et les [mesures JSON](../TP1/RESULTS/romeo-738578/measurements.json) du **9 octobre 2026**, job ROMEO `738578`, décrivent un GH200, CUDA 12.9, FP64, `32×32` threads, une mise en chauffe puis cinq mesures. Le CPU de référence est une boucle naïve sur un seul cœur Grace. Le tableau donne les médianes de cinq essais ; la colonne kernel + D2H exclut allocations, initialisation et H2D initial. La restauration de C, la mise en chauffe et les vérifications restent hors mesure.
+**Exemple mesuré :** le [journal](../TP1/RESULTS/romeo-738578/run.log) et les [mesures JSON](../TP1/RESULTS/romeo-738578/measurements.json) du **9 octobre 2026**, job ROMEO `738578`, décrivent un GH200, CUDA 12.9, FP64, `32×32` threads, une mise en chauffe puis cinq mesures. Le CPU de référence est une boucle naïve sur un seul cœur Grace. Le tableau donne les médianes de cinq essais ; la colonne kernel + D2H exclut allocations, initialisation et H2D initial. La restauration de C, la mise en chauffe et les vérifications restent hors mesure.
 
 | N | CPU / ms | Kernel / ms | Kernel + D2H / ms | Kernel / GFLOP/s |
 |---:|---:|---:|---:|---:|
@@ -1183,7 +1135,7 @@ $$
 
 Le travail s’exprime en FLOP, pas en FLOP/s. $1\,\mathrm{MiB}=2^{20}$ octets, $1\,\mathrm{MB}=10^6$ octets. Le rapport `ρ=t_compute/t_data` compare deux bornes : `ρ>1` signifie que la borne calcul domine **dans ce modèle idéal**, pas que le kernel naïf mesuré est forcément limité par le calcul. Pour `β≠0`, ajouter la lecture du C initial au volume minimal.
 
-**Q.14 - Comparaison au pic.** Calculer `P_mesuré=F/t`, puis `P_mesuré/P_crête`. La précision et les instructions doivent correspondre : un kernel FP64 scalaire ne se compare pas à un pic FP32 ou Tensor Core. Le rapport FP64/FP32 dépend du GPU ; il ne vaut pas systématiquement 1/2. Aucun nouveau débit n’est mesuré ici.
+**Q.14 - Comparaison au pic.** Calculer `P_mesuré=F/t`, puis `P_mesuré/P_crête`. La précision et les instructions doivent correspondre : un kernel FP64 scalaire ne se compare pas à un pic FP32 ou Tensor Core. Le rapport FP64/FP32 dépend du GPU ; il ne vaut pas systématiquement 1/2.
 
 **Q.15 - Modèle de lignes de 128 B.** Pour `C=AB`, sans lecture du C initial, un thread lit N éléments de A, N de B et écrit un C. En FP64, le volume logique vaut `8(2N+1)` octets, soit **65544 octets** pour N=4096. Pour expliciter l’exercice, ignorer le partage de lignes entre threads et compter une écriture comme un transfert de ligne, sans allocation en écriture supplémentaire.
 
@@ -1234,9 +1186,9 @@ __global__ void tiled_gemm(int N, const double *A, const double *B,
 
 Lancer avec `block(T,T)`. Tous les threads participent aux deux barrières, y compris ceux dont la sortie est hors limites : ils chargent zéro et n’écrivent pas C. Ne pas placer les barrières dans un `if (row<N && col<N)` divergent. Pour `C=AB`, prendre `alpha=1,beta=0` et fournir néanmoins un C initialisé, puisque ce code lit explicitement `beta*C`.
 
-**Q.20 - Exécuter et vérifier le résultat.** Comparer la version tuilée à la version précédente et à une référence CPU avec les mêmes données et le même C initial. Tester une taille multiple de T et des frontières, par exemple `N=1,T-1,T,T+1,2*T+1`, avec valeurs positives et négatives et C non nul. Vérifier les valeurs finies et `abs(gpu-ref) <= atol + rtol*abs(ref)`, en choisissant la tolérance selon la précision, N et l’échelle des données. Une erreur variable d’un lancement à l’autre peut signaler les barrières manquantes ; vérifier aussi indices, zéros aux frontières et restauration de C. **Ce protocole est proposé, mais le kernel tuilé n’a pas été exécuté ici.**
+**Q.20 - Exécuter et vérifier le résultat.** Comparer la version tuilée à la version précédente et à une référence CPU avec les mêmes données et le même C initial. Tester une taille multiple de T et des frontières, par exemple `N=1,T-1,T,T+1,2*T+1`, avec valeurs positives et négatives et C non nul. Vérifier les valeurs finies et `abs(gpu-ref) <= atol + rtol*abs(ref)`, en choisissant la tolérance selon la précision, N et l’échelle des données. Une erreur variable d’un lancement à l’autre peut signaler les barrières manquantes ; vérifier aussi indices, zéros aux frontières et restauration de C. 
 
-**Q.21 - Gain FP32/FP64.** Mesurer les variantes avec les mêmes tailles, types, coefficients et périmètres, puis calculer `t_naïf/t_tuilé`. Le gain dépend des caches, débits arithmétiques, barrières et ressources par bloc. Les chiffres du corrigé concernent d’autres GPU ; **aucun gain du kernel ci-dessus n’a été mesuré dans cette préparation**.
+**Q.21 - Gain FP32/FP64.** Mesurer les variantes avec les mêmes tailles, types, coefficients et périmètres, puis calculer `t_naïf/t_tuilé`. Le gain dépend des caches, débits arithmétiques, barrières et ressources par bloc. Les chiffres du corrigé concernent d’autres GPU.
 
 ### 4.11. Approfondissement - SDF Q.1-Q.5 : échantillonner un volume
 
@@ -1375,15 +1327,15 @@ Utiliser `cudaStreamWaitEvent` pour les attentes et `cudaEventElapsedTime` pour 
 
 **Q.15 - GEMM multistream.** Découper A et C en paquets de lignes. Chaque stream transfère son A et son C initial si `β≠0`, calcule ses lignes, puis rapatrie son C. Tous les paquets utilisent **B entier** : le transférer une fois avant le pipeline et rendre cette disponibilité visible dans tous les streams. Adapter l’indice de ligne global ou passer des pointeurs décalés avec un nombre local de lignes ; conserver les gardes du kernel tuilé. Avec le kernel exact de 4.10, initialiser aussi C lorsque `beta=0`, ou modifier le calcul final pour qu’une branche `beta==0` écrive `alpha*sum` sans lire C ; sans cette adaptation, supprimer la copie de C laisserait une lecture de données non initialisées.
 
-Comparer coalescence et tuilage à données et périmètres égaux. Accélérer les transferts ne garantit pas un gain lorsque le GPU est déjà saturé. Les chiffres P5000 du corrigé ne prédisent pas un résultat GH200. Aucun gain multistream n’a été exécuté ou confirmé ici.
+Comparer coalescence et tuilage à données et périmètres égaux. Accélérer les transferts ne garantit pas un gain lorsque le GPU est déjà saturé. Les chiffres P5000 du corrigé ne prédisent pas un résultat GH200.
 
-**À refaire au tableau.** Parcours principal : indices, nombre de threads, répartition host/device, kernel avec bornes, C initial, rapport de surfaces pour π, chronométrage attendant le calcul et conversion ms/GFLOP/s. Approfondissement : deux barrières, dépendances de streams, projection SDF. Les performances et rendus absents des sources restent à mesurer, pas à inventer.
+**À refaire au tableau.** Parcours principal : indices, nombre de threads, répartition host/device, kernel avec bornes, C initial, rapport de surfaces pour π, chronométrage attendant le calcul et conversion ms/GFLOP/s. Approfondissement : deux barrières, dépendances de streams, projection SDF.
 
 ## 5 Autoévaluation et rédaction pour le contrôle
 
 ### 5.1 Dix questions à faire sans regarder les réponses
 
-Ces questions ont été préparées à partir des documents locaux. Elles ne constituent ni un ancien sujet de contrôle ni une prévision du DST. Écrire les réponses avant de consulter la section suivante.
+Ces questions d’autotest suivent le cours ; ce ne sont pas d’anciens sujets. Écrire les réponses avant de consulter la section suivante.
 
 1. Expliquer les relations entre grille, bloc, warp et SM. Un warp peut-il contenir des threads de deux blocs ?
 2. Pour `N=1000` et `64` threads par bloc, combien faut-il de blocs ? Combien de threads sont lancés et combien ne modifient aucune donnée ?

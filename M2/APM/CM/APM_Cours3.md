@@ -2,11 +2,9 @@
 
 *Lecture 3 : CUDA APIs - Multi-GPUs programming*
 
-> 本文由教师 PDF 自动提取，已整理本地图片并校正部分明确的识别错误。幻灯片的逐步展示会造成内容重复；代码和公式请以同名 PDF 为准。
-
 **Enseignant :** Julien Jaeger · julien.jaeger@cea.fr
 
-**PDF source :** [APM_Cours3.pdf](APM_Cours3.pdf)
+**PDF :** [APM_Cours3.pdf](APM_Cours3.pdf)
 
 ## Lecture 3 outline
 

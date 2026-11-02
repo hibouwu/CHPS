@@ -36,4 +36,4 @@ int on_host = 1;
 
 **典型题。** AXPY 更新为何不能只写 `map(from: y[0:N])`？因为计算需要 `y` 的初值；在没有既有映射时，还必须把初值放到设备可用的位置。为何 `#pragma omp parallel for` 不足以表达 GPU offload？因为它在当前执行环境中分配线程工作，本身没有建立 target 区域。
 
-参考：[omp_is_initial_device](https://www.openmp.org/spec-html/5.0/openmpsu149.html)。代码片段用于说明语义，本次没有重新执行 GPU 验证。
+参考：[omp_is_initial_device](https://www.openmp.org/spec-html/5.0/openmpsu149.html)。

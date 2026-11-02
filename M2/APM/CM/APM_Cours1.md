@@ -2,13 +2,11 @@
 
 *Lecture 1 : Archirecture and programming models*
 
-> 本文由教师 PDF 自动提取，已整理本地图片并校正部分明确的识别错误。幻灯片的逐步展示会造成内容重复；代码和公式请以同名 PDF 为准。
-
 **Enseignant :** Julien Jaeger · julien.jaeger@cea.fr
 
-**PDF source :** [APM_Cours1_2025.pdf](Archive/APM_Cours1_2025.pdf)（93 页旧版）
+**PDF :** [APM_Cours1_2025.pdf](Archive/APM_Cours1_2025.pdf)（93 页旧版）
 
-> 版本说明（2026-09-25）：本提取稿保留旧版正文，不包含新版新增内容。今年的 96 页课件见 [APM_Cours1_en.pdf](APM_Cours1_en.pdf)，增量同步后的中文讲义见 [APM_Cours1_zh.md](APM_Cours1_zh.md)。
+> 本文对应 93 页旧版课件；今年的 96 页课件见 [APM_Cours1_en.pdf](APM_Cours1_en.pdf)，中文讲义见 [APM_Cours1_zh_part1.md](APM_Cours1_zh_part1.md)。
 
 ## Introduction
 
@@ -659,7 +657,7 @@ void vectAdd(
 - cudaMalloc: Allocate data on the device.
 - cudaMemcpy: Transfer data to the device or to the host.
 
-> 校注：下面对应原 PDF 第 61–67 页逐步展示的双栏示例。自动提取将页眉、注释和左右栏混入代码块；这些代码块仅用于对照幻灯片，不能直接编译运行。
+> 下面的代码对应原 PDF 第 61–67 页逐步展示的双栏示例，页眉、注释和左右栏混在一起，不能直接编译。
 
 ```text
 Host program
@@ -1205,7 +1203,7 @@ Thread number per block?
 
 ### Complete CUDA programm
 
-> 校注：本节对应原 PDF 第 84–93 页逐步展示的 HOST／DEVICE 双栏示例。自动提取混合了两栏与页眉，以下代码仅供查找原页，不能视为可编译的完整程序。
+> 本节对应原 PDF 第 84–93 页逐步展示的 HOST／DEVICE 双栏示例，两栏与页眉混在一起，不能直接编译。
 
 #### HOST
 

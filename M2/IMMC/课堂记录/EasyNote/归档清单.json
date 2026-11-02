@@ -1,0 +1,154 @@
+[
+  {
+    "title": "Untitled_Realtime_260923T0735",
+    "segments": 264,
+    "first": "00:19",
+    "last": "169:55",
+    "zh_segments": 264,
+    "source": "https://easynoteai.com/home",
+    "view": "Transcript",
+    "export_date": "2026-10-19",
+    "files": {
+      "Untitled_Realtime_260923T0735.fr.txt": {
+        "bytes": 144328,
+        "sha256": "d1b392131821cf73ba16f10954a571a1048b638585d545d5b71a9d20bf0537bc"
+      },
+      "Untitled_Realtime_260923T0735_transcript.html": {
+        "bytes": 290616,
+        "sha256": "25b08456918fdbf25faab3719a641148602c95252cdca4d920eaf618862a0b4f"
+      },
+      "Untitled_Realtime_260923T0735_中法对照.md": {
+        "bytes": 253237,
+        "sha256": "275b1957a127266fe20d4fde5daded18891c830585bd8e6fbab91b4b309ce341"
+      },
+      "Untitled_Realtime_260923T0735_分段原文.json": {
+        "bytes": 258001,
+        "sha256": "2e3ef97f984ff4b54b6f5be1a19588f37540d2fa0fd4b52a53158c102eb0c732"
+      },
+      "Untitled_Realtime_260923T0735_平台中文笔记.md": {
+        "bytes": 170729,
+        "sha256": "bad9a1f721f1a482b3b56ad233f10f9023300734fec6b7d6824ec5b4b53404eb"
+      },
+      "Untitled_Realtime_260923T0735_平台笔记.html": {
+        "bytes": 414083,
+        "sha256": "6cf80fc8f13689022f6717414d5dd5b9c530026bcfd6f7b6dd5e38d59744e7e4"
+      }
+    }
+  },
+  {
+    "title": "Immc",
+    "segments": 336,
+    "first": "00:00:00,570",
+    "last": "01:16:03,029",
+    "zh_segments": 0,
+    "source": "https://easynoteai.com/home",
+    "view": "Transcript",
+    "export_date": "2026-10-19",
+    "files": {
+      "Immc.fr.srt": {
+        "bytes": 72118,
+        "sha256": "e2a7bc2356896dfd943bda59077a855d1365e6f848ede433f48171cc99444de6"
+      },
+      "Immc.fr.txt": {
+        "bytes": 65842,
+        "sha256": "86b891a9b82e6c4b9afd7be1053154b31f8b9d81c2a77482ed4a40d68b75be82"
+      },
+      "Immc_transcript.html": {
+        "bytes": 78079,
+        "sha256": "5329792f289a4dfa4285e2cc13177a2fccdafc515d8a01b23cf0f29d07b4451c"
+      },
+      "Immc_transcript_页面原文.txt": {
+        "bytes": 72117,
+        "sha256": "ddfc648c95f8bd714c7498a48e0b0bd838a0d2455af4f8bd0f7eb1ab721eecc5"
+      },
+      "Immc_中法对照.md": {
+        "bytes": 66928,
+        "sha256": "3565bb4e44a0ac3f8ca09de50e4797a158209c9275b397e17263c60234e865fc"
+      },
+      "Immc_分段原文.json": {
+        "bytes": 96650,
+        "sha256": "d56ec461370c4aaa33d716ca3c7dd0eeed5768c371c376cd2b3eb6307c00abdd"
+      },
+      "Immc_平台中文笔记.md": {
+        "bytes": 39573,
+        "sha256": "5898bb1da39f4b9df2e507484369ac38cb6d033a7536e1d4b9284765e0ad48ea"
+      },
+      "Immc_平台笔记.html": {
+        "bytes": 350064,
+        "sha256": "b278d517dc099d76d170921e5897306b6f4b9252dfb342d7f4cb595d46d13c3c"
+      }
+    }
+  },
+  {
+    "title": "Untitled_Realtime_261002T0737",
+    "segments": 264,
+    "first": "00:45",
+    "last": "175:18",
+    "zh_segments": 263,
+    "source": "https://easynoteai.com/home",
+    "view": "Transcript",
+    "export_date": "2026-10-19",
+    "files": {
+      "Untitled_Realtime_261002T0737.fr.txt": {
+        "bytes": 106339,
+        "sha256": "4260107c4d07b2e34884bb281ccfd00c8ccbe43a045b4a63556c8056defa2a41"
+      },
+      "Untitled_Realtime_261002T0737_transcript.html": {
+        "bytes": 229234,
+        "sha256": "13745fcb1352d7c61ebc525e7a46cd310a1045d2f8f08ff0c2210b5b02c82a08"
+      },
+      "Untitled_Realtime_261002T0737_中法对照.md": {
+        "bytes": 191875,
+        "sha256": "18e33943c3c0c9f3c45367971b4b0ec542e4a938a6e2d210b5948caf7a2c6432"
+      },
+      "Untitled_Realtime_261002T0737_分段原文.json": {
+        "bytes": 196676,
+        "sha256": "15ddd90970da709809d7d57bbc648472b4d46f161566fb83111c8e62e45e69f6"
+      },
+      "Untitled_Realtime_261002T0737_平台中文笔记.md": {
+        "bytes": 157505,
+        "sha256": "365ece4929ecfaa20e1776c00b24472b15d5319220e9f5271a7dc46b97efae44"
+      },
+      "Untitled_Realtime_261002T0737_平台笔记.html": {
+        "bytes": 486384,
+        "sha256": "df705a124578e408ddb7182984d6064fabb21b661d3fac7b1482e85c66c52acc"
+      }
+    }
+  },
+  {
+    "title": "Untitled_261014",
+    "segments": 181,
+    "first": "00:28",
+    "last": "75:40",
+    "zh_segments": 181,
+    "source": "https://easynoteai.com/home",
+    "view": "Transcript",
+    "export_date": "2026-10-19",
+    "files": {
+      "Untitled_261014.fr.txt": {
+        "bytes": 52408,
+        "sha256": "74d906635c0a18cd2f5b2894d1993d40339de706f940335471229a3389c3b8aa"
+      },
+      "Untitled_261014_transcript.html": {
+        "bytes": 120566,
+        "sha256": "d07b71179c0a3c637ce57413d423e75380b6a50142191b510e5ca70ec5d0b571"
+      },
+      "Untitled_261014_中法对照.md": {
+        "bytes": 95139,
+        "sha256": "3dd8f3be72ec6fb48ff73eb763dec5920319c7c379a39d3b2b6658813a35de3d"
+      },
+      "Untitled_261014_分段原文.json": {
+        "bytes": 98306,
+        "sha256": "0d70edb875477692a35b1f128d7e94d12c9d614cfdf6c2c432b27969904f1943"
+      },
+      "Untitled_261014_平台中文笔记.md": {
+        "bytes": 75583,
+        "sha256": "6618cb4aad979df156330d78e8018abbfc0df1d84b19461bf5a3271869f0931d"
+      },
+      "Untitled_261014_平台笔记.html": {
+        "bytes": 228350,
+        "sha256": "29673b07dcdfe30e40c27d8d75ac24b9b04ace68ff61960d78ab9637b751014e"
+      }
+    }
+  }
+]

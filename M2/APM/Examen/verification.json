@@ -1,0 +1,237 @@
+{
+  "single_markdown_source": [
+    "APM_CC1_2025.md"
+  ],
+  "questions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "statements_and_solutions": "11 bilingual statements, each followed by its worked solution",
+  "code_blocks": "5 subject blocks and 10 solution blocks, each shown once",
+  "display_formulas": "1 shared display formula",
+  "photo_1_hash": "f5893ad4671dcb5f158c1e2eb5f747296aee7c335276ca3a17a98ca988297118",
+  "photo_2_hash": "0eeafd921ca27fab45fef8f2732f963a8b92d7fa9b5995799439516bb0cd9fc3",
+  "photo_3_hash": "7d4899bd276f1ba60bf119969b30d6dc43c4f40d37c9b92b9c05502420f078e7",
+  "photo_4_hash": "83376f28b9d74b5bee78942278d6ed8ffec5eb3caad98a7c0c22e39959609dbc",
+  "link_0": "Examen/Images/kernel_dependencies.png",
+  "link_1": "Examen/粘贴的图像.png",
+  "link_2": "Examen/粘贴的图像 (2).png",
+  "link_3": "Examen/粘贴的图像 (3).png",
+  "link_4": "Examen/粘贴的图像 (4).png",
+  "link_5": "Examen/output/pdf/APM_CC1_2025_Photos.pdf",
+  "link_6": "Examen/Images/kernel_dependencies.png",
+  "link_7": "Examen/Images/kernel_dependencies.svg",
+  "link_8": "Examen/output/pdf/APM_CC1_2025.pdf",
+  "link_9": "Examen/../Revision_Partiel/APM_Revision_fr.md",
+  "link_10": "Examen/../Revision_Partiel/APM_Revision_zh.md",
+  "link_11": "Examen/../README.md",
+  "local_link_count": 12,
+  "recorded_before_eA_wait": "eA",
+  "recorded_before_eD_wait": "eD",
+  "recorded_before_eG_wait": "eG",
+  "recorded_before_eH_wait": "eH",
+  "recorded_before_eJ_wait": "eJ",
+  "q6_nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K"
+  ],
+  "q6_graph": [
+    [
+      "A",
+      "C"
+    ],
+    [
+      "A",
+      "D"
+    ],
+    [
+      "B",
+      "E"
+    ],
+    [
+      "C",
+      "F"
+    ],
+    [
+      "D",
+      "G"
+    ],
+    [
+      "D",
+      "H"
+    ],
+    [
+      "E",
+      "H"
+    ],
+    [
+      "F",
+      "I"
+    ],
+    [
+      "G",
+      "I"
+    ],
+    [
+      "G",
+      "J"
+    ],
+    [
+      "H",
+      "J"
+    ],
+    [
+      "I",
+      "K"
+    ],
+    [
+      "J",
+      "K"
+    ]
+  ],
+  "q6_waits": [
+    [
+      "A",
+      "D"
+    ],
+    [
+      "D",
+      "H"
+    ],
+    [
+      "G",
+      "I"
+    ],
+    [
+      "H",
+      "J"
+    ],
+    [
+      "J",
+      "K"
+    ]
+  ],
+  "q6_nonredundant_cross_edges": "All five cross-stream edges necessary when preserving the depicted partial order",
+  "q6_final_wait": "K follows every kernel",
+  "q6_acyclic": "No dependency cycle",
+  "q3_flattening": "96 distinct indices, 0..95",
+  "q3_example": "Example index 78",
+  "q8_bounds": {
+    "original_intervals_over_N": [
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        12,
+        15
+      ]
+    ],
+    "device_capacity_over_N": 6,
+    "host_capacity_over_N": 7
+  },
+  "q8_partition": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      3,
+      6
+    ]
+  ],
+  "q10_bounds": "Second segment starts at 4N with only 2N allocated",
+  "q10_missing_dependencies": "Four producer-consumer dependencies absent after offset correction alone",
+  "q10_fixed_dependencies": "Same-segment H2D -> kernel -> D2H chains supply required dependencies",
+  "q11_cpu_model_1_1": "G=1, B=1, integer-valued float inputs",
+  "q11_cpu_model_1_2": "G=1, B=2, integer-valued float inputs",
+  "q11_cpu_model_1_4": "G=1, B=4, integer-valued float inputs",
+  "q11_cpu_model_1_8": "G=1, B=8, integer-valued float inputs",
+  "q11_cpu_model_1_32": "G=1, B=32, integer-valued float inputs",
+  "q11_cpu_model_2_1": "G=2, B=1, integer-valued float inputs",
+  "q11_cpu_model_2_2": "G=2, B=2, integer-valued float inputs",
+  "q11_cpu_model_2_4": "G=2, B=4, integer-valued float inputs",
+  "q11_cpu_model_2_8": "G=2, B=8, integer-valued float inputs",
+  "q11_cpu_model_2_32": "G=2, B=32, integer-valued float inputs",
+  "q11_cpu_model_4_1": "G=4, B=1, integer-valued float inputs",
+  "q11_cpu_model_4_2": "G=4, B=2, integer-valued float inputs",
+  "q11_cpu_model_4_4": "G=4, B=4, integer-valued float inputs",
+  "q11_cpu_model_4_8": "G=4, B=8, integer-valued float inputs",
+  "q11_cpu_model_4_32": "G=4, B=32, integer-valued float inputs",
+  "q11_cpu_model_8_1": "G=8, B=1, integer-valued float inputs",
+  "q11_cpu_model_8_2": "G=8, B=2, integer-valued float inputs",
+  "q11_cpu_model_8_4": "G=8, B=4, integer-valued float inputs",
+  "q11_cpu_model_8_8": "G=8, B=8, integer-valued float inputs",
+  "q11_cpu_model_8_32": "G=8, B=32, integer-valued float inputs",
+  "q11_cpu_model_32_1": "G=32, B=1, integer-valued float inputs",
+  "q11_cpu_model_32_2": "G=32, B=2, integer-valued float inputs",
+  "q11_cpu_model_32_4": "G=32, B=4, integer-valued float inputs",
+  "q11_cpu_model_32_8": "G=32, B=8, integer-valued float inputs",
+  "q11_cpu_model_32_32": "G=32, B=32, integer-valued float inputs",
+  "q11_example": [
+    10,
+    26,
+    42,
+    58
+  ],
+  "q11_resource_counterexample": "Power of two is insufficient: G=2048 exceeds a hypothetical 1024-thread block limit",
+  "gpu_execution": "Not performed; graph, arithmetic and CPU logic checks only",
+  "APM_CC1_2025_text": "Extracted text contains no replacement characters",
+  "APM_CC1_2025_outline": 17,
+  "APM_CC1_2025_font_log": "No missing-character warnings",
+  "APM_CC1_2025_Corrige_fr_text": "Extracted text contains no replacement characters",
+  "APM_CC1_2025_Corrige_fr_outline": 16,
+  "APM_CC1_2025_Corrige_fr_font_log": "No missing-character warnings",
+  "APM_CC1_2025_Corrige_zh_text": "Extracted text contains no replacement characters",
+  "APM_CC1_2025_Corrige_zh_outline": 16,
+  "APM_CC1_2025_Corrige_zh_font_log": "No missing-character warnings",
+  "photos_pdf_pages": 4,
+  "APM_CC1_2025_Sujet_fr_text": "Extracted text contains no replacement characters",
+  "APM_CC1_2025_Sujet_fr_outline": 15,
+  "APM_CC1_2025_Sujet_fr_font_log": "No missing-character warnings",
+  "APM_CC1_2025_Sujet_zh_text": "Extracted text contains no replacement characters",
+  "APM_CC1_2025_Sujet_zh_outline": 15,
+  "APM_CC1_2025_Sujet_zh_font_log": "No missing-character warnings",
+  "pdf_deliverables": {
+    "APM_CC1_2025.pdf": 18,
+    "APM_CC1_2025_Corrige_fr.pdf": 10,
+    "APM_CC1_2025_Corrige_zh.pdf": 9,
+    "APM_CC1_2025_Photos.pdf": 4,
+    "APM_CC1_2025_Sujet_fr.pdf": 5,
+    "APM_CC1_2025_Sujet_zh.pdf": 5
+  },
+  "pdf_pages": {
+    "APM_CC1_2025.pdf": 18,
+    "APM_CC1_2025_Corrige_fr.pdf": 10,
+    "APM_CC1_2025_Corrige_zh.pdf": 9,
+    "APM_CC1_2025_Photos.pdf": 4,
+    "APM_CC1_2025_Sujet_fr.pdf": 5,
+    "APM_CC1_2025_Sujet_zh.pdf": 5
+  }
+}

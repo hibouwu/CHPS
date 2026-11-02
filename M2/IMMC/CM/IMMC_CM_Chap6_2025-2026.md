@@ -904,7 +904,9 @@ $$
 \sum_ {j = 1} ^ {N} \left(\int_ {\Omega} \left[ \mathbf {K}: \varepsilon (\vec {\phi} _ {i}) \right]: \varepsilon (\vec {\phi} _ {j}) \mathrm{d} V\right) q _ {j} = \int_ {\partial \Omega_ {T}} \vec {T} _ {d} \cdot (\vec {\phi} _ {i}) \mathrm{d} S + \int_ {\Omega} \vec {f} _ {d} \cdot (\vec {\phi} _ {i}) \mathrm{d} V \quad i=1,\dots,N\tag{6.76}
 $$
 
-> **Erratum de quantificateur (PDF, p. 17, formules 6.74–6.76).** Le PDF imprime « $\forall\Omega$ », alors que le domaine $\Omega$ est fixé. Seul l’indice de test $i=1,\ldots,N$ varie.\n\nL’ensemble de ces N équations correspond au système linéaire de taille $N \times N$
+> **Erratum de quantificateur (PDF, p. 17, formules 6.74–6.76).** Le PDF imprime « $\forall\Omega$ », alors que le domaine $\Omega$ est fixé. Seul l’indice de test $i=1,\ldots,N$ varie.
+
+L’ensemble de ces N équations correspond au système linéaire de taille $N \times N$
 
 $$
 [ K ] \{q \} = \{F \}\tag{6.77}

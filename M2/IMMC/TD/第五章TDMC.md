@@ -1,5 +1,9 @@
 # 练习 1 --- 直接与逆本构关系
 
+题面与练习 2 见 [TD5](中文版/TD5_本构关系_2026-2027.md)；这里展开练习 1。
+
+**Relations de comportement directe et inverse.** On considère un solide élastique linéaire isotrope sous l’HPP. Les constantes de Lamé, le module d’Young, le coefficient de Poisson et le module de compressibilité décrivent le même matériau. Les déformations plastiques des métaux et alliages sont supposées isochoriques dans la dernière question.
+
 研究一个在**小扰动假设（HPP）**下的**各向同性线性弹性固体**。 该材料由以下参数描述：
 
 - $\lambda$：第一 Lamé 常数（单位 Pa, MPa 或 GPa）
@@ -13,6 +17,8 @@
 - $K$：体积弹性模量（或压缩模量），单位 Pa, MPa 或 GPa
 
 ## 问题 1.1
+
+Rappeler les relations de comportement directe $\boldsymbol\sigma=f_1(\boldsymbol\varepsilon)$ et inverse $\boldsymbol\varepsilon=f_2(\boldsymbol\sigma)$, en fonction de $\lambda,\nu,\mu,E$. Démontrer les relations liant ces coefficients.
 
 回忆直接与逆本构关系的两种表达式，分别为 $\sigma = f_1(\varepsilon)$ 与 $\varepsilon = f_2(\sigma)$， 并用材料参数 $\lambda, \mu, E, \nu$ 表示。推导这些材料参数之间的关系。
 
@@ -89,6 +95,8 @@ $$
 
 ## 问题 1.2
 
+Rappeler la condition d’incompressibilité pour un matériau solide. Quelles en sont les conséquences sur le module $K$ ?
+
 回忆固体材料的**不可压缩性条件**，并说明该条件对模量 $K$ 的影响。
 
 #### 解答：
@@ -129,6 +137,8 @@ $$
 当材料受载超过屈服极限时，会产生**塑性变形**，其叠加在弹性变形之上。 对于金属和合金，塑性变形通常被视为**等体积变形（isochore）**，即不可压缩。
 
 ## 问题 1.3
+
+En déduire le nombre de composantes indépendantes dans le tenseur de déformation plastique dans ce cas précis (en 3D).
 
 在此情况下（3D），求塑性应变张量的独立分量数。
 

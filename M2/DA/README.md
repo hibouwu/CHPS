@@ -42,7 +42,7 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 | 资源 | 格式 |
 |---|---|
 | [Lab1.ipynb](<Exercises/Lab1/Lab1.ipynb>)（第一节实验，含配套数据与图片） | IPYNB |
-| [作业一](<Exercises/Assignment1/README.md>)：题目[英文](<Exercises/Assignment1/Assignments1.ipynb>) · [中文](<Exercises/Assignment1/Assignments1_zh.ipynb>)，[中英解答](<Exercises/Assignment1/Assignments1_solution.ipynb>)，[中文深入讲解](<Exercises/Assignment1/Assignments1_deepdive_zh.html>)；另含点云数据与运行结果 | IPYNB / HTML / MD |
+| [作业一](<Exercises/Assignment1/README.md>)：题目[英文](<Exercises/Assignment1/Assignments1.ipynb>) · [中文](<Exercises/Assignment1/Assignments1_zh.ipynb>)，[六篇分题讲解](<Exercises/Assignment1/README.md#分题讲解>)（从前置知识讲起），AI 生成的[参考解答](<Exercises/Assignment1/Assignments1_solution.ipynb>)；另含点云数据与运行结果 | IPYNB / MD |
 
 ### 课程讲义
 

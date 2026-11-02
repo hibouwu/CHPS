@@ -7,9 +7,15 @@
 
 # 题目 1 --- Navier 方法
 
+题面见 [TD6](中文版/TD6_弹性问题_2025-2026_题面.md)。这里练习 3 前半部分多了展开内容，题号与原题不同（问题 3.7 出现两次）。
+
+**Méthode de Navier.** Un tube cylindrique de hauteur $h$ et de rayons $R_1,R_2$ est soumis aux pressions $p_1,p_2$. Les extrémités empêchent l’allongement axial. Sous l’HPP, on néglige les forces volumiques et on suppose le matériau homogène, isotrope et élastique, de constantes $\lambda,\mu$. On cherche un déplacement purement radial.
+
 研究一个圆柱形管道的某些变形，该管的高度为 $h$，内半径为 $R_1$，外半径为 $R_2$。 内壁受到压力 $p_1$，外壁受到压力 $p_2$。两端被固定，使得管子长度不发生变化。 我们假设在小扰动范围内，忽略体力，并认为介质是均匀、各向同性且弹性的（Lamé 系数为 $\lambda$ 和 $\mu$）。 在这些条件下，寻找仅具有径向分量 $u(r)$ 的位移场。
 
 ## 问题 1.1：建立问题------几何、方程与边界条件，并说明它们属于运动学还是静力学。
+
+Poser le problème, c’est-à-dire la géométrie, les équations et les conditions aux limites, en précisant si elles portent sur la cinématique ou la statique.
 
 **解答：**
 
@@ -79,6 +85,8 @@ $$
 
 ## 问题 1.2：说明位移场形式 $\vec{u}(M) = u(r)\vec{e_r}$ 的合理性。
 
+Justifier la forme du champ de déplacement recherché u(M ) = u(r)$\mathbf e_r$ .
+
 **解答：** 根据问题的观察：
 
 1.  问题（几何与载荷）在 $\theta$ 方向上具有不变性 $\Rightarrow \frac{\partial}{\partial \theta} = 0$；
@@ -90,6 +98,8 @@ $$
 4.  问题在 $z$ 方向上也不变 $\Rightarrow \frac{\partial}{\partial z} = 0$。
 
 ## 问题 1.3：证明位移场满足
+
+Montrer que le champ de déplacement s’écrit $u(r)=K_1/r+K_2r$, avec $K_1,K_2$ constants.
 
 $$
 u(r) = \frac{K_1}{r} + K_2 r,
@@ -188,6 +198,8 @@ $$
 
 ## 问题 1.4：利用边界条件求常数 $K_1$ 和 $K_2$。
 
+En utilisant les conditions aux limites, calculer $K_1$ et $K_2$. Pour la suite, on suppose $p_2\ll p_1$, $2p_1<\sigma_e$, $e=R_2-R_1\ll R_1$ et $2\lambda\simeq3\mu$.
+
 **解答：**
 
 位移边界条件（CA）不会提供关于 $K_1$ 和 $K_2$ 的信息： 
@@ -246,8 +258,6 @@ $$
 2\mu\dfrac{K_1}{(R_1)^2} - 2(\lambda+\mu)K_2 = p_1,
 $$
 
- 
-
 $$
 \boldsymbol{\sigma}(r=R_2)\cdot \vec{n}(R_2) = -p_2 \vec{n}(R_2)
 \Rightarrow
@@ -271,6 +281,8 @@ $$
 - 若 $p_2 > p_1$，则 $K_2$ 可为负，否则为正。
 
 ## 问题 1.5：求 Tresca 等效应力，并据此得到管壁厚度 $e$ 的设计条件。
+
+Déterminer la contrainte équivalente de Tresca et en déduire une règle de dimensionnement sur l’épaisseur e du tube.
 
 **解答：**
 
@@ -361,8 +373,6 @@ $$
 2p_1(R_2)^2 \le \sigma_e[(R_2)^2 - (R_1)^2],
 $$
 
- 
-
 $$
 (R_2)^2(2p_1 - \sigma_e) \le -\sigma_e (R_1)^2.
 $$
@@ -402,6 +412,8 @@ $$
 
 # 题目说明
 
+**Éprouvette de traction–torsion.** La zone utile est un tube mince de rayons $r_i,r_e=r_i+e$ et de longueur $L$. On travaille en statique, sans forces volumiques, en élasticité linéaire isotrope et sous l’HPP. Les résultantes axiales aux extrémités sont opposées, d’amplitude $N$. La torsion est imposée par $u_\theta(0)=0$ et $u_\theta(L)=\alpha Lr$. On résout séparément la traction et la torsion, puis on superpose les solutions.
+
 我们考虑一根用于拉伸--扭转实验的试样的有效区段（见图 2.1a）。 这种试样用于实验确定材料（如钢）的弹性域形状。 该有效区建模为一个薄壁圆柱管（见图 2.1b），内半径为 $r_i$，外半径为 $r_e = r_i + e$，长度为 $L$，其中 $e$ 相对 $r_i$ 和 $r_e$ 很小。
 
 假设在小扰动范围内分析静态情况。忽略体力。材料服从线性各向同性弹性关系。采用与基底 $(\vec{e_r}, \vec{e_\theta}, \vec{e_z})$ 相关的圆柱坐标系 $(r,\theta,z)$。
@@ -419,6 +431,8 @@ $$
 # 纯拉伸------按应力求解（$\alpha=0$）
 
 ## 问题 2.1：写出问题方程，区分边界条件、平衡方程与本构关系。
+
+Écrire les équations du problème en distinguant conditions aux limites, équations d’équilibre et relation de comportement (exprimée en fonction de E et ν, respectivement module d’Young et coefficient de Poisson du matériau étudié).
 
 定义分析区域：$r\in[r_i,r_e]$, $\theta\in[0,2\pi]$, $z\in[0,L]$。
 
@@ -480,6 +494,8 @@ $$
 $$
 
 ## 问题 2.2：求解该问题。
+
+Résoudre le problème.
 
 由于几何与载荷均轴对称，有： 
 
@@ -549,6 +565,8 @@ $$
 
 ## 问题 2.4：回顾位移法求解的基本步骤
 
+Rappeler brièvement la démarche de résolution en déplacement.
+
 位移法的思路如下：
 
 1.  建立问题（几何、边界、方程）；
@@ -562,6 +580,8 @@ $$
 5.  检查静力学可容性（平衡方程与边界条件是否满足）；若不满足，返回第 2 步调整假设。
 
 ## 问题 2.5：建立扭转问题的方程体系
+
+Poser le problème (écrire les équations du problème).
 
 几何区域：$r \in [r_i, r_e],\ z \in [0, L]$。
 
@@ -607,6 +627,8 @@ $$
 
 ## 问题 2.6：提出位移场形式并确定条件
 
+On propose $\mathbf u=f(r)g(z)\mathbf e_\theta$. Justifier ce choix. À quelle condition le champ vérifie-t-il les équations de liaison ? Montrer que $f(r)=Cr$ et déterminer la constante $C$.
+
 假设位移为： 
 
 $$
@@ -629,8 +651,6 @@ $$
 u_\theta(r,z=0)=f(r)g(0)=0 \Rightarrow g(0)=0,
 $$
 
- 
-
 $$
 u_\theta(r,z=L)=f(r)g(L)=\alpha L r \Rightarrow f(r)=\alpha r,\ g(L)=L.
 $$
@@ -648,6 +668,8 @@ $$
 $$
 
 ## 问题 2.7：求应变张量与应力张量
+
+Déterminer $\boldsymbol\varepsilon(\mathbf u)$ puis $\boldsymbol\sigma$, en fonction du déplacement et des coefficients de Lamé $\lambda,\mu$.
 
 由 HPP： 
 
@@ -692,6 +714,8 @@ $$
 $$
 
 ## 问题 2.8：求解扭转问题的完整解
+
+Déterminer la solution $(\mathbf u,\boldsymbol\sigma)$ du problème.
 
 平衡方程： 
 
@@ -751,6 +775,8 @@ $$
 
 ## 问题 2.9：薄壁假设对剪应力 $\sigma_{\theta z}$ 的影响
 
+Expliquer la conséquence de l’hypothèse de tube mince formulée au début du problème sur la composante de cisaillement σθz .
+
 薄壁假设意味着： 
 
 $$
@@ -773,6 +799,8 @@ $$
 # 拉伸与扭转的叠加
 
 ## 问题 2.10：计算扭矩并验证结果
+
+Calculer le couple de torsion que doit appliquer la machine d’essais pour obtenir l’angle de torsion indiqué, paramétré par $\alpha$.
 
 剪应力为： 
 
@@ -803,6 +831,8 @@ $$
 ---
 
 ## 问题 2.11：拉伸与扭转的组合应力场
+
+Trouver la solution du problème de départ.
 
 由于材料为线性弹性体，拉伸与扭转的位移场可直接叠加： 
 
@@ -839,6 +869,8 @@ $$
 ---
 
 ## 问题 2.12：根据 Tresca 与 von Mises 准则确定屈服条件
+
+Déterminer la contrainte équivalente de von Mises en fonction de $N$ et $\alpha$. Tracer la limite d’élasticité dans le diagramme $(\sigma_{zz},\sigma_{\theta z})$, pour lequel $\sigma_{VM}\le\sigma_e$.
 
 #### 主应力：
 
@@ -923,6 +955,8 @@ Tresca 与 von Mises 准则在 $(\sigma_{zz},\sigma_{\theta z})$ 平面上分别
 
 # 题目背景
 
+**Planète : gravité et température.** La planète homogène, de rayon $R$ et de masse volumique $\rho$, subit la force volumique radiale $-\rho g(r/R)\mathbf e_r$. On cherche le déplacement radial en élasticité isotrope. Dans la seconde partie, seule la croûte solide est modélisée par une sphère creuse de rayons $R_i,R$ ; son champ de température est imposé. Le coefficient $\alpha_v$ est volumique et vaut trois fois le coefficient linéaire.
+
 考虑一个球形行星，半径为 $R$，材料为各向同性线弹性体，密度为 $\rho$。 研究其在自身重力作用下的静力平衡状态及温度场分布。
 
 忽略自转和外部载荷，采用球坐标系 $(r,\theta,\phi)$，其中 $r \in [0, R]$。
@@ -932,6 +966,8 @@ Tresca 与 von Mises 准则在 $(\sigma_{zz},\sigma_{\theta z})$ 平面上分别
 # 第一部分：自重引起的应力分布
 
 ## 问题 3.1：建立平衡方程
+
+Établir les équations d’équilibre pour le problème de gravité sphérique.
 
 对任意小体积元，静力平衡方程为： 
 
@@ -963,6 +999,8 @@ $$
 
 ## 问题 3.2：确定重力场表达式
 
+Déterminer l’expression du champ de gravité à l’intérieur de la sphère.
+
 行星内部任意半径 $r$ 处的重力加速度为： 
 
 $$
@@ -983,6 +1021,8 @@ $$
 
 ## 问题 3.3：写出边界条件
 
+Écrire les conditions aux limites mécaniques.
+
 在球心 $r=0$： 
 
 $$
@@ -1000,6 +1040,8 @@ $$
 ---
 
 ## 问题 3.4：利用弹性关系求解应力场
+
+Utiliser la relation d’élasticité pour établir les équations du champ de contrainte.
 
 假设小变形下的位移场为球对称形式： 
 
@@ -1048,6 +1090,8 @@ $$
 $$
 
 ## 问题 3.5：求解位移场 $u(r)$
+
+Déterminer le déplacement radial $u(r)$.
 
 方程 (3.5)： 
 
@@ -1104,6 +1148,8 @@ $$
 ---
 
 ## 问题 3.6：应用边界条件求常数 $A,B$
+
+Appliquer les conditions aux limites pour déterminer les constantes $A,B$.
 
 \(1\) 在球心 $r=0$：位移有限 ⇒ $B=0$。
 
@@ -1165,14 +1211,14 @@ $$
 
 ## 问题 3.7：求应力分布 $\sigma_{rr}$ 与 $\sigma_{\theta\theta}$
 
+Déterminer les contraintes radiale $\sigma_{rr}$ et circonférentielle $\sigma_{\theta\theta}$.
+
 利用： 
 
 $$
 \varepsilon_{rr} = \frac{du}{dr}, \quad
 \varepsilon_{\theta\theta} = \frac{u}{r}.
 $$
-
- 
 
 $$
 \sigma_{rr} = (2\mu+\lambda)\varepsilon_{rr} + 2\lambda\varepsilon_{\theta\theta}, \qquad
@@ -1187,8 +1233,6 @@ $$
 = \frac{2\pi G\rho^2 R^2(3\lambda+6\mu)}{15(\lambda+2\mu)(3\lambda+2\mu)} 
 - \frac{2\pi G\rho^2}{5(\lambda+2\mu)}r^2,
 $$
-
- 
 
 $$
 \varepsilon_{\theta\theta} =
@@ -1206,8 +1250,6 @@ $$
 }
 \tag{3.10}
 $$
-
- 
 
 $$
 \boxed{
@@ -1247,6 +1289,8 @@ $$
 $$
 
 ## 问题 3.7：写出各方程（非等温、空心球）
+
+Donner les équations du problème.
 
 考虑半径在 $[R_i,\ R]$ 的空心球壳。
 
@@ -1316,6 +1360,8 @@ $$
  其中 $K$ 为体积模量，满足 $3K=3\lambda+2\mu$。
 
 ## 问题 3.8：由 Navier 方程得到 $u(r)$ 的形式
+
+A l’aide de l’équation d’équilibre (anisotherme), définir l’expression de u(r).
 
 在非等温情形下，Navier 方程写成： 
 
@@ -1408,6 +1454,8 @@ $$
 
 ## 问题 3.9：求应变与应力张量
 
+Déterminer le tenseur des déformations et des contraintes.
+
 由 $u(r)$ 计算位移梯度： 
 
 $$
@@ -1454,8 +1502,6 @@ $$
 \end{pmatrix},
 $$
 
- 
-
 $$
 \begin{cases}
 \sigma_{rr} = \lambda\,\mathrm{Tr}(\varepsilon) + 2\mu\varepsilon_{rr} - K\alpha_v \delta T(r),\\[0.3em]
@@ -1481,6 +1527,8 @@ $$
 $$
 
 ## 问题 3.10：利用自由表面条件求 $C_1,C_2$
+
+Déterminer complètement ces tenseurs à partir des conditions limites.
 
 自由表面条件： 
 
@@ -1519,8 +1567,6 @@ C_2 = -\frac{K\alpha_v T_0}{2(\lambda+2\mu)}
 \tag{3.53}
 $$
 
- 
-
 $$
 \boxed{
 C_1 = -\frac{\alpha_v T_0}{3(\lambda+2\mu)}
@@ -1533,6 +1579,8 @@ C_1 = -\frac{\alpha_v T_0}{3(\lambda+2\mu)}
 $$
 
 ## 问题 3.11：求最大剪应力及其位置
+
+Déterminer le cisaillement maximal et la position radiale où la limite d’élasticité en cisaillement est atteinte en premier.
 
 主应力即为对角分量： 
 

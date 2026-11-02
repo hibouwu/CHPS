@@ -21,7 +21,7 @@ Le code principal prolonge celui de la séance précédente. Les questions Q.1 �
 
 > **Corrections de forme et de cohérence :** le répertoire des fichiers intermédiaires est uniformisé en `CUDAIMG` (le texte original mélange `TMP` et `CUDAIMG`). Les tirets des options sont corrigés. L’accumulateur de l’exemple est passé de `float` à `double`, conformément aux matrices et à `dgemm.c`.
 >
-> Les réponses ci-dessous sont complétées par les **mesures ROMEO du 9 octobre 2026**, job `738578`. Les indications Ruche du sujet sont conservées ; cette exécution utilise un GH200 sur ROMEO. Les commandes de reproduction figurent en fin de document.
+> Les mesures proviennent d’un GH200 sur ROMEO (9 octobre 2026) ; les commandes de reproduction figurent en fin de document. Les indications Ruche du sujet sont conservées.
 
 ## I. Chaîne de compilation
 
@@ -360,7 +360,7 @@ Ce débit est celui de cette version en mémoire globale, dans la configuration 
 
 L’implémentation complète est [dgemm.cu](../CODE/Partie2/dgemm.cu). Le script [run_romeo.sh](../CODE/run_romeo.sh) compile, vérifie et mesure le programme. Les fichiers fournis `dgemm.c` et `tp1_check.cu` sont conservés.
 
-Le répertoire distant est `/gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009`. Les quotas home et scratch étant pleins, cette exécution utilise le répertoire personnel du projet, sans supprimer les fichiers de recherche existants. Les empreintes des sources locales et distantes concordent ; les sources mesurées sont archivées dans [source](../RESULTS/romeo-738578/source/), avec le manifeste [source.sha256](../RESULTS/romeo-738578/source.sha256).
+Le répertoire distant est `/gpfs/projet/r260073/hibouwu/coursework/apm-tp1-20261009`. Les sources mesurées sont archivées dans [source](../RESULTS/romeo-738578/source/), avec le manifeste [source.sha256](../RESULTS/romeo-738578/source.sha256).
 
 Depuis le terminal local, se connecter puis exécuter via Slurm :
 
@@ -373,7 +373,7 @@ srun --account=r260073 --partition=instant --constraint=armgpu \
     --cpu-bind=cores bash ./run_romeo.sh
 ```
 
-Le script charge CUDA 12.9 sur le nœud de calcul et conserve le journal et les fichiers intermédiaires dans `RESULTS/romeo-numéro_du_job/`. Ne pas exécuter le programme GPU sur le nœud de connexion. La commande demande un nouveau job ; le job `738578` est terminé normalement, état `COMPLETED`, code de sortie `0:0`, durée d’allocation de 22 secondes, ressources libérées. Si d’autres travaux demandent aussi un GH200, utiliser le verrou GPU local commun pour sérialiser les allocations.
+Le script charge CUDA 12.9 sur le nœud de calcul et conserve le journal et les fichiers intermédiaires dans `RESULTS/romeo-numéro_du_job/`. Ne pas exécuter le programme GPU sur le nœud de connexion. La commande demande un nouveau job.
 
 Dans une allocation GPU personnelle déjà active, après chargement de CUDA, on peut aussi compiler et exécuter depuis `CODE` :
 

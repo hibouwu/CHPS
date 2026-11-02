@@ -2,13 +2,9 @@
 
 *Lecture 2 : Advanced CUDA*
 
-> 本文由教师 PDF 自动提取，已整理本地图片并校正部分明确的识别错误。幻灯片的逐步展示会造成内容重复；代码和公式请以同名 PDF 为准。
-
 **Enseignant :** Adrien Roussel · adrien.roussel@cea.fr
 
-**PDF source :** [APM_Cours2.pdf](APM_Cours2.pdf)
-
-> Version synchronisée : PDF du 29 septembre 2026, 98 pages. Les ajouts des pages 8 et 53 ainsi que la signature rendue lisible à la page 95 sont intégrés ci-dessous.
+**PDF :** [APM_Cours2.pdf](APM_Cours2.pdf)
 
 ## Overview
 

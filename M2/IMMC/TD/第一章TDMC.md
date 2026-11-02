@@ -1,5 +1,9 @@
 # 练习 1 -- 运动学
 
+题面与完整题号见 [TD1](中文版/TD1_运动学_2024-2025.md)；这里只展开了部分问题。
+
+**Cinématique d’un tourbillon atmosphérique.** Dans un repère cartésien, le mouvement est donné par $V_1=\omega x_2$ et $V_2=-\omega x_1+a\omega^2t$. Les paramètres $a,\omega$ sont constants et $\omega\ne0$. Les coordonnées $X_i$ repèrent la position initiale de chaque particule ; les $x_i$ sa position courante.
+
 我们研究一个由下述速度场定义的大气涡旋的运动。 在笛卡尔坐标系 $(O, \vec{e}_1, \vec{e}_2)$ 中，对于某点 $M(x_1, x_2)$ 在时刻 $t$：
 
 $$
@@ -15,6 +19,8 @@ $$
 
 ## 问题 1.1：回忆欧拉描述与拉格朗日描述的定义，并说明如何从一种描述转化为另一种。
 
+Rappeler les définitions des descriptions eulérienne et lagrangienne et la démarche permettant de passer de l’une à l’autre.
+
 #### 解答：
 
 这两种描述（或称"视角"）都用于研究同一个运动系统：
@@ -27,13 +33,13 @@ $$
 
 - 类比地，可将其与利用固定测速雷达测量汽车速度的方式相对应。
 
-数学上： 
+数学上：
 
 $$
 E\vec{V} = \dfrac{d\vec{M}(t)}{dt} = \vec{V}(\vec{M}, t) = \vec{V}(x_1, x_2, x_3, t)
 $$
 
-**拉格朗日描述：** 以一个参考构型（即在 $t = t_0 = 0$ 的初始时刻）为基础，描述后续各时刻 $t > t_0$ 的配置。 即以每个质点的初始位置 $\vec{M}_0$ 和时间 $t$ 为自变量，给出其在时刻 $t$ 的位置 $\vec{M}$： 
+**拉格朗日描述：** 以一个参考构型（即在 $t = t_0 = 0$ 的初始时刻）为基础，描述后续各时刻 $t > t_0$ 的配置。 即以每个质点的初始位置 $\vec{M}_0$ 和时间 $t$ 为自变量，给出其在时刻 $t$ 的位置 $\vec{M}$：
 
 $$
 \vec{M} = \vec{M}(\vec{M}_0, t)
@@ -45,7 +51,7 @@ $$
 
 - 类比地，可视为用 GPS 芯片追踪汽车随时间变化的轨迹与速度。
 
-数学上： 
+数学上：
 
 $$
 L\vec{V} = \dfrac{\partial \vec{M}}{\partial t}
@@ -53,13 +59,13 @@ L\vec{V} = \dfrac{\partial \vec{M}}{\partial t}
 = \vec{V}(\vec{M}_0, t) = \vec{V}(X_1, X_2, X_3, t)
 $$
 
-**备注：** 由 $\vec{M} = \vec{M}(\vec{M}_0, t)$ 可得： 
+**备注：** 由 $\vec{M} = \vec{M}(\vec{M}_0, t)$ 可得：
 
 $$
 d\vec{M} = \dfrac{\partial \vec{M}}{\partial t}dt + \dfrac{\partial \vec{M}}{\partial \vec{M}_0}d\vec{M}_0
 $$
 
-因为 $\dfrac{\partial \vec{M}_0}{\partial t} = \vec{0}$，故： 
+因为 $\dfrac{\partial \vec{M}_0}{\partial t} = \vec{0}$，故：
 
 $$
 \dfrac{d\vec{M}}{dt} = \dfrac{\partial \vec{M}}{\partial t}
@@ -67,7 +73,7 @@ $$
 E\vec{V} = \dfrac{d\vec{M}(t)}{dt} = \dfrac{\partial \vec{M}(t)}{\partial t} = L\vec{V}(\vec{M}_0, t)
 $$
 
-对于加速度，同理有： 
+对于加速度，同理有：
 
 $$
 E\vec{V} = E\vec{V}(\vec{M}, t)
@@ -75,14 +81,14 @@ E\vec{V} = E\vec{V}(\vec{M}, t)
 dE\vec{V} = \dfrac{\partial E\vec{V}}{\partial t}dt + \dfrac{\partial E\vec{V}}{\partial \vec{M}}d\vec{M}
 $$
 
- 因此： 
+ 因此：
 
 $$
 \dfrac{dE\vec{V}}{dt} = \dfrac{\partial E\vec{V}}{\partial t} + \dfrac{\partial E\vec{V}}{\partial \vec{M}}\cdot\dfrac{d\vec{M}}{dt}
 = \dfrac{\partial E\vec{V}}{\partial t} + (\nabla E\vec{V})\cdot E\vec{V}
 $$
 
- 即： 
+ 即：
 
 $$
 E\vec{\Gamma} = \dfrac{dE\vec{V}}{dt}
@@ -94,6 +100,8 @@ $$
 **从拉格朗日描述到欧拉描述：** 对轨迹方程关于时间求导：$E V_i = \dfrac{dx_i(t)}{dt} = \dot{x}_i(X_i, t)$， 再通过代入轨迹表达式 $x_i(t)$，得到速度场 $E V_i = E f(x_i, t)$。
 
 ## 问题 1.2：给出该运动的欧拉描述。
+
+Donner la description eulérienne de ce mouvement.
 
 #### 解答：
 
@@ -119,6 +127,8 @@ $$
 
 ## 问题 1.3：给出该运动的拉格朗日描述。
 
+Donner la description lagrangienne de ce mouvement.
+
 #### 解答：
 
 我们希望根据初始位置 $\vec{M}_0$ 描述每个质点或点 $M$ 的轨迹：
@@ -140,7 +150,7 @@ x_2(0)
 \end{pmatrix}_{(\vec{e}_1,\vec{e}_2)}
 $$
 
-于是： 
+于是：
 
 $$
 \begin{pmatrix}
@@ -186,23 +196,23 @@ $$
 \ddot{x}_2 + \omega^2 x_2 = 0
 $$
 
-其一般形式为： 
+其一般形式为：
 
 $$
 y'' + 2\lambda y' + \omega_0^2 y = 0
 $$
 
- 其中： 
+ 其中：
 
 $$
 \begin{cases}
 y = x_2(t) \\
 \lambda = 0 \quad \text{（阻尼系数）}\\
-\omega_0 = \omega \quad \text{（固有角频率）}
+\omega_0 = |\omega| \quad \text{（固有角频率）}
 \end{cases}
 $$
 
-其特征方程： 
+其特征方程：
 
 $$
 r^2 + 2\lambda r + \omega_0^2 = 0
@@ -210,63 +220,63 @@ $$
 
  判别式 $\Delta = 4(\lambda^2 - \omega_0^2)$，因此可区分多种情况：
 
-- **周期性（非阻尼）**：$\Delta = -4\omega_0^2 \Leftrightarrow \lambda = 0$ 解为： 
+- **周期性（非阻尼）**：$\Delta = -4\omega_0^2 \Leftrightarrow \lambda = 0$ 解为：
 
 $$
 y(t) = A\cos(\omega_0 t) + B\sin(\omega_0 t)
 $$
 
- 或等价写为： 
+ 或等价写为：
 
 $$
-y(t) = C e^{\omega_0 t} + D e^{-\omega_0 t}
+y(t)=C e^{\mathrm i\omega_0t}+D e^{-\mathrm i\omega_0t}
 $$
 
- 其中 $A,B,C,D$ 为常数。
+其中 $A,B$ 可取实数；复指数形式的 $C,D$ 须取共轭配对，才能得到实值解。实指数 $e^{\pm\omega_0t}$ 不满足无阻尼振动方程。
 
-- **临界阻尼**：$\Delta = 0 \Leftrightarrow \lambda = \omega_0$ 解为： 
+- **临界阻尼**：$\Delta = 0 \Leftrightarrow \lambda = \omega_0$ 解为：
 
 $$
 y(t) = e^{-\lambda t}(A t + B)
 $$
 
-- **过阻尼（非周期）**：$\Delta > 0 \Leftrightarrow \lambda > \omega_0$ 解为： 
+- **过阻尼（非周期）**：$\Delta > 0 \Leftrightarrow \lambda > \omega_0$ 解为：
 
 $$
-y(t) = e^{-\lambda t}\left[A e^{\sqrt{\Delta}t} + B e^{-\sqrt{\Delta}t}\right]
+y(t)=e^{-\lambda t}\left[Ae^{\sqrt{\lambda^2-\omega_0^2}\,t}+Be^{-\sqrt{\lambda^2-\omega_0^2}\,t}\right]
 $$
 
-- **欠阻尼（伪周期）**：$\Delta < 0 \Leftrightarrow \lambda < \omega_0$，此时 
+- **欠阻尼（伪周期）**：$\Delta < 0 \Leftrightarrow \lambda < \omega_0$，此时
 
 $$
 \tilde{\omega}_0 = \sqrt{\omega_0^2 - \lambda^2}
 $$
 
- 解为： 
+ 解为：
 
 $$
 y(t) = e^{-\lambda t}[A\cos(\tilde{\omega}_0 t) + B\sin(\tilde{\omega}_0 t)]
 $$
 
-在此，$\lambda = 0$，因此我们处于**周期性情形**。齐次方程的解为： 
+在此，$\lambda = 0$，因此我们处于**周期性情形**。齐次方程的解为：
 
 $$
 y_0(t) = A\cos(\omega t) + B\sin(\omega t)
 $$
 
-方程右端为常数 $a\omega^2$，其特解 $y_p(t)$ 亦为常数： 
+方程右端为常数 $a\omega^2$，其特解 $y_p(t)$ 亦为常数：
 
 $$
 y_p = K
 $$
 
- 故通解为： 
+ 故通解为：
 
 $$
 y(t) = y_0(t) + y_p(t) = A\cos(\omega t) + B\sin(\omega t) + K \quad (∗1.4)
 $$
 
-将其代入方程 $(∗1.3)$： 
+将其代入方程 $(∗1.3)$：
 
 $$
 \ddot{x}_2 + \omega^2 x_2 = a\omega^2
@@ -274,13 +284,13 @@ $$
 -\omega^2(A\cos(\omega t) + B\sin(\omega t)) + \omega^2 x_2 = a\omega^2
 $$
 
- 得： 
+ 得：
 
 $$
 x_2(t) = A\cos(\omega t) + B\sin(\omega t) + a
 $$
 
-对其求导并代入 $(∗1.2)$： 
+对其求导并代入 $(∗1.2)$：
 
 $$
 \dot{x}_2(t) = \omega[-A\sin(\omega t) + B\cos(\omega t)]
@@ -288,13 +298,13 @@ $$
 \omega[-A\sin(\omega t) + B\cos(\omega t)] = -\omega x_1 + a\omega^2 t
 $$
 
- 从而： 
+ 从而：
 
 $$
 x_1(t) = A\sin(\omega t) - B\cos(\omega t) + a\omega t
 $$
 
-利用初始条件求常数： 
+利用初始条件求常数：
 
 $$
 \begin{cases}
@@ -303,7 +313,7 @@ x_2(0) = X_2 \Rightarrow A = X_2 - a
 \end{cases}
 $$
 
-最终得到： 
+最终得到：
 
 $$
 \boxed{
@@ -316,6 +326,8 @@ $$
 
 ## 问题 1.4：给出并绘制流线与轨迹。
 
+Donner et tracer les lignes de courant et les trajectoires.
+
 #### 解答：
 
 **回顾：**
@@ -324,13 +336,13 @@ $$
 
 2.  **流线（Lignes de courant）** 是在某固定时刻 $t$，与欧拉速度场 $\vec{V}(M, t)$ 相切（或共线）的空间曲线。 它们表示"时刻 $t$ 的瞬时速度分布图像"。 尽管在固定时刻分析，但由于速度场可能随时间变化，流线也可能随 $t$ 改变。
 
-要确定流线方程，可令位置矢量为： 
+要确定流线方程，可令位置矢量为：
 
 $$
 \overrightarrow{OM} = x_1\vec{e}_1 + x_2\vec{e}_2
 $$
 
- 要求微小位移 $d\vec{M}$ 与速度 $\vec{V}(M,t)$ 共线，即两者叉积为零： 
+ 要求微小位移 $d\vec{M}$ 与速度 $\vec{V}(M,t)$ 共线，即两者叉积为零：
 
 $$
 d\vec{M} \wedge E\vec{V}(t, M) = \vec{0}
@@ -338,17 +350,17 @@ $$
 
  该条件导致空间积分（非时间积分，因为 $t$ 固定），计算上有时不太直观。
 
-3.  若运动**非定常（instationnaire）**，则轨迹与流线不同； 若**定常（stationnaire）**，两者重合。
+3.  若运动**定常（stationnaire）**，轨迹与流线重合；非定常时两者可能不同，也可能重合，必须分别检查。
 
 4.  然而，即使轨迹与流线重合，也不一定说明运动是定常的。 例如，一个质点沿固定方向作往复振动的运动，其轨迹与流线重合，但运动仍是随时间变化的。
 
 ---
 
-首先，验证该运动是否定常。 若定常，则轨迹与流线重合，可免去流线计算。 但本题中速度场含时项 $a\omega^2 t$，故运动**非定常（instationnaire）**。 因此需分别计算轨迹与流线。
+首先，验证该运动是否定常。 若定常，则轨迹与流线重合，可免去流线计算。 本题若 $a\ne0$，速度场显含时间，因此非定常，需分别计算；若 $a=0$，则退化为稳态刚体旋转。
 
 ---
 
-**1. 轨迹：** 由前一问得轨迹方程： 
+**1. 轨迹：** 由前一问得轨迹方程：
 
 $$
 \begin{cases}
@@ -380,7 +392,7 @@ dx_2
 \end{pmatrix}
 $$
 
-将欧拉速度分量代入： 
+将欧拉速度分量代入：
 
 $$
 \begin{pmatrix}
@@ -394,7 +406,7 @@ dx_2
 \end{pmatrix} = \vec{0}
 $$
 
-展开得： 
+展开得：
 
 $$
 (-\omega x_1 + a\omega^2 t)\,dx_1 - \omega x_2\,dx_2 = 0
@@ -418,7 +430,7 @@ $$
 
 由此可见，流线是**圆**，其圆心为 $(a\omega t, 0)$，半径任意。 半径的具体数值由该流线经过的点 $(x_1, x_2)$ 在时刻 $t$ 决定。
 
-从几何上看，也可以根据速度场图像（各时刻 $t$ 下的速度矢量切线）绘制流线。 无论从方程还是从直观图像都可看出： 这是一个绕中心 $(a\omega t, 0)$ 的**圆周运动（涡旋）**。 中心随时间沿 $\vec{e}_1$ 方向移动，其速度为： 
+从几何上看，也可以根据速度场图像（各时刻 $t$ 下的速度矢量切线）绘制流线。 无论从方程还是从直观图像都可看出： 固定时刻的流线绕 $(a\omega t,0)$ 成圆，但**物质点的轨迹一般不是绕该移动中心的圆**。 中心随时间沿 $\vec{e}_1$ 方向移动，这个几何中心的位置变化率为：
 
 $$
 \vec{V}_{\text{centre}} = a\omega \vec{e}_1
@@ -426,15 +438,15 @@ $$
 
 ---
 
-**补充说明：**
-
 - 从直觉上看，初始位于原点的质点似乎沿涡旋中心方向直线运动，但这其实是错误的。 它很快离开中心并被卷入旋涡运动。
 
-- 只有在初始位置 $(0, a)$ 的质点沿直线运动。 这一点可由 $V_2 = \dot{x}_2(t) = 0$ 推出。
+- 当 $a\ne0$ 时，初始位于 $(0,a)$ 的质点满足 $x_1=a\omega t$、$x_2=a$，沿水平直线运动；流线中心 $(a\omega t,0)$ 则不是同一物质点的轨迹。
 
 # IMMC 连续介质运动学习题 1（TD1）
 
 ## 练习 2 ------ 转动运动（Mouvement de rotation）------ 运动学（Cinématique）
+
+**Rotation rigide.** Un cylindre tourne à vitesse angulaire constante $\omega$ autour de $(O,\mathbf e_3)$. L’angle est $\theta=\omega t$ ; la transformation des positions de référence vers les positions courantes est donnée par la matrice de rotation ci-dessous.
 
 在欧几里得空间 $E$ 中，考虑配有正交归一基 $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$。 以下关系定义了刚体绕 $(O, \vec{e}_3)$ 轴以角速度 $\omega$ 旋转的运动，对应一个圆柱体 $\Omega$（见图 2.1）。 $\vec{X}$ 与 $\vec{x}$ 分别表示初始时刻 $(t = 0)$ 与当前时刻的空间位置：
 
@@ -449,6 +461,8 @@ $$
 其中 $\theta = \omega t$ 表示时刻 $t$ 的转角。
 
 #### 问题 2.1：
+
+Donner les descriptions lagrangienne et eulérienne de ce mouvement.
 
 给出此运动的拉格朗日（Lagrangienne）和欧拉（Eulérienne）描述。
 
@@ -499,7 +513,7 @@ $$
 
 $$
 \boxed{
-\vec{V} = 
+\vec{V} =
 \begin{pmatrix}
 V_1 \\ V_2 \\ V_3
 \end{pmatrix} =
@@ -514,7 +528,7 @@ $$
 
 #### 附注：
 
-这种形式满足刚体速度场的一般关系： 
+这种形式满足刚体速度场的一般关系：
 
 $$
 \vec{V}(M) = \vec{\omega} \wedge \overrightarrow{OM}

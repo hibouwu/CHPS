@@ -126,11 +126,11 @@ Remarque 1.3 La fonction ϕ doit être supposée suffisamment régulière. Cela 
 
 — ϕ est deux fois dérivable par rapport au temps (sauf en un nombre fini d’instants, pour traiter les chocs) ;
 
-— à $t$ fixé, on impose que $M_0\mapsto\phi(t,M_0)$ soit un difféomorphisme local et global qui conserve l’orientation : $M=\phi_t(M_0)$ et $M_0=\phi_t^{-1}(M)$, avec $J(t,M_0)>0$ ;
+— à $t$ fixé, $M_0\mapsto\phi(t,M_0)$ est une bijection qui conserve l’orientation : $M=\phi_t(M_0)$ et $M_0=\phi_t^{-1}(M)$ $\Longrightarrow$ $J(t,M_0)\neq0$ ;
 
 — ϕ est continûment dérivable par rapport aux variables d’espace =⇒ J est continu. Par conséquent, en tenant compte de $J ( t = 0 ) = 1 \ e t \ J ( t , M _ { 0 } ) \neq 0$ , on arrive à $J ( t , M _ { 0 } ) > 0$
 
-> **Erratum théorique (PDF, p. 4, remarque 1.3).** La bijectivité et la régularité $C^1$ ne suffisent pas à déduire $J\ne0$ : $x\mapsto x^3$ est bijectif et $C^1$, mais sa dérivée est nulle en $0$. Il faut imposer l’inversibilité différentiable locale, ou directement $J>0$, avec les hypothèses de continuité nécessaires.\n\nD’autres cadres de régularité peuvent être utiles pour des raisons plus complexes (existence de solutions par exemple), mais ces considérations sortent du cadre d’un cours d’initiation à la MMC!
+D’autres cadres de régularité peuvent être utiles pour des raisons plus complexes (existence de solutions par exemple), mais ces considérations sortent du cadre d’un cours d’initiation à la MMC!
 
 Remarque 1.4 Dans la description lagrangienne, toute grandeur physique est décrite par une fonction de $( t , M _ { 0 } )$ qui représente la valeur à l’instant t de la grandeur au point $M ( t )$ , position à t de la particule qui à l’instant initial était en $M _ { 0 }$ . Par exemple, on a :
 

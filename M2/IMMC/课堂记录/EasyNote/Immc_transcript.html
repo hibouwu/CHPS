@@ -1,0 +1,1009 @@
+<div data-v-0df8c002="" class="transcripts transcripts-with-fixed-panel"><div data-v-0df8c002="" class="markdown-content"><div data-v-0df8c002="" class="content-container"><div data-v-0df8c002="" class="main-content"><p>1<br>
+00:00:00,570 --&gt; 00:00:17,850<br>
+Typiquement , un mousse, ça, comme ça, ou un fluide. Quand vous générez un écoulement, le milieu se déforme, ok, et on va caractériser ça avec des outils différents pour les fluides</p>
+<p>2<br>
+00:00:18,989 --&gt; 00:00:32,670<br>
+et les solides, ok. Alors, je n’ai pas fait la pomme, hein, je m’en plains pas plus tard. Donc, on va s’intéresser à la caractérisation, à la mesure , à la modélisation</p>
+<p>3<br>
+00:00:33,090 --&gt; 00:00:47,189<br>
+mathématique des déformations au sein des milieux continus. Alors, bon, c’est écrit comme ça, mais bon, en gros, il faut le voir : vision Lagrangienne, la notion de déformation, ok, et la vision</p>
+<p>4<br>
+00:00:48,090 --&gt; 00:00:58,170<br>
+— pardon, la vision Lagrangienne— et la vision eulérienne, le taux de déformation. Donc c’est une déformation dérivée par rapport au temps, au taux de déformation, ok.</p>
+<p>5<br>
+00:00:59,429 --&gt; 00:01:10,049<br>
+Donc on va voir les deux aspects, et puis chacun des deux aspects, ça va se séparer en différentes parties. Je n’ai pas réussi à faire— à faire passer tous les slides, je ne sais pas si</p>
+<p>6<br>
+00:01:10,769 --&gt; 00:01:21,390<br>
+on ira jusqu’au bout, je ne sais pas. Donc on va commencer par la notion de déformation en Lagrangien, avec, première notion à introduire : le gradient de la transformation. Donc si je vous dis</p>
+<p>7<br>
+00:01:21,930 --&gt; 00:01:37,409<br>
+« transformation », vous devez, euh, a priori penser. Alors, peut-être pas encore de manière très automatique, je ne vais pas par là, mais, euh, typiquement , ce n’était peut-être pas</p>
+<p>8<br>
+00:01:37,950 --&gt; 00:01:43,409<br>
+logique pour vous, mais ces trois équations scalaires, là, tout le monde voit,</p>
+<p>9<br>
+00:01:44,189 --&gt; 00:01:53,849<br>
+ces trois équations scalaires, là, elles vous définissent les équations de trajectoire, mais ça vous définit aussi la fonction phi, la fonction de transformation, ok.</p>
+<p>10<br>
+00:01:54,810 --&gt; 00:02:03,810<br>
+Donc, en gros, pour caractériser— enfin, pour faire une première étape vers la caractérisation des déformations, il va falloir qu’on calcule justement le gradient de cette fonction.</p>
+<p>11<br>
+00:02:04,469 --&gt; 00:02:16,830<br>
+En calculant le gradient de cette fonction, on va— on va avoir une première étape vers quelque chose qui n’est pas une variation des positions, mais plus une variation des distances</p>
+<p>12<br>
+00:02:17,669 --&gt; 00:02:28,289<br>
+et des angles entre les biparticules. Donc vous prenez une biparticule, c’est deux particules. Donc si vous les regardez, ben, elles peuvent se déplacer les deux dans l’espace, mais a priori,</p>
+<p>13<br>
+00:02:28,710 --&gt; 00:02:36,389<br>
+elles peuvent se déplacer les deux dans l’espace si la distance entre les deux reste constante. Vous ne pouvez pas montrer qu’il y a une déformation, ok.</p>
+<p>14<br>
+00:02:36,990 --&gt; 00:02:47,189<br>
+Potentiellement, ça veut dire qu’il n’y a pas de déformation. Autre vision des choses : vous pouvez considérer triparticules, trois particules,</p>
+<p>15<br>
+00:02:48,210 --&gt; 00:02:59,490<br>
+ok, elles se déplacent dans l’espace, potentiellement avec un mouvement de corps rigide, mais sans changer de— alors, si vous — bon, il y a une variation de distance entre deux— entre deux</p>
+<p>16<br>
+00:03:00,270 --&gt; 00:03:09,389<br>
+des— des tri— des trois particules qui font le— les trois particules, mais vous pouvez avoir une variation de l’angle qui est formé par ces trois particules.</p>
+<p>17<br>
+00:03:10,530 --&gt; 00:03:20,250<br>
+Typiquement, une variation de l’angle, c’est une distorsion de— une distorsion de l’image, par exemple. Ça, vous voyez bien. Vous prenez une image qui est bien cartésienne, là, et puis</p>
+<p>18<br>
+00:03:20,969 --&gt; 00:03:32,430<br>
+vous la— vous l’écrasez comme ça, là, ça vous fait plutôt un losange. Ben voilà, vous avez distordu l’image, ok. Et c’est une— en fait, c’est une déformation de glissement. Bon, bref.</p>
+<p>19<br>
+00:03:32,849 --&gt; 00:03:43,110<br>
+Il va falloir qu’on dérive cette fonction par rapport à l’espace pour avoir un premier pas vers une information qui se rapproche d’une déformation, mais ce n’est pas encore une déformation.</p>
+<p>20<br>
+00:03:43,830 --&gt; 00:03:55,349<br>
+Ensuite, je vais vous proposer une mesure de la déformation, parce qu’en fait, il y a plein de manières de mesurer ça. On précisera un peu le cadre de l’hypothèse des petites perturbations, qui</p>
+<p>21<br>
+00:03:56,189 --&gt; 00:04:01,530<br>
+constituera notre — notre pré-carré dans lequel on arrivera à faire des choses de manière analytique.</p>
+<p>22<br>
+00:04:02,490 --&gt; 00:04:10,229<br>
+Si on sort de l’hypothèse des petites perturbations de manière analytique, les calculs, ça devient — c’est tout de suite le bazar. C’est beaucoup plus complexe, alors que</p>
+<p>23<br>
+00:04:10,830 --&gt; 00:04:18,209<br>
+si on reste dans le cadre des petites perturbations, on reste sur des équations très linéaires, c’est bien, on sait faire, ça marche bien.</p>
+<p>24<br>
+00:04:20,910 --&gt; 00:04:26,670<br>
+Et on verra quelques petits aspects pratiques sur les déformations, histoire de vous donner quelques— quelques repères, ok.</p>
+<p>25<br>
+00:04:27,930 --&gt; 00:04:39,810<br>
+Donc voilà pour le menu de cette première partie, donc la partie plutôt vision Lagrangienne des déformations, ok. Alors, première façon de caractériser les déformations d’un milieu continu. On</p>
+<p>26<br>
+00:04:40,889 --&gt; 00:04:51,870<br>
+est en description Lagrangienne, et donc l’objectif de cette première section, là, ça va être de se donner les outils qui permettent de— de caractériser cette déformation,</p>
+<p>27<br>
+00:04:52,889 --&gt; 00:05:04,050<br>
+et voire de la mesurer. Par « caractériser », on pourrait donner une approche très qualitative des choses : c’est— ça se déforme plutôt de— sous tel mode, c’est une dilatation,</p>
+<p>28<br>
+00:05:04,769 --&gt; 00:05:18,029<br>
+c’est une distorsion, etc. Mais il y a un moment où il faut être capable de quantifier les choses, donc il faut arriver à une mesure avec une échelle, si vous voulez, ok. Donc, dans le—</p>
+<p>29<br>
+00:05:18,870 --&gt; 00:05:27,990<br>
+dans le meilleur des cas, on va essayer de mesurer cette déformation. Et donc ça, c’est valable pour un milieu continu au cours de son mouvement. Donc, caractériser la déformation.</p>
+<p>30<br>
+00:05:28,110 --&gt; 00:05:38,250<br>
+J’ai commencé à vous dire, hein : les biparticules, si on regarde l’évolution de la distance entre deux particules, ben, on va avoir une variation des distances. C’est typiquement une déformation</p>
+<p>31<br>
+00:05:38,730 --&gt; 00:05:50,490<br>
+suivant une direction. On peut avoir une variation des angles si on considère un triplet de particules, ok. Alors, là, moi, je vais—</p>
+<p>32<br>
+00:05:51,029 --&gt; 00:05:57,870<br>
+je vais me cantonner à un tout petit aspect de la mécanique des milieux continus. On peut aller beaucoup plus loin avec des représentations</p>
+<p>33<br>
+00:05:58,410 --&gt; 00:06:06,149<br>
+des— des choses de plus en plus complexes, qui n’ont pas forcément un intérêt, parce qu’avec la représen— enfin, avec les outils que je vais vous donner dans ce cours,</p>
+<p>34<br>
+00:06:06,810 --&gt; 00:06:19,709<br>
+on va rester dans un cadre des équations très linéaires. On arrive à traiter plus de 95 % des situ ations de manière assez fidèle. Ça marche bien, c’est— c’est efficace,</p>
+<p>35<br>
+00:06:20,550 --&gt; 00:06:29,189<br>
+c’est manipulable par un ingénieur, et pas que par des chercheurs, donc c’est très bien. Mais il y a certains matériaux, certaines situ ations, où on est obligé de passer sur</p>
+<p>36<br>
+00:06:29,970 --&gt; 00:06:40,110<br>
+des— des modèles beaucoup plus avancés. Bon, nous, on va rester dans le cadre où c’est abordable, où c’est simple. L’idée, c’est que vous ayez les— les principes de base, ok.</p>
+<p>37<br>
+00:06:40,649 --&gt; 00:06:50,370<br>
+Et puis, si ça vous intéresse, ben, vous prendrez un polygone, vous irez suivre des cours de— à l’école doctorale, ou quoi, ou enfin, ou vous ferez un autre M2 après, enfin, je n’en sais rien.</p>
+<p>38<br>
+00:06:50,910 --&gt; 00:07:05,129<br>
+Mais vous avez plein de ressources sur le— sur le web pour vous auto-former, si ça vous intéresse d’aller vers des problèmes plus — plus complexes. Donc là, je vais vous donner des outils</p>
+<p>39<br>
+00:07:05,910 --&gt; 00:07:22,170<br>
+basiques, mais qui fonctionnent très, très bien pour la majeure partie des situ ations. Alors, la notion de déformation. On repart de ce principe-là, enfin, de cette application-là, qui traduit</p>
+<p>40<br>
+00:07:22,709 --&gt; 00:07:38,069<br>
+les coordonnées actualisées des particules via une applic ation vectorielle qui, à partir du temps et des coordonnées initiales, nous donne des coordonnées réactualisées, ok. Donc,</p>
+<p>41<br>
+00:07:38,790 --&gt; 00:07:49,949<br>
+en réalité, on pourrait réécrire, sous forme différentielle, cette équation-là, là. Le vecteur OM, donc la position actualisée, c’est la transformée de la position initiale.</p>
+<p>42<br>
+00:07:51,269 --&gt; 00:08:06,569<br>
+On fait une différence , tout simplement, une différentielle. Donc d de OM, ben, c’est du coup égal au gradient de phi fois le vecteur d OM0. Je ne sais pas pourquoi ça —</p>
+<p>43<br>
+00:08:07,769 --&gt; 00:08:29,129<br>
+ce n’est pas joli, c’est d là, droit. Voilà. Alors, ça veut dire que, en gros, je vais définir— je vais définir un nouvel outil, enfin, un nouvel outil — un nouvel outil et une notation.</p>
+<p>44<br>
+00:08:33,269 --&gt; 00:08:40,169<br>
+Et là, je vais commencer à raisonner non plus avec que des vecteurs. Alors, bon, je vais commencer à introduire quelques matrices, des tenseurs, et tout, mais</p>
+<p>45<br>
+00:08:40,590 --&gt; 00:08:53,129<br>
+là, c’est— ça va être le premier tenseur que je vais introduire. Je vais dire que je vais noter le tenseur du second ordre, grand F, donc double barre pour</p>
+<p>46<br>
+00:08:54,029 --&gt; 00:09:06,750<br>
+noter que c’est un tenseur du second ordre, comme étant égal au gradient de ma fonction de transformation. Alors, en réalité, hein,</p>
+<p>47<br>
+00:09:08,190 --&gt; 00:09:17,970<br>
+c’est une fonction qui est vectorielle, elle a— elle a trois composantes, vous êtes d’accord avec ça, ok. Si j’applique le gradient sur une fonction scalaire, par exemple la température,</p>
+<p>48<br>
+00:09:18,870 --&gt; 00:09:30,269<br>
+c’est censé me donner le vecteur qui donne la direction de la plus grosse variation de température, ok. Ça me donne un vecteur. Si j’applique le gradient sur une quantité qui est vectorielle,</p>
+<p>49<br>
+00:09:30,690 --&gt; 00:09:42,750<br>
+du coup, je monte d’un ordre, je passe au tenseur du second ordre, ok. Si j’applique un gradient sur un tenseur du second ordre, ça me donne un tenseur du troisième ordre, et ainsi de suite, ok.</p>
+<p>50<br>
+00:09:43,889 --&gt; 00:09:54,870<br>
+C’est bon pour ça ? Donc, éventuellement, je peux rajouter deux barres pour préciser que ça va me donner une quantité qui va être tenseur du second ordre, ok.</p>
+<p>51<br>
+00:09:55,409 --&gt; 00:10:06,210<br>
+C’est une manière de— de représenter les choses. Et donc, alors, c’est bien beau de dire « c’est le gradient de phi », mais bon, peut-être que vous n’êtes pas encore bien — bien habitués</p>
+<p>52<br>
+00:10:08,009 --&gt; 00:10:35,309<br>
+à ce type d’opérateur. En réalité, ça veut dire que c’est la dérivée partielle de phi de — on va le faire comme ça— de OM 0 , et on dérive par rapport au vecteur OM0. Alors, pourquoi</p>
+<p>53<br>
+00:10:36,029 --&gt; 00:10:46,350<br>
+quand on fait le gradient, c’est qu’on dérive par rapport à l’espace, ok. Mais là, on est en description Lagrangienne, donc on va dériver par rapport à notre— à nos</p>
+<p>54<br>
+00:10:47,070 --&gt; 00:10:59,549<br>
+variables qui permettent de définir le— enfin, de paramétrer l’espace. Et quand on est en description Lagrangienne, c’est la position initiale, donc M0, ok.</p>
+<p>55<br>
+00:11:00,330 --&gt; 00:11:08,549<br>
+On aurait à calculer un gradient alors qu’on est en description eulérienne, on aurait dérivé par rapport aux coordonnées actuelles, les coordonnées eulériennes, ok.</p>
+<p>56<br>
+00:11:09,090 --&gt; 00:11:19,409<br>
+Donc c’est un petit peu implicite quand on applique un gradient, le— les coordonnées par rapport auxquelles on va— on va dériver, ok. Donc, voilà.</p>
+<p>57<br>
+00:11:20,610 --&gt; 00:11:34,830<br>
+Donc, en réalité, hein, on est— on est passé par une différentielle. Don c de d de OM, ça fait apparaître le gradient de la transformation, et donc on choisit de le noter F. Et donc, on va le</p>
+<p>58<br>
+00:11:35,549 --&gt; 00:11:48,690<br>
+nommer, on va dire que ce tenseur F , c’est l’opérateur gradient de transformation. Voilà, la définition est dans son nom, ok. On peut appliquer le gradient sur la fonction de transformation, ok.</p>
+<p>59<br>
+00:11:48,870 --&gt; 00:11:57,690<br>
+Ne retenez pas juste F, retenez « opérateur gradient de transformation ». Opérateur ou tenseur, c’est pareil. Voilà. Un tenseur, hein, généralement, c’est un opérateur.</p>
+<p>60<br>
+00:11:59,850 --&gt; 00:12:13,110<br>
+Alors, retenez qu’il est sans unité, ben, oui, parce que cette quantité-là , c’est une position . C’est quelle unité ? Une longueur. Une longueur, donc typiquement des mètres,</p>
+<p>61<br>
+00:12:13,649 --&gt; 00:12:20,669<br>
+hein, dans le système international. Et vous dérivez par rapport à des mètres, vous tombez sur une grandeur qui est à dimensionner, ok.</p>
+<p>62<br>
+00:12:21,509 --&gt; 00:12:42,029<br>
+Donc typiquement, ça va être des pourcents, en fait, globalement, sans unité. Ok. Alors, en l’absence de déformation, ben, du coup, ce tenseur, il revient à l’identité. Ça veut dire que</p>
+<p>63<br>
+00:12:42,750 --&gt; 00:12:54,090<br>
+vous, si vous regardez l’évolution par rapport à l’espace de la transform ation, elle se comporte — alors, oui, pardon, si c’est— c’est l’identité en l’absence de déformation,</p>
+<p>64<br>
+00:12:54,629 --&gt; 00:13:07,470<br>
+et sans rotation de type corps rigide. Donc potentiellement , vous prenez — vous essayez de retrouver les équations de trajectoire que vous pourriez avoir pour cette— pour ce mouvement-là,</p>
+<p>65<br>
+00:13:09,210 --&gt; 00:13:20,730<br>
+ok, le mouvement de corps rigide avec seulement une translation. Alors, vous avez juste rajouté un terme, typiquement, qui pourrait dépendre du temps, à la position suivant la direction 1, ok.</p>
+<p>66<br>
+00:13:21,509 --&gt; 00:13:37,049<br>
+Si vous calculez le gradient, ben, il ne reste plus que la— la position initiale. Vous avez rajouté au grand X1 quelque chose qui dépend du temps, ok. Du coup, vous êtes retombé sur l’identité.</p>
+<p>67<br>
+00:13:37,889 --&gt; 00:13:53,009<br>
+Si jamais vous mettez une rotation, ben, vous l’avez vu, hein, vous recouplez un petit peu les— les différentes composantes. Donc ça — ça peut rester en présence de mouvement de corps rigide,</p>
+<p>68<br>
+00:13:54,330 --&gt; 00:14:06,029<br>
+ça peut rester une isométrie vectorielle directe, une matr— une matrice de rotation, typiquement, ok. Donc si vous avez un mouvement qui intègre à la fois potentiellement</p>
+<p>69<br>
+00:14:06,570 --&gt; 00:14:27,990<br>
+une— une translation de corps rigide, mais en plus de ça une translation, cet opérateur-là va devenir une matrice de rotation, ok. Alors, en l’absence de rotation, votre— ce tenseur-là sera</p>
+<p>70<br>
+00:14:28,649 --&gt; 00:14:43,289<br>
+symétrique, parce qu’il n’y aura pas de composition avec une rotation qui est — qui a plutôt tendance à être — à avoir un aspect pas antisymétrique, mais pas long, ok.</p>
+<p>71<br>
+00:14:44,370 --&gt; 00:14:54,750<br>
+Donc ça, c’est quelques petites observations qui vous permettront , à partir de la forme de F, une fois que vous l’aurez calculée, parce que c’est un calcul assez fréquent,</p>
+<p>72<br>
+00:14:55,350 --&gt; 00:15:12,809<br>
+ben, vous arriverez à tout de suite repérer : « Ah oui, a priori, là, il y a une rotation ». Donc il n’y en a pas, typiquement. Alors, une fois que vous avez caractérisé</p>
+<p>73<br>
+00:15:14,070 --&gt; 00:15:36,389<br>
+donc le gradient de la transformation, ben, on pourrait justement se baser sur cette inform ation pour essayer de relier ça à la comparaison des longueurs— des longueurs, mais pas des longueurs</p>
+<p>74<br>
+00:15:38,429 --&gt; 00:15:47,970<br>
+toutes bêtes, hein, on va prendre les longueurs au carré. On prend la longueur au carré initiale et la longueur au carré actuelle entre deux particules, par exemple. Donc</p>
+<p>75<br>
+00:15:48,450 --&gt; 00:16:02,850<br>
+une particule M, une particule — enfin, M0 et N0, qu’on va voir évoluer au fur— au fur et à mesure du temps dans le mouvement, ok. Alors, calculer la longueur au carré de deux vecteurs qui</p>
+<p>76<br>
+00:16:04,590 --&gt; 00:16:16,289<br>
+vont gérer l’expression, enfin, ce n’est pas si compliqué que ça, hein. Mais là, on va— on va d’abord le faire en cons idérant que ces deux particules, elles sont extrêmement proches, ok.</p>
+<p>77<br>
+00:16:16,409 --&gt; 00:16:30,450<br>
+Donc on va — on va raisonner au voisinage de— du point initialement en M0, ok. Donc ces deux particules qui sont infiniment proches. Alors, on a, par exemple,</p>
+<p>78<br>
+00:16:31,529 --&gt; 00:16:48,509<br>
+en termes de calcul préliminaire, on a la position du point M, qui peut être recalculée à partir de N0 qu’on fait passer dans la fonction de transformation. Et pareil, N, ben, c’est le point N0</p>
+<p>79<br>
+00:16:48,929 --&gt; 00:17:02,429<br>
+qu’on a fait passer dans la fonction de transformation. Donc au voisinage autour de N0 , on peut écrire que on a N qui est égal à la transformée, donc de N0, très bien.</p>
+<p>80<br>
+00:17:02,850 --&gt; 00:17:16,529<br>
+Et donc c’est comme si on avait U_N qui est égal à la transformée de M0 qui est très proch e, ok, et on rajoute une contribution qui revient au gradient de la transform ation,</p>
+<p>81<br>
+00:17:17,130 --&gt; 00:17:29,069<br>
+notre fameux opérateur gradient de transformation, notre tenseur F, fois le vecteur M0 vers N0. Donc, en gros, c’est une approche au premier gradient. On pourrait rajouter</p>
+<p>82<br>
+00:17:29,609 --&gt; 00:17:40,769<br>
+des termes qui font appel au second gradient, au deuxième gradient, etc. C’est comme un développement limité, si vous voulez, ok, si ça vous parle aussi. Bon, on va faire une approche simple.</p>
+<p>83<br>
+00:17:40,890 --&gt; 00:17:51,390<br>
+On va négliger les— les termes qui sont au-delà du premier gradient. Et donc, ça veut dire qu’on peut écrire que le vecteur qui va de l’origine à la—</p>
+<p>84<br>
+00:17:52,410 --&gt; 00:18:08,789<br>
+à la particule N à sa position actuelle, c’est égal au vecteur qui va jusqu’à la position M, plus le tenseur gradient de transformation exprimé pour le point M0, pour la particule N,</p>
+<p>85<br>
+00:18:10,349 --&gt; 00:18:29,009<br>
+fois le vecteur M0 vers N0. Si on passe par la relation de Shal, pour aller de M jusqu’à N, donc de la position de la particule M réactualisée à la particule N dans sa position réactualisée,</p>
+<p>86<br>
+00:18:29,849 --&gt; 00:18:47,250<br>
+ben, on peut passer par l’origine, et on est capable d’écrire OM, on est capable d’écrire OM, on est capable d’écrire MO et plus ON, ok. Donc MO plus ON, ben, si ON</p>
+<p>87<br>
+00:18:48,210 --&gt; 00:19:04,710<br>
+, ça contient OM, ben, ça, ça va s’annuler. Il ne reste plus que la contribution de— liée au tenseur de gradient de transformation appliquée sur M0 vers N0.</p>
+<p>88<br>
+00:19:04,890 --&gt; 00:19:21,509<br>
+Ce qu’on peut retenir, du coup, c’est qu’on a , pour N et M qui sont infiniment proches, on a pu montrer qu’on a cette expression. Donc si on connaît</p>
+<p>89<br>
+00:19:22,410 --&gt; 00:19:29,970<br>
+ce vecteur-là initialement, on connaît les positions initiales des deux particules, en considérant qu’elles sont infiniment proches, et qu’on a l’expression de</p>
+<p>90<br>
+00:19:30,390 --&gt; 00:19:44,250<br>
+ce tenseur gradient de transformation, parce qu’on connaît la transformation, on est capable d’obtenir la réactualisation du vecteur qui va d’une particule vers l’autre, ok. Très bien.</p>
+<p>91<br>
+00:19:44,369 --&gt; 00:19:51,809<br>
+Bon, alors, vous allez me dire : « Je n’ai pas encore vu le lien avec les longueurs initiales, les longueurs au carré pour la configuration initiale actuelle. »</p>
+<p>92<br>
+00:19:52,289 --&gt; 00:20:04,950<br>
+Ben, il suffit que j’élève ça au carré, je vais avoir la longueur au carré, ça va me donner la norme au carré, ok. Si je fais le produit scalaire de ça avec ça, ok, et puis, ben,</p>
+<p>93<br>
+00:20:06,150 --&gt; 00:20:14,190<br>
+je vais pouvoir le mettre en regard du produit — enfin, de la longueur au carré de ce vecteur-là, en réalité, assez facilement. C’est ce que je vais faire.</p>
+<p>94<br>
+00:20:15,509 --&gt; 00:20:26,490<br>
+Donc les longueurs au carré initiales et actuelles, pour ce vecteur-là, ce vecteur-là, je peux les écrire. C’est la transposée du vecteur M_N fois lui-même, ok.</p>
+<p>95<br>
+00:20:27,390 --&gt; 00:20:43,410<br>
+Et pour M0 vers N0, ben, c’est la transposée de M0 vers N0 fois M0 vers N0. Du coup, je remplace mon vecteur M_N par cette expression-là .</p>
+<p>96<br>
+00:20:43,529 --&gt; 00:21:03,809<br>
+Je vais faire apparaître, du coup, le tenseur gradient de la transformation. Et du coup, j’ai réussi à réexprimer cette longueur au carré en fonction . Ah, j’ai oublié de sourire.</p>
+<p>97<br>
+00:21:05,309 --&gt; 00:21:24,990<br>
+Pourquoi je ne suis pas parti de ma place ? Merci. On ne va pas faire trop de gentils. Donc ce vecteur-là, donc c’est F fois M0 vers N0, pardon, je commence à me fatiguer, transposée fois</p>
+<p>98<br>
+00:21:25,710 --&gt; 00:21:37,410<br>
+F fois M0 vers N0. Quand j’applique la transposée sur un produit de deux— de plusieurs tenseurs ou de tenseurs-vecteurs, je change l’ordre. Donc si je développe,</p>
+<p>99<br>
+00:21:38,009 --&gt; 00:21:52,950<br>
+ça me donne la transposée de M0 vers N0 fois F transposée fois F fois M0 vers N0, d’accord. Donc j’ai juste développé l’opérateur transposée. Pour ça, j’ai dû changer l’ordre des—</p>
+<p>100<br>
+00:21:54,089 --&gt; 00:22:07,829<br>
+des différents termes. Bon, ben, du coup, là, j’ai M0 vers N0 transposée fois F transposée F , et M0 vers N0. Et si j’avais fait exactement la même chose avec M0 vers N0 au carré,</p>
+<p>101<br>
+00:22:08,369 --&gt; 00:22:18,630<br>
+ben, en fait, j’aurais pu intercaler l’opérateur identité entre les deux, ça— ça ne change rien. Résultat : si je veux calculer l’écart entre</p>
+<p>102<br>
+00:22:19,349 --&gt; 00:22:30,210<br>
+cette longueur au carré, qui est la longueur actuelle , la longueur au carré entre la position actuelle des deux particules et la position initiale, ben, je calcule ça,</p>
+<p>103<br>
+00:22:31,589 --&gt; 00:22:47,190<br>
+et je vois qu’en factorisant, je fais apparaître F transposée F moins l’identité. Du coup, cette quantité-là , elle me permet de traduire l’évolution, la variation des longueurs au carré</p>
+<p>104<br>
+00:22:50,250 --&gt; 00:23:06,450<br>
+entre mes deux particules, ok, entre la configuration actuelle et la configuration initiale. Donc je vais me baser là-dessus, en fait. Alors, je vais d’abord caractériser ceci,</p>
+<p>105<br>
+00:23:07,109 --&gt; 00:23:18,630<br>
+puis ensuite je verrai comment je peux utiliser ça. Alors, cette partie-là, je vais la— je vais la noter comme étant l’opérateur des dilatations de Cauchy-Green droit.</p>
+<p>106<br>
+00:23:21,210 --&gt; 00:23:35,549<br>
+À 4 heures de l’après-midi, après près de 5 heures de cours, c’est difficile à retenir, mais bon, retenez que c’est un opérateur qui caractérise des dilatations, ok. Donc</p>
+<p>107<br>
+00:23:37,049 --&gt; 00:23:50,609<br>
+c’est un opérateur qui est symétrique, c’est un tenseur symétrique, et les composantes C et J. Alors, c’est-à-dire que vous avez votre tenseur C, là, avec les composantes C11 , C22</p>
+<p>108<br>
+00:23:51,450 --&gt; 00:24:09,569<br>
+et C33, qui sont sur la diagonale. Elles représentent, à chaque fois, les dilatations au carré selon l’orientation 1, 2 ou 3. Et une dilatation, typiquement , si j’étais capable</p>
+<p>109<br>
+00:24:10,170 --&gt; 00:24:29,250<br>
+, avec cette mousse, de faire une extension pour que je double la longueur de cette grille en mousse, là, que vaudrait la dilatation suivant cette direction ? Si j’arrivais à doub— mais</p>
+<p>110<br>
+00:24:30,269 --&gt; 00:24:41,789<br>
+mettons que je le fais avec un outil de transformation des images, je double la longueur comme si j’avais tiré très fort dessus, dans cette direction, quelle serait la valeur de la dilatation</p>
+<p>111<br>
+00:24:42,390 --&gt; 00:24:56,849<br>
+dans cette direction ? Est-ce que c’est 100 % ? Donc 1. Est-ce que c’est 2 ? C’est 1 ou c’est 2 ? C’est 2. C’est le rapport de la longueur initiale sur la longueur— de la longueur</p>
+<p>112<br>
+00:24:57,869 --&gt; 00:25:12,750<br>
+actuelle sur la longueur initiale, ok. Donc ce qui veut dire qu’on garde l’identité, on garde les 100 % de la configuration initiale. On a rajouté 100 % à la longueur, ok.</p>
+<p>113<br>
+00:25:15,089 --&gt; 00:25:25,950<br>
+Donc le— si vous raisonnez en termes de prix, en général, ça nous parle toujours beaucoup plus comparé à un scalaire. Le prix, le prix initial, c’est 100 % du prix, vous êtes d’accord.</p>
+<p>114<br>
+00:25:27,329 --&gt; 00:25:43,950<br>
+Si le prix se dilate de 100 % — pas de 100 %. Si vous rajoutez 100 % au prix initial, ben, il s’est dilaté de— la dilatation vaut 2 ou 200 %. Par contre, vous avez ajouté 100 %, et les 100 %,</p>
+<p>115<br>
+00:25:44,789 --&gt; 00:25:59,190<br>
+c’est la déformation, c 'est l’augmentation, ok. Donc c’est toujours positif ? Non. Ben, les prix, des fois, on est content, c’est nég— il y a une réduction du prix.</p>
+<p>116<br>
+00:26:00,089 --&gt; 00:26:13,529<br>
+On peut avoir une diminution du prix, une réduction de 20 %, des fois ça arrive. Mais pour la déformation, on peut très bien contracter la matière, c’est possible. Alors, la dilatation sera</p>
+<p>117<br>
+00:26:14,430 --&gt; 00:26:27,750<br>
+inférieure à 1. Par contre, la déformation, on va enlever l’identité, on va enlever 1, ok. Et vous allez voir, là, on caractérise une dilatation. Donc, en gros, on garde l’identité</p>
+<p>118<br>
+00:26:28,349 --&gt; 00:26:38,250<br>
+, on garde les 100 % initiaux de la configuration initiale. Donc les composantes, là, ça nous donne les dilatations dans les différentes directions de l’espace.</p>
+<p>119<br>
+00:26:38,910 --&gt; 00:26:50,369<br>
+Les composantes hors plan, bon, enfin, hors diagonale, pardon, on peut relier ça aux variations d’angle entre les fibres qui étaient initialement alignées avec</p>
+<p>120<br>
+00:26:50,849 --&gt; 00:27:05,849<br>
+les directions des vecteurs de la base, ok. Bon, ça, c’est pas forcément à retenir. Ça, par contre, ça va être un peu plus simple. Si jamais ce tenseur de dilatation, il vaut l’identité,</p>
+<p>121<br>
+00:27:08,490 --&gt; 00:27:17,670<br>
+ben, ça veut dire qu’il n’y a pas de déformation, ok. Votre milieu continu, il suit un mouvement de corps rigide. Vu que les dilatations dans les différentes directions de l’espace</p>
+<p>122<br>
+00:27:18,390 --&gt; 00:27:26,490<br>
+sont bien égales à 1, donc il n’y a pas de variation de longueur pour les fibres qui sont alignées avec la base.</p>
+<p>123<br>
+00:27:27,630 --&gt; 00:27:38,430<br>
+Et vu que c’est l’identité, il n’y a pas de variation d’angle, donc il n’y a pas de déformation, ok. Si ce — si F transposée fois F vaut l’identité,</p>
+<p>124<br>
+00:27:39,150 --&gt; 00:27:53,730<br>
+ben, vous n’êtes pas loin d’avoir quelque chose qui est soit juste une matrice de rotation pour F, ok, soit c’est que F vaut l’identité. Et donc, si on revient sur</p>
+<p>125<br>
+00:27:54,210 --&gt; 00:28:00,509<br>
+les petites astuces que je vous ai données sur F, enfin, les petits repères, ben, on a quelque chose de complètement cohérent.</p>
+<p>126<br>
+00:28:02,009 --&gt; 00:28:12,269<br>
+On rappelle que, du coup, c’est une dilatation, c’est sans unité, hein. On est parti de F qui n’est— qui n’a pas d’unité. On fait juste le produit de F par F, enfin, de F transposée par F.</p>
+<p>127<br>
+00:28:13,109 --&gt; 00:28:24,269<br>
+On ne change pas le système d’unité pour les deux tenseurs. Donc ça, c’est un peu un— c’est un tenseur qu’on n’utilise pas trop, en réalité, mais bon, ça permet de comprendre qu’est-ce qui est</p>
+<p>128<br>
+00:28:24,809 --&gt; 00:28:33,869<br>
+lié à une transformation, qu’est-ce qui est lié à une dilatation, qu’est-ce qui est lié, du coup, à une déformation. Et pour caractériser la déformation, donc on a dit</p>
+<p>129<br>
+00:28:34,410 --&gt; 00:28:46,289<br>
+que la configuration initiale, c’était l’identité, c’était les 100 % initiaux. Ben, on va reprendre notre F transposée F, et on va lui enlever l’identité. Et là, maintenant, on a vraiment</p>
+<p>130<br>
+00:28:46,890 --&gt; 00:28:57,630<br>
+la partie déformation, la variation relative des longueurs au carré. Sauf que, petit détail, on rajoute un facteur 1/2, qui est très facile à oublier.</p>
+<p>131<br>
+00:28:59,250 --&gt; 00:29:11,430<br>
+Donc résultat : on va définir un opérateur de déformation, qu’on appelle l’opérateur de déformation de Green-Lagrange, qu’on note E , et ça, c’est une notation qu’on retrouve de manière assez</p>
+<p>132<br>
+00:29:11,849 --&gt; 00:29:23,490<br>
+large, même dans la littérature anglo-saxonne, donc il n’y a pas de problème avec ça. Et en fait, on va retirer à la dilatation les 100 % de la configuration initiale.</p>
+<p>133<br>
+00:29:24,150 --&gt; 00:29:36,269<br>
+Donc on enlève l’identité. Ce qui nous permet de caractériser une déformation en termes de pourcents : 10 % de déformation, 10 % d’augmentation du prix, ou 10 % de réduction du prix si</p>
+<p>134<br>
+00:29:36,930 --&gt; 00:29:50,490<br>
+on a une dilatation qui est inférieure à 1. Bon, par contre, la dilatation, elle ne peut pas être négative, ok, ça, ça ne va pas. Donc on garde l’aspect symétrique, hein. On est parti</p>
+<p>135<br>
+00:29:52,230 --&gt; 00:30:06,029<br>
+d’un tenseur C , dont les propriétés sont la symétrie. On enlève juste l’identité, et on fait fois 1/2 , ça ne va pas changer l’aspect symétrique. Et là, cette fois, les composantes</p>
+<p>136<br>
+00:30:07,049 --&gt; 00:30:20,250<br>
+qui sont sur la diagonale, donc non pas de C, mais de E, elles représentent les écarts relatifs des longueurs au carré selon les directions 1, 2 et 3, les trois directions de l’espace, ok.</p>
+<p>137<br>
+00:30:22,890 --&gt; 00:30:37,049<br>
+Donc typiquement , si je reprends— cette fois, je prends un autre chiffre, je prends cette mousse-là, et mettons que j’étends jusqu’à peu près cette longueur-là</p>
+<p>138<br>
+00:30:37,950 --&gt; 00:30:57,990<br>
+, que vaut la déformation dans cette direction, à peu près ? Ce n’est peut-être pas très clair. Ouais, c’est plutôt 50 %, à peu près. J’ai — si je prends la longueur</p>
+<p>139<br>
+00:30:58,950 --&gt; 00:31:07,170<br>
+— puis alors après, c’est vrai que c’est une longueur au carré, donc bon. Mais globalement, oui, c’est à peu près 50 %, à peu près.</p>
+<p>140<br>
+00:31:08,369 --&gt; 00:31:19,049<br>
+C’est vrai qu’on n’est pas en petite inflation, à chaque fois, c’est un peu — c’est un peu risqué. Mais oui, oui, du coup, c’est une longueur au carré. Donc</p>
+<p>141<br>
+00:31:19,950 --&gt; 00:31:34,289<br>
+écart relatif des longueurs au carré. Et pour les composantes qui sont hors de la diagonale, ben, ça correspond aux variations d’angle entre les fibres qui étaient initialement alignées avec</p>
+<p>142<br>
+00:31:35,369 --&gt; 00:31:47,369<br>
+les vecteurs de notre base. Cette fois, pour avoir un mouvement de corps rigide, il faut que ce tenseur ne soit pas égal à l’identité , mais il faut qu’il soit nul. Parce que là, on a retiré</p>
+<p>143<br>
+00:31:48,089 --&gt; 00:31:57,390<br>
+l’identité, on a retiré la configuration initiale. Si en enlevant la configuration initiale, il reste quelque chose, c’est qu’on a bougé quelque chose, à la fois sur les longueurs,</p>
+<p>144<br>
+00:31:58,470 --&gt; 00:32:15,089<br>
+enfin les distances entre les particules, ou sur les angles, ok. Donc là, cette fois, il faut qu’on ait un tenseur totalement nul pour que ça caractérise un mouvement de corps rigide. Donc</p>
+<p>145<br>
+00:32:16,349 --&gt; 00:32:46,289<br>
+je reprends un peu, hein. Alors, de F , si on fait F transposée F , ça nous donne les dilatations. Et ensuite, si — on verra plus tard pourquoi il y a un facteur 1/2. Donc là, on retrouve C</p>
+<p>146<br>
+00:32:46,829 --&gt; 00:33:01,109<br>
+, et ben, ça, ça permet de caractériser justement la déformation. C’est du jargon, hein, mais ça— derrière, il y a un sens qui permet de savoir ce qu’on manipule, et ça permet de mieux</p>
+<p>147<br>
+00:33:01,950 --&gt; 00:33:13,650<br>
+— de mieux formaliser les choses. Alors, justement, je viens juste de parler de petites perturbations, hein. On va préciser un peu ce que c’est que les petites perturbations.</p>
+<p>148<br>
+00:33:14,789 --&gt; 00:33:26,670<br>
+On va introduire une nouvelle grandeur qu’on n’a pas encore discutée pour l’instant, c’est le déplacement. Donc le déplacement , votre particule</p>
+<p>149<br>
+00:33:27,690 --&gt; 00:33:37,529<br>
+dans la configuration initiale— bon, depuis tout à l’heure, je parlais de la particule qui était là— il y a eu un mouvement , elle est arrivée ici, à l’instant T. Le déplacement, c’est</p>
+<p>150<br>
+00:33:38,190 --&gt; 00:33:45,630<br>
+tout simplement l’écart entre la position actuelle et l’initiale, ok. Mais bon, le déplacement, vous voyez que</p>
+<p>151<br>
+00:33:46,650 --&gt; 00:33:54,509<br>
+ça ne tient pas compte de toute l’histoire, hein, le fait que, ben, la trajectoire, elle a pu être hyper courbée, on ne le voit pas apparaître dans le déplacement.</p>
+<p>152<br>
+00:33:55,049 --&gt; 00:34:05,130<br>
+Vous pouvez très bien avoir fait une trajectoire complètement circulaire et être revenu ici, à un instant T. Pour vous, le déplacement est nul, mais pourtant, vous</p>
+<p>153<br>
+00:34:05,730 --&gt; 00:34:17,969<br>
+avez parcouru des kilomètres, enfin, des kilomètres, des centimètres, ok. Donc c’est une grandeur qui a du sens, justement, quand on est sur des petites perturbations,</p>
+<p>154<br>
+00:34:18,510 --&gt; 00:34:32,070<br>
+qu’on ne se déplace pas beaucoup par rapport à la position initiale, en réalité, ok. Donc c’est tout simple, ça permet de traduire avec le vecteur U qui traduit le déplacement en tout point.</p>
+<p>155<br>
+00:34:32,190 --&gt; 00:34:50,190<br>
+Pour tout point M0, ben, c’est tout simplement l’écart à la position initiale, ok, qui nous permet d’arriver sur la position finale. Bon, ben, du coup, on peut dire qu’ on peut relier</p>
+<p>156<br>
+00:34:52,050 --&gt; 00:35:14,369<br>
+le gradient de la transformation. Donc ça, je vous rappelle que ça revient à OM, hein. Je vais oublier de le réécrire comme ça. Donc OM , je peux le séparer en deux contributions</p>
+<p>157<br>
+00:35:15,389 --&gt; 00:35:40,650<br>
+: relation de Chal, OM plus M0 M. Et ça, c’est le déplacement. C’est le vecteur entre la position initiale et la position actuelle, ok. Si je dérive OM0 par rapport à OM0, enfin,</p>
+<p>158<br>
+00:35:41,190 --&gt; 00:35:56,429<br>
+vu que je suis censé avoir un tenseur d’ordre 2, ça me donne plutôt l’identité . Et si je dérive cette partie-là, qui est le déplacement , par rapport aux coordonnées initiales, j’obtiens</p>
+<p>159<br>
+00:35:59,909 --&gt; 00:36:15,030<br>
+le gradient du champ de déplacement. C’est exactement ça que j’ai ici. Je peux décomposer mon tenseur gradient de transformation en l’identité plus le gradient du champ de déplacement, d’accord.</p>
+<p>160<br>
+00:36:15,150 --&gt; 00:36:27,210<br>
+Alors là, il est noté de trois manières différentes : avec la vision dérivée partielle du champ de déplacement par rapport à la coordonnée, enfin, par rapport à la position M0.</p>
+<p>161<br>
+00:36:27,630 --&gt; 00:36:39,570<br>
+Ouais, j’aurais dû rajouter un petit — un vecteur, mais ça, ça ne va pas. Du coup, c’est l’identité plus le gradient de U, mais de manière implicite, c’est la dérivée par rapport à M0.</p>
+<p>162<br>
+00:36:39,750 --&gt; 00:36:54,630<br>
+Et pour ceux qui sont familiers avec la notation labla, le gradient, c’est labla appliqué à U. Ben, du coup, je peux reprendre les mêmes notations, mais appliquer cette fois</p>
+<p>163<br>
+00:36:55,409 --&gt; 00:37:07,829<br>
+à ce que j’utilise pour caractériser la déformation, le tenseur de déformation de Green-Lagrange : 1/2 de F transposée F moins l’identité. Ben, en réalité,</p>
+<p>164<br>
+00:37:09,570 --&gt; 00:37:50,130<br>
+je vois que je peux le réécrire sous cette forme-là. Alors, peut-être que je vous le remonte, mais bon, c’est assez simple. On va faire le calcul rapidement. Ok, F, j’ai vu que c’était</p>
+<p>165<br>
+00:37:50,789 --&gt; 00:38:10,349<br>
+l’identité plus le gradient de U. Donc c’est comme si je calculais identité plus le gradient de U, que je vais noter avec cette notation-là, transposée fois I plus le gradient de U.</p>
+<p>166<br>
+00:38:10,710 --&gt; 00:38:29,429<br>
+Et à ça, je vais enlever l’identité. Jusque-là, hein, je vais juste développer la forme de F. Il n’y a pas de magie noire, ok. Du coup, je vais faire les produits croisés. Donc I</p>
+<p>167<br>
+00:38:30,449 --&gt; 00:38:48,150<br>
+identité fois l’identité ident ité. Ensuite, identité fois le gradient de U gr adient de U. Gradient de U transposée fois l’identité gr adient de U transpos ée.</p>
+<p>168<br>
+00:38:49,409 --&gt; 00:39:05,309<br>
+Et gradient de U transposée fois gradient de U gr adient de U transposée fois gradient de U. Et il reste encore moins l’identité. L’identité, qui s’annule. Qu’est-ce qui me reste ?</p>
+<p>169<br>
+00:39:06,269 --&gt; 00:39:18,389<br>
+Le gradient de U, son transposé, et un joli petit terme quadratique qui fait apparaître le gradient de U fois son transposé, enfin, le transposé du gradient de U fois le gradient de U.</p>
+<p>170<br>
+00:39:20,789 --&gt; 00:39:31,889<br>
+Le fait d’avoir — d’être en petites perturbations, ça veut dire qu’on va avoir des, a priori, des petits déplacements globalement, des petites déformations, mais surtout des</p>
+<p>171<br>
+00:39:32,909 --&gt; 00:39:42,030<br>
+— on va avoir petits déplacements, petites déformations, petites rotations. Et tout ça, enfin, tout ça, petites déformations et petites rotations, ça veut dire qu’on va avoir des petites</p>
+<p>172<br>
+00:39:42,929 --&gt; 00:39:48,090<br>
+transformations. Et des petites transformations, ça veut dire que F, finalement, il va être très proche de I, de l’identité</p>
+<p>173<br>
+00:39:48,510 --&gt; 00:39:56,670<br>
+, et donc que le gradient du champ de déplacement, il va être très petit. Si ça, c’est très petit, ben, ça, ça va être encore plus petit.</p>
+<p>174<br>
+00:39:57,329 --&gt; 00:40:04,110<br>
+Et donc, par une approche de type développement limité, on va facilement pouvoir négliger ce terme. C’est le principe</p>
+<p>175<br>
+00:40:04,829 --&gt; 00:40:12,329<br>
+de l’hypothèse des petites perturbations : on va se débarrasser de ce terme qui, au final, est non linéaire, et qui va surtout nous casser les pieds très rapidement</p>
+<p>176<br>
+00:40:12,989 --&gt; 00:40:24,510<br>
+dès qu’on va vouloir mettre ça en équation et résoudre les équations, ok. Donc, dans l’absolu, la forme pour le champ, enfin, de déformation,</p>
+<p>177<br>
+00:40:25,110 --&gt; 00:40:34,110<br>
+ça peut être mis sous cette forme, celle-là, ou celle-là, c’est juste des notations différentes, ok, c’est la même chose. Mais par contre, on peut avoir sa version linéarisée</p>
+<p>178<br>
+00:40:36,929 --&gt; 00:40:50,550<br>
+lorsque l’on considère que les transformations sont infinitésimales, c’est-à-dire que la norme du gradient de U est petite. Donc, sous l’hypothèse des petites perturbations, qui se regroupe</p>
+<p>179<br>
+00:40:51,329 --&gt; 00:41:04,110<br>
+sous deux sous-hypothèses, les déplacements sont petits, ça veut dire qu’on va avoir la norme du champ de déplacement qui va être petite par rapport au diamètre apparent de notre structure.</p>
+<p>180<br>
+00:41:06,030 --&gt; 00:41:15,750<br>
+Donc, en gros, ça veut dire que les configurations initiales et actuelles, courantes, elles peuvent être plus ou moins confondues, et que les transformations sont petites.</p>
+<p>181<br>
+00:41:16,769 --&gt; 00:41:26,789<br>
+Infinitésimales, c’est un mot un peu plus savant, mais ça veut dire petit, quoi. Et mathématiquement, comment ça se traduit ? Ça veut dire que la norme du tenseur gradient du déplacement</p>
+<p>182<br>
+00:41:27,389 --&gt; 00:41:43,110<br>
+est très petite. Et dans ces cas-là, pour la norme, on prend la norme infinie, c’est-à-dire la valeur absolue de la— enfin, le max des valeurs absolues de chaque composante du tenseur. C’est ça.</p>
+<p>183<br>
+00:41:43,889 --&gt; 00:41:56,429<br>
+La norme du tenseur A, quel qu’il soit, du second ordre, c’est le max sur I et J de la valeur absolue de la composante IJ. On regarde quel est le max des valeurs absolues des composantes.</p>
+<p>184<br>
+00:41:56,969 --&gt; 00:42:08,610<br>
+Et ça, ça permet de caractériser, s’assurer qu’on est très petit devant l’unité, devant, ok. Ça, c’est une manière de vérifier qu’on est — qu’on est</p>
+<p>185<br>
+00:42:09,030 --&gt; 00:42:18,269<br>
+sous— soit qu’on est dans le domaine des petites perturbations, soit ça va nous permettre de poser une limite pour dire : ben, là, notre modèle, il marche bien tant que l’on est dans —</p>
+<p>186<br>
+00:42:18,690 --&gt; 00:42:32,130<br>
+on ne dépasse pas telle valeur pour tel paramètre, pour le temps, pour le temps d’observation du mouvement, etc., etc. Donc ça, c’est des vérifications que vous aurez à faire par la suite. Alors,</p>
+<p>187<br>
+00:42:33,090 --&gt; 00:42:41,369<br>
+l’hypothèse de petites transformations, donc le fait d’avoir ce gradient du champ de déplacement qui est petit, ça implique en fait que les déformations sont petites. Donc, mécaniquement</p>
+<p>188<br>
+00:42:42,090 --&gt; 00:42:53,070<br>
+, ce tenseur-là, il va être très petit. Donc il va être très petit devant. Donc pareil, avec le même principe pour la norme. Et également que les rotations sont petites.</p>
+<p>189<br>
+00:42:53,730 --&gt; 00:43:06,210<br>
+Alors ça, on verra par la suite. Mais ce tenseur-là, là, le tenseur ω, vous voyez qu’il y a une petite barre verticale, là, ça correspond à la partie antisymétrique du gradient de U. Alors,</p>
+<p>190<br>
+00:43:06,809 --&gt; 00:43:13,889<br>
+il s’agit d’une implication et non d’une équivalence, hein, encore une fois. Vo us allez être habitués à ça, hein.</p>
+<p>191<br>
+00:43:14,250 --&gt; 00:43:24,030<br>
+Ce n’est pas parce que vous avez petites déformations que vous avez petites transformations. Et ça, c’est un mauvais réflexe qu’on a assez régulièrement : « Ah oui,</p>
+<p>192<br>
+00:43:24,449 --&gt; 00:43:32,969<br>
+on a une petite déformation, donc c’est une petite transformation. » Non, non, non. Vous pouvez avoir des grandes rotations qui peuvent venir mettre le bazar là-dedans. Et on va le voir</p>
+<p>193<br>
+00:43:33,510 --&gt; 00:43:48,449<br>
+dans un exercice qu’on fera peut-être tout à l’heure, hein, je ne sais pas si on aura le temps pour ça. Donc, du coup, donc là, j’ai différentes formes. Enfin, j’ai la forme pour mon tenseur</p>
+<p>194<br>
+00:43:49,289 --&gt; 00:44:07,949<br>
+de déformation de Green-Lagrange, donc j’ai dit que je pouvais l’avoir sous cette forme : le gradient de U plus son transposé plus — on va le transposer comme ça— fois le gradient de U. Et</p>
+<p>195<br>
+00:44:08,550 --&gt; 00:44:28,110<br>
+si je suis en HPP, ça, ça va être très petit devant le gradient de U ou son transposé. Et donc, du coup, dans ce cas-là, si j’ai l’hypothèse des petites perturbations,</p>
+<p>196<br>
+00:44:28,949 --&gt; 00:44:38,429<br>
+ben, je vais plutôt avoir tendance à utiliser la forme linéarisée, c’est-à-dire le tenseur qu’on note ε, tenseur de déformation. ε, en mécanique, c’est la déformation,</p>
+<p>197<br>
+00:44:40,349 --&gt; 00:44:58,590<br>
+qui va tout simplement avoir cette forme-là , la somme du gradient de déplacement et de son transposé. Ce qui revient quand on fait ce type d’opération, c’est la partie symétrique</p>
+<p>198<br>
+00:45:02,309 --&gt; 00:45:15,750<br>
+du gradient de U, ok. Quand vous faites ce type d’opération, vous prenez la moitié de la somme d’un tenseur et de son transposé, vous avez symétrisé votre tenseur. Et faire exactement</p>
+<p>199<br>
+00:45:16,289 --&gt; 00:45:27,090<br>
+l’opération inverse, justement, pour obtenir la partie antisymétrique. Et n’importe quel tenseur, du second ordre ou autre, peut se décomposer en une partie symétrique et antisymétrique.</p>
+<p>200<br>
+00:45:28,349 --&gt; 00:45:35,369<br>
+Des fois, il y a l’une ou l’autre qui peut être nulle. Ben, quand votre tenseur est symétrique, la partie antisymétrique</p>
+<p>201<br>
+00:45:36,150 --&gt; 00:45:46,889<br>
+est nulle, et quand votre tenseur est antisymétrique, la partie symétrique est nulle. Dans l’hypothèse des petites perturbations, en fait, on —</p>
+<p>202<br>
+00:45:47,670 --&gt; 00:45:58,050<br>
+l’hypothèse qu’on fait par-dessus, hein, c’est de se dire que, ben, la partie symétrique du gradient de déplacement, en fait, correspond aux déformations, de manière pleine et entière.</p>
+<p>203<br>
+00:45:59,070 --&gt; 00:46:14,369<br>
+Et par contre, la partie antisymétrique du gradient de déplacement représentera les petites rotations de votre milieu, ok. Donc ε, là, on appelle ça le tenseur de déformation</p>
+<p>204<br>
+00:46:14,969 --&gt; 00:46:46,889<br>
+linéarisé, ou le tenseur de déformation infinitésimal, parce que — euh , alors, ah oui, il y avait ces aspects-là. Ça, ça ne rapporte pas grand-chose. C’est juste si vous êtes dans la base</p>
+<p>205<br>
+00:46:47,969 --&gt; 00:47:02,130<br>
+orthonormée cartésienne, vous pouvez le noter comme ceci, et là, de manière indicielle, vous pouvez représenter les différentes coordonnées : actuelle, initiale, et le déplacement . Le tenseur</p>
+<p>206<br>
+00:47:03,269 --&gt; 00:47:16,769<br>
+gradient de transformation, donc la notation ΔIJ, hein, c’est l’indice de Cronecker. Ça vaut 1 quand I = AJ, ça vaut 0 dans tous les autres cas. Vous retrouverez ça dans les annexes des</p>
+<p>207<br>
+00:47:17,309 --&gt; 00:47:32,070<br>
+bases mathématiques, il y en a de— donc je ne vais pas revenir là-dessus. Là, vous retrouvez la forme du tenseur de déformation de Green-Lagrange, et la forme linéarisée.</p>
+<p>208<br>
+00:47:32,309 --&gt; 00:47:47,190<br>
+Donc, dans la forme linéarisée, hein, vous oubliez ce terme— les termes quadratiques qui, a priori, sont négligeables, ok. Alors, attention, justement, mais on va le voir dans un exercice, hein.</p>
+<p>209<br>
+00:47:51,989 --&gt; 00:48:03,869<br>
+Quand vous utilisez cette forme-là pour caractériser les déformations alors que vous avez potentiellement des grandes rotations, vous allez potentiellement trouver une déformation non nulle,</p>
+<p>210<br>
+00:48:05,190 --&gt; 00:48:21,389<br>
+alors qu’avec la forme complète, là, du tenseur de déformation, vous auriez bien trouvé une déformation de manière — de manière exacte, qui devrait être nulle. Donc c’est un petit</p>
+<p>211<br>
+00:48:23,789 --&gt; 00:48:34,650<br>
+— un petit warning à garder en tête, hein. On va utiliser essentiellement cette forme-là, mais pour l’utiliser, il faudra s’assurer qu’on respecte bien l’hypothèse des petites perturbations.</p>
+<p>212<br>
+00:48:34,949 --&gt; 00:48:56,550<br>
+Sinon, on pourrait prendre une forme pour mesurer les déformations qui est plus simple, mais qui, en réalité, est fausse au regard de la situ ation, ok. 3, 4 .</p>
+<p>213<br>
+00:48:56,670 --&gt; 00:49:09,329<br>
+Alors, pour ceux qui ont peut-être déjà fait un peu de résistance des matériaux, peut-être qu’ils sont passés par des — comment, des cursus un peu plus ingénieurs.</p>
+<p>214<br>
+00:49:10,650 --&gt; 00:49:22,530<br>
+Ce fameux ε, là, on appelle ça, en manière un peu simpliste, la déformation de l’ingénieur. Parce que les ingénieurs, généralement, ils raisonnent essentiellement en petites perturbations.</p>
+<p>215<br>
+00:49:23,010 --&gt; 00:49:39,389<br>
+Alors, c’est un peu caricatural, hein, mais on essaie d’utiliser des modèles qui sont faciles à manipuler et qui conduisent à des calculs linéaires, enfin, entre guillemets. Donc,</p>
+<p>216<br>
+00:49:39,809 --&gt; 00:49:50,550<br>
+cette déformation, elle correspond aux différentes valeurs de la diagonale du tenseur de déformation linéarisée, et en réalité, de manière assez simple, c’est la variation longueur</p>
+<p>217<br>
+00:49:51,150 --&gt; 00:50:05,070<br>
+divisée par la longueur initiale, ok. Déformation de l’ingénieur, ça se manipule assez facilement. Donc L moins L0 divisé par L0. Est-ce que ça va pour ça ?</p>
+<p>218<br>
+00:50:05,130 --&gt; 00:50:24,989<br>
+Pardon, je n’ai pas laissé la place à des question s. Peut-être qu’il y a besoin de repréciser quelque chose. Alors, on avance. Ça, c’est un point qui est un petit peu</p>
+<p>219<br>
+00:50:26,070 --&gt; 00:50:38,789<br>
+— un petit peu hors programme, on va dire, hein, ça va peut-être un peu trop loin, mais . Le fait que les déformations, elles dérivent d’un champ de déplacement.</p>
+<p>220<br>
+00:50:40,110 --&gt; 00:50:46,110<br>
+Mettons, vous connaissez le champ de déplacement, vous avez juste à dériver par rapport à l’espace, calculer son gradient, et puis</p>
+<p>221<br>
+00:50:46,710 --&gt; 00:50:59,730<br>
+de calculer la partie symétrique pour avoir accès aux déformations. Mettons, on est dans— on reste dans le cadre des petites perturbations. Donc je peux utiliser cette formule-là. Ça,</p>
+<p>222<br>
+00:51:00,449 --&gt; 00:51:11,130<br>
+c’est pas mal. C’est direct : vous avez un champ à 3 composantes, vous voulez aller sur un champ à 6 composantes, parce que ce tenseur-là, il a la bonne idée d’être symétrique.</p>
+<p>223<br>
+00:51:12,630 --&gt; 00:51:25,530<br>
+Un tenseur symétrique en 3D, c’est 6 composantes, ok. Bon, ben, ça, ça se fait. Des fois, on a besoin de retrouver le champ de déplacement à partir du champ de déformation.</p>
+<p>224<br>
+00:51:26,250 --&gt; 00:51:37,769<br>
+C’est-à-dire de remonter à un champ qui est un déplacement, un vecteur à 3 composantes, à partir d’un champ de déformation qui, lui, a 6 composantes.</p>
+<p>225<br>
+00:51:43,469 --&gt; 00:51:55,650<br>
+On ne peut pas utiliser n’importe quelle forme pour un champ de déformation. Donc vous ne pouvez pas— enfin, comment, si vous avez supposé une certaine forme pour le champ de déformation,</p>
+<p>226<br>
+00:51:56,250 --&gt; 00:52:08,369<br>
+en vous disant : « Ben, je fais l’hypothèse qu’ en regardant ce mouvement, par exemple, la déformation évolue de manière cubique, donc en x1</p>
+<p>227<br>
+00:52:09,090 --&gt; 00:52:19,230<br>
+puissance 3, selon la direction, selon cette direction. » Ça, c’est une hypothèse que vous faites, ok. Ben, peut-être que vous n’allez pas trouver de champ de déplacement qui</p>
+<p>228<br>
+00:52:19,769 --&gt; 00:52:31,650<br>
+va être compatible avec ce champ de déformation. Et tout ça, c’est régi, justement, par des équations de compatibilité. Le champ de déplacement, il doit être continu, donc</p>
+<p>229<br>
+00:52:32,250 --&gt; 00:52:46,289<br>
+sa forme doit être cadrée. Et donc, justement, la continuité du champ de déformation, elle, elle est assurée du champ de— du champ de dép lacement, hein, petite erreur.</p>
+<p>230<br>
+00:52:47,909 --&gt; 00:52:53,610<br>
+Elle est assurée, justement, par les jeux d’équations de compatibilité. Alors,</p>
+<p>231<br>
+00:52:54,150 --&gt; 00:53:03,150<br>
+on peut les résumer en disant que le rotationnel du rotationnel du transposé du champ de déplacement de déformation est égal à 0. Bon, le rotationnel</p>
+<p>232<br>
+00:53:04,650 --&gt; 00:53:16,469<br>
+d’un tenseur, bon, ce n’est pas évident, mais bon, ça se calcule. Et en réalité, vous avez un lien avec le théorème de Schwartz qui dit que pour les dérivées doubles</p>
+<p>233<br>
+00:53:17,550 --&gt; 00:53:35,070<br>
+du tenseur de rotation, donc le ω, hein, vous pouvez intervertir l’ordre des dérivées par rapport à la direction k et l, et vous avez un lien entre la— enfin, entre le tenseur de rotation,</p>
+<p>234<br>
+00:53:35,849 --&gt; 00:53:46,949<br>
+les petites rotations, et le tenseur de déformation avec les duels des li. Avec ça, en fait, vous arrivez à ce type d’équation.</p>
+<p>235<br>
+00:53:48,389 --&gt; 00:54:01,590<br>
+Quand vous tenez compte de toutes les symétries et de tous les aspects liés au théorème de Schwartz, à la fin, vous n’avez que 6 possibilités pour ces équations-là, et il faut les respecter.</p>
+<p>236<br>
+00:54:02,789 --&gt; 00:54:15,630<br>
+Alors, peut-être la seule chose à retenir avec cette histoire de compatibilité des déformations : est-ce que vous êtes capables, à peu près, de me donner</p>
+<p>237<br>
+00:54:18,329 --&gt; 00:54:27,510<br>
+une caractéristique pour les champs de déformation pour lesquels on est sûrs que ça marche tout le temps ? C’est-à-dire qu’on a forcément la compatibilité qui est assurée.</p>
+<p>238<br>
+00:54:33,510 --&gt; 00:54:49,289<br>
+Alors, le plus facile, c’est la déformation nulle. Si le tenseur de déformation est nul en tout point, ben, c’est facile, hein : je dérive 0 par rapport à n’importe quoi, plus ou moins 0,</p>
+<p>239<br>
+00:54:49,769 --&gt; 00:55:29,130<br>
+c’est forcément égal à 0 plus 0 ou 0 moins 0. Il n’y a pas de mystère là-dessus, ok. Donc la première solution, c’est un champ de déformation nul, mais bon, un fairet très limité, ok.</p>
+<p>240<br>
+00:55:31,530 --&gt; 00:55:39,570<br>
+Est-ce que vous êtes capables de me donner une autre forme de champ de déformation, avec une évolution dans l’espace, hein ? C’est surtout ça qui nous intéresse, parce que</p>
+<p>241<br>
+00:55:40,110 --&gt; 00:55:47,670<br>
+là, les dérivées, je ne les ai peut-être pas reprécisées, mais ce sont des dérivées par rapport à l’espace, par rapport aux coordonnées de l’espace.</p>
+<p>242<br>
+00:55:49,889 --&gt; 00:56:05,010<br>
+Est-ce que vous êtes capables de me donner quelque chose qui n’est pas nul, comme champ de déformation, mais qui a une forme simple et qui sera toujours compatible ? Avec cette forme-là, les formes</p>
+<p>243<br>
+00:56:05,610 --&gt; 00:56:14,909<br>
+— ces formes-là d’équations de compatibilité, ça veut dire que vous prenez certaines composantes du champ de déformation, et vous dérivez</p>
+<p>244<br>
+00:56:15,869 --&gt; 00:56:30,690<br>
+une première fois par rapport à une composante de l’espace, et une seconde fois par rapport à une autre composante de l’espace. A priori, pour quel type de champ ça marche toujours ?</p>
+<p>245<br>
+00:56:34,230 --&gt; 00:56:54,090<br>
+Un truc un peu plus complexe que nul. Je pense qu’il est trop tard. Pardon ? O ui, même avant linéaire, constant. Mais je suis d’accord avec linéaire.</p>
+<p>246<br>
+00:56:58,289 --&gt; 00:57:05,550<br>
+Si c’est constant, vous dérivez une première fois par rapport à n’importe quelle composante, ben, vous obtenez 0 pour chacun des termes, et du coup ça marche.</p>
+<p>247<br>
+00:57:05,849 --&gt; 00:57:39,150<br>
+Vous vérifiez bien que 0 est égal à 0, ok. Et bonne remarque, alors même plus que linéaire, du coup, une combinaison de constant et linéaire affine. Bon, bref. Si vous avez des polynômes</p>
+<p>248<br>
+00:57:39,869 --&gt; 00:57:54,929<br>
+de degré inférieur à 2 en fonction des différ ents paramètres de l’espace, ça marche toujours. Donc si vous tombez sur un champ de déformation qui a la bonne idée d’avoir cette forme-là,</p>
+<p>249<br>
+00:57:55,949 --&gt; 00:58:05,969<br>
+vous pouvez tout de suite le dire . Pas besoin de vérifier les équations de compatibilité, c’est forcément compatible, ok. Et donc vous n’avez pas à vous fader toutes les équations à vérifier,</p>
+<p>250<br>
+00:58:06,570 --&gt; 00:58:21,150<br>
+ce qui est pratique. Touj ours plus pratique de s’éviter des calculs. On gagne du temps et on évite de faire des erreurs. Bon. Mais ces équations de compatibilité , c’est plutôt</p>
+<p>251<br>
+00:58:21,809 --&gt; 00:58:32,250<br>
+ces équations-là , ici, qui vont nous permettre, justement , de voir comment est-ce qu’on intègre le champ de déformation pour arriver au gradient du champ de déplacement, puis ensuite</p>
+<p>252<br>
+00:58:33,150 --&gt; 00:58:49,110<br>
+au champ de déplacement lui-même. Bon, on va finir avec quelques aspects pratiques sur les déformations. Alors, là, vous avez un exemple de comment se comporte un matériau,</p>
+<p>253<br>
+00:58:50,849 --&gt; 00:59:04,949<br>
+dans le cadre général. Alors, en très continu, là, vous avez l’exemple d’un acier plutôt « doux », entre guillemets, et donc plutôt ductile. Alors, la ductilité, hein, c’est la capacité</p>
+<p>254<br>
+00:59:06,030 --&gt; 00:59:19,349<br>
+que peut avoir un matériau à se déformer au-delà de sa limite d’élasticité, lorsqu’il commence à générer des déformations irréversibles de la plasticité. Donc plus vous pouvez continuer</p>
+<p>255<br>
+00:59:20,789 --&gt; 00:59:30,090<br>
+d’étirer, si vous voulez, votre barre d’acier au-delà de la limite d’élasticité, plus c’est ductile, ok. Donc là, selon cet axe-là, on a la déformation.</p>
+<p>256<br>
+00:59:30,929 --&gt; 00:59:38,789<br>
+Là, on a la contrainte, une force divisée par une surface, ok. Si vous avez un matériau plutôt fragile,</p>
+<p>257<br>
+00:59:39,389 --&gt; 00:59:50,369<br>
+ben, globalement, dès que vous allez atteindre la limite d’élasticité, très vite, vous allez atteindre la rupture. Vous déformez du verre un peu au-delà de la limite, c’est cassé, c’est fini.</p>
+<p>258<br>
+00:59:50,909 --&gt; 00:59:59,610<br>
+Quelque chose qui est fragile, exemple parfait, la craie, ok, que vous fassiez en traction ou en flexion, dès que vous</p>
+<p>259<br>
+01:00:00,449 --&gt; 01:00:05,849<br>
+franchissez la limite, il n’y a pas de déformation irréversible, il y a rupture directe. C’est ça, un matériau fragile.</p>
+<p>260<br>
+01:00:06,150 --&gt; 01:00:16,289<br>
+Quelque chose qui est fragile, ce n’est pas quelque chose qui casse très vite, c’est quelque chose qui n’est pas capable d’accumuler de la déformation plastique. C’est tout de suite la rupture, ok.</p>
+<p>261<br>
+01:00:18,570 --&gt; 01:00:27,750<br>
+Dès que vous tapez un peu trop fort dans un verre, hein, si ça tombe par terre, c’est cassé. Si c’est ductile, ça encaisse un peu la déformation. Typiquement, l’aluminium,</p>
+<p>262<br>
+01:00:28,289 --&gt; 01:00:35,909<br>
+hein, c’est souvent un peu ductile. Vous voyez que ça encaisse un peu de déformation. Ok. Bon, peu importe.</p>
+<p>263<br>
+01:00:37,110 --&gt; 01:00:45,329<br>
+Là, tout ce qui se passe après, hein, vous pouvez avoir de la plasticité, des tressages, de la striation, peu importe. Ce qui est important, c’est : nous,</p>
+<p>264<br>
+01:00:45,750 --&gt; 01:00:57,449<br>
+on va dire, on va modéliser ce qui se passe dans la phase d’élasticité qui est essentiellement linéaire, la relation entre déformation et contrainte est linéaire, jusqu’à ce qu’on at</p>
+<p>265<br>
+01:00:58,349 --&gt; 01:01:10,710<br>
+teigne la limite d’élasticité. Au-delà, c’est non linéaire, on n’ira pas plus loin. Par contre, on se donnera les moyens de définir au bout de quel chargement</p>
+<p>266<br>
+01:01:11,849 --&gt; 01:01:15,510<br>
+on atteint cette limite-là, et il vaut mieux pas aller au-delà, ok.</p>
+<p>267<br>
+01:01:17,909 --&gt; 01:01:27,690<br>
+Donc c’est le début de la déformation irréversible, que ce soit de la plasticité, donc l’accumulation de déformation, qui pourra pas être — qui pourra être — qui ne sera pas réversible,</p>
+<p>268<br>
+01:01:28,230 --&gt; 01:01:37,769<br>
+ou tout simplement de la rupture si on est dans le cas d’un matériau qui est fragile. Donc ça, c’est pour vous donner une idée de comment peut se comporter un matériau. Alors,</p>
+<p>269<br>
+01:01:38,250 --&gt; 01:01:43,530<br>
+les polymères, c’est— même l’élasticité, c’est un peu non linéaire, mais on ne va pas aborder ça, parce qu’</p>
+<p>270<br>
+01:01:44,250 --&gt; 01:01:58,349<br>
+on n’a pas les modèles pour— enfin, on ne va pas vous présenter les modèles pour étudier ça. Bon, voilà. Alors, avec cette courbe de traction, là, que je vous ai présentée, donc</p>
+<p>271<br>
+01:01:59,789 --&gt; 01:02:13,769<br>
+pour avoir des ordres de grandeur, si vous travaillez sur un matériau de type acier, la partie élasticité , en termes de gamme de déformation, ça va à peu près jusqu’à 1 %, de</p>
+<p>272<br>
+01:02:14,429 --&gt; 01:02:23,909<br>
+0, à peu près 0,1 jusqu’à 1 %. Si vous allez au-delà, c’est que vous passez en plasticité, vous générez des déformations qui sont irréversibles. Et donc là, ben, vous pouvez aller</p>
+<p>273<br>
+01:02:24,989 --&gt; 01:02:34,230<br>
+de 1 jusqu’à 10 %, c’est plutôt de la plasticité. Par contre, quand vous faites vraiment de la mise en forme, hein, quand vous emboutissez, par exemple, des plaques d’acier pour faire</p>
+<p>274<br>
+01:02:34,769 --&gt; 01:02:43,710<br>
+des moules, par exemple, donc ça, c’est sur les presses industrielles, là, vous générez des déformations qui sont vraiment très, très importantes, et là, ce n’est même plus de la plasticité,</p>
+<p>275<br>
+01:02:44,130 --&gt; 01:02:53,849<br>
+c’est de la mise en forme. Là, vous êtes à plus de 10 % de déformation, c’est énorme. Ou ce que vous pouvez faire avec de la forme, typiquement. Si vous prenez l’exemple</p>
+<p>276<br>
+01:02:54,269 --&gt; 01:03:06,690<br>
+d’un béton qui est soumis à une compression et qui va jusqu’à rupture, ben, c’est à peu près 0 ,1 %. Vous voyez que le béton, il n’encaisse pas beaucoup de déformation, en réalité, avant</p>
+<p>277<br>
+01:03:07,170 --&gt; 01:03:18,989<br>
+de rentrer. Et je ne vous dis pas ce que ça peut encaisser en déformation en traction, mais c’est proche de 0, en réalité. Vous devez savoir, peut-être, que le béton, c’est un matériau qui</p>
+<p>278<br>
+01:03:19,590 --&gt; 01:03:33,869<br>
+est fragile. Si vous exercez de la traction dessus, tout se désagrège de manière presque immédiate. C’est pour ça qu’on fait quoi avec le béton ? Pardon ? On met de l’acier, on l’arme, ok.</p>
+<p>279<br>
+01:03:34,710 --&gt; 01:03:42,929<br>
+Première étape : on met des câbles d’acier dedans, ce qui fait que quand il y a un chargement de traction, c’est les câbles en acier qui prennent la traction, et du coup, ça</p>
+<p>280<br>
+01:03:46,349 --&gt; 01:03:57,329<br>
+ne fait pas rompre le béton. Ça, c’est la première étape. Deuxième étape : qu’est-ce qu’on peut faire avec les câbles en acier quand on fait couler le béton ? On les tend.</p>
+<p>281<br>
+01:03:59,489 --&gt; 01:04:14,070<br>
+On fait couler le béton, et ensuite on relâche. Ce qui fait que les câbles sont précontraints, et en plus de prendre les efforts de traction, ben, ils vont déjà appliquer une précontrainte</p>
+<p>282<br>
+01:04:14,610 --&gt; 01:04:30,150<br>
+sur le béton, ce qui fait qu’on a un peu plus de marge avant d’arriver en traction. Le béton est précontraint, ok. Bon, voilà, quelques petits principes pour vous familiariser avec ce concept-là.</p>
+<p>283<br>
+01:04:31,949 --&gt; 01:04:41,309<br>
+Alors, quelques exemples de méthodes expérimentales pour avoir accès à la mesure des déformations, parce que c’est presque un— c’est avec les déplacements.</p>
+<p>284<br>
+01:04:41,369 --&gt; 01:04:47,969<br>
+Les déplacements, on peut les mesurer typiquement avec des lasers, avec des comparateurs, hein. C’est tout simplement une tige avec un ressort</p>
+<p>285<br>
+01:04:48,389 --&gt; 01:04:55,469<br>
+qui appuie sur une surface, et puis, ben, dès que ça bouge, ben, vous êtes capables de mesurer de combien ça s’est déplacé. Voilà.</p>
+<p>286<br>
+01:04:56,369 --&gt; 01:05:02,130<br>
+Vous avez des extensomètres aussi, qui permettent d’être plaqués, par exemple, sur la surface d’une éprouvette. Si</p>
+<p>287<br>
+01:05:04,050 --&gt; 01:05:15,929<br>
+l’éprouvette se déforme, ben, l’extenso, il mesure le fait que, ben, vous avez une variation de longueur dans une direction, ok, le facteur de déplacement. La méthode des grilles, c’est</p>
+<p>288<br>
+01:05:16,409 --&gt; 01:05:27,809<br>
+tout simplement : vo us mettez une— vous imprimez une grille sur votre matériau, comme ça, et là, ben,</p>
+<p>289<br>
+01:05:28,230 --&gt; 01:05:32,070<br>
+c’est un peu le principe de la corrélation d’image, mais là, vous le faites avec une grille. Vous tirez, vous</p>
+<p>290<br>
+01:05:32,489 --&gt; 01:05:44,730<br>
+observez, vous êtes capables de mesurer le fait qu’il y a une variation de longueur entre les intersections des lignes, mais aussi, vous pouvez voir qu’il peut y avoir aussi une variation des angles,</p>
+<p>291<br>
+01:05:45,269 --&gt; 01:05:57,809<br>
+ok. Donc c’est les deux caractérisations de la déformation : la variation des longueurs entre les particules et la variation des angles. Capteurs de déplacement, donc</p>
+<p>292<br>
+01:05:58,349 --&gt; 01:06:11,730<br>
+par méthode laser ou comparateur par contact. Les jauges de déformation : typiquement, vous allez mettre à la surface d’une éprouvette un fil</p>
+<p>293<br>
+01:06:13,409 --&gt; 01:06:22,889<br>
+de cuivre, typiquement, qui va faire un serpentin, comme ça, et ça va vous permettre de mesurer la déformation dans cette direction-là. Parce que quand vous allez</p>
+<p>294<br>
+01:06:23,309 --&gt; 01:06:36,750<br>
+mettre une tension, là, entre les deux, si vous tirez, ça va changer la mesure de la tension, ok. Il y a une loi — en gros, ça va changer la résistivité de votre dispositif. Et donc, par</p>
+<p>295<br>
+01:06:37,590 --&gt; 01:06:48,989<br>
+un mécanisme d’étalonnage, vous allez être capables de remonter à la déformation qui est appliquée sur la surface. Alors, ça ne marche que pour un point, ok, et ça vous donne</p>
+<p>296<br>
+01:06:49,769 --&gt; 01:07:02,610<br>
+la déformation que dans une seule direction. Donc il faut combiner ça avec plusieurs jauges pour avoir accès au tenseur complet. Corrélation d’image, en 2D, par exemple. Donc Mouchti sur</p>
+<p>297<br>
+01:07:03,210 --&gt; 01:07:11,550<br>
+une surface, donc c’est un peu le principe de la méthode des grilles, mais vous pouvez avoir des taches, des grosses taches blanches, des grosses taches noires, des petites taches blanches, des petites taches noires,</p>
+<p>298<br>
+01:07:12,090 --&gt; 01:07:21,449<br>
+et en fait, ça va vous permettre de capter les différ entes échelles de déformation au sein de votre mesure.</p>
+<p>299<br>
+01:07:22,110 --&gt; 01:07:31,530<br>
+Vous allez essayer de retrouver le champ de déplacement qu’il faut appliquer à l’image déformée pour retourner sur l’image de départ, ok, ou l’ inverse, comme vous voulez, mais</p>
+<p>300<br>
+01:07:32,130 --&gt; 01:07:43,230<br>
+c’est un peu le principe. Vous pouvez utiliser la diffraction des rayons X. Bon, ça, c’est que pour les matériaux métalliques, hein. Vous envoyez des rayons X , conditions de Brague—</p>
+<p>301<br>
+01:07:44,010 --&gt; 01:07:56,429<br>
+ça va être un peu plus compliqué— mais ça peut vous donner une information sur la distance entre les plans atomiques, et vous pouvez remonter à la déformation. Je vais m’arrêter là pour</p>
+<p>302<br>
+01:07:58,949 --&gt; 01:08:10,349<br>
+ces aspects-là. Typiquement, la méthode des grilles, hein, là vous voyez comment peut se déformer une grille, et donc, du coup, ben, en procédant par carré de grille par carré de grille,</p>
+<p>303<br>
+01:08:11,250 --&gt; 01:08:23,250<br>
+vous pouvez remonter à la variation d’angle et à la variation de longueur. Quelques mouvements de base : ben, là, vous avez un domaine initial qui vous est donné en trait plein, et ça déformait.</p>
+<p>304<br>
+01:08:24,329 --&gt; 01:08:37,050<br>
+Bon, ben, vous voyez qu’il n’y a pas de variation de longueur dans les deux directions de l’espace, il n’y a pas de rotation, c’est une translation uniforme, avec un vecteur B qui est donné ici.</p>
+<p>305<br>
+01:08:38,310 --&gt; 01:08:56,369<br>
+Ici, vous avez une rotation uniforme de centre C, ok, avec un angle alpha, ok, pas très compliqué. Déformation de glissement simple. Donc là, à votre avis,</p>
+<p>306<br>
+01:08:56,970 --&gt; 01:09:08,369<br>
+avec ce que je vous ai dit tout à l’heure, est-ce qu’il y a une différence entre la surface ou le volume, si vous voulez, du domaine initial et final ? On garde le même volume. Donc</p>
+<p>307<br>
+01:09:08,789 --&gt; 01:09:21,569<br>
+c’est un mouvement incompressible, sans changement de volume. Mais il y a une déformation, parce qu’il y a une variation des angles entre les fibres orientées suivant les directions initiales, ok.</p>
+<p>308<br>
+01:09:21,630 --&gt; 01:09:34,109<br>
+Vous avez changé l’angle entre — ben, vous prenez une triparticule, là , avec celle qui était là, là et là, ben, votre angle, il a varié, ok. Ça, c’est du glissement simple.</p>
+<p>309<br>
+01:09:34,229 --&gt; 01:09:42,149<br>
+Ça veut dire, c’est vraiment le— vous avez pris un jeu de cartes, et vous avez juste poussé sur le côté, vous avez juste un glissement dans une direction.</p>
+<p>310<br>
+01:09:42,569 --&gt; 01:09:54,569<br>
+Là, vous avez ce qu’on appelle le glissement pur. Là, la petite différence , c’est que là, vous n’avez pas de rotation globale, ok, vous avez juste contracté dans une direction</p>
+<p>311<br>
+01:09:54,989 --&gt; 01:10:07,470<br>
+et tiré dans l’autre. Là, vous avez fait— vous avez généré une légère rotation de vos fibres, ok. Bon, on verra ça par la suite. Si vo</p>
+<p>312<br>
+01:10:08,250 --&gt; 01:10:17,729<br>
+us calculez les directions principales de déformation, là, elles évoluent au cours de la déformation, là, elles sont tout le temps alignées de la même manière.</p>
+<p>313<br>
+01:10:18,390 --&gt; 01:10:38,310<br>
+Un glissement pur, ça peut être résumé en deux glissements simples ? D’une direction puis dans l’autre ? Ou c’est différent ? Oui, on peut recomposer ça.</p>
+<p>314<br>
+01:10:40,409 --&gt; 01:10:51,149<br>
+Mais alors, en élasticité, le trajet de chargement importe peu. Ce n’est pas forcément le cas quand on se retrouve dans des aspects non linéaires. Mais oui, par combinaison</p>
+<p>315<br>
+01:10:53,250 --&gt; 01:10:59,250<br>
+d’un glissement simple et d’un glissement pur— et d’un— de deux glissements simples, on va pouvoir retrouver le glissement pur, oui, en effet.</p>
+<p>316<br>
+01:11:01,770 --&gt; 01:11:17,310<br>
+Je vérifie qu’on ne dise pas de bêtises, mais a priori, c’est bon. Glissement simple, glissement pur, donc ça, on voit. Là, par exemple, vous avez une dilatation isotrope,</p>
+<p>317<br>
+01:11:18,029 --&gt; 01:11:25,829<br>
+donc ça se dilate de la même manière sur toutes les directions de l’espace, enfin, en tout cas dans le plan. Je ne voulais pas faire en 3D, je prendrai la question juste après.</p>
+<p>318<br>
+01:11:26,369 --&gt; 01:11:35,909<br>
+Et là, vous avez un exemple de dilatation qui est anisotrope. Ça se dilate davantage suivant l’axe horizontal que suivant l’axe vertical.</p>
+<p>319<br>
+01:11:36,090 --&gt; 01:11:48,090<br>
+Donc vous n’avez pas le même rapport, enfin, la même valeur pour les dilatations, donc lambda 1 dans la direction E1 et dans la direction E2. Quand on parle de glissement, est</p>
+<p>320<br>
+01:11:49,350 --&gt; 01:12:05,670<br>
+-ce qu’il y a— est-ce qu’il y a des angles qui peuvent être — ? C’est— on parle de glissement, c’est du jargon. En anglais, on peut parler de soit « gliding</p>
+<p>321<br>
+01:12:06,510 --&gt; 01:12:21,569<br>
+», soit on peut parler de « shear strain », mais de « simple shear » ou « pure shear ». C’est un choix qui n’est pas forcément tout le temps bienvenu.</p>
+<p>322<br>
+01:12:21,869 --&gt; 01:12:35,189<br>
+À un moment, on a choisi un terme, et puis on l’a gardé. On peut parler de — on pourrait dire « distorsion » aussi. Ça, c’est — vous voyez que l’image initiale et l’image finale sont</p>
+<p>323<br>
+01:12:35,789 --&gt; 01:12:48,510<br>
+— enfin, il y a une distorsion entre l’image initiale et l’image finale. Enfin, l’image— le domaine initial et le domaine final. Bon, c’est— il faut— voilà, il faut —</p>
+<p>324<br>
+01:12:49,770 --&gt; 01:13:02,670<br>
+qu’est-ce qu’on retrouve des fois comme terme ? Non, mais c’est glissement. Alors, il y a un lien, parce que les mécanismes de déformation plastique, typiquement dans les alliages, dans les aciers,</p>
+<p>325<br>
+01:13:03,569 --&gt; 01:13:17,970<br>
+c’est — pour la déformation plastique, on dit que c’est du glissement entre les plans cristallins. Vous avez — vous imaginez, vous avez des atomes qui sont à chaque intersection de lignes, là.</p>
+<p>326<br>
+01:13:18,210 --&gt; 01:13:32,069<br>
+Quand vous générez de la déformation plastique dans un alliage, dans un — dans du fer, par exemple, ou dans de l’acier, en gros, vous allez aller au-delà de la limite d’élasticité, et pot</p>
+<p>327<br>
+01:13:32,970 --&gt; 01:13:43,590<br>
+entiellement, l’atome qui était là, ben, au bout d’un moment, pouf, il va se décaler ici. Et vous allez générer un glissement plus ou moins global de toute la couche d’atome,</p>
+<p>328<br>
+01:13:44,550 --&gt; 01:13:53,670<br>
+et vous allez générer des défauts qu’on appelle des dislocations. Et ça, c’est des mécanismes qui se font sans variation de volum e, et donc on parle de glissement. Alors,</p>
+<p>329<br>
+01:13:54,449 --&gt; 01:14:06,390<br>
+je ne sais pas si, de manière historique, on s’est basé sur justement cette approche de glissement des plans atomiques les uns par rapport aux autres. Je ne sais pas.</p>
+<p>330<br>
+01:14:08,430 --&gt; 01:14:24,510<br>
+Mais voilà, on utilise ce terme. Bon. Normalement, il nous reste 10 minutes, mais j’ai l’impression que ça fait peut-être déjà un peu trop pour une première journée.</p>
+<p>331<br>
+01:14:30,569 --&gt; 01:14:59,489<br>
+Est-ce que ça paraît raisonnable , en termes de planning, de s’arrêter là ? Ça ne me paraît pas idiot. Peut-être, avant de vous libérer, vous avez peut-être des questions, hein. Peut-être</p>
+<p>332<br>
+01:15:00,510 --&gt; 01:15:17,250<br>
+une redoutable envie de faire un QCM. Je n’ai pas l’impression. Ok. Alors, je — ah, je crois que j’ai oublié de mettre les slides sur Ecampus. De toute façon, ils ne sont</p>
+<p>333<br>
+01:15:18,090 --&gt; 01:15:29,130<br>
+pas— ils ne sont pas complets pour l’instant. On peut essayer de faire ça dans la soirée. Mais de toute façon, je pense que j’ai encore des petites corrections à apporter par-ci par-là.</p>
+<p>334<br>
+01:15:29,850 --&gt; 01:15:40,289<br>
+Donc bon, je vais incrémenter avec la V0, la V1, etc. La dernière fois, j’ai regardé, il y avait les slides de ce matin. Ça s’arrêtait à peu près à— Voilà, mais j’ai</p>
+<p>335<br>
+01:15:41,250 --&gt; 01:15:50,250<br>
+— en fait, j’ai régénéré le truc . Tout à l’heure, j’ai fait— je finis de faire mes slides très rapidement avant de commencer, et j’ai oublié de les déposer. Donc</p>
+<p>336<br>
+01:15:52,649 --&gt; 01:16:03,029<br>
+vous n’avez pas pu les suivre en même temps, mais bon. Je vais essayer de vous déposer ça dans la soirée. Ok ?</p>
+</div></div></div><!----></div>

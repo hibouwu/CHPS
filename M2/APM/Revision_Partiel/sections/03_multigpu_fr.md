@@ -1,10 +1,8 @@
 ## 3. API CUDA, contextes et programmation multi-GPU
 
-Source principale : [CM3, PDF de 101 pages](../CM/APM_Cours3.pdf). Les diapositives mélangent explications historiques et exemples schématiques ; les précisions identifiées ci-dessous servent à éviter d'apprendre un comportement incorrect. La dernière diapositive décrit NCCL 2.19.3, sans constituer un inventaire de toutes les versions ultérieures.
+Ce chapitre correspond au [CM3](../CM/APM_Cours3.pdf). La dernière diapositive décrit NCCL 2.19.3, pas toutes les versions ultérieures.
 
-### 3.1 Runtime API et Driver API
-
-Source : CM3, p. 4-10.
+### 3.1 Runtime API et Driver API (CM3, p. 4-10)
 
 | Point | Runtime API | Driver API |
 |---|---|---|
@@ -17,9 +15,7 @@ Source : CM3, p. 4-10.
 
 Les deux API donnent accès au même GPU. Le Driver API n'est pas une promesse d'accélération : son intérêt est le contrôle des ressources et de leur contexte. Mélanger les deux demande de vérifier quel contexte est courant et à quel contexte appartiennent les objets utilisés.
 
-### 3.2 Ce que représente un contexte
-
-Source : CM3, p. 13-25.
+### 3.2 Ce que représente un contexte (CM3, p. 13-25)
 
 Un contexte organise l'état CUDA associé à un GPU : allocations usuelles, espace d'adressage, streams, événements et autres ressources. Pour raisonner sur un pointeur, il faut connaître son allocation et les droits d'accès, pas seulement le numéro du GPU.
 
@@ -34,9 +30,7 @@ Le contexte primaire, présenté comme disponible depuis CUDA 4.0, est partagé 
 
 **Précision sur la p. 22 :** l'affirmation selon laquelle seuls les contextes primaires resteraient disponibles ne doit pas être mémorisée comme règle actuelle. Le Driver API fournit toujours `cuCtxCreate`. Un contexte explicite n'est pas non plus intrinsèquement « privé pour toujours » à un thread : son association peut être manipulée. Voir la [gestion des contextes NVIDIA](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__CTX.html).
 
-### 3.3 Choisir le GPU et vérifier les erreurs
-
-Source : CM3, p. 28-38.
+### 3.3 Choisir le GPU et vérifier les erreurs (CM3, p. 28-38)
 
 `cudaGetDeviceCount(&count)` renseigne le nombre de GPU visibles au processus. `cudaSetDevice(device)` sélectionne le GPU pour le thread hôte appelant ; les allocations, streams, événements et lancements suivants doivent être associés au GPU voulu.
 
@@ -59,9 +53,7 @@ Ce fragment suppose `local_rank` déjà défini. Le modulo n'est valide que si `
 
 Changer de GPU courant ne déplace pas une allocation existante et ne termine pas automatiquement les travaux déjà soumis à l'autre GPU.
 
-### 3.4 Manipuler les contextes avec le Driver API
-
-Source : CM3, p. 39-49.
+### 3.4 Manipuler les contextes avec le Driver API (CM3, p. 39-49)
 
 | Fonction | Effet à comprendre |
 |---|---|
@@ -77,9 +69,9 @@ Exemple de raisonnement : le thread utilise A ; il empile B ; les opérations qu
 
 La signature de création à trois paramètres des diapositives dépend de la version de l'API ; il faut utiliser la signature du toolkit compilant le programme. Pour l'examen, maîtriser les effets des opérations et la propriété des ressources est plus utile que recopier un fragment incomplet. Les précisions de ce paragraphe et du tableau sont cohérentes avec la [documentation Driver API](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__CTX.html).
 
-### 3.5 UVA et mémoire unifiée : deux notions différentes
+### 3.5 UVA et mémoire unifiée : deux notions différentes (CM3, p. 51-62)
 
-Source : CM3, p. 51-62 ; mémoire unifiée dans CM2, p. 41-50.
+Mémoire unifiée : CM2, p. 41-50.
 
 UVA, présenté comme introduit avec CUDA 4.0, organise les adresses de l'hôte et des GPU dans un espace virtuel unifié sur les systèmes compatibles. Une adresse peut ainsi être associée à son allocation et à son emplacement, même si le GPU courant change.
 
@@ -111,9 +103,7 @@ Ce fragment demande si GPU 0 peut accéder à GPU 1, puis active ce sens depuis 
 
 `cudaMemcpyPeer` ou `cudaMemcpyPeerAsync` expriment un transfert entre allocations de deux GPU. Le trajet efficace dépend de la topologie et des capacités disponibles. P2P ne signifie ni « la donnée est déjà arrivée » ni « tous les accès distants ont le coût d'un accès local ». Il faut encore ordonner production, copie et consommation. Référence : [NVIDIA, accès à la mémoire d'un device pair](https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__PEER.html).
 
-### 3.7 MPI et affectation des GPU
-
-Source : CM3, p. 64-69.
+### 3.7 MPI et affectation des GPU (CM3, p. 64-69)
 
 Si tous les processus utilisent le GPU par défaut, ils peuvent tous charger GPU 0. Faire le même `cudaSetDevice(1)` dans tous les processus ne répartit pas davantage le travail. Le cours propose une distribution cyclique :
 
@@ -127,9 +117,9 @@ La distribution cyclique n'équilibre pas nécessairement le coût : les rangs p
 
 Les processus MPI ont des espaces d'adressage distincts. Envoyer la valeur brute d'un pointeur ou d'un handle de contexte ne partage pas l'allocation. Les échanges demandent un mécanisme prévu pour cela : communications, prise en charge de buffers GPU par une implémentation MPI adaptée, ou mécanisme interprocessus explicite. Ces possibilités n'impliquent pas que tout MPI accepte directement un pointeur GPU.
 
-### 3.8 OpenMP côté hôte et partage du contexte primaire
+### 3.8 OpenMP côté hôte et partage du contexte primaire (CM3, p. 71-75)
 
-Source : CM3, p. 71-75. Il s'agit ici de threads CPU OpenMP qui appellent CUDA ; l'offload OpenMP `target` est un autre mécanisme.
+Il s'agit ici de threads CPU OpenMP qui appellent CUDA ; l'offload OpenMP `target` est un autre mécanisme.
 
 ```cpp
 #pragma omp parallel
@@ -151,9 +141,7 @@ Chaque thread hôte doit choisir son GPU avant ses appels CUDA. Des threads d'un
 
 Les streams ordonnent le travail GPU ; les mécanismes OpenMP ordonnent aussi les échanges et accès du côté CPU. Ces deux niveaux de synchronisation ne sont pas interchangeables.
 
-### 3.9 MPI + OpenMP + CUDA : organisation et topologie
-
-Source : CM3, p. 76-82.
+### 3.9 MPI + OpenMP + CUDA : organisation et topologie (CM3, p. 76-82)
 
 Le cours présente un processus MPI par GPU, avec plusieurs threads hôtes et des streams, comme une organisation favorable au partage des allocations et au recouvrement. C'est un modèle de départ, pas une preuve que cette configuration maximise tous les programmes.
 
@@ -161,9 +149,7 @@ Les p. 78-80 doivent être lues avec précaution : les nombres 16 ou 128 ne sont
 
 Pour évaluer un placement, suivre le trajet des données : cœur CPU → mémoire NUMA → GPU → autre GPU ou réseau. Un GPU proche de certains cœurs peut être éloigné d'autres ; le meilleur placement GPU peut concurrencer le meilleur placement CPU. Une bibliothèque externe peut aussi modifier le device ou le contexte courant : ne pas supposer que cet état reste inchangé après tout appel.
 
-### 3.10 NCCL : communicateurs, rangs et initialisation
-
-Source : CM3, p. 84-92.
+### 3.10 NCCL : communicateurs, rangs et initialisation (CM3, p. 84-92)
 
 NCCL fournit des communications entre GPU. Une « clique » désigne ici les GPU participant à un communicateur ; elle peut ne couvrir qu'un sous-ensemble. Il faut distinguer trois numéros : rang MPI, identifiant CUDA local du device et rang dans le communicateur NCCL.
 
@@ -181,9 +167,7 @@ Dans le modèle étudié, un GPU ne doit pas représenter plusieurs rangs du mê
 
 Ces distinctions, notamment la portée mono-processus de `ncclCommInitAll`, sont vérifiées dans la [documentation officielle des communicateurs NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/api/comms.html). Un handle créé dans un processus ne devient pas utilisable dans les autres en diffusant seulement sa valeur.
 
-### 3.11 Collectives, AllReduce et exécution asynchrone
-
-Source : CM3, p. 93-100.
+### 3.11 Collectives, AllReduce et exécution asynchrone (CM3, p. 93-100)
 
 | Opération | Résultat attendu |
 |---|---|
@@ -216,9 +200,7 @@ ncclGroupEnd();
 
 Les communicateurs, buffers et streams sont supposés déjà initialisés. Attendre les streams après `ncclGroupEnd`, pas au milieu du groupe. Cette précision évite qu'un premier appel attende un autre participant encore non soumis ; voir [NCCL, appels groupés](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/groups.html).
 
-### 3.12 Points de vigilance pour le partiel
-
-Source : CM3, notamment p. 22, 36, 78-80, 84, 90 et 101.
+### 3.12 Points de vigilance pour le partiel (CM3, p. 22, 36, 78-80, 84, 90 et 101)
 
 1. **Même GPU ne veut pas dire même contexte.** Vérifier processus, contexte courant et allocation.
 2. **UVA ne veut pas dire mémoire unifiée.** Identifier séparément adressage, accès autorisé et mouvement des données.
