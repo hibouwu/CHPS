@@ -46,7 +46,7 @@ Le dénominateur de la variance corrigée est **4**, et non 5. Avec seulement ci
 | 2 | 0.146180 | 0.015146 | 0.006774 |
 | 3 | 0.607820 | 0.122394 | 0.054736 |
 
-Dans la [table de Student](<../CM + TD EDP/Table-t-Student.jpg>), ligne $\nu=4$ :
+Dans la [table de Student](<Tables/Table-t-Student.jpg>), ligne $\nu=4$ :
 
 - IC bilatéral à 90 % : $\alpha/2=0.05$, donc $t_{0.95,4}\approx2.131847$.
 - IC bilatéral à 99 % : $\alpha/2=0.005$, donc $t_{0.995,4}\approx4.604095$.
@@ -133,7 +133,7 @@ D&=\frac{(9-10)^2+(4-10)^2+(18-10)^2+(15-10)^2+(6-10)^2+(8-10)^2}{10}\\
 \end{aligned}
 $$
 
-La [table du χ²](<../CM + TD EDP/tableCHI-DEUX.pdf>), ligne 5 et queue droite $0.05$, donne :
+La [table du χ²](<Tables/tableCHI-DEUX.pdf>), ligne 5 et queue droite $0.05$, donne :
 
 $$
 \chi^2_{0.95,5}\approx11.0705<14.6,\qquad p\approx0.01222.
@@ -307,7 +307,7 @@ K^+=\sqrt5D^+\approx0.3986,\qquad
 K^-=\sqrt5D^-\approx0.6977,\qquad K\approx0.6977.
 $$
 
-**Lecture pédagogique de la table.** La [table K–S](<../CM + TD EDP/KolmoSmir_table.png>), ligne $n=5$, colonne $\alpha=0.05$, donne $D_{\mathrm{crit}}=0.56327$. On a $0.312030<0.56327$, ou, de manière équivalente, $K<\sqrt5\times0.56327\approx1.2595$ : la lecture conduit à ne pas rejeter. Toutefois, cette table suppose un paramètre connu à l’avance ; elle ne garantit pas ici un test de niveau 5 %.
+**Lecture pédagogique de la table.** La [table K–S](<Tables/KolmoSmir_table.png>), ligne $n=5$, colonne $\alpha=0.05$, donne $D_{\mathrm{crit}}=0.56327$. On a $0.312030<0.56327$, ou, de manière équivalente, $K<\sqrt5\times0.56327\approx1.2595$ : la lecture conduit à ne pas rejeter. Toutefois, cette table suppose un paramètre connu à l’avance ; elle ne garantit pas ici un test de niveau 5 %.
 
 **Calibration avec réestimation.** On simule $B=10^6$ échantillons de cinq exponentielles ; dans chaque échantillon, on réestime $\widehat\lambda_b=1/\bar X_b$ avant de recalculer $D_b$. La statistique étant invariante par changement d’échelle, on peut simuler une $\mathrm{Exp}(1)$ : la fonction ajustée aux observations simulées vaut $1-e^{-X_{b,i}/\bar X_b}$.
 

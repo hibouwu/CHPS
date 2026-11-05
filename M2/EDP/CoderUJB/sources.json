@@ -16,21 +16,21 @@
     {
       "imported_on": "2026-11-04",
       "original_path": "/home/jianyeshi/下载/CoderUJB_Equipe6_FR 2.pptx",
-      "local_path": "Presentation/CoderUJB_Equipe6_FR 2.pptx",
+      "local_path": "Presentation/Sources/CoderUJB_Equipe6_FR 2.pptx",
       "sha256": "82fc62dcbba6d81d49150fcbabdd7bbbf3cfad2b2bff970f30821b1cc3fe5ace",
       "operation": "moved_from_downloads"
     },
     {
       "imported_on": "2026-11-04",
       "original_path": "/home/jianyeshi/下载/CoderUJB_Equipe6_Scripts_FR.pdf",
-      "local_path": "Presentation/CoderUJB_Equipe6_Scripts_FR.pdf",
+      "local_path": "Presentation/Sources/CoderUJB_Equipe6_Scripts_FR.pdf",
       "sha256": "dcd66f4cfe13e985b4c66f73f66342023758b0408c090c09156c346ddb4cd968",
       "operation": "moved_from_downloads"
     }
   ],
   "latex_presentation": {
     "prepared_on": "2026-11-04",
-    "source_pptx": "Presentation/CoderUJB_Equipe6_FR 2.pptx",
+    "source_pptx": "Presentation/Sources/CoderUJB_Equipe6_FR 2.pptx",
     "style_references": [
       "/home/jianyeshi/Note/ppn-mnist-neural-network/ProjetRapportlatex/sildeS2Groupe1.pdf",
       "/home/jianyeshi/Note/ppn-mnist-neural-network/ProjetRapportlatex/rapportS2_beamer.tex"
@@ -75,7 +75,7 @@
     },
     "part5_update": {
       "updated_on": "2026-11-05",
-      "source_pdf": "Presentation/CoderUJB_Partie5_Slides17-20_Simplifiees.pdf",
+      "source_pdf": "Presentation/Sources/CoderUJB_Partie5_Slides17-20_Simplifiees.pdf",
       "source_sha256": "2ab62bbbd3d2ad1c9e77afa244902a9d900aa14ef594b0e13697e74ad295a6f4",
       "original_source_pages": [
         17,
@@ -111,7 +111,7 @@
     },
     "part4_update": {
       "updated_on": "2026-11-05",
-      "source_pptx": "Presentation/LaTeX/CoderUJB_Equipe6_FR_Training_Updated.pptx",
+      "source_pptx": "Presentation/Sources/CoderUJB_Equipe6_FR_Training_Updated.pptx",
       "source_sha256": "a63ce28c49acf58f2df7e355ac65568d0705819c25669d0a2beda5b30956d861",
       "source_pages": [
         13,
