@@ -54,6 +54,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 - [第三部分单独版](CoderUJB_Partie3_FR.pdf)
 - [法语讲稿 PDF（每页对应一张幻灯片）](CoderUJB_Partie3_Script_FR.pdf)
 - [法语讲稿 Markdown](CoderUJB_Partie3_Script_FR.md)
+- [中文演讲稿 Markdown](CoderUJB_Partie3_Script_ZH.md)
 
 独立讲稿与完整演示稿的第三部分备注一致。讲稿 PDF 可从同名 `.tex` 用 pdfLaTeX 编译。
 
