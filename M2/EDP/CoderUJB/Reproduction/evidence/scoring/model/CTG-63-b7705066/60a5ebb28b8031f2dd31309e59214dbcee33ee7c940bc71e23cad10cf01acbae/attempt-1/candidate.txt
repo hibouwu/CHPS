@@ -1,0 +1,6 @@
+public void testBug911118() throws Exception {
+  testTypes(
+      "var f = function() {};\n"
+          + "f = function() {};\n"
+          + "f();");
+}

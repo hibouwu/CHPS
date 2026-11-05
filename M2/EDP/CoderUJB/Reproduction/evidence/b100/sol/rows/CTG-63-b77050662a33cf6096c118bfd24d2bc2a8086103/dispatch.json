@@ -1,0 +1,10 @@
+{
+  "time": "2026-11-05T04:08:59.394927+00:00",
+  "key": "CTG-63-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "client_request_id": "ccb4c451-139e-4b2a-b9d2-37839bca8370",
+  "input_tokens": 1866,
+  "reserved_usd": 0.05018750000000001,
+  "prompt_sha256": "c2009cf2a6a0c8bed2d1df5235463ff9f96775aa67f3f55b93a17c5e6be0070c",
+  "protocol_sha256": "468bea076a7d0a840e80ed968ab7e9801b70432fd3a0f8646e79c65717319f62",
+  "request_sha256": "4d1437dee8ac5e666f555121d588b5e178294604d9ca6c53ac1344d99e05efa4"
+}

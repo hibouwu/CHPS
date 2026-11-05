@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 51,
+  "task_id": "1ba5768921cc37e5f1537562cb80b66637d038c9dc16621317051effd33bbf8f",
+  "project": "JxPath",
+  "bug_id": "10",
+  "chat_sha256": "740cbb683a2e30993d9c14997033d520e1b047c49b14d3e0a247b8eaa83e2734",
+  "complete_sha256": "0d7b8474c8a878e565417481a4b80bf71cf97cd75046856427e15135dcca1553",
+  "checked_at": "2026-11-05T02:57:34.772212+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-51-9d01e632/9b2b1d0fe434a13705dd2f6d54171550ccdef8a3469786cc3bf056671907fee5/attempt-1/result.json"
+}

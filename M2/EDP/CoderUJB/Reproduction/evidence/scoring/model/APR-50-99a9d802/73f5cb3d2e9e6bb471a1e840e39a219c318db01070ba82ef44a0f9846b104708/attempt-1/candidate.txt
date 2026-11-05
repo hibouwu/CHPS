@@ -1,0 +1,6 @@
+public static String encodeBase64String(byte[] binaryData) {
+    // The plain (non‑chunked) variant must be used – we do NOT want CR/LF separators.
+    // encodeBase64(byte[]) already returns {@code null} for a null argument,
+    // so we can simply delegate to it.
+    return StringUtils.newStringUtf8(encodeBase64(binaryData));
+}

@@ -1,0 +1,3 @@
+    public InputStream getDataStream() {
+        return new MergedStream(_originalStream, _bufferedData, _bufferedStart, _bufferedLength);
+    }

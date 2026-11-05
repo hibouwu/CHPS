@@ -1,0 +1,10 @@
+    public StrBuilder deleteFirst(final String str) {
+        final int len = (str == null ? 0 : str.length());
+        if (len > 0) {
+            final int index = indexOf(str, 0);
+            if (index >= 0) {
+                deleteImpl(index, index + len, len);
+            }
+        }
+        return this;
+    }

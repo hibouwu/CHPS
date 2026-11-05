@@ -1,0 +1,15 @@
+{
+  "model": "gpt-6.1-sol",
+  "input": [
+    {
+      "role": "user",
+      "content": "```markdown\n## Issue-ID: Chart-818\n\n## Issue-Title: \n#818 Error on TimeSeries createCopy() method\n\n\n\n\n\n## Issue-Description: \nThe test case at the end fails with :\n\n\njava.lang.IllegalArgumentException: Requires start <= end.\n\n\nThe problem is in that the int start and end indexes corresponding to given timePeriod are computed incorectly. Here I would expect an empty serie to be returned, not an exception. This is with jfreechart 1.0.7\n\n\npublic class foo {  \n\nstatic public void main(String args[]) {  \n\nTimeSeries foo = new TimeSeries(\"foo\",Day.class);  \n\nfoo.add(new Day(19,4,2005),1);  \n\nfoo.add(new Day(25,5,2005),1);  \n\nfoo.add(new Day(28,5,2005),1);  \n\nfoo.add(new Day(30,5,2005),1);  \n\nfoo.add(new Day(1,6,2005),1);  \n\nfoo.add(new Day(3,6,2005),1);  \n\nfoo.add(new Day(19,8,2005),1);  \n\nfoo.add(new Day(31,1,2006),1);\n\n\n\n```\n    try \\{\n        TimeSeries bar = foo.createCopy\\(new Day\\(1,12,2005\\),new Day\\(18,1,2006\\)\\);\n    \\} catch \\(CloneNotSupportedException e\\) \\{\n\n        e.printStackTrace\\(\\);\n\n```\n\n}  \n\n}\n\n\n\n\n```\n\nYou are a professional Java test case writer, please create a test case named `testBug1864222` for the issue `Chart-818`, utilizing the provided issue report information and the following function signature.\n\n```java\n    public void testBug1864222() {\n\n```"
+    }
+  ],
+  "reasoning": {
+    "effort": "medium"
+  },
+  "max_output_tokens": 4096,
+  "service_tier": "default",
+  "store": false
+}

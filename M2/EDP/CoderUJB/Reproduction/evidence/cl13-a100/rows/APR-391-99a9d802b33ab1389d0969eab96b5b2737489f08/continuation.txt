@@ -1,0 +1,24 @@
+
+  /** {@inheritDoc} */
+  @Override
+  public double integrate(final FirstOrderDifferentialEquations equations,
+                          final double t0, final double[] y0,
+                          final double t, final double[] y)
+  throws DerivativeException, IntegratorException {
+
+    sanityChecks(equations, t0, y0, t, y);
+    setEquations(equations);
+    resetEvaluations();
+    final boolean forward = t > t0;
+
+    // create some internal working arrays
+    final int stages = c.length + 1;
+    if (y != y0) {
+      System.arraycopy(y0, 0, y, 0, y0.length);
+    }
+    final double[][] yDotK = new double[stages][y0.length];
+    final double[] yTmp = new double[y0.length];
+
+    // set up an interpolator sharing the integrator arrays
+    AbstractStepInterpolator interpolator;
+    if (requiresDenseOutput() || (! eventsHandlersManager.isEmpty()))

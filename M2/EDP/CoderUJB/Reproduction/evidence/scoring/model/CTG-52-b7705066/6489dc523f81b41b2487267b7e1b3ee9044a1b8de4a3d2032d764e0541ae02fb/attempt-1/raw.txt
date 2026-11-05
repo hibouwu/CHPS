@@ -1,0 +1,12 @@
+        ZipArchiveEntry entry = new ZipArchiveEntry("test.txt");
+        // default method should be UNKNOWN_CODE
+        assertEquals(ZipMethod.UNKNOWN_CODE, entry.getMethod());
+
+        // set to STORED and verify
+        entry.setMethod(ZipMethod.STORED.getCode());
+        assertEquals(ZipMethod.STORED.getCode(), entry.getMethod());
+
+        // set to DEFLATED and verify
+        entry.setMethod(ZipMethod.DEFLATED.getCode());
+        assertEquals(ZipMethod.DEFLATED.getCode(), entry.getMethod());
+    }

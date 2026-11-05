@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 460,
+  "task_id": "fce9535c940e139c67d2bd8fdaad7876234bfebf1abff2e7df5f349c78596abc",
+  "project": "Closure",
+  "bug_id": "73",
+  "chat_sha256": "f6b7688e8ecc25689993d2bb4e478032f5ca2a1d6638741d80ded172ab4ce52e",
+  "complete_sha256": "66885d1ebbe10889e45f54ac032b2c953141c1ef7c7846e986ba9775ffe62588",
+  "checked_at": "2026-11-05T03:05:46.959831+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-460-99a9d802/04d6259844f1a81c74d70af9820d8325e8fcf65758ebec3a4b0e1f8cb797ede2/attempt-1/result.json"
+}

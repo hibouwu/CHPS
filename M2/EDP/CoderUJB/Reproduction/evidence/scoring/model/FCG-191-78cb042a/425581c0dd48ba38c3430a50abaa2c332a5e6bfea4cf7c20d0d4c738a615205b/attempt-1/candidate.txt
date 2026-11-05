@@ -1,0 +1,32 @@
+public String nextString() throws IOException {
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+      p = doPeek();
+    }
+    if (p == PEEKED_STRING) {
+      peeked = PEEKED_NONE;
+      return peekedString;
+    }
+    if (p == PEEKED_BUFFERED) {
+      peeked = PEEKED_NONE;
+      return new String(buffer, pos, peekedNumberLength);
+    }
+    if (p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED) {
+      peeked = PEEKED_NONE;
+      return nextQuotedValue(p == PEEKED_SINGLE_QUOTED ? '\'' : '"');
+    }
+    if (p == PEEKED_UNQUOTED) {
+      peeked = PEEKED_NONE;
+      return nextUnquotedValue();
+    }
+    if (p == PEEKED_LONG) {
+      peeked = PEEKED_NONE;
+      return Long.toString(peekedLong);
+    }
+    if (p == PEEKED_NUMBER) {
+      peeked = PEEKED_NONE;
+      return new String(buffer, pos, peekedNumberLength);
+    }
+    throw new IllegalStateException("Expected a string but was " + peek() + locationString());
+  }
+```

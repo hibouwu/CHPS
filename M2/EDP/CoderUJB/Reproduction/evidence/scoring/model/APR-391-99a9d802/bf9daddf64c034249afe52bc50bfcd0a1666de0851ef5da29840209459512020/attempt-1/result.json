@@ -1,0 +1,18 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 391,
+  "task_id": "dbaa68726e0589391e8b758dbc1259e39fe175554fd921793b61c168b68b8bba",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "fee335ccc659c7711b02e8676491ee12069decfb3f6a91af528bf60f2219355c",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "7c8daa829175a038038c6dc63447650ddc37059801f57e29bd84f7f5a49d4b72",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Math",
+  "bug_id": "74",
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "reason": "official extraction missing target function"
+}

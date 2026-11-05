@@ -1,0 +1,4 @@
+public Element getElementById(String id) {
+        org.jsoup.helper.Validate.notEmpty(id);
+        return org.jsoup.select.Collector.findFirst(new org.jsoup.select.Evaluator.Id(id), this);
+    }

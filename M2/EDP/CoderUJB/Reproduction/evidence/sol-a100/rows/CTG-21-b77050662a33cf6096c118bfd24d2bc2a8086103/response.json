@@ -1,0 +1,98 @@
+{
+  "id": "resp_0982755181d7277f016aebfa9ee3f487d28f89eeab3c870d7a",
+  "object": "response",
+  "created_at": 1793850014,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850017,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0982755181d7277f016aebfa9fa98487d2bbf1398ef0c50acf",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n@Test\npublic void testRfc4648Section10Decode() {\n    final String[][] vectors = {\n        {\"\", \"\"},\n        {\"Zg==\", \"f\"},\n        {\"Zm8=\", \"fo\"},\n        {\"Zm9v\", \"foo\"},\n        {\"Zm9vYg==\", \"foob\"},\n        {\"Zm9vYmE=\", \"fooba\"},\n        {\"Zm9vYmFy\", \"foobar\"}\n    };\n\n    for (final String[] vector : vectors) {\n        final String encoded = vector[0];\n        final String expected = vector[1];\n\n        assertEquals(\"Decoding String: \" + encoded,\n                expected, new String(Base64.decodeBase64(encoded), CHARSET_UTF8));\n        assertEquals(\"Decoding byte array: \" + encoded,\n                expected, new String(\n                        Base64.decodeBase64(encoded.getBytes(CHARSET_UTF8)),\n                        CHARSET_UTF8));\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1677,
+    "input_tokens_details": {
+      "cache_write_tokens": 1674,
+      "cached_tokens": 0
+    },
+    "output_tokens": 198,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 1875
+  },
+  "user": null,
+  "metadata": {}
+}

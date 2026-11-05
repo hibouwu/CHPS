@@ -1,0 +1,9 @@
+    @Test
+    public void testReadingOfFirstStoredEntry() throws Exception {
+        final File archive = getFile("COMPRESS-264.zip");
+        zf = new ZipFile(archive);
+        final ZipArchiveEntry ze = zf.getEntry("test.txt");
+        assertEquals(5, ze.getSize());
+        assertArrayEquals(new byte[] {'d', 'a', 't', 'a', '\n'},
+                          IOUtils.toByteArray(zf.getInputStream(ze)));
+    }

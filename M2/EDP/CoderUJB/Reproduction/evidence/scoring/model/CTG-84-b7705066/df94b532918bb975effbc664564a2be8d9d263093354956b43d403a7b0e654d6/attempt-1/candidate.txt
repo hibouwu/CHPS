@@ -1,0 +1,10 @@
+    @Test
+    public void testGetOneLineOneParser() throws IOException {
+        final String[][] expected = { { "a", "b", "c", "d" }, { "a", "b", "1 2" }, { "foo baar", "b", "" },
+                { "foo\n,,\n\",,\n\"", "d", "e" } };
+        final CSVParser parser = CSVParser.parse(CSV_INPUT_1 + CSV_INPUT_2, CSVFormat.DEFAULT);
+        for (int i = 0; i < expected.length; i++) {
+            final CSVRecord record = parser.iterator().next();
+            assertArrayEquals(expected[i], record.values());
+        }
+    }

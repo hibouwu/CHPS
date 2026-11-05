@@ -1,0 +1,12 @@
+```java
+public PeriodConverter removePeriodConverter(PeriodConverter converter)
+        throws SecurityException {
+    checkAlterPeriodConverters();
+    if (converter == null) {
+        return null;
+    }
+    PeriodConverter[] removed = new PeriodConverter[1];
+    iPeriodConverters = iPeriodConverters.remove(converter, removed);
+    return removed[0];
+}
+```

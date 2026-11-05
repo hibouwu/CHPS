@@ -1,0 +1,24 @@
+{
+  "job_id": "817609",
+  "node": "romeo-a058",
+  "protocol_sha256": "8ad5084a1d1d7008e01ef55295cb6cb12eb1b3c421ce784a57bf4147e4f362a2",
+  "prompt_sha256": "e03eb48603293354c34347a7c2a171a024f4fe720a909ec8cc32af8e3d4706d9",
+  "final_sha256": "ee5da576a04fdfe210230823d71d6eaf4ddf017ee7a03f6aa955fccd548c7c4f",
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 924,
+    "prompt_tokens": 1782,
+    "total_tokens": 2706
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1782,
+    "prompt_ms": 723.729,
+    "prompt_per_token_ms": 0.4061329966329967,
+    "prompt_per_second": 2462.247609257056,
+    "predicted_n": 924,
+    "predicted_ms": 4900.24,
+    "predicted_per_token_ms": 5.303290043290043,
+    "predicted_per_second": 188.56219287218585
+  }
+}

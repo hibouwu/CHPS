@@ -1,0 +1,8 @@
+{
+  "repo": "ggml-org/gpt-oss-120b-GGUF",
+  "revision": "7200b74bea78b0a2964ef9f3897eefa401e890ff",
+  "file": "gpt-oss-120b-MXFP4.gguf",
+  "size": 63387346208,
+  "sha256": "582bd40f6886200101f4c4ed9f25f3fe80cc14c86e9e2b37746cd8904a0c622d",
+  "llama_cpp_commit": "ff90508d68de51bc4c0a1d60d636b0501cb0f3b3"
+}

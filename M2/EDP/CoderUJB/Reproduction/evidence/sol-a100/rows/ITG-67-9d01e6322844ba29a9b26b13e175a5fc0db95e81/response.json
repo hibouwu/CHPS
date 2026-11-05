@@ -1,0 +1,105 @@
+{
+  "id": "resp_007755675c7555f6016aebfb0c962487d29f16115a4cf83596",
+  "object": "response",
+  "created_at": 1793850124,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850129,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_007755675c7555f6016aebfb0ea70487d29aad5f541797bada",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_sRUooA9Uteh5QOzMI9wHZVYg3xfu9klERmgUzVJhhj12YVCPtckwu8qmrk2GpHPGJonzwCfmsYQ-IRjufyEXqc-H9QoEEFZ79zVMRrZyQyYHKg_eMMmxxJ51FaK56uY2eWZ04UZeneZ7LnibVjRDCJjTVKnwwf1boSpvjxciafk7lnkQ4nNFaJ5xNTY71OGysV3wS-7EnjypWaQ2o1KxRRpNhMtJ8Kfe4meD-45Sy8acL7hGCXW72eFIk3wH8He1c9b4PC7Y_jMbX9sM8BDjZ7TXpk10GCrcnzZIifpmN0KaBA--UzXtnNLPxpa_QElMfAY0LTgVKA2L03-skWjgNLclEhi2pO39nvzNLlTZz9icSsO_F3dVRx99pmHBu-rVULGXkhQ9mx6oayGJC7DQ1W-E5v-9C6zU4hu71BOHKSn1_e3v485i7Zj_JB7OPfKt1Rbczbr2ULe3G7f-0zG7ptXIKh73DNtUpqDwZJiRtOET13o-SON2sPWuxeVqizY4qpGYgSwp-BmL474LGFzKRkSGtwuZVUEBQHhxGjdzirGO2rOtP_DH9UIUmpTHFb055T-Ukgn-YtETpTn_-DcdxrX9If82cpuUUZoHwpWBpqq5hjJPGZA6EZHFoo7Kdfz1c_goVns3_pIk-f-1PR7XaAmCxL7d4s7105uTwrqUPVYab5gqYj-sPFQqNaNLI1EB06wvVXJN4zzVKzB_Gsyy4BGrHXPsVAsmsCGSBJ0ql4_9K1glsHPtdstoRXMQc4N7bSNdzr1r8HoHK8ZtggZwrNbO5IVJuONBR7quXmKXeuQ05YDPgoFV7vN5aZ6gCZY_x9ohHt2A-QsjYiuECPjQT5kbF43DMe5f2CUTLT0RW-7QWGxVAZpZphiZUlT7yTX2shEx9HfjuS9wf3hno-SxZ3vxxJmRSvtTAnVctwo80UJW3M0lVdI4DQsPF4eyB4tYmEg5gfwEy-r29NLXAS2HX3yTHo8GlBM_IgIwS2QS0MM6H-aSVOREhRmPu9T8oalQjNolvkFJ24O2TjyI_d3muv_Vy7DQ5BKsQrAZG7HJlyS4EXqHWa6vQ9iQxYzWsPbp806Da9XhAStwijEPvd-kUInd-OHCeKP8HKxT1bPaR2wX-Li-opSplBxipIJrG3cwEnQkZ8nVhUwf1M-MjvBnVcAe62KA9vrgWhNl4JgK9JjOjaZnjoXbHkSLnwIPxVOSum67OvtqgaTzk5DSMhqnpfib3Gd9dFhqrbneT0ZtMpvWGH_UEFua2Lru5zp9i8xCBnC7E1FWC1boD-s2rdf94IiTbWuJVI2H0tgbAW1uHTTASZobA_zZ3QDM1AzRQq8jv9PlAxlfryxBIpLQCb0iL8KZhIaII6tKnmxBMLY2txULm0SIgV-RvfUrMez5VYkUT3AFAyE2QsYYc-DqM5UMEtHIn1uRVKtZkTR0nHcvjo8N9ybyEH3adeE59J05bMz6st7TVUBEmqtryPkKEJ7ap26shkJ5jinG4BZ0WwU9ZMHRGkHYIlIaDCKCuZst5jFnaEVDQML1j1YrvMvmz14McTEUCGtt0hC9bNLIx3_P_Jldvn6qF4atgPFVW5nXKyqHYGZFioL-YZfJ4tW5KqFZ92BahmMaljYN7C3MxvE0X8JselBFXLEGFc_3FAxpEKLT959sHVO8X6KIJypCRBd8JtBjPNeZd5SprKVDCqTE5wRxeW1tCAWvdj2GUwzVzYDoWwAFM5IZ9GwVmalZ9fGrvXS1qPiIvc-tpNdGtN2c4T1oB0nmWAlWBTv9N1l0MFvyBABr45KTsuNtjO7mmMtkPPn5sBSQLXJhoZ-jDNju3G0ZUnK9lNNyQOtMa6yS5AOPg0hFw6LuBLzlFmBTr7-TMaGYdXUuB__ElW-dTja8Tv-M9kmHmILkWuIqxkTeEA7688WvM-tCo9V_POPF_P6jCzBfuXGqLsYS94Nq5I3Wrzpkw_pkxGVFajLGymwZz1fGb9SzR3uDiC-LFotDYsdPqW34xoguDAhRNFilZ-BF3M8DVWRRTe3fB-A6x2HPEr-ML32mZAzENHcZEk-O0yl_I5TE-YySk647H0Qn1l5pE7hKPnNRX6g0WZ-SkSh78kj22rsUAxNiiwV5OflhD1DvBp9DDtH5l_7MsJNns9oWuqHXVKvTwo_rgtgBBOUnTxqBvVk0odXPWi8aFtihAkFZ8WTuCzULqAm50VrSX5z7ncv70tH4F97UtQFXSlyYtkYMjcOvVcHDJZ51Dx0ChWoatmIxbnXL3l4Zk4t_N0xtht77nYH-BnHWe7br-d_LWvr8eiuX_xQ75QRexWCtak1f6O_j8PJWiV34tXmZTI0gYLDl4pFlJDrhwFVcNvuOdquiY53yggZbmrxLkdjliuRixQoG-dw6nGQFXRBdRHhGxRFaz70ecdfL8FajcE1dDm09NKJ1ETMuj_OqcB6bW9w61HgA==",
+      "summary": []
+    },
+    {
+      "id": "msg_007755675c7555f6016aebfb108d6c87d2b4d1c6f08add915d",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n@Test\npublic void testExactOptionNameMatch() throws ParseException {\n    Options options = new Options();\n    options.addOption(Option.builder()\n            .longOpt(\"importToOpen\")\n            .hasArg()\n            .argName(\"FILE\")\n            .build());\n    options.addOption(Option.builder(\"i\")\n            .longOpt(\"import\")\n            .hasArg()\n            .argName(\"FILE\")\n            .build());\n\n    // An exact match must take precedence over a longer option sharing its prefix.\n    CommandLine commandLine = new DefaultParser().parse(\n            options, new String[] {\"--import=FILE\"});\n\n    assertTrue(commandLine.hasOption(\"import\"));\n    assertTrue(commandLine.hasOption(\"i\"));\n    assertEquals(\"FILE\", commandLine.getOptionValue(\"import\"));\n    assertFalse(commandLine.hasOption(\"importToOpen\"));\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 227,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 260,
+    "output_tokens_details": {
+      "reasoning_tokens": 75
+    },
+    "total_tokens": 487
+  },
+  "user": null,
+  "metadata": {}
+}

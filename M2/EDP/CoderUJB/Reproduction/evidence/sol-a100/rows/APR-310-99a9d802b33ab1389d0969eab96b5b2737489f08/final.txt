@@ -1,0 +1,47 @@
+The bug is a missing exit in `case 3`. If a three-character string does not start with `'y'` or `'Y'`, execution falls through into `case 4`. Inputs such as `"tru"` can then cause a `StringIndexOutOfBoundsException` when accessing `charAt(3)`.
+
+Return `false` when the three-character string does not match `"yes"`:
+
+```java
+public static boolean toBoolean(String str) {
+    if (str == "true") {
+        return true;
+    }
+    if (str == null) {
+        return false;
+    }
+
+    switch (str.length()) {
+        case 2: {
+            char ch0 = str.charAt(0);
+            char ch1 = str.charAt(1);
+            return
+                (ch0 == 'o' || ch0 == 'O') &&
+                (ch1 == 'n' || ch1 == 'N');
+        }
+        case 3: {
+            char ch = str.charAt(0);
+            if (ch == 'y' || ch == 'Y') {
+                return
+                    (str.charAt(1) == 'e' || str.charAt(1) == 'E') &&
+                    (str.charAt(2) == 's' || str.charAt(2) == 'S');
+            }
+            return false; // Prevent fall-through into case 4.
+        }
+        case 4: {
+            char ch = str.charAt(0);
+            if (ch == 't' || ch == 'T') {
+                return
+                    (str.charAt(1) == 'r' || str.charAt(1) == 'R') &&
+                    (str.charAt(2) == 'u' || str.charAt(2) == 'U') &&
+                    (str.charAt(3) == 'e' || str.charAt(3) == 'E');
+            }
+            return false;
+        }
+        default:
+            return false;
+    }
+}
+```
+
+The `str == "true"` comparison is a valid fast path here: strings that are not the same object are still checked by their characters afterward.

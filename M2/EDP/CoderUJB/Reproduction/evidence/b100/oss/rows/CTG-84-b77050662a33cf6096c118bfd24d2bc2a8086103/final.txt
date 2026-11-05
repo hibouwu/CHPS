@@ -1,0 +1,27 @@
+    /**
+     * Tests reusing a parser to process new string records one at a time as they are being discovered. See [CSV-110].
+     *
+     * @throws IOException
+     */
+    @Test
+    public void testGetOneLineOneParser() throws IOException {
+        final CSVFormat format = CSVFormat.DEFAULT;
+
+        // First record
+        CSVParser parser = new CSVParser(new StringReader("a,b,c"), format);
+        CSVRecord record = parser.getLine();
+        assertNotNull(record);
+        assertEquals("a", record.get(0));
+        assertEquals("b", record.get(1));
+        assertEquals("c", record.get(2));
+        parser.close();
+
+        // Reuse the same variable for a second record
+        parser = new CSVParser(new StringReader("1,2,3"), format);
+        record = parser.getLine();
+        assertNotNull(record);
+        assertEquals("1", record.get(0));
+        assertEquals("2", record.get(1));
+        assertEquals("3", record.get(2));
+        parser.close();
+    }

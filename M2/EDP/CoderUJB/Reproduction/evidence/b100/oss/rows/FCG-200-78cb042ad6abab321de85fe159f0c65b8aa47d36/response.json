@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the Java method implementation for mergeCentralDirectoryData, continuing any answer prefix already provided, and stop after its closing brace. No markdown. The class already has method signatures. Need to implement based on context. Let's think about what ExtraFieldUtils does. In Apache Commons Compress, ExtraFieldUtils merges extra fields for central directory. Let's recall typical implementation: It iterates over ZipExtraField array, for each field, gets central directory data via getCentralDirectoryData() (method in ZipExtraField). It also includes length prefix (header ID and length). Actually extra fields are stored as sequence of header ID (2 bytes), data size (2 bytes), data bytes. For central directory, we need to use each field's getCentralDirectoryData(). For each field, we need to allocate a byte array of size 4 + data length. Then write header ID (ZipShort) and length (ZipShort) and data. Use ZipShort to get bytes little-endian? In Apache Commons Compress, ZipShort is a class representing 2-byte little-endian value with getBytes() method. So we need to use that.\n\nWe need to import necessary classes: Already imported java.util.* etc. The method signature is static, returns byte[].\n\nImplementation steps:\n\n- If data == null or length == 0, return new byte[0];\n- Compute total length: sum over fields of (4 + field.getCentralDirectoryData().length)\n- Allocate result byte[] of total length.\n- Use offset variable.\n- For each field:\n   - ZipShort headerId = field.getHeaderId(); // method in ZipExtraField\n   - byte[] localData = field.getCentralDirectoryData();\n   - System.arraycopy(headerId.getBytes(), 0, result, offset, 2);\n   - offset += 2;\n   - System.arraycopy(new ZipShort(localData.length).getBytes(), 0, result, offset, 2);\n   - offset += 2;\n   - System.arraycopy(localData, 0, result, offset, localData.length);\n   - offset += localData.length;\n- Return result.\n\nNeed to handle possible null fields? Probably skip null.\n\nAlso need to handle UnparseableExtraField? Not needed.\n\nThus implement.\n\nWe need to reference ZipShort class; assume it's imported.\n\nWrite method.\n\nNo extra code.\n\nLet's produce final answer: method body only.",
+        "content": "    public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) {\n        if (data == null || data.length == 0) {\n            return new byte[0];\n        }\n        int totalLength = 0;\n        for (final ZipExtraField ze : data) {\n            if (ze == null) {\n                continue;\n            }\n            final byte[] cd = ze.getCentralDirectoryData();\n            totalLength += WORD + (cd != null ? cd.length : 0);\n        }\n        final byte[] result = new byte[totalLength];\n        int offset = 0;\n        for (final ZipExtraField ze : data) {\n            if (ze == null) {\n                continue;\n            }\n            final ZipShort headerId = ze.getHeaderId();\n            final byte[] cd = ze.getCentralDirectoryData();\n            final int length = cd != null ? cd.length : 0;\n            // header id (2 bytes)\n            System.arraycopy(headerId.getBytes(), 0, result, offset, 2);\n            offset += 2;\n            // data size (2 bytes)\n            final ZipShort size = new ZipShort(length);\n            System.arraycopy(size.getBytes(), 0, result, offset, 2);\n            offset += 2;\n            // data bytes\n            if (length > 0) {\n                System.arraycopy(cd, 0, result, offset, length);\n                offset += length;\n            }\n        }\n        return result;\n    }"
+      }
+    }
+  ],
+  "created": 1793851932,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 803,
+    "prompt_tokens": 443,
+    "total_tokens": 1246
+  },
+  "id": "chatcmpl-k5EYoD9Ycd2N09B9Bd9P2iA90fb9Vg5r",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 443,
+    "prompt_ms": 259.455,
+    "prompt_per_token_ms": 0.5856772009029345,
+    "prompt_per_second": 1707.4251797036097,
+    "predicted_n": 803,
+    "predicted_ms": 4433.026,
+    "predicted_per_token_ms": 5.520580323785803,
+    "predicted_per_second": 181.1403767990533
+  }
+}

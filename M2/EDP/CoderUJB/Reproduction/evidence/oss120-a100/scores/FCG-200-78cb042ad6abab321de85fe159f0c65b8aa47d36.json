@@ -1,0 +1,27 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 200,
+  "batch": "b02",
+  "status": "fail",
+  "reason": "candidate_compile_breaks_caller",
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": null,
+  "result": "evidence/scoring/model/FCG-200-78cb042a/d3733cff51936a4ecafcad765fcc3200833c5fef8256925a82228ed1503cfe7d/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 2149,
+    "prompt_tokens": 408,
+    "total_tokens": 2557
+  },
+  "final_sha256": "57a4aca3b0dc42449116d4cfac9a4b8d3e629906cfcd9bfdd587835dda280b9a",
+  "compile_review": {
+    "method": "mergeCentralDirectoryData",
+    "added_checked_exception": "ZipException",
+    "diagnostic": "unreported exception ZipException; must be caught or declared to be thrown\n    [javac]         return ExtraFieldUtils.mergeCentralDirectoryData(",
+    "raw_status": "infrastructure_unresolved",
+    "raw_reason": "fixed-compile"
+  },
+  "reference_log": "evidence/scoring/reference_preflight/FCG-200-78cb042a/03c8ef92d3f942af7eabd62f45e963eea025408b386afc0229700217249736a1/attempt-1/result.json"
+}

@@ -1,0 +1,18 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 1,
+  "task_id": "0078efdc209652789a5c00ed61c9274578a2178f02ca6e481cab8975bd4c9c25",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "b087108878c19428bc2fc23b4951bece4a9715e7d62169ba8e19daa7b5e786c5",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "7c8daa829175a038038c6dc63447650ddc37059801f57e29bd84f7f5a49d4b72",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "JacksonCore",
+  "bug_id": "15",
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "reason": "official extraction missing target function"
+}

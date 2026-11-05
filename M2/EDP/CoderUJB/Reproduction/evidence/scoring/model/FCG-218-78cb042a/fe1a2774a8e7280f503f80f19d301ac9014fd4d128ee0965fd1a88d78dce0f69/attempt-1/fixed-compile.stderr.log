@@ -1,0 +1,29 @@
+Running ant (compile)...................................................... FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed -Dbuild.compiler=javac1.7  compile 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+jackson-core-from-maven.compile:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed/target/classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed/maven-build.xml:74: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 112 source files to /data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed/target/classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed/src/main/java/com/fasterxml/jackson/core/JsonFactory.java:1561: error: cannot find symbol
+    [javac]     Writer writer = new OutputStreamWriter(out, StandardCharsets.UTF_8);
+    [javac]                                                 ^
+    [javac]   symbol:   variable StandardCharsets
+    [javac]   location: class JsonFactory
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed/src/main/java/com/fasterxml/jackson/core/JsonFactory.java:1567: error: JsonGeneratorImpl is abstract; cannot be instantiated
+    [javac]     return new JsonGeneratorImpl(ctxt, writer, this._getBufferRecycler(), this.getGeneratorFeatures());
+    [javac]            ^
+    [javac] 2 errors
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/FCG-218-ukf3ksin/fixed/maven-build.xml:74: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile sources! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 82.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

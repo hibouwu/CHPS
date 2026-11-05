@@ -1,0 +1,29 @@
+//         "c = a;" +
+//         "b.test = 'b';" +
+//         "a.test = 'a';" +
+//         "var a = {}, b = {}, c;" +
+//     helperCanInlineReferenceToFunction(true,
+//     // ... foo can be inlined as it is side-effect free.
+//   public void testCanInlineReferenceToFunctionInExpression15() {
+// TODO(nicksantos): Re-enable with side-effect detection.
+  public void testCanInlineReferenceToFunctionInExpression18() {
+  }
+//         "foo", INLINE_BLOCK);
+//         "c.test=foo();",
+//         "/** @nosideeffects */ function foo(){return 'foo'};" +
+//         "c = a;" +
+//         "b.test = 'b';" +
+//         "a.test = 'a';" +
+//         "var a = {}, b = {}, c;" +
+//     helperCanInlineReferenceToFunction(true,
+//     // ... foo can be inlined as it is side-effect free.
+//   public void testCanInlineReferenceToFunctionInExpression19() {
+//   }
+//         "foo", INLINE_BLOCK);
+//         "c.test=foo();",
+//         "/** @nosideeffects */ function foo(){return 'foo'};" +
+//         "c = a;" +
+//         "b.test = 'b';" +
+//         "a.test = 'a';" +
+//         "var a = {}, b = {}, c;" +
+//     helperCanInlineReferenceToFunction(true,

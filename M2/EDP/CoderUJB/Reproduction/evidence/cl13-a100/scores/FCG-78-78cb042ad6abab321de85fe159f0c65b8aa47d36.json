@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 78,
+  "project": "JxPath",
+  "bug_id": 22,
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-78-78cb042a/8ea3340383dc3a422416d1b9fbb3cf0d32b67bb4d0ea217ebb7a543468736a05/attempt-1/result.json",
+  "raw_sha256": "1721464f2caf17eaaaebdae24bb63ca1649515bfabc0a4c19aa55ff0cc5be4b5",
+  "input_sha256": "6af37dc0cff0d60b13ca1eb81425e504fbf19894b1428fc05be2a47f69d0aed3",
+  "input_tokens": 1280,
+  "full_input_tokens": 1280,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-78-78cb042a/9ce3028bb83a689a7ee64b22f535dcf5523c1fe3c1e0b3d0bb5c1c155b00c408/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-78-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

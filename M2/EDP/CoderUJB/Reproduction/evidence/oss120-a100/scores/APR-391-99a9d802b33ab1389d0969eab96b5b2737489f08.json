@@ -1,0 +1,19 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 391,
+  "batch": "b04",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "finish_reason": "length",
+  "truncated": true,
+  "category": null,
+  "coverage": null,
+  "result": "evidence/scoring/model/APR-391-99a9d802/9445bd86f23a1c469cd4089bcd7c081d9b4e204e0b898b1e6e3c5cf9848dbe7e/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 4096,
+    "prompt_tokens": 2010,
+    "total_tokens": 6106
+  },
+  "final_sha256": "d9afc7e4be6179fcf954f1c017797b0512a5605b6a9c45a612b2af069d849b4d"
+}

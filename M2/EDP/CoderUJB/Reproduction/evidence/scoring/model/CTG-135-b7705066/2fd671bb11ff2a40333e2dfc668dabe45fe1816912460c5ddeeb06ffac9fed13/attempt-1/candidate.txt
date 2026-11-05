@@ -1,0 +1,18 @@
+public void testSecond() {
+        // Create two DateTime objects with different seconds
+        DateTime aDateTime = new DateTime(2023, 10, 5, 12, 30, 45); // 45 seconds
+        DateTime bDateTime = new DateTime(2023, 10, 5, 12, 30, 46); // 46 seconds
+
+        // Test comparison where bDateTime is after aDateTime
+        assertEquals("SecondP1", 1, cSecond.compare(bDateTime, aDateTime));
+
+        // Test comparison where aDateTime is before bDateTime
+        assertEquals("SecondM1", -1, cSecond.compare(aDateTime, bDateTime));
+
+        // Create two DateTime objects with the same seconds
+        DateTime cDateTime = new DateTime(2023, 10, 5, 12, 30, 45); // 45 seconds
+        DateTime dDateTime = new DateTime(2023, 10, 5, 12, 30, 45); // 45 seconds
+
+        // Test comparison where both dates are equal
+        assertEquals("SecondEqual", 0, cSecond.compare(cDateTime, dDateTime));
+    }

@@ -1,0 +1,20 @@
+    /**
+     * Tests example adapted from version 2.0  http://caversham.otago.ac.nz/files/working/ctp150804.pdf
+     *
+     * AT1111 words: add, aid, at, art, eat, earth, head, hit, hot, hold, hard, heart, it, out, old
+     *
+     * @throws EncoderException
+     */
+    @Test
+    public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
+        final Caverphone1 encoder = createStringEncoder();
+        final String expected = "111111";
+        final String[] words = {
+            "add", "aid", "at", "art", "eat", "earth",
+            "head", "hit", "hot", "hold", "hard", "heart",
+            "it", "out", "old"
+        };
+        for (final String word : words) {
+            Assert.assertEquals("Caverphone code for \"" + word + "\"", expected, encoder.encode(word));
+        }
+    }

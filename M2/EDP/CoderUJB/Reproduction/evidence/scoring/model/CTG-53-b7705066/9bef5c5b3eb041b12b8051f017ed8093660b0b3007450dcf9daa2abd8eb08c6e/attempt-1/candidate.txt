@@ -1,0 +1,26 @@
+@Test
+public void testNullCommentEqualsEmptyComment() {
+    // Create two ZipArchiveEntry objects with the same name and other properties
+    ZipArchiveEntry entry1 = new ZipArchiveEntry("testfile.txt");
+    ZipArchiveEntry entry2 = new ZipArchiveEntry("testfile.txt");
+
+    // Set different comments: null for entry1 and empty string for entry2
+    entry1.setComment(null);
+    entry2.setComment("");
+
+    // Assert that the entries are equal despite the difference in comments
+    assertEquals("Entries with null and empty comment should be equal", entry1, entry2);
+
+    // Reverse the comparison to ensure symmetry
+    assertEquals("Entries with empty and null comment should be equal", entry2, entry1);
+
+    // Set both comments to null and check equality
+    entry1.setComment(null);
+    entry2.setComment(null);
+    assertEquals("Entries with both comments as null should be equal", entry1, entry2);
+
+    // Set both comments to empty strings and check equality
+    entry1.setComment("");
+    entry2.setComment("");
+    assertEquals("Entries with both comments as empty strings should be equal", entry1, entry2);
+}

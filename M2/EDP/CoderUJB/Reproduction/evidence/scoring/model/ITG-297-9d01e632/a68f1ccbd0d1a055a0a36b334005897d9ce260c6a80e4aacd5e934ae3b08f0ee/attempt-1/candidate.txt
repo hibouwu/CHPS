@@ -1,0 +1,38 @@
+public void testNestedUnwrappedLists180() throws Exception {
+        String xml =
+                "<definition>"
+              + "  <record id=\"first\">"
+              + "    <field><value>a</value></field>"
+              + "    <field><value>b</value></field>"
+              + "  </record>"
+              + "  <record id=\"empty\"/>"
+              + "  <record id=\"last\">"
+              + "    <field><value>c</value></field>"
+              + "    <field><value>d</value></field>"
+              + "  </record>"
+              + "</definition>";
+
+        Definition result = new XmlMapper().readValue(xml, Definition.class);
+
+        assertNotNull(result);
+        assertNotNull(result.records);
+        // The missing inner list must not split or merge outer records.
+        assertEquals(3, result.records.size());
+
+        Record first = result.records.get(0);
+        assertEquals("first", first.id);
+        assertEquals(2, first.fields.size());
+        assertEquals("a", first.fields.get(0).value);
+        assertEquals("b", first.fields.get(1).value);
+
+        Record empty = result.records.get(1);
+        assertEquals("empty", empty.id);
+        assertNotNull(empty.fields);
+        assertTrue(empty.fields.isEmpty());
+
+        Record last = result.records.get(2);
+        assertEquals("last", last.id);
+        assertEquals(2, last.fields.size());
+        assertEquals("c", last.fields.get(0).value);
+        assertEquals("d", last.fields.get(1).value);
+    }

@@ -1,0 +1,5 @@
+@Test
+public void testHWRuleEx1() {
+        Soundex soundex = new Soundex();
+        assertEquals("S500", soundex.encode("Swhn"));
+    }

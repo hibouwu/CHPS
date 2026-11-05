@@ -1,0 +1,105 @@
+{
+  "id": "resp_01390eddf1c4516e016aebfaaebe0487d29abb6afede466548",
+  "object": "response",
+  "created_at": 1793850030,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850036,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_01390eddf1c4516e016aebfaafc91c87d2a633821f1b64862a",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_q09ikfyW59OiT5XOTKBwG4OPY-lP1cgHwtIKIPxqWOpAyj6aFYwkp5eJEGxr45gB3-zPubLEITk-m5tKQjXsotUfjfzW7vIu71rpsnvvtdFlNj4uOo5qJ6JKLvK1yTp5eLxjzB78ZhlI0DEDqOCT4gd-qN-6PFl7RGvtanx78WfyC9eUMi_L2uViBOi6QUoXbtrjSM0AH9DFZ2WTslwf1zZFPolLjkWHxA5s-jx-qszSxiFTnMNBVEgqt4fajyQrE8YeXDozWyn108p7LpNiZhSfNAqL7cxxRLT92h7ZApyikjJ4Kbv91h-grywuXYQxL4HYjrzybWwuRKfz4vGnoitSgQ6G1kJREvrRYW5y-ZdymaBNVWcrPmSxQQ9DBCr-7p6_ljMbFdlc0z6y6PuTaAE0_l-KO2HqGcfJKgVIJmJHV_DFiKXM2x6wbtaIRGLSzdrSPlXtJ8WTzq1VTtXlLho7Kga8Wj4yTIANMGzkba0TP_g_6NSKdugZNQ8radg8Fuif3oMju6eIEBWZmCVnrXRV99XvvMxeEC2ehe_O2J2DjdOmAGSK7ezoTtEyDmqQ-YocQ6KPMLAwj8z4K8gjldSrFsnX8zQEgWFfD2uDTaN1ra5FsljFdhPhVbp1U30rcLlFT2KlJ2v2mB8eiV9ErnrDb-2CX89dhpu7x0oIq6vWsEI0LWUSuzFcdXCSw4i1tvlcDVN3WV5H_MXo7jIb5lILAUJPTZtBaMhIkAcDG2O3KWi9cDpDCDRO7I1tK5OEVCsJ2eBsA2ZQhO4O9DD6bnALNWuvrtFH2kTxoYcoFSpa0Kp6Qs2RllLmTmjX1Zcl3X6qeFMgTfBAhO7BpXD0gUbQMg-QvqGyRX3HwfYFaM01x6Rr8QB-nhfzJPtTIXgFZuIrFj1LhdVkRhyR9YdJ7vOMPuBIjJ5VUin6PTQxugLaqafbUHKpas62SVJirnOcpWCRSqiQRy1K01893IlYhkmfcdDySUvdmxylo63sPwEXXLtUTBbjgHGIkVv9RrXOtUnOGbQU80rb3zBuVhLbQLVxYIjKNqYU25wS-IQME6P8htPCZx0yI5tbDtIXW7MCInXhrrCMK89dG3_L-OtIXMGZiVTrvJnPDWqieQ5KL_Y6Zl8yda-IqmqLbmNabcJBJtZN4xIgI0GgmeF7p9ttPmYuM0dD2ntOaCkS7z18ucnJlTBLZDHVxCWnk13mubrk7EP5TWOs7nUJ7jE03wrkvy_-3l3z7G1mPTNZG5XUt41i0UADHatwM3aRp8houom33urOUUls6Xp4TQfYXVlHaKci4nHYe7_p0NHtva1Sd_MYwoEFOtmzv5fX-DsvQApf7ugN8Nb3abcgsHwoIRP8GTv10CRnzoJvtNofrE0l2T-ga4cK6OrmTNSrRsWz1YNsYQptVcXa1Ev6tCRT8EoSphXS-qWKAT6wghprHNSZxSLQQZxr4322AHomuNDiiZh2IqyJhINvWABTfTyxZ2kX4WYPlOEjqOKuwR7DzFu0Q5mxkJDGWTRGG9zCcrF8Fc7tOXZ1I-bPMNmuAAsCEm2GgfPOvtdE1zAoyMJMhbzWTzhXYvaS5n3_9_3ScXeDLcxWNXdy3s_cO71VSAtARdIIunslOEErqJQipN6U3ojjTuLJCasg3bWR8NF3YpptWqJ4S87oXnei-gX-BAphIw7dDMYTdruLdGZaO46y90bXPDR61dLpKT19hoyLEHXSfd6KJcwO5m18ZVRIxk1Grax5ZqwnhATsxBaRKiOIRtRMk9SGxXMzRyklqxvvqYBaA08nUax8texF31zaZ1Gk49wPydErvB0_4GHx0S_lZpFkWn5rniblEb1mc0Q0gCCgyXsAqYAhF-t4Hk4vch6U0G24Rvzy1Q0mnfBaS21K4lo66yyoLP1BdRJMgRexd2XuPaJZiE779DyLT8MJcrXnXmdUKr43K5RV6Ko0J00220ywcEZ_GG1IvBtPIIQc0SgFbHb9WuVP1eqbLbK3mKeMimgTfPZ23opWkgzojQ0DH-UrK53Fbut7BM92HVsSC-9yGoVk1kZYucUZbLpCiLmkjl1-7OJoZrKR1PJIPi7QTTHQY5QEGONRTagPIpfyb7GUad9DM_9HYriyGplfwzrpFQpWU7le1Py9ZyuOQyOpaFIuQLUzOkxqQ8DC_1t94fVUhBEgl3iD3jddaeVg9W0ABjq2wnVAgG-wcZ1dYjvots41uFVYmO9LiLtz2ObdHFp5tDbS6dIETN22zDjUQ0gZ6XNRLGMKkvOBXVJ2DMoYO_D-KlqxaUlanIpe0KNM8EOYbTYINWFi7ZgNldmBHERE0DaU9WVKEC5JUHa_Gf8DDXXjuVMdiJp-6_J6bUcHVtcfhrG5h93y5hnozSNsVpows_DI09tjxglN9jRHQfCSoqopGi4ETn3UFh3Z90hXH8o11yf703CMJ9gUA09h3kZfAD1zAAEN8MjxWqNsiEnwmCKc3TB66aNoMtjnB2N6T-gh0_1lErnKasCN6o4mObLxnANPjs1zTXznuJPussSDiroJOz_ha3tw99R6GjGmcT9GgyDmoRk_aX67_PfULwfqN5GnSuU29oYWhE2H_Ugq3Z0x0Mb-c=",
+      "summary": []
+    },
+    {
+      "id": "msg_01390eddf1c4516e016aebfab2668887d2a7890769392494b2",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n/**\n * Test case for\n * <a href=\"https://issues.apache.org/jira/browse/COMPRESS-93\">COMPRESS-93</a>.\n */\n@Test\npublic void testCompressionMethod() throws Exception {\n    final ZipArchiveEntry entry = new ZipArchiveEntry(\"test.txt\");\n    assertEquals(\"Compression method should initially be unknown\",\n            -1, entry.getMethod());\n\n    entry.setMethod(ZipEntry.STORED);\n    assertEquals(ZipEntry.STORED, entry.getMethod());\n\n    entry.setMethod(ZipEntry.DEFLATED);\n    assertEquals(ZipEntry.DEFLATED, entry.getMethod());\n\n    // Unlike java.util.zip.ZipEntry, support methods other than STORED/DEFLATED.\n    final int implodingMethod = 6;\n    entry.setMethod(implodingMethod);\n    assertEquals(implodingMethod, entry.getMethod());\n\n    final ZipArchiveEntry copy = new ZipArchiveEntry(entry);\n    assertEquals(\"Copy constructor should preserve the compression method\",\n            implodingMethod, copy.getMethod());\n\n    try {\n        entry.setMethod(-1);\n        fail(\"Negative compression methods must be rejected\");\n    } catch (final IllegalArgumentException expected) {\n        // Expected.\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1450,
+    "input_tokens_details": {
+      "cache_write_tokens": 1447,
+      "cached_tokens": 0
+    },
+    "output_tokens": 360,
+    "output_tokens_details": {
+      "reasoning_tokens": 98
+    },
+    "total_tokens": 1810
+  },
+  "user": null,
+  "metadata": {}
+}

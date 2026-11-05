@@ -1,0 +1,32 @@
+{
+  "model": "sol",
+  "configuration": "B",
+  "task": "CTG",
+  "task_idx": 137,
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.joda.time.chrono.EthiopicChronology"
+    ],
+    "line_pct": 76.3,
+    "condition_pct": 50.0,
+    "instrumented_lines_hit": 45
+  },
+  "format_valid": true,
+  "mode": "chat",
+  "raw_model_sha256": "a2aa240a402a8d7f75fc04b75b564c644b17100e50dfbe2f19f24c3860aa5386",
+  "scorer_input_sha256": "a2aa240a402a8d7f75fc04b75b564c644b17100e50dfbe2f19f24c3860aa5386",
+  "removed_input_prefix": "",
+  "added_prompt_sha256": "e37848a7dc83d5e500f0ec9d37aeb00304cd0eff5f3d63ef5a3f04d9609b2023",
+  "answer_untouched": true,
+  "source": "evidence/b100/sol/rows/CTG-137-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-137-b7705066/21961b1c4641e7fa3891f3eba6e7f581a2002934e42c1e5ea7070be802b93d7c/attempt-1/result.json",
+  "finish_reason": "completed",
+  "input_truncated": false,
+  "input_tokens": 1097,
+  "output_tokens": 767,
+  "compile_review": null
+}

@@ -1,0 +1,105 @@
+{
+  "id": "resp_0a2976be5609fdc4016aec012a282887d2a460aaba11176459",
+  "object": "response",
+  "created_at": 1793851690,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851697,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0a2976be5609fdc4016aec012b274487d28823a271ba4f417a",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AEx5XGJ9ocyVorlyiNSvBox4Q5mDdmjIyQwK7Q05YNJWRLcuFYIbQQembOKdzuDkeFmDmF6YUrer-311UZkTQeMrSqpMpJpduYf9I5Z4YIhCK1B2M_eq_3jtYhzTUDjmm7n9GivRfKqHfGCnj0Edv4Tq1bnOjeChscjxgVnWCVho5AlYdKqQkQRTNXNhiqT8F2pLXwXGSud3EL6p5Z-gAUhp1mxmn4-0SKkH7DzMWqu-S-kr26uBOS8hEoT6_3x_uKwHJ4qmjrDvrKtAXACdOrTM7WBE9XLLv-1hINrhnTALQ-7lbe8s50L0nzCEIVT721YEtOBhA8W9n2sJEhuK5UMohrZgopeXJTw8ghqXSu5c1rc6VMxNdSGdOkmFmAQfDnG477QGASPjIFBCoNkCf3HnIC1miuz-XzODMiccYG3v77G-W6kH510qtr0f1ep2JZUygqvKHaGxj5n9ZjeICMpoEug6IPprkEWMyoUXBw3xvAeziYs5VSuISugkqSThT7SrY4xXn-m0PQLhkXzzYOGR9Q7mmifC0s00qDpteGwgzQhVPovUGkhD8HFrxedEdynhFpWS1NAEI4napaJ49VHOFSM7YFL5WFubU7x8eOs8leU2x7NvxUABxqWZxQACoZlig6070ZrL0bmWsKvDGven22BpN6wDQkESNeeoT6-aWoktC7376aSLD2rK-qxi53xtO9jwHoK9EDzk5usRabHoHSG-1cToWbz9-xxwNXtB20KXiIM_ejH3Dckh-ao8oZG7BGXMH3WOvgVNegHOv1wtRMAFxPQOpvzp0ZB6mFJAp0y8AQkd-bJf-G470KB1mo-RudBxktfpZAY_NHbavvn2J9iJ341JLBnJcAQXhu89G1ihnA5olUNGvf0s6B8PEB_Sih4jFEVdDkll8trSpnKvjrN23dbRjNbijMATCVkXAaLLNWZpSdx4Zf4aLjkmkDtf7ngxS_OQy1jsRO4_WWp9U29LuWRGSEviI8WEpe9ptqUpwjy8m4uA2A4IkGdO3Fp5EvvXiz3H76mTGsVQmRhaYJRCAxwYaGqzFYY29c9jtnNDZLNGGYQA5ZBrgruxi5hKxMejoUg6fasru_WCS4vFjEqcbZhFwWCJdBvdozHaRtcY0VNRklLNofTk6ZIpjZOODHyI_2eWptfqQVka-S-IC7mbeFIE65_O3CZbielno8bmjCakRoSBE8rSdXNd9D1SGDg_Tfu6JEUNmrd-wmxtc-lcbkQvkHZLI5nNNJwBzLmtbr6juzGXHIliUpqEMB1Ci6XN4AY4NtBy5PcvDieu3dUCBPGC8YgoRtEacYG9gkcVT7KmCLIZcAAg1eZ5C0oM4thqMcCZO2N9lEfVqWtdN1gTRnn3a7RaxALCn7OetEMIqhADjJY_jDCH9D0NqrjS0znvR9ho2NezBaB0QMFxtV4IpLMAE1VD9gEkoyUs1vGE98I1U9aHEonlOeDcICEoVvjVDHDqtuAs1s1cArRestdVElVdBeKQ5TY2wtPVVG4LHY-m2yw1GLd_3PcUP1aE4gVe1-nSR59P8Ff0-1ZYYChNznw9KtpjxX0Rc5paWw7C68tzuZta8lNnCrwh9q41CPalquQI0Y_h67AdVrR5cuoXJF10TX0kMWEq_QOv3H-CtDLZV-iO3KXWoGQI3AWUR56X2mQP9d1vXLM0WVdVBwpRUTwz0qyhWumrGbzayS_zUg9SZccVk-Mu9Fmx1bwpCLpSkvfM0QRr3PdXl4OwRwCkazxKDzxfYWdFaf7L8Frc9NsfExUACwMZR9zqISvOI0aBIK0aS73sbdgxgdNnQBuQzBsiIyFMKH4TBDkFE0zxL8bfRz1aVpxkw-A_VEbLUa-vqjwPcKgVutrbci2bw9GcIGd9hNZj9uxP0ZlaZwlTZhfBgO3rWwvutlVkkokMFUOxHPtaAUvvUbQzLgf0V90QSxy4oTIL9bWGaXzR-XCMvUv0sV_YMTsZdUQfOootGeLGJjI5jJ_6MKX41DZ8GOJjbuuzOKpdU2gce8rYfctmxPncTT6i3pk8395sCN7yR-IfYU5FeGZvUuYXqyuO6O94egD74bf7Z_juNYZjCFilJ1vkCW1P3N3HWi1u4c7uI52N9e6_7cfxnepstkBXiBBsLtoAqbLJkWLbY15L5a3ANAUtelnjf6d9z30JfOFR-iJK2fRTXz3kP43Sw1YJbrZqWuQ-JAvsY1peTXijIoSP89cNoM247ojK8_CVI-oryVfwTGwlvkZIMQLmLelpasA_Cyd1rDDs0Y90PeFuW9nPWgMLHL1W3Ilz73rg4Tpv-dNoNEqRu5zyoHPdx8sH6jXZs_ok6abIs8b3Aah3v_bt587jkaTILISBOLHge4Dcxq08XdVQ0YHHthF6Ll6crsdPUeNI9jcGEXezVtqi6CJOmzusB7tBAMmym9JxWVOsgErEcwcnd6T9lFjR8a6r0en-QR5ezZrKNZ6Sip5UlFc0J-jDdK7AWIbMrHpwrrIfhv3ncyBLDQOYPpeTJdSXWT1E1Zgu49GUzdr7DGzCD9xRsKW6g2nUG4Qza3mj3oGJn58LiWi2KcdvFqtcnR89lNx4gJEnDFRFw42ZHVNWMXNtYDJ1b01mZMLh78dLkrXdOmiMwCZzMGjYob41mSkhN2VpLfvL7g8UhjQbPT7EOw1aYmsbL3ayXnWt-XS0sm8LFObahJnvHYV-m_9cRo-zwsOaYYVZZh_215psiOW8kkq5s_dkCz04WHvsrj1QqcXrXUctu46d8DE71Qy1eLWLk8iceblnnN7Tqp84BUju9W71E06CTcIMiLD4vawqXVEoXf4bpzDdM6kTmiNuYduMbNel80pHoymmvWxyW9AUq5lE2pTuxBnqafhZPLio0AMrz7a_LSWxGPNDKf43nLlV6d6htn-Be1tU0R6GNPwgX5XCmUj8bMabwbe3o9qGtcS6NL0GUjq7jOskHtMUMceIhreEDImJQYqGZe0-Y3gupmjEScJDnTh6Jif0NIRaWTdokphbT9UbF1ckpCsYpvrr6KvYQRWGsMsoXhWzAyf_CQnlIOap1uG9Gat5vDqwbGWGz1Y0o0eepjnKesxsccRC7eQ2-ta2hTEBNqXjgzJTT3LTk1zQMTzT6E6KXJ0AmsH8d1jD-dCrXP7RUtVD_lZmGhabDdUFQg8RwelQS2YtYCoyxnVW_XxaPcUgq93sM4xSBCfbmNW2A2OoBf6MUpD9yc106VRbcgzjrVs590AmBzv1y-KcAkKZMpewPVB-eHXEP30HiZChCaztb_j9W3MkQqbQEapJkC0HH1kmQysXEO2fpGSkyeTkCPx6U18krYDxDPHKwbp4DQNKFms72VfY0pQ59XwDLMVkwOZaAB9Lk0=",
+      "summary": []
+    },
+    {
+      "id": "msg_0a2976be5609fdc4016aec012ec9f087d2bddc2ba3b3a39e1f",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    public static byte[] mergeLocalFileDataData(final ZipExtraField[] data) {\n        final boolean lastIsUnparseable = data.length > 0\n                && data[data.length - 1] instanceof UnparseableExtraFieldData;\n        final int regularCount = lastIsUnparseable ? data.length - 1 : data.length;\n\n        int length = WORD * regularCount;\n        for (final ZipExtraField field : data) {\n            length += field.getLocalFileDataLength().getValue();\n        }\n\n        final byte[] result = new byte[length];\n        int offset = 0;\n        for (int i = 0; i < regularCount; i++) {\n            final ZipExtraField field = data[i];\n            System.arraycopy(field.getHeaderId().getBytes(), 0, result, offset, 2);\n            System.arraycopy(field.getLocalFileDataLength().getBytes(), 0,\n                    result, offset + 2, 2);\n            offset += WORD;\n\n            final byte[] localData = field.getLocalFileDataData();\n            if (localData != null) {\n                System.arraycopy(localData, 0, result, offset, localData.length);\n            }\n            offset += field.getLocalFileDataLength().getValue();\n        }\n\n        if (lastIsUnparseable) {\n            final byte[] localData = data[data.length - 1].getLocalFileDataData();\n            if (localData != null) {\n                System.arraycopy(localData, 0, result, offset, localData.length);\n            }\n        }\n\n        return result;\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 373,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 482,
+    "output_tokens_details": {
+      "reasoning_tokens": 149
+    },
+    "total_tokens": 855
+  },
+  "user": null,
+  "metadata": {}
+}

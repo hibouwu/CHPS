@@ -1,0 +1,105 @@
+{
+  "id": "resp_08255b23083ef107016aec02048e4c87d284740d310bda2e55",
+  "object": "response",
+  "created_at": 1793851908,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851914,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_08255b23083ef107016aec0206592c87d2904f9184f0d3766e",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AIK4a8NPqTqLVsFkcWiDc8E2-wArMEUUMpFHdtaNU1pGtSFz8zXyut-lGnfmK8OeXbfj_8HwhduKKnVAvPR4X7wvaZ10GrPjkmVLAqWujrC-32ZLwHXay630ANJX--Snrp3YrKwNx24KPN33xT6ncvlsqqqgtKAkYaRNNcZ1GhKCXKPV4mShmEE1zU4dnCHtSM6dFBnitQOIBnk85dGOC_h1aMjc5CknpxsgbYgFtv_jyr1y9-7hiyb5COq_Aert9apZ85gihhMhtDT9uyG6z55DVc7YaoLVaPIZAXFp1yLJEIyJx4c7SZCiWWkTvnoY_LZjRypM1vzXpFnE_cNjbVgCm0yKzTG904zUGcDYyFPVjnX4dcMbcu2OZisIWjkPHvgzChe9hO-r3V8YjmuBsjDrx6yRLZ9yvPl_w19VbZRYHJiHZD_82TDkv0oM2mfjGDWgmGS4JcQhPszgIfadj2dM5YnAx9UGT47PrTzs-KPLcPb2SleSMcXhVMNVxw4HsLOJSzQuI2GlYgJBE2T-4Ae5wXsENnSpffR89BlBrA7HOq-VL-eamNHmrWXNjdbVYmbFAatsOYxYKQAhxtJfWhfRZngTAETgC-Ees1kWb6MeSpvqo6v_0bHstOFbREwpSKkGBiDLEFySBUdpc4x4DeGPv0OH0B-zqAgUi8wS7jrVpPh1FPE9Am4InT3hggHsy2z5zmyy2AE7YMe2qXc8CikaF2vYUOfq6ujxiuBY-kab1BGRgOMsYz-dRxqleelX0PO3YCRztQCDFvuwBsRCsKPKUeZpgzVpfYtFfEQY808coxFs_LdJhC_RWEC_7lqdd_3O-LAwzffmbo9a_sTu1_BVTxO67ezDU4j2IMPJnZkPafsa23kKpj7XJeAWNMN6dVymKI9V2SA5r55x4c6eCb63Od4SyoAM88rddKGHuFsh5f726q5vuhGN97AI86vAQ-oH5IBt1y_5f0khBGGOgqVcBff2-WRfkRyE88D0LQ872Xw1tX0Vaw4zGfNvriTY8fmWLDutlV6pHjRUALIDL5WDCq63qWKKWNTRC0pQyD3u3tVEeUGPcHvTQUHJo9xXdJV9LmT-VQFdsKdaQVrwfUKf-OE1IEySpCwvlivaHFLCYKF2HgHho-2kSidb6bXC3HD-wfm4Yb3wDRyEXo65Bv3TGYPCvyGq-1yMxWK9oH2VTS9h64Ti6Ap4Q_pMkIZD-sXrWrlW_zqBA7rJDVuQJKDF54xoj4vxvY5zb-_dawRA8tZX3OJuXPGpwoNZjmAN6lnuTFu4f05qzchTrUGInMn1loCIgRFSujtduyBq2qaWZkMGhaUJMxsCo5Xkz1AgII1qQGzfnIKhCsz6YwdQFZ1awhhwIXSXW_bVqLyFhWC74XLSZoRV8tXHiAHJtJ6UKyBDK9keV0Kg9MvOIcE55xmYvsAqvTRMhRn1lcyzcQcsWGe01nx9CuxNMyz5t-R_T-69wSXh7bdYntJ3ykn1VWzBvHMtGfZpK06EM70E2p0dtlLsPF8mgP6Z1ebPbkVG-LLGwuFWXSFVLPOHd0_-428zzubi5szDZLSHAYbwkb2KT9iKWUBtdtezITqg1kpz8bieiE8zVdLPqKQ5yLaKYOqu6NnJ4R_GGQdAEovEXANznHaY2pHVGd-yuXJOJUgLPfJv-SkWg9c4I1aSEkCQD8vZr2eMEdhPITe8o-0wQHmLkhIKdX48x5Go-hf3yK1inWA5wps6Kh4NT8qz_hSdaGei167rkxvHb6mnFZqTwUq4ng4menzuFIJ1GP6ZthFhkE0WXGXFE7hplcuXd2wZWKyCMBbiCWLfRUsTJbFpRbF8Cz8UKhDMc4yZQiyp4KBNhwNjaLwhc0Wv0ES2N2zFvXbuHlpYVAp6nR36HNHi8wdC3qR6SlbL0DaPf2UPH9OpPdFgggg-0gXDVo_wq3nwNGoc8z7AubVlzi8A7kbM0-H2fYlY2DF-BNyVu3PcCgOMw0kbOWQynuDEc8wmlYdr1uExP1UWxuubp5o7yOgkQkTl5uYi7oFbPx6Sby0PcQve4F0dEcPha_O3Ep9EpULVSZ0lAQ7bUrIkTriDHFwnu2b1-paf38hVmJSyACh6MOCsAFTlbX4_bFi5Kd6Xprqhr90ngg3Tpwn5GmImRCbjRLXmCOjtoB2yCTazfTrP3p_BXjln9TpzsI0iXxioT1AdFqW0ZaSo4BPznH8If01Wic1YQC7Fl4kGnfZgj7mS-Uj4a1sI1l9NfN9dMXZ4fadLsVYWUF_ke_PWD54vk0xQ0pC1SB0oevoyaIZ4xeXT7WFEnzSdy5GvDAh_ZQeBP_A4WuCi0Adk2dPExh-2g9rKQO6mWfJW-uftClh7_aKwh5XkTofWPD4WOqbdCXZRqi5AFPZpHoCZDbrUlH6THIpIpv_RBSKGTjL7UO1vOhHloV7imXTZAOFEGdfiuMEwXtMxnmt9j9slJxGqqY518a-eB7B3XYeAUNXMMtFsMv08MX2dSSkL-R5W2f1jHQDoSIBrZ2EslLJ2TuDXnI9x4c3keN5c0pvj--0_sanwnPAMVoVCANt5JHjdiVJTDiiy-60gGzNv0DLtHzdGO4MClF5UoM-Tbik8J1dk9CHUC_boStk6-hRMcxsnquF3bprRbDThXX2iKt2bk_1pYJ3FrkAkS1r8Tni9CHkZmsaS3X38a6_l7_v6YwRVntN76fbk0r8etY5b9zNbCHJj7PJn22elRqChPu8Ijnt7fZ9R3nI6UAq3FEMSbTm1wOPp-bXwJww0WxVcA==",
+      "summary": []
+    },
+    {
+      "id": "msg_08255b23083ef107016aec02086b0c87d2bc483c8ae3eebac1",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    private Map<String, Integer> initializeHeader() throws IOException {\n        Map<String, Integer> hdrMap = null;\n        final String[] formatHeader = this.format.getHeader();\n        if (formatHeader != null) {\n            hdrMap = new LinkedHashMap<String, Integer>();\n\n            String[] headerRecord = null;\n            if (formatHeader.length == 0) {\n                final CSVRecord nextRecord = this.nextRecord();\n                if (nextRecord != null) {\n                    headerRecord = nextRecord.values();\n                }\n            } else {\n                if (this.format.getSkipHeaderRecord()) {\n                    this.nextRecord();\n                }\n                headerRecord = formatHeader;\n            }\n\n            if (headerRecord != null) {\n                for (int i = 0; i < headerRecord.length; i++) {\n                    final String header = headerRecord[i];\n                    final boolean containsHeader = hdrMap.containsKey(header);\n                    final boolean emptyHeader = header == null || header.trim().isEmpty();\n                    if (containsHeader && (!emptyHeader || !this.format.getIgnoreEmptyHeaders())) {\n                        throw new IllegalArgumentException(\"The header contains a duplicate name: \\\"\" + header +\n                                \"\\\" in \" + Arrays.toString(headerRecord));\n                    }\n                    hdrMap.put(header, Integer.valueOf(i));\n                }\n            }\n        }\n        return hdrMap;\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 858,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 381,
+    "output_tokens_details": {
+      "reasoning_tokens": 100
+    },
+    "total_tokens": 1239
+  },
+  "user": null,
+  "metadata": {}
+}

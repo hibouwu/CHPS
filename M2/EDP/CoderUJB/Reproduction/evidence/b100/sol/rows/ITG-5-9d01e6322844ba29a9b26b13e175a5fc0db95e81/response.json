@@ -1,0 +1,105 @@
+{
+  "id": "resp_065a5d6b0b532feb016aec018c640087d2ae835de5d6833ab0",
+  "object": "response",
+  "created_at": 1793851788,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851803,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_065a5d6b0b532feb016aec018d69a087d28af557aaa8a2b53a",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AGbwEdJPVVk9e8dwX5ygconPukaOf44rpNODFCXYhP2iAXdXLPEu1NdMQjZUsUlKB4CjbqGNIs3KTb371rs4CasYDq7fiKxu9fa6qumKbDrX7yENQXA0LhlWERzHkX_S5JcSqmH3Wn-1r9qIkxr17ep2EQKTbjWb3uXke9X9RzGgfS30GqsxzRNuF19LG7x6QHckBIRoPr1noOg3Z2s12tfY5Oy9pM4svTvVhF-Mnijvt_1TtKh5cwhFYxHn6Pjcq3Yq0jjMGbIQomExZfS_T4Oy0BSaTi8FCLNpBNcxVVhlb3WcXVfLY2lf9UJ8M4nixAzXcox-HoqDXMdQhQgxqG7nSaoW64b_zYtAuwSBQ7BZTUwekzpMxazlD8TMOBYWzS6p9Ti_YGGX99xjJv_3UCvkb6cZ01O3TaweSMDauwtxCrabWXI9tuRWheXH8Ei6kBrlK40XpaDUh5Txp--00hQgbB8jrbLFhS4qrZL6JTkXV-qaysFeLmeek7WelhJ6q7WABJZBiA-H8NtRl2bNeLgeHqdwF7DhaESsj_5YunYOZY7uNNgcde23bBHO_Zb5fjIiny9MplyKqI_jXbaofvEGjQIGdg4WE2MZoIuctMdCMZW8U7rWPqgh9h622G4TXg4ecdyQ6HSaqBNlKHjMFKpca7Wx1hOhUkRZRnagktTPM33GqgxA9fC4I8eWIbU7Aw_1M7Vpq4T3SnTU-bm4AN945o1kPj41ihapFW_NslxiVabMQIdwpH9XALyVI1O_MHSjivD8abOiidM40_T15eb2p586aVbw8NPjrMLo7IierDXg5e06BZE9rjP05LveXdstuJjsmZwWMuqtwR4lLW-fwUL6Q3NcZGcg9NZxT6noo-oYndmKiYuFa53xiqMUaA7HXtK-fHzgD5VJSF2lKDiYO0qXgyyVNLvd-aF2CbhCbhqux3j0xoWpBdv_fkjI6r10qBm6mIDmu4fTfQq0Dli3V6fWAOOUit7T6bIKDcHGPd4Kat8j-fsvvRo-GpY-g0Wtc94mshpmXfra9PCtlT1JvyDHZ_7hZcYkRA4NEbhB8AfVa-YbsJ7Kb4iSJ5P4L85ZrdKp-kWv6nOHxgyQtYzs179_QnaALoPdoqX1SDcOJC07vd87JDrB-SVQCF3-ckvsHn21Zo0PqmDv6lOBkazjGSvpFyryCL7I4q6fzKhOQWF47y7GreZZteGixETIGPmu4P5UOoXDW-419OqR9rHT8BGnRdAu-nPmGABuZpijxg6nl_fu4g6uCWlgs6tK_eUuMnnyMt_mF1frOHtCl9RhrkTZRjSF55Y6emjFVV0iZuV-AfShkGIpCN1iCmMFLvPKy6mQ4ZAouSY3nwxUeoEEoaowvRk14rEPuRJjAlhuIzJ9R4NGqtEJRneIjI62c0joZTo9Nz1hsdlkqIq67Xtvs0c8hF09LAsJtXLmeCRjEecNdGyLAA4UYjKCAub72QLz02hgT2xwXUo5aLLTsAnns5w_prwACrwo3436wOPCuoCb21EzHb723Zgg_TKsPBaehvaN9xmH7kmqGzMuzfMVJN-BC4cFM8bv-8kaASfqEAq98V1ut3RHBVxHXO_hrKFC-DP5Iajtzspp8S9oDKvLnLTcLwYCfwtJ5u9DY6olreJLF4fF0fTasCPP-YkiFDYwfEWtrmXXyTv7XcWQlubh8h77NA9u-19_6H8KEcvxKrq3PuEOwCqq6f2CB12WKMzlb8_wxIut1myRnhZQI4RRgOzp9Eh7xEzpx4xm8BQ_92octtgC8txENG4kbvqqJ6LXbiFNKBUwmp0V3XrOk41j_9Y2hysTeWA7kuvkuTKPQSVuvFBk_HXW3g4qkcOW43VtHHkgfNpaOy8n83_7T2P-sUW7Ky2y4Islq1hL8-3-vgIdCcOrrbDNFJPW1s3yGzIQl-BZcZpyza4l-GLFpk2-PK5fUcyDJV4yCe_ax-3WxSGo3jJXfy-DeeMXEep4kgvlhV7HaqqJlTRHdaOO8lufAvehHjWE0qF4tRP5vJLTXCHYsQjaq3VLgqO745naVNgbXpSd5jy3478uxBnHB9W_oJM5cg0HWNdrVqd13UXQHjbUShOQX6Gn2Y87A81QldsWUS33VcA5cK64d3ftHt15BOdMgXJAvXHIlx0xIBrUGosINslaQUt3bTjPAMhumWk6g16YeTy6UrlLF93BZ1czC-xx9OKXBYF1C-VzTwF9oIPSWeWwj0nJ9zlob3oy4mICHqAJWrvhvPlz1ytqXImS9fo4T7s-ipO3xiQ1_TAogmOmcu_x2CHryjyzALlePORuFIHhiB0_wr9muphVnEfpfTr8USe4FU0GKb0ftUOJMfeRp2EWNIDybckcxEtw3ByM_EnjFVPYdVvmkCa7AwPMgwZ1NY1jaArW3ryOkNwKb3hQB7a43tO4NdH5iNQELjWwKZ1boekoSRiqkLa3HVRSG-Dsf_t0dvvtqAheFLLGYUAEW4RWYMjT-hLP-3AZWWQXE7fO0Qn4Ip0zVDLPbsTUeMWpFWT6l6N5FcOaoy2QQChSYX6Tn4zG3gpnz6FbLRjAdmve95O6lxyEN3LESga19Xr1mHf_xMobBPX1kZAUZHFxNh_sHeH8Iwd1ZvUyUBTbj7eJWVhsv4Tobc27cNUy7ii6m_MqQGL-AC5-1TNntmubaLA8d2VUTa_U_UVwqy_sBTg9Hap0sDe1w1xQl5xW7y5lRqExS3Cvx6OEh-1TC2_OjaiFroRlAV8UMChUU8ASLx2q_mmV6NF1R5nscs3fv0ej7HsbJ2djBXYP24Y1LGXVJ19dfeRFbogZ0n3sT2kA5ORJhinWMmKg9iSXglNW3MB6TVz6Awu9kIbMhCstA_pxZF9BziSVNok-wN5hDE_XE6T6UO6506A-NoGl5wXcPi7x5Nt7b-KjcFJm5AGLMTLjCzrb7g8VIxsTwbzkUyEdDbQ7hM1gaCrpIcX90Fdmin8rMAhpjLkceuHEJvc9RaDAzE8mRVUe669Ckfl-RrJcbRq3WQqalLSc9MJdPj8y-wipLcJH3gaCvNSMJSxp48L9GsAtBexdEuAGV8SedC1H2Wt3jcNh3y2F68E5v2j2K0vQ1efnFlR-TCWwfOToPcqY4yj0d_eDahwBAG8hv-re_1c1rX1KB_1ubCHLi73gsRgzruC4yYdkohyNslOLR1r1F-Mfyqhq3jcbSslRu0OtP6mtYZ1r5yqSEw9-T9bIHOw8Q627KkBJYsqMq5DBingeJ9M-16THOfITL3UbkVTu6G9hXZDDYDZ2a25ig8q3ksigBim-TNBj3lnrR0SZJyNAk2dwmUVXyPbm6EdX0DqUb-iUcXxtEQBQa7TV3_-vZS2d9opv_Di0wOg-iXn6HrxjgcuRD5tgvtgnZR3SywyyWOP0UaDfOAHbDgXQ1M47FyDBgt77vKvTZ1z2EMuuLWjkrWHwWlgfQSR8_R9Wdr2HAlzud3bMadjHPS41ByDezU0jdQNTOaQp_Mx4YX_h8kxoT9RCDWTt-d3mgCSlj_rdKPIV7ECu0ePtxJ0qhuZZ2i4EtNM-aERyYxjCB6tBm403NByTDMsuSoZNMGEtJTIc16peW8LH_0T_qVSXGIkAkKdu3xsTUZR_7ZwpNlCcmXwCUZuxFL5eP_W7CHrNRLgWA2LG0BFIvAcNpovDpSxThnfchhOsXuTYIz-cUait347l6vTEKn_8jusQfz9tS6ZtfITwwLgeVLius2bGA9soyNz3bV2CIw3XNRJy0niZ2rLjhCHZCx-BeDtPVVdnyV0Bs6jbr_thaqBrvlh9uAwvSZ9HebzQYzGRFGXfEFlsJ75-Dd6hj8fkRKVXPEDJyUc_Jz6IzA2OVHAFChe3dSDJ6ssWobOY2l57RgRiU7FF7n20o9sF9yZc2Qp4m11ZNCCPu1lvc82cpMl8z8yN76YKv0mTkyGVHZbHa7_uVj0R62UClphO9DkDeAX9BujdKX_dZzTeiZWMWv71Oqy7QpRF80NRTjCvHZPVxgLqDF1uBjnnCLQ0cSdPEr4ixtPIwcpCDa_d5OgyQYmLRumXEdNAJR6YiEv0Nzv7E2CZm34oRKrXVanieKzXi7Jyf7vIY8nXGrpNgsCd4FPNc2a-jZke50wLfiuXyTIe1LBudutmDw8g-eboqGYemXFUyqba2qdMl5xuQpEAyws4k_YKLaDHM4tdGnWy5P_6fpXRU8fqSvJZD99Q3CHju8dIO4jk3UaTVMPC4npUvGa3AenJ_KYxPhVuk_XmVik7u4M1R7oIzp7TWaavk40GBDkyVpTo9LWAmLwTMLiN-JfKPoQiMn2pqwJ2TIRdNmgaM91k-MHcR28PQw7B61Xlr7FHtw-GWQf12Bbch3edqzzRy8qnBRKZxZJC79z5jcXml4-opiP4rR-B95DYkikIp4E8qOP3tH0r6AsicbewaKG7vF5PHIoGaX_r7B9Pi21W6ejGL3TFrUKg6DUbNi4szUXjbZnJlz_Oy5zWJW-ZINHZ3oyoGk3igtXJwgEvLXDfGN6EhOWXqaUaXycS2_LJ6jBD9tNc22kCubtGsSQpvxZme_rkcoqNupRKu6NGZ2N5uBbwUMwSES4qWI_nuA--DoaGhM__D6YmeprZaMQYLQuy-_RZW94jSghfyMvVW2b-jH6OODLOmu1pNI9ASCglBNR0-zUOFKIhIyZd566l9uZveNS1SLqWvcjMMt9eELb8DsOKUe68yWInvGUjHSVe3WwepNtpDkjM3DqRbGSzuCbLyMePTYOUoJ8ADOuIt5-j0hWk-qOcfXBrQ1-azgLp1pIqzDfib9sMr_TL9jnvirhvWmLNLa5KbV03TouVWfkw12235ZbgfJbpE3hyIDmfoWke8YHs5B0xf081-GKEgVtnBRXXJH3uPTEPV6W0hm1HdfwPA9XuRQ=",
+      "summary": []
+    },
+    {
+      "id": "msg_065a5d6b0b532feb016aec01953eb887d28bf27a915920491d",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    @Test\n    public void testReadingOfFirstStoredEntry() throws Exception {\n        byte[] zip = {\n            (byte) 0x50, (byte) 0x4b, (byte) 0x03, (byte) 0x04,\n            (byte) 0x0a, (byte) 0x00, (byte) 0x00, (byte) 0x00,\n            (byte) 0x00, (byte) 0x00, (byte) 0x03, (byte) 0x7b,\n            (byte) 0xd1, (byte) 0x42, (byte) 0x82, (byte) 0xc5,\n            (byte) 0xc1, (byte) 0xe6, (byte) 0x05, (byte) 0x00,\n            (byte) 0x00, (byte) 0x00, (byte) 0x05, (byte) 0x00,\n            (byte) 0x00, (byte) 0x00, (byte) 0x08, (byte) 0x00,\n            (byte) 0x1c, (byte) 0x00, (byte) 0x74, (byte) 0x65,\n            (byte) 0x73, (byte) 0x74, (byte) 0x2e, (byte) 0x74,\n            (byte) 0x78, (byte) 0x74, (byte) 0x55, (byte) 0x54,\n            (byte) 0x09, (byte) 0x00, (byte) 0x03, (byte) 0x56,\n            (byte) 0x62, (byte) 0xbf, (byte) 0x51, (byte) 0x2a,\n            (byte) 0x63, (byte) 0xbf, (byte) 0x51, (byte) 0x75,\n            (byte) 0x78, (byte) 0x0b, (byte) 0x00, (byte) 0x01,\n            (byte) 0x04, (byte) 0x01, (byte) 0xff, (byte) 0x01,\n            (byte) 0x00, (byte) 0x04, (byte) 0x88, (byte) 0x13,\n            (byte) 0x00, (byte) 0x00, (byte) 0x64, (byte) 0x61,\n            (byte) 0x74, (byte) 0x61, (byte) 0x0a, (byte) 0x50,\n            (byte) 0x4b, (byte) 0x01, (byte) 0x02, (byte) 0x1e,\n            (byte) 0x03, (byte) 0x0a, (byte) 0x00, (byte) 0x00,\n            (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x03,\n            (byte) 0x7b, (byte) 0xd1, (byte) 0x42, (byte) 0x82,\n            (byte) 0xc5, (byte) 0xc1, (byte) 0xe6, (byte) 0x05,\n            (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x05,\n            (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x08,\n            (byte) 0x00, (byte) 0x18, (byte) 0x00, (byte) 0x00,\n            (byte) 0x00\n        };\n\n        ZipArchiveInputStream in = new ZipArchiveInputStream(\n                new java.io.ByteArrayInputStream(zip));\n        try {\n            ZipArchiveEntry entry = in.getNextZipEntry();\n            assertNotNull(entry);\n            assertEquals(\"test.txt\", entry.getName());\n            assertEquals(java.util.zip.ZipEntry.STORED, entry.getMethod());\n            assertEquals(5L, entry.getSize());\n\n            byte[] content = new byte[5];\n            int offset = 0;\n            while (offset < content.length) {\n                int count = in.read(content, offset, content.length - offset);\n                assertTrue(\"Expected more entry data\", count > 0);\n                offset += count;\n            }\n\n            assertEquals(\"data\\n\", new String(content, \"UTF-8\"));\n            assertEquals(-1, in.read());\n        } finally {\n            in.close();\n        }\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1043,
+    "input_tokens_details": {
+      "cache_write_tokens": 1040,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1348,
+    "output_tokens_details": {
+      "reasoning_tokens": 260
+    },
+    "total_tokens": 2391
+  },
+  "user": null,
+  "metadata": {}
+}

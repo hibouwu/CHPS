@@ -1,0 +1,9 @@
+    public void testDifferentDurationReturnDifferentObjects() {
+        DateTimeFieldType type = DateTimeFieldType.year();
+        DurationField duration1 = new org.joda.time.field.PreciseDurationField(DurationFieldType.days(), 86400000L);
+        DurationField duration2 = new org.joda.time.field.PreciseDurationField(DurationFieldType.hours(), 3600000L);
+        UnsupportedDateTimeField field1 = UnsupportedDateTimeField.getInstance(type, duration1);
+        UnsupportedDateTimeField field2 = UnsupportedDateTimeField.getInstance(type, duration2);
+        assertNotSame("Fields with different durations should not be same instance", field1, field2);
+        assertFalse("Fields with different durations should not be equal", field1.equals(field2));
+    }

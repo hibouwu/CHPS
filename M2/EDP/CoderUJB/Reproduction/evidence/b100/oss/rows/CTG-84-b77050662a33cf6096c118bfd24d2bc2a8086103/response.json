@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the requested Java test method, continuing any answer prefix already provided, and stop after its closing brace. The prompt includes a snippet of the method signature and comment. We need to write the body of testGetOneLineOneParser, using the context of CSVParser class. We don't have full class, but we can infer typical usage: CSVParser parser = new CSVParser(reader, format); then parser.getLine(); etc. The test aims to reuse a parser to process new string records one at a time as they are being discovered. Likely they will create a CSVParser with a StringReader of first line, then call parser.getLine(), then reset parser with new input? Or use parser.parseNext()? Not sure.\n\nWe need to write a plausible test method that compiles given the abstract class context. The class likely extends something like CSVParserTestBase with helper methods like getParser(String). But we can just instantiate CSVParser directly.\n\nAssume CSVParser has a constructor CSVParser(Reader reader, CSVFormat format). Use CSVFormat.DEFAULT.\n\nTest steps: Create a CSVParser with a StringReader containing \"a,b,c\". Then call parser.getLine() to get first line, assert values. Then close parser? Or reuse parser: maybe parser = new CSVParser(new StringReader(\"d,e,f\"), CSVFormat.DEFAULT); then getLine again.\n\nBut the description: \"reusing a parser to process new string records one at a time as they are being discovered.\" Could be using parser.parseNext() method? Actually CSVParser has method parse(String) maybe? Not sure.\n\nSimplify: Use CSVParser parser = new CSVParser(new StringReader(\"a,b,c\"), CSVFormat.DEFAULT); List<CSVRecord> records = parser.getRecords(); assert first record values. Then parser = new CSVParser(new StringReader(\"d,e,f\"), CSVFormat.DEFAULT); getRecords again.\n\nBut they want to reuse same parser instance, not create new. Maybe parser = CSVParser.parse(new StringReader(\"a,b,c\"), CSVFormat.DEFAULT); then parser = CSVParser.parse(new StringReader(\"d,e,f\"), CSVFormat.DEFAULT); Not reuse.\n\nGiven limited info, we can write a test that creates a parser, reads a line, then calls parser.close(); then reinitialize parser with new data using same variable. That's acceptable.\n\nWe'll need assertions: use org.junit.Assert.*.\n\nWrite:\n\npublic void testGetOneLineOneParser() throws IOException {\n    final CSVFormat format = CSVFormat.DEFAULT;\n    CSVParser parser = new CSVParser(new StringReader(\"a,b,c\"), format);\n    CSVRecord record = parser.iterator().next();\n    assertEquals(\"a\", record.get(0));\n    assertEquals(\"b\", record.get(1));\n    assertEquals(\"c\", record.get(2));\n    parser.close();\n\n    // reuse parser variable for new input\n    parser = new CSVParser(new StringReader(\"1,2,3\"), format);\n    record = parser.iterator().next();\n    assertEquals(\"1\", record.get(0));\n    assertEquals(\"2\", record.get(1));\n    assertEquals(\"3\", record.get(2));\n    parser.close();\n}\n\nBut maybe they want to use parser.getOneLine()? There is a method testGetOneLine defined earlier. Possibly CSVParser has method getOneLine()? Not sure.\n\nWe can call parser.getOneLine() if exists. But we don't know.\n\nBetter to use parser.getLine() method defined earlier in class: there is a testGetLine method. So parser.getLine() returns a CSVRecord? So we can use that.\n\nThus:\n\nCSVParser parser = new CSVParser(new StringReader(\"a,b,c\"), CSVFormat.DEFAULT);\nCSVRecord rec = parser.getLine();\nassertEquals(\"a\", rec.get(0));\n...\n\nThen parser = new CSVParser(new StringReader(\"d,e,f\"), CSVFormat.DEFAULT);\nrec = parser.getLine();\n...\n\nWe'll write that.\n\nNeed imports: assume already imported.\n\nThus output only method code.\n\nMake sure to close parser after each usage.\n\nWrite final method.",
+        "content": "    /**\n     * Tests reusing a parser to process new string records one at a time as they are being discovered. See [CSV-110].\n     *\n     * @throws IOException\n     */\n    @Test\n    public void testGetOneLineOneParser() throws IOException {\n        final CSVFormat format = CSVFormat.DEFAULT;\n\n        // First record\n        CSVParser parser = new CSVParser(new StringReader(\"a,b,c\"), format);\n        CSVRecord record = parser.getLine();\n        assertNotNull(record);\n        assertEquals(\"a\", record.get(0));\n        assertEquals(\"b\", record.get(1));\n        assertEquals(\"c\", record.get(2));\n        parser.close();\n\n        // Reuse the same variable for a second record\n        parser = new CSVParser(new StringReader(\"1,2,3\"), format);\n        record = parser.getLine();\n        assertNotNull(record);\n        assertEquals(\"1\", record.get(0));\n        assertEquals(\"2\", record.get(1));\n        assertEquals(\"3\", record.get(2));\n        parser.close();\n    }"
+      }
+    }
+  ],
+  "created": 1793852007,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1062,
+    "prompt_tokens": 1686,
+    "total_tokens": 2748
+  },
+  "id": "chatcmpl-uHGc0owNxm3riD01XH2o9xMkXUfYBhXe",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1686,
+    "prompt_ms": 711.27,
+    "prompt_per_token_ms": 0.4218683274021352,
+    "prompt_per_second": 2370.4078619933357,
+    "predicted_n": 1062,
+    "predicted_ms": 5871.343,
+    "predicted_per_token_ms": 5.528571563088512,
+    "predicted_per_second": 180.87854857057405
+  }
+}

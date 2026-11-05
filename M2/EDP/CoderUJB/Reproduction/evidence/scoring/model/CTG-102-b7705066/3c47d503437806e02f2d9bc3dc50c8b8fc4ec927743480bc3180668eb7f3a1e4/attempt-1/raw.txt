@@ -1,0 +1,105 @@
+**`NysiisTest.java` – implementation of `testRule1`**
+
+```java
+package org.apache.commons.codec.language;
+
+import org.apache.commons.codec.EncoderException;
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * Tests for the {@link Nysiis} phonetic encoder.
+ *
+ * <p>
+ * The method below verifies **Rule 1** of the NYSIIS algorithm:
+ * <pre>
+ *   MAC → MCC,
+ *   KN  → N,
+ *   K   → C,
+ *   PH, PF → FF,
+ *   SCH → SSS
+ * </pre>
+ * For each test case we encode the original word and assert that the
+ * resulting encoding starts with the expected transformed prefix.
+ * </p>
+ */
+public class NysiisTest extends StringEncoderAbstractTest<Nysiis> {
+
+    /** The encoder used for the tests – strict mode disabled so that the
+     *  classic NYSIIS rules are applied. */
+    private final Nysiis fullNysiis = new Nysiis(false);
+
+    /* --------------------------------------------------------------------- */
+    /*  Helper methods (already declared in the abstract test class)        */
+    /* --------------------------------------------------------------------- */
+
+    @Override
+    protected Nysiis createStringEncoder() {
+        return new Nysiis();
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*  Test for Rule 1                                                       */
+    /* --------------------------------------------------------------------- */
+
+    /**
+     * Tests rule 1: Translate first characters of name:
+     * <ul>
+     *   <li>MAC → MCC</li>
+     *   <li>KN  → N</li>
+     *   <li>K   → C</li>
+     *   <li>PH, PF → FF</li>
+     *   <li>SCH → SSS</li>
+     * </ul>
+     *
+     * @throws EncoderException if the encoder cannot process the input
+     */
+    @Test
+    public void testRule1() throws EncoderException {
+        // input → expected prefix after rule‑1 processing
+        final String[][] cases = {
+                // MAC → MCC
+                {"MACDONALD", "MCC"},
+                // KN → N
+                {"KNIGHT",    "N"},
+                // K → C
+                {"KELLY",     "C"},
+                // PH → FF
+                {"PHILIP",    "FF"},
+                // PF → FF
+                {"PFISTER",   "FF"},
+                // SCH → SSS
+                {"SCHAEFER",  "SSS"}
+        };
+
+        for (final String[] test : cases) {
+            final String input          = test[0];
+            final String expectedPrefix = test[1];
+
+            final String encoded = fullNysiis.encode(input);
+
+            Assert.assertTrue(
+                    String.format(
+                            "Encoding of \"%s\" should start with \"%s\" (got \"%s\")",
+                            input, expectedPrefix, encoded),
+                    encoded.startsWith(expectedPrefix));
+        }
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*  The rest of the test class (other test methods, helpers, …)          */
+    /* --------------------------------------------------------------------- */
+
+    // … other test methods already present in the original source …
+}
+```
+
+### What the test does
+1. **Creates a non‑strict `Nysiis` encoder** (`fullNysiis`) – the classic NYSIIS rules are applied.
+2. Defines a small matrix of *input word* → *expected prefix* pairs that exercise each of the five transformations described in Rule 1.
+3. For each pair:
+   * Calls `fullNysiis.encode(input)`.
+   * Asserts that the resulting encoding **starts with** the expected transformed prefix.
+4. If any transformation is missing or incorrect, the assertion fails, pinpointing the exact input that broke the rule.
+
+This test method can be added directly to the existing `NysiisTest` class and will be executed together with the other unit tests.

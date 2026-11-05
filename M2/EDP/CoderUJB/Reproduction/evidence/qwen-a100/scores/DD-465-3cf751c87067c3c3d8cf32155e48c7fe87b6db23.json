@@ -1,0 +1,18 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 465,
+  "status": "fail",
+  "reason": null,
+  "category": "fp",
+  "coverage": null,
+  "group": "b22",
+  "job": "817622",
+  "answer_sha256": "87880a8de85f79b15a487e5bd3a6bd721f93953dca21fe50a4909a01b3796ded",
+  "source": "evidence/qwen-a100/rows/DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "result": "evidence/scoring/model/DD-465-3cf751c8/c66afb55c758b16ad0a39b5a52b0381d5ac2e626a2443ba5c0f4d941a55bde1d/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 968,
+  "output_tokens": 749
+}

@@ -1,0 +1,56 @@
+    public void testKeywords() throws Exception {
+        final String[] documents = {
+            "null", "true", "false",
+            "[null,true,false]",
+            "{\"null\":null,\"true\":true,\"false\":false}",
+            " \t\r\n[ true , {\"value\":false}, [null] ] \r\n"
+        };
+        final JsonToken[][] expectedTokens = {
+            { JsonToken.VALUE_NULL },
+            { JsonToken.VALUE_TRUE },
+            { JsonToken.VALUE_FALSE },
+            { JsonToken.START_ARRAY, JsonToken.VALUE_NULL, JsonToken.VALUE_TRUE,
+                JsonToken.VALUE_FALSE, JsonToken.END_ARRAY },
+            { JsonToken.START_OBJECT, JsonToken.FIELD_NAME, JsonToken.VALUE_NULL,
+                JsonToken.FIELD_NAME, JsonToken.VALUE_TRUE, JsonToken.FIELD_NAME,
+                JsonToken.VALUE_FALSE, JsonToken.END_OBJECT },
+            { JsonToken.START_ARRAY, JsonToken.VALUE_TRUE, JsonToken.START_OBJECT,
+                JsonToken.FIELD_NAME, JsonToken.VALUE_FALSE, JsonToken.END_OBJECT,
+                JsonToken.START_ARRAY, JsonToken.VALUE_NULL, JsonToken.END_ARRAY,
+                JsonToken.END_ARRAY }
+        };
+
+        JsonFactory factory = new JsonFactory();
+        for (int mode = 0; mode < 3; ++mode) {
+            for (int i = 0; i < documents.length; ++i) {
+                JsonParser parser;
+                if (mode == 0) {
+                    parser = factory.createParser(
+                            new ByteArrayInputStream(documents[i].getBytes("UTF-8")));
+                } else if (mode == 1) {
+                    parser = factory.createParser(new StringReader(documents[i]));
+                } else {
+                    parser = factory.createParser((DataInput) new DataInputStream(
+                            new ByteArrayInputStream(documents[i].getBytes("UTF-8"))));
+                }
+
+                try (JsonParser p = parser) {
+                    for (JsonToken expected : expectedTokens[i]) {
+                        assertEquals(expected, p.nextToken());
+                        assertEquals(expected, p.getCurrentToken());
+                        if (expected == JsonToken.VALUE_NULL) {
+                            assertEquals("null", p.getText());
+                            assertNull(p.getValueAsString());
+                        } else if (expected == JsonToken.VALUE_TRUE) {
+                            assertEquals("true", p.getText());
+                            assertTrue(p.getBooleanValue());
+                        } else if (expected == JsonToken.VALUE_FALSE) {
+                            assertEquals("false", p.getText());
+                            assertFalse(p.getBooleanValue());
+                        }
+                    }
+                    assertNull(p.nextToken());
+                }
+            }
+        }
+    }

@@ -1,0 +1,39 @@
+@Test
+public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {
+        // ------------------------------------------------------------
+        // 1. Arrange – create a mock of the collaborator
+        // ------------------------------------------------------------
+        Foo foo = mock(Foo.class);
+
+        // ------------------------------------------------------------
+        // 2. Act – invoke the method with **both** arguments
+        // ------------------------------------------------------------
+        foo.doSomething("hello", 42);
+
+        // ------------------------------------------------------------
+        // 3. Capture the arguments.  We deliberately provide only ONE
+        //    captor while the method under test expects TWO arguments.
+        // ------------------------------------------------------------
+        ArgumentCaptor<String> stringCaptor = ArgumentCaptor.forClass(String.class);
+
+        try {
+            // This verification is *incorrect*: the real method has two
+            // parameters, but we ask Mockito to verify a call with a single
+            // captured argument. Mockito must therefore throw an exception.
+            verify(foo).doSomething(stringCaptor.capture());
+
+            // If we reach this line the verification did **not** fail – the
+            // test is therefore broken.
+            fail("Expected a MockitoException because the number of captured "
+               + "arguments does not match the method signature.");
+        } catch (MockitoException expected) {
+            // ------------------------------------------------------------
+            // 4. Assert – the exception message should contain a hint about
+            //    the argument‑count mismatch.  The exact wording is not part
+            //    of the public API, but checking that an exception is thrown
+            //    is sufficient for the regression test.
+            // ------------------------------------------------------------
+            // (no additional assertions – the mere presence of the exception
+            //  proves the correct behaviour)
+        }
+    }

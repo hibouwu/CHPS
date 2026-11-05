@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 41,
+  "task_id": "15f1707f5eb0b9d6cebece154c25df4a7aae8d618c89e22ab738e0d1b2a6fc59",
+  "project": "JacksonDatabind",
+  "bug_id": "46",
+  "chat_sha256": "015983d7ff1d459a56a3f70b4ed07bb973ccd71e29c5d6460b6263feeeefc1f6",
+  "complete_sha256": "01b2f09edd2588683e82c40d1564f7da1706b8adad656047c903e02cfa99cc77",
+  "checked_at": "2026-11-05T02:56:50.682969+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-41-9d01e632/00bc1bf19e3927f30a3d1aebb83ae9642c5863a5aca12fc282919c7213b04bb7/attempt-1/result.json"
+}

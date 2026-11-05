@@ -1,0 +1,103 @@
+**Test implementation**
+
+```java
+package org.joda.time.field;
+
+import java.util.Locale;
+
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import org.joda.time.Chronology;
+import org.joda.time.DateTimeFieldType;
+import org.joda.time.DurationField;
+import org.joda.time.DurationFieldType;
+import org.joda.time.chrono.ISOChronology;
+
+/**
+ * Tests for {@link UnsupportedDateTimeField}.
+ */
+public class TestUnsupportedDateTimeField extends TestCase {
+
+    /** The field type that will be used for all the calls – any supported type works. */
+    private DateTimeFieldType fieldType;
+
+    /** Two different duration fields that will be paired with the same {@code fieldType}. */
+    private DurationField weeksDuration;
+    private DurationField monthsDuration;
+
+    /** -----------------------------------------------------------------------
+     *  Boiler‑plate for JUnit‑3 test suites
+     *  ----------------------------------------------------------------------- */
+    public static TestSuite suite() {
+        return new TestSuite(TestUnsupportedDateTimeField.class);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+
+        // a concrete DateTimeFieldType – hourOfDay is convenient and always present
+        fieldType = DateTimeFieldType.hourOfDay();
+
+        // obtain two *different* DurationField instances from the ISO chronology
+        Chronology iso = ISOChronology.getInstanceUTC();
+        weeksDuration  = DurationFieldType.weeks().getField(iso);
+        monthsDuration = DurationFieldType.months().getField(iso);
+    }
+
+    /**
+     * This test exercises the logic in {@link UnsupportedDateTimeField#getInstance}.
+     * If {@code getInstance()} is invoked twice with the same {@code DateTimeFieldType}
+     * but **different** {@code DurationField}s, the two returned objects must be
+     * distinct.  The cache inside {@code UnsupportedDateTimeField} is keyed by the
+     * *pair* (type, duration), therefore a different duration must produce a
+     * different instance.
+     */
+    public void testDifferentDurationReturnDifferentObjects() {
+        // first instance – weeks as the duration field
+        UnsupportedDateTimeField weeksField =
+                UnsupportedDateTimeField.getInstance(fieldType, weeksDuration);
+
+        // second instance – months as the duration field
+        UnsupportedDateTimeField monthsField =
+                UnsupportedDateTimeField.getInstance(fieldType, monthsDuration);
+
+        // The two objects must not be the same reference …
+        assertNotSame(
+                "Instances with different DurationFields must not be the same object",
+                weeksField,
+                monthsField);
+
+        // … and they must not be equal according to Object.equals (the class does not
+        // override equals, so reference inequality is enough, but we check it explicitly).
+        assertFalse(
+                "Instances with different DurationFields must not be equal",
+                weeksField.equals(monthsField));
+
+        // As an additional sanity‑check, the cache should return the *same* instance
+        // when the same pair is requested again.
+        UnsupportedDateTimeField weeksFieldAgain =
+                UnsupportedDateTimeField.getInstance(fieldType, weeksDuration);
+        assertSame(
+                "Repeated request with the same (type,duration) pair must return the cached instance",
+                weeksField,
+                weeksFieldAgain);
+    }
+}
+```
+
+### What the test does
+
+1. **Setup**  
+   * Chooses a concrete `DateTimeFieldType` (`hourOfDay`).  
+   * Retrieves two *different* `DurationField` objects (`weeks` and `months`) from the ISO chronology.
+
+2. **Exercise**  
+   * Calls `UnsupportedDateTimeField.getInstance` twice with the **same** field type but **different** duration fields.
+
+3. **Verify**  
+   * `assertNotSame` guarantees that the two returned references are different objects.  
+   * `assertFalse(...equals...)` guarantees they are not considered equal (the class does not override `equals`, so reference inequality suffices).  
+   * An extra sanity‑check (`assertSame`) confirms that the cache returns the same instance when the identical pair is requested again.
+
+The test follows the JUnit‑3 style used by the original abstract test class and fully validates the contract described in the natural‑language annotation.

@@ -1,0 +1,28 @@
+
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY");
+        FastDateFormat fdf = FastDateFormat.getInstance("YYYY");
+        assertEquals(sdf.format(date), fdf.format(date));
+    }
+
+// ## Issue-Link: 
+// https://issues.apache.org/jira/browse/LANG-719
+// 
+// ## Issue-Key: 
+// Lang-LANG-719
+// 
+// ## Issue-Branch: 
+// master
+// 
+// ## Issue-Branch-Status: 
+// OK
+// 
+// ## Issue-Branch-Commit: 
+// 16975706657d41b81b315b0a68658762c0c59369
+// 
+// ## Issue-Branch-Commit-Status: 
+// OK
+// 
+// ## Issue-Branch-Tracker-ID: 
+// 
+// ## Issue-Branch-Tracker-Status: 

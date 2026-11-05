@@ -1,0 +1,52 @@
+public String soundex(String str) {
+        if (str == null) {
+            return null;
+        }
+
+        // Normalise – Soundex works on upper‑case English letters only
+        String upper = str.toUpperCase(Locale.ENGLISH);
+        if (upper.length() == 0) {
+            return "";
+        }
+
+        // First character is kept verbatim (must be a letter)
+        char first = upper.charAt(0);
+        if (!Character.isLetter(first)) {
+            throw new IllegalArgumentException("First character must be a letter: " + str);
+        }
+
+        StringBuilder result = new StringBuilder();
+        result.append(first);
+
+        // Previous encoded digit – initialise with the code of the first letter
+        char prevCode = map(first);
+
+        // Encode the rest of the characters
+        for (int i = 1; i < upper.length() && result.length() < maxLength; i++) {
+            char ch = upper.charAt(i);
+            char code = map(ch);
+
+            // Skip characters that map to '0' (vowels, H, W, Y) – they do not appear in the output
+            if (code == '0') {
+                prevCode = code; // still update prevCode to suppress duplicates across a vowel
+                continue;
+            }
+
+            // Suppress consecutive duplicate codes
+            if (code != prevCode) {
+                result.append(code);
+            }
+            prevCode = code;
+        }
+
+        // Pad with '0' to reach the required length
+        while (result.length() < maxLength) {
+            result.append('0');
+        }
+
+        // Truncate if we somehow exceeded the length (should not happen because of the loop guard)
+        if (result.length() > maxLength) {
+            return result.substring(0, maxLength);
+        }
+        return result.toString();
+    }

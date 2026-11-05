@@ -1,0 +1,19 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 795,
+  "batch": "b01",
+  "status": "fail",
+  "reason": null,
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": "fp",
+  "coverage": null,
+  "result": "evidence/scoring/model/DD-795-3cf751c8/3106c11d2dce5446e1b4981c0ea50eef8acc12296c6514f0f610b9fc7fbef964/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 302,
+    "prompt_tokens": 650,
+    "total_tokens": 952
+  },
+  "final_sha256": "b08101b3a8ddf6c580e56f8379da7f2c615a03e8b6ed36939479eec05411ade0"
+}

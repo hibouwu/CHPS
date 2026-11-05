@@ -1,0 +1,74 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 1,
+  "task_id": "0078efdc209652789a5c00ed61c9274578a2178f02ca6e481cab8975bd4c9c25",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "0e6e1adab3b2cee9f8fb3e3c0d36a14f1d2781e2da43b38dd2b162ada65d872b",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "7c8daa829175a038038c6dc63447650ddc37059801f57e29bd84f7f5a49d4b72",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "JacksonCore",
+  "bug_id": "15",
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "JacksonCore",
+        "-v",
+        "15f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-1-teyvkpsf/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.467,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-1-teyvkpsf/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 2.669,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-1-teyvkpsf/fixed",
+        "-t",
+        "com.fasterxml.jackson.core.filter.BasicParserFilteringTest::testNotAllowMultipleMatches"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.066,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "com.fasterxml.jackson.core.filter.BasicParserFilteringTest::testNotAllowMultipleMatches",
+      "failed": [
+        "com.fasterxml.jackson.core.filter.BasicParserFilteringTest::testNotAllowMultipleMatches"
+      ]
+    }
+  },
+  "reason": "target test failed"
+}

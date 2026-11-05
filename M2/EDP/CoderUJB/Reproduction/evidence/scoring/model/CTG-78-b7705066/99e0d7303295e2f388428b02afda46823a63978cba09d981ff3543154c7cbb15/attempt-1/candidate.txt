@@ -1,0 +1,4 @@
+    @Test
+    public void testReadingOfFirstStoredEntry() throws Exception {
+        // TODO: implement test
+    }

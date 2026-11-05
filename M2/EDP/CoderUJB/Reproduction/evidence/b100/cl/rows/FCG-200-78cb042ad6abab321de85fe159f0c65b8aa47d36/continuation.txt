@@ -1,0 +1,27 @@
+
+        if (data == null) {
+            return null;
+        }
+        final List<byte[]> result = new ArrayList<>(data.length);
+        for (final ZipExtraField ze : data) {
+            final byte[] b = ze.getCentralDirectoryData();
+            if (b != null) {
+                result.add(b);
+            }
+        }
+        return ZipExtraFieldUtils.mergeArrays(result);
+    }
+
+// You are a professional Java programmer, please create a function named `mergeLocalFileDataData` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Merges the local file data fields of the given ZipExtraFields.
+     * @param data an array of ExtraFields
+     * @return an array of bytes
+     */
+    public static byte[] mergeLocalFileDataData(final ZipExtraField[] data) {
+        if (data == null) {
+            return null;
+        }
+        final List<byte[]> result = new ArrayList<>(data.length);
+        for (final ZipExtraField ze :

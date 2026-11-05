@@ -1,0 +1,155 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```java
+    public StrBuilder appendln(final boolean value);
+    public StrBuilder appendln(final char ch);
+    public StrBuilder appendln(final int value);
+    public StrBuilder appendln(final long value);
+    public StrBuilder appendln(final float value);
+    public StrBuilder appendln(final double value);
+    public <T> StrBuilder appendAll(final T... array);
+    public StrBuilder appendAll(final Iterable<?> iterable);
+    public StrBuilder appendAll(final Iterator<?> it);
+    public StrBuilder appendWithSeparators(final Object[] array, String separator);
+    public StrBuilder appendWithSeparators(final Iterable<?> iterable, String separator);
+    public StrBuilder appendWithSeparators(final Iterator<?> it, String separator);
+    public StrBuilder appendSeparator(final String separator);
+    public StrBuilder appendSeparator(final String standard, final String defaultIfEmpty);
+    public StrBuilder appendSeparator(final char separator);
+    public StrBuilder appendSeparator(final char standard, final char defaultIfEmpty);
+    public StrBuilder appendSeparator(final String separator, final int loopIndex);
+    public StrBuilder appendSeparator(final char separator, final int loopIndex);
+    public StrBuilder appendPadding(final int length, final char padChar);
+    public StrBuilder appendFixedWidthPadLeft(final Object obj, final int width, final char padChar);
+    public StrBuilder appendFixedWidthPadLeft(final int value, final int width, final char padChar);
+    public StrBuilder appendFixedWidthPadRight(final Object obj, final int width, final char padChar);
+    public StrBuilder appendFixedWidthPadRight(final int value, final int width, final char padChar);
+    public StrBuilder insert(final int index, final Object obj);
+    public StrBuilder insert(final int index, String str);
+    public StrBuilder insert(final int index, final char chars[]);
+    public StrBuilder insert(final int index, final char chars[], final int offset, final int length);
+    public StrBuilder insert(int index, final boolean value);
+    public StrBuilder insert(final int index, final char value);
+    public StrBuilder insert(final int index, final int value);
+    public StrBuilder insert(final int index, final long value);
+    public StrBuilder insert(final int index, final float value);
+    public StrBuilder insert(final int index, final double value);
+    private void deleteImpl(final int startIndex, final int endIndex, final int len);
+    public StrBuilder delete(final int startIndex, int endIndex);
+    public StrBuilder deleteAll(final char ch);
+    public StrBuilder deleteFirst(final char ch);
+    public StrBuilder deleteAll(final String str);
+    public StrBuilder deleteFirst(final String str);
+    public StrBuilder deleteAll(final StrMatcher matcher);
+    public StrBuilder deleteFirst(final StrMatcher matcher);
+    private void replaceImpl(final int startIndex, final int endIndex, final int removeLen, final String insertStr, final int insertLen);
+    public StrBuilder replace(final int startIndex, int endIndex, final String replaceStr);
+    public StrBuilder replaceAll(final char search, final char replace);
+    public StrBuilder replaceFirst(final char search, final char replace);
+    public StrBuilder replaceAll(final String searchStr, final String replaceStr);
+    public StrBuilder replaceFirst(final String searchStr, final String replaceStr);
+    public StrBuilder replaceAll(final StrMatcher matcher, final String replaceStr);
+    public StrBuilder replaceFirst(final StrMatcher matcher, final String replaceStr);
+    public StrBuilder replace(
+            final StrMatcher matcher, final String replaceStr,
+            final int startIndex, int endIndex, final int replaceCount);
+    private StrBuilder replaceImpl(
+            final StrMatcher matcher, final String replaceStr,
+            final int from, int to, int replaceCount);
+    public StrBuilder reverse();
+    public StrBuilder trim();
+    public boolean startsWith(final String str);
+    public boolean endsWith(final String str);
+    @Override
+    public CharSequence subSequence(final int startIndex, final int endIndex);
+    public String substring(final int start);
+    public String substring(final int startIndex, int endIndex);
+    public String leftString(final int length);
+    public String rightString(final int length);
+    public String midString(int index, final int length);
+    public boolean contains(final char ch);
+    public boolean contains(final String str);
+    public boolean contains(final StrMatcher matcher);
+    public int indexOf(final char ch);
+    public int indexOf(final char ch, int startIndex);
+    public int indexOf(final String str);
+    public int indexOf(final String str, int startIndex);
+    public int indexOf(final StrMatcher matcher);
+    public int indexOf(final StrMatcher matcher, int startIndex);
+    public int lastIndexOf(final char ch);
+    public int lastIndexOf(final char ch, int startIndex);
+    public int lastIndexOf(final String str);
+    public int lastIndexOf(final String str, int startIndex);
+    public int lastIndexOf(final StrMatcher matcher);
+    public int lastIndexOf(final StrMatcher matcher, int startIndex);
+    public StrTokenizer asTokenizer();
+    public Reader asReader();
+    public Writer asWriter();
+    public boolean equalsIgnoreCase(final StrBuilder other);
+    public boolean equals(final StrBuilder other);
+    @Override
+    public boolean equals(final Object obj);
+    @Override
+    public int hashCode();
+    @Override
+    public String toString();
+    public StringBuffer toStringBuffer();
+    public StringBuilder toStringBuilder();
+    @Override
+    public String build();
+    protected int validateRange(final int startIndex, int endIndex);
+    protected void validateIndex(final int index);
+    StrBuilderTokenizer();
+    @Override
+        protected List<String> tokenize(final char[] chars, final int offset, final int count);
+    @Override
+        public String getContent();
+    StrBuilderReader();
+    @Override
+        public void close();
+    @Override
+        public int read();
+    @Override
+        public int read(final char b[], final int off, int len);
+    @Override
+        public long skip(long n);
+    @Override
+        public boolean ready();
+    @Override
+        public boolean markSupported();
+    @Override
+        public void mark(final int readAheadLimit);
+    @Override
+        public void reset();
+    StrBuilderWriter();
+    @Override
+        public void close();
+    @Override
+        public void flush();
+    @Override
+        public void write(final int c);
+    @Override
+        public void write(final char[] cbuf);
+    @Override
+        public void write(final char[] cbuf, final int off, final int len);
+    @Override
+        public void write(final String str);
+    @Override
+        public void write(final String str, final int off, final int len);
+}
+```
+
+You are a professional Java programmer, please create a function named `deleteFirst` based on the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Deletes the string wherever it occurs in the builder.
+     *
+     * @param str  the string to delete, null causes no action
+     * @return this, to enable chaining
+     */
+    public StrBuilder deleteFirst(final String str) {
+
+```<|im_end|>
+<|im_start|>assistant

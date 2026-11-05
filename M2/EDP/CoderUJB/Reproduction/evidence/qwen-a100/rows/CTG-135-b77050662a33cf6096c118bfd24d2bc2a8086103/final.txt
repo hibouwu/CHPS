@@ -1,0 +1,59 @@
+Certainly! Below is a test case named `testSecond` for the `DateTimeComparator` class. This test case will focus on comparing two `DateTime` objects using a `DateTimeComparator` that compares up to the second level. It will check both equal and unequal comparisons.
+
+```java
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeFieldType;
+import org.joda.time.DateTimeComparator;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class TestDateTimeComparator extends TestCase {
+
+    private static final DateTimeComparator cSecond = DateTimeComparator.getInstance(DateTimeFieldType.secondOfMinute());
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+
+    /**
+     * Test unequal comparisons with second comparators.
+     */
+    @Test
+    public void testSecond() {
+        // Create two DateTime objects with different seconds
+        DateTime aDateTime = new DateTime(2023, 10, 5, 12, 30, 45); // 45 seconds
+        DateTime bDateTime = new DateTime(2023, 10, 5, 12, 30, 46); // 46 seconds
+
+        // Test comparison where bDateTime is after aDateTime
+        assertEquals("SecondP1", 1, cSecond.compare(bDateTime, aDateTime));
+
+        // Test comparison where aDateTime is before bDateTime
+        assertEquals("SecondM1", -1, cSecond.compare(aDateTime, bDateTime));
+
+        // Create two DateTime objects with the same seconds
+        DateTime cDateTime = new DateTime(2023, 10, 5, 12, 30, 45); // 45 seconds
+        DateTime dDateTime = new DateTime(2023, 10, 5, 12, 30, 45); // 45 seconds
+
+        // Test comparison where both dates are equal
+        assertEquals("SecondEqual", 0, cSecond.compare(cDateTime, dDateTime));
+    }
+}
+```
+
+### Explanation:
+- **Setup**: The `setUp` and `tearDown` methods are overridden but left empty as no specific setup or teardown is required for this test.
+- **Test Method**: The `testSecond` method creates four `DateTime` objects:
+  - `aDateTime` and `bDateTime` have different seconds (45 and 46 respectively).
+  - `cDateTime` and `dDateTime` have the same seconds (both 45).
+- **Comparisons**:
+  - The first assertion checks that `bDateTime` is considered greater than `aDateTime` when compared by seconds.
+  - The second assertion checks that `aDateTime` is considered less than `bDateTime`.
+  - The third assertion checks that `cDateTime` and `dDateTime` are considered equal when compared by seconds.
+
+This test ensures that the `DateTimeComparator` correctly handles comparisons at the second level granularity.

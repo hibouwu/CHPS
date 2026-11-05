@@ -1,0 +1,18 @@
+public void testBug1864222() {
+        TimeSeries foo = new TimeSeries("foo", Day.class);
+        foo.add(new Day(19, 4, 2005), 1);
+        foo.add(new Day(25, 5, 2005), 1);
+        foo.add(new Day(28, 5, 2005), 1);
+        foo.add(new Day(30, 5, 2005), 1);
+        foo.add(new Day(1, 6, 2005), 1);
+        foo.add(new Day(3, 6, 2005), 1);
+        foo.add(new Day(19, 8, 2005), 1);
+        foo.add(new Day(31, 1, 2006), 1);
+
+        try {
+            TimeSeries bar = foo.createCopy(new Day(1, 12, 2005), new Day(18, 1, 2006));
+            assertEquals(0, bar.getItemCount());
+        } catch (CloneNotSupportedException e) {
+            fail("CloneNotSupportedException should not be thrown");
+        }
+    }

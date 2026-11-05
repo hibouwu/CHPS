@@ -1,0 +1,11 @@
+@Test
+public void testReflectionArrayAndObjectCycle() throws Exception {
+    final Object[] objects = new Object[1];
+    objects[0] = new SimpleReflectionTestFixture(objects);
+
+    final String expected = toBaseString(objects) + "[{"
+            + toBaseString(objects[0]) + "[o=" + toBaseString(objects) + "]}]";
+
+    assertEquals(expected, ToStringBuilder.reflectionToString(objects));
+    validateNullToStringStyleRegistry();
+}

@@ -1,0 +1,14 @@
+public TextNode splitText(int offset) {
+        String text = getWholeText();
+        Validate.isTrue(offset >= 0, "Split offset must be not be negative");
+        Validate.isTrue(offset < text.length(), "Split offset must not be greater than current text length");
+
+        String head = text.substring(0, offset);
+        String tail = text.substring(offset);
+        text(head);
+
+        TextNode tailNode = new TextNode(tail);
+        if (parent() != null)
+            parent().addChildren(siblingIndex() + 1, tailNode);
+        return tailNode;
+    }

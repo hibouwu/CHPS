@@ -1,0 +1,15 @@
+public static MessageDigest updateDigest(final MessageDigest digest, final InputStream data) throws IOException {
+    if (digest == null) {
+        throw new IllegalArgumentException("MessageDigest cannot be null");
+    }
+    if (data == null) {
+        throw new IllegalArgumentException("InputStream cannot be null");
+    }
+
+    final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+    int read;
+    while ((read = data.read(buffer)) > -1) {
+        digest.update(buffer, 0, read);
+    }
+    return digest;
+}

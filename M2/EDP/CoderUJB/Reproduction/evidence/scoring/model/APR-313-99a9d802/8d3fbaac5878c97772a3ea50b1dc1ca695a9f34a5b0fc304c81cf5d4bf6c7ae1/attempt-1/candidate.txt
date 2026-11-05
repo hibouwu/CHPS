@@ -1,0 +1,59 @@
+@Override
+public void visit(NodeTraversal t, Node n, Node parent) {
+  // -----------------------------------------------------------------
+  // 1.  Do not process the root node of the scope we are building.
+  // -----------------------------------------------------------------
+  if (n == scope.getRootNode()) {
+    return;
+  }
+
+  // -----------------------------------------------------------------
+  // 2.  The parameter list of a function is a child of the FUNCTION node.
+  //     When we see it we have to declare the arguments.
+  // -----------------------------------------------------------------
+  // In the current AST the parameter list node has type Token.PARAM_LIST.
+  // (Older code used Token.LP – that no longer works.)
+  if (n.getToken() == Token.PARAM_LIST && parent.getToken() == Token.FUNCTION) {
+    // `parent` is the FUNCTION node; handleFunctionInputs expects the
+    // function node, not the PARAM_LIST node.
+    handleFunctionInputs(parent);
+    return;
+  }
+
+  // -----------------------------------------------------------------
+  // 3.  Attach literal types (e.g. object‑literal, array‑literal) before we
+  //     start looking at declarations.
+  // -----------------------------------------------------------------
+  attachLiteralTypes(n);
+
+  // -----------------------------------------------------------------
+  // 4.  Process the different declaration kinds that can appear in a
+  //     local scope.
+  // -----------------------------------------------------------------
+  switch (n.getToken()) {
+    case FUNCTION:
+      // Named function expressions have a NAME node as their parent.
+      // The name is already declared by the parent, so we skip it.
+      if (parent.getToken() == Token.NAME) {
+        return;
+      }
+      defineDeclaredFunction(n, parent);
+      break;
+
+    case CATCH:
+      defineCatch(n, parent);
+      break;
+
+    // `var`, `let` and `const` all introduce a new variable in the current
+    // scope.  The existing `defineVar` routine records the declaration kind.
+    case VAR:
+    case LET:
+    case CONST:
+      defineVar(n, parent);
+      break;
+
+    default:
+      // No local declaration to handle.
+      break;
+  }
+}

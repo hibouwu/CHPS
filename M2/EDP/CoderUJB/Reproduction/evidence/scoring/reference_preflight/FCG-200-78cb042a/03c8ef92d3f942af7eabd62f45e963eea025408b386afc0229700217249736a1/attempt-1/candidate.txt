@@ -1,0 +1,32 @@
+    public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) {
+        final boolean lastIsUnparseableHolder = data.length > 0
+            && data[data.length - 1] instanceof UnparseableExtraFieldData;
+        final int regularExtraFieldCount =
+            lastIsUnparseableHolder ? data.length - 1 : data.length;
+
+        int sum = WORD * regularExtraFieldCount;
+        for (final ZipExtraField element : data) {
+            sum += element.getCentralDirectoryLength().getValue();
+        }
+        final byte[] result = new byte[sum];
+        int start = 0;
+        for (int i = 0; i < regularExtraFieldCount; i++) {
+            System.arraycopy(data[i].getHeaderId().getBytes(),
+                             0, result, start, 2);
+            System.arraycopy(data[i].getCentralDirectoryLength().getBytes(),
+                             0, result, start + 2, 2);
+            start += WORD;
+            final byte[] local = data[i].getCentralDirectoryData();
+            if (local != null) {
+                System.arraycopy(local, 0, result, start, local.length);
+                start += local.length;
+            }
+        }
+        if (lastIsUnparseableHolder) {
+            final byte[] local = data[data.length - 1].getCentralDirectoryData();
+            if (local != null) {
+                System.arraycopy(local, 0, result, start, local.length);
+            }
+        }
+        return result;
+    }

@@ -1,0 +1,97 @@
+public void testKeywords() throws Exception
+    {
+        // -----------------------------------------------------------------
+        // 1) Each keyword as a *stand‑alone* document (root value)
+        // -----------------------------------------------------------------
+        _verifyRootKeyword("null", JsonToken.VALUE_NULL, null);
+        _verifyRootKeyword("true", JsonToken.VALUE_TRUE, Boolean.TRUE);
+        _verifyRootKeyword("false", JsonToken.VALUE_FALSE, Boolean.FALSE);
+
+        // -----------------------------------------------------------------
+        // 2) Keywords as object field values
+        // -----------------------------------------------------------------
+        String obj = "{"
+                + "\"n\":null,"
+                + "\"t\":true ,"
+                + "\"f\":false"
+                + "}";
+        try (JsonParser p = jsonFactory.createParser(obj)) {
+            assertToken(JsonToken.START_OBJECT, p.nextToken());
+
+            // field "n" : null
+            assertToken(JsonToken.FIELD_NAME, p.nextToken());
+            assertEquals("n", p.currentName());
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getObject());               // getObject() returns null for VALUE_NULL
+
+            // field "t" : true
+            assertToken(JsonToken.FIELD_NAME, p.nextToken());
+            assertEquals("t", p.currentName());
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertTrue(p.getBooleanValue());
+
+            // field "f" : false
+            assertToken(JsonToken.FIELD_NAME, p.nextToken());
+            assertEquals("f", p.currentName());
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertFalse(p.getBooleanValue());
+
+            assertToken(JsonToken.END_OBJECT, p.nextToken());
+            assertNull(p.nextToken());               // no more content
+        }
+
+        // -----------------------------------------------------------------
+        // 3) Keywords inside an array (mixed with other scalar values)
+        // -----------------------------------------------------------------
+        String arr = "[ 1 , null , \"text\" , true , false , 3.14 ]";
+        try (JsonParser p = jsonFactory.createParser(arr)) {
+            assertToken(JsonToken.START_ARRAY, p.nextToken());
+
+            // 1 (int)
+            assertToken(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+            assertEquals(1, p.getIntValue());
+
+            // null
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getObject());
+
+            // "text"
+            assertToken(JsonToken.VALUE_STRING, p.nextToken());
+            assertEquals("text", p.getText());
+
+            // true
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertTrue(p.getBooleanValue());
+
+            // false
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertFalse(p.getBooleanValue());
+
+            // 3.14 (float)
+            assertToken(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+            assertEquals(3.14, p.getDoubleValue(), 0.000001);
+
+            assertToken(JsonToken.END_ARRAY, p.nextToken());
+            assertNull(p.nextToken());
+        }
+
+        // -----------------------------------------------------------------
+        // 4) Keywords with leading/trailing whitespace and line‑breaks
+        // -----------------------------------------------------------------
+        String ws = "\n  true \r\n  false\tnull  ";
+        try (JsonParser p = jsonFactory.createParser(ws)) {
+            // true
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertTrue(p.getBooleanValue());
+
+            // false
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertFalse(p.getBooleanValue());
+
+            // null
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getObject());
+
+            assertNull(p.nextToken());
+        }
+    }

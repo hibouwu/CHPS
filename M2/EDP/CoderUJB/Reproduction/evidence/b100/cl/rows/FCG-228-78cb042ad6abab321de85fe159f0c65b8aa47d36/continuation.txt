@@ -1,0 +1,19 @@
+
+    // BEGIN
+    if (peeked != PEEKED_NONE) {
+      int p = peeked;
+      peeked = PEEKED_NONE;
+      if (p == PEEKED_UNQUOTED_NAME) {
+        return nextUnquotedValue();
+      } else if (p == PEEKED_SINGLE_QUOTED_NAME) {
+        return nextQuotedValue('\'');
+      } else if (p == PEEKED_DOUBLE_QUOTED_NAME) {
+        return nextQuotedValue('"');
+      } else if (p == PEEKED_LONG) {
+        return Long.toString(peekedLong);
+      } else if (p == PEEKED_NUMBER) {
+        return nextNumber();
+      } else if (p == PEEKED_EOF) {
+        throw new JsonDataException("Expected a name but was END_OF_STREAM");
+      } else {
+        throw new JsonDataException("Expected a name but was " + peek() + "

@@ -1,0 +1,8 @@
+public PeriodConverter removePeriodConverter(PeriodConverter converter)
+        throws SecurityException {
+    if (converter == null) {
+        return null;
+    }
+    checkAlterPeriodConverters();
+    return (PeriodConverter) iPeriodConverters.remove(converter);
+}

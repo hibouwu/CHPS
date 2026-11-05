@@ -1,0 +1,14 @@
+public void testForID_String_old() {
+        // Get the DateTimeZone object for "MET"
+        DateTimeZone metTimeZone = DateTimeZone.forID("MET");
+
+        // Get the ID of the obtained DateTimeZone
+        String metTimeZoneId = metTimeZone.getID();
+
+        // Expected incorrect ID based on the bug report
+        String expectedIncorrectId = "Asia/Tehran";
+
+        // Assert that the obtained ID matches the incorrect one
+        assertEquals("The MET time zone is incorrectly mapped to " + expectedIncorrectId,
+                     expectedIncorrectId, metTimeZoneId);
+    }

@@ -1,0 +1,9 @@
+public void testUnexpectedToken() throws Exception {
+    Gson gson = new Gson();
+    try {
+      gson.fromJson("12345", Date.class);
+      fail("Expected JsonSyntaxException");
+    } catch (JsonSyntaxException expected) {
+      // Expected exception
+    }
+  }

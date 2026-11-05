@@ -1,0 +1,32 @@
+{
+  "model": "sol",
+  "configuration": "B",
+  "task": "ITG",
+  "task_idx": 85,
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.jfree.data.time.TimeSeries"
+    ],
+    "line_pct": 23.9,
+    "condition_pct": 15.7,
+    "instrumented_lines_hit": 67
+  },
+  "format_valid": true,
+  "mode": "chat",
+  "raw_model_sha256": "c831f570d4e0cc99477c74a6e7cf666f525576570320c53bc4e0ef2568e75105",
+  "scorer_input_sha256": "c831f570d4e0cc99477c74a6e7cf666f525576570320c53bc4e0ef2568e75105",
+  "removed_input_prefix": "",
+  "added_prompt_sha256": "0f3424d5152574f34fe198380ec392ceea1b3199e59ddafcfa5b5c3e905a985f",
+  "answer_untouched": true,
+  "source": "evidence/b100/sol/rows/ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "result": "evidence/scoring/model/ITG-85-9d01e632/73351476505804e52cc3a066b013fa430c7b6f8a5fce7b8ff9017c0036b60b70/attempt-1/result.json",
+  "finish_reason": "completed",
+  "input_truncated": false,
+  "input_tokens": 422,
+  "output_tokens": 316,
+  "compile_review": null
+}

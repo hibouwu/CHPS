@@ -1,0 +1,69 @@
+public String nextString() throws IOException {
+    int p = peeked;
+    if (p == PEEKED_UNQUOTED) {
+      peeked = PEEKED_NONE;
+      String result = peekedString;
+      peekedString = null;
+      return result;
+    }
+    if (p == PEEKED_SINGLE_QUOTED) {
+      peeked = PEEKED_NONE;
+      return nextQuotedValue('\'');
+    }
+    if (p == PEEKED_DOUBLE_QUOTED) {
+      peeked = PEEKED_NONE;
+      return nextQuotedValue('\"');
+    }
+    if (p == PEEKED_BUFFERED) {
+      peeked = PEEKED_NONE;
+      String result = peekedString;
+      peekedString = null;
+      return result;
+    }
+    if (p == PEEKED_LONG) {
+      peeked = PEEKED_NONE;
+      long value = peekedLong;
+      peekedLong = 0L;
+      return Long.toString(value);
+    }
+    if (p == PEEKED_NUMBER) {
+      peeked = PEEKED_NONE;
+      String result = new String(buffer, pos, peekedNumberLength);
+      pos += peekedNumberLength;
+      return result;
+    }
+
+    // Need to peek ahead to determine the token type.
+    int result = doPeek();
+    switch (result) {
+      case PEEKED_UNQUOTED:
+        peeked = PEEKED_NONE;
+        String unquoted = peekedString;
+        peekedString = null;
+        return unquoted;
+      case PEEKED_SINGLE_QUOTED:
+        peeked = PEEKED_NONE;
+        return nextQuotedValue('\'');
+      case PEEKED_DOUBLE_QUOTED:
+        peeked = PEEKED_NONE;
+        return nextQuotedValue('\"');
+      case PEEKED_BUFFERED:
+        peeked = PEEKED_NONE;
+        String buffered = peekedString;
+        peekedString = null;
+        return buffered;
+      case PEEKED_LONG:
+        peeked = PEEKED_NONE;
+        long longVal = peekedLong;
+        peekedLong = 0L;
+        return Long.toString(longVal);
+      case PEEKED_NUMBER:
+        peeked = PEEKED_NONE;
+        String number = new String(buffer, pos, peekedNumberLength);
+        pos += peekedNumberLength;
+        return number;
+      default:
+        throw new IllegalStateException(
+            "Expected a string but was " + peek() + locationString());
+    }
+}

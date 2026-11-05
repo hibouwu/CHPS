@@ -1,0 +1,18 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 12,
+  "task_id": "15bc9189bd259ea7f3210c38187cd56a761daf8889c0262f05da18f313a964fd",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "4751fc4249707f3f73ed863af9d051c0cb070f09e7131192e6cfa01801b35e27",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "73d795857a0c30b01763ac1b4db2eb9d928c79f30e08d7c118de4b7efa16eb89",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Codec",
+  "bug_id": 18,
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "reason": "official extraction missing target function"
+}

@@ -1,0 +1,105 @@
+{
+  "id": "resp_087370dd3e20f631016aebfb6d9ba487d2a32d47ab2f03b170",
+  "object": "response",
+  "created_at": 1793850221,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850226,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_087370dd3e20f631016aebfb6e989487d2bb4f81f075e26469",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_tyYZDA32stkgSOpnl5mqPIuHZNEyYR5rRUVsdmXkrhwt5dl55-Mhd9aShywmdW3pbrq-BBpNhlsUpEzf91iSIlJ07GUCqpFQHSmDKNJTuCNzl4oC1Vks514wlvdf6Mfz-1jJZiuDWH1y0M3hHvr-d23NQuSA6bxNJr3k9DaKrBNC-eixRKXV9kDhXZAXQIO37OjL3L30AOdZ6GVbVGb0Nwks3Zf3NrkRRqXR6gp82mZFY9vmlI4mxBWkU5gBqi1Ehz4PzJkzm0wz6NgyiKG2zLFuCbynQ3rpIeFuttJmky0-xa_6kCF5a5h3RTlil7Q4jnwSJ4g5P-MKM1Eq5nWp3KgozKbTS_bqMA2qWWcRzRvAghDVVP0JoI1VvcRmbbfwazYykpMe9W76DVN2B0SQgvweO_C_qoAPsPGsThTTJMKo7Ihyvqa8QMoNJpi1i5KKJCZPmAtAxmuDr1BZiOsbEmr761Tma1e1JBe22OlsKKoTO4Ra79NHMC9nVK9JXSHlS1tgSiOC1t_v8EvRSf6FRpN3HWH9qDraecrwRkZwoYcbdajYL3esYzlMlus1kBtBn7BIqQfYJgaSd17nqX5WShwmAUzyEkfiP0nM9EqThpYkq4Jq2lY-YLzQO6TQefPCDdTJ1zvmnRg3AK2Cl49Ul4z5OQfq5UWaEAgv2KuFxmPv0Cuq71ACr_nbncG2G4LZT2HW3TmqsTR5alOBTSiBIHZhI5R5d83ahTW42xGikj2ihT2uUL0ffK_sB45TILxScKSuACHVJ914wxn4aAIGKOL9S6eye1H4y8l89cesMNwR_DRk8KUYiUQRq3atMdZ4FVTxJzCEZb0AhjsCaGN5Xt_qF6SZakHYIiyI6EztgGdpuz4bVa12H8r_p8Xno3CYUx1J4h7dLzA8Ayz72JeQrsiVWxvRW_fBOxlbBnd9oLJnBcndBV6GriRkU9nezem53PeB6pgAqeA30UifOamk27fSFgFCfni-a8hyOJdfVf35fYL8YthFEww723aNU9hnha6HxEnKOTDQ-4eAkb5n7bsZ9sjpyQ1F4RTkmcqjvqUI8tMCbStPl_FKdmc1Ekf4o3CKOavPzZaqwwOrnUwsI7IfnG-WY8n8XJFZxWvE8NVTTUjcE-bH7zPe2OYFmMYZaVCHV-1ChK8ZQa6dagTgd5gDVOHqoHOEb6CKUoDyd9z247Slq_0ghXA4b35cbCn2UrY8p1_566DobuFwRA3sPW2lszty-0V9X-XmRt3BOz69AKxxXCGJsmsqtYOxO55h-Od9Zw_enfDUshxIx6YpLfzmxg6t7AGkhLI_MVvUBhZW0vI4BaiMPtHapkrKDBzq4tO3M5pfvWBafxMlKBC4Csz5B48oe6LE_PCqLzk392uSmMVX2FFEpiPcPjWu329H2z7mq7eQE1WtZwyodVBiB0mMQ8n8CbElHUZje_FclKZRxrwSI9BPSqPj08QshUZb1hrE0KnQ5RkrqUl-0ziL4to_Spt-o6OCQOHAQouM7wrE32-jUsoG3KnPWyebRcxcncF5xKFKaFqrdMkTQ7WTF_sxchilwLYoYB-2CjtwPXgQW-idDGLPtXOpX2pz4h8r5IRMuCGKRGoXJgpSaQ6Gi2WtKnkoQ9KOY9H8t_gKAQd8CGzeA1XE4JcwnT_YG32xCzIR3DSZf_2a3vt7_QzcXD60W7fpX-WESPM_-YW-F0R5y_RJwb5dKv260oLw_r3532Nrc3eC_lVN2vwocCbu_gYJryd5Lpk3519ZZnOhhaheTcuB_HWevGhCXjRizML5wRKZYecAugQJ5BK3370XO5boz_aNnkWety1-UAvREDTv9DB3WUfMdge_Frn8zqF9dozY_AAVBv0XXmhkM704yVuk-P3CYmDPlkAoH5VsQDed0nLB-TusDRwLU36EAtUqvYz1JmVWGnm3a5AOdUCxWclHDcZadmenYjJqRjepJcopYWtWztsRnuRkxUgz6jIuEoI4UctyvLbI3EQNy1SXf41GvyhlKDibCpP9EhQemhitE=",
+      "summary": []
+    },
+    {
+      "id": "msg_087370dd3e20f631016aebfb6f9afc87d28c8ed86721581a18",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "The issue is the method\u2019s `private` visibility. Although it works for `MultiKey` itself, a private `readResolve()` is not inherited by subclasses. Deserializing a subclass may therefore leave the transient cached hash code at its default value of `0`.\n\nMake the method `protected` so Java serialization can use it for subclasses as well:\n\n```java\n/**\n * Recalculates the hash code after deserialization. The hash codes of some\n * keys might have changed (identity-based hash codes are only stable\n * within the same process).\n *\n * @return this instance with its hash code recalculated\n */\nprotected Object readResolve() {\n    calculateHashCode(keys);\n    return this;\n}\n```\n\nThe recalculation and return value are already correct; the visibility is what needs fixing."
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 421,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 210,
+    "output_tokens_details": {
+      "reasoning_tokens": 42
+    },
+    "total_tokens": 631
+  },
+  "user": null,
+  "metadata": {}
+}

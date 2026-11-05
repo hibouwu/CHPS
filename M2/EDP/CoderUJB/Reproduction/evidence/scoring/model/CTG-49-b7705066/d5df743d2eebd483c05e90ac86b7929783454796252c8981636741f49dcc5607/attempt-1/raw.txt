@@ -1,0 +1,18 @@
+```java
+  /**
+   * Some globals should not be aliased because they have special meaning
+   * within the language (like arguments).
+   */
+  public void testUnaliasable() {
+    testSame(
+        EXTERNS,
+        "function example() { " +
+        "  var arg = arguments[0]; " +
+        "  eval('console.log(arg)'); " +
+        "}",
+        "function example() { " +
+        "  var arg = arguments[0]; " +
+        "  eval('console.log(arg)'); " +
+        "}");
+  }
+```

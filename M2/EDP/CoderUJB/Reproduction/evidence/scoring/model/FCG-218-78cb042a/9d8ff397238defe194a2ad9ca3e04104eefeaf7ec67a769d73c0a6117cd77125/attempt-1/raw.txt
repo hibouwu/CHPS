@@ -1,0 +1,119 @@
+Below is a **complete, self‑contained implementation** of the protected factory method  
+`_createUTF8Generator(OutputStream out, IOContext ctxt)` that follows the contract described in the Javadoc comment and mirrors the way the original Jackson `JsonFactory` does it.
+
+The implementation assumes the surrounding class (the concrete `JsonFactory` implementation) already has the following **instance fields** – they are the ones that Jackson’s `JsonFactory` keeps and that are needed to configure the generator:
+
+```java
+/* Feature bit‑mask for JsonGenerator (Jackson internal) */
+protected int _generatorFeatures;
+
+/* Cached mask that is passed to the generator constructor */
+protected int _generatorFeatureMask;
+
+/* Optional character‑escape customisation */
+protected CharacterEscapes _characterEscapes;
+
+/* Optional OutputDecorator supplied by the user */
+protected OutputDecorator _outputDecorator;
+
+/* Optional separator that is written between root‑level values */
+protected SerializableString _rootValueSeparator;
+```
+
+If your concrete factory does not already have those fields, add them (or the equivalent you use) – the method works with the standard Jackson field names.
+
+```java
+/**
+ * Overridable factory method that actually instantiates a generator for
+ * the given {@link OutputStream} and context object, using UTF‑8 encoding.
+ * <p>
+ * This method is specifically designed to remain compatible between minor
+ * versions so that sub‑classes can count on it being called as expected.
+ * That is, it is part of the official interface from the sub‑class perspective,
+ * although not a public method available to users of factory implementations.
+ *
+ * @param out   Output stream that the generator should write to
+ * @param ctxt  IOContext that holds recycling buffers and other I/O state
+ *
+ * @return a fully configured {@link JsonGenerator} that writes UTF‑8 encoded
+ *         JSON to {@code out}
+ *
+ * @throws IOException if an I/O error occurs while decorating the stream
+ *                     or constructing the generator
+ */
+protected JsonGenerator _createUTF8Generator(OutputStream out,
+                                            IOContext ctxt) throws IOException
+{
+    // 1. Apply an {@link OutputDecorator} if one has been configured.
+    //    The decorator may replace the stream (e.g. by adding compression)
+    //    or wrap it (e.g. by buffering).  The contract of OutputDecorator
+    //    is that it returns a non‑null OutputStream.
+    if (_outputDecorator != null) {
+        out = _outputDecorator.decorate(out, ctxt);
+        if (out == null) {
+            // Defensive programming – a broken decorator should not hide the
+            // problem from the caller.
+            throw new IllegalStateException("OutputDecorator returned null OutputStream");
+        }
+    }
+
+    // 2. Construct the concrete UTF‑8 generator.  In the reference
+    //    implementation this is {@code UTF8JsonGenerator}.  It receives
+    //    the IOContext, the feature mask and the (possibly decorated) stream.
+    JsonGenerator gen = new UTF8JsonGenerator(ctxt,
+                                              _generatorFeatures,
+                                              _generatorFeatureMask,
+                                              out);
+
+    // 3. If the factory has a custom {@link CharacterEscapes} instance,
+    //    configure the generator with it.
+    if (_characterEscapes != null) {
+        gen.setCharacterEscapes(_characterEscapes);
+    }
+
+    // 4. If a root‑value separator has been defined, pass it to the generator.
+    //    The separator is stored as a {@link SerializableString} (Jackson’s
+    //    internal representation of a pre‑encoded string).  If the field is
+    //    null we simply leave the generator with its default (no separator).
+    if (_rootValueSeparator != null) {
+        gen.setRootValueSeparator(_rootValueSeparator);
+    }
+
+    // 5. Return the fully‑configured generator.
+    return gen;
+}
+```
+
+### What the code does, step‑by‑step
+
+| Step | Action | Reason |
+|------|--------|--------|
+| **1** | Decorates the raw `OutputStream` using the optional `_outputDecorator`. | Allows users to plug in compression, buffering, etc., without the factory needing to know the details. |
+| **2** | Instantiates a `UTF8JsonGenerator` (the concrete generator that writes UTF‑8). | This is the core object that actually produces JSON output. |
+| **3** | Applies a custom `CharacterEscapes` instance if one was set on the factory. | Gives callers control over how characters are escaped (e.g., for HTML safety). |
+| **4** | Sets the root‑value separator (`_rootValueSeparator`) if present. | Enables writing a configurable token (often a newline) between top‑level JSON values. |
+| **5** | Returns the ready‑to‑use `JsonGenerator`. | The caller (or the public `createGenerator` overloads) receives a fully‑configured generator. |
+
+### Dependencies
+
+The method uses the following Jackson classes (all part of `com.fasterxml.jackson.core`):
+
+```java
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.io.IOContext;
+import com.fasterxml.jackson.core.io.OutputDecorator;
+import com.fasterxml.jackson.core.SerializableString;
+import com.fasterxml.jackson.core.util.CharacterEscapes;
+```
+
+If you are not using the exact Jackson package layout, replace the imports with the equivalents from your code base.
+
+### Extensibility
+
+Because the method is **protected**, subclasses can:
+
+* Override it to return a custom generator subclass.
+* Call `super._createUTF8Generator(out, ctxt)` and then further tweak the returned generator.
+* Replace the decoration step with additional logic (e.g., logging).
+
+All of this matches the intent expressed in the Javadoc comment: the method is part of the *official* subclass‑level contract while remaining hidden from end‑users of the factory.

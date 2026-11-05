@@ -1,0 +1,32 @@
+private Token parseSimpleToken(final Token token, int ch) throws IOException {
+        while (true) {
+            if (readEndOfLine(ch)) {
+                token.type = EORECORD;
+                break;
+            }
+            if (isEndOfFile(ch)) {
+                token.type = EOF;
+                token.isReady = true;
+                break;
+            }
+            if (isDelimiter(ch)) {
+                token.type = TOKEN;
+                break;
+            }
+            if (isEscape(ch)) {
+                final int unescaped = readEscape();
+                if (unescaped == END_OF_STREAM) {
+                    token.content.append((char) ch).append((char) reader.getLastChar());
+                } else {
+                    token.content.append((char) unescaped);
+                }
+            } else {
+                token.content.append((char) ch);
+            }
+            ch = reader.read();
+        }
+        if (ignoreSurroundingSpaces) {
+            trimTrailingSpaces(token.content);
+        }
+        return token;
+    }

@@ -1,0 +1,18 @@
+```java
+    @Test
+    public void testDecodeObjectException() {
+        try {
+            instance.decode(null);
+            fail("Expected DecoderException to be thrown");
+        } catch (DecoderException e) {
+            // Expected exception
+        }
+
+        try {
+            instance.decode(new Object());
+            fail("Expected DecoderException to be thrown");
+        } catch (DecoderException e) {
+            // Expected exception
+        }
+    }
+```

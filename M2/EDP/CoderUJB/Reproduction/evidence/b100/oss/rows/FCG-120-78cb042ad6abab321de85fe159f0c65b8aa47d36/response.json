@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; no markdown, no explanations.\n\nWe need to implement updateDigest(InputStream). Also there are other overloads: byte[], ByteBuffer, File, String. But only need to implement this method based on annotation. Provide code that reads stream in buffer and updates digest, returns digest.\n\nWe need to consider that other methods may call this; but we just implement this method.\n\nImplementation: check nulls? Probably similar to Apache Commons Codec DigestUtils implementation. Let's recall: In Apache Commons Codec 1.15, updateDigest(MessageDigest digest, InputStream data) reads using a buffer of size STREAM_BUFFER_LENGTH (1024). It loops reading into byte[] buffer, update digest with read bytes, until -1. Then returns digest.\n\nAlso need to close stream? Usually not; they just read and leave open. So we just read.\n\nImplementation:\n\npublic static MessageDigest updateDigest(final MessageDigest digest, final InputStream data) throws IOException {\n    final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];\n    int read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);\n    while (read != -1) {\n        digest.update(buffer, 0, read);\n        read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);\n    }\n    return digest;\n}\n\nAlso need to handle null digest or data? Could throw NullPointerException. We'll just assume non-null.\n\nThus output method.\n\nMake sure we include closing brace.\n\nNo extra code.\n\nLet's output exactly the method.",
+        "content": "    public static MessageDigest updateDigest(final MessageDigest digest, final InputStream data) throws IOException {\n        final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];\n        int read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);\n        while (read != -1) {\n            digest.update(buffer, 0, read);\n            read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);\n        }\n        return digest;\n    }"
+      }
+    }
+  ],
+  "created": 1793851884,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 422,
+    "prompt_tokens": 1341,
+    "total_tokens": 1763
+  },
+  "id": "chatcmpl-CYWBinMVpELy7cwGG52EizBzGfrGglyy",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1341,
+    "prompt_ms": 576.724,
+    "prompt_per_token_ms": 0.4300700969425802,
+    "prompt_per_second": 2325.202349824179,
+    "predicted_n": 422,
+    "predicted_ms": 2321.854,
+    "predicted_per_token_ms": 5.502023696682464,
+    "predicted_per_second": 181.75130736041115
+  }
+}

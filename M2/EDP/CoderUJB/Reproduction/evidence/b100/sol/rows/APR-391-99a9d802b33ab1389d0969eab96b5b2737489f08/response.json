@@ -1,0 +1,105 @@
+{
+  "id": "resp_0c019a2b66792d3e016aec023017e887d2ad9a184538d7723d",
+  "object": "response",
+  "created_at": 1793851952,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851966,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0c019a2b66792d3e016aec02313d9c87d2b555fee98ab3ccf6",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AI-dtEt3vzOdmO6auUSuXL4HsWQoPA154uoG80kHCa5T7QSVIPI6qVbSkdI4iw8nPX7uCdkJTodHgNPQJJrQ0t_dpgERxuKdrxkJq4kFTpfqizmXzruPlk1AewMERsR38ama7qjD7nGtFgJjIl3w-QBpffn_fwwnXNp7-wT7oN1umTSfhYwbJWP2u7LA6j2V9GLsRjagjvNjda2mr9cEzmwe1wDQqAqqMvqhdjtZml-_rMMDuBwC-u9bhFMbCsIg-f_e4pZYZWi7ZYi4LNbP3sPm2cgBhcShXvAKzp5Di3We9FUBgM7senhQlFa6ItGdwdEkmxpN3R-D9xFNjG8meNWTb3KLFF3TBTO9yZS7ImQxThKIAQ5Zl0azroWRCehPgXfMa1hlnqTbeP9OHTPbKMl2VtHearHHfESTSPikwkz8HwrpjKLdK9o5_fe2g0X0WWWeNZutaKwlJvcJY0DLkhtcdF1A83c1gYV-G_BFuhKVOGufwTP4Gv854CtQ6nF3tqlvMFs07pRrVdfOofT097i_fcvOI5kQTgm1I7tmkg-61O_x9eijKvBz0iQqEmANufhm2Tl_kg1pC0rNHBPwoZwCOyP033ZJ_RctCU4s1JVDhFonerXICuf5LYmmukupHzXNNMR5fxXl0e1eyy_BY_W2_3OjFMI3oiE4SFjcMN3Vp30NMvKbebo3Wx_WoWJ4eUiPYzIvqhaz529j3lPvOrm7xSoznt_uF1mhYLMALWBuoN32Kh1iDd8XUTb9zkVHwvCH9ioRWFw_69vUEnWdtClB3ARY6uEmb0MWDCZ66pmjtwvm6NumaLYNVWpkuWZqHIY7ZtKYYruFMVqrTupf4c0s-3jZZk9l_-2Jun7fWkN-ukesMQRLHjvCoHWuzqDYXTVon18oGJqN8MqVfRfnD8LbOhjD51FNCI1sX_NCHFLk0gLeUIjHaf8WeQQhAwmmSM-zwfWEgH7DbSEiWIzANTOmsWBaT-w8vf3OlPsESmBaXEXSUb5ohUMczVRPBY_ceT1-c6VNxQ7lgwNoqIXJlYwjwcJmcDJYeuf_E04u0jqAloBcLUkL54lxxw7hut1QcykcWxkYqkOr9lbVyY8n29L54VhQ_44RVtheUf6G-t2rQYZN4qqP0n8CFuys-3udHyyuJjsSx7rcjH_gPJYFuHHcAR3E0Ivo969wRWfprYhI3RD_Mz9VMCzOU-NcQGyLuFaACUwOk0yKoOrTfJodpdgMjlJF774ChZxXQrNtrrC8FI5s9yYZtSkFfSnYMuF93apglb_Et-txcqIDv5nCeNJrrNVpfr-LRvHlJRI2OPuKr3omRi_2h3dJC87_Q6MaKDJVjRowAVuQhmlMkR_m8hi2XxUDo3y2r0oeNRjbmbOivG6gYib5pBSz6lhEFd3QSDvzeWgpwObISiyOvRsb0ag34qT_Rk84sIgnMFrZK_NBBTmYP0X3lopqGV-MGdECdQC2QoRHrfjuFP1EzpBQNV67RDceWieZf28X3CYQ_Y8jQyVNPA1gUdNq6NcxIiYLJWqD63irmvArWGpc3_VNNNBmSmbeISmx-ozUcu6W14zXX1fvK5A95_GtN2Xv27-iS1t_JF7MlPi5B2X-kVmuYl5JWNlJ_mZOYBAo5XFGPkmG2ZXxHEl-2RyMgSkYjgxXxM4Gb8mNwML94BcA80_gntnH6CnXftBbXQPga9p7VAaKEComaMvbntIkblPvD-bB9-Hw5uG4Q9ibCpy9LHS4P6nac-RLtVDDgAj2CZMe5CCCmwttIyycOi1VCYtKJtYKrtobzyOARhZaJZtO4BbZ7fE36EHHLm-cpFLC1FxScwHVm43jvPRRDhG6nyMHn8TzHk5D7t6tv97i-Q3PZywt_D1uUw1YRsypBBUkqUV-1ERSa8O2nnNPjFIXMZ9kFnRpZ9Thj77vbxnNhNNgyOPwSR9d-89D4b-d3BEBOHKYeQAQ78_2HpubRX0m6nMW5tCW07Usm9fOPqnxLgzAJD_jBTFoDEvoRZbzsDKlHRd98bxX5FvGsQ19bXcyxv5_GFay760kKGGtQd5ol6oMLUyGQw1sTSh64Fjv7mpfWWIzHY108oRo1TuCKtzcDAWJvmkePwxNmbko3r4Q0o6EX8u13GMOSQvrRIKL18Mpt_htWuMjrbroqawk2HlIZRi9nGoYgQCVdJR3Uu-RqRaKRM5ft4MMwifp67IgRgpft7Qe9zKxIIUBH_F5FY8zkMdeHye44WTxwBkQGxwAdSVoNd_XavS3V-0NWYEVuuqRAjLRfNHmh9rd-_CEcZgwJ7fxHc3_n_gtF1CA3gSxpbKDzyR6UnD6r8ykQ_gTxj4aoRNNbKxev29BvD4ECL-VWOYVWjlOK5-je8U0kpO6-fmnz9lVTj_girU705TnUdyGtb3mxl_OjuRPa9xYs8CRlu2Sg4TN4Qbx31Pok5GqDLx1jgHA89LrvudSxvxiHfHs3BWW25FPUeRZkLq6LGqmsY0DUpaGfmkl1QZLz2D5O6Cjh9wD0fI4LVj0td1AgVo-kablJ_A1UpnL6kkLmEwLma1f9ZPrNRLar0nA_L5KShLRb6nfj_Z5Dq2xNL6b1qcdtQp7xxb_rwVfTvOfAHxQT8M7Y4lJVcInpiwQYMzDUTZsXNjljLLeV9ruovPg7lLptgiwN2FV1ZgaWYzUqGMfPxnDNfgkSwNQuA8vYXf_iqCWmh1P6iw5xaKK5sWMl-wyFm0Y8h-o_ARNMLW_ThPZicfft87i-OqLch5NHs9rM0Q-VkNbYK6M0EAmSrTsh3ddvJk4reA-_Hw3othRdcXOtZ7GvYrNRZWDls3VKUZTzyR1HCNbHtrysOrmyPGzhJh1hoMUZzW4XjinLhF7KaB4XWUlvOWlM10LI9GKpWHyMWHmlfpSQ_QOabstvyKvY--sMpRcBXx3KlfDsNNI3vkQ_KXKiR0W17QT6Tk5zlcf6nAXBmUEPkJ-Z4Mx5jinWv3PB_wQJQbHzAtaxR8atW2DlJbeA1yomHW7dNspI4cngSLULZtr6RoydUTzT3jxfN0z_G7H014CF9nAwsL0asBNeUdq5IdVnrerdE_amTw-9rZkyo1tEyudKiuP0nbYZSrK0Dr4w0v18gFB8Iee_OJqLXX-OaIH6zH0zQQZYCmmriZAViCHzs4Rsgx0Z-dGexhPn66zrehv7gGhw3pueOT3BhUeMbGHQxzzw3w96bILfGVFIbc0KwINeN2Xj1ADGwp6X_TaHbgVf0LBZz-k3jBAyNnHljUq9i6WH4aB1lVEuqqWYwrVx7k9WwsQJSqAa4ewYhWv1vjBGtU1Q_pHhm1Rxxyda-T82Zh02YQrirvcN5rCP2r13NeELIxKT-0-SjB5tdm-WBlvYTqQK8oFAdXbnbqu10qtemDaS4UHQWm9VnGFsUQwyiPeTvGByMNRjcDIEzi13b_sip82UVghi9clgHsRh7-ffSvPwhCH1mnK-w-UN8satKac5tr2LiCz7BIdsEpQby-QIxXTdc_sm8z7Fds8VnVWSMUjIabHIk2fqm1GX46UNR0knZhuMaWUOTEfqK4x660P5_MIPcAWmgfYKjsPCWJNFMdtfo5G_lA0B9gbv1vgv-1adma_9PTmHQKfupvFsieetUoOEGXDJM6V0vJIcmtaBAAcVg73ilYdYkskcguj_yjZ5PRt8fXQA5tXp7jaiXp0tmP8uPc6j7CWWwop1metLt5z843IEeba3ElgJjFf86L02inH-QxAatO5p46dZkPeKAlm5GZB3-qzZHyqMTLm8yMeUWd6zQb_ET7HRi54F53Ps4te-nvpAkIVEBWE8m1QeYZLJMydjfRzvrVBQH6EOy23XiiyNAWJncueKzGxeP6LiMfc0m3OQTa_pNpyRm6RX56I_1nro6wnTMCllT4YN7OmFIGQlGIbkiCZn-T4uuHBhsC6kI5vPI8CZaEeVqGor6UyixShKq5CschfCfxu-9RH0iuGyXv1qVob5FG37kGWdShUSvF73gJiTDbgYxouISwBxmpzlPB0rhSwsQK1ePfGXF2ETMxvctwwBJujgnXFA==",
+      "summary": []
+    },
+    {
+      "id": "msg_0c019a2b66792d3e016aec023733a087d283b421cbcf32023c",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "@Override\npublic double integrate(final FirstOrderDifferentialEquations equations,\n                        final double t0, final double[] y0,\n                        final double t, final double[] y)\n    throws DerivativeException, IntegratorException {\n\n    sanityChecks(equations, t0, y0, t, y);\n    setEquations(equations);\n    resetEvaluations();\n    final boolean forward = t > t0;\n\n    final int stages = c.length + 1;\n    if (y != y0) {\n        System.arraycopy(y0, 0, y, 0, y0.length);\n    }\n    final double[][] yDotK = new double[stages][y0.length];\n    final double[] yTmp = new double[y0.length];\n\n    AbstractStepInterpolator interpolator;\n    if (requiresDenseOutput() || !eventsHandlersManager.isEmpty()) {\n        final RungeKuttaStepInterpolator rki =\n            (RungeKuttaStepInterpolator) prototype.copy();\n        rki.reinitialize(this, yTmp, yDotK, forward);\n        interpolator = rki;\n    } else {\n        interpolator = new DummyStepInterpolator(yTmp, forward);\n    }\n    interpolator.storeTime(t0);\n\n    stepStart = t0;\n    double hNew = 0;\n    boolean firstTime = true;\n    for (StepHandler handler : stepHandlers) {\n        handler.reset();\n    }\n    CombinedEventsManager manager =\n        addEndTimeChecker(t0, t, eventsHandlersManager);\n    boolean lastStep = false;\n\n    while (!lastStep) {\n\n        interpolator.shift();\n\n        double error = 0;\n        for (boolean loop = true; loop;) {\n\n            if (firstTime || !fsal) {\n                computeDerivatives(stepStart, y, yDotK[0]);\n            }\n\n            if (firstTime) {\n                final double[] scale = new double[y0.length];\n                if (vecAbsoluteTolerance == null) {\n                    for (int i = 0; i < scale.length; ++i) {\n                        scale[i] = scalAbsoluteTolerance\n                            + scalRelativeTolerance * Math.abs(y[i]);\n                    }\n                } else {\n                    for (int i = 0; i < scale.length; ++i) {\n                        scale[i] = vecAbsoluteTolerance[i]\n                            + vecRelativeTolerance[i] * Math.abs(y[i]);\n                    }\n                }\n                hNew = initializeStep(equations, forward, getOrder(), scale,\n                                      stepStart, y, yDotK[0], yTmp, yDotK[1]);\n                firstTime = false;\n            }\n\n            stepSize = hNew;\n\n            for (int k = 1; k < stages; ++k) {\n                for (int j = 0; j < y0.length; ++j) {\n                    double sum = a[k - 1][0] * yDotK[0][j];\n                    for (int l = 1; l < k; ++l) {\n                        sum += a[k - 1][l] * yDotK[l][j];\n                    }\n                    yTmp[j] = y[j] + stepSize * sum;\n                }\n\n                computeDerivatives(stepStart + c[k - 1] * stepSize,\n                                   yTmp, yDotK[k]);\n            }\n\n            for (int j = 0; j < y0.length; ++j) {\n                double sum = b[0] * yDotK[0][j];\n                for (int l = 1; l < stages; ++l) {\n                    sum += b[l] * yDotK[l][j];\n                }\n                yTmp[j] = y[j] + stepSize * sum;\n            }\n\n            error = estimateError(yDotK, y, yTmp, stepSize);\n            if (error <= 1.0) {\n                interpolator.storeTime(stepStart + stepSize);\n                if (manager.evaluateStep(interpolator)) {\n                    final double dt = manager.getEventTime() - stepStart;\n                    if (Math.abs(dt) <= Math.ulp(stepStart)) {\n                        loop = false;\n                    } else {\n                        hNew = dt;\n                    }\n                } else {\n                    loop = false;\n                }\n            } else {\n                final double factor =\n                    Math.min(maxGrowth,\n                             Math.max(minReduction,\n                                      safety * Math.pow(error, exp)));\n                hNew = filterStep(stepSize * factor, forward, false);\n            }\n        }\n\n        final double nextStep = stepStart + stepSize;\n        System.arraycopy(yTmp, 0, y, 0, y0.length);\n        manager.stepAccepted(nextStep, y);\n        lastStep = manager.stop();\n\n        interpolator.storeTime(nextStep);\n        for (StepHandler handler : stepHandlers) {\n            handler.handleStep(interpolator, lastStep);\n        }\n        stepStart = nextStep;\n\n        if (fsal) {\n            System.arraycopy(yDotK[stages - 1], 0, yDotK[0], 0, y0.length);\n        }\n\n        if (manager.reset(stepStart, y) && !lastStep) {\n            computeDerivatives(stepStart, y, yDotK[0]);\n        }\n\n        if (!lastStep) {\n            stepSize = filterStep(stepSize, forward, true);\n\n            final double factor =\n                Math.min(maxGrowth,\n                         Math.max(minReduction, safety * Math.pow(error, exp)));\n            final double scaledH = stepSize * factor;\n            final double nextT = stepStart + scaledH;\n            final boolean nextIsLast = forward ? nextT >= t : nextT <= t;\n            hNew = filterStep(scaledH, forward, nextIsLast);\n        }\n    }\n\n    final double stopTime = stepStart;\n    resetInternalState();\n    return stopTime;\n}"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1969,
+    "input_tokens_details": {
+      "cache_write_tokens": 1966,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1418,
+    "output_tokens_details": {
+      "reasoning_tokens": 199
+    },
+    "total_tokens": 3387
+  },
+  "user": null,
+  "metadata": {}
+}

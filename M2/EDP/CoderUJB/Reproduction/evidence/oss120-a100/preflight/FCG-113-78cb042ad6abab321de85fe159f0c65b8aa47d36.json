@@ -1,0 +1,16 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 113,
+  "task_id": "79cce55ed917ece8b1cb2260741455f8c4ea533d01461be44b1e05b125daccee",
+  "project": "Compress",
+  "bug_id": 47,
+  "chat_sha256": "bc51ed1370b25f55ba2ec37e1437a46b32f579069ababdb20ac13c3cec4df803",
+  "complete_sha256": "a75d2f8791e0bca0426879de88a5cd309a977659878b81ee6666a43ac6f089cd",
+  "checked_at": "2026-11-05T02:49:02.118487+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/FCG-113-78cb042a/6b3cb18040410d745998552602326ecca70d82e45f22d705d068c634e0ad8164/attempt-1/result.json"
+}

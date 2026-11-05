@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 112,
+  "task_id": "4aaeb00712dd6df558a735970922d17128c83c59dbe358829730b8870d527243",
+  "project": "Chart",
+  "bug_id": "11",
+  "chat_sha256": "6be3a5c86426069903beae2dbc4e7826c30c0071e64274b0bbab9a9c6b0f3398",
+  "complete_sha256": "607340bb213e8d8fe38e9717bcc33ded22989244c440c8dc855fa06cbe337f26",
+  "checked_at": "2026-11-05T03:02:22.781979+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-112-99a9d802/dcca79e5f1f59d112f2cc0a18e1f800be72a47ddd6b1bfb6b3fc608051eb1b43/attempt-1/result.json"
+}

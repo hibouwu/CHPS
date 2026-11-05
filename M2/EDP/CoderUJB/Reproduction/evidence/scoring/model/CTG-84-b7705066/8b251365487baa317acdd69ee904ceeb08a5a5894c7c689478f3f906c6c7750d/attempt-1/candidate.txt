@@ -1,0 +1,67 @@
+@Test
+public void testGetOneLineOneParser() throws IOException {
+    // Define the CSV format to be used
+    CSVFormat csvFormat = CSVFormat.DEFAULT.withFirstRecordAsHeader();
+
+    // Create a CSVParser with an empty reader initially
+    try (CSVParser parser = new CSVParser(new StringReader(""), csvFormat)) {
+        // Test with the first CSV input
+        String firstInput = CSV_INPUT_1; // "a,b,c,d"
+        parser.getRecords().clear(); // Clear any existing records
+        parser.init(new StringReader(firstInput)); // Reinitialize parser with new input
+
+        // Parse the first record
+        CSVRecord record1 = parser.getRecords().get(0);
+        assertEquals("a", record1.get("a"));
+        assertEquals("b", record1.get("b"));
+        assertEquals("c", record1.get("c"));
+        assertEquals("d", record1.get("d"));
+
+        // Test with the second CSV input
+        String secondInput = CSV_INPUT_2; // "a,b,1 2"
+        parser.getRecords().clear(); // Clear any existing records
+        parser.init(new StringReader(secondInput)); // Reinitialize parser with new input
+
+        // Parse the second record
+        CSVRecord record2 = parser.getRecords().get(0);
+        assertEquals("a", record2.get("a"));
+        assertEquals("b", record2.get("b"));
+        assertEquals("1 2", record2.get("c"));
+
+        // Test with the third CSV input
+        String thirdInput = "\"foo baar\",b,"; // "foo baar,b,"
+        parser.getRecords().clear(); // Clear any existing records
+        parser.init(new StringReader(thirdInput)); // Reinitialize parser with new input
+
+        // Parse the third record
+        CSVRecord record3 = parser.getRecords().get(0);
+        assertEquals("foo baar", record3.get("foo baar"));
+        assertEquals("b", record3.get("b"));
+        assertEquals("", record3.get("")); // Assuming the header is inferred as ""
+
+        // Test with the fourth CSV input
+        String fourthInput = "\"foo\n,,\n\",,\n\"\"\",d,e"; // "\"foo\n,,\n\",,\n\"\"\",d,e"
+        parser.getRecords().clear(); // Clear any existing records
+        parser.init(new StringReader(fourthInput)); // Reinitialize parser with new input
+
+        // Parse the fourth record
+        CSVRecord record4 = parser.getRecords().get(0);
+        assertEquals("foo\n,,\n\",,\n\"", record4.get("foo\n,,\n\",,\n\"\""));
+        assertEquals("d", record4.get("d"));
+        assertEquals("e", record4.get("e"));
+    }
+}
+```
+
+### Explanation:
+1. **CSVFormat Definition**: We define a `CSVFormat` with `withFirstRecordAsHeader()` to treat the first record as headers.
+2. **CSVParser Initialization**: We initialize a `CSVParser` with an empty `StringReader`. This parser will be reused for different inputs.
+3. **Reusing the Parser**:
+   - For each input, we clear the existing records in the parser using `parser.getRecords().clear()`.
+   - We reinitialize the parser with a new `StringReader` containing the current input using `parser.init(new StringReader(input))`.
+4. **Parsing Records**:
+   - We retrieve the parsed records using `parser.getRecords()`.
+   - We assert that the parsed values match the expected values for each record.
+5. **Resource Management**: The `try-with-resources` statement ensures that the `CSVParser` is closed automatically after the test completes.
+
+This test case ensures that the `CSVParser` can be reused to parse different CSV records one at a time, demonstrating its flexibility and efficiency.

@@ -1,0 +1,17 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Reasoning: medium"
+    },
+    {
+      "role": "user",
+      "content": "```java\npackage com.fasterxml.jackson.core.io;\n\nimport com.fasterxml.jackson.core.util.BufferRecyclers;\nimport com.fasterxml.jackson.core.util.ByteArrayBuilder;\nimport com.fasterxml.jackson.core.util.TextBuffer;\n\n\n\npublic final class JsonStringEncoder\n {\n    private final static char[] HC = CharTypes.copyHexChars();\n    private final static byte[] HB = CharTypes.copyHexBytes();\n    private final static int SURR1_FIRST = 0xD800;\n    private final static int SURR1_LAST = 0xDBFF;\n    private final static int SURR2_FIRST = 0xDC00;\n    private final static int SURR2_LAST = 0xDFFF;\n    protected TextBuffer _text;\n    protected ByteArrayBuilder _bytes;\n    protected final char[] _qbuf;\n\n    public JsonStringEncoder();\n    @Deprecated\n    public static JsonStringEncoder getInstance();\n    public char[] quoteAsString(String input);\n    public void quoteAsString(CharSequence input, StringBuilder output);\n    @SuppressWarnings(\"resource\")\n    public byte[] quoteAsUTF8(String text);\n    @SuppressWarnings(\"resource\")\n    public byte[] encodeAsUTF8(String text);\n    private int _appendNumeric(int value, char[] qbuf);\n    private int _appendNamed(int esc, char[] qbuf);\n    private int _appendByte(int ch, int esc, ByteArrayBuilder bb, int ptr);\n    private static int _convert(int p1, int p2);\n    private static void _illegal(int c);\n}\n```\n\nYou are a professional Java programmer, please create a function named `quoteAsUTF8` based on the provided abstract Java class context information and the following natural language annotations.\n\n```java\n    /**\n     * Will quote given JSON String value using standard quoting, encode\n     * results as UTF-8, and return result as a byte array.\n     */\n    @SuppressWarnings(\"resource\")\n    public byte[] quoteAsUTF8(String text)\n    {\n\n```"
+    }
+  ],
+  "seed": 4,
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "n": 1,
+  "stream": false
+}

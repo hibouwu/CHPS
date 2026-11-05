@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 367,
+  "task_id": "ce76fba0c46ba537da4018f3bd6678e95c489a5e388e49c6f712ec25c7aff974",
+  "project": "JacksonDatabind",
+  "bug_id": "71",
+  "chat_sha256": "1d02133b10658d906920081e0ccb9277aa15290180749fde00b586b879a28068",
+  "complete_sha256": "c03103375956c17ade49d9789ebed225956671c426f97d3e2d3e5b0cd525bfc5",
+  "checked_at": "2026-11-05T03:03:37.224129+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-367-99a9d802/b8ee410adf5b738775b692d2d4ae7fa5354cd7bbbb87f6a3f77e4bf8abd60df1/attempt-1/result.json"
+}

@@ -1,0 +1,16 @@
+public PeriodConverter removePeriodConverter(PeriodConverter converter)
+            throws SecurityException {
+        // Check if the caller has the permission to alter the period converters
+        checkAlterPeriodConverters();
+
+        // If the converter is null, simply return null as there's nothing to remove
+        if (converter == null) {
+            return null;
+        }
+
+        // Attempt to remove the converter from the set
+        PeriodConverter removedConverter = iPeriodConverters.remove(converter);
+
+        // Return the removed converter, or null if it was not found
+        return removedConverter;
+    }

@@ -1,0 +1,14 @@
+@Test
+public void shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine() {
+        // Arrange
+        List<String> mockA = mock(List.class);
+        List<String> mockB = mock(List.class);
+
+        // Act: invoke methods on both mocks on the same line
+        mockA.add("first"); mockB.add("second");
+
+        // Verify that each mock received the correct call even though another mock call
+        // appears on the same line as the verification statement.
+        verify(mockA).add("first"); mockB.add("second");
+        verify(mockB).add("second");
+    }

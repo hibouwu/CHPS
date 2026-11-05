@@ -1,0 +1,26 @@
+@Test
+public void testLargeSample() {
+        // Generate a large dataset of 41,200 points following a quadratic curve y = 3x^2 + 2x + 1
+        int n = 41200;
+        List<WeightedObservedPoint> points = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            double x = i * 0.001; // spacing to keep values moderate
+            double y = 3.0 * x * x + 2.0 * x + 1.0;
+            points.add(new WeightedObservedPoint(1.0, x, y));
+        }
+
+        // Fit a polynomial of degree 2 using the curve fitter
+        PolynomialCurveFitter fitter = PolynomialCurveFitter.create(2);
+        double[] coeff;
+        try {
+            coeff = fitter.fit(points);
+        } catch (OutOfMemoryError e) {
+            fail("OutOfMemoryError encountered while fitting a large sample");
+            return; // unreachable, but satisfies compiler
+        }
+
+        // Verify that the fitted coefficients are close to the expected values
+        assertEquals(1.0, coeff[0], 1e-6);
+        assertEquals(2.0, coeff[1], 1e-6);
+        assertEquals(3.0, coeff[2], 1e-6);
+    }

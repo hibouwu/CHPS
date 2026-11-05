@@ -1,0 +1,14 @@
+private static NodePointer createChildPointerForStep(
+        PropertyOwnerPointer parentPointer, Step step) {
+    QName name = ((NodeNameTest) step.getNodeTest()).getNodeName();
+    boolean attribute = step.getAxis() == Compiler.AXIS_ATTRIBUTE;
+
+    if (attribute && isLangAttribute(name)) {
+        return new LangAttributePointer(parentPointer);
+    }
+
+    PropertyPointer pointer = parentPointer.getPropertyPointer();
+    pointer.setPropertyName(name.toString());
+    pointer.setAttribute(attribute);
+    return pointer;
+}

@@ -1,0 +1,105 @@
+{
+  "id": "resp_0db10b96bf880b89016aebfab506a487d287b280456296494e",
+  "object": "response",
+  "created_at": 1793850037,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850043,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0db10b96bf880b89016aebfab61b9087d2b0c9c5841a35dd9f",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_q7hDRHEf_CCy3wDCbPaT7V0GrkM1feFDZIOKjDyQrcDM0qlCz6GaXaGSAOHcWG3JoNt3Wv4wLovEmlGAYq_88cMXFzni2J7M7rq3c2_LxntFE_s2TBn7Yozka8H1VKSHrhc3UtzfTQK87HnJ0sm35BZbtLbgOdya99xwURPn9CEMkKsf9S7dhiCSRyTlf-0xMNWMMTSDXk1IwHzDFwkouMVCpBvVXcbMig1HuZu4u5sC3aPPOTcN4OEme27_uZuwWGfS1Jfvl6__Qs0seELry5z40Ide4AK53YTmBvP2lNg1bbAKUH2uSqWpNbN3TnBu89rVmSB3g3SlVh3XYa2YOqRU1NDbpMlZIIMd0d944UYe8zVp9yzdOh4pYIv8DarrXoQrVGmAVOpKbNsGdISxkw9Le8DLKdKS4YJIXsd3jCBjwAn7-UTv3T0_JTqxked1J7if3EicIPxpMBaTcOQULaEMWCjB0YJ8EzJNTL4CzfYcIVTK9fmNCZbVSvx1NnQBH9TuUn52anVMWvbbgbqPDy_cPufebuRpVufAhYdEctgCGbmpH_qUCt9VaOt8kNZckztosbBTgPGAX-Mi1Tb-7q1ddUKipJZnDCGYwaEnfbrYCWak1gx3Md6ZJFYF8OCeoinbrsV8LearrggT5QiPsBxmHhTawAdsw-LHDwvZwMSvUwYv0wNYRWzWiWa5v3Wq4Uu80AzOs0lRzAhehBHHcj_3pOvRjzrcNppScM3orSpI4gon5Fz3KpmpUwfMWlNeHmSoUV144onjMz6h1kzKqQX4VbA4Y1Irpud1jgI6QduUwCD40FFjcL7gQyPK33TbhVB8RJtar7N33Teu4gTLCusRheBO5d2qjUXyqEjfjKdK-j7PS3u2x5uilvkFmMHU7ZdyRnDpzK-BqEJcCbLfnmg_6HP7Obszp62oIez3MA4-xnpuUICwhVr1rRxz3y9CANj-likTLslSAEAvjNnmgYHwLfQcRRnQv6uqb0zM1tiAltaQHUnZkmpou7Baq8cSd4eOneOTkPMFDNt0dIoK24Nbi4Ki5dCWNmSAAqY1nDd240nmPNJVv5deu7RobI4Oe0agPeM3brIEj4r2M_a8H5mBfiBFsvUBN24kERZ07Fn-K_E9MDF6DOTwc9PkDuXZQ7265jkOw4secAOjVWE1zc8IDlGX_a_Ha2lJ6DuvOb8XPXoHsfr2OxBS5_jj9oMJa31IlzRlBZxFKeJpqBuVGybPOKkXUwHY4TzesIWubrDAuHphwf9oG9wMoUhFO27Q154l2YB19pOymStlZxJPpK3XL8uGdPMCcDwe7uWGIVdfBlxIhMBv-sNouAPSU4VA7krgE8yxtk1YFlQ2smiYq41giuQkfKxED524C1R91D0b6F24oTBRMIAcDAydXrn0OHR1nv3bWlIh7JH-6Sa5Ic20A4LGAiu8c89rcRNvNSdxZWjq67fvVDSblPmZhKLtryNLQXeZD7sZFT7iY7clmTxTnjfpR3ebmOmIRLceMPo4pWPucivQMSwcqO4Dp1FDuZWs5IwOQcBIFK821HjwgIRzbpbq04Gkpm9qmwEgZjnmy19VkYiPxe0tslRWItov4EM3ddVHvWK_o7l1fiVEEvULb0RFQZJbTF9TNokXRZrDvqcrzmwNYUQqnuvUqa9bcU40dpu_I5AOZlCoI6p6daV4mxnU7FzG5c1swJCXipWaKvexMNsK96zufvWt7fdIGbPyAjIH1HQ8gKLIiOqug-e0qokEj8QrC8dXR8CfxYq73RtArP-Zhk8Mw2pW_ixmBr_XRkJUUEZU0DoKwV2K12Zmv1NhfSwPrtMWS-NEdvAMgjGQXSTEbGlQQu51JhgBHqfJy7-6ANXRqR8pxjBNfjtKWRInEwA_witkVwFIiBiiF00uB8DmlDgIJBBy4HTFk534lkdb7qlU7He67lJi2540I0HiZHaoHM--6ATpYm6khxyc_GoPSLNpMfwugmDb4dw9HL3OvPfXZXWLjVYVNX4uxQ0_eyd4uKw3nsEJ8mzYb_s0PAUQ3IgnWusIygDKOgy_knOA79jdwHMqIMAoiFdGZtJ4VA3yBehDHydKJiZZCJgBbYFBlTlrE-eNp-55sX1jLgyf2wvssOyjxy_A8Pw5WRxEKdc_I2dU5U1gOcXfRjb58XuvuEwExvIZv4T5nF7AUn_oSYvy6ee0E4-XVxDZhb54mru5vFq7fjPyTAqtC6N9I_q0lMQEqvH2M-NOi-VT7Av6jBRVkAaBuOi-dgLPKqck8RbeI1ZIMTn5CtRoLI5lAHwSAqerGIjdPuXWhkLigUoZEZyd0HqXMzcCO62rerxEm-Twb6c_4JRnKd2ltR-jyAFWLQcMRwCLZghF2qOTmDrZoLyhlZdChu_Hr2wNHM1frtcusuw1uzV5ukG4Z1Cc_BgSqxRegkiwQdqWWDqJEQH4Iivot0iP7Vs4pitjm-NidGoTJtW52ER1NMW6MUPwh8OTHFfNj7OwEkm0FMbGyy12HgFsGMZxR8kStiSVJ3OiLpvh53wF-zWjLYEXixltkhS3zqL4VNCR7iN-CtK3B2iVmVn8ZgFZhsjMbsa57LozPZOP2Z8-AttZ0sQATUbeWF0PBnTRAn9FOfjzbl",
+      "summary": []
+    },
+    {
+      "id": "msg_0db10b96bf880b89016aebfab93e1487d284b6fcbe3793ad19",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n/**\n * Consonants from the same code group separated by W or H are treated as one.\n *\n * @throws EncoderException\n */\n@Test\npublic void testHWRuleEx3() throws EncoderException {\n    final Soundex soundex = createStringEncoder();\n\n    // B, F, P, and V share the same Soundex code.\n    Assert.assertEquals(\"B000\", soundex.encode(\"BHB\"));\n    Assert.assertEquals(\"B000\", soundex.encode(\"BWB\"));\n    Assert.assertEquals(\"B000\", soundex.encode(\"BHF\"));\n    Assert.assertEquals(\"B000\", soundex.encode(\"BWF\"));\n\n    // S and C share a code even when separated by H.\n    Assert.assertEquals(\"A261\", soundex.encode(\"Ashcraft\"));\n    Assert.assertEquals(\"A261\", soundex.encode(\"Ashcroft\"));\n\n    // Unlike H and W, a vowel separates otherwise identical codes.\n    Assert.assertEquals(\"B100\", soundex.encode(\"BAB\"));\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 762,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 316,
+    "output_tokens_details": {
+      "reasoning_tokens": 103
+    },
+    "total_tokens": 1078
+  },
+  "user": null,
+  "metadata": {}
+}

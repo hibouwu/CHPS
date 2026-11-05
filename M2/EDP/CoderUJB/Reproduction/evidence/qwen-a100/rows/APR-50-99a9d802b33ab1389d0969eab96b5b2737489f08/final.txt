@@ -1,0 +1,28 @@
+The provided `encodeBase64String` method seems to be using a utility class `StringUtils` that is not part of the standard Java library or the Apache Commons Codec library. This could be a custom utility class or a part of another library. However, based on the context and the typical usage of such methods, we can infer that `StringUtils.newStringUtf8` is likely converting a byte array to a UTF-8 encoded string.
+
+Given the context of the `Base64` class from Apache Commons Codec, the method `encodeBase64` is correctly used here to encode the binary data into a Base64 byte array with chunking enabled (as indicated by the `true` parameter).
+
+However, if `StringUtils` is not available or if there's an issue with it, we can replace it with the standard Java approach to convert bytes to a string using UTF-8 encoding. Here's how you can modify the method:
+
+```java
+import java.nio.charset.StandardCharsets;
+
+/**
+ * Encodes binary data using the base64 algorithm into 76 character blocks separated by CRLF.
+ *
+ * @param binaryData
+ *            binary data to encode
+ * @return String containing Base64 characters.
+ * @since 1.4
+ */
+public static String encodeBase64String(byte[] binaryData) {
+    byte[] encodedBytes = encodeBase64(binaryData, true);
+    return new String(encodedBytes, StandardCharsets.UTF_8);
+}
+```
+
+### Explanation:
+1. **Encoding**: The `encodeBase64` method is called with `binaryData` and `true` to enable chunking, which means the output will be split into lines of 76 characters each, separated by CRLF (`\r\n`).
+2. **Conversion to String**: The resulting byte array from `encodeBase64` is converted to a string using `StandardCharsets.UTF_8`. This is a standard way to convert bytes to a string in Java.
+
+This change ensures that the method works without relying on a potentially non-standard `StringUtils` class and uses Java's built-in capabilities for character encoding.

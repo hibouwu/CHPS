@@ -1,0 +1,30 @@
+public void testDifferentDurationReturnDifferentObjects() {
+        // first instance – weeks as the duration field
+        UnsupportedDateTimeField weeksField =
+                UnsupportedDateTimeField.getInstance(fieldType, weeksDuration);
+
+        // second instance – months as the duration field
+        UnsupportedDateTimeField monthsField =
+                UnsupportedDateTimeField.getInstance(fieldType, monthsDuration);
+
+        // The two objects must not be the same reference …
+        assertNotSame(
+                "Instances with different DurationFields must not be the same object",
+                weeksField,
+                monthsField);
+
+        // … and they must not be equal according to Object.equals (the class does not
+        // override equals, so reference inequality is enough, but we check it explicitly).
+        assertFalse(
+                "Instances with different DurationFields must not be equal",
+                weeksField.equals(monthsField));
+
+        // As an additional sanity‑check, the cache should return the *same* instance
+        // when the same pair is requested again.
+        UnsupportedDateTimeField weeksFieldAgain =
+                UnsupportedDateTimeField.getInstance(fieldType, weeksDuration);
+        assertSame(
+                "Repeated request with the same (type,duration) pair must return the cached instance",
+                weeksField,
+                weeksFieldAgain);
+    }

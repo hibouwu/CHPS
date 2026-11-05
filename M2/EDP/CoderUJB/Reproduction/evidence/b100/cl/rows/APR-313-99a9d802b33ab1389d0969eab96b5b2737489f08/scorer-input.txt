@@ -1,0 +1,197 @@
+// import static com.google.javascript.rhino.jstype.JSTypeNative.STRING_OBJECT_FUNCTION_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.STRING_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.SYNTAX_ERROR_FUNCTION_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.TYPE_ERROR_FUNCTION_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.U2U_CONSTRUCTOR_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.UNKNOWN_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.URI_ERROR_FUNCTION_TYPE;
+// import static com.google.javascript.rhino.jstype.JSTypeNative.VOID_TYPE;
+// import com.google.common.annotations.VisibleForTesting;
+// import com.google.common.base.Preconditions;
+// import com.google.common.collect.Lists;
+// import com.google.javascript.jscomp.CodingConvention.DelegateRelationship;
+// import com.google.javascript.jscomp.CodingConvention.ObjectLiteralCast;
+// import com.google.javascript.jscomp.CodingConvention.SubclassRelationship;
+// import com.google.javascript.jscomp.CodingConvention.SubclassType;
+// import com.google.javascript.jscomp.NodeTraversal.AbstractShallowCallback;
+// import com.google.javascript.jscomp.Scope.Var;
+// import com.google.javascript.rhino.ErrorReporter;
+// import com.google.javascript.rhino.JSDocInfo;
+// import com.google.javascript.rhino.Node;
+// import com.google.javascript.rhino.Token;
+// import com.google.javascript.rhino.jstype.EnumType;
+// import com.google.javascript.rhino.jstype.FunctionParamBuilder;
+// import com.google.javascript.rhino.jstype.FunctionType;
+// import com.google.javascript.rhino.jstype.JSType;
+// import com.google.javascript.rhino.jstype.JSTypeNative;
+// import com.google.javascript.rhino.jstype.JSTypeRegistry;
+// import com.google.javascript.rhino.jstype.ObjectType;
+// import java.util.Iterator;
+// import java.util.List;
+// import javax.annotation.Nullable;
+// 
+// 
+// 
+// final class TypedScopeCreator implements ScopeCreator  {
+//   static final String DELEGATE_PROXY_SUFFIX = "(Proxy)";
+//   static final DiagnosticType MALFORMED_TYPEDEF =
+//       DiagnosticType.warning(
+//           "JSC_MALFORMED_TYPEDEF",
+//           "Typedef for {0} does not have any type information");
+//   static final DiagnosticType ENUM_INITIALIZER =
+//       DiagnosticType.warning(
+//           "JSC_ENUM_INITIALIZER_NOT_ENUM",
+//           "enum initializer must be an object literal or an enum");
+//   static final DiagnosticType CONSTRUCTOR_EXPECTED =
+//       DiagnosticType.warning(
+//           "JSC_REFLECT_CONSTRUCTOR_EXPECTED",
+//           "Constructor expected as first argument");
+//   private final AbstractCompiler compiler;
+//   private final ErrorReporter typeParsingErrorReporter;
+//   private final TypeValidator validator;
+//   private final CodingConvention codingConvention;
+//   private final JSTypeRegistry typeRegistry;
+//   private List<ObjectType> delegateProxyPrototypes = Lists.newArrayList();
+// 
+//   TypedScopeCreator(AbstractCompiler compiler);
+//   TypedScopeCreator(AbstractCompiler compiler,
+//       CodingConvention codingConvention);
+//   public Scope createScope(Node root, Scope parent);
+//   @VisibleForTesting
+//   Scope createInitialScope(Node root);
+//   private void declareNativeFunctionType(Scope scope, JSTypeNative tId);
+//   private void declareNativeValueType(Scope scope, String name,
+//       JSTypeNative tId);
+//   private void declareNativeType(Scope scope, String name, JSType t);
+//   private static Node getPrototypePropertyOwner(Node n);
+//   private void attachLiteralTypes(Node n);
+//   private JSType getNativeType(JSTypeNative nativeType);
+//   DeferredSetType(Node node, JSType type);
+//   void resolve(Scope scope);
+//   DiscoverEnums(JSTypeRegistry registry);
+//   @Override
+//     public void visit(NodeTraversal t, Node node, Node parent);
+//   private AbstractScopeBuilder(Scope scope);
+//   void setDeferredType(Node node, JSType type);
+//   void resolveTypes();
+//   @Override
+//     public final boolean shouldTraverse(NodeTraversal nodeTraversal, Node n,
+//         Node parent);
+//   @Override
+//     public void visit(NodeTraversal t, Node n, Node parent);
+//   JSType getDeclaredTypeInAnnotation(
+//         NodeTraversal t, Node node, JSDocInfo info);
+//   JSType getDeclaredTypeInAnnotation(String sourceName,
+//         Node node, JSDocInfo info);
+//   void assertDefinitionNode(Node n, int type);
+//   void defineCatch(Node n, Node parent);
+//   void defineVar(Node n, Node parent);
+//   void defineDeclaredFunction(Node n, Node parent);
+//   void defineNamedTypeAssign(Node n, Node parent);
+//   private void defineName(Node name, Node var, Node parent, JSDocInfo info);
+//   private FunctionType getFunctionType(String name,
+//         Node rValue, JSDocInfo info, @Nullable Node lvalueNode);
+//   private FunctionType findOverriddenFunction(
+//         ObjectType ownerType, String propName);
+//   private EnumType getEnumType(String name, Node parent,
+//         Node value, JSType elementsType);
+//   private void defineSlot(Node name, Node parent, JSType type);
+//   void defineSlot(Node n, Node parent, JSType type, boolean inferred);
+//   private JSType getDeclaredGetPropType(NodeTraversal t, JSDocInfo info,
+//         Node n, Node rhsValue);
+//   private void checkForClassDefiningCalls(
+//         NodeTraversal t, Node n, Node parent);
+//   private void applyDelegateRelationship(
+//         DelegateRelationship delegateRelationship);
+//   void maybeDeclareQualifiedName(NodeTraversal t, JSDocInfo info,
+//         Node n, Node parent, Node rhsValue);
+//   private ObjectType getObjectSlot(String slotName);
+//   void resolveStubDeclarations();
+//   private StubDeclaration(Node node, boolean isExtern, String ownerName);
+//   private GlobalScopeBuilder(Scope scope);
+//   @Override public void visit(NodeTraversal t, Node n, Node parent);
+//   @Override
+//     void maybeDeclareQualifiedName(
+//         NodeTraversal t, JSDocInfo info,
+//         Node n, Node parent, Node rhsValue);
+//   private void checkForTypedef(
+//         NodeTraversal t, Node candidate, JSDocInfo info);
+//   private void checkForOldStyleTypedef(NodeTraversal t, Node candidate);
+//   private LocalScopeBuilder(Scope scope);
+//   void build();
+//   @Override public void visit(NodeTraversal t, Node n, Node parent);
+//   private void handleFunctionInputs(Node fnNode);
+//   private void declareArguments(Node functionNode);
+//   CollectProperties(ObjectType thisType);
+//   public void visit(NodeTraversal t, Node n, Node parent);
+//   private void maybeCollectMember(NodeTraversal t,
+//           Node member, Node nodeWithJsDocInfo);
+// }
+
+// You are a professional Java programmer, please fix the bug in the function named visit based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+    /**
+     * Visit a node in a local scope, and add any local variables or catch
+     * parameters into the local symbol table.
+     *
+     * @param t The node traversal.
+     * @param n The node being visited.
+     * @param parent The parent of n
+     */
+    @Override public void visit(NodeTraversal t, Node n, Node parent) {
+      if (n == scope.getRootNode()) return;
+
+      if (n.getType() == Token.LP && parent == scope.getRootNode()) {
+        handleFunctionInputs(parent);
+        return;
+      }
+
+      attachLiteralTypes(n);
+      switch (n.getType()) {
+        case Token.FUNCTION:
+          if (parent.getType() == Token.NAME) {
+            return;
+          }
+          defineDeclaredFunction(n, parent);
+          break;
+        case Token.CATCH:
+          defineCatch(n, parent);
+          break;
+        case Token.VAR:
+          defineVar(n, parent);
+          break;
+      }
+    }
+
+// Fixed Function
+    /**
+     * Visit a node in a local scope, and add any local variables or catch
+     * parameters into the local symbol table.
+     *
+     * @param t The node traversal.
+     * @param n The node being visited.
+     * @param parent The parent of n
+     */
+    @Override public void visit(NodeTraversal t, Node n, Node parent) {
+      if (n == scope.getRootNode()) return;
+
+      if (n.getType() == Token.LP && parent == scope.getRootNode()) {
+        handleFunctionInputs(parent);
+        return;
+      }
+
+      attachLiteralTypes(n);
+      switch (n.getType()) {
+        case Token.FUNCTION:
+          if (parent.getType() == Token.NAME) {
+            return;
+          }
+          defineDeclaredFunction(n, parent);
+          break;
+        case Token.CATCH:
+          defineCatch(n, parent);
+          break;
+        case Token.VAR:
+          defineVar(n, parent);
+          break;
+      }

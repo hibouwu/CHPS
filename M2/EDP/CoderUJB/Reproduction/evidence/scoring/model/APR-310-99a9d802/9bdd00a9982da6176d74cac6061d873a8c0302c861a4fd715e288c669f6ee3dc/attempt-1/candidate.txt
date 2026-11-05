@@ -1,0 +1,36 @@
+public static boolean toBoolean(String str) {
+        // 1️⃣  Guard clause – null is always false.
+        if (str == null) {
+            return false;
+        }
+
+        // 2️⃣  Switch on length – this avoids the cost of creating a temporary
+        //     lower‑cased copy and is faster than a series of equalsIgnoreCase calls.
+        switch (str.length()) {
+            case 2: // "on"
+                return (str.charAt(0) == 'o' || str.charAt(0) == 'O')
+                    && (str.charAt(1) == 'n' || str.charAt(1) == 'N');
+
+            case 3: // "yes"
+                char c0 = str.charAt(0);
+                if (c0 == 'y' || c0 == 'Y') {
+                    return (str.charAt(1) == 'e' || str.charAt(1) == 'E')
+                        && (str.charAt(2) == 's' || str.charAt(2) == 'S');
+                }
+                // not "yes" → false
+                return false;
+
+            case 4: // "true"
+                c0 = str.charAt(0);
+                if (c0 == 't' || c0 == 'T') {
+                    return (str.charAt(1) == 'r' || str.charAt(1) == 'R')
+                        && (str.charAt(2) == 'u' || str.charAt(2) == 'U')
+                        && (str.charAt(3) == 'e' || str.charAt(3) == 'E');
+                }
+                // not "true" → false
+                return false;
+
+            default: // any other length cannot be a true value
+                return false;
+        }
+    }

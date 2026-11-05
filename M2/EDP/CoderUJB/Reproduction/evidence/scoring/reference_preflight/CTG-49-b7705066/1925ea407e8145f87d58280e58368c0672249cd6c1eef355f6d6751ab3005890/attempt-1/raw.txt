@@ -1,0 +1,37 @@
+  public void testUnaliasable() {
+    test("function foo() {" +
+          "var x=arguments.length;" +
+          "var y=arguments.length;" +
+          "var z=arguments.length;" +
+          "var w=arguments.length;" +
+          "return x + y + z + w" +
+         "};foo();",
+
+         formatPropNameDecl("length") +
+         "function foo() {" +
+          "var x=arguments[$$PROP_length];" +
+          "var y=arguments[$$PROP_length];" +
+          "var z=arguments[$$PROP_length];" +
+          "var w=arguments[$$PROP_length];" +
+          "return x + y + z + w" +
+         "};foo();");
+
+    test("var x=new ActiveXObject();" +
+         "x.foo=\"bar\";" +
+         "var y=new ActiveXObject();" +
+         "y.foo=\"bar\";" +
+         "var z=new ActiveXObject();" +
+         "z.foo=\"bar\";",
+
+         "var x=new ActiveXObject();" +
+         "x.foo=\"bar\";" +
+         "var y=new ActiveXObject();" +
+         "y.foo=\"bar\";" +
+         "var z=new ActiveXObject();" +
+         "z.foo=\"bar\";");
+
+    test("var _a=eval('foo'),_b=eval('foo'),_c=eval('foo'),_d=eval('foo')," +
+             "_e=eval('foo'),_f=eval('foo'),_g=eval('foo');",
+         "var _a=eval('foo'),_b=eval('foo'),_c=eval('foo'),_d=eval('foo')," +
+             "_e=eval('foo'),_f=eval('foo'),_g=eval('foo');");
+  }

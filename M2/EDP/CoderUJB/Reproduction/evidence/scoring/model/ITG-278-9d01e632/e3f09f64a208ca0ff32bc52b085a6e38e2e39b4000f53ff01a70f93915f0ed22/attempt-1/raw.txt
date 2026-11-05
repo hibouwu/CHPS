@@ -1,0 +1,58 @@
+**JUnit test for Mockito‑138**
+
+```java
+package org.mockito.issue138;
+
+import static org.mockito.Mockito.*;
+
+import java.util.List;
+
+import org.junit.Test;
+
+/**
+ * Test that verifies Mockito works correctly when a verification statement
+ * shares the same source line with another mock interaction.
+ *
+ * <p>Issue: Mockito‑138 – “shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine”.
+ * The bug prevented Mockito from correctly handling a line that contains a
+ * verification call together with a regular mock call (separated by a
+ * semicolon). This test reproduces the situation and asserts that both
+ * interactions are recorded and verified without throwing an exception.</p>
+ */
+public class MockitoIssue138Test {
+
+    @Test
+    public void shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine() {
+        // -----------------------------------------------------------------
+        // Arrange – create two independent mocks
+        // -----------------------------------------------------------------
+        List<String> firstMock  = mock(List.class);
+        List<String> secondMock = mock(List.class);
+
+        // -----------------------------------------------------------------
+        // Act – invoke a method on the first mock
+        // -----------------------------------------------------------------
+        firstMock.add("one");
+
+        // -----------------------------------------------------------------
+        // Assert – verification and another mock call are placed on the SAME line.
+        // The verification must succeed even though a second mock call follows it
+        // on the same source line (separated by a semicolon).
+        // -----------------------------------------------------------------
+        verify(firstMock).add("one"); secondMock.clear();
+
+        // Additionally verify that the second mock call really happened.
+        verify(secondMock).clear();
+    }
+}
+```
+
+### What the test does
+1. **Creates two mocks** (`firstMock` and `secondMock`).
+2. Calls `firstMock.add("one")`.
+3. On a **single source line** it both  
+   * verifies that `firstMock.add("one")` was invoked, **and**  
+   * calls `secondMock.clear()`.
+4. Finally it verifies that `secondMock.clear()` was indeed called.
+
+If the bug described in *Mockito‑138* were still present, the verification on the same line as another mock interaction would fail (or throw an `InvalidUseOfMatchersException`). The test will pass only when Mockito correctly handles such mixed‑statement lines, confirming that the issue has been fixed.

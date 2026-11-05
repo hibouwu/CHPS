@@ -1,0 +1,28 @@
+
+        if (id.equals(id())) {
+            return this;
+        }
+        for (Element child : children()) {
+            Element found = child.getElementById(id);
+            if (found != null) {
+                return found;
+            }
+        }
+        return null;
+    }
+
+// You are a professional Java programmer, please create a function named `getElementsByTag` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Find elements, including or under this element, with the specified tag name.
+     * <p>
+     * This finds only immediate children. Use {@link #getElementsByTagRecursive(String)} for all descendants.
+     * @param tagName The tag name to search for (case insensitively).
+     * @return a list of matching elements, empty if none found.
+     */
+    public Elements getElementsByTag(String tagName) {
+        Validate.notEmpty(tagName);
+        Validate.notNull(tagName);
+        Elements elements = new Elements();
+        for (Element child : children()) {
+            if (

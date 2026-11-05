@@ -1,0 +1,101 @@
+Certainly! Below is a detailed implementation of the `testKeywords` method for the `JsonParser` class. This test case will verify that the parser correctly identifies and handles the JSON keywords `null`, `true`, and `false` in different contexts.
+
+```java
+/**
+ * Unit test that verifies that 3 basic keywords (null, true, false)
+ * are properly parsed in various contexts.
+ */
+public void testKeywords() throws Exception {
+    // Test with a JSON string containing the keywords
+    String json = "{\"key1\": null, \"key2\": true, \"key3\": false}";
+
+    // Create a JsonFactory instance
+    JsonFactory factory = new JsonFactory();
+
+    // Create a JsonParser instance from the JSON string
+    try (JsonParser parser = factory.createParser(json)) {
+        // Verify the first token is START_OBJECT
+        assertEquals(JsonToken.START_OBJECT, parser.nextToken());
+
+        // Verify the first field name and value
+        assertEquals("key1", parser.nextFieldName());
+        assertEquals(JsonToken.VALUE_NULL, parser.nextToken());
+
+        // Verify the second field name and value
+        assertEquals("key2", parser.nextFieldName());
+        assertEquals(JsonToken.VALUE_TRUE, parser.nextToken());
+
+        // Verify the third field name and value
+        assertEquals("key3", parser.nextFieldName());
+        assertEquals(JsonToken.VALUE_FALSE, parser.nextToken());
+
+        // Verify the last token is END_OBJECT
+        assertEquals(JsonToken.END_OBJECT, parser.nextToken());
+
+        // Ensure there are no more tokens
+        assertNull(parser.nextToken());
+    }
+
+    // Test with a JSON string containing the keywords in different order
+    json = "{\"key2\": true, \"key3\": false, \"key1\": null}";
+
+    // Create a JsonParser instance from the JSON string
+    try (JsonParser parser = factory.createParser(json)) {
+        // Verify the first token is START_OBJECT
+        assertEquals(JsonToken.START_OBJECT, parser.nextToken());
+
+        // Verify the first field name and value
+        assertEquals("key2", parser.nextFieldName());
+        assertEquals(JsonToken.VALUE_TRUE, parser.nextToken());
+
+        // Verify the second field name and value
+        assertEquals("key3", parser.nextFieldName());
+        assertEquals(JsonToken.VALUE_FALSE, parser.nextToken());
+
+        // Verify the third field name and value
+        assertEquals("key1", parser.nextFieldName());
+        assertEquals(JsonToken.VALUE_NULL, parser.nextToken());
+
+        // Verify the last token is END_OBJECT
+        assertEquals(JsonToken.END_OBJECT, parser.nextToken());
+
+        // Ensure there are no more tokens
+        assertNull(parser.nextToken());
+    }
+
+    // Test with a JSON string containing the keywords as standalone values
+    json = "[null, true, false]";
+
+    // Create a JsonParser instance from the JSON string
+    try (JsonParser parser = factory.createParser(json)) {
+        // Verify the first token is START_ARRAY
+        assertEquals(JsonToken.START_ARRAY, parser.nextToken());
+
+        // Verify the first value
+        assertEquals(JsonToken.VALUE_NULL, parser.nextToken());
+
+        // Verify the second value
+        assertEquals(JsonToken.VALUE_TRUE, parser.nextToken());
+
+        // Verify the third value
+        assertEquals(JsonToken.VALUE_FALSE, parser.nextToken());
+
+        // Verify the last token is END_ARRAY
+        assertEquals(JsonToken.END_ARRAY, parser.nextToken());
+
+        // Ensure there are no more tokens
+        assertNull(parser.nextToken());
+    }
+}
+```
+
+### Explanation:
+- **JSON Strings**: The test uses different JSON strings to ensure that the parser can handle the keywords `null`, `true`, and `false` in various contexts, such as within objects and arrays.
+- **JsonFactory and JsonParser**: A `JsonFactory` is used to create a `JsonParser` instance from the JSON strings.
+- **Token Verification**: The test checks each token returned by the parser to ensure it matches the expected token type and value.
+- **Field Names**: When parsing objects, the test verifies that the correct field names are encountered before their corresponding values.
+- **End Tokens**: The test ensures that the parser correctly identifies the end of objects (`END_OBJECT`) and arrays (`END_ARRAY`).
+- **Null Tokens**: The test checks that the parser correctly identifies `null` values as `VALUE_NULL`.
+- **Boolean Tokens**: The test verifies that the parser correctly identifies `true` and `false` values as `VALUE_TRUE` and `VALUE_FALSE`, respectively.
+
+This test case provides comprehensive coverage for parsing the basic JSON keywords in different scenarios.

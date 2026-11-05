@@ -1,0 +1,13 @@
+```java
+    /**
+     * According to the JavaDocs, there are two methods that should always
+     * return null. * getRangeDurationField() * getLeapDurationField()
+     * 
+     * Ensure that these are in fact null.
+     */
+    public void testMethodsThatShouldAlwaysReturnNull() {
+        UnsupportedDateTimeField field = UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, null);
+        assertNull(field.getRangeDurationField());
+        assertNull(field.getLeapDurationField());
+    }
+```

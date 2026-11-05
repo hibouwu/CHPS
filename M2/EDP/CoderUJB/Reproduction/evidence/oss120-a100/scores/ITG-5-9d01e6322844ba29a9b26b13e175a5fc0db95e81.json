@@ -1,0 +1,19 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 5,
+  "batch": "b03",
+  "status": "fail",
+  "reason": "candidate_compile",
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": null,
+  "result": "evidence/scoring/model/ITG-5-9d01e632/9fde45a5757e1df695e4e5a9ff51addd7cd71a74b537a5911438efea2daba00b/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 2314,
+    "prompt_tokens": 1076,
+    "total_tokens": 3390
+  },
+  "final_sha256": "422c01f88f52028bfd139d8d92f3ff714f5b305d28c0d78bf659ab86df0c7c80"
+}

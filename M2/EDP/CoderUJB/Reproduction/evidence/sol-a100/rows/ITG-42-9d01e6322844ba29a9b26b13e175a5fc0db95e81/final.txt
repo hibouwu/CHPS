@@ -1,0 +1,48 @@
+```java
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.apache.commons.collections4.keyvalue.MultiKey;
+import org.junit.Test;
+
+public class MultiKeySerializationTest {
+
+    // Static to avoid serializing an enclosing test instance.
+    private static final class DerivedMultiKey extends MultiKey<String> {
+        private static final long serialVersionUID = 1L;
+
+        DerivedMultiKey(final String key1, final String key2) {
+            super(key1, key2);
+        }
+    }
+
+    @Test
+    public void testEqualsAfterSerializationOfDerivedClass()
+            throws IOException, ClassNotFoundException {
+        final DerivedMultiKey original = new DerivedMultiKey("bla", "blub");
+
+        final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        try (ObjectOutputStream out = new ObjectOutputStream(buffer)) {
+            out.writeObject(original);
+        }
+
+        final DerivedMultiKey restored;
+        try (ObjectInputStream in = new ObjectInputStream(
+                new ByteArrayInputStream(buffer.toByteArray()))) {
+            restored = (DerivedMultiKey) in.readObject();
+        }
+
+        assertNotSame(original, restored);
+        assertEquals("Deserialization must preserve the keys",
+                original, restored);
+        assertEquals("Deserialization must recompute the inherited transient hash code",
+                original.hashCode(), restored.hashCode());
+    }
+}
+```

@@ -1,0 +1,75 @@
+// package org.apache.commons.collections4.keyvalue;
+// 
+// import java.io.Serializable;
+// import java.util.Arrays;
+// 
+// 
+// 
+// public class MultiKey<K> implements Serializable  {
+//     private static final long serialVersionUID = 4465448607415788805L;
+//     private final K[] keys;
+//     private transient int hashCode;
+// 
+//     @SuppressWarnings("unchecked")
+//     public MultiKey(final K key1, final K key2);
+//     @SuppressWarnings("unchecked")
+//     public MultiKey(final K key1, final K key2, final K key3);
+//     @SuppressWarnings("unchecked")
+//     public MultiKey(final K key1, final K key2, final K key3, final K key4);
+//     @SuppressWarnings("unchecked")
+//     public MultiKey(final K key1, final K key2, final K key3, final K key4, final K key5);
+//     public MultiKey(final K[] keys);
+//     public MultiKey(final K[] keys, final boolean makeClone);
+//     public K[] getKeys();
+//     public K getKey(final int index);
+//     public int size();
+//     @Override
+//     public boolean equals(final Object other);
+//     @Override
+//     public int hashCode();
+//     @Override
+//     public String toString();
+//     private void calculateHashCode(final Object[] keys);
+//     private Object readResolve();
+// }
+
+// You are a professional Java programmer, please fix the bug in the function named readResolve based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+    /**
+     * Recalculate the hash code after deserialization. The hash code of some
+     * keys might have change (hash codes based on the system hash code are
+     * only stable for the same process).
+     * @return the instance with recalculated hash code
+     */
+    private Object readResolve() {
+        calculateHashCode(keys);
+        return this;
+    }
+
+// Fixed Function
+    /**
+     * Recalculate the hash code after deserialization. The hash code of some
+     * keys might have change (hash codes based on the system hash code are
+     * only stable for the same process).
+     * @return the instance with recalculated hash code
+     */
+    private Object readResolve() {
+        calculateHashCode(keys);
+        return this;
+    }
+
+// You are a professional Java programmer, please fix the bug in the function named calculateHashCode based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+    /**
+     * Recalculate the hash code for the given array of objects.
+     * @param keys  the array of objects to recalculate the hash code for
+     */
+    private void calculateHashCode(final Object[] keys) {
+        int total = 0;
+        for (int i = 0; i < keys.length; i++) {
+            total += (keys[i] == null ? 0 : keys[i].hashCode());
+        }
+        hashCode = total;
+    }
+
+// Fixed

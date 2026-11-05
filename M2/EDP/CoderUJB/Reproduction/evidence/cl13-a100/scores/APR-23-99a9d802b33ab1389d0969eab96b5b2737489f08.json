@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 23,
+  "project": "Csv",
+  "bug_id": "11",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-23-99a9d802/26fcd37039b3398e70987050b4fbd907b5cb2a909970a2a6710edc7cfcc8e567/attempt-1/result.json",
+  "raw_sha256": "7e2a772b37674439735e29800cc62451cf15eeed56b0c712472fcff3db65f330",
+  "input_sha256": "4790dc7314cfdcd20cea9746694a67187b791c69ebafafe8c3b11b161f5286b2",
+  "input_tokens": 1061,
+  "full_input_tokens": 1061,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-23-99a9d802/448ddee881e4ded9b9dc184255e7ede4b3e9793c9e958bff50f13eeb82d12eaa/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-23-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

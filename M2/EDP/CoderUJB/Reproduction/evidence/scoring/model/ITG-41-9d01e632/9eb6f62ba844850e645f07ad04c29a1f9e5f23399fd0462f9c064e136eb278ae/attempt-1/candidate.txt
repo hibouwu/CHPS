@@ -1,0 +1,9 @@
+public void testGenericSignature1195() throws Exception {
+        com.fasterxml.jackson.databind.JavaType type =
+                com.fasterxml.jackson.databind.type.TypeFactory.defaultInstance()
+                        .constructType(new com.fasterxml.jackson.core.type.TypeReference<
+                                java.util.concurrent.atomic.AtomicReference<String>>() { });
+
+        assertEquals("Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;",
+                type.getGenericSignature());
+    }

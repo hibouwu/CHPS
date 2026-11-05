@@ -1,0 +1,22 @@
+protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
+{
+    // If we are dealing with an XML generator we can honour the configured
+    // root name for a null value.
+    if (jgen instanceof ToXmlGenerator) {
+        ToXmlGenerator xgen = (ToXmlGenerator) jgen;
+
+        // Write the start element using the special root name for nulls.
+        // This method also takes care of any necessary namespace handling.
+        _initWithRootName(xgen, ROOT_NAME_FOR_NULL);
+
+        // Finally write the XML representation of a null value.
+        // For XML this results in an empty element (e.g. <null/>)
+        // or, depending on configuration, an element with xsi:nil="true".
+        xgen.writeNull();
+        return;
+    }
+
+    // Non‑XML generators (or a mis‑configured generator) fall back to the
+    // default handling provided by the base class.
+    super.serializeValue(jgen, null);
+}

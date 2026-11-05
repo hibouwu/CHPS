@@ -1,0 +1,26 @@
+```java
+public long readBits(final int count) throws IOException {
+    if (count <= 0 || count > MAXIMUM_CACHE_SIZE) {
+        throw new IOException("count must be between 1 and " + MAXIMUM_CACHE_SIZE);
+    }
+
+    if (ensureCache(count)) {
+        return -1;
+    }
+
+    if (bitsCachedSize < count) {
+        return processBitsGreater57(count);
+    }
+
+    final long bits;
+    if (byteOrder == ByteOrder.LITTLE_ENDIAN) {
+        bits = bitsCached & MASKS[count];
+        bitsCached >>>= count;
+    } else {
+        bits = (bitsCached >>> (bitsCachedSize - count)) & MASKS[count];
+    }
+
+    bitsCachedSize -= count;
+    return bits;
+}
+```

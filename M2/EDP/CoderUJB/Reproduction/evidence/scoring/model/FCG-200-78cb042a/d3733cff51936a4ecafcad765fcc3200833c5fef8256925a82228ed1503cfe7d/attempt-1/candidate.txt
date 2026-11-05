@@ -1,0 +1,50 @@
+public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) throws ZipException {
+        // Guard against a null argument – the original library returns an empty array.
+        if (data == null || data.length == 0) {
+            return new byte[0];
+        }
+
+        // ------------------------------------------------------------------
+        // 1️⃣  Compute the total length of the resulting byte array.
+        // ------------------------------------------------------------------
+        int totalLength = 0;
+        for (final ZipExtraField ze : data) {
+            // Each entry contributes:
+            //   - 4 bytes for header‑id + length (WORD)
+            //   - N bytes for the actual central‑directory data
+            totalLength += WORD + ze.getCentralDirectoryLength().getValue();
+        }
+
+        // ------------------------------------------------------------------
+        // 2️⃣  Allocate the result buffer and fill it entry by entry.
+        // ------------------------------------------------------------------
+        final byte[] result = new byte[totalLength];
+        int offset = 0;
+
+        for (final ZipExtraField ze : data) {
+            // Header ID (2 bytes)
+            final ZipShort headerId = ze.getHeaderId();
+            System.arraycopy(headerId.getBytes(), 0, result, offset, WORD);
+            offset += WORD;
+
+            // Central‑directory data for this field
+            final byte[] centralData = ze.getCentralDirectoryData();
+            if (centralData == null) {
+                // The original implementation throws a ZipException when a field
+                // supplies a null payload – this protects callers from corrupt archives.
+                throw new ZipException("Central directory data for extra field "
+                        + headerId + " is null");
+            }
+
+            // Length of the data (2 bytes)
+            final ZipShort length = new ZipShort(centralData.length);
+            System.arraycopy(length.getBytes(), 0, result, offset, WORD);
+            offset += WORD;
+
+            // The actual data bytes
+            System.arraycopy(centralData, 0, result, offset, centralData.length);
+            offset += centralData.length;
+        }
+
+        return result;
+    }

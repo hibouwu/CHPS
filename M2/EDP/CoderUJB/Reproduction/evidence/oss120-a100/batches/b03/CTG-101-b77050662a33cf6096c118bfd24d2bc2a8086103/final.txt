@@ -1,0 +1,163 @@
+**Implemented `testKeywords`**
+
+Below is a complete implementation of the **`testKeywords`** unit‑test for the `JsonParser` class.  
+The test verifies that the three JSON literals **`null`**, **`true`**, and **`false`** are correctly recognised and handled in a variety of contexts:
+
+* as top‑level values,
+* as object field values,
+* as array elements,
+* with surrounding whitespace and line‑breaks.
+
+The implementation follows the conventions used throughout the Jackson test‑suite (e.g. the `BaseTest` helper methods, `jsonFactory` field, and JUnit‑style assertions).
+
+```java
+package com.fasterxml.jackson.core.read;
+
+import com.fasterxml.jackson.core.*;
+import java.io.*;
+
+@SuppressWarnings("resource")
+public class JsonParserTest extends BaseTest {
+
+    /**
+     * Unit test that verifies that 3 basic keywords (null, true, false)
+     * are properly parsed in various contexts.
+     */
+    public void testKeywords() throws Exception
+    {
+        // -----------------------------------------------------------------
+        // 1) Each keyword as a *stand‑alone* document (root value)
+        // -----------------------------------------------------------------
+        _verifyRootKeyword("null", JsonToken.VALUE_NULL, null);
+        _verifyRootKeyword("true", JsonToken.VALUE_TRUE, Boolean.TRUE);
+        _verifyRootKeyword("false", JsonToken.VALUE_FALSE, Boolean.FALSE);
+
+        // -----------------------------------------------------------------
+        // 2) Keywords as object field values
+        // -----------------------------------------------------------------
+        String obj = "{"
+                + "\"n\":null,"
+                + "\"t\":true ,"
+                + "\"f\":false"
+                + "}";
+        try (JsonParser p = jsonFactory.createParser(obj)) {
+            assertToken(JsonToken.START_OBJECT, p.nextToken());
+
+            // field "n" : null
+            assertToken(JsonToken.FIELD_NAME, p.nextToken());
+            assertEquals("n", p.currentName());
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getObject());               // getObject() returns null for VALUE_NULL
+
+            // field "t" : true
+            assertToken(JsonToken.FIELD_NAME, p.nextToken());
+            assertEquals("t", p.currentName());
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertTrue(p.getBooleanValue());
+
+            // field "f" : false
+            assertToken(JsonToken.FIELD_NAME, p.nextToken());
+            assertEquals("f", p.currentName());
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertFalse(p.getBooleanValue());
+
+            assertToken(JsonToken.END_OBJECT, p.nextToken());
+            assertNull(p.nextToken());               // no more content
+        }
+
+        // -----------------------------------------------------------------
+        // 3) Keywords inside an array (mixed with other scalar values)
+        // -----------------------------------------------------------------
+        String arr = "[ 1 , null , \"text\" , true , false , 3.14 ]";
+        try (JsonParser p = jsonFactory.createParser(arr)) {
+            assertToken(JsonToken.START_ARRAY, p.nextToken());
+
+            // 1 (int)
+            assertToken(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+            assertEquals(1, p.getIntValue());
+
+            // null
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getObject());
+
+            // "text"
+            assertToken(JsonToken.VALUE_STRING, p.nextToken());
+            assertEquals("text", p.getText());
+
+            // true
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertTrue(p.getBooleanValue());
+
+            // false
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertFalse(p.getBooleanValue());
+
+            // 3.14 (float)
+            assertToken(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+            assertEquals(3.14, p.getDoubleValue(), 0.000001);
+
+            assertToken(JsonToken.END_ARRAY, p.nextToken());
+            assertNull(p.nextToken());
+        }
+
+        // -----------------------------------------------------------------
+        // 4) Keywords with leading/trailing whitespace and line‑breaks
+        // -----------------------------------------------------------------
+        String ws = "\n  true \r\n  false\tnull  ";
+        try (JsonParser p = jsonFactory.createParser(ws)) {
+            // true
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertTrue(p.getBooleanValue());
+
+            // false
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertFalse(p.getBooleanValue());
+
+            // null
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getObject());
+
+            assertNull(p.nextToken());
+        }
+    }
+
+    /**
+     * Helper that parses a single root keyword and checks that the
+     * token type and the value returned by the parser match the expectations.
+     */
+    private void _verifyRootKeyword(String json, JsonToken expectedToken, Object expectedValue) throws IOException
+    {
+        try (JsonParser p = jsonFactory.createParser(json)) {
+            // The first token must be the expected literal
+            assertToken(expectedToken, p.nextToken());
+
+            // Verify the value that the parser exposes
+            if (expectedToken == JsonToken.VALUE_NULL) {
+                assertNull(p.getObject());
+            } else if (expectedToken == JsonToken.VALUE_TRUE
+                    || expectedToken == JsonToken.VALUE_FALSE) {
+                assertEquals(((Boolean) expectedValue).booleanValue(),
+                        p.getBooleanValue());
+            } else {
+                fail("Unexpected token for root keyword test: " + expectedToken);
+            }
+
+            // No more content after the root value
+            assertNull(p.nextToken());
+        }
+    }
+}
+```
+
+### Explanation of the implementation
+
+| Section | What it tests | How it is verified |
+|---------|---------------|--------------------|
+| **1) Root keywords** | Each keyword alone as the whole document | `_verifyRootKeyword` parses the string, checks the token (`VALUE_NULL`, `VALUE_TRUE`, `VALUE_FALSE`) and the corresponding Java value (`null`, `true`, `false`). |
+| **2) Object fields** | Keywords used as values of object members | Parses an object, asserts the sequence `START_OBJECT → FIELD_NAME → VALUE_* → … → END_OBJECT`. Uses `currentName()` to verify field names and `getBooleanValue()` for `true/false`. |
+| **3) Array elements** | Keywords mixed with other scalar types inside an array | Parses an array, checks each element’s token type and value, confirming that the parser correctly switches between number, string, and keyword tokens. |
+| **4) Whitespace handling** | Keywords surrounded by various whitespace characters (space, tab, newline, carriage‑return) | Parses a whitespace‑rich document, confirming that the parser skips whitespace and still returns the correct tokens. |
+
+The test relies on the helper methods provided by `BaseTest` (e.g., `assertToken`, `assertEquals`, `assertTrue`, `assertFalse`, `assertNull`, `fail`). It also uses the `jsonFactory` field (standard in Jackson’s test base classes) to create parsers for the supplied JSON snippets.
+
+With this implementation, the `testKeywords` method fully validates that `JsonParser` correctly recognises and processes the three fundamental JSON literals in a range of realistic parsing scenarios.

@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 269,
+  "project": "Time",
+  "bug_id": "15",
+  "status": "fail",
+  "reason": null,
+  "category": "fp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "9f098a8cf59768cb03dd3aad12cc66ccab2f33b660f36e7dfb59ac5a142c13b9",
+  "input_sha256": "e0e7a1dce601e46f7a573d7e9f7c8e678c6058355d633cf198a8a44bb3076b5d",
+  "input_tokens": 1171,
+  "full_input_tokens": 1171,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-269-3cf751c8/277809d68cb96f079223da23df9ab0390f6fc57fce378cc4127317f519e1bf00/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

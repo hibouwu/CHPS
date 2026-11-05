@@ -1,0 +1,23 @@
+public void testUnexpectedToken() throws Exception {
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").create();
+
+        class Bean {
+            Date date;
+        }
+
+        // Verify that a null Date is serialized and deserialized without error
+        Bean bean = new Bean();
+        bean.date = null;
+        String json = gson.toJson(bean);
+        Bean deserialized = gson.fromJson(json, Bean.class);
+        assertNull("Date should remain null after round‑trip", deserialized.date);
+
+        // Verify that an unexpected token (object instead of a date primitive) triggers a JsonSyntaxException
+        String badJson = "{\"date\":{}}";
+        try {
+            gson.fromJson(badJson, Bean.class);
+            fail("Expected JsonSyntaxException due to unexpected token");
+        } catch (JsonSyntaxException expected) {
+            // Expected exception
+        }
+    }

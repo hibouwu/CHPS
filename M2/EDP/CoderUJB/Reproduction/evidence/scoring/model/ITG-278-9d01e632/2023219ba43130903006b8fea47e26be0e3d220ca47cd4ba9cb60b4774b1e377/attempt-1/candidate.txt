@@ -1,0 +1,8 @@
+    @Test 
+    public void shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine() {
+        List mock = mock(List.class);
+        when(mock.size()).thenReturn(10);
+        mock.add(1);
+        assertEquals(10, mock.size());
+        verify(mock).add(1);
+    }

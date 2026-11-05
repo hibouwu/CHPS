@@ -1,0 +1,34 @@
+public Symbol getParameterInFunction(Symbol sym, String paramName) {
+  // Defensive checks – a null symbol or a null name can never yield a result.
+  if (sym == null || paramName == null) {
+    return null;
+  }
+
+  // The symbol must represent a function.  In the Closure type system a
+  // function is identified by having a non‑null FunctionType.
+  FunctionType fnType = sym.getFunctionType();
+  if (fnType == null) {
+    // Not a function (or the type information is missing); give up.
+    return null;
+  }
+
+  // Obtain the lexical scope that corresponds to the *body* of the function.
+  // This private helper already knows how to walk from the function symbol
+  // to the inner scope that contains its parameters and local variables.
+  SymbolScope functionScope = getScopeInFunction(sym);
+  if (functionScope == null) {
+    return null;
+  }
+
+  // Parameters are declared as lexical variables inside the function scope.
+  // First try an exact (own) lookup – this is the most common case.
+  Symbol param = functionScope.getOwnSlot(paramName);
+  if (param != null) {
+    return param;
+  }
+
+  // As a fallback, perform a normal lookup that also walks up the scope
+  // chain.  This can succeed for some exotic patterns where the parameter
+  // ends up in a parent scope (e.g., certain externs).
+  return functionScope.getSlot(paramName);
+}

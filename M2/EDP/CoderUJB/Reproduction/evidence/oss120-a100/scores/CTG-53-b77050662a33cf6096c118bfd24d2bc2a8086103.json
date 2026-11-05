@@ -1,0 +1,26 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 53,
+  "batch": "b02",
+  "status": "pass",
+  "reason": null,
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.compress.archivers.zip.ZipArchiveEntry"
+    ],
+    "line_pct": 22.5,
+    "condition_pct": 20.7,
+    "instrumented_lines_hit": 50
+  },
+  "result": "evidence/scoring/model/CTG-53-b7705066/ff588e557e04d026b6169d5483cc57fbf6f6ba86c79c68784a31ad15d9089e6e/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 1175,
+    "prompt_tokens": 1520,
+    "total_tokens": 2695
+  },
+  "final_sha256": "176d9dc1e3d3a4476769814b1e823174ddea7bda2b6a8a48e3a92fe8c2609ed0"
+}

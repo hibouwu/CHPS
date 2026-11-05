@@ -1,0 +1,88 @@
+**Test case for CLI‑252 – “LongOpt falsely detected as ambiguous”**
+
+```java
+import org.apache.commons.cli.*;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class Cli252Test {
+
+    /**
+     * Verifies that an exact long‑option match ( --import=FILE ) is parsed
+     * correctly and is **not** considered ambiguous with another option that
+     * merely starts with the same prefix ( --importToOpen ).
+     *
+     * <p>According to the bug report (CLI‑252) the {@code DefaultParser}
+     * incorrectly treats the above argument as ambiguous and throws an
+     * {@link AmbiguousOptionException}.  The expected (correct) behaviour is
+     * that the option {@code import} is recognised, its argument is stored,
+     * and no exception is thrown.</p>
+     *
+     * @throws ParseException if the parsing fails for reasons other than the
+     *                        ambiguous‑option bug.
+     */
+    @Test
+    public void testExactOptionNameMatch() throws ParseException {
+        // -----------------------------------------------------------------
+        // 1️⃣  Build the option set exactly as described in the issue.
+        // -----------------------------------------------------------------
+        Options options = new Options();
+
+        //  --importToOpen <FILE>
+        options.addOption(
+                Option.builder()
+                        .longOpt("importToOpen")
+                        .hasArg()
+                        .argName("FILE")
+                        .desc("Import to open")
+                        .build());
+
+        //  -i, --import <FILE>
+        options.addOption(
+                Option.builder("i")
+                        .longOpt("import")
+                        .hasArg()
+                        .argName("FILE")
+                        .desc("Import")
+                        .build());
+
+        // -----------------------------------------------------------------
+        // 2️⃣  Parse a command line that uses the *exact* long option name.
+        // -----------------------------------------------------------------
+        String[] args = {"--import=sample.txt"};
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd;
+
+        try {
+            cmd = parser.parse(options, args);
+        } catch (AmbiguousOptionException aoe) {
+            // The bug manifests itself here – fail the test with a clear message.
+            fail("AmbiguousOptionException was thrown for an exact long‑option match: "
+                    + aoe.getMessage());
+            return; // unreachable, but keeps the compiler happy
+        }
+
+        // -----------------------------------------------------------------
+        // 3️⃣  Verify that the correct option was selected and its value stored.
+        // -----------------------------------------------------------------
+        assertTrue("Option \"import\" should be present", cmd.hasOption("import"));
+        assertFalse("Option \"importToOpen\" must NOT be present", cmd.hasOption("importToOpen"));
+
+        String value = cmd.getOptionValue("import");
+        assertNotNull("Option value for \"import\" must not be null", value);
+        assertEquals("sample.txt", value);
+    }
+}
+```
+
+### What the test does
+
+| Step | Action | Expected outcome |
+|------|--------|------------------|
+| 1️⃣   | Create two options: `--importToOpen` and `-i/--import`. | Options are registered exactly as in the issue. |
+| 2️⃣   | Parse the argument array `{"--import=sample.txt"}` with `DefaultParser`. | No `AmbiguousOptionException` should be thrown. |
+| 3️⃣   | Assert that `import` is the selected option, that it carries the value `"sample.txt"`, and that `importToOpen` is **not** selected. | Confirms that the parser performed an **exact** long‑option match rather than a prefix‑based (ambiguous) match. |
+
+If the parser still treats the option as ambiguous (the bug present in Commons‑CLI 1.3+), the test will fail with a clear message, highlighting the regression described in **CLI‑252**. Once the issue is fixed, the test will pass, guaranteeing the correct behaviour for future releases.

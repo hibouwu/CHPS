@@ -1,0 +1,16 @@
+public void testDifferentDurationReturnDifferentObjects() {
+    DateTimeField first = UnsupportedDateTimeField.getInstance(
+            dateTimeFieldTypeOne, weeks.getField(null));
+
+    assertSame(first, UnsupportedDateTimeField.getInstance(
+            dateTimeFieldTypeOne, weeks.getField(null)));
+
+    DateTimeField second = UnsupportedDateTimeField.getInstance(
+            dateTimeFieldTypeOne, months.getField(null));
+
+    assertNotSame("Different duration fields should produce different instances",
+            first, second);
+
+    assertSame(second, UnsupportedDateTimeField.getInstance(
+            dateTimeFieldTypeOne, months.getField(null)));
+}

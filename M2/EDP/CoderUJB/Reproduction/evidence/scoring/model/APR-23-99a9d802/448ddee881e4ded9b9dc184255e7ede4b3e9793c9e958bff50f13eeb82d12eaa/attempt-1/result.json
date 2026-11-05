@@ -1,0 +1,37 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 23,
+  "task_id": "13ce1b3a1501df38e32809faed9a11a229ff960ed12f298981462576aa9bbb07",
+  "origin": "model",
+  "mode": "complete",
+  "raw_sha256": "7e2a772b37674439735e29800cc62451cf15eeed56b0c712472fcff3db65f330",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "7c8daa829175a038038c6dc63447650ddc37059801f57e29bd84f7f5a49d4b72",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Csv",
+  "bug_id": "11",
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Csv",
+        "-v",
+        "11f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-23-zo310lgx/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.932,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    }
+  ],
+  "tests": {},
+  "reason": "candidate_syntax"
+}

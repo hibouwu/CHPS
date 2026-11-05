@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 109,
+  "task_id": "48502d33d92b6a64fb4c811ca8031bdbae710022e2f6c00b6878da9940cbd1ed",
+  "project": "Gson",
+  "bug_id": "15",
+  "chat_sha256": "0ceabad44dc5b4e3d5dbefd311e115166de41bb963eb565f81eee7e1c77b513b",
+  "complete_sha256": "4f3438ed4de4821a8c41cdd2f56b841afe98b4ab8984b446be6d395e0242fb38",
+  "checked_at": "2026-11-05T03:02:12.971881+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-109-99a9d802/258124b0bbaf649384b3e001df4aeca6704fb368a6aae7b6c1606b02661ca6a2/attempt-1/result.json"
+}

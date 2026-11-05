@@ -1,0 +1,2 @@
+private StringBuffer appendQuotedString(String pattern, ParsePosition pos,
+            StringBuffer appendTo, boolean escapingOn) { throw new IllegalStateException("negative control"); }

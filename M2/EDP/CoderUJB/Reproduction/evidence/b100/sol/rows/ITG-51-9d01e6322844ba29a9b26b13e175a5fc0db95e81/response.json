@@ -1,0 +1,105 @@
+{
+  "id": "resp_01b2313e8608f639016aec01a2bd5887d28f8e99a894e06a0d",
+  "object": "response",
+  "created_at": 1793851810,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851819,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_01b2313e8608f639016aec01a3861c87d282289de634964a05",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AGrPE-V-rIcDRVgzhTX9ux9BL_cgO0sFDlvg9aEa9G0NH8ZUJK5yB3sZqqvSzzClmlwq27BU9WI9BsM_KV8GBc_lWgTmy1B6100ZAwhGDnGStI6odU8oPtluxuQ7xB9UV0jRIG7eXI3lPoXTbC16Si2GniF4hA05EVrivd5_X9jHly2rkW5uNL8k2ChVlz0jHyyOSWdqGRktvHeK9KbnB7g34xGjEcfmhvXebLOcI0JxiHmy_zQYm_npOSvYswjwHJP0k8cZrNQSdaVyUUwzlFEI_ad4GFsJWGPfT-OHgzOH7wGrqdKklbH4K51n0lp2NdAc0ErkKTp1n4-3mMp2yPAi8fEwrkX51fhk2o07HrPQo6TTygafIQneu46uoMygnzwXYccLijmfoEj-ZvSjLacZUW2vEWIIgekt28o3X2BNwxywFubMWmliBJIUStaPxHNqxV7ugddWF3tsu9vr7acdR99lHJdAnYzMY0HidJFevYV7_moFhKWl3y5mXubWrLsh1C-z6uaqlDONMeeFbhivT4zTO13fv-rTzy1L7HeVqxxekIfaVOJuGS0xYp3oF92xjOi9b7RQeUV-l51B7Ab5XtuR2aU9pbkNojeDldyU2fOTWr0kHcYgHgjHOe1PRoeSAJfhNtIvAiMSfI8vwwRaf92ZsYcepLcPPjKMERS8ZOehEOtvOjotHdeO6BSrpAOcln3RIHw6y0zA3p5wJPpfkLuE7ifEL-F91oqX5Ms8-6as1k6Ff4i02MDRjmq0GCUN-60wkE0Y0TRuiwjPeEzpX1HZ9uVpTbfBGBIXou60HU_wttQIuhEeNzJQAsQKzNrZd1evGyf2BR5NoLvwaXb5vYZfbZTfFvAIsVevd8d4tzv7C31APIVtrZc37P0uHjj00e_ik8mSIw7yZWeFk4wF2nT4BYqlHqQWQZGsuSvxKAp0v25MX5kZeVyNj6UKmI-YoxMn8p1UfY64myf1jwZMLWwvXqi9U4FLycbhZZLtS1pLx8MQBiS53CUq_GughnWqn5IEcp5N7GibCLWGa5v5wfaf9r4ldj0bduhlUVp5PHAYRNqQx5mHX_Yfh7LMYC8P2ao8Nwmd7zzGNFXL4hUB9SoLIjRnm0ODhcOv6J9yaiyIArzGjJOVVA32GoEGS-4PoP3UuVDoLRbln5YzZLp4WniKfj9FbmYi1Gbg50JPyTsAtuLZ3OXSz1-BDjhkWpNDaNEZVn4hEJiAKAoAUrOCb07rpoBXtH9HY8aYlchRHz4VDdKG6yHGtLM3CexoLA5mt3Iz09IXpbEYjoI8qDyAIcoSGxsT624xHQxv83e4ZxwdhK1DcGPimSwzoPjfnfITHC2MkUPjDLIIqRv7hL8t45orKiKsdhFw1lkBEGN9xvsG0I6Iv6Hj-OpwS4CvRu2EcVm6dpuHQBBOUkCtYOqDzuLEQ6pc4O5BBjwG8ILC3k4ib-Fx1Jh6HaGbCqXQgM_2lQ-lmjbxJYDFwGyPuJKJv6YmnrSDYx62eMUK3ccE7veM8UrRRlyvAbNr0kGbzVayi2U1K2tL6d8ZOqJfylx6B_4qk24yRL035O8Gdi23MFjMXie3Ebf7JEziTWEObnkhKdbz450AldfXhbTand8R9ryIFwvfr_NErPbyXsLsbX_Bm4bejO97ITLkGFW75zJSy1YhNrnlWAv-S2aJ1q8MJpnSfL5I-gJzIpSrGFLil-0i2NiHwxzuTmMN6ZSUntT7fjk1ieBAYJm1uOXWKDmVnqBFm_co9eBLrp1PIjV1tK1s1crBEIV9ZL6SSguZCegmpObjDtVCXCuJMl9s2y4sIHHAq6Oc7P6W4AQxCnJXY2alaXR2pQ3_6A9N8dQRWEC_wH6OH-H-rMPmoOgeEPOPW5bCAdNg2-s2aWdK5MpjU9S-7JQg2BrA1vh8ldi4eOokw8KVgPao2rKI984cHLMYOUfOEqFbHGL3Y2Lf_G8Q4u_BG-n86fmn1Dxh0Whk75e7QsxnXVOuq6rfmRuj6ev0xfrKzvQxhwmwYt2616lbvg3izbks9U915SSDe11j7TZaVzhxJMOS8Yo0ahqSMyj3w3iXdUbAPwXorQzhJfU8B9TP7962nHsFDpseERw3ZXzIkxNArnrAPhdS-OLcgLwYs6yo3V0TAoooEu2l7FzyyM8R_3_E-S6UGmG6loevlhe4HTcR2imH7__oPn3vNq0uAPkbvztOde9RZiSGaHxuZri3t0Sh0bo-Zzmr3uKNk88C0ods_VVCZaJN7V9JWG2B4j2iLezgSmKC0oQyV2TUOaCmtgwJMCa_X9WciXnNfofJvQOaeVrgw1kctw97wao66ML_SqUqPu7kOhGf8H-sRgbtXA8x8jG-onjsuIoEZaXoamFJdJ3o-yUzVYtp7no7RnhfJeA4c3FivNSXX--pN_2IDvMw17tgq9KGb62YksFh39KFDiCpkayKZXvfisyFs9sFSJ7ZOVLyEfF5Yy6NgmQtoXXwS3IvpODZshM8VAbuE95H0cEFDBKrhqBoejaJisnP5KPrnn_gTaMwT3vJWm1U6dttdOqqQd1BKBJAjApnsU1hw2kV5hVzLxSMj9gn0uQI7pSQS1JoHXJNi9KooHexNPnus5_9sZxoyQa_s9YpfDEVOu7tDqFs0havUNoO18Z42rLlpVE-vmqzDbP1sYxw21tnllENU1Y5IQuYwIYM-j2eyCRpW57UySZCfA8wL2oyp2LSmNRR76o8Ig8ymaQKvHiYMEImDA-DUcMCMpAoz-3gKEjZvetZAlcEZqfvfsObK63N1_OGEZJ0pLDJxiWysYklrWcC-O85nhIG3GOCh_2BROiYbKb7Jt3GrRtvCc5wzocUOGqoe-zTuj35ON56O5DBiBY_NTw0KywggZY9gNMmGQbLGpR-qwZE-zd9JVZ9vVEZN5mZfV8ArMW-KtuLo-Dqhm9IZ9BD7fRONNdgBaKSzaq1wP77hSxZSvVFCuFl-1LjbB9wjuBBvdiiNaDja2HLYag3HdxWDyoLhG9qL4oOe3W4HiClIYRurnX0NRmNAxKbW1v7T1ybcHFBu7dxOTebQhkA-x1CLwQeM6vIjmpfaBteXISWwGmLnSrLPXQbJ2WnxQso7nnhYYgQvQgdf72BVQq3em4ggegxosYOy_-CmTa0eLRBUTVEBbfqBjuWv3mJduv8ckv8zStpR-wbJ--Y7fex5CUFEbCc81bxMBQV0b9n9hGJ2McL3dg6fljKs6uy6TRynkLiOQymD8fVuQrDpPq3aJPr9CnmzXAWnSlJ4PvzT-yCSSZqvGtq-Qb1Z-z5VMF3Euuvn8fPnrLWAXlvBjYz6d0qtEiae1mn3jPB3btzehReKmztJD31CZoBrjMnAktNlpDxens2L56J6YYcodUkKQfPJpfrkfHYE9h2zh_bVuSGFnlD_DPeEjHEh7KfhXe08J1Y-TEMoW2abWFKHGLN5GqFWzfsmGBs0qRU4O-oIZ-9dzDWzd7rR_trIeNbUYGjGcdGhkdellwno-oBAuVLxFfYH9VcTDpFiHDtkefqDhICJxH_QmnszVeJPmiVzpZfagxO5LvuQVpBdok96dGV6gTB5KV2wB7LTWwdQXY6AfX-90l40fVE4P0Y_4o6QApWbKV9e1CsdurVNh1XoBJpDVKSQj8CSwerG4cfhwKZdQeW8awJSS8DeHXf5L0PuXYaWEds10GYAnv6UIbjf53ZJKGgwWnoGXkAfVOleb59zDpMbrRfPf0d_gWuZDP-ttgSALZsErjSEfBjKPqTd0zL9FrHO8wo_e5exuCnkZKXp-X6zqjCVqUeBLDq1epHxKB5Zw5WsraqhoaesOz-Gul-WVLYeOdf9L2EKM8NyD-cVHS2Y1c7BKXEDklzEd5gXYocE-J9uuvcRHGAjjaCSnfX5gpL8epz75w",
+      "summary": []
+    },
+    {
+      "id": "msg_01b2313e8608f639016aec01a89d5087d2a4d897cc84f072bf",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    public void testEmptyNodeSetOperations() {\n        try {\n            org.w3c.dom.Document document =\n                    javax.xml.parsers.DocumentBuilderFactory.newInstance()\n                            .newDocumentBuilder()\n                            .parse(new org.xml.sax.InputSource(\n                                    new java.io.StringReader(\n                                            \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?><doc/>\")));\n            JXPathContext context = JXPathContext.newContext(document);\n\n            String[] expressions = {\n                \"2.0 > child1\",\n                \"2.0 >= child1\",\n                \"2.0 < child1\",\n                \"2.0 <= child1\",\n                \"2.0 = child1\",\n                \"2.0 != child1\",\n                \"child1 > 2.0\",\n                \"child1 >= 2.0\",\n                \"child1 < 2.0\",\n                \"child1 <= 2.0\",\n                \"child1 = 2.0\",\n                \"child1 != 2.0\",\n                \"child1 > child2\",\n                \"child1 >= child2\",\n                \"child1 < child2\",\n                \"child1 <= child2\",\n                \"child1 = child2\",\n                \"child1 != child2\",\n                \"child1 > /doc\",\n                \"child1 >= /doc\",\n                \"child1 < /doc\",\n                \"child1 <= /doc\",\n                \"child1 = /doc\",\n                \"child1 != /doc\",\n                \"/doc > child1\",\n                \"/doc >= child1\",\n                \"/doc < child1\",\n                \"/doc <= child1\",\n                \"/doc = child1\",\n                \"/doc != child1\"\n            };\n\n            for (int i = 0; i < expressions.length; i++) {\n                Boolean result = (Boolean) context.getValue(\n                        expressions[i], Boolean.class);\n                assertFalse(\"Expected false for: \" + expressions[i],\n                        result.booleanValue());\n            }\n        } catch (Exception e) {\n            fail(\"Could not evaluate empty node-set comparisons: \" + e);\n        }\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 446,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 620,
+    "output_tokens_details": {
+      "reasoning_tokens": 185
+    },
+    "total_tokens": 1066
+  },
+  "user": null,
+  "metadata": {}
+}

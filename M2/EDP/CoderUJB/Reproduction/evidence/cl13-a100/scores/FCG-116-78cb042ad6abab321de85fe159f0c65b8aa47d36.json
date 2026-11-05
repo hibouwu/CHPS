@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 116,
+  "project": "Csv",
+  "bug_id": 16,
+  "status": "timeout_unresolved",
+  "reason": "fixed-test-0",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-116-78cb042a/72b19d17d096a118496637cccfef9ece92ac6a2fd658667e31001edb4945ec83/attempt-1/result.json",
+  "raw_sha256": "30d8d9b99aa0bb510f4f32a1783098ab8144242c49dd1f3de5a7c2e36527a530",
+  "input_sha256": "66ef74fc5cbcb9626a76aedf9ac57ac90e0a54c0f6925cdd4a4bc969e1f66e9c",
+  "input_tokens": 946,
+  "full_input_tokens": 946,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-116-78cb042a/53125eab8958b24862f635537880c1ba1cb2f600af431972c4cbffb60ce4d507/attempt-2/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-116-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

@@ -1,0 +1,26 @@
+```java
+    /**
+     * Test case for
+     * <a href="https://issues.apache.org/jira/browse/COMPRESS-351"
+     * >COMPRESS-351</a>.
+     */
+    @Test
+    public void testMessageWithCorruptFileName() throws Exception {
+        // Create a corrupt ZIP file with an invalid file name
+        File corruptZipFile = getFile("corrupt-filename.zip");
+        try (InputStream is = new FileInputStream(corruptZipFile);
+             ZipArchiveInputStream zais = new ZipArchiveInputStream(is)) {
+            
+            try {
+                ZipArchiveEntry entry = zais.getNextZipEntry();
+                if (entry != null) {
+                    zais.closeEntry();
+                }
+                fail("Expected an exception due to corrupt file name");
+            } catch (IOException e) {
+                assertTrue("Exception message should contain 'invalid file name'", 
+                           e.getMessage().contains("invalid file name"));
+            }
+        }
+    }
+```

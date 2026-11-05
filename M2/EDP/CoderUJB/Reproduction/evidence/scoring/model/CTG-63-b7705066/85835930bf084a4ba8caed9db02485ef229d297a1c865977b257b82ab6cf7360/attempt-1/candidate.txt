@@ -1,0 +1,8 @@
+public void testBug911118() throws Exception {
+    String js = ""
+        + "var f;\n"
+        + "f = function() { return 1; };\n"
+        + "f = function() { return 'str'; };\n"
+        + "f();";
+    testTypes(js, new String[] {});
+  }

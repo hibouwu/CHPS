@@ -1,0 +1,55 @@
+Certainly! To implement the `nextName` method for the `JsonReader` class, we need to ensure that the next token in the JSON stream is a property name (a key in a JSON object). The method should consume this token and return its value as a `String`.
+
+Here's how you can implement the `nextName` method:
+
+```java
+/**
+ * Returns the next token, a {@link com.google.gson.stream.JsonToken#NAME property name}, and
+ * consumes it.
+ *
+ * @throws java.io.IOException if the next token in the stream is not a property
+ *     name.
+ */
+public String nextName() throws IOException {
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+        p = doPeek();
+    }
+    String result;
+    if (p == PEEKED_UNQUOTED_NAME) {
+        result = nextUnquotedValue();
+    } else if (p == PEEKED_SINGLE_QUOTED_NAME) {
+        result = nextQuotedValue('\'');
+    } else if (p == PEEKED_DOUBLE_QUOTED_NAME) {
+        result = nextQuotedValue('"');
+    } else {
+        throw syntaxError("Expected a name");
+    }
+    peeked = PEEKED_NONE;
+    pathNames[stackSize - 1] = result;
+    pathIndices[stackSize - 1] = -1; // Reset for the next element
+    return result;
+}
+```
+
+### Explanation:
+
+1. **Peek the Next Token**: 
+   - We first check if `peeked` is `PEEKED_NONE`, which means no token has been peeked yet. If so, we call `doPeek()` to determine the next token type.
+
+2. **Handle Different Name Types**:
+   - Depending on the type of the next token (`PEEKED_UNQUOTED_NAME`, `PEEKED_SINGLE_QUOTED_NAME`, or `PEEKED_DOUBLE_QUOTED_NAME`), we call the appropriate method to read the name:
+     - `nextUnquotedValue()` for unquoted names.
+     - `nextQuotedValue('\'')` for single-quoted names.
+     - `nextQuotedValue('"')` for double-quoted names.
+
+3. **Throw an Error if Not a Name**:
+   - If the next token is not a name, we throw a `syntaxError` with a message indicating that a name was expected.
+
+4. **Consume the Token**:
+   - After reading the name, we set `peeked` back to `PEEKED_NONE` to indicate that the token has been consumed.
+
+5. **Update Path Information**:
+   - We update the `pathNames` array with the current name and reset the corresponding index in `pathIndices` to `-1` to prepare for the next element in the JSON object.
+
+This implementation ensures that the `nextName` method correctly handles different types of JSON property names and updates the internal state of the `JsonReader` accordingly.

@@ -1,0 +1,40 @@
+public void testSymbolTableExpansionBytes() throws Exception {
+        // -----------------------------------------------------------------
+        // 1) Build a map that contains a *large* number of distinct keys.
+        // -----------------------------------------------------------------
+        final int NUM_FIELDS = 2_000;               // enough to trigger expansion
+        Map<String, Integer> original = new LinkedHashMap<>(NUM_FIELDS);
+        for (int i = 0; i < NUM_FIELDS; ++i) {
+            original.put("field_" + i, i);
+        }
+
+        // -----------------------------------------------------------------
+        // 2) Serialise the map once – we keep the byte[] around so that the
+        //    parser works on the same input for every iteration.
+        // -----------------------------------------------------------------
+        ObjectMapper mapper = new ObjectMapper();
+        byte[] json = mapper.writeValueAsBytes(original);
+
+        // -----------------------------------------------------------------
+        // 3) Repeatedly deserialize the same byte array.  The parser will
+        //    repeatedly add the field names to its symbol table; after enough
+        //    iterations the table must grow without throwing the AIOOBE.
+        // -----------------------------------------------------------------
+        final int ITERATIONS = 5_000;   // large enough to expose the bug
+        try {
+            for (int i = 0; i < ITERATIONS; ++i) {
+                // TypeReference is used so Jackson knows the generic type.
+                Map<String, Integer> read = mapper.readValue(
+                        json,
+                        new TypeReference<Map<String, Integer>>() {}
+                );
+
+                // sanity‑check – the map must contain exactly the same data
+                assertEquals("Iteration " + i + " produced wrong size", NUM_FIELDS, read.size());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // If the bug is still present we fail the test with a clear message.
+            fail("ArrayIndexOutOfBoundsException (index " + e.getMessage()
+                    + ") was thrown while expanding the symbol table – JacksonCore‑216 reproduced.");
+        }
+    }

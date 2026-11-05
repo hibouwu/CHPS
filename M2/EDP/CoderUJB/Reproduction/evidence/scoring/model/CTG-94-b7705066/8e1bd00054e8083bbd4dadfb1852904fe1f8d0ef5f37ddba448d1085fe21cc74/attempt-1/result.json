@@ -1,0 +1,37 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 94,
+  "task_id": "aff77bc307f21a1b2261239b47c98f2ceab8a38c7228637fe4df049c1b8aaf0e",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "8d9055419bd92d942d07d7e43a787be9d4b1bf68da6d784b6c9df7039d7e45ba",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "73d795857a0c30b01763ac1b4db2eb9d928c79f30e08d7c118de4b7efa16eb89",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Gson",
+  "bug_id": 18,
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Gson",
+        "-v",
+        "18f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-94-qwm9j5a3/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.467,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    }
+  ],
+  "tests": {},
+  "reason": "candidate_syntax"
+}

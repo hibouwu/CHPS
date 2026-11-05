@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.17777777777777778" branch-rate="0.0" lines-covered="8" lines-valid="45" branches-covered="0" branches-valid="22" complexity="2.0526315789473686" version="2.0.3" timestamp="1793843838244">
+	<sources>
+		<source>src/main/java</source>
+	</sources>
+	<packages>
+		<package name="com.fasterxml.jackson.databind.type" line-rate="0.17777777777777778" branch-rate="0.0" complexity="2.0526315789473686">
+			<classes>
+				<class name="com.fasterxml.jackson.databind.type.ReferenceType" filename="com/fasterxml/jackson/databind/type/ReferenceType.java" line-rate="0.17777777777777778" branch-rate="0.0" complexity="2.0526315789473686">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/Class;Lcom/fasterxml/jackson/databind/JavaType;Ljava/lang/Object;Ljava/lang/Object;Z)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="1" branch="false"/>
+								<line number="24" hits="1" branch="false"/>
+								<line number="25" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="_narrow" signature="(Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/JavaType;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="98" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="buildCanonicalName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="81" hits="0" branch="false"/>
+								<line number="82" hits="0" branch="false"/>
+								<line number="83" hits="0" branch="false"/>
+								<line number="84" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="construct" signature="(Ljava/lang/Class;Lcom/fasterxml/jackson/databind/JavaType;Ljava/lang/Object;Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/ReferenceType;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="containedType" signature="(I)Lcom/fasterxml/jackson/core/type/ResolvedType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="containedType" signature="(I)Lcom/fasterxml/jackson/databind/JavaType;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="131" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="containedTypeCount" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="126" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="containedTypeName" signature="(I)Ljava/lang/String;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="136" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="equals" signature="(Ljava/lang/Object;)Z" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="182" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="183" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="184" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="186" hits="0" branch="false"/>
+								<line number="188" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="191" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getErasedSignature" signature="(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="147" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGenericSignature" signature="(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="153" hits="1" branch="false"/>
+								<line number="154" hits="1" branch="false"/>
+								<line number="155" hits="1" branch="false"/>
+								<line number="156" hits="1" branch="false"/>
+								<line number="157" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="getParameterSource" signature="()Ljava/lang/Class;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="142" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getReferencedType" signature="()Lcom/fasterxml/jackson/core/type/ResolvedType;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="13" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getReferencedType" signature="()Lcom/fasterxml/jackson/databind/JavaType;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="110" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isReferenceType" signature="()Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="115" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="169" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="withContentTypeHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/JavaType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withContentTypeHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/ReferenceType;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="45" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="46" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="withContentValueHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/JavaType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withContentValueHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/ReferenceType;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="62" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="63" hits="0" branch="false"/>
+								<line number="65" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="withContentValueHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/SimpleType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withStaticTyping" signature="()Lcom/fasterxml/jackson/databind/JavaType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withStaticTyping" signature="()Lcom/fasterxml/jackson/databind/type/ReferenceType;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="71" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="72" hits="0" branch="false"/>
+								<line number="74" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="withStaticTyping" signature="()Lcom/fasterxml/jackson/databind/type/SimpleType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withTypeHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/JavaType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withTypeHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/ReferenceType;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="36" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="37" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="withTypeHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/SimpleType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withValueHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/JavaType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="withValueHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/ReferenceType;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="54" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="55" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="withValueHandler" signature="(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/type/SimpleType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="13" hits="0" branch="false"/>
+						<line number="22" hits="1" branch="false"/>
+						<line number="24" hits="1" branch="false"/>
+						<line number="25" hits="1" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="37" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="45" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="46" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="54" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="55" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="63" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="false"/>
+						<line number="71" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="72" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="81" hits="0" branch="false"/>
+						<line number="82" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="84" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="98" hits="0" branch="false"/>
+						<line number="110" hits="0" branch="false"/>
+						<line number="115" hits="0" branch="false"/>
+						<line number="126" hits="0" branch="false"/>
+						<line number="131" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="136" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="142" hits="0" branch="false"/>
+						<line number="147" hits="0" branch="false"/>
+						<line number="153" hits="1" branch="false"/>
+						<line number="154" hits="1" branch="false"/>
+						<line number="155" hits="1" branch="false"/>
+						<line number="156" hits="1" branch="false"/>
+						<line number="157" hits="1" branch="false"/>
+						<line number="169" hits="0" branch="false"/>
+						<line number="182" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="183" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="184" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="186" hits="0" branch="false"/>
+						<line number="188" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="191" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>

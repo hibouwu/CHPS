@@ -1,0 +1,26 @@
+chunks 10
+chunks 20
+chunks 30
+chunks 40
+chunks 50
+chunks 60
+chunks 70
+chunks 80
+chunks 90
+chunks 100
+closure-compiler.git 0 b''
+commons-cli.git 0 b''
+commons-codec.git 0 b''
+commons-collections.git 0 b''
+commons-compress.git 0 b''
+commons-csv.git 0 b''
+commons-jxpath.git 0 b''
+commons-math.git 0 b''
+gson.git 0 b''
+jackson-core.git 0 b''
+jackson-databind.git 0 b''
+jackson-dataformat-xml.git 0 b''
+joda-time.git 0 b''
+jsoup.git 0 b''
+mockito.git 0 b''
+repos ['closure-compiler.git', 'commons-cli.git', 'commons-codec.git', 'commons-collections.git', 'commons-compress.git', 'commons-csv.git', 'commons-jxpath.git', 'commons-math.git', 'gson.git', 'jackson-core.git', 'jackson-databind.git', 'jackson-dataformat-xml.git', 'jfreechart', 'joda-time.git', 'jsoup.git', 'mockito.git'] sha256 a08a2ac4c656e781d8bea483720e0d079d6aabeaf36193f5381c78c1440360f9

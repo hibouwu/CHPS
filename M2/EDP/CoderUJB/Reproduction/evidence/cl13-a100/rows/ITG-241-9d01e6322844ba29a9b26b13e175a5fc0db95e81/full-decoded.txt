@@ -1,0 +1,44 @@
+// You are a professional Java test case writer, please create a test case named `testForID_String_old` for the issue `Time-112`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: Time-112
+// 
+// ## Issue-Title: 
+// #112 Incorrect mapping of the MET time zone
+// 
+// 
+// 
+// 
+// 
+// ## Issue-Description: 
+// This timezone is mapped to Asia/Tehran in DateTimeZone. It should be middle europena time.
+// 
+// 
+// I know that this bug has been raised before (Incorrect mapping of the MET time zone - ID: 2012274), and there is a comment stating that you won't break backward compatibility to fix this bug.
+// 
+// 
+// 1. I disagree that this is a backward compatibility argument
+// 2. No matter how you look at it, it is a bug.
+// 
+// 
+// You could very well state that ALL bugs won't be fixed, because of backward compatibility.
+// 
+// 
+// I request again that this bug be fixed.
+// 
+// 
+// 
+// 
+
+    public void testForID_String_old() {
+        DateTimeZone dtz = DateTimeZone.forID("MET");
+        assertEquals(dtz.getID(), "MET");
+        assertEquals(dtz.getShortName(null), "MET");
+        assertEquals(dtz.getShortName(Locale.ENGLISH), "MET");
+        assertEquals(dtz.getShortName(Locale.FRENCH), "MET");
+        assertEquals(dtz.getShortName(Locale.GERMAN), "MET");
+        assertEquals(dtz.getShortName(Locale.ITALIAN), "MET");
+        assertEquals(dtz.getShortName(Locale.JAPANESE), "MET");
+        assertEquals(dtz.getShortName(Locale.KOREAN), "MET");
+        assertEquals(dtz.getShortName(Locale.CHINESE), "MET");
+        assertEquals(dtz.getShortName(Locale.SIMPLIFIED_CHINESE), "MET");
+        assertEquals(dtz.getShortName(Loc

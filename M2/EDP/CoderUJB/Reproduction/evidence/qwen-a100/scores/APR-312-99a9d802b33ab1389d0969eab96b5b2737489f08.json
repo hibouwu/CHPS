@@ -1,0 +1,18 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 312,
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "group": "b17",
+  "job": "817622",
+  "answer_sha256": "9d1ff685ef92f7d963eebe570d2ec9bb43c3a15cfbafb580bebb1c3073c17e84",
+  "source": "evidence/qwen-a100/rows/APR-312-99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "result": "evidence/scoring/model/APR-312-99a9d802/ac91b95ad205f26acf17185f7d18a336c1c8b506abf29b6cf9510dea92321dbb/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 757,
+  "output_tokens": 629
+}

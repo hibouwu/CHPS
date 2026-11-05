@@ -1,0 +1,46 @@
+public String nextName() throws IOException {
+    // Fast‑path: we have already peeked a name token.
+    int p = peeked;
+    String result;
+
+    switch (p) {
+        case PEEKED_UNQUOTED_NAME:          // name without quotes
+            result = peekedString;
+            break;
+
+        case PEEKED_SINGLE_QUOTED_NAME:     // name in single quotes
+            result = nextQuotedValue('\'');
+            break;
+
+        case PEEKED_DOUBLE_QUOTED_NAME:     // name in double quotes
+            result = nextQuotedValue('\"');
+            break;
+
+        case PEEKED_BUFFERED:               // name already buffered by a previous peek()
+            result = peekedString;
+            break;
+
+        default:                            // we have not peeked yet – do it now
+            p = doPeek();
+            switch (p) {
+                case PEEKED_UNQUOTED_NAME:
+                    result = peekedString;
+                    break;
+
+                case PEEKED_SINGLE_QUOTED_NAME:
+                    result = nextQuotedValue('\'');
+                    break;
+
+                case PEEKED_DOUBLE_QUOTED_NAME:
+                    result = nextQuotedValue('\"');
+                    break;
+
+                case PEEKED_BUFFERED:
+                    result = peekedString;
+                    break;
+
+                default:
+                    // Not a name token – report an error that mirrors Gson's original message.
+                    throw syntaxError("Expected a name but was " + peek());
+            }
+    }

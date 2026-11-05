@@ -1,0 +1,6 @@
+    public InputStream getDataStream() {
+        if (_originalStream == null) {
+            return new ByteArrayInputStream(_bufferedData, _bufferedStart, _bufferedLength);
+        }
+        return new MergedStream(null, _originalStream, _bufferedData, _bufferedStart, _bufferedLength);
+    }

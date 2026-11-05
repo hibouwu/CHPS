@@ -1,0 +1,32 @@
+// You are a professional Java test case writer, please create a test case named `testMapToProperties` for the issue `JacksonDatabind-810`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: JacksonDatabind-810
+// 
+// ## Issue-Title: 
+// Force value coercion for java.util.Properties, so that values are Strings
+// 
+// ## Issue-Description: 
+// Currently there is no custom handling for `java.util.Properties`, and although it is possible to use it (since it really is a `Map` under the hood), results are only good if values are already `String`s.  
+// 
+// The problem here is that `Properties` is actually declared as `Map<String,Object>`, probably due to backwards-compatibility constraints.
+// 
+// 
+// But Jackson should know better: perhaps by `TypeFactory` tweaking parameterizations a bit?
+// 
+// 
+// 
+// 
+
+    public void testMapToProperties() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("key", "value");
+        Properties props = mapper.convertValue(map, Properties.class);
+        assertEquals(1, props.size());
+        assertEquals("value", props.getProperty("key"));
+    }
+
+// ## Issue-Link: https://github.com/FasterXML/jackson-databind/issues/810
+// 
+// ## Issue-Keywords: 
+// jackson-databind, jackson-core, jackson-annotations, jackson-dataformat-smile, jackson-dataformat-yaml, jackson-dataformat-cbor, jackson-dataformat-properties, jackson-dataformat-csv, jackson-dataformat-xml, jackson-dataformat-binary, jackson-module-jaxb-annotations, jackson-module-jaxb-annotations, jackson-module-jaxb-annotations, jackson-module-jaxb-annotations, jackson-module-jaxb-annotations

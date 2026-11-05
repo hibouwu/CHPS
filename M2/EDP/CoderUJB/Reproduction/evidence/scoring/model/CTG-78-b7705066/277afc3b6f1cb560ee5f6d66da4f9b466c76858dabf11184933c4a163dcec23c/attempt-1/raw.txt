@@ -1,0 +1,24 @@
+```java
+    /**
+     * Test case for
+     * <a href="https://issues.apache.org/jira/browse/COMPRESS-264"
+     * >COMPRESS-264</a>.
+     */
+    @Test
+    public void testReadingOfFirstStoredEntry() throws Exception {
+        File file = getFile("stored.zip");
+        zf = new ZipFile(file);
+        Enumeration<ZipArchiveEntry> entries = zf.getEntries();
+        assertTrue(entries.hasMoreElements());
+        ZipArchiveEntry entry = entries.nextElement();
+        assertEquals("firstStoredEntry.txt", entry.getName());
+        assertFalse(entry.isDirectory());
+        assertEquals(ZipEntry.STORED, entry.getMethod());
+        InputStream is = zf.getInputStream(entry);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        IOUtils.copy(is, baos);
+        is.close();
+        byte[] content = baos.toByteArray();
+        assertEquals("This is the first stored entry.", new String(content));
+    }
+```

@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 407,
+  "task_id": "e9e4b4e89cd8de82ea6e4a2653acd2efffc9ae21f4bf6f1eb248221a36614f24",
+  "project": "Gson",
+  "bug_id": "17",
+  "chat_sha256": "74e86a630cf5f94deb4d821a441cbff4293cb8b623cbb398aa5088855fbd281d",
+  "complete_sha256": "a253067522420fbf8f2337ca64d05002bfa7d201d700074d44eca4ff5dd2a39c",
+  "checked_at": "2026-11-05T03:00:09.990166+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-407-9d01e632/125b09959642454b4a7d4ee85aedea5e0f244e3cb57a81d25bb3b070ff9a35ad/attempt-1/result.json"
+}

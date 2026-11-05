@@ -1,0 +1,38 @@
+Running ant (compile)...................................................... FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed -Dbuild.compiler=javac1.7  compile 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+jackson-databind-from-maven.compile:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/target/classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/maven-build.xml:89: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 390 source files to /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/target/classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/src/main/java/com/fasterxml/jackson/databind/ser/impl/SimpleBeanPropertyFilter.java:22: warning: [deprecation] BeanPropertyFilter in com.fasterxml.jackson.databind.ser has been deprecated
+    [javac]     implements BeanPropertyFilter, PropertyFilter
+    [javac]                ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java:186: error: method constructFor in class EnumResolver cannot be applied to given types;
+    [javac]         EnumResolver er = EnumResolver.constructFor(raw);
+    [javac]                                       ^
+    [javac]   required: Class<Enum<?>>,AnnotationIntrospector
+    [javac]   found: Class<CAP#1>
+    [javac]   reason: actual and formal argument lists differ in length
+    [javac]   where CAP#1 is a fresh type-variable:
+    [javac]     CAP#1 extends Object from capture of ?
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java:89: warning: [deprecation] forcedNarrowBy(Class<?>) in JavaType has been deprecated
+    [javac]             _defaultImpl = baseType.forcedNarrowBy(defaultImpl);
+    [javac]                                    ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error
+    [javac] 2 warnings
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/APR-367-1s6f49xq/fixed/maven-build.xml:89: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile sources! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 82.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

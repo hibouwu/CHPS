@@ -1,0 +1,22 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 101,
+  "project": "JacksonCore",
+  "bug_id": 26,
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/CTG-101-b7705066/83c673b65d5130c7b902dbebb7c15b6f1d7ac038ec0813e3ded2cb25a5113491/attempt-1/result.json",
+  "raw_sha256": "0a6331d891545de40dfc124de6366f8b63bcf55d528a9c64206e185b79b6b237",
+  "input_sha256": "46cfd56b9f6749736352d219f9203c36b518abb4171a2fe1329553eb3d2cd379",
+  "input_tokens": 1969,
+  "full_input_tokens": 1969,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/CTG-101-b7705066/c582039b868503e15b8f36943b02831be3d789b54e6a307888f88201cd5f5450/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/CTG-101-b77050662a33cf6096c118bfd24d2bc2a8086103"
+}

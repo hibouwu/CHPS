@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 312,
+  "task_id": "b10a02c5bc05e9e1a0e89b502fe4024e0480e89bea0588e8f02f709bda7f23d9",
+  "project": "Compress",
+  "bug_id": "8",
+  "chat_sha256": "135806d136bd482d40b594ce79ff7f12f3b2716b3f888d75d91aca411d8f72ed",
+  "complete_sha256": "1a67e0c68d978ea0c554e685e0d75fc06f09ddd915f696b047689f18552dd4c4",
+  "checked_at": "2026-11-05T03:03:03.107825+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-312-99a9d802/69c1aac430c342a0f6ab901127b41c468cd63c73f51e90745358f31915b8c931/attempt-1/result.json"
+}

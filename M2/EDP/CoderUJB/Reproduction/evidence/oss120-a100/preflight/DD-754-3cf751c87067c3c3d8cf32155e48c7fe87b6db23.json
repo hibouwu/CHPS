@@ -1,0 +1,13 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 754,
+  "task_id": "cde0bc22aa9683baf95df915b9794a6f2bd63749346f3245e5c2997a57599457",
+  "project": "Time",
+  "bug_id": "15",
+  "chat_sha256": "ba7c2a6c3d603e73f6ccff0ad59b3af57834c5f1e4f4df702a66413e806ef555",
+  "complete_sha256": "1157e41d304bd58598aad97c1b6590f642be6317441cdbe716cd01697661aed9",
+  "checked_at": "2026-11-05T02:45:05.821914+01:00",
+  "eligible": true,
+  "check": "label_available_parser_controlled"
+}

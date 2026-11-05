@@ -1,0 +1,34 @@
+public void testCalendar() {
+        long millis = new DateTime(2002, 9, 11, 0, 0, 0, 0, ISO_UTC).getMillis();
+        int expectedDayOfWeek = DateTimeConstants.WEDNESDAY;
+
+        for (int year = 1995; year <= 1998; year++) {
+            for (int month = 1; month <= 13; month++) {
+                int daysInMonth = month <= 12 ? 30 : (year % 4 == 3 ? 6 : 5);
+                for (int day = 1; day <= daysInMonth; day++) {
+                    DateTime date = new DateTime(millis, ETHIOPIC_UTC);
+                    String message = "Ethiopic date " + year + "-" + month + "-" + day;
+
+                    assertEquals(message, EthiopicChronology.EE, date.getEra());
+                    assertEquals(message, year, date.getYear());
+                    assertEquals(message, month, date.getMonthOfYear());
+                    assertEquals(message, day, date.getDayOfMonth());
+                    assertEquals(message, expectedDayOfWeek, date.getDayOfWeek());
+                    assertEquals(message, millis,
+                            ETHIOPIC_UTC.getDateTimeMillis(year, month, day, 0));
+
+                    millis += MILLIS_PER_DAY;
+                    expectedDayOfWeek = expectedDayOfWeek == DateTimeConstants.SUNDAY
+                            ? DateTimeConstants.MONDAY : expectedDayOfWeek + 1;
+                }
+            }
+        }
+
+        assertEquals(new DateTime(2006, 9, 11, 0, 0, 0, 0, ISO_UTC).getMillis(), millis);
+        DateTime nextYear = new DateTime(millis, ETHIOPIC_UTC);
+        assertEquals(EthiopicChronology.EE, nextYear.getEra());
+        assertEquals(1999, nextYear.getYear());
+        assertEquals(1, nextYear.getMonthOfYear());
+        assertEquals(1, nextYear.getDayOfMonth());
+        assertEquals(DateTimeConstants.MONDAY, nextYear.getDayOfWeek());
+    }

@@ -1,0 +1,28 @@
+{
+  "task": "FCG",
+  "task_idx": 4,
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": null,
+  "source": "evidence/sol-a100/pilot/FCG-4-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "result": "evidence/scoring/model/FCG-4-78cb042a/5470e3dfdb740291626b76da801fc640ea53e87ee39d6aa2ead2b0ec8ea4c764/attempt-1/result.json",
+  "answer_sha256": "7740bbc4ba4ae43632e12733ad14d8a803a1b3bcffa28ec394502aaeec8768c5",
+  "response_id": "resp_09384fb9e750429b016aebfa0060c887d2ae368297b0f5460c",
+  "request_id": "req_48585286fa6d411ea60c75a73cdfd759",
+  "usage": {
+    "input_tokens": 1489,
+    "input_tokens_details": {
+      "cache_write_tokens": 1486,
+      "cached_tokens": 0
+    },
+    "output_tokens": 83,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 1572
+  },
+  "finish_status": "completed",
+  "cost_standard_estimate_usd": 0.004551
+}

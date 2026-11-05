@@ -1,0 +1,50 @@
+Certainly! Below is the implementation of the `updateDigest` method based on the provided context and natural language annotations:
+
+```java
+/**
+ * Reads through an InputStream and updates the digest for the data
+ *
+ * @param digest
+ *            The MessageDigest to use (e.g. MD5)
+ * @param data
+ *            Data to digest
+ * @return the digest
+ * @throws IOException
+ *             On error reading from the stream
+ * @since 1.8
+ */
+public static MessageDigest updateDigest(final MessageDigest digest, final InputStream data) throws IOException {
+    if (digest == null) {
+        throw new IllegalArgumentException("MessageDigest cannot be null");
+    }
+    if (data == null) {
+        throw new IllegalArgumentException("InputStream cannot be null");
+    }
+
+    final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+    int read;
+    while ((read = data.read(buffer)) > -1) {
+        digest.update(buffer, 0, read);
+    }
+    return digest;
+}
+```
+
+### Explanation:
+- **Parameters**:
+  - `digest`: The `MessageDigest` instance that will be used to compute the hash.
+  - `data`: The `InputStream` containing the data to be hashed.
+  
+- **Return Value**:
+  - The method returns the updated `MessageDigest` instance after processing all the data from the input stream.
+
+- **Exception Handling**:
+  - The method throws an `IOException` if there is an error reading from the input stream.
+  - It also checks for `null` values for both `digest` and `data` and throws an `IllegalArgumentException` if either is `null`.
+
+- **Buffered Reading**:
+  - A buffer of size `STREAM_BUFFER_LENGTH` (1024 bytes) is used to read data from the input stream in chunks.
+  - The `read` method of `InputStream` is used to fill the buffer with data from the stream.
+  - The `update` method of `MessageDigest` is called with the buffer, starting position, and number of bytes read to update the digest.
+
+This implementation ensures that the digest is updated incrementally as data is read from the input stream, which is efficient for large files or streams.

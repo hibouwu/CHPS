@@ -1,0 +1,17 @@
+public void testSecond() {
+    // Same second, different milliseconds should be considered equal
+    aDateTime = new DateTime(2020, 1, 1, 12, 30, 45, 100, DateTimeZone.UTC);
+    bDateTime = new DateTime(2020, 1, 1, 12, 30, 45, 900, DateTimeZone.UTC);
+    assertEquals("SecondEqualMillis", 0, cSecond.compare(aDateTime, bDateTime));
+    assertEquals("SecondEqualMillisReverse", 0, cSecond.compare(bDateTime, aDateTime));
+
+    // aDateTime earlier by one second
+    bDateTime = aDateTime.plusSeconds(1);
+    assertEquals("SecondM1", -1, cSecond.compare(aDateTime, bDateTime));
+    assertEquals("SecondP1", 1, cSecond.compare(bDateTime, aDateTime));
+
+    // aDateTime later by one second
+    aDateTime = bDateTime.plusSeconds(1);
+    assertEquals("SecondM2", -1, cSecond.compare(bDateTime, aDateTime));
+    assertEquals("SecondP2", 1, cSecond.compare(aDateTime, bDateTime));
+}

@@ -1,0 +1,25 @@
+    /**
+     * Tests RFC 4648 section 10 test vectors.
+     * <ul>
+     * <li>BASE64("") = ""</li>
+     * <li>BASE64("f") = "Zg=="</li>
+     * <li>BASE64("fo") = "Zm8="</li>
+     * <li>BASE64("foo") = "Zm9v"</li>
+     * <li>BASE64("foob") = "Zm9vYg=="</li>
+     * <li>BASE64("fooba") = "Zm9vYmE="</li>
+     * <li>BASE64("foobar") = "Zm9vYmFy"</li>
+     * </ul>
+     *
+     * @see <a href="http://tools.ietf.org/html/rfc4648">http://tools.ietf.org/
+     *      html/rfc4648</a>
+     */
+    @Test
+    public void testRfc4648Section10Decode() {
+        final String[] plain = {"", "f", "fo", "foo", "foob", "fooba", "foobar"};
+        final String[] encoded = {"", "Zg==", "Zm8=", "Zm9v", "Zm9vYg==", "Zm9vYmE=", "Zm9vYmFy"};
+        for (int i = 0; i < plain.length; i++) {
+            byte[] decoded = Base64.decodeBase64(encoded[i]);
+            String result = new String(decoded, CHARSET_UTF8);
+            assertEquals("Decoded value mismatch for index " + i, plain[i], result);
+        }
+    }

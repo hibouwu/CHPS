@@ -1,0 +1,41 @@
+public long readBits(final int count) throws IOException {
+        // -----------------------------------------------------------------
+        // 1. Validate the request
+        // -----------------------------------------------------------------
+        if (count <= 0 || count > MAXIMUM_CACHE_SIZE) {
+            throw new IllegalArgumentException(
+                "count must be between 1 and " + MAXIMUM_CACHE_SIZE + " (inclusive)");
+        }
+
+        // -----------------------------------------------------------------
+        // 2. Fill the cache if necessary
+        // -----------------------------------------------------------------
+        if (!ensureCache(count)) {
+            // Not enough bits available – signal EOF.
+            return -1L;
+        }
+
+        // -----------------------------------------------------------------
+        // 3. Extract the requested bits respecting the byte order
+        // -----------------------------------------------------------------
+        long result;
+        if (byteOrder == ByteOrder.BIG_ENDIAN) {
+            // Bits are stored MSB‑first; the wanted bits are the most‑significant
+            // ones currently in the cache.
+            int shift = bitsCachedSize - count;
+            result = (bitsCached >>> shift) & MASKS[count];
+
+            // Discard the bits we have just consumed.
+            bitsCachedSize -= count;
+            bitsCached &= MASKS[bitsCachedSize];
+        } else { // LITTLE_ENDIAN
+            // Bits are stored LSB‑first; the wanted bits are the least‑significant.
+            result = bitsCached & MASKS[count];
+
+            // Shift the remaining bits down.
+            bitsCached >>>= count;
+            bitsCachedSize -= count;
+        }
+
+        return result;
+    }

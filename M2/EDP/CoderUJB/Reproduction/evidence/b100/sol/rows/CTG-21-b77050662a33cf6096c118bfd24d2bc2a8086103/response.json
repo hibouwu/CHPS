@@ -1,0 +1,98 @@
+{
+  "id": "resp_0df36fd2ed67a224016aec0145780c87d282cd39ed62574ca5",
+  "object": "response",
+  "created_at": 1793851717,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851719,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0df36fd2ed67a224016aec01464ea887d29b9e5770704e40ea",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    @Test\n    public void testRfc4648Section10Decode() {\n        final String[] encoded = {\n            \"\", \"Zg==\", \"Zm8=\", \"Zm9v\", \"Zm9vYg==\", \"Zm9vYmE=\", \"Zm9vYmFy\"\n        };\n        final String[] decoded = {\n            \"\", \"f\", \"fo\", \"foo\", \"foob\", \"fooba\", \"foobar\"\n        };\n\n        for (int i = 0; i < encoded.length; i++) {\n            final byte[] expected = decoded[i].getBytes(CHARSET_UTF8);\n            assertTrue(\"String decoding failed for: \" + encoded[i],\n                    Arrays.equals(expected, Base64.decodeBase64(encoded[i])));\n            assertTrue(\"Byte array decoding failed for: \" + encoded[i],\n                    Arrays.equals(expected, Base64.decodeBase64(encoded[i].getBytes(CHARSET_UTF8))));\n        }\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1713,
+    "input_tokens_details": {
+      "cache_write_tokens": 1710,
+      "cached_tokens": 0
+    },
+    "output_tokens": 200,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 1913
+  },
+  "user": null,
+  "metadata": {}
+}

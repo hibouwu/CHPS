@@ -1,0 +1,33 @@
+    public void testNestedUnwrappedLists180() throws Exception {
+        // POJOs for the test
+        class Field {
+            public String name;
+        }
+        class Record {
+            public int id;
+            @com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper(useWrapping = false)
+            public java.util.List<Field> field = new java.util.ArrayList<>();
+        }
+        class Root {
+            @com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper(useWrapping = false)
+            public java.util.List<Record> record = new java.util.ArrayList<>();
+        }
+
+        com.fasterxml.jackson.dataformat.xml.XmlMapper mapper = new com.fasterxml.jackson.dataformat.xml.XmlMapper();
+
+        String xml = "<Root>"
+                + "<record><id>1</id><field><name>a</name></field><field><name>b</name></field></record>"
+                + "<record><id>2</id></record>"
+                + "<record><id>3</id><field><name>c</name></field></record>"
+                + "</Root>";
+
+        Root root = mapper.readValue(xml, Root.class);
+
+        // Verify outer list size
+        org.junit.Assert.assertEquals(3, root.record.size());
+
+        // Verify inner lists
+        org.junit.Assert.assertEquals(2, root.record.get(0).field.size());
+        org.junit.Assert.assertTrue(root.record.get(1).field.isEmpty());
+        org.junit.Assert.assertEquals(1, root.record.get(2).field.size());
+    }

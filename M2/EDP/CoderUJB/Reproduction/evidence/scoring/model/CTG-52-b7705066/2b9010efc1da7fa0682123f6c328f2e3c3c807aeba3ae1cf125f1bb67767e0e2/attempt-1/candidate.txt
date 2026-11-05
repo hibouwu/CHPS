@@ -1,0 +1,65 @@
+@Test
+public void testCompressionMethod() throws Exception {
+        /* -------------------------------------------------------------
+         * 1. Verify that a freshly created ZipArchiveEntry reports the
+         *    default (unknown) compression method.
+         * ------------------------------------------------------------- */
+        ZipArchiveEntry fresh = new ZipArchiveEntry("fresh.txt");
+        // The default is the constant used internally for “unknown”.
+        // It is defined in ZipMethod as UNKNOWN_CODE (value -1).  The
+        // class does not expose it, therefore we compare against the
+        // value returned by the freshly created entry itself.
+        int defaultMethod = fresh.getMethod();
+
+        /* -------------------------------------------------------------
+         * 2. Set a known method (DEFLATED) and verify that the getter
+         *    returns the same value.
+         * ------------------------------------------------------------- */
+        fresh.setMethod(ZipEntry.DEFLATED);
+        assertEquals("Method should be DEFLATED after setMethod()", ZipEntry.DEFLATED,
+                     fresh.getMethod());
+
+        /* -------------------------------------------------------------
+         * 3. Wrap a java.util.zip.ZipEntry that already has a method set
+         *    and make sure the method is copied correctly.
+         * ------------------------------------------------------------- */
+        ZipEntry javaZip = new ZipEntry("wrapped.txt");
+        javaZip.setMethod(ZipEntry.STORED);
+        ZipArchiveEntry wrapped = new ZipArchiveEntry(javaZip);
+        assertEquals("Wrapped entry must keep the original method (STORED)",
+                     ZipEntry.STORED, wrapped.getMethod());
+
+        /* -------------------------------------------------------------
+         * 4. Use the copy‑constructor – the method must be preserved.
+         * ------------------------------------------------------------- */
+        ZipArchiveEntry copy = new ZipArchiveEntry(fresh);
+        assertEquals("Copy constructor must preserve the compression method",
+                     fresh.getMethod(), copy.getMethod());
+
+        /* -------------------------------------------------------------
+         * 5. Verify that an illegal method value is rejected.  The
+         *    implementation throws IllegalArgumentException for values
+         *    that are not recognised (negative values other than the
+         *    internal UNKNOWN_CODE or values larger than 9).
+         * ------------------------------------------------------------- */
+        try {
+            fresh.setMethod(99);               // an arbitrary unsupported value
+            fail("setMethod(99) should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            // expected – nothing to do
+        }
+
+        /* -------------------------------------------------------------
+         * 6. Finally, make sure that after an illegal attempt the method
+         *    value has not been altered.
+         * ------------------------------------------------------------- */
+        assertEquals("Method must remain DEFLATED after failed setMethod()",
+                     ZipEntry.DEFLATED, fresh.getMethod());
+
+        /* -------------------------------------------------------------
+         * 7. Sanity check – resetting to the original default value works.
+         * ------------------------------------------------------------- */
+        fresh.setMethod(defaultMethod);
+        assertEquals("Method should be reset to the original default",
+                     defaultMethod, fresh.getMethod());
+    }

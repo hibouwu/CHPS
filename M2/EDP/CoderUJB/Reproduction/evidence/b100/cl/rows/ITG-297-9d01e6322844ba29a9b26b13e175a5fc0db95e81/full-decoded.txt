@@ -1,0 +1,56 @@
+// Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// You are a professional Java test case writer, please create a test case named `testNestedUnwrappedLists180` for the issue `JacksonXml-180`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: JacksonXml-180
+// 
+// ## Issue-Title: 
+// Problem with deserialization of nested non-wrapped lists, with empty inner list
+// 
+// ## Issue-Description: 
+// Looks like there is a problem, wherein nested structures like say:
+// 
+// 
+// * Definition POJO, with `records`, unwrapped List with `Record`
+// * `Record` POJO having property `fields`, another unwrapped list of `Field` POJOs
+// 
+// 
+// and case where inner `List` happens to be empty/missing, cause incorrectly "split" parts of outermost `List`s (here for property `records`).
+// 
+// 
+// I will come up with a full reproduction later on, but observed this in the wild, and I think it occurs with latest 2.7.0-rc code, as well as `2.6.4-1`, so is not just something that has been fixed with a later version.
+// 
+// 
+// 
+// 
+
+    public void testNestedUnwrappedLists180() throws Exception {
+        final String XML = "<?xml version='1.0' encoding='UTF-8'?>"
+                + "<definitions>"
+                + "<record>"
+                + "<fields>"
+                + "<field>"
+                + "<name>a</name>"
+                + "<value>1</value>"
+                + "</field>"
+                + "<field>"
+                + "<name>b</name>"
+                + "<value>2</value>"
+                + "</field>"
+                + "</fields>"
+                + "</record>"
+                + "<record>"
+                + "<fields>"
+                + "<field>"
+                + "<name>c</name>"
+                + "<value>3</value>"
+                + "</field>"
+                + "</fields>"
+                + "</record>"
+                + "</definitions>";
+        final ObjectMapper mapper = new XmlMapper();
+        final Definition def = mapper.readValue(XML, Definition.class);
+        assertNotNull(def);
+        assertEquals(2, def.records.size());
+        assertEquals(2, def.records.get(0).fields.size());
+        assert

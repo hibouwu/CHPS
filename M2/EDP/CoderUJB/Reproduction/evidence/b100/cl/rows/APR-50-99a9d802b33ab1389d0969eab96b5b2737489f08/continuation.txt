@@ -1,0 +1,21 @@
+
+    public static String encodeBase64String(byte[] binaryData) {
+        return StringUtils.newStringUtf8(encodeBase64(binaryData, true));
+    }
+
+// Output constraint: Output only the complete corrected Java method with the provided signature and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// package org.apache.commons.codec.binary;
+// 
+// import java.math.BigInteger;
+// import org.apache.commons.codec.BinaryDecoder;
+// import org.apache.commons.codec.BinaryEncoder;
+// import org.apache.commons.codec.DecoderException;
+// import org.apache.commons.codec.EncoderException;
+// 
+// 
+// 
+// public class Base64 implements BinaryEncoder, BinaryDecoder  {
+//     private static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
+//     private static final int DEFAULT_BUFFER_SIZE = 8192;
+//     public static final int MIME_CHUNK_SIZE =

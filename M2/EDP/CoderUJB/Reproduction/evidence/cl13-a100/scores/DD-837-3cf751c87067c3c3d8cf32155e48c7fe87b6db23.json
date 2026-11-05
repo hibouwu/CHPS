@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 837,
+  "project": "JacksonDatabind",
+  "bug_id": "44",
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "50d70c7d16944c104ded05a1eaa4de0a8f290953af991da57f9aaa7fd3aee110",
+  "input_sha256": "f13af8c64e1d7594d753c90c284493e6046152822f465a3715155c8e6ba45ee3",
+  "input_tokens": 1147,
+  "full_input_tokens": 1147,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-837-3cf751c8/3927a380220ab89bb7a932d2f9147456a9f081b21bd2ba331f2c71b7417eed9b/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

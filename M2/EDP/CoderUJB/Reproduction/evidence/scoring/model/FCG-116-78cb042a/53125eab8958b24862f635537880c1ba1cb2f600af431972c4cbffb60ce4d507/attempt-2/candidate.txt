@@ -1,0 +1,4 @@
+    private Token parseSimpleToken(final Token token, int ch) throws IOException {
+        // TODO: Implement this method
+        return token;
+    }

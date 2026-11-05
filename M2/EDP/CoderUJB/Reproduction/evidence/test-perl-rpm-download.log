@@ -1,0 +1,24 @@
+Updating and loading repositories:
+ Fedora 44 - x86_64 - Updates           100% |   5.7 KiB/s |  13.8 KiB |  00m02s
+ RPM Fusion for Fedora 44 - Nonfree - U 100% |   3.4 KiB/s |   8.2 KiB |  00m02s
+ RPM Fusion for Fedora 44 - Nonfree - S 100% |   3.2 KiB/s |   7.7 KiB |  00m02s
+ RPM Fusion for Fedora 44 - Nonfree - N 100% |   3.8 KiB/s |   8.0 KiB |  00m02s
+ RPM Fusion for Fedora 44 - Nonfree     100% |   4.0 KiB/s |   8.4 KiB |  00m02s
+ ChatGPT                                100% |   2.2 KiB/s |   3.8 KiB |  00m02s
+ nvidia-container-toolkit               100% |   1.6 KiB/s |   2.9 KiB |  00m02s
+ google-chrome                          100% | 769.0   B/s |   1.3 KiB |  00m02s
+ Fedora 44 openh264 (From Cisco) - x86_ 100% | 490.0   B/s | 986.0   B |  00m02s
+ Fedora 44 - x86_64                     100% |  10.2 KiB/s |  20.4 KiB |  00m02s
+ Docker CE Stable - x86_64              100% |   1.1 KiB/s |   2.0 KiB |  00m02s
+ cudnn-local-rhel9-9.20.0               100% |   1.7 KiB/s |   3.0 KiB |  00m02s
+ Copr repo for PyCharm owned by phracek 100% | 909.0   B/s |   1.5 KiB |  00m02s
+ Copr repo for asus-linux owned by luke 100% | 908.0   B/s |   1.5 KiB |  00m02s
+ Visual Studio Code                     100% | 926.0   B/s |   1.5 KiB |  00m02s
+ Adoptium                               100% |   1.5 KiB/s |   1.7 KiB |  00m01s
+Repositories loaded.
+Downloading Packages:
+ perl-DBD-CSV-0:0.62-5.fc44.noarch      100% | 436.1 KiB/s |  45.4 KiB |  00m00s
+ perl-Math-Base-Convert-0:0.13-2.fc44.n 100% | 327.8 KiB/s |  39.7 KiB |  00m00s
+ perl-JSON-Parse-0:0.62-14.fc44.x86_64  100% | 755.1 KiB/s | 102.7 KiB |  00m00s
+ perl-sort-0:2.06-525.fc44.noarch       100% | 416.7 KiB/s |  12.5 KiB |  00m00s
+ perl-SQL-Statement-0:1.414-17.fc44.noa 100% |   1.1 MiB/s | 193.3 KiB |  00m00s

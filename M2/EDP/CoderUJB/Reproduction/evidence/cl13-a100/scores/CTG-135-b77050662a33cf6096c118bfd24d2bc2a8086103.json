@@ -1,0 +1,22 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 135,
+  "project": "Time",
+  "bug_id": 1,
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/CTG-135-b7705066/2429cb93b165db3b7de72a6ab51d8a4da5dbd264f2fb3993fb515651ad0bfb84/attempt-1/result.json",
+  "raw_sha256": "535aa571ef0751674cc41cd1f0f8c8c6b42dfb30682e18fcef95bd1f30e25aee",
+  "input_sha256": "062333ea9ff93a57b1015193bc969d8d3f512c60de2dc1e4b926bef4ad604958",
+  "input_tokens": 1507,
+  "full_input_tokens": 1507,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/CTG-135-b7705066/998801ef24b08b474529641f43e7a96c46aa3a2e5d97fa8523b58bcf6132e62a/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103"
+}

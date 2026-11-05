@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 294,
+  "project": "Gson",
+  "bug_id": "11",
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "6bd76514bd993b4e22ecc00143bcecab3749c75d72cee29440248276a20178fc",
+  "input_sha256": "7e9178911e07b0bcc87c318fb582237461ee896ff6a9f6b5fa7d734520513b3b",
+  "input_tokens": 1019,
+  "full_input_tokens": 1019,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-294-3cf751c8/3339e15d224175c4b47648e80f793bc775e429cc89495bd0d2bbfe4f3e6e5431/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

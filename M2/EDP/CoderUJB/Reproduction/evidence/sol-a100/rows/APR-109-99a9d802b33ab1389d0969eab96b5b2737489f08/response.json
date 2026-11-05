@@ -1,0 +1,105 @@
+{
+  "id": "resp_02568c701f4e8e89016aebfb668ee887d29ed5f141901eff86",
+  "object": "response",
+  "created_at": 1793850214,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850218,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_02568c701f4e8e89016aebfb678e9887d2a68c23244da2fe19",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_tqgbtsJhRdFUN7tL9SQ6N1niHMjdsCjmJ1jMt0Xp7UplGCLsOjJk7uo9FMbbQYUQpm0yFpNrsugyP8hVxBNKWIedrHcDEf6noll0yND8SkskrL2oo7T7E0ZJnF60_sp6zFHFf7SfFsrSIuaAFX4U9aRcksgoYXSCLhb06VCZUF9EJQUl4tw4Ejub_mIL91HfZBQZUottEXnJMAeH7tuDvlwtwi0WE1284t-rVJzmmIUdxT4vww_etNl7ym5uqnha3LJUT6GXKcA3iM0ecjDLAUfAk6jGj8xiuRtjz-FPTlo0n0PbcjlJzfu8ETtnLKsojfwy6gDTwAnYUtwXKb6xXFI-AcbRUzAhUmqVHiEiO5C0av1x4kyynfUuHGIPSOvK_OyP0frjopmxJjX9AGVB02bYox1iPn5eSCIqltYdE0RVBnw7PWAs20mo9JObk-ImJyqpBq6BLbSQzzP2HQ8keoaKLy8cuCvO_HeJ8rJQTOIaGW2LzQB8vqmZOpk73mVv_GOPTEGq6wVYhXx6nQ0n5Vo6jKm-6wfCxhUjPwOsMDoooqT9_uXnoTnR6MI2koFRvyaCuFP1urByL9sEbvu8963nRmnf1kV_4WNtRSe7YoKuoHFYPFB_jbMyTiUJG8LzcfIfn8MZai5sW0S2-RqKP-qpxvnGJbrYy1lInrpsj8a4lpKz7a1HSUiRihPkLqPM2neA5wNmy_QTDlyy5Lj3Woks3SijYq0UyS36UiXlf26sGAudMCtOAEyyvEzdJST5MkQYNkCWBJw_l7b_9likh42VofKPwGlII8EZZ3XpVKUZv5EG_uj5td-xdQzf596FN6p_G8CebyUI6_pkbCf_6cm7B-CIiSG4FhpxhrJa8udANQeqoyQo-q1VwcRFFftDvnbW2krSnYID-2-0f4AYLd6hU4gP3aQ2mKfsQQYvr4wEdiMmdfUb_cgoMFLfwTsXhxS5TKVT_simmT45F_C-4vsb8IErbQM17b971OR73_5pc-3-UdxiRRZAGE1FcX2IlVU7KyoGmxuRql8R9Ojz7TIaVmAnZbt8nMo_SDq5hxWd5GKhK-C_cY8jeC_sz6voXNF06QeORH_9t-UzINpYm0TqXWC-POp8xNSTdeTgGccNTDfan7oOLXKD0kbHbSr01GAZV2YXYyWbpwptOUxk2NnPHSDYosM7Jp2HbsV0WJKOTxni1Jjttny5nQZC0JnwqcI4tS5sYRvb838XVT4adUyfytnYh1pY_dRXdMYe6iSAMd1SZQRVdB-en2vwzQNRWUzX-SfVhRG_bJ0Wgj_1U31i7oh1cQNzrDxYcz-AaUdhoAoHFnP8IWkCRuExlJyaZgvjyLXze5DZeJekqb8M6YcY7NABU2WCVVcGqcMLeuJ4E_I3I_WCyXS8O5GvX1z9Ge-8R0F6qwnYN2QTIlK1rylraSFJLUER9B0_WcS6rA3j4McQAnBjlGTXEwtGGMagwsNdUZbZvrWByqdYRGgKGC6j6AS7Wx61qiOs5nOC_Dm4MM29UvMhV4SpGk4rqYIOUwCv8gUxljRD9O8Ia4UUtBYIPsgPLaF7WvyKHQIC8cAiu5R_wYnA-FLUSAShBzzpk3Z42lwF2WtM5ipEXzlFn81xDXvHBMVMhrT-LM70CE8ikPzMd329D-leN12DieB_31eXehnU7RwCLSUlH1uSSzFE5YIzNoVNaRE8GHJ8D67B66gdduUZyRKVsuAG8PhbAJit9UQXDDfjHlWIYbUagcg8FQuq0lZkj4iOa9KrXa7ltFMX6snaxUMcX5lliomwDC1cAKY-Ak6pF2W1xirXgrX1syOLpcSChenbN0H4tqGbwheO838ZYU2nuCntpGtwhUfQLnd4EZQh5ifOd-ygD5HnBg2ZHjNLt_8OfDi3BYpTqtew0SbWsk25kTRH-z5EELLkdnnvQiimRytc9FXVJD4Gor1xM0EPtQnAkWY7AAngNEY3ytmInDfp-k_35UPsr-HCtv692unE0yuWyA_dr3wsHumVYeFDx3GrXiuXQbVQ7zXv3Fsy76jWvUBi16Isk7OEiSDVcGN18sAH9psqLy6n7bt3PqgE-yHErmfOrQXHVmR0KowBelq46PW5ZA92niQIP2OnZRhrzpMFRc7vFs4Q==",
+      "summary": []
+    },
+    {
+      "id": "msg_02568c701f4e8e89016aebfb68e80c87d284c3b268e9d82336",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "The finiteness check should respect `lenient` mode. It should also run before `writeDeferredName()` so an invalid value does not partially modify the output or writer state.\n\n```java\n/**\n * Encodes {@code value}.\n *\n * @param value a finite value unless this writer is lenient\n * @return this writer\n */\npublic JsonWriter value(double value) throws IOException {\n  if (!lenient && (Double.isNaN(value) || Double.isInfinite(value))) {\n    throw new IllegalArgumentException(\n        \"Numeric values must be finite, but was \" + value);\n  }\n  writeDeferredName();\n  beforeValue();\n  out.append(Double.toString(value));\n  return this;\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 760,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 207,
+    "output_tokens_details": {
+      "reasoning_tokens": 55
+    },
+    "total_tokens": 967
+  },
+  "user": null,
+  "metadata": {}
+}

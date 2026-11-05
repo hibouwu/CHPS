@@ -1,0 +1,97 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 12,
+  "task_id": "15bc9189bd259ea7f3210c38187cd56a761daf8889c0262f05da18f313a964fd",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "f603e080621b23dae3ad2d1ccfcbbec24cf7eb6139ff6c1910a80a26ac379f97",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "73d795857a0c30b01763ac1b4db2eb9d928c79f30e08d7c118de4b7efa16eb89",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Codec",
+  "bug_id": 18,
+  "status": "pass",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Codec",
+        "-v",
+        "18f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-12-j137n7m4/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.467,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-12-j137n7m4/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 2.669,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-12-j137n7m4/fixed",
+        "-t",
+        "org.apache.commons.codec.binary.BinaryCodecTest::testDecodeObjectException"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.066,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    },
+    {
+      "name": "coverage",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "coverage",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-12-j137n7m4/fixed",
+        "-t",
+        "org.apache.commons.codec.binary.BinaryCodecTest::testDecodeObjectException",
+        "-i",
+        "/home/jianyeshi/Note/SiteCHPS/CHPS/M2/EDP/CoderUJB/Reproduction/evidence/scoring/model/CTG-12-b7705066/7b322eba0dfc4034b87f568d0d20956ef75901fc3932d0e6e48b67b799bd8203/attempt-1/instrument-classes.txt"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.472,
+      "stdout": "coverage.stdout.log",
+      "stderr": "coverage.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "org.apache.commons.codec.binary.BinaryCodecTest::testDecodeObjectException",
+      "failed": []
+    }
+  },
+  "coverage": {
+    "classes": [
+      "org.apache.commons.codec.binary.BinaryCodec"
+    ],
+    "line_pct": 15.8,
+    "condition_pct": 8.0,
+    "instrumented_lines_hit": 9
+  }
+}

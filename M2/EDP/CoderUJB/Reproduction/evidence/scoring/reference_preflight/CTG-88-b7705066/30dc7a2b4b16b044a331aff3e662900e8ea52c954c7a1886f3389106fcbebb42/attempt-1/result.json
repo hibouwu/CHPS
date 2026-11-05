@@ -1,0 +1,97 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 88,
+  "task_id": "a3cbdd7d3e8562adc9665c1367376e3b0dc7a05cbf0d69cd6268eb29ac30af44",
+  "origin": "reference_preflight",
+  "mode": "extracted",
+  "raw_sha256": "8373087153f7948a17810208e8790a0cea4882d3edf86ce6b7e8bb38898fea88",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "73d795857a0c30b01763ac1b4db2eb9d928c79f30e08d7c118de4b7efa16eb89",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Time",
+  "bug_id": 1,
+  "status": "pass",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Time",
+        "-v",
+        "1f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-88-4onw0c_o/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 5.03,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-88-4onw0c_o/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 16.866,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-88-4onw0c_o/fixed",
+        "-t",
+        "org.joda.time.field.TestUnsupportedDateTimeField::testDifferentDurationReturnDifferentObjects"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 5.98,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    },
+    {
+      "name": "coverage",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "coverage",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/CTG-88-4onw0c_o/fixed",
+        "-t",
+        "org.joda.time.field.TestUnsupportedDateTimeField::testDifferentDurationReturnDifferentObjects",
+        "-i",
+        "/home/jianyeshi/Note/SiteCHPS/CHPS/M2/EDP/CoderUJB/Reproduction/evidence/scoring/reference_preflight/CTG-88-b7705066/30dc7a2b4b16b044a331aff3e662900e8ea52c954c7a1886f3389106fcbebb42/attempt-1/instrument-classes.txt"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 14.17,
+      "stdout": "coverage.stdout.log",
+      "stderr": "coverage.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "org.joda.time.field.TestUnsupportedDateTimeField::testDifferentDurationReturnDifferentObjects",
+      "failed": []
+    }
+  },
+  "coverage": {
+    "classes": [
+      "org.joda.time.field.UnsupportedDateTimeField"
+    ],
+    "line_pct": 23.5,
+    "condition_pct": 75.0,
+    "instrumented_lines_hit": 16
+  }
+}

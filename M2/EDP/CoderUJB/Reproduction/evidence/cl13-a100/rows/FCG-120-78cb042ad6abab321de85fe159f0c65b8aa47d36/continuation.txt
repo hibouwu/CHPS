@@ -1,0 +1,28 @@
+
+        final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+        int read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);
+
+        while (read > -1) {
+            digest.update(buffer, 0, read);
+            read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);
+        }
+
+        return digest;
+    }
+
+    /**
+     * Reads through a File and updates the digest for the data
+     *
+     * @param digest
+     *            The MessageDigest to use (e.g. MD5)
+     * @param data
+     *            Data to digest
+     * @return the digest
+     * @throws IOException
+     *             On error reading from the stream
+     * @since 1.8
+     */
+    public static MessageDigest updateDigest(final MessageDigest digest, final File data) throws IOException {
+        final InputStream is = new BufferedInputStream(new FileInputStream(data));
+        try {
+            return updateDigest(digest

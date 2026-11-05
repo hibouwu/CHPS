@@ -1,0 +1,777 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang 2.4-SNAPSHOT --------
+
+prepare:
+
+static:
+
+compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/build.xml:65: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+compile.tests:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/build.xml:73: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 141 source files to /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/target/tests
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.3
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/AllLangTestSuite.java:63: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac]         suite.addTest(org.apache.commons.lang.enum.EnumTestSuite.suite());
+    [javac]                                               ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken1Enum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken1OperationEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken2Enum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken2OperationEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken3Enum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken3OperationEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken4OperationEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Broken5OperationEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/ColorEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/DummyEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/EnumTest.java:18: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/EnumTestSuite.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/EnumUtilsTest.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Extended1Enum.java:19: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Extended2Enum.java:19: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Extended3Enum.java:19: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/Nest.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/NestBroken.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/NestLinked.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/NestReferenced.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/OperationEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/ValuedColorEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/enum/ValuedEnumTest.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Date.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/NumberFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Calendar.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Character.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Method.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collections.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Set.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/StringWriter.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintWriter.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigDecimal.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Random.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/OutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/InvocationTargetException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/net/URL.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/net/URLClassLoader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SecurityException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NoSuchMethodException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalAccessException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassLoader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/sql/SQLException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/EOFException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Float.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/FieldPosition.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/Format.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParsePosition.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/SimpleDateFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/Reader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/Writer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/TimeZone.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/DateFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParseException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/GregorianCalendar.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Date.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:296: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean((String) null));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:297: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean(""));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:298: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("off"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:299: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("oof"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:300: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("yep"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:301: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("trux"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:302: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("false"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:303: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("a"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:304: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("true")); // interned handled differently
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:305: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean(new StringBuffer("tr").append("ue").toString()));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:306: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("truE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:307: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("trUe"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:308: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("trUE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:309: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("tRue"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:310: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("tRuE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:311: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("tRUe"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:312: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("tRUE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:313: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TRUE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:314: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TRUe"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:315: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TRuE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:316: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TRue"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:317: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TrUE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:318: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TrUe"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:319: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("TruE"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:320: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("True"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:321: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("on"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:322: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("oN"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:323: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("On"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:324: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("ON"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:325: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("yes"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:326: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("yeS"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:327: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("yEs"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:328: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("yES"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:329: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("Yes"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:330: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("YeS"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:331: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("YEs"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:332: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(true, BooleanUtils.toBoolean("YES"));
+    [javac]                                        ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:333: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("yes?"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/src/test/org/apache/commons/lang/BooleanUtilsTest.java:334: error: no suitable method found for toBoolean(String)
+    [javac]         assertEquals(false, BooleanUtils.toBoolean("tru"));
+    [javac]                                         ^
+    [javac]     method BooleanUtils.toBoolean(String,String,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(Integer,Integer,Integer) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int,int,int) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     method BooleanUtils.toBoolean(int) is not applicable
+    [javac]       (actual argument String cannot be converted to int by method invocation conversion)
+    [javac]     method BooleanUtils.toBoolean(Boolean) is not applicable
+    [javac]       (actual argument String cannot be converted to Boolean by method invocation conversion)
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] 39 errors
+    [javac] 100 warnings
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/APR-310-at375hqe/fixed/build.xml:73: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

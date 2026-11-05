@@ -1,0 +1,12 @@
+Read-only metadata snapshot. Login is x86_64; the GH200 venv is aarch64 and cannot execute on login. No GPU job was started. Historical runtime evidence remains authoritative.
+
+x86_64
+home = /apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/gcc-11.4.1/anaconda3-2024.10-1-74annk4cq7xtafpjvhcjzzwrnobcnzh3/bin
+include-system-site-packages = false
+version = 3.12.7
+executable = /gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/gcc-11.4.1/anaconda3-2024.10-1-74annk4cq7xtafpjvhcjzzwrnobcnzh3/bin/python3.12
+command = /apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/gcc-11.4.1/anaconda3-2024.10-1-74annk4cq7xtafpjvhcjzzwrnobcnzh3/bin/python -m venv /gpfs/home/hibouwu/gpuresearch/vpsr-gpu/.venv
+/home/hibouwu/gpuresearch/vpsr-gpu/.venv/lib/python3.12/site-packages/safetensors-0.8.0.dist-info
+/home/hibouwu/gpuresearch/vpsr-gpu/.venv/lib/python3.12/site-packages/tokenizers-0.21.4.dist-info
+/home/hibouwu/gpuresearch/vpsr-gpu/.venv/lib/python3.12/site-packages/torch-2.7.1+cu128.dist-info
+/home/hibouwu/gpuresearch/vpsr-gpu/.venv/lib/python3.12/site-packages/transformers-4.53.3.dist-info

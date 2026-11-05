@@ -1,0 +1,118 @@
+Certainly! Below is the implementation of the `splitText` method for the `TextNode` class based on the provided context and natural language annotations:
+
+```java
+package org.jsoup.nodes;
+
+import org.jsoup.internal.StringUtil;
+import org.jsoup.helper.Validate;
+import java.io.IOException;
+
+public class TextNode extends LeafNode {
+
+    private String text;
+
+    public TextNode(String text) {
+        this.text = text;
+    }
+
+    public TextNode(String text, String baseUri) {
+        super(baseUri);
+        this.text = text;
+    }
+
+    @Override
+    public String nodeName() {
+        return "#text";
+    }
+
+    public String text() {
+        return text;
+    }
+
+    public TextNode text(String text) {
+        Validate.notNull(text);
+        this.text = text;
+        return this;
+    }
+
+    public String getWholeText() {
+        return text;
+    }
+
+    public boolean isBlank() {
+        return StringUtil.isBlank(text);
+    }
+
+    /**
+     * Split this text node into two nodes at the specified string offset. After splitting, this node will contain the
+     * original text up to the offset, and will have a new text node sibling containing the text after the offset.
+     * @param offset string offset point to split node at.
+     * @return the newly created text node containing the text after the offset.
+     */
+    public TextNode splitText(int offset) {
+        Validate.isTrue(offset >= 0 && offset <= text.length(), "Split offset must be between 0 and the length of the text.");
+
+        String beforeOffset = text.substring(0, offset);
+        String afterOffset = text.substring(offset);
+
+        // Update this node's text to be the part before the offset
+        this.text = beforeOffset;
+
+        // Create a new text node for the part after the offset
+        TextNode newNode = new TextNode(afterOffset, baseUri());
+
+        // Insert the new node as the next sibling
+        if (parent() != null) {
+            parent().addChildren(siblingIndex() + 1, newNode);
+        }
+
+        return newNode;
+    }
+
+    @Override
+    void outerHtmlHead(Appendable accum, int depth, Document.OutputSettings out) throws IOException {
+        // Implementation not provided in the context, left as a placeholder
+    }
+
+    @Override
+    void outerHtmlTail(Appendable accum, int depth, Document.OutputSettings out) {
+        // Implementation not provided in the context, left as a placeholder
+    }
+
+    @Override
+    public String toString() {
+        return text;
+    }
+
+    public static TextNode createFromEncoded(String encodedText, String baseUri) {
+        // Implementation not provided in the context, left as a placeholder
+        return new TextNode(encodedText, baseUri);
+    }
+
+    public static TextNode createFromEncoded(String encodedText) {
+        // Implementation not provided in the context, left as a placeholder
+        return new TextNode(encodedText);
+    }
+
+    static String normaliseWhitespace(String text) {
+        // Implementation not provided in the context, left as a placeholder
+        return text;
+    }
+
+    static String stripLeadingWhitespace(String text) {
+        // Implementation not provided in the context, left as a placeholder
+        return text;
+    }
+
+    static boolean lastCharIsWhitespace(StringBuilder sb) {
+        // Implementation not provided in the context, left as a placeholder
+        return false;
+    }
+}
+```
+
+### Explanation:
+- **Validation**: The method first checks if the `offset` is within the valid range (between 0 and the length of the text). If not, it throws an `IllegalArgumentException`.
+- **Splitting**: The text is split into two parts using `substring`. The part before the offset becomes the new text for the current node, and the part after the offset is used to create a new `TextNode`.
+- **Sibling Insertion**: The new `TextNode` is inserted as the next sibling of the current node in the parent's children list.
+- **Return Value**: The method returns the newly created `TextNode` containing the text after the offset.

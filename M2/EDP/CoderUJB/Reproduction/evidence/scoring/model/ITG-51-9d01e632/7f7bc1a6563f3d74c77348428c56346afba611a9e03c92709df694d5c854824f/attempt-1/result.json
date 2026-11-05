@@ -1,0 +1,51 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 51,
+  "task_id": "1ba5768921cc37e5f1537562cb80b66637d038c9dc16621317051effd33bbf8f",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "37b7007940204a507c849801ec768133ac0d35519599c6196412fef39b6bff0f",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "9c3bef43c992b0f1fb0da6a78eafd45e779735f1883403cd77288fcbcc33dfac",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "JxPath",
+  "bug_id": "10",
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "JxPath",
+        "-v",
+        "10f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-51-c1smusxp/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.515,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-51-c1smusxp/fixed"
+      ],
+      "exit_code": 1,
+      "timeout": false,
+      "elapsed_seconds": 2.419,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    }
+  ],
+  "tests": {},
+  "reason": "candidate_compile"
+}

@@ -1,0 +1,27 @@
+public void testFormat() {
+    final java.util.TimeZone timeZone = java.util.TimeZone.getTimeZone("GMT");
+    final java.util.Locale locale = java.util.Locale.US;
+    final java.util.Calendar calendar =
+            new java.util.GregorianCalendar(timeZone, locale);
+    calendar.clear();
+    calendar.set(2003, java.util.Calendar.JANUARY, 1);
+
+    final java.util.Date date = calendar.getTime();
+
+    // Only exactly two 'y' characters should abbreviate the calendar year.
+    final String[] patterns = {"y", "yy", "yyy", "yyyy"};
+    final String[] expected = {"2003", "03", "2003", "2003"};
+
+    for (int i = 0; i < patterns.length; i++) {
+        final FastDateFormat fastFormat =
+                FastDateFormat.getInstance(patterns[i], timeZone, locale);
+        final java.text.SimpleDateFormat simpleFormat =
+                new java.text.SimpleDateFormat(patterns[i], locale);
+        simpleFormat.setTimeZone(timeZone);
+
+        assertEquals("Incorrect year for pattern " + patterns[i],
+                expected[i], fastFormat.format(date));
+        assertEquals("Mismatch with SimpleDateFormat for pattern " + patterns[i],
+                simpleFormat.format(date), fastFormat.format(date));
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "model": "sol",
+  "configuration": "B",
+  "task": "ITG",
+  "task_idx": 51,
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression"
+    ],
+    "line_pct": 57.1,
+    "condition_pct": 50.0,
+    "instrumented_lines_hit": 24
+  },
+  "format_valid": true,
+  "mode": "chat",
+  "raw_model_sha256": "1c9a7461868a6333073991acd9f59096b5e799076a84153757a13c66346da460",
+  "scorer_input_sha256": "1c9a7461868a6333073991acd9f59096b5e799076a84153757a13c66346da460",
+  "removed_input_prefix": "",
+  "added_prompt_sha256": "0f3424d5152574f34fe198380ec392ceea1b3199e59ddafcfa5b5c3e905a985f",
+  "answer_untouched": true,
+  "source": "evidence/b100/sol/rows/ITG-51-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "result": "evidence/scoring/model/ITG-51-9d01e632/5ff8779515bc51fc0f38c5712f427c38dd975c60c0f1012f91feb84573faec48/attempt-1/result.json",
+  "finish_reason": "completed",
+  "input_truncated": false,
+  "input_tokens": 446,
+  "output_tokens": 620,
+  "compile_review": null
+}

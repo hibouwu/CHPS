@@ -1,0 +1,7 @@
+public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) {
+        final List<byte[]> list = new ArrayList<>();
+        for (final ZipExtraField field : data) {
+            list.add(field.getCentralDirectoryData());
+        }
+        return concatenateByteArrays(list);
+    }

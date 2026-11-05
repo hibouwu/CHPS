@@ -1,0 +1,16 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Reasoning: medium"
+    },
+    {
+      "role": "user",
+      "content": "```markdown\n## Issue-ID: Lang-LANG-480\n\n## Issue-Title: \nStringEscapeUtils.escapeHtml incorrectly converts unicode characters above U+00FFFF into 2 characters\n\n## Issue-Description: \n\nCharacters that are represented as a 2 characters internaly by java are incorrectly converted by the function. The following test displays the problem quite nicely:\n\n\nimport org.apache.commons.lang.\\*;\n\n\npublic class J2 {  \n\n public static void main(String[] args) throws Exception {  \n\n // this is the utf8 representation of the character:  \n\n // COUNTING ROD UNIT DIGIT THREE  \n\n // in unicode  \n\n // codepoint: U+1D362  \n\n byte[] data = new byte[] \n\n\n{ (byte)0xF0, (byte)0x9D, (byte)0x8D, (byte)0xA2 }\n;\n\n\n //output is: &#55348;&#57186;  \n\n // should be: &#119650;  \n\n System.out.println(\"'\" + StringEscapeUtils.escapeHtml(new String(data, \"UTF8\")) + \"'\");  \n\n }  \n\n}\n\n\nShould be very quick to fix, feel free to drop me an email if you want a patch.\n\n\n\n\n\n```\n\nYou are a professional Java test case writer, please create a test case named `testEscapeHtmlHighUnicode` for the issue `Lang-LANG-480`, utilizing the provided issue report information and the following function signature.\n\n```java\n    public void testEscapeHtmlHighUnicode() throws java.io.UnsupportedEncodingException {\n\n```"
+    }
+  ],
+  "seed": 4,
+  "temperature": 0.2,
+  "max_tokens": 2048,
+  "stream": false
+}

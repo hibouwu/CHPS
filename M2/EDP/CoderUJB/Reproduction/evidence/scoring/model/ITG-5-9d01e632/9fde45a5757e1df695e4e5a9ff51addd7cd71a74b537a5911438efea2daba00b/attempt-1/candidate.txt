@@ -1,0 +1,39 @@
+@Test
+public void testReadingOfFirstStoredEntry() throws Exception {
+        // --------------------------------------------------------------------
+        // 1. Open the in‑memory ZIP with ZipArchiveInputStream
+        // --------------------------------------------------------------------
+        try (ByteArrayInputStream bais = new ByteArrayInputStream(ZIP_BYTES);
+             ZipArchiveInputStream zis = new ZipArchiveInputStream(bais)) {
+
+            // ----------------------------------------------------------------
+            // 2. Retrieve the first (and only) entry
+            // ----------------------------------------------------------------
+            ZipArchiveEntry entry = zis.getNextZipEntry();
+            assertNotNull("The ZIP should contain at least one entry", entry);
+            assertEquals("test.txt", entry.getName());
+            assertEquals("The entry must be stored (no compression)",
+                    ZipArchiveEntry.STORED, entry.getMethod());
+
+            // ----------------------------------------------------------------
+            // 3. Read the entry's payload
+            // ----------------------------------------------------------------
+            byte[] buffer = new byte[(int) entry.getSize()];
+            int read = 0;
+            int n;
+            while ((n = zis.read(buffer, read, buffer.length - read)) != -1) {
+                read += n;
+                if (read == buffer.length) {
+                    break;
+                }
+            }
+            assertEquals("All bytes of the entry must be read", buffer.length, read);
+
+            // ----------------------------------------------------------------
+            // 4. Verify the content – it must be exactly "data\n"
+            // ----------------------------------------------------------------
+            byte[] expected = "data\n".getBytes("UTF-8");
+            assertArrayEquals("The entry content is corrupted (e.g. NUL bytes)",
+                    expected, buffer);
+        }
+    }

@@ -1,0 +1,25 @@
+@Test
+public void testGetOneLineOneParser() throws IOException {
+        try (final CSVParser parser = new CSVParser(
+                new StringReader(CSV_INPUT_1 + "\n" + CSV_INPUT_2 + "\n"), CSVFormat.DEFAULT)) {
+            final Iterator<CSVRecord> iterator = parser.iterator();
+
+            assertTrue(iterator.hasNext());
+            final CSVRecord first = iterator.next();
+            assertEquals(RESULT[0].length, first.size());
+            for (int i = 0; i < RESULT[0].length; i++) {
+                assertEquals(RESULT[0][i], first.get(i));
+            }
+            assertEquals(1L, first.getRecordNumber());
+
+            assertTrue(iterator.hasNext());
+            final CSVRecord second = iterator.next();
+            assertEquals(RESULT[1].length, second.size());
+            for (int i = 0; i < RESULT[1].length; i++) {
+                assertEquals(RESULT[1][i], second.get(i));
+            }
+            assertEquals(2L, second.getRecordNumber());
+
+            assertFalse(iterator.hasNext());
+        }
+    }

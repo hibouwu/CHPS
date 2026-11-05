@@ -1,0 +1,12 @@
+public void testUnaliasable() {
+    testSame(
+        EXTERNS,
+        "function example() { " +
+        "  var arg = arguments[0]; " +
+        "  eval('console.log(arg)'); " +
+        "}",
+        "function example() { " +
+        "  var arg = arguments[0]; " +
+        "  eval('console.log(arg)'); " +
+        "}");
+  }

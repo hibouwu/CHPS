@@ -1,0 +1,18 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 48,
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "group": "b06",
+  "job": "817622",
+  "answer_sha256": "775e887e52f43bba3fc8e1a687dc749f1b1b22a031bdebc6da7d5bfa3e485e7d",
+  "source": "evidence/qwen-a100/rows/CTG-48-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-48-b7705066/8cc26998cbfa1f4a028a6e770bf512a835a0c124f3f96f3a0af2ea4109c104f4/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 2180,
+  "output_tokens": 469
+}

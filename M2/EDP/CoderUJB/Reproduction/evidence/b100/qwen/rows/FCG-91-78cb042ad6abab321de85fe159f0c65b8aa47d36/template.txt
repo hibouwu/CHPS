@@ -1,0 +1,55 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```java
+package org.apache.commons.codec.language;
+
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.StringEncoder;
+
+
+
+public class Soundex implements StringEncoder  {
+    public static final String US_ENGLISH_MAPPING_STRING = "0123012#02245501262301#202";
+    private static final char[] US_ENGLISH_MAPPING = US_ENGLISH_MAPPING_STRING.toCharArray();
+    public static final Soundex US_ENGLISH = new Soundex();
+    @Deprecated
+    private int maxLength = 4;
+    private final char[] soundexMapping;
+
+    public Soundex();
+    public Soundex(final char[] mapping);
+    public Soundex(final String mapping);
+    public int difference(final String s1, final String s2) throws EncoderException;
+    @Override
+    public Object encode(final Object obj) throws EncoderException;
+    @Override
+    public String encode(final String str);
+    @Deprecated
+    public int getMaxLength();
+    private char[] getSoundexMapping();
+    private char map(final char ch);
+    @Deprecated
+    public void setMaxLength(final int maxLength);
+    public String soundex(String str);
+}
+```
+
+You are a professional Java programmer, please create a function named `soundex` based on the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Retrieves the Soundex code for a given String object.
+     *
+     * @param str
+     *                  String to encode using the Soundex algorithm
+     * @return A soundex code for the String supplied
+     * @throws IllegalArgumentException
+     *                  if a character is not mapped
+     */
+    public String soundex(String str) {
+
+```<|im_end|>
+<|im_start|>assistant

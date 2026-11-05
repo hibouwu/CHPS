@@ -1,0 +1,54 @@
+Can not find target function in answer!
+
+The missing logic is the early termination check for `_allowMultipleMatches == false`. It must run **before reading buffered tokens or advancing the delegate**.
+
+Add this at the beginning of `nextToken()`, before `TokenFilterContext ctxt = _exposedContext;`:
+
+```java
+// Stop after a completed match when multiple matches are disabled.
+// Do not stop while buffered path tokens still need to be exposed.
+if (!_allowMultipleMatches
+        && (_currToken != null)
+        && (_exposedContext == null)) {
+    if (_currToken.isStructEnd()) {
+        if (_headContext.isStartHandled()) {
+            return (_currToken = null);
+        }
+    } else if (_currToken.isScalarValue()) {
+        if (!_headContext.isStartHandled()
+                && !_includePath
+                && (_itemFilter == TokenFilter.INCLUDE_ALL)) {
+            return (_currToken = null);
+        }
+    }
+}
+```
+
+There is also an incorrect completion callback: the shared `ID_END_ARRAY` / `ID_END_OBJECT` branch always calls `filterFinishArray()`, even for objects. Replace that branch with:
+
+```java
+case ID_END_ARRAY:
+case ID_END_OBJECT:
+    {
+        boolean returnEnd = _headContext.isStartHandled();
+        f = _headContext.getFilter();
+
+        if ((f != null) && (f != TokenFilter.INCLUDE_ALL)) {
+            if (t == JsonToken.END_ARRAY) {
+                f.filterFinishArray();
+            } else {
+                f.filterFinishObject();
+            }
+        }
+
+        _headContext = _headContext.getParent();
+        _itemFilter = _headContext.getFilter();
+
+        if (returnEnd) {
+            return (_currToken = t);
+        }
+    }
+    break;
+```
+
+The rest of the function remains unchanged.

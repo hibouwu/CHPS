@@ -1,0 +1,42 @@
+public void testEqualsAfterSerializationOfDerivedClass() throws IOException, ClassNotFoundException {
+        class DerivedMultiKey extends MultiKey<String> {
+            private static final long serialVersionUID = 1L;
+
+            DerivedMultiKey(final String first, final String second) {
+                super(first, second);
+            }
+        }
+
+        final DerivedMultiKey original = new DerivedMultiKey("bla", "blub");
+
+        // Older compilers retain an unused reference to the enclosing test instance.
+        for (final java.lang.reflect.Field field : DerivedMultiKey.class.getDeclaredFields()) {
+            if (field.isSynthetic() && field.getName().startsWith("this$")) {
+                try {
+                    field.setAccessible(true);
+                    field.set(original, null);
+                } catch (final IllegalAccessException ex) {
+                    throw new AssertionError(ex);
+                }
+            }
+        }
+
+        assertTrue("Use keys with a nonzero combined hash code", original.hashCode() != 0);
+
+        final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        try (ObjectOutputStream output = new ObjectOutputStream(bytes)) {
+            output.writeObject(original);
+        }
+
+        final Object restored;
+        try (ObjectInputStream input = new ObjectInputStream(
+                new ByteArrayInputStream(bytes.toByteArray()))) {
+            restored = input.readObject();
+        }
+
+        assertEquals("Deserialization must preserve the derived class",
+                original.getClass(), restored.getClass());
+        assertEquals("Deserialization must preserve key equality", original, restored);
+        assertEquals("Equal derived keys must retain equal hash codes after deserialization",
+                original.hashCode(), restored.hashCode());
+    }

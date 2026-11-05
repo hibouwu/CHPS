@@ -1,0 +1,24 @@
+@Test
+public void testLargeSample() {
+        int numberOfPoints = 41200;
+        double[] xValues = new double[numberOfPoints];
+        double[] yValues = new double[numberOfPoints];
+
+        // Initialize xValues and yValues with some data
+        for (int i = 0; i < numberOfPoints; i++) {
+            xValues[i] = i;
+            yValues[i] = Math.sin(i); // Example function
+        }
+
+        PolynomialCurveFitter fitter = PolynomialCurveFitter.create(3); // Example with degree 3 polynomial
+
+        try {
+            for (int i = 0; i < numberOfPoints; i++) {
+                fitter.addObservedPoint(xValues[i], yValues[i]);
+            }
+            double[] coefficients = fitter.fit();
+            // Check if the coefficients are as expected or perform further validation
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }

@@ -1,0 +1,150 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 22,
+  "task_id": "0cc038c14964d85eb2eb9e02db66d57cc6b055ec4a629f3b9049ab079f6d05e9",
+  "origin": "model",
+  "mode": "complete",
+  "raw_sha256": "f5d437f7c336ac90660c344cd6b67a28231e5b35feed2a5f284d4d8aa47e089a",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "9c3bef43c992b0f1fb0da6a78eafd45e779735f1883403cd77288fcbcc33dfac",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "JacksonDatabind",
+  "bug_id": "19",
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "JacksonDatabind",
+        "-v",
+        "19f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.776,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.874,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/fixed",
+        "-t",
+        "com.fasterxml.jackson.databind.convert.TestMapConversions::testMapToProperties"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.32,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    },
+    {
+      "name": "coverage",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "coverage",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/fixed",
+        "-t",
+        "com.fasterxml.jackson.databind.convert.TestMapConversions::testMapToProperties",
+        "-i",
+        "/home/jianyeshi/Note/SiteCHPS/CHPS/M2/EDP/CoderUJB/Reproduction/evidence/scoring/model/ITG-22-9d01e632/2ce74e0950b189dda9b236aafa50508b7f8f985a546a7769dec98d5492958dfb/attempt-1/instrument-classes.txt"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.974,
+      "stdout": "coverage.stdout.log",
+      "stderr": "coverage.stderr.log"
+    },
+    {
+      "name": "buggy-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "JacksonDatabind",
+        "-v",
+        "19b",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/buggy"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.817,
+      "stdout": "buggy-checkout.stdout.log",
+      "stderr": "buggy-checkout.stderr.log"
+    },
+    {
+      "name": "buggy-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/buggy"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.422,
+      "stdout": "buggy-compile.stdout.log",
+      "stderr": "buggy-compile.stderr.log"
+    },
+    {
+      "name": "buggy-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-22-e6ac495v/buggy",
+        "-t",
+        "com.fasterxml.jackson.databind.convert.TestMapConversions::testMapToProperties"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.367,
+      "stdout": "buggy-test-0.stdout.log",
+      "stderr": "buggy-test-0.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "com.fasterxml.jackson.databind.convert.TestMapConversions::testMapToProperties",
+      "failed": []
+    },
+    "buggy-test-0": {
+      "selected": "com.fasterxml.jackson.databind.convert.TestMapConversions::testMapToProperties",
+      "failed": []
+    }
+  },
+  "coverage": {
+    "classes": [
+      "com.fasterxml.jackson.databind.type.TypeFactory"
+    ],
+    "line_pct": 29.2,
+    "condition_pct": 18.5,
+    "instrumented_lines_hit": 100
+  },
+  "reason": "test did not detect buggy version"
+}

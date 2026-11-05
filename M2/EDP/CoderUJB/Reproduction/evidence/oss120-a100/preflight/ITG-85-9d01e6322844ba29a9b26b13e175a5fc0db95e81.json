@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 85,
+  "task_id": "2c5c58b25e1ed2c397339c551257aacde8b6af3fdec9f290867a48a13ee5af2b",
+  "project": "Chart",
+  "bug_id": "9",
+  "chat_sha256": "04d8b3d5c1e73f95d0a2ac9d20c6ff5cf3c07fb043f6b7d4cfd5d5a862ccefd3",
+  "complete_sha256": "a5b35845ac3c48f32f2976d0ef3b65d5369ea5c8df2357ceb1315dec42385932",
+  "checked_at": "2026-11-05T02:58:03.647539+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-85-9d01e632/b5785708c8a8f9b222b47a5e96e28a4b2c0480990b60b1a93fd77e9c04795c82/attempt-1/result.json"
+}

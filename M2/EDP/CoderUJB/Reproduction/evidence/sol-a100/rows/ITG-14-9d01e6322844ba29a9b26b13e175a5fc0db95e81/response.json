@@ -1,0 +1,105 @@
+{
+  "id": "resp_006b6a5b78b0c63d016aebfaf1d2cc87d29e8bdfe2f08f3b3d",
+  "object": "response",
+  "created_at": 1793850097,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850114,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_006b6a5b78b0c63d016aebfaf2ccf487d2a3ff43e1c431b514",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_sCQh9SM56d5CO8o8D4tS4MaOMI8QSci7LITOoAV2TrlKe5b9h4X0twZLBIUYSeysX4oVRNJTNyrM4CDkJqY-CmATpbhkv_PLiFom0PwARgWbffLWMtoYjBCVfZkujMwfI7L9xrhBcie2HqDXUFSqYWCRHjNEw_xteVLdRFGW_9K109Q_7omKZ6llF23qDBIztoOGWbnYyEiULf3h6_Y1xpB0Pa4NbAFcN9EXCDvr2nSA4aVR71h_N4cTEk2L9zaDNBKz5_E93dMxrb33e9aygTBndT7X32vBEDHhCltDcz8BGazeuydW8ffWGDRRJhRp1fZiW97MjIB5gnF5Tuf1AQ5YwRnVlu4MWkoY0Fb8GZmEdd3WYkrbg72Bkw5SXqRiBhHx08Ix3stUCaFnKZts8m6t_iGyg7-KZXAGKVABpCb8uPSCyIHm9jOAJZMMwXwOvgv-NoMZEXEzKUBTPcoGHV8qH7xgWrE8T-8por1Xz7T7ch3D8AMHatwPx30RlqvfAOI1PZ60qyABQ-RKcYm1J97UTzrf-gyp7pRLnG73AcTTP70tO6sWTNcK8x-X8tUuVhBR8tzli-0HOHEkhR4wOHBJ5D-fH6xJ8F1J0a6bFm0Fex8bAg_cn7mxAvh3xfWflA3fa6IyEeyEGSERl9A0pzHGPW4qPhnR9lFwZpUdhPCXDJmQ9_d63FsXtQuq013_uewLqEwoF3iLAK4yDPmkO14WVawqGNgzjZWPGSm3TbO0K9NR1v9RRXQrKgMATmlMoVQatkWr5Otlkmx_rMD5Cs4ITaCACE9wj0xjfPBiKTcr99XpexwIhd22OVbrnyG0UdziO_oeNkPAKVLBdhr7aHynLZCGJSoIAmXkBK95urAFt4ySAYASczKt7mZxBhlP3pUwh0dnq0pFSkJcXnB5iYrSSN6TUDkN2D3l7lg80Uj7PfQWL1t5oDD3Rxd0N6_Uanns8yrWAgNVwZbHGQmmemFDZ_kkMCdibxECWCzIVWYOCsv3DxkIdpGUqaC8XFVNmuY9Os2cWnnT0Mcs3l-NU8SdGDppo6jqRaPdcFSq5EE2YBQbI-WaCfXUXrQ6jT6gWPTl1LXjJ47j-B7z3_0SoxbaoduoFk76127xYsEwbZkfV_WHjz_bGDuvxZavTpMasOT1fWjvg8VJYjFB8QNb59a-7dzDtkn81Fmgz9bxfUUvc1w_HLEm63F9GxW6N-scDeJLplHIXF1Dhob2qXyNxN0LZqcIJwNA_mTAZwBJetjnFmQJu3kh9h6S1mugubUfmjBWw9zpDTlrYQ2s-Z7_GPzU0FAm_HV-xeD5NK9IhFC5lfSNExcoo2fUyJRJdWqgV4qSeCKTEUX04fvR2QcI3p_bloiPw6wmQFSNHROJgYcr41w5pC6tushKjBJbg6zwp2r3BJPICGERk2yydkBiBF2GgmQZUw0TTloLRsLVyPa1EF9y2oCEZTwH0K9Nj-2S-riR7XCvqEb1zWXYLH5Nk0z3RBr1KrtbIF4YXxbh3b_mW-EZD2Jzxq04nN7za0QJiwRZxAztQ79HfkoApzaavoeRBgPCZfYMHZqpNK0DetkAq-YxvIBkPxeAS4hOI3KpLUOcouA4W-8HIWz4SfnyyHGkylJceN29zJzgaHyD4Q1vzf8SNDciOm-PaLh6NmfilwXiRl7yZDlN3eKss424p2wj8B9kbUQynavtg_40l-1-FUFDmphKM5VVxH9Ys-MDCsKBIQYNQzh7w5lYYZ8U2wD3O9Sy_6F1WPkuFhke9IP_tZfkgwWSsImfwZLo5Pgq9uJc8G5asgAqj5sFadHgN_ZkAfGKTvZmRLqC3sqlJo95H5u2PI_MwIjUrui8-d_-yZvyfs_BcLTQx_fih_ZGG4UXQxSkOIWLMtx0znAvGbkc63_r-nzgGbSsA4iU44Fcp_WDDTEI6r778imDBW_ZtARW5C7PtiWEfsW0uwyfP9V4Eo9_WvHGri6539QCZ_8LU3h6VXxuf3pK1GlhVggE9suigFD2E3RESx6yUDf76B1WFhYtsOolQigCXVDycgX-k1xIwDBWzdWzOkP3OmhxjxHyYSD4T2tGE3_QjOjvDENhgwRpqqSuDb2slyLL4PgCrE_yV9WWIAHI7k-MAOjNPw5Pd952wlMh651hAlDiKMcRyX1JOuIfbGyv4E0Me0eTxn6ReS-2427Pikl2vEtLIFEMy00QVzlwXSDjIkQjkdvDWaN4dnkU9f8pi6Ol-nxx9I5ulwu1QNGC0OXxTcaR8vu0WFCCt2B9l25aKhf5HqJ_blZGItgKy9DXNV0QaJxMEVpwvZnOLvIEmuDuAB5nAyjEkEBIIZMIFlu59ZSliI8M8plzVMHhAzEziXgGD3cstGtjUWcwVJqUfHWBZMgpLYkwyqceuEx8ffGop4-BMMfVqAyVtwaCOg43b7YipftB8YwDnZ1_Mv7_Y-GkLyxCOM7wkJb5BXHplXpWJXcxG0El4TvD-qta3ZNeZ6HGvVjzxo5Pglt2fyoJs3IconYg0B-ankqYqteO9zGreSSe2rDaR3PtCVYblSAYSUuuok4vAkw84OXhRgh0cqkvcDI_g2e-eBbQ1lxqqSKLY_MpINjLtJptnLqzabAiEZvDlIrA2Y7gJSyEEF_pQ-HUTFW488YASrZ_YIkNSdl8U-9OugQBKxgc-5e12yjltIaWuvn4RY30Bvh4s1FiByud1QGSC5bvoRTWF5nqcecqMgSQwpyYfc235oO0sALlqQdQCt78fVToNy5UJG79ae4vgpQW-R81yiV0rO50jcKjW_yijzCEwUULeHMm3dcgv1yO6r3v2t-RQP9vPmD9CgdjoMzOcr63Orlub30pW_DwW1ajlgH_8X1l27KVvpv2BHFxvYKlFWKCcge-vNXghM9BTQmbtYD1v0t4mqkj2NpPCUc4qXUD6cnrEripW2Drwx9poClQXZCng-ka9ynaT2OXwcHjGwAHyz2H4IRsZCVcioHoBhqbfUFBZtLlHRhMp4Yy5UTaqTXxfZ8Ttbw4aLzDPw67omKRL3d-bde77JQvPB3HtcmmULAowkFdReP6tf78ZjQAF946p8trH65CcoHkLbc2FobyxwvaJX15ORaZGhQoU6qbMMUYqi10zOKTM4772dDm3-mYa-ZR6phROroEV4QMPKLtle_n2b3s64bxp1Gi9gGed_-URF4pdnMclbjzmke2nYRmg7Yf4ngAQ4ks4F6rArpVkgvltM1Tmnptw7Wr_IIb076HSGxhxo5TYWL7AVSpZMvSLaCWca9eV0u3z7nGq872iEA3H5Ac87rpicqZN51xVIoeNN6Rw0G6nzoUyzesflTvbiYgFvByn7QbRT8GM-TxF6RRUK9wX_6jBa3RJPVGtMuZP5_CpvCifQ8IyjpmlAp9HV7DZ-D2KDevSk0Orfp2ZWOWP6JpCq4FTng8SdQFfIDJ21ELPHe46s04y8zWFK5AaWn9xEMOMze7-US5U9WOJPOGLs48h85tt46fC66DXC4U53nL8FvY5mjTj-00S_6wuaDGnjr7eOEPPsIVLWrcQENQQqkJkQ_8_QrsRsAjCsvSjEW9XDbOtbHMbk2SgsLHc-HFdOhuk9XPHEezN15-A0qXS3gEimzGq9bAIi0TmVilcoeZcRoQAYcLg7lQO0EF_a7W0DJbzSuO2RwymqalPJGYO4k1dh_8B2ku3QJt1qskq3Ljev-g3aFyX30ZTZUzoD_YnHMVF2dal8pkOx2RkoTQnVDqpc9B-03gdAs6ba5SOeU_Kf23hE6Yq6eNuuHyqm_G6MjzQlFvzbeV_E8nDxjgEown6Sqo7u9lMthkdTvLgrYmguP43yZGzOY-QkqzbgBJCCDzdrlSYeoPGXsiqZISytgTbk_suvFWwlxV5IkGqGK1ljGC7ot2iAM7IDfn4tmisfMqUSz_XX2Ewwdd5dpgm8fYSUOfpbwp2bTX9ljR_j5SvoQEQ1wTohz4_EPRd3-4od8pzFNdDklzv4q2CJdYEHUSbOqnwNkOkmQ8KqwTJMxGk7EI-wrNnNIRl2zDnxHQZPSyN0XH6bCV_ug4MefEgzZb-DYwbAt8yfLstL_YYn8JHn5ZlZMJMU7v5iMTugHolwdqlyPj0AXvHs6j3Ia0QjPAVw7jTb5GgtQFEOFQbMPfXuKSEjOQwS5hm2kpPDFuPMIkJ86ibXlaZINkF4e__jFZ6yGigmxEj1okDC4TDj44BILVEodeEOwTjDqcfub-UcGYui5PneEWACb-lnZkQmyP5YGvwHtBntHLYehA-5tNVL8qkvNyQTBCKSEjjnXnmLBv0rucRvnkuF885OrdlbAETdTT3UnsLlp0Jk4yxtU6m1H1Dmm9H0_f7AwOltykyv5kb5a0zNj4eQonEy6dgnN87Sq68hxxgHH5r5EZsNNFoVu1c6Y-KrBDXpuXO98_lw-aaVMZOK8a8vtK7AWtjeNSzwLi2Lck3FfLxwT5xP_Gk2G6pjZNr891bQug8i8eRy4NSiJX_ECmnsVSa-1HK2MlvnsxnadSmx89AoFMuUbg9ggRt86R11mMFZCFsHdUdMaONCQfs00n1eqXm9fYygCvNLaw1AKSsZXg15JaBo3aLmNH1HVTbFG09WsZMyYQZdnVHcwEr77V6vp5aj3ZnM0DHImhlLTKxl6rYsLXn6CE-ZBF9y2u6cLXK3lb-ZbhZcGdMwk0qh_FH5CUkYRvbPsI44kdX4XG_jMZFKg0YOqerB5UwzOKgUL3nRJnqoRWq30esG5DxHz3hcCTYvsfgDRzfBhy3S7rCioYJLiUY2DS27SSqskALFbvKI2Hy6KfqVBFzV1JyOzLBOsu2hZI-HNItTDZk-1Dy0-sgvgzktMSqBRBeGir6fOZrEfTPQRHMAf-oWp3xWOrpf5p8b9oWYWifBD5CbL6Lz3KV-YtKLVKnPuNb_S13TINGvOoy-m3MRGz_wB_L0hQ8efmlbH2Zanw8ZPNktrFK2htKT9ldlPYZk62KVdOvN0CILyg6dJM1lz5iNZy92QDr46HPNqmclROblVTfWI4ZNGMByc6Oi1Z1jy7HCrohCqZG5fvEoahpzpAd5BlLHqPtUThLpGP7iI1pNmwEsNjFdy_wRVIsCcGuedb03Yj3NBEDN8W8B9uagq5JbTftm3HEgn9spd5DsbEMePU6i0Q05S1PMrRG5_ykqklqMRal65dtYf1_EpmuZ_uSTro_h_zdmgIQkw9cRS67gE4PDbO3vjovFPuQJePQNBFMmUyu67srRZXZRd_OyylL7Da663Ndd22_YIQXg99yatFc1m93f8-5KSFz9TidrDMV3LP50Y-Ev485JcFQm5Zjh6CpeR0UHf4h2Xait6BxLqjyWDRXuEOx5Vl4E8-yui_c6hZfJfSZJEy-V8I5tK56Ujcqg2I8i86rpR94hnnzi5NygV9dzOXgZ0ALlV1acOgQMe8G8-FpzNdNYd4D8m5h8B1elWKKqditN9JHTcWm5jSA0XFXySLJcg85rQf5vSBl4TpxbHjCUq3tLoG0jsDPm-9P1X72dMHWGrnEEeg4piD2NfKxUgvozaFYa_EqVXdXnGIp91GgpacBB2lUkpEmh7mHSEnXbiKu8MK3hSqIykJrx4gPyv1Hlk9n0yI9_CDr7Mk_ElUA-cynOzXv1NUUtr7Edv5T1CpIQx5V_2XESoW40mc4VSZBxgJK1lDkNwLEjmZCCYi7Y",
+      "summary": []
+    },
+    {
+      "id": "msg_006b6a5b78b0c63d016aebfafdae5487d28607af424fefc298",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\npublic void testSymbolTableExpansionBytes() throws Exception {\n    final com.fasterxml.jackson.core.JsonFactory factory =\n            new com.fasterxml.jackson.core.JsonFactory();\n    final java.util.Random random = new java.util.Random(216L);\n\n    // Reuse the factory so parsers also exercise the shared symbol table.\n    for (int round = 0; round < 30; ++round) {\n        final int fieldCount = 400;\n        final String[] names = new String[fieldCount];\n        final java.io.ByteArrayOutputStream output =\n                new java.io.ByteArrayOutputStream();\n\n        try (com.fasterxml.jackson.core.JsonGenerator generator =\n                     factory.createGenerator(output)) {\n            generator.writeStartObject();\n            for (int i = 0; i < fieldCount; ++i) {\n                // Names longer than 12 UTF-8 bytes exercise long-name storage\n                // while unique names force symbol-table expansion.\n                names[i] = \"long_symbol_table_field_\" + round + \"_\" + i + \"_\"\n                        + Long.toHexString(random.nextLong());\n                generator.writeNumberField(names[i], i);\n            }\n            generator.writeEndObject();\n        }\n\n        // A byte-array parser uses ByteQuadsCanonicalizer, where the\n        // reported ArrayIndexOutOfBoundsException occurred.\n        try (com.fasterxml.jackson.core.JsonParser parser =\n                     factory.createParser(output.toByteArray())) {\n            assertEquals(com.fasterxml.jackson.core.JsonToken.START_OBJECT,\n                    parser.nextToken());\n\n            for (int i = 0; i < fieldCount; ++i) {\n                assertEquals(names[i], parser.nextFieldName());\n                assertEquals(com.fasterxml.jackson.core.JsonToken.VALUE_NUMBER_INT,\n                        parser.nextToken());\n                assertEquals(i, parser.getIntValue());\n            }\n\n            assertEquals(com.fasterxml.jackson.core.JsonToken.END_OBJECT,\n                    parser.nextToken());\n            assertNull(parser.nextToken());\n        }\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 706,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 723,
+    "output_tokens_details": {
+      "reasoning_tokens": 324
+    },
+    "total_tokens": 1429
+  },
+  "user": null,
+  "metadata": {}
+}

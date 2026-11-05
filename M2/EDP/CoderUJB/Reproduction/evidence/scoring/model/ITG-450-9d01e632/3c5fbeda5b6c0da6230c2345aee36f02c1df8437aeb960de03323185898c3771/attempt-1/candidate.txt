@@ -1,0 +1,25 @@
+@Test
+public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {
+        File artifact = new File(
+                Mockito.class.getProtectionDomain()
+                        .getCodeSource()
+                        .getLocation()
+                        .toURI());
+
+        assertTrue(
+                "Run this test against the packaged mockito-core.jar: " + artifact,
+                artifact.isFile() && artifact.getName().endsWith(".jar"));
+
+        try (JarFile jar = new JarFile(artifact)) {
+            Enumeration<JarEntry> entries = jar.entries();
+
+            while (entries.hasMoreElements()) {
+                JarEntry entry = entries.nextElement();
+
+                assertFalse(
+                        "Binary Mockito JAR must not contain Java source: "
+                                + entry.getName(),
+                        !entry.isDirectory() && entry.getName().endsWith(".java"));
+            }
+        }
+    }

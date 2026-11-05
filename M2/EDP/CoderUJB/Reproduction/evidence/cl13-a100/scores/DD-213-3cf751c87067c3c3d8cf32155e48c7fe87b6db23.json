@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 213,
+  "project": "JxPath",
+  "bug_id": "6",
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "3d60f24dac09d00c0eef7ff93c3c057e12ed6405ea9b1cf04244d95b68994d6c",
+  "input_sha256": "512539a35e5edf1eb3f1fd1d167c1d426dcd2e781f84a01466b50cd104cbcad6",
+  "input_tokens": 1260,
+  "full_input_tokens": 1260,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-213-3cf751c8/bd252aff1f0e3b249f9773fe3c58c46e7bfc2a3986672d18a3366cc3a46754d0/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

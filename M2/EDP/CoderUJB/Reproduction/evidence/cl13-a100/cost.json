@@ -1,0 +1,19 @@
+{
+  "currency": "USD",
+  "paid_api_calls": 0,
+  "paid_api_spend": 0,
+  "paid_api_reserved": 0,
+  "romeo_job": "817612",
+  "cluster_account": "r260073",
+  "slurm_allocation": "1 GH200, 8 CPUs, 128 GiB host RAM",
+  "slurm_wall_seconds": 994,
+  "peak_cuda_allocated_bytes": 32862258176,
+  "peak_cuda_reserved_bytes": 39300628480,
+  "upstream_total_input_tokens": 119494,
+  "generated_tokens": 25600,
+  "model_rows": 100,
+  "scoring_attempts": 101,
+  "sum_local_command_seconds": 872.4,
+  "bootstrap_seed": 20261105,
+  "paid_ledger": "../dataset-audit/窗口预算.json"
+}

@@ -1,0 +1,27 @@
+
+        Options options = new Options();
+
+        options.addOption(Option.builder().longOpt("importToOpen").hasArg().argName("FILE").build());
+
+        options.addOption(Option.builder("i").longOpt("import").hasArg().argName("FILE").build());
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, new String[] { "--import=FILE" });
+        assertEquals("FILE", cmd.getOptionValue("import"));
+    }
+
+// ## Issue-ID: Cli-CLI-252
+// 
+// ## Issue-Title: 
+// LongOpt falsely detected as ambiguous
+// 
+// ## Issue-Description: 
+// 
+// Options options = new Options();  
+// 
+// options.addOption(Option.builder().longOpt("importToOpen").hasArg().argName("FILE").build());  
+// 
+// options.addOption(Option.builder("i").longOpt("import").hasArg().argName("FILE").build());
+// 
+// 
+// Parsing "--import

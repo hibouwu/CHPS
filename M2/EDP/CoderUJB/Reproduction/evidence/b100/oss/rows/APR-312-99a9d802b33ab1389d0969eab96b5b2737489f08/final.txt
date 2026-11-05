@@ -1,0 +1,44 @@
+public static long parseOctal(final byte[] buffer, final int offset, final int length) {
+    if (buffer == null) {
+        throw new IllegalArgumentException("buffer is null");
+    }
+    if (offset < 0 || length < 2 || offset + length > buffer.length) {
+        throw new IllegalArgumentException("Invalid offset/length");
+    }
+
+    long result = 0;
+    int end = offset + length;
+    int i = offset;
+
+    // Skip leading spaces
+    while (i < end && buffer[i] == ' ') {
+        i++;
+    }
+
+    // If we reached the end after skipping spaces, the field is all spaces → value 0
+    if (i == end) {
+        return 0L;
+    }
+
+    // Parse octal digits
+    for (; i < end; i++) {
+        byte b = buffer[i];
+        if (b == 0 || b == ' ') {
+            // Terminator reached
+            break;
+        }
+        if (b < '0' || b > '7') {
+            throw new IllegalArgumentException(
+                exceptionMessage(buffer, offset, length, i, b));
+        }
+        result = (result << 3) + (b - '0');
+    }
+
+    // Verify that we stopped on a space or NUL; otherwise the field is malformed
+    if (i == end) {
+        throw new IllegalArgumentException(
+            exceptionMessage(buffer, offset, length, i - 1, (byte) 0));
+    }
+
+    return result;
+}

@@ -1,0 +1,14 @@
+
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals("S530", Soundex.soundex("SCHOOL"));
+        assertEquals

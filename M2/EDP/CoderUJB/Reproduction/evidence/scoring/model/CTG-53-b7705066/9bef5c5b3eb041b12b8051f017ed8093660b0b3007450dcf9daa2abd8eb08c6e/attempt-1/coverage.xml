@@ -1,0 +1,1300 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.22529644268774704" branch-rate="0.21428571428571427" lines-covered="57" lines-valid="253" branches-covered="30" branches-valid="140" complexity="2.2285714285714286" version="2.0.3" timestamp="1793848472000">
+	<sources>
+		<source>src/main/java</source>
+	</sources>
+	<packages>
+		<package name="org.apache.commons.compress.archivers.zip" line-rate="0.22529644268774704" branch-rate="0.21428571428571427" complexity="2.2285714285714286">
+			<classes>
+				<class name="org.apache.commons.compress.archivers.zip.ZipArchiveEntry" filename="org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java" line-rate="0.2032520325203252" branch-rate="0.21428571428571427" complexity="2.2285714285714286">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="60" hits="1" branch="false"/>
+								<line number="141" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="210" hits="0" branch="false"/>
+								<line number="211" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/io/File;Ljava/lang/String;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="225" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="227" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="228" hits="0" branch="false"/>
+								<line number="230" hits="0" branch="false"/>
+								<line number="232" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="158" hits="2" branch="false"/>
+								<line number="159" hits="2" branch="false"/>
+								<line number="160" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/util/zip/ZipEntry;)V" line-rate="0.625" branch-rate="0.0">
+							<lines>
+								<line number="116" hits="2" branch="false"/>
+								<line number="127" hits="2" branch="false"/>
+								<line number="129" hits="2" branch="false"/>
+								<line number="132" hits="2" branch="false"/>
+								<line number="134" hits="2" branch="false"/>
+								<line number="135" hits="2" branch="false"/>
+								<line number="137" hits="2" branch="false"/>
+								<line number="138" hits="2" branch="false"/>
+								<line number="139" hits="2" branch="false"/>
+								<line number="140" hits="2" branch="false"/>
+								<line number="142" hits="2" branch="false"/>
+								<line number="143" hits="2" branch="false"/>
+								<line number="144" hits="2" branch="false"/>
+								<line number="145" hits="2" branch="false"/>
+								<line number="146" hits="2" branch="false"/>
+								<line number="172" hits="0" branch="false"/>
+								<line number="173" hits="0" branch="false"/>
+								<line number="174" hits="0" branch="false"/>
+								<line number="175" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="176" hits="0" branch="false"/>
+								<line number="181" hits="0" branch="false"/>
+								<line number="183" hits="0" branch="false"/>
+								<line number="184" hits="0" branch="false"/>
+								<line number="185" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="197" hits="0" branch="false"/>
+								<line number="198" hits="0" branch="false"/>
+								<line number="199" hits="0" branch="false"/>
+								<line number="200" hits="0" branch="false"/>
+								<line number="201" hits="0" branch="false"/>
+								<line number="202" hits="0" branch="false"/>
+								<line number="203" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="205" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="addAsFirstExtraField" signature="(Lorg/apache/commons/compress/archivers/zip/ZipExtraField;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="528" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="529" hits="0" branch="false"/>
+								<line number="531" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="532" hits="0" branch="false"/>
+								<line number="534" hits="0" branch="false"/>
+								<line number="535" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="536" hits="0" branch="false"/>
+								<line number="537" hits="0" branch="false"/>
+								<line number="538" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="539" hits="0" branch="false"/>
+								<line number="542" hits="0" branch="false"/>
+								<line number="543" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="addExtraField" signature="(Lorg/apache/commons/compress/archivers/zip/ZipExtraField;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="503" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="504" hits="0" branch="false"/>
+								<line number="506" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="507" hits="0" branch="false"/>
+								<line number="509" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="510" hits="0" branch="false"/>
+								<line number="512" hits="0" branch="false"/>
+								<line number="513" hits="0" branch="false"/>
+								<line number="514" hits="0" branch="false"/>
+								<line number="517" hits="0" branch="false"/>
+								<line number="518" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="clone" signature="()Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="240" hits="0" branch="false"/>
+								<line number="242" hits="0" branch="false"/>
+								<line number="243" hits="0" branch="false"/>
+								<line number="244" hits="0" branch="false"/>
+								<line number="245" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="copyOf" signature="([Lorg/apache/commons/compress/archivers/zip/ZipExtraField;)[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="471" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="copyOf" signature="([Lorg/apache/commons/compress/archivers/zip/ZipExtraField;I)[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="475" hits="0" branch="false"/>
+								<line number="476" hits="0" branch="false"/>
+								<line number="477" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="equals" signature="(Ljava/lang/Object;)Z" line-rate="0.7368421052631579" branch-rate="0.5227272727272727">
+							<lines>
+								<line number="881" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="882" hits="0" branch="false"/>
+								<line number="884" hits="4" branch="true" condition-coverage="50% (2/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="885" hits="0" branch="false"/>
+								<line number="887" hits="4" branch="false"/>
+								<line number="888" hits="4" branch="false"/>
+								<line number="889" hits="4" branch="false"/>
+								<line number="890" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="891" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="892" hits="0" branch="false"/>
+								<line number="894" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="895" hits="0" branch="false"/>
+								<line number="897" hits="4" branch="false"/>
+								<line number="898" hits="4" branch="false"/>
+								<line number="899" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="900" hits="2" branch="false"/>
+								<line number="902" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="903" hits="2" branch="false"/>
+								<line number="905" hits="4" branch="true" condition-coverage="50% (14/28)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+										<condition number="2" type="jump" coverage="50%"/>
+										<condition number="3" type="jump" coverage="50%"/>
+										<condition number="4" type="jump" coverage="50%"/>
+										<condition number="5" type="jump" coverage="50%"/>
+										<condition number="6" type="jump" coverage="50%"/>
+										<condition number="7" type="jump" coverage="50%"/>
+										<condition number="8" type="jump" coverage="50%"/>
+										<condition number="9" type="jump" coverage="50%"/>
+										<condition number="10" type="jump" coverage="50%"/>
+										<condition number="11" type="jump" coverage="50%"/>
+										<condition number="12" type="jump" coverage="50%"/>
+										<condition number="13" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getAlignment" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="383" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAllExtraFields" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="491" hits="0" branch="false"/>
+								<line number="492" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getAllExtraFieldsNoCopy" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.6666666666666666" branch-rate="0.25">
+							<lines>
+								<line number="464" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="465" hits="8" branch="false"/>
+								<line number="467" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getCentralDirectoryExtra" signature="()[B" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="669" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCommentSource" signature="()Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$CommentSource;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="1001" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataOffset" signature="()J" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="773" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getExternalAttributes" signature="()J" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="308" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getExtraField" signature="(Lorg/apache/commons/compress/archivers/zip/ZipShort;)Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="587" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="588" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="589" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="590" hits="0" branch="false"/>
+								<line number="594" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getExtraFields" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="429" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getExtraFields" signature="(Z)[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="442" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getGeneralPurposeBit" signature="()Lorg/apache/commons/compress/archivers/zip/GeneralPurposeBit;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="815" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInternalAttributes" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="287" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLastModifiedDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="873" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLocalFileDataExtra" signature="()[B" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="660" hits="8" branch="false"/>
+								<line number="661" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getLocalHeaderOffset" signature="()J" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="764" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMergedFields" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="481" hits="0" branch="false"/>
+								<line number="482" hits="0" branch="false"/>
+								<line number="483" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMethod" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="258" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="678" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getNameSource" signature="()Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$NameSource;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="983" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getParseableExtraFields" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="455" hits="0" branch="false"/>
+								<line number="456" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getParseableExtraFieldsNoCopy" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="448" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="449" hits="0" branch="false"/>
+								<line number="451" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPlatform" signature="()I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="364" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRawFlag" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="965" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRawName" signature="()[B" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="755" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="756" hits="0" branch="false"/>
+								<line number="757" hits="0" branch="false"/>
+								<line number="758" hits="0" branch="false"/>
+								<line number="760" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSize" signature="()J" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="713" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUnixMode" signature="()I" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="340" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getUnparseableExtraFieldData" signature="()Lorg/apache/commons/compress/archivers/zip/UnparseableExtraFieldData;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="605" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUnparseableOnly" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipExtraField;" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="487" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getVersionMadeBy" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="956" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVersionRequired" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="947" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hashCode" signature="()I" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="806" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isDirectory" signature="()Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="687" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isStreamContiguous" signature="()Z" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="788" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isUnixSymlink" signature="()Z" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="353" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="mergeExtraFields" signature="([Lorg/apache/commons/compress/archivers/zip/ZipExtraField;Z)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="837" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="838" hits="0" branch="false"/>
+								<line number="840" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="842" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="843" hits="0" branch="false"/>
+								<line number="845" hits="0" branch="false"/>
+								<line number="847" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="848" hits="0" branch="false"/>
+								<line number="850" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="851" hits="0" branch="false"/>
+								<line number="852" hits="0" branch="false"/>
+								<line number="853" hits="0" branch="false"/>
+								<line number="854" hits="0" branch="false"/>
+								<line number="855" hits="0" branch="false"/>
+								<line number="859" hits="0" branch="false"/>
+								<line number="861" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="removeExtraField" signature="(Lorg/apache/commons/compress/archivers/zip/ZipShort;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="550" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="551" hits="0" branch="false"/>
+								<line number="554" hits="0" branch="false"/>
+								<line number="555" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="556" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="557" hits="0" branch="false"/>
+								<line number="560" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="561" hits="0" branch="false"/>
+								<line number="563" hits="0" branch="false"/>
+								<line number="564" hits="0" branch="false"/>
+								<line number="565" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="removeUnparseableExtraFieldData" signature="()V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="573" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="574" hits="0" branch="false"/>
+								<line number="576" hits="0" branch="false"/>
+								<line number="577" hits="0" branch="false"/>
+								<line number="578" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setAlignment" signature="(I)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="394" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="395" hits="0" branch="false"/>
+								<line number="398" hits="0" branch="false"/>
+								<line number="399" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCentralDirectoryExtra" signature="([B)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="646" hits="0" branch="false"/>
+								<line number="649" hits="0" branch="false"/>
+								<line number="650" hits="0" branch="false"/>
+								<line number="651" hits="0" branch="false"/>
+								<line number="652" hits="0" branch="false"/>
+								<line number="653" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCommentSource" signature="(Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$CommentSource;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="1010" hits="0" branch="false"/>
+								<line number="1011" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDataOffset" signature="(J)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="783" hits="0" branch="false"/>
+								<line number="784" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExternalAttributes" signature="(J)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="316" hits="0" branch="false"/>
+								<line number="317" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExtra" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="637" hits="0" branch="false"/>
+								<line number="638" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExtra" signature="([B)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="619" hits="0" branch="false"/>
+								<line number="622" hits="0" branch="false"/>
+								<line number="623" hits="0" branch="false"/>
+								<line number="625" hits="0" branch="false"/>
+								<line number="627" hits="0" branch="false"/>
+								<line number="628" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExtraFields" signature="([Lorg/apache/commons/compress/archivers/zip/ZipExtraField;)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="406" hits="0" branch="false"/>
+								<line number="407" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="408" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="409" hits="0" branch="false"/>
+								<line number="411" hits="0" branch="false"/>
+								<line number="414" hits="0" branch="false"/>
+								<line number="415" hits="0" branch="false"/>
+								<line number="416" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setGeneralPurposeBit" signature="(Lorg/apache/commons/compress/archivers/zip/GeneralPurposeBit;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="824" hits="0" branch="false"/>
+								<line number="825" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setInternalAttributes" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="295" hits="0" branch="false"/>
+								<line number="296" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLocalHeaderOffset" signature="(J)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="768" hits="0" branch="false"/>
+								<line number="769" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setMethod" signature="(I)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="270" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="271" hits="0" branch="false"/>
+								<line number="274" hits="0" branch="false"/>
+								<line number="275" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setName" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="695" hits="2" branch="true" condition-coverage="50% (3/6)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+										<condition number="2" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="697" hits="2" branch="false"/>
+								<line number="699" hits="2" branch="false"/>
+								<line number="700" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setName" signature="(Ljava/lang/String;[B)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="740" hits="0" branch="false"/>
+								<line number="741" hits="0" branch="false"/>
+								<line number="742" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setNameSource" signature="(Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$NameSource;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="992" hits="0" branch="false"/>
+								<line number="993" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPlatform" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="372" hits="0" branch="false"/>
+								<line number="373" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setRawFlag" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="974" hits="0" branch="false"/>
+								<line number="975" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setSize" signature="(J)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="724" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="725" hits="0" branch="false"/>
+								<line number="727" hits="0" branch="false"/>
+								<line number="728" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setStreamContiguous" signature="(Z)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="792" hits="0" branch="false"/>
+								<line number="793" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setUnixMode" signature="(I)V" line-rate="0.0" branch-rate="0.0">
+							<lines>
+								<line number="326" hits="0" branch="true" condition-coverage="0% (0/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="332" hits="0" branch="false"/>
+								<line number="333" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVersionMadeBy" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="929" hits="0" branch="false"/>
+								<line number="930" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVersionRequired" signature="(I)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="938" hits="0" branch="false"/>
+								<line number="939" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="60" hits="1" branch="false"/>
+						<line number="116" hits="2" branch="false"/>
+						<line number="127" hits="2" branch="false"/>
+						<line number="129" hits="2" branch="false"/>
+						<line number="132" hits="2" branch="false"/>
+						<line number="134" hits="2" branch="false"/>
+						<line number="135" hits="2" branch="false"/>
+						<line number="137" hits="2" branch="false"/>
+						<line number="138" hits="2" branch="false"/>
+						<line number="139" hits="2" branch="false"/>
+						<line number="140" hits="2" branch="false"/>
+						<line number="141" hits="1" branch="false"/>
+						<line number="142" hits="2" branch="false"/>
+						<line number="143" hits="2" branch="false"/>
+						<line number="144" hits="2" branch="false"/>
+						<line number="145" hits="2" branch="false"/>
+						<line number="146" hits="2" branch="false"/>
+						<line number="158" hits="2" branch="false"/>
+						<line number="159" hits="2" branch="false"/>
+						<line number="160" hits="2" branch="false"/>
+						<line number="172" hits="0" branch="false"/>
+						<line number="173" hits="0" branch="false"/>
+						<line number="174" hits="0" branch="false"/>
+						<line number="175" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="176" hits="0" branch="false"/>
+						<line number="181" hits="0" branch="false"/>
+						<line number="183" hits="0" branch="false"/>
+						<line number="184" hits="0" branch="false"/>
+						<line number="185" hits="0" branch="false"/>
+						<line number="197" hits="0" branch="false"/>
+						<line number="198" hits="0" branch="false"/>
+						<line number="199" hits="0" branch="false"/>
+						<line number="200" hits="0" branch="false"/>
+						<line number="201" hits="0" branch="false"/>
+						<line number="202" hits="0" branch="false"/>
+						<line number="203" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="205" hits="0" branch="false"/>
+						<line number="210" hits="0" branch="false"/>
+						<line number="211" hits="0" branch="false"/>
+						<line number="225" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="227" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="228" hits="0" branch="false"/>
+						<line number="230" hits="0" branch="false"/>
+						<line number="232" hits="0" branch="false"/>
+						<line number="240" hits="0" branch="false"/>
+						<line number="242" hits="0" branch="false"/>
+						<line number="243" hits="0" branch="false"/>
+						<line number="244" hits="0" branch="false"/>
+						<line number="245" hits="0" branch="false"/>
+						<line number="258" hits="8" branch="false"/>
+						<line number="270" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="271" hits="0" branch="false"/>
+						<line number="274" hits="0" branch="false"/>
+						<line number="275" hits="0" branch="false"/>
+						<line number="287" hits="8" branch="false"/>
+						<line number="295" hits="0" branch="false"/>
+						<line number="296" hits="0" branch="false"/>
+						<line number="308" hits="8" branch="false"/>
+						<line number="316" hits="0" branch="false"/>
+						<line number="317" hits="0" branch="false"/>
+						<line number="326" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="332" hits="0" branch="false"/>
+						<line number="333" hits="0" branch="false"/>
+						<line number="340" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="353" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="364" hits="10" branch="false"/>
+						<line number="372" hits="0" branch="false"/>
+						<line number="373" hits="0" branch="false"/>
+						<line number="383" hits="0" branch="false"/>
+						<line number="394" hits="0" branch="true" condition-coverage="0% (0/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="395" hits="0" branch="false"/>
+						<line number="398" hits="0" branch="false"/>
+						<line number="399" hits="0" branch="false"/>
+						<line number="406" hits="0" branch="false"/>
+						<line number="407" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="408" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="409" hits="0" branch="false"/>
+						<line number="411" hits="0" branch="false"/>
+						<line number="414" hits="0" branch="false"/>
+						<line number="415" hits="0" branch="false"/>
+						<line number="416" hits="0" branch="false"/>
+						<line number="429" hits="0" branch="false"/>
+						<line number="442" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="448" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="449" hits="0" branch="false"/>
+						<line number="451" hits="0" branch="false"/>
+						<line number="455" hits="0" branch="false"/>
+						<line number="456" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="464" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="465" hits="8" branch="false"/>
+						<line number="467" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="471" hits="0" branch="false"/>
+						<line number="475" hits="0" branch="false"/>
+						<line number="476" hits="0" branch="false"/>
+						<line number="477" hits="0" branch="false"/>
+						<line number="481" hits="0" branch="false"/>
+						<line number="482" hits="0" branch="false"/>
+						<line number="483" hits="0" branch="false"/>
+						<line number="487" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="491" hits="0" branch="false"/>
+						<line number="492" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="503" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="504" hits="0" branch="false"/>
+						<line number="506" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="507" hits="0" branch="false"/>
+						<line number="509" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="510" hits="0" branch="false"/>
+						<line number="512" hits="0" branch="false"/>
+						<line number="513" hits="0" branch="false"/>
+						<line number="514" hits="0" branch="false"/>
+						<line number="517" hits="0" branch="false"/>
+						<line number="518" hits="0" branch="false"/>
+						<line number="528" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="529" hits="0" branch="false"/>
+						<line number="531" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="532" hits="0" branch="false"/>
+						<line number="534" hits="0" branch="false"/>
+						<line number="535" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="536" hits="0" branch="false"/>
+						<line number="537" hits="0" branch="false"/>
+						<line number="538" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="539" hits="0" branch="false"/>
+						<line number="542" hits="0" branch="false"/>
+						<line number="543" hits="0" branch="false"/>
+						<line number="550" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="551" hits="0" branch="false"/>
+						<line number="554" hits="0" branch="false"/>
+						<line number="555" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="556" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="557" hits="0" branch="false"/>
+						<line number="560" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="561" hits="0" branch="false"/>
+						<line number="563" hits="0" branch="false"/>
+						<line number="564" hits="0" branch="false"/>
+						<line number="565" hits="0" branch="false"/>
+						<line number="573" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="574" hits="0" branch="false"/>
+						<line number="576" hits="0" branch="false"/>
+						<line number="577" hits="0" branch="false"/>
+						<line number="578" hits="0" branch="false"/>
+						<line number="587" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="588" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="589" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="590" hits="0" branch="false"/>
+						<line number="594" hits="0" branch="false"/>
+						<line number="605" hits="0" branch="false"/>
+						<line number="619" hits="0" branch="false"/>
+						<line number="622" hits="0" branch="false"/>
+						<line number="623" hits="0" branch="false"/>
+						<line number="625" hits="0" branch="false"/>
+						<line number="627" hits="0" branch="false"/>
+						<line number="628" hits="0" branch="false"/>
+						<line number="637" hits="0" branch="false"/>
+						<line number="638" hits="0" branch="false"/>
+						<line number="646" hits="0" branch="false"/>
+						<line number="649" hits="0" branch="false"/>
+						<line number="650" hits="0" branch="false"/>
+						<line number="651" hits="0" branch="false"/>
+						<line number="652" hits="0" branch="false"/>
+						<line number="653" hits="0" branch="false"/>
+						<line number="660" hits="8" branch="false"/>
+						<line number="661" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="669" hits="8" branch="false"/>
+						<line number="678" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="687" hits="0" branch="false"/>
+						<line number="695" hits="2" branch="true" condition-coverage="50% (3/6)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="697" hits="2" branch="false"/>
+						<line number="699" hits="2" branch="false"/>
+						<line number="700" hits="2" branch="false"/>
+						<line number="713" hits="8" branch="false"/>
+						<line number="724" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="725" hits="0" branch="false"/>
+						<line number="727" hits="0" branch="false"/>
+						<line number="728" hits="0" branch="false"/>
+						<line number="740" hits="0" branch="false"/>
+						<line number="741" hits="0" branch="false"/>
+						<line number="742" hits="0" branch="false"/>
+						<line number="755" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="756" hits="0" branch="false"/>
+						<line number="757" hits="0" branch="false"/>
+						<line number="758" hits="0" branch="false"/>
+						<line number="760" hits="0" branch="false"/>
+						<line number="764" hits="0" branch="false"/>
+						<line number="768" hits="0" branch="false"/>
+						<line number="769" hits="0" branch="false"/>
+						<line number="773" hits="0" branch="false"/>
+						<line number="783" hits="0" branch="false"/>
+						<line number="784" hits="0" branch="false"/>
+						<line number="788" hits="0" branch="false"/>
+						<line number="792" hits="0" branch="false"/>
+						<line number="793" hits="0" branch="false"/>
+						<line number="806" hits="0" branch="false"/>
+						<line number="815" hits="0" branch="false"/>
+						<line number="824" hits="0" branch="false"/>
+						<line number="825" hits="0" branch="false"/>
+						<line number="837" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="838" hits="0" branch="false"/>
+						<line number="840" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="842" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="843" hits="0" branch="false"/>
+						<line number="845" hits="0" branch="false"/>
+						<line number="847" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="848" hits="0" branch="false"/>
+						<line number="850" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="851" hits="0" branch="false"/>
+						<line number="852" hits="0" branch="false"/>
+						<line number="853" hits="0" branch="false"/>
+						<line number="854" hits="0" branch="false"/>
+						<line number="855" hits="0" branch="false"/>
+						<line number="859" hits="0" branch="false"/>
+						<line number="861" hits="0" branch="false"/>
+						<line number="873" hits="0" branch="false"/>
+						<line number="881" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="882" hits="0" branch="false"/>
+						<line number="884" hits="4" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="885" hits="0" branch="false"/>
+						<line number="887" hits="4" branch="false"/>
+						<line number="888" hits="4" branch="false"/>
+						<line number="889" hits="4" branch="false"/>
+						<line number="890" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="891" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="892" hits="0" branch="false"/>
+						<line number="894" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="895" hits="0" branch="false"/>
+						<line number="897" hits="4" branch="false"/>
+						<line number="898" hits="4" branch="false"/>
+						<line number="899" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="900" hits="2" branch="false"/>
+						<line number="902" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="903" hits="2" branch="false"/>
+						<line number="905" hits="4" branch="true" condition-coverage="50% (14/28)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+								<condition number="2" type="jump" coverage="50%"/>
+								<condition number="3" type="jump" coverage="50%"/>
+								<condition number="4" type="jump" coverage="50%"/>
+								<condition number="5" type="jump" coverage="50%"/>
+								<condition number="6" type="jump" coverage="50%"/>
+								<condition number="7" type="jump" coverage="50%"/>
+								<condition number="8" type="jump" coverage="50%"/>
+								<condition number="9" type="jump" coverage="50%"/>
+								<condition number="10" type="jump" coverage="50%"/>
+								<condition number="11" type="jump" coverage="50%"/>
+								<condition number="12" type="jump" coverage="50%"/>
+								<condition number="13" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="929" hits="0" branch="false"/>
+						<line number="930" hits="0" branch="false"/>
+						<line number="938" hits="0" branch="false"/>
+						<line number="939" hits="0" branch="false"/>
+						<line number="947" hits="0" branch="false"/>
+						<line number="956" hits="0" branch="false"/>
+						<line number="965" hits="0" branch="false"/>
+						<line number="974" hits="0" branch="false"/>
+						<line number="975" hits="0" branch="false"/>
+						<line number="983" hits="0" branch="false"/>
+						<line number="992" hits="0" branch="false"/>
+						<line number="993" hits="0" branch="false"/>
+						<line number="1001" hits="0" branch="false"/>
+						<line number="1010" hits="0" branch="false"/>
+						<line number="1011" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.apache.commons.compress.archivers.zip.ZipArchiveEntry$CommentSource" filename="org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java" line-rate="1.0" branch-rate="1.0" complexity="2.2285714285714286">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="91" hits="3" branch="false"/>
+								<line number="98" hits="1" branch="false"/>
+								<line number="103" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$CommentSource;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="values" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$CommentSource;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="91" hits="3" branch="false"/>
+						<line number="98" hits="1" branch="false"/>
+						<line number="103" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.apache.commons.compress.archivers.zip.ZipArchiveEntry$NameSource" filename="org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java" line-rate="1.0" branch-rate="1.0" complexity="2.2285714285714286">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="66" hits="4" branch="false"/>
+								<line number="73" hits="1" branch="false"/>
+								<line number="79" hits="1" branch="false"/>
+								<line number="84" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$NameSource;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="values" signature="()[Lorg/apache/commons/compress/archivers/zip/ZipArchiveEntry$NameSource;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="66" hits="4" branch="false"/>
+						<line number="73" hits="1" branch="false"/>
+						<line number="79" hits="1" branch="false"/>
+						<line number="84" hits="1" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>

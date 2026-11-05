@@ -1,0 +1,105 @@
+{
+  "id": "resp_06e4a0f56af9466f016aebfb833af887d2be202a2cb6a93c33",
+  "object": "response",
+  "created_at": 1793850243,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850248,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_06e4a0f56af9466f016aebfb8404a487d28e53f66f6b58fbe4",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_uIgi-M9KVTufqd2UnK9JeNFYPC9CQJkUoRAVcy5r51oPrFwyU7Ie79qVcgTZvrMCPaBiBICwClQr6S1Dg4wV8Eb7XqoVNYcj2zNukGOXQ6TEovY3uFEaFaFS6g5Ii1E_X84oThBARGqfugDwmI8nv-9C-H6rvtYJu1-VKPooa9VAmrjWLQy-_PEmdEgtsPZbvvK9ZLipFISfUaKV-M40DR2vx6Qc5ixZ25gA3SO7-H3e_LevG-gVVHWxLvK7fgHgQ_wZfNtwqFqne7-CtbSKSenFcvLOmdg00vsoRRzjEMkkgK_EJgrAtQaMZZB-xhkWwxuI8tq559mUeWUci_8G3DHgj2xE2usGCseQRPbMIpp9peX5MqWsgUVpgJPtYrJh0CLSFh3KLHTdMtBF6Q2xzE99jJvI3yrpmIdBsbedKOfggxFoA5jAPpjhg9WDxKaY0DFIjktAnN2ucb8Kiot4jNQx9GtjjCB0MTvXkrbGIoRRkDSDSGDkxDHd5EhNFHOm72lziFbPtNIEjzBiXO9rO3gh5VWMSVgEbOkfW7exouGfpdFU6psZkjFzqZ_-P420E9oGJFIO1CdwLyzmhpsVTCQYpKs9lN3_0HngpMpw2pC9SVgEIIADdNT5azxMjB1yZGYtrKLTBQ4_xA45oJwOhQn6GZ0KVF28PCgO_VLaV3tjY08CRYLFGqYCYloLpQ4elOLL5ddyq7dZg4NdKyBR3qRo4VPgYBzwaWqDlF6dsbd9CM3pNa6XDAnBHOAbfIoq4s85d9NEhOsQjbFNmSaNiADc1TiZl6nyVt99rBTGtn5MDXjpYu9TC-Lwj6ESnfJOvGdSMrfV5puFb2IfoGvr-I8U0SW-D9mIEM4QF3rx3wR88SHxP-7qNYeIK9O4XJp1YU3ZVNGddriPtjt0wovs073iz6xIHA1fDbJ9PfDyjbvHc_SVKCJ143PrwQApLfiaDUScdol_jeZAlbjE9LhjnGdY_miDlQ_7wv73Fir94Gwo1SJzjKIxfzPMF6HlmnjQAQWHaXNkLIVjoatbKn4ygDnHsfffJolr0Z9HXssmz1NKZCbLeN_PXDYHupy8gdqXEBjVZBvcljog3pb6OkziZrhCXdiC20a3Kxj2TYtZI8AD-gLKB44OEGAUZ9NPQRub1PqJrKC7jgUGiRGOySd3Vi-uVYHhEjyHII1vIhL4JWW-qDUjiDUA8-tIoHc5sLfvIm8SRpXaypzkTHcUReYabTUeuUzBWrWY0mMGSO4P8Kl3AvpwllLnzMlhe-FuPnSM6icZlBYCTgVI14wg1t_It_GfrxOqVozzpcsH6udxiHSpiLHDYaSLdgxumgYBAxdIOI4kmKdcCY5KWZPWHzABnS_chDLdokIKUV4mmcYoR3jwU56cHBFiSMH9VBDRQVb1eGC_T10AqSZN-s3267f5t_T1guq_57cmhvNkwcmBVcM1h9kkrxMO-rLMjZVsReixvR6rPgfxFldoSLeuP4owk5b0Yie-dUldkVs-nrfWRmWshJ4ricseVzEfhwjow-e-NW-TJ0RILh1oY4W_ljNkuheRWHGPgNW0RUSj7cXt9zDGjD0XTwqKs5zhsL7_EWyzvwvRRsIKj1Ezf76IsBywZUinif4EhbWTtKPLo_x0uRUH3jNB_8G9BlSzWKn9R1mVl-HrQ_SCREnJpXRFhtAjm5DguNfZVavwXaVYvepZI_vBVq8-Ws5QB7B7VDmpHvXRT7H1fYlN1Js8MTz8McnPp996nOlaQkRQGqTfp_p64TOiAErgkCB3T4_ScTjMY4q795mmxqDsAaSL4AL_OkEppyhDjUd7jfirZnRL2LNdQWEHh33_g61EvA_9n6IHxvD8hTzFc-Hk48hEt6Itcva94awHjNNQ2tot-ig9otZPgw5BFWzf-UHE94zwB0FaP5FCQh_y4lkeSWx0Mjz_pXJj2aDF73q3Op7tibYjhV5UP6_vE=",
+      "summary": []
+    },
+    {
+      "id": "msg_06e4a0f56af9466f016aebfb84dde487d2bca01b56cbbd39a0",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "The function handles boxed types such as `Integer.class` but not their primitive equivalents, such as `int.class`. Normalize primitive types to their wrappers before selecting the deserializer. `ClassUtil` is already imported.\n\n```java\npublic static StdKeyDeserializer forType(Class<?> raw)\n{\n    if (raw.isPrimitive()) {\n        raw = ClassUtil.wrapperType(raw);\n    }\n\n    int kind;\n\n    // First common types:\n    if (raw == String.class || raw == Object.class) {\n        return StringKD.forType(raw);\n    } else if (raw == UUID.class) {\n        kind = TYPE_UUID;\n    } else if (raw == Integer.class) {\n        kind = TYPE_INT;\n    } else if (raw == Long.class) {\n        kind = TYPE_LONG;\n    } else if (raw == Date.class) {\n        kind = TYPE_DATE;\n    } else if (raw == Calendar.class) {\n        kind = TYPE_CALENDAR;\n    // Then less common ones:\n    } else if (raw == Boolean.class) {\n        kind = TYPE_BOOLEAN;\n    } else if (raw == Byte.class) {\n        kind = TYPE_BYTE;\n    } else if (raw == Character.class) {\n        kind = TYPE_CHAR;\n    } else if (raw == Short.class) {\n        kind = TYPE_SHORT;\n    } else if (raw == Float.class) {\n        kind = TYPE_FLOAT;\n    } else if (raw == Double.class) {\n        kind = TYPE_DOUBLE;\n    } else if (raw == URI.class) {\n        kind = TYPE_URI;\n    } else if (raw == URL.class) {\n        kind = TYPE_URL;\n    } else if (raw == Class.class) {\n        kind = TYPE_CLASS;\n    } else if (raw == Locale.class) {\n        FromStringDeserializer<?> deser =\n                FromStringDeserializer.findDeserializer(Locale.class);\n        return new StdKeyDeserializer(TYPE_LOCALE, raw, deser);\n    } else if (raw == Currency.class) {\n        FromStringDeserializer<?> deser =\n                FromStringDeserializer.findDeserializer(Currency.class);\n        return new StdKeyDeserializer(TYPE_CURRENCY, raw, deser);\n    } else {\n        return null;\n    }\n\n    return new StdKeyDeserializer(kind, raw);\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1163,
+    "input_tokens_details": {
+      "cache_write_tokens": 1160,
+      "cached_tokens": 0
+    },
+    "output_tokens": 505,
+    "output_tokens_details": {
+      "reasoning_tokens": 39
+    },
+    "total_tokens": 1668
+  },
+  "user": null,
+  "metadata": {}
+}

@@ -1,0 +1,31 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 70,
+  "project": "Compress",
+  "bug_id": "45",
+  "status": "fail",
+  "reason": "official_extraction_missing_method",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-70-99a9d802/3e517c02a420eaf16c7176fecf1c46a550e0bbabe04dc3eb19b93edf4a8dffbe/attempt-1/result.json",
+  "raw_sha256": "eb3b47c702e7c6838c8034e09df52af937dccddaac8e89450d64d45470cb552e",
+  "input_sha256": "a8e9d65953249e930e32e373c3363fa87293f11e772a5b2482b942c16dba3560",
+  "input_tokens": 1551,
+  "full_input_tokens": 1551,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-70-99a9d802/e9df5661a44fdd6b8c4cb5e60c5c602e5e604d0764a236279f1d7b4880829ed3/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-70-99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "compile_review": {
+    "method": "formatLongOctalOrBinaryBytes",
+    "reason": "official_extraction_missing_method",
+    "original_status": "infrastructure_unresolved",
+    "diagnostic": "error: cannot find symbol\n    [javac]         return TarUtils.formatLongOctalOrBinaryBytes(value, outbuf, offset,\n    [javac]                        ^\n    [javac]   symbol:   method formatLongOctalOrBinaryBytes(long,byte[],int,int)",
+    "submitted_bytes": 178,
+    "only_unterminated_comment": true,
+    "reference_log": "evidence/scoring/reference_preflight/APR-70-99a9d802/3e517c02a420eaf16c7176fecf1c46a550e0bbabe04dc3eb19b93edf4a8dffbe/attempt-1/result.json"
+  }
+}

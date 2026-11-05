@@ -1,0 +1,15 @@
+{
+  "model": "gpt-6.1-sol",
+  "input": [
+    {
+      "role": "user",
+      "content": "Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.\n\n```markdown\n## Issue-ID: JxPath-JXPATH-93\n\n## Issue-Title: \nBinary operators behaviour involving node-sets is incorrect\n\n## Issue-Description: \n\nAccording to XPath specification:  \n\n\"If both objects to be compared are node-sets, then the comparison will be true if and only if there is a node in the first node-set and a node in the second node-set such that the result of performing the comparison on the string-values of the two nodes is true. If one object to be compared is a node-set and the other is a number, then the comparison will be true if and only if there is a node in the node-set such that the result of performing the comparison on the number to be compared and on the result of converting the string-value of that node to a number using the number function is true.\"\n\n\nBut following example illustrates, that this is not a JXPath behaviour:\n\n\n JXPathContext pathContext = JXPathContext  \n\n .newContext(DocumentBuilderFactory.newInstance()  \n\n .newDocumentBuilder().parse(  \n\n new InputSource(new StringReader(  \n\n \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\r\\n\"  \n\n + \"<doc/>\"))));  \n\n Boolean result = (Boolean) pathContext.getValue(\"2.0 > child1\",  \n\n Boolean.class);  \n\n assertFalse(result.booleanValue());\n\n\n\"child1\" is not found - right operand node set is empty, but result is TRUE, instead of FALSE.\n\n\nPlease, check greaterThan(), lesserThan(), etc methods of org.apache.xpath.objects.XObject for possible solution ![](/jira/images/icons/emoticons/smile.png)\n\n\n\n\n\n```\n\nYou are a professional Java test case writer, please create a test case named `testEmptyNodeSetOperations` for the issue `JxPath-JXPATH-93`, utilizing the provided issue report information and the following function signature.\n\n```java\n    public void testEmptyNodeSetOperations() {\n\n```"
+    }
+  ],
+  "reasoning": {
+    "effort": "medium"
+  },
+  "max_output_tokens": 4096,
+  "service_tier": "default",
+  "store": false
+}

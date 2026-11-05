@@ -1,0 +1,22 @@
+```java
+/**
+ * Tests examples adapted from Caverphone version 2.0.
+ *
+ * @throws EncoderException if encoding fails
+ */
+@Test
+public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
+    final String[] words = {
+        "add", "aid", "at", "art", "eat", "earth", "head", "hit",
+        "hot", "hold", "hard", "heart", "it", "out", "old"
+    };
+
+    for (final String word : words) {
+        Assert.assertEquals(
+            "Unexpected Caverphone1 encoding for: " + word,
+            "AT1111",
+            getStringEncoder().encode(word)
+        );
+    }
+}
+```

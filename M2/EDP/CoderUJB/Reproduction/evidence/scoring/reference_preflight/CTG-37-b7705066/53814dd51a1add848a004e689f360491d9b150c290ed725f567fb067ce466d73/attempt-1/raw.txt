@@ -1,0 +1,24 @@
+  public void testGoodParse() {
+    final String CONTENTS = "/*"
+        + "goog.addDependency('no1', [], []);*//*\n"
+        + "goog.addDependency('no2', [ ], [ ]);\n"
+        + "*/goog.addDependency('yes1', [], []);\n"
+        + "/* blah */goog.addDependency(\"yes2\", [], [])/* blah*/\n"
+        + "goog.addDependency('yes3', ['a','b'], ['c']); // goog.addDependency('no3', [], []);\n"
+        + "// goog.addDependency('no4', [], []);\n"
+        + "goog.addDependency(\"yes4\", [], [ \"a\",'b' , 'c' ]); //no new line at EOF";
+
+    List<DependencyInfo> result = parser.parseFile(SRC_PATH, CONTENTS);
+    ImmutableList<DependencyInfo> EXPECTED = ImmutableList.<DependencyInfo>of(
+        new SimpleDependencyInfo("yes1", SRC_PATH, EMPTY, EMPTY),
+        new SimpleDependencyInfo("yes2", SRC_PATH, EMPTY, EMPTY),
+        new SimpleDependencyInfo(
+            "yes3", SRC_PATH, ImmutableList.of("a", "b"), ImmutableList.of("c")),
+        new SimpleDependencyInfo(
+            "yes4", SRC_PATH, EMPTY, ImmutableList.of("a", "b", "c"))
+    );
+
+    assertEquals(EXPECTED, result);
+    assertEquals(0, errorManager.getErrorCount());
+    assertEquals(0, errorManager.getWarningCount());
+  }

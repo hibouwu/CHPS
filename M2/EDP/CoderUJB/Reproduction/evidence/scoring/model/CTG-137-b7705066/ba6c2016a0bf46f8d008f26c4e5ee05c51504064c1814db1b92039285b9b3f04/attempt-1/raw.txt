@@ -1,0 +1,54 @@
+Certainly! Below is a detailed implementation of the `testCalendar` method for the `TestEthiopicChronology` class. This test will verify the correctness of the era, year, monthOfYear, dayOfMonth, and dayOfWeek fields in the `EthiopicChronology`.
+
+```java
+/**
+ * Tests era, year, monthOfYear, dayOfMonth and dayOfWeek.
+ */
+//-----------------------------------------------------------------------
+public void testCalendar() {
+    // Create a date in the Ethiopian calendar using a known date in the Gregorian calendar
+    DateTime gregorianDate = new DateTime(2023, 10, 15, 0, 0, 0, 0, DateTimeZone.UTC);
+    DateTime ethiopianDate = new DateTime(gregorianDate.getMillis(), ETHIOPIC_UTC);
+
+    // Expected values for the given Gregorian date 2023-10-15 in the Ethiopian calendar
+    int expectedEra = 1; // Common Era (CE)
+    int expectedYear = 2016; // Year in the Ethiopian calendar
+    int expectedMonthOfYear = 13; // Tekemt (13th month in the Ethiopian calendar)
+    int expectedDayOfMonth = 5; // Day of the month in the Ethiopian calendar
+    int expectedDayOfWeek = DateTimeConstants.SUNDAY; // Day of the week
+
+    // Verify era
+    assertEquals("Era", expectedEra, ethiopianDate.getYearOfEra());
+    
+    // Verify year
+    assertEquals("Year", expectedYear, ethiopianDate.getYear());
+
+    // Verify month of year
+    assertEquals("Month of Year", expectedMonthOfYear, ethiopianDate.getMonthOfYear());
+
+    // Verify day of month
+    assertEquals("Day of Month", expectedDayOfMonth, ethiopianDate.getDayOfMonth());
+
+    // Verify day of week
+    assertEquals("Day of Week", expectedDayOfWeek, ethiopianDate.getDayOfWeek());
+
+    // Additional check: Verify that the date conversion is consistent
+    DateTime convertedBackToGregorian = ethiopianDate.toDateTime(ISO_UTC);
+    assertEquals("Converted back to Gregorian", gregorianDate.withTimeAtStartOfDay(), convertedBackToGregorian.withTimeAtStartOfDay());
+}
+```
+
+### Explanation:
+
+1. **Date Creation**:
+   - A `DateTime` object is created for October 15, 2023, in the Gregorian calendar using UTC time zone.
+   - This date is then converted to the Ethiopian calendar using `ETHIOPIC_UTC`.
+
+2. **Expected Values**:
+   - The expected values for era, year, month of year, day of month, and day of week are determined based on the conversion from the Gregorian date to the Ethiopian calendar.
+
+3. **Assertions**:
+   - The test uses `assertEquals` to verify that the extracted fields from the `ethiopianDate` match the expected values.
+   - An additional check is performed to ensure that converting the Ethiopian date back to the Gregorian calendar results in the original date.
+
+This test ensures that the `EthiopicChronology` correctly handles the conversion and representation of dates in the Ethiopian calendar system.

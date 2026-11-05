@@ -1,0 +1,27 @@
+
+        if (id == null) {
+            return null;
+        }
+        if (id.equals(id())) {
+            return this;
+        }
+        Elements els = this.getElementsByAttribute("id", id);
+        if (els.size() > 0) {
+            return els.get(0);
+        }
+        return null;
+    }
+
+    /**
+     * Find elements, including or under this element, with matching tag name.
+     * <p>
+     * This method is case insensitive. (HTML is case insensitive, and this method normalises to lower case for you.)
+     * <p>
+     * If you are looking for just the first element, use {@link #getElementsByTag(String)} or
+     * {@link #selectFirst(String)}.
+     * @param tagName The tag name to search for (case insensitively).
+     * @return A list of matching elements, empty if none found.
+     * @see #getElementsByTag(String)
+     * @see #select(String)
+     */
+    public Elements getElementsByTag(String tagName) {

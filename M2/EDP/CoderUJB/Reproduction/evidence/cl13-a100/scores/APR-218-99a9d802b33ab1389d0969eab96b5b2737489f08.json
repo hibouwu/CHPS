@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 218,
+  "project": "JxPath",
+  "bug_id": "8",
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-218-99a9d802/5bfcf776e65ae23480b90a4a66cf07d8c80088b001de2ec303773e94b09a47e1/attempt-1/result.json",
+  "raw_sha256": "fa7dc8c0ef6e35252ac38a0dc1c70b55458cf3390a3ee11074580f42fe95d357",
+  "input_sha256": "ab25c1eb7a3b9e3c35c953afefe59ac87d97c78ae753ba88eed2ba1d850094e6",
+  "input_tokens": 536,
+  "full_input_tokens": 536,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-218-99a9d802/ccecd975de3af5b481000d73cb184d45e48605edd5e026f97279e1489f04c685/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-218-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

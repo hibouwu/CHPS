@@ -1,0 +1,50 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```java
+package com.fasterxml.jackson.core.format;
+
+import java.io.*;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.io.MergedStream;
+
+
+
+public class DataFormatMatcher
+ {
+    protected final InputStream _originalStream;
+    protected final byte[] _bufferedData;
+    protected final int _bufferedStart;
+    protected final int _bufferedLength;
+    protected final JsonFactory _match;
+    protected final MatchStrength _matchStrength;
+
+    protected DataFormatMatcher(InputStream in, byte[] buffered,
+            int bufferedStart, int bufferedLength,
+            JsonFactory match, MatchStrength strength);
+    public boolean hasMatch();
+    public MatchStrength getMatchStrength();
+    public JsonFactory getMatch();
+    public String getMatchedFormatName();
+    public JsonParser createParserWithMatch() throws IOException;
+    public InputStream getDataStream();
+}
+```
+
+You are a professional Java programmer, please create a function named `getDataStream` based on the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Method to use for accessing input for which format detection has been done.
+     * This <b>must</b> be used instead of using stream passed to detector
+     * unless given stream itself can do buffering.
+     * Stream will return all content that was read during matching process, as well
+     * as remaining contents of the underlying stream.
+     */
+    public InputStream getDataStream() {
+
+```<|im_end|>
+<|im_start|>assistant

@@ -1,0 +1,16 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 53,
+  "task_id": "37497bed336eb012890fc7770295b46f192ccf65b0f828d783eedd1a47cdafb5",
+  "project": "Closure",
+  "bug_id": 107,
+  "chat_sha256": "4c29d81282e3331583b2ea6d3e7bef4bab1e30a6623c43ed6fdcd7d93d2a6572",
+  "complete_sha256": "d667d1650bae784223b223705716ad83deccd25d72f5f0388e8ec92a53886733",
+  "checked_at": "2026-11-05T02:47:58.228235+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/FCG-53-78cb042a/cc1533ae173a22aa18288d69ab162fd781f9cc4179f6639792e7129e5eb5c45a/attempt-1/result.json"
+}

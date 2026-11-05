@@ -1,0 +1,22 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 448,
+  "project": "Lang",
+  "bug_id": "18",
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/ITG-448-9d01e632/266bf438187585a730c46408001b7f9a67be1c40de2abd9f5a77c06bca804aca/attempt-1/result.json",
+  "raw_sha256": "5b1c9cbab08afcdbefcdbdb881d98f637e32af62781b6c740933aeb4b7cf1866",
+  "input_sha256": "26af6ece53ebe2de885b05ca4087cf6ce143d3e67110b9cd97e8dad5eca0fdbf",
+  "input_tokens": 210,
+  "full_input_tokens": 210,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-448-9d01e632/fd9a08643518dfa3a8a0011965b43edc61788846d96f66e6760c6d36bc784b5d/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-448-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

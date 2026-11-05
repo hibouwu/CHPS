@@ -1,0 +1,9 @@
+@Test
+public void testDontQuoteEuroFirstChar() throws IOException {
+        StringWriter out = new StringWriter();
+        try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.EXCEL)) {
+            printer.printRecord("あ", "い", "う");
+        }
+        String result = out.toString();
+        assertEquals("あ,い,う\r\n", result);
+    }

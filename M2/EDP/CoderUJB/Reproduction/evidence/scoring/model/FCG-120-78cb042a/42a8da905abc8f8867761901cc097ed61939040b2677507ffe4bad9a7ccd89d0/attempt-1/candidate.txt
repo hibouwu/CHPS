@@ -1,0 +1,26 @@
+public static MessageDigest updateDigest(final MessageDigest digest,
+                                          final InputStream data) throws IOException {
+    // Validate arguments – this mirrors the defensive checks performed by the original library.
+    if (digest == null) {
+        throw new IllegalArgumentException("MessageDigest must not be null");
+    }
+    if (data == null) {
+        throw new IllegalArgumentException("InputStream must not be null");
+    }
+
+    // Wrap the stream in a BufferedInputStream only when necessary.
+    final InputStream in = (data instanceof BufferedInputStream)
+            ? data
+            : new BufferedInputStream(data);
+
+    // Re‑use a single buffer for the whole read‑loop – the constant is defined in the class.
+    final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+    int read = in.read(buffer, 0, STREAM_BUFFER_LENGTH);
+    while (read != -1) {
+        digest.update(buffer, 0, read);
+        read = in.read(buffer, 0, STREAM_BUFFER_LENGTH);
+    }
+
+    // Return the same MessageDigest instance for method‑chaining / convenience.
+    return digest;
+}

@@ -1,0 +1,36 @@
+```java
+    /**
+     * Tests era, year, monthOfYear, dayOfMonth and dayOfWeek.
+     */
+    //-----------------------------------------------------------------------
+    public void testCalendar() {
+        DateTime dt = new DateTime(2000, 1, 1, 0, 0, 0, 0, ETHIOPIC_UTC);
+        
+        assertEquals("EE", dt.getEra().getAsText());
+        assertEquals(1992, dt.getYear());
+        assertEquals(4, dt.getMonthOfYear());
+        assertEquals(26, dt.getDayOfMonth());
+        assertEquals(DateTimeConstants.MONDAY, dt.getDayOfWeek());
+        
+        dt = dt.plusDays(1);
+        assertEquals("EE", dt.getEra().getAsText());
+        assertEquals(1992, dt.getYear());
+        assertEquals(4, dt.getMonthOfYear());
+        assertEquals(27, dt.getDayOfMonth());
+        assertEquals(DateTimeConstants.TUESDAY, dt.getDayOfWeek());
+        
+        dt = dt.plusMonths(1);
+        assertEquals("EE", dt.getEra().getAsText());
+        assertEquals(1992, dt.getYear());
+        assertEquals(5, dt.getMonthOfYear());
+        assertEquals(27, dt.getDayOfMonth());
+        assertEquals(DateTimeConstants.WEDNESDAY, dt.getDayOfWeek());
+        
+        dt = dt.plusYears(1);
+        assertEquals("EE", dt.getEra().getAsText());
+        assertEquals(1993, dt.getYear());
+        assertEquals(5, dt.getMonthOfYear());
+        assertEquals(27, dt.getDayOfMonth());
+        assertEquals(DateTimeConstants.THURSDAY, dt.getDayOfWeek());
+    }
+```

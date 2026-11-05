@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 122,
+  "project": "Closure",
+  "bug_id": 107,
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-122-78cb042a/4b5af5afde83207f007fc21c1240d511c4ac029cb4f0b31ec7b98ac954b7482e/attempt-1/result.json",
+  "raw_sha256": "58288194cc60150b530870acd5b2450218971ac7b1f346a648a6b8b5c117eb71",
+  "input_sha256": "cb0e5504edae04539ec7beecefa6b21ba6ba15d703643eb948cbd0627ccd0c32",
+  "input_tokens": 2187,
+  "full_input_tokens": 2187,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-122-78cb042a/53c993d80f7da247030973c1122ea548be72bff866847578afb3fdc6c7324c2f/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-122-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

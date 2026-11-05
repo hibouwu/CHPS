@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 460,
+  "project": "Closure",
+  "bug_id": "73",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-460-99a9d802/04d6259844f1a81c74d70af9820d8325e8fcf65758ebec3a4b0e1f8cb797ede2/attempt-1/result.json",
+  "raw_sha256": "b4b7ce754d5312fa0519d62e1f3059e896da55ea6e3df0f1355dc1b2901d3036",
+  "input_sha256": "66885d1ebbe10889e45f54ac032b2c953141c1ef7c7846e986ba9775ffe62588",
+  "input_tokens": 1710,
+  "full_input_tokens": 1710,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-460-99a9d802/706773f30d12fc8c38864fafb93923ae5edaf80545364a8288635b87c20c8d33/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

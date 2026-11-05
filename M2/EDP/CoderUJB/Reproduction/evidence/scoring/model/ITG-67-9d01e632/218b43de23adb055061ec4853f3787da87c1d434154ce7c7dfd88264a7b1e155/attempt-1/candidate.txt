@@ -1,0 +1,14 @@
+@Test
+public void testExactOptionNameMatch() throws ParseException {
+        Options options = new Options();
+        options.addOption(Option.builder().longOpt("importToOpen").hasArg().argName("FILE").build());
+        options.addOption(Option.builder("i").longOpt("import").hasArg().argName("FILE").build());
+
+        CommandLineParser parser = new DefaultParser();
+        String[] args = {"--import=FILE"};
+        CommandLine cmd = parser.parse(options, args);
+
+        assertTrue(cmd.hasOption("import"));
+        assertFalse(cmd.hasOption("importToOpen"));
+        assertEquals("FILE", cmd.getOptionValue("import"));
+    }

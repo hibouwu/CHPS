@@ -1,0 +1,59 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```java
+// Abstract Java Tested Class
+package org.apache.commons.codec.language;
+
+
+
+public class Caverphone1 extends AbstractCaverphone  {
+    private static final String SIX_1 = "111111";
+
+    @Override
+    public String encode(final String source);
+}
+
+// Abstract Java Test Class
+package org.apache.commons.codec.language;
+
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.StringEncoderAbstractTest;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+
+public class Caverphone1Test extends StringEncoderAbstractTest<Caverphone1>  {
+
+
+    @Override
+    protected Caverphone1 createStringEncoder();
+    @Test
+    public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException;
+    @Test
+    public void testEndMb() throws EncoderException;
+    @Test
+    public void testIsCaverphoneEquals() throws EncoderException;
+    @Test
+    public void testSpecificationV1Examples() throws EncoderException;
+    @Test
+    public void testWikipediaExamples() throws EncoderException;
+}
+```
+
+You are a professional Java test case writer, please create a test case named `testCaverphoneRevisitedCommonCodeAT1111` for the `Caverphone1` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Tests example adapted from version 2.0  http://caversham.otago.ac.nz/files/working/ctp150804.pdf
+     *
+     * AT1111 words: add, aid, at, art, eat, earth, head, hit, hot, hold, hard, heart, it, out, old
+     *
+     * @throws EncoderException
+     */
+    @Test
+    public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
+
+```<|im_end|>
+<|im_start|>assistant

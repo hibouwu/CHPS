@@ -1,0 +1,24 @@
+public long readBits(final int count) throws IOException {
+    if (count <= 0 || count > MAXIMUM_CACHE_SIZE) {
+        throw new IllegalArgumentException("Count must be between 1 and " + MAXIMUM_CACHE_SIZE);
+    }
+
+    // Ensure we have enough bits cached
+    if (!ensureCache(count)) {
+        return -1; // End of stream reached
+    }
+
+    // Extract the required bits from the cache
+    long result;
+    if (byteOrder == ByteOrder.BIG_ENDIAN) {
+        result = (bitsCached >>> (bitsCachedSize - count)) & MASKS[count];
+    } else {
+        result = bitsCached & MASKS[count];
+        bitsCached >>>= count;
+    }
+
+    // Update the cache size
+    bitsCachedSize -= count;
+
+    return result;
+}

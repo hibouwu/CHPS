@@ -1,0 +1,84 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```markdown
+## Issue-ID: Compress-COMPRESS-264
+
+## Issue-Title: 
+ZIP reads correctly with commons-compress 1.6, gives NUL bytes in 1.7
+
+## Issue-Description: 
+
+When running the code below, commons-compress 1.6 writes:
+
+
+ Content of test.txt:  
+
+ data
+
+
+By comparison, commons-compress 1.7 writes
+
+
+ Content of test.txt:  
+
+@@@@^@
+
+
+package com.example.jrn;  
+
+import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;  
+
+import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;  
+
+import java.io.ByteArrayInputStream;  
+
+import java.io.IOException;  
+
+import java.lang.System;  
+
+/\*\*
+
+
+* Hello world!  
+
+ \*  
+
+ \*/  
+
+public class App {  
+
+ public static void main(String[] args) {  
+
+ byte[] zip = 
+{
+ (byte)0x50, (byte)0x4b, (byte)0x03, (byte)0x04, (byte)0x0a, (byte)0x00,
+ (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x03, (byte)0x7b,
+ (byte)0xd1, (byte)0x42, (byte)0x82, (byte)0xc5, (byte)0xc1, (byte)0xe6,
+ (byte)0x05, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x05, (byte)0x00,
+ (byte)0x00, (byte)0x00, (byte)0x08, (byte)0x00, (byte)0x1c, (byte)0x00,
+ (byte)0x74, (byte)0x65, (byte)0x73, (byte)0x74, (byte)0x2e, (byte)0x74,
+ (byte)0x78, (byte)0x74, (byte)0x55, (byte)0x54, (byte)0x09, (byte)0x00,
+ (byte)0x03, (byte)0x56, (byte)0x62, (byte)0xbf, (byte)0x51, (byte)0x2a,
+ (byte)0x63, (byte)0xbf, (byte)0x51, (byte)0x75, (byte)0x78, (byte)0x0b,
+ (byte)0x00, (byte)0x01, (byte)0x04, (byte)0x01, (byte)0xff, (byte)0x01,
+ (byte)0x00, (byte)0x04, (byte)0x88, (byte)0x13, (byte)0x00, (byte)0x00,
+ (byte)0x64, (byte)0x61, (byte)0x74, (byte)0x61, (byte)0x0a, (byte)0x50,
+ (byte)0x4b, (byte)0x01, (byte)0x02, (byte)0x1e, (byte)0x03, (byte)0x0a,
+ (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x03,
+ (byte)0x7b, (byte)0xd1, (byte)0x42, (byte)0x82, (byte)0xc5, (byte)0xc1,
+ (byte)0xe6, (byte)0x05, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x05,
+ (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x08, (byte)0x00, (byte)0x18,
+ (byte)0x00, (byte)0x00, (byte)0x00
+```
+
+You are a professional Java test case writer, please create a test case named `testReadingOfFirstStoredEntry` for the issue `Compress-COMPRESS-264`, utilizing the provided issue report information and the following function signature.
+
+```java
+    @Test
+    public void testReadingOfFirstStoredEntry() throws Exception {
+
+```<|im_end|>
+<|im_start|>assistant

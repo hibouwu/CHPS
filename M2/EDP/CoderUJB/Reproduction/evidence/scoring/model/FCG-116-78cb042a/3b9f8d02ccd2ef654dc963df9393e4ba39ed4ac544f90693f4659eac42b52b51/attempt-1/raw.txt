@@ -1,0 +1,43 @@
+private Token parseSimpleToken(final Token token, int ch) throws IOException {
+    final StringBuilder buffer = new StringBuilder();
+    while (true) {
+        if (ch == END_OF_STREAM) {
+            token.type = EOF;
+            break;
+        }
+        if (readEndOfLine(ch)) {
+            token.type = EORECORD;
+            break;
+        }
+        if (isDelimiter(ch)) {
+            token.type = TOKEN;
+            break;
+        }
+        if (isEscape(ch)) {
+            final int escaped = readEscape();
+            if (escaped == END_OF_STREAM) {
+                token.type = EOF;
+                break;
+            }
+            buffer.append((char) escaped);
+        } else {
+            buffer.append((char) ch);
+        }
+        ch = reader.read();
+    }
+
+    if (ignoreSurroundingSpaces) {
+        int start = 0;
+        while (start < buffer.length() && isWhitespace(buffer.charAt(start))) {
+            start++;
+        }
+        int end = buffer.length();
+        while (end > start && isWhitespace(buffer.charAt(end - 1))) {
+            end--;
+        }
+        token.content = buffer.substring(start, end);
+    } else {
+        token.content = buffer.toString();
+    }
+    return token;
+}

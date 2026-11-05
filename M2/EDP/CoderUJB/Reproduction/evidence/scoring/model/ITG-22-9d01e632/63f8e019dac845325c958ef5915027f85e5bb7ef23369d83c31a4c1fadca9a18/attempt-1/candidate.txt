@@ -1,0 +1,29 @@
+public void testMapToProperties() throws Exception {
+        // Create an ObjectMapper instance
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        // Create a sample map with mixed value types
+        Map<String, Object> sampleMap = new HashMap<>();
+        sampleMap.put("key1", "value1");
+        sampleMap.put("key2", 123);
+        sampleMap.put("key3", 45.67);
+        sampleMap.put("key4", true);
+
+        // Convert the map to a JSON string
+        String jsonString = objectMapper.writeValueAsString(sampleMap);
+
+        // Deserialize the JSON string into a Properties object
+        Properties properties = objectMapper.readValue(jsonString, Properties.class);
+
+        // Verify that all values in the Properties object are Strings
+        assertEquals("value1", properties.getProperty("key1"));
+        assertEquals("123", properties.getProperty("key2"));
+        assertEquals("45.67", properties.getProperty("key3"));
+        assertEquals("true", properties.getProperty("key4"));
+
+        // Additional check to ensure the values are indeed Strings
+        assertTrue(properties.get("key1") instanceof String);
+        assertTrue(properties.get("key2") instanceof String);
+        assertTrue(properties.get("key3") instanceof String);
+        assertTrue(properties.get("key4") instanceof String);
+    }

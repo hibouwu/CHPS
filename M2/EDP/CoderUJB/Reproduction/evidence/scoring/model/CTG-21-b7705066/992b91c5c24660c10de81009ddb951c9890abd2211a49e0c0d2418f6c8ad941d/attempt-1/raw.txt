@@ -1,0 +1,26 @@
+```java
+@Test
+public void testRfc4648Section10Decode() {
+    final String[][] vectors = {
+        {"", ""},
+        {"Zg==", "f"},
+        {"Zm8=", "fo"},
+        {"Zm9v", "foo"},
+        {"Zm9vYg==", "foob"},
+        {"Zm9vYmE=", "fooba"},
+        {"Zm9vYmFy", "foobar"}
+    };
+
+    for (final String[] vector : vectors) {
+        final String encoded = vector[0];
+        final String expected = vector[1];
+
+        assertEquals("Decoding String: " + encoded,
+                expected, new String(Base64.decodeBase64(encoded), CHARSET_UTF8));
+        assertEquals("Decoding byte array: " + encoded,
+                expected, new String(
+                        Base64.decodeBase64(encoded.getBytes(CHARSET_UTF8)),
+                        CHARSET_UTF8));
+    }
+}
+```

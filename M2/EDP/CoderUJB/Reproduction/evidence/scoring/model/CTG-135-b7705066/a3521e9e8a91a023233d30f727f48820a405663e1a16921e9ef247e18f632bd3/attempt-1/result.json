@@ -1,0 +1,18 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 135,
+  "task_id": "f86148a6dc4a9dea418d8a9bd088c59afb8d8adca2248d41c2f407cc45a30c36",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "77e7f7ccbde7d7dd97e135c45f7524028ccb4836cf801ba35d8fddba8e35098c",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "73d795857a0c30b01763ac1b4db2eb9d928c79f30e08d7c118de4b7efa16eb89",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Time",
+  "bug_id": 1,
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "reason": "official extraction missing target function"
+}

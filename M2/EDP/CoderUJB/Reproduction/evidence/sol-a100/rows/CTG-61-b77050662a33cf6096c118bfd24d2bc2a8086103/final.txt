@@ -1,0 +1,24 @@
+```java
+/**
+ * Consonants from the same code group separated by W or H are treated as one.
+ *
+ * @throws EncoderException
+ */
+@Test
+public void testHWRuleEx3() throws EncoderException {
+    final Soundex soundex = createStringEncoder();
+
+    // B, F, P, and V share the same Soundex code.
+    Assert.assertEquals("B000", soundex.encode("BHB"));
+    Assert.assertEquals("B000", soundex.encode("BWB"));
+    Assert.assertEquals("B000", soundex.encode("BHF"));
+    Assert.assertEquals("B000", soundex.encode("BWF"));
+
+    // S and C share a code even when separated by H.
+    Assert.assertEquals("A261", soundex.encode("Ashcraft"));
+    Assert.assertEquals("A261", soundex.encode("Ashcroft"));
+
+    // Unlike H and W, a vowel separates otherwise identical codes.
+    Assert.assertEquals("B100", soundex.encode("BAB"));
+}
+```

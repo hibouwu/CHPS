@@ -1,0 +1,5 @@
+```java
+    protected JsonGenerator _createUTF8Generator(OutputStream out, IOContext ctxt) throws IOException {
+        return new UTF8JsonGenerator(ctxt, this._generatorFeatures, this._formatWriteFeatures, out);
+    }
+```

@@ -1,0 +1,20 @@
+```java
+/**
+ * Test case for
+ * <a href="https://issues.apache.org/jira/browse/COMPRESS-351">COMPRESS-351</a>.
+ */
+@Test
+public void testMessageWithCorruptFileName() throws Exception {
+    try (ZipArchiveInputStream zip = new ZipArchiveInputStream(
+            new FileInputStream(getFile("COMPRESS-351.zip")))) {
+        try {
+            zip.getNextZipEntry();
+            fail("Expected ZipException for a corrupt entry name");
+        } catch (final ZipException ex) {
+            assertTrue("Exception should identify the invalid entry name: " + ex.getMessage(),
+                    ex.getMessage() != null
+                            && ex.getMessage().startsWith("Bad entry name: "));
+        }
+    }
+}
+```

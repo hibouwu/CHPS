@@ -1,0 +1,13 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 123,
+  "task_id": "240118c763c056a2aee9bfdc8c83f4f5559904f2fe85b4b13b3dc150314806a9",
+  "project": "Cli",
+  "bug_id": "26",
+  "chat_sha256": "bfdbc7b8eb2409738de3ad5db3a04b086062a13d9b9fbcc3ef1cae6ee950cd19",
+  "complete_sha256": "ae698a18a9fcedce53b8e17219a9cf38e0b58f19f48ea1d51e7944d7ddbffe14",
+  "checked_at": "2026-11-05T02:45:05.640891+01:00",
+  "eligible": true,
+  "check": "label_available_parser_controlled"
+}

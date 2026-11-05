@@ -1,0 +1,28 @@
+    @Test
+    public void testEqualsAfterSerializationOfDerivedClass() throws IOException, ClassNotFoundException {
+        class MultiKey2<A, B> extends MultiKey {
+            private static final long serialVersionUID = 1928896152249821416L;
+
+            public MultiKey2(A key1, B key2) {
+                super(key1, key2);
+            }
+
+            public A getFirst() {
+                return (A) getKey(0);
+            }
+
+            public B getSecond() {
+                return (B) getKey(1);
+            }
+        }
+        MultiKey2<String, String> original = new MultiKey2<>("bla", "blub");
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream out = new ObjectOutputStream(bos);
+        out.writeObject(original);
+        out.close();
+        byte[] data = bos.toByteArray();
+        ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(data));
+        MultiKey2<String, String> deserialized = (MultiKey2<String, String>) in.readObject();
+        assertEquals(original, deserialized);
+        assertEquals(original.hashCode(), deserialized.hashCode());
+    }

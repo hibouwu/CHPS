@@ -1,0 +1,21 @@
+
+        DateTimeFieldType type = DateTimeFieldType.year();
+        DurationField durationField1 = type.getDurationType().getField(type);
+        DurationField durationField2 = type.getDurationType().getField(type);
+        DateTimeField field1 = UnsupportedDateTimeField.getInstance(type, durationField1);
+        DateTimeField field2 = UnsupportedDateTimeField.getInstance(type, durationField2);
+        assertFalse(field1.equals(field2));
+    }
+
+// You are a professional Java test case writer, please create a test case named `testPublicGetNameMethod` for the `UnsupportedDateTimeField` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * 
+     * This test exercises the logic in UnsupportedDateTimeField.getName.
+     * 
+     * If getName() is invoked on an instance of UnsupportedDateTimeField, then
+     * the name of the DateTimeFieldType should be returned.
+     */
+    public void testPublicGetNameMethod() {
+        DateTimeFieldType type = DateTimeFieldType.year();
+        Duration

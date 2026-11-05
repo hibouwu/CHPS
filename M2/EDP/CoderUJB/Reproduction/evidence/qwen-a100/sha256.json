@@ -1,0 +1,17 @@
+{
+  "protocol.json": "b6bf86f70b69191c03ce353b77dd9ba2dfedff01bd17823a370f4e5d51bef35d",
+  "weights.json": "bc103105c0356502f48050deff5582d86a72e8bec0e4ee305d363c998f3741e0",
+  "inputs.json": "8b1dd3b87f1d3dce10a9e979e39a0acad736846ced6ab37427875c411b56bdd8",
+  "pilot-input.json": "00c24fd1ffd53a6c7f9e3addace7c4fe62c574f6401e2b6382b131f82efc5942",
+  "pilot-score.json": "bca5a91dd4d248b156e728cb1563a56f9a6af0b5c3c153bbb1ba9f2f700ba499",
+  "gate-receipt.json": "f5deb48179287ac739d8290312cfc2e59d16497c4faf0a423d141fd75932a7a7",
+  "jobs.txt": "ac1850bd5640de605e269bf62499cc7fd2fb79ecb533b4d808841f4430e562a3",
+  "weights-receipt-817622.json": "8aabaf3b2ef8063415a31c1c3b0c03510a252ed12d74746e5f6d026539a3727c",
+  "runtime-817622.json": "2581b83ba02b50d5d09ea3c48b3afcd2c2121b543b417611cea68c01df8ce890",
+  "slurm-817622.txt": "5ccd47a3aa6fc69f49b4f8b3340717241848cd3eaaa6a77b10a0160c01997e42",
+  "integrity.json": "cb5d4604155b493f52bca4faed05b8272b2a82a084489c9464e098a96219c2bc",
+  "cost.json": "55a3b5734d82422b65adf768c025e1f83acb0cf754467e702e308886fe540d7a",
+  "three-models.json": "e7fd30e2fd7ca496c6ed6948a503dcf9242d6a8fbd1a1cf06ffa109f3c1b87d2",
+  "三模型对照.md": "623d1fe03add6eb9b57b36b069ca5f913243a7e61a2f7896b7d6b98556802c2f",
+  "dd-first-choice.json": "6cc6851e30fe447424ccf540ccb5c512f6c3a50b1c4b9273c49872a3ea14497c"
+}

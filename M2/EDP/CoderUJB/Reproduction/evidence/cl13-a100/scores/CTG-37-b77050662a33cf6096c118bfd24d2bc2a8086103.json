@@ -1,0 +1,22 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 37,
+  "project": "Closure",
+  "bug_id": 107,
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/CTG-37-b7705066/53814dd51a1add848a004e689f360491d9b150c290ed725f567fb067ce466d73/attempt-1/result.json",
+  "raw_sha256": "aa39838d75725eacfd0a50cdbab4f9038ef04e25b94823f497dac1ac7bc3153c",
+  "input_sha256": "5e87e22d469e039142c39b6d24bfd0d23a0a9fe4691db28b92d5ee5fe8425ae0",
+  "input_tokens": 920,
+  "full_input_tokens": 920,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/CTG-37-b7705066/a50fd08020cfe9f6cdc15a1b800373e31bbe86ff374e0ece354215700a39de12/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/CTG-37-b77050662a33cf6096c118bfd24d2bc2a8086103"
+}

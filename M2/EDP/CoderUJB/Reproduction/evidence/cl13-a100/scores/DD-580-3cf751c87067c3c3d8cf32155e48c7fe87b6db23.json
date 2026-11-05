@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 580,
+  "project": "Chart",
+  "bug_id": "24",
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "d3e66fe8ce3361b177a848fdb334b66932e3166d2872fb72a3da383c037d81c8",
+  "input_sha256": "24e877d95384f1f9627415f2ebc868ba1868e661a0164e37f49baf9f19aa52b1",
+  "input_tokens": 1076,
+  "full_input_tokens": 1076,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-580-3cf751c8/8737887b2ed8170d91d14dde79e5d90de71d31ef115aff8c28ea92fc24a557f6/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

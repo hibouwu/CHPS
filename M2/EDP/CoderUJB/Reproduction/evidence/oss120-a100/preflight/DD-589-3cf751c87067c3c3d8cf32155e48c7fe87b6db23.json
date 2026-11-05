@@ -1,0 +1,13 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 589,
+  "task_id": "a54eb3183fd425a7c97863fd3fafadd73623691be5d63cc43cdbdb7a7e1696a5",
+  "project": "Lang",
+  "bug_id": "5",
+  "chat_sha256": "f6894b98d29793e4bcdfb4369040a8bf94f80f5217967a2d46f24786d6b54bbd",
+  "complete_sha256": "ed7be7bd8894d4c1af0c24be087deb87414e0e7de0ba637ee4da7cca216b0520",
+  "checked_at": "2026-11-05T02:45:05.790612+01:00",
+  "eligible": true,
+  "check": "label_available_parser_controlled"
+}

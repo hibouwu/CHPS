@@ -1,0 +1,19 @@
+
+        assertNull(UnsupportedDateTimeField.getInstance(DateTimeFieldType.dayOfWeek(),
+                DurationFieldType.weeks()).getRangeDurationField());
+        assertNull(UnsupportedDateTimeField.getInstance(DateTimeFieldType.dayOfWeek(),
+                DurationFieldType.weeks()).getLeapDurationField());
+    }
+
+// You are a professional Java test case writer, please create a test case named `testDelegatedMethods` for the `UnsupportedDateTimeField` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Ensure that all the methods that are delegated to the duration field
+     * return the same values as the duration field.
+     */
+    public void testDelegatedMethods() {
+        DateTimeFieldType dateTimeFieldType = DateTimeFieldType.dayOfWeek();
+        DurationFieldType durationFieldType = DurationFieldType.weeks();
+        UnsupportedDateTimeField unsupportedDateTimeField = UnsupportedDateTimeField
+                .getInstance(dateTimeFieldType, durationFieldType);
+        DurationField durationField = durationFieldType.getField(

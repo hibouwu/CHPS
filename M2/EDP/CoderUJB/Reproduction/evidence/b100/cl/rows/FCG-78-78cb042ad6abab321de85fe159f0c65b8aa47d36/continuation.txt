@@ -1,0 +1,29 @@
+
+        NodePointer pointer = null;
+        NodeTest test = step.getNodeTest();
+        if (test instanceof NodeNameTest) {
+            pointer = parentPointer.getChild(
+                    ((NodeNameTest) test).getNodeName(),
+                    step.getNodeTest().getNamespaceURI());
+        } else if (test instanceof NameAttributeTest) {
+            pointer = parentPointer.getAttribute(
+                    ((NameAttributeTest) test).getNodeName(),
+                    step.getNodeTest().getNamespaceURI());
+        }
+        return pointer;
+    }
+
+// You are a professional Java programmer, please create a function named `doStep` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Do a step.
+     * @param context evaluation context
+     * @param parent parent pointer
+     * @param steps steps
+     * @param currentStep current step
+     * @return NodePointer
+     */
+    private static NodePointer doStep(
+                EvalContext context, NodePointer parent,
+                Step[] steps, int currentStep) {
+        NodePointer pointer = null;

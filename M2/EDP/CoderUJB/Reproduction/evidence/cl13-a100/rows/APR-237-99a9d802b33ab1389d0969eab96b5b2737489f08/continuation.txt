@@ -1,0 +1,27 @@
+
+    /**
+     * Recalculate the hash code after deserialization. The hash code of some
+     * keys might have change (hash codes based on the system hash code are
+     * only stable for the same process).
+     * @return the instance with recalculated hash code
+     */
+    private Object readResolve() {
+        calculateHashCode(keys);
+        return this;
+    }
+
+// You are a professional Java programmer, please fix the bug in the function named calculateHashCode based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+    /**
+     * Recalculate the hash code for the given array of objects.
+     * @param keys  the array of objects to recalculate the hash code for
+     */
+    private void calculateHashCode(final Object[] keys) {
+        int total = 0;
+        for (int i = 0; i < keys.length; i++) {
+            total += (keys[i] == null ? 0 : keys[i].hashCode());
+        }
+        hashCode = total;
+    }
+
+// Fixed

@@ -1,0 +1,16 @@
+public Symbol getParameterInFunction(Symbol sym, String paramName) {
+    // Check if the symbol represents a function
+    if (sym == null || sym.getFunctionType() == null) {
+        return null;
+    }
+
+    // Get the property scope of the function symbol
+    SymbolScope functionScope = sym.getPropertyScope();
+    if (functionScope == null) {
+        return null;
+    }
+
+    // Try to find the parameter symbol in the function's scope
+    Symbol parameterSymbol = functionScope.getOwnSlot(paramName);
+    return parameterSymbol;
+}

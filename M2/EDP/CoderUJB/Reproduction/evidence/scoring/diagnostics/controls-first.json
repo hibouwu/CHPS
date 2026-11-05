@@ -1,0 +1,78 @@
+{
+  "FCG": [
+    {
+      "expected": "pass",
+      "actual": "pass",
+      "reason": null,
+      "path": "evidence/scoring/scorer_control/FCG-4-78cb042a/69420289f40d39bcb2decc4eeebe174f339036bc0e2634740c2a6c18710e02cb/attempt-1/result.json"
+    },
+    {
+      "expected": "fail",
+      "actual": "fail",
+      "reason": "target test failed",
+      "path": "evidence/scoring/scorer_control/FCG-4-78cb042a/c4eb20d0833d061d365b323b90f5ad66cfab3e57e294054eca6adb344026f61e/attempt-1/result.json"
+    }
+  ],
+  "CTG": [
+    {
+      "expected": "pass",
+      "actual": "infrastructure_unresolved",
+      "reason": "incomplete coverage output",
+      "path": "evidence/scoring/scorer_control/CTG-10-b7705066/774683776b5182f86f7e69cdb1c61877ca98de26f7322660081524bca063cc74/attempt-1/result.json"
+    },
+    {
+      "expected": "fail",
+      "actual": "fail",
+      "reason": "target test failed",
+      "path": "evidence/scoring/scorer_control/CTG-10-b7705066/85079ccf4d5f07694f15f8d15265bcb0b10e2215a99f65790707fa53471399a7/attempt-1/result.json"
+    }
+  ],
+  "ITG": [
+    {
+      "expected": "pass",
+      "actual": "infrastructure_unresolved",
+      "reason": "incomplete coverage output",
+      "path": "evidence/scoring/scorer_control/ITG-12-9d01e632/bd26e79a4cdbc1fdfd3c6deee9df9b45d9db81ca75169d6beed2b716275da1f0/attempt-1/result.json"
+    },
+    {
+      "expected": "fail",
+      "actual": "infrastructure_unresolved",
+      "reason": "incomplete coverage output",
+      "path": "evidence/scoring/scorer_control/ITG-12-9d01e632/191e8c4873f5c3c4d5e81fbd1164d156132fd370c3dce025b5d73e89747c6aba/attempt-1/result.json"
+    }
+  ],
+  "APR": [
+    {
+      "expected": "pass",
+      "actual": "pass",
+      "reason": null,
+      "path": "evidence/scoring/scorer_control/APR-6-99a9d802/c5a86f5734588a171567d0ac5d22231e419beaaf653bc28db69d060a0596d1eb/attempt-1/result.json"
+    },
+    {
+      "expected": "fail",
+      "actual": "fail",
+      "reason": "target test failed",
+      "path": "evidence/scoring/scorer_control/APR-6-99a9d802/3748511a75f66e034611ae795aaeb693da9c5d08831cafd27eee380289ee8d68/attempt-1/result.json"
+    }
+  ],
+  "DD": [
+    {
+      "expected": "pass",
+      "actual": "pass",
+      "reason": null,
+      "path": "evidence/scoring/scorer_control/DD-0-3cf751c8/0eaecbbeac29bfff5a408e504d9e5be5269a4c49d103ff504080bd0b4a7b0a20/attempt-1/result.json"
+    },
+    {
+      "expected": "fail",
+      "actual": "fail",
+      "reason": null,
+      "path": "evidence/scoring/scorer_control/DD-0-3cf751c8/64eac4e40133da336232720e66333a7d8b6d94dc03ebf09eaf9389946b8b668e/attempt-1/result.json"
+    },
+    {
+      "expected": "fail",
+      "actual": "fail",
+      "reason": null,
+      "path": "evidence/scoring/scorer_control/DD-0-3cf751c8/e39bac49a85a1c6dafd67668b6ae3ffa60ea178e05a6e8260c14836f55611b02/attempt-1/result.json"
+    }
+  ]
+}

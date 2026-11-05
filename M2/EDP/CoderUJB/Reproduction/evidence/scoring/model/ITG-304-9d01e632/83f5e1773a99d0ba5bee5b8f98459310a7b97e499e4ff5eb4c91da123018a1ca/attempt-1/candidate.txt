@@ -1,0 +1,14 @@
+@Test
+public void testDontQuoteEuroFirstChar() throws IOException {
+        final StringWriter out = new StringWriter();
+        try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.EXCEL)) {
+            printer.printRecord("\u20ac", "price", "value");
+            printer.printRecord("\u3042", "\u3044", "\u3046");
+            printer.printRecord("\u4e2d", "\u6587", "text");
+            printer.printRecord("\ud55c", "\uae00", "text");
+        }
+        assertEquals("\u20ac,price,value\r\n"
+                + "\u3042,\u3044,\u3046\r\n"
+                + "\u4e2d,\u6587,text\r\n"
+                + "\ud55c,\uae00,text\r\n", out.toString());
+    }

@@ -1,0 +1,5 @@
+public void testCheckSymbolsOverrideForQuiet() {
+    args.add("--warning_level=QUIET");
+    args.add("--jscomp_error=undefinedVars");
+    test("foo = {};", VarCheck.UNDEFINED_VAR_ERROR);
+  }

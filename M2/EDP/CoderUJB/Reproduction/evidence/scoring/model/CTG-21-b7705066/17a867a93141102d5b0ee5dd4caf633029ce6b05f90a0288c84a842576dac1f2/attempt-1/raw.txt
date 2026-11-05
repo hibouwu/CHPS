@@ -1,0 +1,17 @@
+    @Test
+    public void testRfc4648Section10Decode() {
+        final String[] encoded = {
+            "", "Zg==", "Zm8=", "Zm9v", "Zm9vYg==", "Zm9vYmE=", "Zm9vYmFy"
+        };
+        final String[] decoded = {
+            "", "f", "fo", "foo", "foob", "fooba", "foobar"
+        };
+
+        for (int i = 0; i < encoded.length; i++) {
+            final byte[] expected = decoded[i].getBytes(CHARSET_UTF8);
+            assertTrue("String decoding failed for: " + encoded[i],
+                    Arrays.equals(expected, Base64.decodeBase64(encoded[i])));
+            assertTrue("Byte array decoding failed for: " + encoded[i],
+                    Arrays.equals(expected, Base64.decodeBase64(encoded[i].getBytes(CHARSET_UTF8))));
+        }
+    }

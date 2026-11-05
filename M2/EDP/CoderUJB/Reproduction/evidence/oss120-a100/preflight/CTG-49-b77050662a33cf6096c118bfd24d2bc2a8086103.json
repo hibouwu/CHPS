@@ -1,0 +1,16 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 49,
+  "task_id": "5861a7cfe5e7aae08d23d087853820b1a5cc3acaf41914e438b6ea7dcdf8a3cc",
+  "project": "Closure",
+  "bug_id": 107,
+  "chat_sha256": "c05c5a37fca35125a021ed3e8295f635bc48784092836e92369f73781f7d3f2a",
+  "complete_sha256": "9c0b2c6c182da8152e01bfd1b59a5a5d2446944d4811ed871c412c27e9f739af",
+  "checked_at": "2026-11-05T02:53:45.123038+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/CTG-49-b7705066/1925ea407e8145f87d58280e58368c0672249cd6c1eef355f6d6751ab3005890/attempt-1/result.json"
+}

@@ -1,0 +1,16 @@
+public void testCheckSymbolsOverrideForQuiet() {
+    JSCompiler compiler = new JSCompiler();
+    CompilerOptions options = new CompilerOptions();
+    options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES, CheckLevel.WARNING);
+    options.setWarningLevel(DiagnosticGroups.UNDEFINED_VARIABLES, CheckLevel.WARNING);
+    options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS, CheckLevel.OFF);
+    options.setWarningLevel(DiagnosticGroups.QUIET, CheckLevel.OFF);
+
+    SourceFile externs = SourceFile.fromCode("externs.js", "");
+    SourceFile input = SourceFile.fromCode("input.js", "foo = {}; foo.bar = function() { alert(this.baz); };");
+
+    Result result = compiler.compile(externs, ImmutableList.of(input), options);
+
+    assertThat(result.warnings).hasLength(2);
+    assertThat(result.errors).isEmpty();
+  }

@@ -1,0 +1,7 @@
+        try {
+            instance.decode(new Object());
+            fail("Expected DecoderException for an unsupported input type");
+        } catch (final DecoderException expected) {
+            // Expected exception.
+        }
+    }

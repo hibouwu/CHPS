@@ -1,0 +1,13 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 702,
+  "task_id": "c3000258e856c21525af0546243f56d562784d569f4e8449aa1c54ee22a54719",
+  "project": "Jsoup",
+  "bug_id": "19",
+  "chat_sha256": "dc39de4e69174286fb950c8552d5c66f76667d4f2a73612e3c2641c79fece1b1",
+  "complete_sha256": "72878991c4201ca5744e9ee4453cad2c13cea9a43fbea652ef362e8cb3860454",
+  "checked_at": "2026-11-05T02:45:05.797310+01:00",
+  "eligible": true,
+  "check": "label_available_parser_controlled"
+}

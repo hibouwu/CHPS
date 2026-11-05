@@ -1,0 +1,28 @@
+{
+  "task": "FCG",
+  "task_idx": 124,
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "status": "fail",
+  "reason": "project suite failed",
+  "category": null,
+  "coverage": null,
+  "source": "evidence/sol-a100/rows/FCG-124-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "result": "evidence/scoring/model/FCG-124-78cb042a/595e404d83dccaae272576be57b844fc233235e0d072f1dfcffea07e9961101d/attempt-1/result.json",
+  "answer_sha256": "b0874e553d455165b8035388bf36d016f34679d49b2348bd5cc3f8471dec557a",
+  "response_id": "resp_019531c8e2c3ea7f016aebfa877c7c87d2b071bb7dc40a6409",
+  "request_id": "req_96adc172573c426f9fd61a8d808de1ab",
+  "usage": {
+    "input_tokens": 364,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 353,
+    "output_tokens_details": {
+      "reasoning_tokens": 188
+    },
+    "total_tokens": 717
+  },
+  "finish_status": "completed",
+  "cost_standard_estimate_usd": 0.004258
+}

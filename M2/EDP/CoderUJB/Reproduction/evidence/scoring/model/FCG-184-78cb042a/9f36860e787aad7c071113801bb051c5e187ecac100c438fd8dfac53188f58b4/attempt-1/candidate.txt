@@ -1,0 +1,17 @@
+public InputStream getDataStream() {
+        // No underlying stream – the whole input was buffered.
+        if (_originalStream == null) {
+            return new ByteArrayInputStream(_bufferedData,
+                    _bufferedStart, _bufferedLength);
+        }
+
+        // Some bytes were buffered during detection; prepend them to the
+        // original stream so the caller sees a seamless view of the data.
+        if (_bufferedLength > 0) {
+            return new MergedStream(_originalStream,
+                    _bufferedData, _bufferedStart, _bufferedLength);
+        }
+
+        // Nothing was buffered – just return the original stream.
+        return _originalStream;
+    }

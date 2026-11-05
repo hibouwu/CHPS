@@ -1,0 +1,26 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```markdown
+## Issue-ID: Lang-LANG-719
+
+## Issue-Title: 
+FastDateFormat formats year differently than SimpleDateFormat in Java 7
+
+## Issue-Description: 
+
+Starting with Java 7 does SimpleDateFormat format a year pattern of 'Y' or 'YYY' as '2003' instead of '03' as in former Java releases. According Javadoc this pattern should have been always been formatted as number, therefore the new behavior seems to be a bug fix in the JDK. FastDateFormat is adjusted to behave the same.
+
+
+
+
+
+```
+
+You are a professional Java test case writer, please create a test case named `testFormat` for the issue `Lang-LANG-719`, utilizing the provided issue report information and the following function signature.
+
+```java
+    public void testFormat() {
+
+```<|im_end|>
+<|im_start|>assistant

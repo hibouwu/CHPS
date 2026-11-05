@@ -1,0 +1,66 @@
+Certainly! Below is the implementation of the `readBits` method for the `BitInputStream` class based on the provided context and annotations:
+
+```java
+/**
+ * Returns at most 63 bits read from the underlying stream.
+ *
+ * @param count the number of bits to read, must be a positive
+ * number not bigger than 63.
+ * @return the bits concatenated as a long using the stream's byte order.
+ *         -1 if the end of the underlying stream has been reached before reading
+ *         the requested number of bits
+ * @throws IOException on error
+ */
+public long readBits(final int count) throws IOException {
+    if (count <= 0 || count > MAXIMUM_CACHE_SIZE) {
+        throw new IllegalArgumentException("Count must be between 1 and " + MAXIMUM_CACHE_SIZE);
+    }
+
+    // Ensure we have enough bits cached
+    if (!ensureCache(count)) {
+        return -1; // End of stream reached
+    }
+
+    // Extract the required bits from the cache
+    long result;
+    if (byteOrder == ByteOrder.BIG_ENDIAN) {
+        result = (bitsCached >>> (bitsCachedSize - count)) & MASKS[count];
+    } else {
+        result = bitsCached & MASKS[count];
+        bitsCached >>>= count;
+    }
+
+    // Update the cache size
+    bitsCachedSize -= count;
+
+    return result;
+}
+
+private boolean ensureCache(final int count) throws IOException {
+    while (bitsCachedSize < count) {
+        int nextByte = in.read();
+        if (nextByte == -1) {
+            return false; // End of stream reached
+        }
+        bitsCached <<= 8;
+        bitsCached |= (nextByte & 0xFF);
+        bitsCachedSize += 8;
+    }
+    return true;
+}
+```
+
+### Explanation:
+1. **Input Validation**: The method first checks if the `count` is within the valid range (1 to 63). If not, it throws an `IllegalArgumentException`.
+
+2. **Ensure Cache**: The `ensureCache` method is called to make sure there are at least `count` bits available in the cache. This method reads bytes from the underlying `InputStream` and shifts them into the `bitsCached` variable until the desired number of bits is available.
+
+3. **Extract Bits**:
+   - For **Big Endian**: The method extracts the top `count` bits from `bitsCached` by shifting right and masking.
+   - For **Little Endian**: The method extracts the bottom `count` bits from `bitsCached` by masking and then shifts the cache to the right to remove the extracted bits.
+
+4. **Update Cache Size**: After extracting the bits, the `bitsCachedSize` is updated to reflect the remaining bits in the cache.
+
+5. **Return Result**: The extracted bits are returned as a `long`. If the end of the stream is reached before reading the requested number of bits, `-1` is returned.
+
+This implementation ensures that the bits are read correctly according to the specified byte order and handles the end-of-stream condition appropriately.

@@ -1,0 +1,98 @@
+public static synchronized PeriodType forFields(DurationFieldType[] types) {
+        // -----------------------------------------------------------------
+        // 1. Validate the argument
+        // -----------------------------------------------------------------
+        if (types == null) {
+            throw new IllegalArgumentException("The types array must not be null");
+        }
+
+        // -----------------------------------------------------------------
+        // 2. Determine which of the 8 standard fields are requested.
+        //    We also check for duplicates and unsupported fields here.
+        // -----------------------------------------------------------------
+        boolean[] present = new boolean[8];               // one slot for each standard field
+        for (DurationFieldType type : types) {
+            if (type == null) {
+                throw new IllegalArgumentException("The types array must not contain null");
+            }
+
+            int index = -1;
+            if (type == DurationFieldType.years()) {
+                index = YEAR_INDEX;
+            } else if (type == DurationFieldType.months()) {
+                index = MONTH_INDEX;
+            } else if (type == DurationFieldType.weeks()) {
+                index = WEEK_INDEX;
+            } else if (type == DurationFieldType.days()) {
+                index = DAY_INDEX;
+            } else if (type == DurationFieldType.hours()) {
+                index = HOUR_INDEX;
+            } else if (type == DurationFieldType.minutes()) {
+                index = MINUTE_INDEX;
+            } else if (type == DurationFieldType.seconds()) {
+                index = SECOND_INDEX;
+            } else if (type == DurationFieldType.millis()) {
+                index = MILLI_INDEX;
+            } else {
+                throw new IllegalArgumentException(
+                        "Period type does not support field type: " + type);
+            }
+
+            if (present[index]) {
+                throw new IllegalArgumentException(
+                        "Duplicate field type supplied: " + type);
+            }
+            present[index] = true;
+        }
+
+        // -----------------------------------------------------------------
+        // 3. If no fields were supplied, fall back to the standard type.
+        // -----------------------------------------------------------------
+        int fieldCount = 0;
+        for (boolean b : present) {
+            if (b) {
+                fieldCount++;
+            }
+        }
+        if (fieldCount == 0) {
+            return standard();
+        }
+
+        // -----------------------------------------------------------------
+        // 4. Build the arrays that will be passed to the PeriodType ctor.
+        // -----------------------------------------------------------------
+        DurationFieldType[] selectedTypes = new DurationFieldType[fieldCount];
+        int[] selectedIndices = new int[fieldCount];
+        int pos = 0;
+        for (int i = 0; i < 8; i++) {
+            if (present[i]) {
+                selectedTypes[pos] = standardField(i);
+                selectedIndices[pos] = i;
+                pos++;
+            }
+        }
+
+        // -----------------------------------------------------------------
+        // 5. Create a readable name, e.g. "PeriodType[years,months,days]"
+        // -----------------------------------------------------------------
+        StringBuilder nameBuilder = new StringBuilder("PeriodType[");
+        for (int i = 0; i < selectedTypes.length; i++) {
+            if (i > 0) {
+                nameBuilder.append(',');
+            }
+            nameBuilder.append(selectedTypes[i].getName());
+        }
+        nameBuilder.append(']');
+        String name = nameBuilder.toString();
+
+        // -----------------------------------------------------------------
+        // 6. Look for an existing cached instance; if none, cache the new one.
+        // -----------------------------------------------------------------
+        PeriodType candidate = new PeriodType(name, selectedTypes, selectedIndices);
+        PeriodType cached = (PeriodType) cTypes.get(candidate);
+        if (cached != null) {
+            return cached;
+        }
+        cTypes.put(candidate, candidate);
+        return candidate;
+    }

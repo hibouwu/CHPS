@@ -1,0 +1,14 @@
+{
+  "pilot_row": 4,
+  "official_result": "evidence/scoring/model/FCG-4-78cb042a/ef2b338bc73898593fbef985d30ed9c14b04049b99e35aad36752d00b2c3d3c7/attempt-1/result.json",
+  "pilot_status": "pass",
+  "project_steps": [
+    "fixed-checkout",
+    "fixed-compile",
+    "fixed-test-0",
+    "fixed-test-1",
+    "fixed-test-2",
+    "suite"
+  ],
+  "admission_reason": "Model loaded in BF16, returned final text, and the extracted candidate reached real project evaluation."
+}

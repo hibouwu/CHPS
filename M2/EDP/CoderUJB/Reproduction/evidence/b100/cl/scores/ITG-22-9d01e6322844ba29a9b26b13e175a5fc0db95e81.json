@@ -1,0 +1,32 @@
+{
+  "model": "cl",
+  "configuration": "B",
+  "task": "ITG",
+  "task_idx": 22,
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "status": "fail",
+  "reason": "test did not detect buggy version",
+  "category": null,
+  "coverage": {
+    "classes": [
+      "com.fasterxml.jackson.databind.type.TypeFactory"
+    ],
+    "line_pct": 29.2,
+    "condition_pct": 18.5,
+    "instrumented_lines_hit": 100
+  },
+  "format_valid": true,
+  "mode": "complete",
+  "raw_model_sha256": "fcdfc9fe81f8a3573c53367925438d67dbd2c4fcee6a89586fe751a97fd26e9f",
+  "scorer_input_sha256": "f5d437f7c336ac90660c344cd6b67a28231e5b35feed2a5f284d4d8aa47e089a",
+  "removed_input_prefix": "// Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.\n\n",
+  "added_prompt_sha256": "2385022420397b57e0c1c6a189e6cca4825a48649541f6db5a43db63c3701e76",
+  "answer_untouched": true,
+  "source": "evidence/b100/cl/rows/ITG-22-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "result": "evidence/scoring/model/ITG-22-9d01e632/2ce74e0950b189dda9b236aafa50508b7f8f985a546a7769dec98d5492958dfb/attempt-1/result.json",
+  "finish_reason": "length",
+  "input_truncated": false,
+  "input_tokens": 293,
+  "output_tokens": 256,
+  "compile_review": null
+}

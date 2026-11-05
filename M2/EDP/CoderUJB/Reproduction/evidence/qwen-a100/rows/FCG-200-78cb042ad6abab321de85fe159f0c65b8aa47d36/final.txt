@@ -1,0 +1,54 @@
+To implement the `mergeCentralDirectoryData` method, we need to iterate over the array of `ZipExtraField` objects, collect their central directory data, and then concatenate these byte arrays into a single byte array. Here's how you can implement this method:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExtraFieldUtils {
+    private static final int WORD = 4;
+    private static final Map<ZipShort, Class<?>> implementations;
+
+    // Other methods and fields...
+
+    /**
+     * Merges the central directory fields of the given ZipExtraFields.
+     * @param data an array of ExtraFields
+     * @return an array of bytes
+     */
+    public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) {
+        List<byte[]> dataList = new ArrayList<>();
+        int totalLength = 0;
+
+        for (ZipExtraField field : data) {
+            byte[] fieldData = field.getCentralDirectoryData();
+            dataList.add(fieldData);
+            totalLength += fieldData.length;
+        }
+
+        byte[] result = new byte[totalLength];
+        int offset = 0;
+        for (byte[] fieldData : dataList) {
+            System.arraycopy(fieldData, 0, result, offset, fieldData.length);
+            offset += fieldData.length;
+        }
+
+        return result;
+    }
+
+    // Other methods and fields...
+}
+```
+
+### Explanation:
+
+1. **List Initialization**: We initialize a `List<byte[]>` to store the byte arrays of each `ZipExtraField`'s central directory data.
+
+2. **Total Length Calculation**: We calculate the total length of the resulting byte array by summing up the lengths of each `ZipExtraField`'s central directory data.
+
+3. **Result Array Creation**: We create a byte array `result` with the calculated total length.
+
+4. **Data Copying**: We iterate over the list of byte arrays (`dataList`), copying each byte array into the `result` array at the correct offset.
+
+5. **Return Result**: Finally, we return the merged byte array.
+
+This implementation assumes that each `ZipExtraField` object has a method `getCentralDirectoryData()` that returns the byte array representing its central directory data. If such a method does not exist, you would need to add it to the `ZipExtraField` interface or class.

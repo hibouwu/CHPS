@@ -1,0 +1,13 @@
+```java
+@Test
+public void testHWRuleEx1() {
+    // Consecutive H/W characters must not suppress the following consonant
+    // when it does not share the preceding letter's Soundex code.
+    final Soundex soundex = new Soundex();
+
+    assertEquals("A100", soundex.soundex("AHWB"));
+    assertEquals("A100", soundex.soundex("AWHB"));
+    assertEquals("A100", soundex.soundex("AHHB"));
+    assertEquals("A100", soundex.soundex("AWWB"));
+}
+```

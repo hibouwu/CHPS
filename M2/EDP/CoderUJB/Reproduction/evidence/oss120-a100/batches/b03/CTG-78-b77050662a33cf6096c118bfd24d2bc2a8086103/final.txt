@@ -1,0 +1,76 @@
+Here is a complete implementation of **`testReadingOfFirstStoredEntry`** that can be dropped into the `ZipFileTest` class.  
+The test creates a temporary ZIP file whose **first entry is stored (no compression)**, writes known data to it, then reads the entry back with `ZipFile` and verifies that the content is exactly the same.  
+The test also checks that the entry’s method flag is `STORED` and that the entry can be obtained without any exception – this reproduces the scenario described in **COMPRESS‑264**.
+
+```java
+/**
+ * Test case for
+ * <a href="https://issues.apache.org/jira/browse/COMPRESS-264">COMPRESS-264</a>.
+ *
+ * The test creates a ZIP where the *first* entry is stored (method = STORED)
+ * and then reads that entry back via {@link ZipFile}.  The bug reported in
+ * COMPRESS‑264 caused the first stored entry to be read incorrectly because
+ * the library tried to treat it as a compressed entry.
+ */
+@Test
+public void testReadingOfFirstStoredEntry() throws Exception {
+    // -----------------------------------------------------------------
+    // 1. Create a temporary ZIP file with a stored entry as the first one
+    // -----------------------------------------------------------------
+    final File zipFile = File.createTempFile("compress-264-test", ".zip");
+    zipFile.deleteOnExit();
+
+    // data that will be written to the first (stored) entry
+    final byte[] storedContent = "Hello stored entry".getBytes("UTF-8");
+
+    // CRC32 is required for STORED entries
+    final CRC32 crc = new CRC32();
+    crc.update(storedContent);
+    final long crcValue = crc.getValue();
+
+    // write the ZIP
+    try (ZipArchiveOutputStream zos = new ZipArchiveOutputStream(zipFile)) {
+        // ---- first entry – stored (no compression) -----------------
+        final ZipArchiveEntry first = new ZipArchiveEntry("first.txt");
+        first.setMethod(ZipArchiveEntry.STORED);   // explicit STORED method
+        first.setSize(storedContent.length);
+        first.setCrc(crcValue);
+        zos.putArchiveEntry(first);
+        zos.write(storedContent);
+        zos.closeArchiveEntry();
+
+        // ---- second entry – normal DEFLATED entry (just to make the ZIP realistic)
+        final ZipArchiveEntry second = new ZipArchiveEntry("second.txt");
+        second.setMethod(ZipArchiveEntry.DEFLATED);
+        zos.putArchiveEntry(second);
+        zos.write("second entry".getBytes("UTF-8"));
+        zos.closeArchiveEntry();
+    }
+
+    // -----------------------------------------------------------------
+    // 2. Open the ZIP with ZipFile and read back the first entry
+    // -----------------------------------------------------------------
+    try (ZipFile zf = new ZipFile(zipFile)) {
+        // locate the entry
+        final ZipArchiveEntry entry = zf.getEntry("first.txt");
+        assertNotNull("The first stored entry must be present", entry);
+        assertEquals("The entry should be stored (no compression)",
+                     ZipArchiveEntry.STORED, entry.getMethod());
+
+        // read the entry's data
+        try (InputStream in = zf.getInputStream(entry)) {
+            final byte[] readBack = IOUtils.toByteArray(in);
+            assertArrayEquals("Content of the first stored entry must match the original",
+                              storedContent, readBack);
+        }
+    }
+}
+```
+
+### What the test covers
+1. **Correct handling of the STORED method** for the *first* entry in a ZIP file.  
+2. Proper calculation and setting of the CRC‑32 value required for stored entries.  
+3. Successful retrieval of the entry via `ZipFile#getEntry` and `ZipFile#getInputStream`.  
+4. Verification that the data read from the stream is identical to the data written.
+
+If the bug described in COMPRESS‑264 is present, the `assertArrayEquals` will fail because the data read from the first stored entry will be corrupted or incomplete. With the fix in place, the test passes.

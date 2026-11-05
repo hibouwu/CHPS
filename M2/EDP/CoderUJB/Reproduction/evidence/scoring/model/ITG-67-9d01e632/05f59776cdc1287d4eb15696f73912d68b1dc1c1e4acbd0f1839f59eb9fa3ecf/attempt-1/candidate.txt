@@ -1,0 +1,35 @@
+@Test
+public void testExactOptionNameMatch() throws ParseException {
+        // Create an Options object and add the options
+        Options options = new Options();
+        options.addOption(Option.builder()
+                .longOpt("importToOpen")
+                .hasArg()
+                .argName("FILE")
+                .build());
+        options.addOption(Option.builder("i")
+                .longOpt("import")
+                .hasArg()
+                .argName("FILE")
+                .build());
+
+        // Create a parser
+        DefaultParser parser = new DefaultParser();
+
+        // Test command line with the exact option name
+        String[] args = {"--import=example.txt"};
+
+        try {
+            // Parse the command line arguments
+            CommandLine cmd = parser.parse(options, args);
+
+            // Verify that the correct option is matched
+            assertTrue(cmd.hasOption("import"));
+            assertEquals("example.txt", cmd.getOptionValue("import"));
+
+            // Verify that the other option is not matched
+            assertFalse(cmd.hasOption("importToOpen"));
+        } catch (AmbiguousOptionException e) {
+            fail("AmbiguousOptionException should not be thrown for exact option name match", e);
+        }
+    }

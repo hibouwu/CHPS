@@ -1,0 +1,24 @@
+{
+  "models": {
+    "cl": {
+      "job": "817660",
+      "elapsed": "00:18:20",
+      "gpu_seconds": 1100,
+      "alloc_tres": "billing=8,cpu=8,gres/gpu=1,mem=192G,node=1"
+    },
+    "oss": {
+      "job": "817661",
+      "elapsed": "00:11:39",
+      "gpu_seconds": 699,
+      "alloc_tres": "billing=8,cpu=8,gres/gpu=1,mem=192G,node=1"
+    },
+    "qwen": {
+      "job": "817662",
+      "elapsed": "00:13:02",
+      "gpu_seconds": 782,
+      "alloc_tres": "billing=8,cpu=8,gres/gpu=1,mem=192G,node=1"
+    }
+  },
+  "total_gpu_seconds": 2581,
+  "note": "Three jobs overlapped; sum is allocated single-GPU job time including model staging, not wall-clock duration or monetary cost."
+}

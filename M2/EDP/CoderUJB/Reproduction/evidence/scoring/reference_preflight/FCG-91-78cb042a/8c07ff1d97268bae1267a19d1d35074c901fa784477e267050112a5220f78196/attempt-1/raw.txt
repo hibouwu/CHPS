@@ -1,0 +1,25 @@
+    public String soundex(String str) {
+        if (str == null) {
+            return null;
+        }
+        str = SoundexUtils.clean(str);
+        if (str.length() == 0) {
+            return str;
+        }
+        final char out[] = {'0', '0', '0', '0'};
+        char last, mapped;
+        int incount = 1, count = 1;
+        out[0] = str.charAt(0);
+        // map() throws IllegalArgumentException
+        last = this.map(str.charAt(0));
+        while (incount < str.length() && count < out.length) {
+            mapped = this.map(str.charAt(incount++));
+            if (mapped == '0') {
+                last = mapped;
+            } else if (mapped != '#' && mapped != last) {
+                out[count++] = mapped;
+                last = mapped;
+            }
+        }
+        return new String(out);
+    }

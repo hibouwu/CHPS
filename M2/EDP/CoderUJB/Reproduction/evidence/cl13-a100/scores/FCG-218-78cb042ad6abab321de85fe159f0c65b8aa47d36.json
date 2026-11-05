@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 218,
+  "project": "JacksonCore",
+  "bug_id": 26,
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-218-78cb042a/55a7f0ca926e48ffbe2fc691fb741e347bb815289064f5c5e96b33fa27c8d84d/attempt-1/result.json",
+  "raw_sha256": "d777dedc6c018ceb74766f8b65f4b6f56657a3a1073db350ce662a1165101747",
+  "input_sha256": "2033380a05c12dd5e9a91c3883b0a025c42f1c42217d12ec7097b3c9d8ad7f63",
+  "input_tokens": 1895,
+  "full_input_tokens": 1895,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-218-78cb042a/df51a7511a82649aa49f51ce8d6ef6ac121f90da8021c5e0d383dc2cb93d90b6/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-218-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

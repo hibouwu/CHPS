@@ -1,0 +1,102 @@
+**Explanation of the problem**
+
+The original `formData()` implementation works for most controls, but it mishandles **`<select>` elements that allow multiple selections** (`multiple` attribute).
+
+According to the HTML specification:
+
+* If a `<select>` **does not** have the `multiple` attribute and no `<option>` is marked `selected`, the **first** option is submitted.
+* If a `<select>` **has** the `multiple` attribute and no `<option>` is marked `selected`, **nothing** is submitted.
+
+The buggy code always falls back to the first option, even for a multiple‑select, which results in spurious key‑value pairs being sent.
+
+The fix therefore has to:
+
+1. Detect whether the `<select>` element is a *multiple* select.
+2. If it is multiple and no option is selected – **do nothing**.
+3. If it is single‑select and no option is selected – submit the first option (the existing behaviour is correct for this case).
+4. Keep the existing handling for the normal (selected) case.
+
+While we are touching the method, a few small clean‑ups are added:
+
+* Use the `Elements` API (`isEmpty()`) instead of checking a boolean flag.
+* Prefer `el.tagName()` over `el.normalName()` – they are equivalent but `tagName()` is the public API.
+* Use `Connection.KeyVal.create(...)` (the static factory on the interface) instead of the concrete `HttpConnection.KeyVal` – this decouples the code from the implementation class.
+
+---
+
+**Fixed implementation**
+
+```java
+/**
+ * Get the data that this form submits. The returned list is a copy of the data, and changes to the
+ * contents of the list will not be reflected in the DOM.
+ *
+ * @return a list of key‑value pairs representing the successful controls of the form
+ */
+public List<Connection.KeyVal> formData() {
+    List<Connection.KeyVal> data = new ArrayList<>();
+
+    // iterate over all form‑control elements that belong to this form
+    for (Element el : elements) {
+        // 1. Only controls that are submittable according to the spec
+        if (!el.tag().isFormSubmittable()) continue;
+
+        // 2. Skip disabled controls
+        if (el.hasAttr("disabled")) continue;
+
+        // 3. Controls must have a name attribute to be successful
+        String name = el.attr("name");
+        if (name.isEmpty()) continue;
+
+        // 4. Special handling for <select> elements
+        if ("select".equals(el.tagName())) {
+            Elements selectedOptions = el.select("option[selected]");
+
+            // If nothing is selected we have to treat single‑ and multiple‑select differently
+            if (selectedOptions.isEmpty()) {
+                // single‑select → first option is the default
+                if (!el.hasAttr("multiple")) {
+                    Element first = el.select("option").first();
+                    if (first != null) {
+                        data.add(Connection.KeyVal.create(name, first.val()));
+                    }
+                }
+                // multiple‑select → nothing is submitted when no option is selected
+                // (just continue to the next element)
+                continue;
+            }
+
+            // At least one option is selected – add each selected option
+            for (Element option : selectedOptions) {
+                data.add(Connection.KeyVal.create(name, option.val()));
+            }
+        }
+        // 5. Checkboxes and radios – only if they are checked
+        else {
+            String type = el.attr("type");
+            if ("checkbox".equalsIgnoreCase(type) || "radio".equalsIgnoreCase(type)) {
+                if (el.hasAttr("checked")) {
+                    String value = el.val().isEmpty() ? "on" : el.val();
+                    data.add(Connection.KeyVal.create(name, value));
+                }
+            } else {
+                // 6. All other controls (input, textarea, etc.)
+                data.add(Connection.KeyVal.create(name, el.val()));
+            }
+        }
+    }
+    return data;
+}
+```
+
+**What changed**
+
+| Area | Original code | Fixed code | Reason |
+|------|----------------|------------|--------|
+| Return type collection | `ArrayList<Connection.KeyVal>` | `List<Connection.KeyVal>` | Use the interface type for flexibility. |
+| `<select>` handling | Always falls back to the first `<option>` when none is selected. | Detect `multiple` attribute; for multiple‑select do **nothing**, for single‑select use the first option. | Aligns with HTML form submission rules. |
+| Selected‑option detection | Manual `boolean set` flag. | Use `Elements.isEmpty()` and a `continue` when appropriate. | Cleaner, less error‑prone. |
+| Factory method | `HttpConnection.KeyVal.create(...)` | `Connection.KeyVal.create(...)` | Decouples from the concrete implementation. |
+| Minor readability tweaks | Mixed use of `normalName()`, extra spaces, etc. | Consistent `tagName()`, trimmed code. | Improves readability and follows Jsoup conventions. |
+
+With these adjustments the `formData()` method now correctly mirrors the behavior of browsers when serialising a form, especially for multiple‑select controls.

@@ -1,0 +1,16 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 116,
+  "task_id": "7dad4cd9ee0d3fb88dee0dabe36be516c9a3158a869f27ed05ae2f3885a1f616",
+  "project": "Csv",
+  "bug_id": 16,
+  "chat_sha256": "56eb4b86c0157a04b9ddc034a5c71bfb528f882ad223488aa5d9018c606a0f86",
+  "complete_sha256": "66ef74fc5cbcb9626a76aedf9ac57ac90e0a54c0f6925cdd4a4bc969e1f66e9c",
+  "checked_at": "2026-11-05T02:49:08.956041+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/FCG-116-78cb042a/72b19d17d096a118496637cccfef9ece92ac6a2fd658667e31001edb4945ec83/attempt-1/result.json"
+}

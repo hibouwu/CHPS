@@ -1,0 +1,21 @@
+
+        final String XML = "<?xml version='1.0' encoding='UTF-8'?>\n"
+                + "<definitions>\n"
+                + "  <record>\n"
+                + "    <fields>\n"
+                + "      <field name='name' type='string'/>\n"
+                + "      <field name='age' type='int'/>\n"
+                + "    </fields>\n"
+                + "  </record>\n"
+                + "  <record>\n"
+                + "    <fields>\n"
+                + "      <field name='name' type='string'/>\n"
+                + "      <field name='age' type='int'/>\n"
+                + "    </fields>\n"
+                + "  </record>\n"
+                + "</definitions>";
+        final ObjectMapper mapper = new XmlMapper();
+        final Definitions definitions = mapper.readValue(XML, Definitions.class);
+        assertNotNull(definitions);
+        assertEquals(2, definitions.records.size());
+       

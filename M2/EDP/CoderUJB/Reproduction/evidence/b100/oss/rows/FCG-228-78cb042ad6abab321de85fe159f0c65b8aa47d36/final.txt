@@ -1,0 +1,20 @@
+public String nextName() throws IOException {
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+        p = doPeek();
+    }
+    String result;
+    switch (p) {
+        case PEEKED_UNQUOTED_NAME:
+        case PEEKED_SINGLE_QUOTED_NAME:
+        case PEEKED_DOUBLE_QUOTED_NAME:
+        case PEEKED_BUFFERED:
+            result = peekedString;
+            peeked = PEEKED_NONE;
+            // Record the name in the path for error reporting.
+            pathNames[stackSize - 1] = result;
+            return result;
+        default:
+            throw syntaxError("Expected a name but was " + peek() + locationString());
+    }
+}

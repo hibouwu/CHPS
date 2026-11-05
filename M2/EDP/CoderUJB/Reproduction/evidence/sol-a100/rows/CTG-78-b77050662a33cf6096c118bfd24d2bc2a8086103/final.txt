@@ -1,0 +1,47 @@
+```java
+/**
+ * Test case for
+ * <a href="https://issues.apache.org/jira/browse/COMPRESS-264"
+ * >COMPRESS-264</a>.
+ */
+@Test
+public void testReadingOfFirstStoredEntry() throws Exception {
+    final byte[] content = "Contents of the first stored entry"
+        .getBytes(Charset.forName("UTF-8"));
+    final CRC32 crc = new CRC32();
+    crc.update(content);
+
+    final ByteArrayOutputStream archive = new ByteArrayOutputStream();
+    try (java.util.zip.ZipOutputStream out =
+             new java.util.zip.ZipOutputStream(archive)) {
+        final ZipEntry first = new ZipEntry("first.txt");
+        first.setMethod(ZipEntry.STORED);
+        first.setSize(content.length);
+        first.setCompressedSize(content.length);
+        first.setCrc(crc.getValue());
+        out.putNextEntry(first);
+        out.write(content);
+        out.closeEntry();
+
+        // Ensure the first entry's stream stops before the next local header.
+        out.putNextEntry(new ZipEntry("second.txt"));
+        out.write("Second entry".getBytes(Charset.forName("UTF-8")));
+        out.closeEntry();
+    }
+
+    zf = new ZipFile(new SeekableInMemoryByteChannel(archive.toByteArray()));
+    final Enumeration<ZipArchiveEntry> entries = zf.getEntries();
+    assertTrue(entries.hasMoreElements());
+
+    final ZipArchiveEntry first = entries.nextElement();
+    assertEquals("first.txt", first.getName());
+    assertEquals(ZipEntry.STORED, first.getMethod());
+    assertEquals(content.length, first.getSize());
+
+    try (InputStream in = zf.getInputStream(first)) {
+        assertNotNull(in);
+        assertArrayEquals(content, IOUtils.toByteArray(in));
+        assertEquals(-1, in.read());
+    }
+}
+```

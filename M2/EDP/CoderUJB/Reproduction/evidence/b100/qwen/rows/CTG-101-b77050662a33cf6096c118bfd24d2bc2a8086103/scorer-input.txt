@@ -1,0 +1,27 @@
+```java
+    /**
+     * Unit test that verifies that 3 basic keywords (null, true, false)
+     * are properly parsed in various contexts.
+     */
+    public void testKeywords() throws Exception {
+        JsonFactory factory = new JsonFactory();
+        String JSON = "[ null, true, false ]";
+        
+        try (JsonParser p = factory.createParser(JSON)) {
+            assertToken(JsonToken.START_ARRAY, p.nextToken());
+            
+            assertToken(JsonToken.VALUE_NULL, p.nextToken());
+            assertNull(p.getText());
+            
+            assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+            assertEquals(Boolean.TRUE, p.getBooleanValue());
+            
+            assertToken(JsonToken.VALUE_FALSE, p.nextToken());
+            assertEquals(Boolean.FALSE, p.getBooleanValue());
+            
+            assertToken(JsonToken.END_ARRAY, p.nextToken());
+            
+            assertNull(p.nextToken());
+        }
+    }
+```

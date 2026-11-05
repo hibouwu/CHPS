@@ -1,0 +1,18 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 460,
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "group": "b19",
+  "job": "817622",
+  "answer_sha256": "06857c56f10e59352966c8b0825d1620fe6775f32417f5dcf5aa81531131e761",
+  "source": "evidence/qwen-a100/rows/APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "result": "evidence/scoring/model/APR-460-99a9d802/fa9f9a8b4ee66467b60b455c197dbf9d77f778c4dcabb8ca0682db64f5d70745/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 1315,
+  "output_tokens": 976
+}

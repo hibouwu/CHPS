@@ -1,0 +1,29 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "weight_conversion": {
+    "repo": "ggml-org/gpt-oss-120b-GGUF",
+    "revision": "7200b74bea78b0a2964ef9f3897eefa401e890ff",
+    "file": "gpt-oss-120b-MXFP4.gguf",
+    "size": 63387346208,
+    "sha256": "582bd40f6886200101f4c4ed9f25f3fe80cc14c86e9e2b37746cd8904a0c622d",
+    "llama_cpp_commit": "ff90508d68de51bc4c0a1d60d636b0501cb0f3b3"
+  },
+  "slurm_job": "817596",
+  "task": "FCG Lang-1f task_idx 4",
+  "task_id": "0370917ec7f90da7c60ce4f962cafdd4e79606c89c781be2e9b23578d896b8a6",
+  "gpu_layers": "37/37",
+  "cuda_model_buffer_mib": 59851.68,
+  "result_file": "/home/jianyeshi/Note/SiteCHPS/CHPS/M2/EDP/CoderUJB/Reproduction/evidence/lang004-evaluation-20261105T012113Z/result.json",
+  "evaluator_sha256": "d5d5d7500f4ff5a75427d3076b77a1c44608f01b8eb6124e7b220f754b8cab80",
+  "verified_sha256": {
+    "final.txt": "855c04021f1154e00903d875ef656cfcf9477b5e50a7454a1e540f706a41feda",
+    "prompt.txt": "65eb5706993c09e29f3ab650624d79ce5b9245c66561740f6c6505861b44533c",
+    "rendered-template.json": "9e2891a271911cb63a84d1f66d24ee0978f24df7fae1b6004e273ff638fbbe4a",
+    "generation.json": "f610856ffb76ccdcfd22db08b08f90dd0d720d0c431bbe3901f48baaa9567e95",
+    "evaluation.json": "74821c951c06ed7d160d2042e11a1ce7e5391f154041a73488c4e19026df4261",
+    "generated-function.java": "9c6ef2ea3b9d8cc7290b9effc553e2763a4c1c7cce337295888fd437bc21024d"
+  },
+  "baseline_pass_all": true,
+  "generated_pass_all": true,
+  "sample_count": 1
+}

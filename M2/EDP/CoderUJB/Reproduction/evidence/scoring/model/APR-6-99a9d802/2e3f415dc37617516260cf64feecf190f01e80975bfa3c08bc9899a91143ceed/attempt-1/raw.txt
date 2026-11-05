@@ -1,0 +1,58 @@
+**Explanation of the problem**
+
+`appendQuotedString` is supposed to read a *quoted* part of a pattern (the part that starts after a leading **'** and ends at the matching closing **'**).  
+While doing that it has to
+
+* honour the *escaping* flag – two consecutive quotes (`''`) represent a *single* literal quote,
+* copy every character that belongs to the quoted text into the optional `StringBuffer`,
+* advance the supplied `ParsePosition` so the caller continues parsing **after** the closing quote,
+* throw an `IllegalArgumentException` if the closing quote never appears.
+
+The original implementation contains several defects that break the contract:
+
+| # | Defect | Why it is wrong |
+|---|--------|-----------------|
+| 1 | The early‑return for a leading quote (`if (escapingOn && c[start] == QUOTE) …`) never moves the `ParsePosition`. The caller therefore stays on the same character and will loop forever. |
+| 2 | Inside the main loop the code mixes the loop index `i` with `pos.getIndex()`. `pos` is mutated (`next(pos)`) but `i` is **not**, so the loop can skip characters or read past the end. |
+| 3 | When an escaped quote (`''`) is found the code uses `pos.getIndex() - lastHold` as the length of the segment to copy. At that moment `pos.getIndex()` still points to the *first* quote, therefore the copied segment is off‑by‑one. |
+| 4 | The method blindly calls `appendTo.append(...)` even when `appendTo` is `null`. This produces a `NullPointerException` for callers that only want the side‑effect of moving the `ParsePosition`. |
+| 5 | The algorithm builds the result by repeatedly calling `String.substring(i).startsWith(ESCAPED_QUOTE)`. That creates a new `String` on every iteration – unnecessary work and a hidden source of bugs. |
+| 6 | The method never consumes the *closing* quote when the quoted text ends normally (it returns before appending the characters that precede the quote). |
+
+All of the above make the method unreliable and cause the unit‑tests that exercise pattern parsing to fail.
+
+---
+
+**Fixed implementation**
+
+```java
+/**
+ * Consumes a quoted string from {@code pattern}, starting at the index
+ * held in {@code pos}.  If {@code appendTo} is non‑null the characters that
+ * belong to the quoted string (with escaped quotes resolved) are appended
+ * to it.  The {@code escapingOn} flag determines whether a pair of single
+ * quotes {@code ''} is treated as an escaped literal quote.
+ *
+ * @param pattern   the pattern being parsed
+ * @param pos       the current parse position; will be advanced past the
+ *                  closing quote
+ * @param appendTo  optional buffer that receives the unescaped quoted text
+ * @param escapingOn true if escaped quotes (two consecutive quotes) must be
+ *                  recognised
+ * @return {@code appendTo} (or {@code null} if {@code appendTo} was {@code null})
+ * @throws IllegalArgumentException if the quoted string is not terminated
+ */
+private StringBuffer appendQuotedString(String pattern,
+                                        ParsePosition pos,
+                                        StringBuffer appendTo,
+                                        boolean escapingOn) {
+
+    final int start = pos.getIndex();          // remember where the quoted part begins
+    final int length = pattern.length();
+    final char[] chars = pattern.toCharArray();
+
+    // -----------------------------------------------------------------
+    // 1.  A leading quote that is *escaped* (i.e. the pattern contains "''")
+    // -----------------------------------------------------------------
+    // When escaping is on and the very first character we see is a quote,
+    //

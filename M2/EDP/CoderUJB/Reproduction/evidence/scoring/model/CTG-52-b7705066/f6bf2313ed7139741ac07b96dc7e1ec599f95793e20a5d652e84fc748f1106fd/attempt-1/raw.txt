@@ -1,0 +1,62 @@
+Certainly! Below is a detailed implementation of the `testCompressionMethod` test case for the `ZipArchiveEntry` class. This test case will verify that the compression method can be set and retrieved correctly, addressing the issue mentioned in [COMPRESS-93].
+
+```java
+/**
+ * Test case for
+ * <a href="https://issues.apache.org/jira/browse/COMPRESS-93"
+ * >COMPRESS-93</a>.
+ */
+@Test
+public void testCompressionMethod() throws Exception {
+    // Create a new ZipArchiveEntry instance
+    ZipArchiveEntry entry = new ZipArchiveEntry("testfile.txt");
+
+    // Define some common compression methods
+    int STORED_METHOD = java.util.zip.ZipEntry.STORED;
+    int DEFLATED_METHOD = java.util.zip.ZipEntry.DEFLATED;
+
+    // Set the compression method to STORED
+    entry.setMethod(STORED_METHOD);
+
+    // Verify that the compression method is set to STORED
+    assertEquals("Compression method should be STORED", STORED_METHOD, entry.getMethod());
+
+    // Set the compression method to DEFLATED
+    entry.setMethod(DEFLATED_METHOD);
+
+    // Verify that the compression method is set to DEFLATED
+    assertEquals("Compression method should be DEFLATED", DEFLATED_METHOD, entry.getMethod());
+
+    // Attempt to set an invalid compression method
+    try {
+        entry.setMethod(-1); // Invalid compression method
+        fail("Expected IllegalArgumentException for invalid compression method");
+    } catch (IllegalArgumentException e) {
+        // Expected exception
+    }
+
+    // Attempt to set another invalid compression method
+    try {
+        entry.setMethod(9); // Another invalid compression method
+        fail("Expected IllegalArgumentException for invalid compression method");
+    } catch (IllegalArgumentException e) {
+        // Expected exception
+    }
+
+    // Set back to a valid method to ensure no side effects from invalid methods
+    entry.setMethod(STORED_METHOD);
+    assertEquals("Compression method should be STORED after setting a valid method", STORED_METHOD, entry.getMethod());
+}
+```
+
+### Explanation:
+1. **Setup**: A new `ZipArchiveEntry` instance is created with a sample file name.
+2. **Valid Compression Methods**:
+   - The compression method is set to `STORED` and verified.
+   - The compression method is then set to `DEFLATED` and verified.
+3. **Invalid Compression Methods**:
+   - An attempt to set an invalid compression method (`-1`) is made, expecting an `IllegalArgumentException`.
+   - Another attempt to set another invalid compression method (`9`) is made, also expecting an `IllegalArgumentException`.
+4. **Cleanup**: After handling invalid methods, the compression method is set back to a valid method (`STORED`) to ensure no side effects from the invalid methods.
+
+This test ensures that the `ZipArchiveEntry` class correctly handles both valid and invalid compression methods, addressing the issue described in [COMPRESS-93].

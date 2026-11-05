@@ -1,0 +1,38 @@
+{
+  "time": "2026-11-05T04:28:37.937750+00:00",
+  "goal_status": "active",
+  "collector_tool_session": 22740,
+  "collector_process": "2907681 python -u CoderUJB/Reproduction/collect_b100.py",
+  "progress": {
+    "time": "2026-11-05T04:28:35.624128+00:00",
+    "remote": {
+      "cl": "COMPLETED",
+      "oss": "COMPLETED",
+      "qwen": "COMPLETED"
+    },
+    "scored": {
+      "cl": 100,
+      "oss": 16,
+      "qwen": 0,
+      "sol": 0
+    },
+    "in_flight": 84
+  },
+  "all_generation_finished": true,
+  "formal_generation_count": 400,
+  "remote_jobs": [
+    "817660",
+    "817661",
+    "817662"
+  ],
+  "remote_state": "all COMPLETED and final hashes copied",
+  "sol_B_estimate_usd": 0.5590405,
+  "sol_B_reservation_released": true,
+  "next_actions": [
+    "Wait on verified live collector; do not regenerate any model outputs",
+    "When collector exits 0, run verify_b100.py and report_b100.py with existing eval PYTHONPATH",
+    "Review heatmap-ab.png; update README and experiment design with final A/B counts and scope",
+    "Run audit_b100_completion.py, fix only evidence/report bugs if needed, preserve frozen prompts and scoring",
+    "Check all 400 scored, resources terminal, hashes and window budget; mark goal complete only after audit"
+  ]
+}

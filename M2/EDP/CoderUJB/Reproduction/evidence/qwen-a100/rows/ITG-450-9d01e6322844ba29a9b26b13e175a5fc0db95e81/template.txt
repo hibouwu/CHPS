@@ -1,0 +1,25 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```markdown
+## Issue-ID: Mockito-157
+
+## Issue-Title: 
+Source files should not be put in binary JAR
+
+## Issue-Description: 
+Source files (`*.java`) should not be put into binary `mockito-core.jar`. It stupefies Idea to show decompiled file even when source jar is available.
+
+
+
+
+```
+
+You are a professional Java test case writer, please create a test case named `shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch` for the issue `Mockito-157`, utilizing the provided issue report information and the following function signature.
+
+```java
+    @Test
+    public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {
+
+```<|im_end|>
+<|im_start|>assistant

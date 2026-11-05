@@ -1,0 +1,25 @@
+
+    public static String encodeBase64String(byte[] binaryData) {
+        return StringUtils.newStringUtf8(encodeBase64(binaryData, true));
+    }
+
+// You are a professional Java programmer, please fix the bug in the function named encodeBase64URLSafeString based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+    /**
+     * Encodes binary data using the base64 algorithm but does not chunk the output.
+     *
+     * @param binaryData
+     *            binary data to encode
+     * @return byte[] containing Base64 characters in their UTF-8 representation.
+     * @since 1.4
+     */    
+    public static byte[] encodeBase64URLSafeString(byte[] binaryData) {
+        return encodeBase64(binaryData, false, true);
+    }
+
+// Fixed Function
+    public static byte[] encodeBase64URLSafeString(byte[] binaryData) {
+        return encodeBase64(binaryData, false, true);
+    }
+
+// You are a professional Java programmer,

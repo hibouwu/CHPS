@@ -1,0 +1,105 @@
+{
+  "id": "resp_087537836037311c016aec0256a1f087d28fe5fe8e524a6f5e",
+  "object": "response",
+  "created_at": 1793851990,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851992,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_087537836037311c016aec0257c66087d289319c487a2dda66",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AJYowgx4rGtSTNymuB5YUnHpUIHrm6UPodZ-0KuRuHJpYrFEBC4okV_yfkDBXLIz1gQUlcplfUF1de-1-ztlOFOpvIvlB0BcmLxngRKQRWbO3Auq0Vy9BpLqyiODJ_oPc7TSfV03yNSiF4wybeJCpI66J4Dntyd9rcyGtf3MbRjVUrkaHEC-peCKj_2AI6q9hjtBpkpnloUQABhOUh3iO6bGlX52R0j3wFghtof8wthpPgU2mVnXfLyediu7RFBGsIwwX-ESZXRfdguUTA_7Eyx9_PdTG_X9pxfkdrprXdlCZfTPHD59xZd5wG99E8R1I9FKVkLjzXFgLtH_V_Tlv7Zilc5R0tWwozjKC-5wbwD_fqKvyezVYyhEL0dXUOT_ALEQIn15Xci3hHQbB8_KnreawtyTCzOgsDjymFF5Bno_gsgCLoiR-YHlmNspn-FOeBnuDsldH0ObCAdBtlDIgSP3ru3n_6MtyYVMhHlRLDQcnt2jkBGlpI57rGyo2uysHz82URX3eSCQNOlNe3I-PHFfkqOGQNfl_2qFo2DHpnEfT_dwvU1wh1xeFJCOubtcVCGdR9rwzlwiYKZF_eeHzm0ekx6-XjI0CmjhPPpYA0dvC3wYQWW3XqZ7SGSm6tTzuwM9VWSL0qPUJ-4XRd2ZfQ9fi5euCwIlVvf1U3eGdPqxFHUvZYOtnwpcm2ey5b4EmTp_UjKLwmbB1ltHkBVFBFKsWJBh9HjbbmgS_z58nmRBhisT-dadchHhUdCq3fyy_dye2Y4NwSQYEcpsLIz5pN9StAyraVVwOKQbOAtwxiU8puOnqrUwpR1JQLP-ONyULTX0hl2vwvOvBHemwa8p2eDict3wAGEeHITMFxlOsyXjH34c_-yj6VRRSFHPvbg94qHQ5XsOKsJ8FDbsYhLQwz_xkd5SNfLZG822bc9lD_gYhf2uuPtOFwhBZVbYCyV1_z5Qzwr33oU2tvEtxmZeVTnFiaTFDA9ODUIdqo3dR6np5NhmiSp9MR0w_QdV8VtNvuBRFTjVI6Qy9LgP02WuhewKXPV-il9AwrDutRLdimpyLqYpX2FLHnSmd02Nr94jKZ9iTaJnY0G9dCMUT_Tz87NoinTYC8JfOWAp1OM-YQlHiW9IuDn6yw_h0EF_Vu5X3o7t4sGvymE7ED1G4DiGWO0biJ_V0ZkPa31L4kHNl4VPdfik4yqrCSZpyet760JcGMU0nqsvKJaK7vuh5TIdQ6hgYxXdAUOhHBchOoCYV1bkuAcYmAKV7iFHpszVA1ZKF2-kGoiL8oGD5d8F0yto7SlecvmlbtwX7aqAcx5Hlz5sjymvDxnsvZ42MuvFcpUM2AX79ljTFfXSiH4qVzLqbXWw0hS3C2UsCxWK2OYTjA-vXI10VrYhBdPrpDQAmDB934CnKyjv322aa-z8Olci-6LNtj2FvT0MvIaWzwWWK-7yTQkDGcVKhuSrRli5JPnTK8PAVhksZW1xSZQ6_NQbJyG0mWqUebjBFr97IRLp7sqvx1RqQfxlx5d10hoUm7QlYU-cT6r4xbqU3qcI_AcskkIroJ7ajdwgXWiN6Axw_swOMvJiINkbBk0m4EXh5lPfIALIxzmSkH_pSiNFam74KVqYgToSU4hP4ZVPg2ESTG83V-8QQ6SAQQURG1_3V_PokKdPBX39OLc8nbkl4TjyEu4gImV1knCie527RIojYvp2LtmPHqW6y8fRHZH3WQhELAH6GTsEqL95GQ_uIu9HKbSQpNUl6fBynlZ3ppnIUHqG-ETIF2wUNuGDhCVNs50UdpPBlxgo9vMHXDnhrdRR3cW3A==",
+      "summary": []
+    },
+    {
+      "id": "msg_087537836037311c016aec0258ad2887d2bf360c39a38a732c",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "B. No, it doesn't have defects"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 352,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 46,
+    "output_tokens_details": {
+      "reasoning_tokens": 32
+    },
+    "total_tokens": 398
+  },
+  "user": null,
+  "metadata": {}
+}

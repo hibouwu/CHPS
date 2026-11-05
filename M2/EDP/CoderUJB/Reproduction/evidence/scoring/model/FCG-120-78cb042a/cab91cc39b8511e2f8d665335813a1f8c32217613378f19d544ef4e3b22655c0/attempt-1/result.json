@@ -1,0 +1,18 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 120,
+  "task_id": "845cd673bc9db45075fc67454c2dc7d7b9dcdaaeffe32d849cf9566b83c011db",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "e36dbe2c8c920237f2ee272e483b4ab0f3e434925ecf67ef73b67f882eee3b77",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "dd0fb853beee33f9146650104818d22d3a8125e49a5a0ade90c94c8bd5be490d",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Codec",
+  "bug_id": 18,
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "reason": "official extraction missing target function"
+}

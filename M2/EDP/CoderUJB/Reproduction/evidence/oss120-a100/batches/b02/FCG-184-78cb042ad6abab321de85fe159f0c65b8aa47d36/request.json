@@ -1,0 +1,17 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Reasoning: medium"
+    },
+    {
+      "role": "user",
+      "content": "```java\npackage com.fasterxml.jackson.core.format;\n\nimport java.io.*;\nimport com.fasterxml.jackson.core.JsonFactory;\nimport com.fasterxml.jackson.core.JsonParser;\nimport com.fasterxml.jackson.core.io.MergedStream;\n\n\n\npublic class DataFormatMatcher\n {\n    protected final InputStream _originalStream;\n    protected final byte[] _bufferedData;\n    protected final int _bufferedStart;\n    protected final int _bufferedLength;\n    protected final JsonFactory _match;\n    protected final MatchStrength _matchStrength;\n\n    protected DataFormatMatcher(InputStream in, byte[] buffered,\n            int bufferedStart, int bufferedLength,\n            JsonFactory match, MatchStrength strength);\n    public boolean hasMatch();\n    public MatchStrength getMatchStrength();\n    public JsonFactory getMatch();\n    public String getMatchedFormatName();\n    public JsonParser createParserWithMatch() throws IOException;\n    public InputStream getDataStream();\n}\n```\n\nYou are a professional Java programmer, please create a function named `getDataStream` based on the provided abstract Java class context information and the following natural language annotations.\n\n```java\n    /**\n     * Method to use for accessing input for which format detection has been done.\n     * This <b>must</b> be used instead of using stream passed to detector\n     * unless given stream itself can do buffering.\n     * Stream will return all content that was read during matching process, as well\n     * as remaining contents of the underlying stream.\n     */\n    public InputStream getDataStream() {\n\n```"
+    }
+  ],
+  "seed": 4,
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "n": 1,
+  "stream": false
+}

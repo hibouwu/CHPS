@@ -1,0 +1,5 @@
+    testTypes(
+        "var f = function() {};" +
+        "f = function() {};" +
+        "f();");
+  }

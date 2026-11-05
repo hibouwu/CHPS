@@ -1,0 +1,24 @@
+
+    // BEGIN_INCLUDE(next_string)
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+      p = doPeek();
+    }
+    String result;
+    if (p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED) {
+      result = peekedString;
+      peekedString = null;
+    } else if (p == PEEKED_UNQUOTED) {
+      result = nextUnquotedValue();
+    } else {
+      throw new IllegalStateException("Expected a string but was " + peek() + locationString());
+    }
+    peeked = PEEKED_NONE;
+    pathIndices[stackSize - 1]++;
+    return result;
+    // END_INCLUDE(next_string)
+  }
+
+  /**
+   * Returns the {@link com.google.gson.stream.JsonToken#BOOLEAN boolean} value of the next token,
+   * cons

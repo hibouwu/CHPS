@@ -1,0 +1,33 @@
+A. Yes, there are defects
+
+The function `safeMultiply` has a potential issue with handling multiplication overflow when `val2` is not -1, 0, or 1. The check `if (total / val2 != val1)` can itself cause an overflow if `total` has already overflowed. To correctly detect overflow, you should perform the check before the multiplication. Here's a revised version of the function that addresses this issue:
+
+```java
+/**
+ * Multiply two values throwing an exception if overflow occurs.
+ * 
+ * @param val1  the first value
+ * @param val2  the second value
+ * @return the new total
+ * @throws ArithmeticException if the value is too big or too small
+ * @since 1.2
+ */
+public static long safeMultiply(long val1, int val2) {
+    switch (val2) {
+        case -1:
+            return -val1;
+        case 0:
+            return 0L;
+        case 1:
+            return val1;
+    }
+    if ((val1 > 0 && val2 > Long.MAX_VALUE / val1) || 
+        (val1 < 0 && val2 < Long.MIN_VALUE / val1)) {
+        throw new ArithmeticException("Multiplication overflows a long: " + val1 + " * " + val2);
+    }
+    long total = val1 * val2;
+    return total;
+}
+```
+
+This version checks for potential overflow conditions before performing the multiplication, thus avoiding the risk of overflow in the check itself.

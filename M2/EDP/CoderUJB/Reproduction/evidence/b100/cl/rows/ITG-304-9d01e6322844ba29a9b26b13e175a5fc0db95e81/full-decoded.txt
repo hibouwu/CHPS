@@ -1,0 +1,51 @@
+// Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// You are a professional Java test case writer, please create a test case named `testDontQuoteEuroFirstChar` for the issue `Csv-CSV-219`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: Csv-CSV-219
+// 
+// ## Issue-Title: 
+// The behavior of quote char using is not similar as Excel does when the first string contains CJK char(s)
+// 
+// ## Issue-Description: 
+// 
+// When using CSVFormat.EXCEL to print a CSV file, the behavior of quote char using is not similar as Microsoft Excel does when the first string contains Chinese, Japanese or Korean (CJK) char(s).
+// 
+// 
+// e.g.  
+// 
+// There are 3 data members in a record, with Japanese chars: "あ", "い", "う":  
+// 
+//  Microsoft Excel outputs:  
+// 
+//  あ,い,う  
+// 
+//  Apache Common CSV outputs:  
+// 
+//  "あ",い,う
+// 
+// 
+// 
+// 
+// 
+
+    @Test
+    public void testDontQuoteEuroFirstChar() throws IOException {
+        final String euro = "\u20ac";
+        final String euroFirst = euro + "123";
+        final String euroFirst2 = euro + euroFirst;
+        final String euroFirst3 = euro + euroFirst2;
+        final String euroFirst4 = euro + euroFirst3;
+        final String euroFirst5 = euro + euroFirst4;
+        final String euroFirst6 = euro + euroFirst5;
+        final String euroFirst7 = euro + euroFirst6;
+        final String euroFirst8 = euro + euroFirst7;
+        final String euroFirst9 = euro + euroFirst8;
+        final String euroFirst10 = euro + euroFirst9;
+        final String euroFirst11 = euro + euroFirst10;
+        final String euroFirst12 = euro + euroFirst11;
+        final String euroFirst13 = euro + euroFirst12;
+        final String euroFirst14 = euro + euroFirst13;
+        final String euroFirst15 = euro + euroFirst14;
+        final String euroFirst16 = euro + euroFirst15;
+        final String euroFirst17

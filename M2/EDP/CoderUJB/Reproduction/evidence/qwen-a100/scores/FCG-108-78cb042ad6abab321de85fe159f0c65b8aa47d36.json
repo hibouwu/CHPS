@@ -1,0 +1,18 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 108,
+  "status": "fail",
+  "reason": "project suite failed",
+  "category": null,
+  "coverage": null,
+  "group": "b01",
+  "job": "817622",
+  "answer_sha256": "166b37f4318f6eb2db6fe0897a69082a6099cadc13fe272b786abbefc8a0f64f",
+  "source": "evidence/qwen-a100/rows/FCG-108-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "result": "evidence/scoring/model/FCG-108-78cb042a/5317140061bb6deee56bca4e675137ae7ba9816ae3fe9695c105394685b07869/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 1131,
+  "output_tokens": 420
+}

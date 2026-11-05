@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the requested Java test method, continuing any answer prefix already provided, and stop after its closing brace. The prompt includes a snippet of the method signature and opening comment. We need to write the body of testRfc4648Section10Decode method, using the Base64 class static decode methods, and assert that decoding the given Base64 strings yields the original strings.\n\nWe must output only the method code, no markdown, no extra explanations. The method should be within the Base64Test class, but we just output the method.\n\nWe need to use assertEquals, etc. The test should decode each base64 string and compare to expected plain text. Use CHARSET_UTF8 for conversion.\n\nImplementation:\n\nString[] plain = {\"\", \"f\", \"fo\", \"foo\", \"foob\", \"fooba\", \"foobar\"};\nString[] encoded = {\"\", \"Zg==\", \"Zm8=\", \"Zm9v\", \"Zm9vYg==\", \"Zm9vYmE=\", \"Zm9vYmFy\"};\n\nLoop over them, decode using Base64.decodeBase64(encoded[i]), then new String(decoded, CHARSET_UTF8) and assertEquals.\n\nAlso test that decodeBase64 on empty string returns empty byte array.\n\nEdge: Base64.decodeBase64 expects byte[] or String. Use decodeBase64(encoded[i]) returns byte[].\n\nWrite method:\n\npublic void testRfc4648Section10Decode() {\n    final String[] plain = {\"\", \"f\", \"fo\", \"foo\", \"foob\", \"fooba\", \"foobar\"};\n    final String[] encoded = {\"\", \"Zg==\", \"Zm8=\", \"Zm9v\", \"Zm9vYg==\", \"Zm9vYmE=\", \"Zm9vYmFy\"};\n    for (int i = 0; i < plain.length; i++) {\n        byte[] decoded = Base64.decodeBase64(encoded[i]);\n        String result = new String(decoded, CHARSET_UTF8);\n        assertEquals(\"Decoded value mismatch for index \" + i, plain[i], result);\n    }\n}\n\nMake sure imports already present.\n\nThus output method code.",
+        "content": "    /**\n     * Tests RFC 4648 section 10 test vectors.\n     * <ul>\n     * <li>BASE64(\"\") = \"\"</li>\n     * <li>BASE64(\"f\") = \"Zg==\"</li>\n     * <li>BASE64(\"fo\") = \"Zm8=\"</li>\n     * <li>BASE64(\"foo\") = \"Zm9v\"</li>\n     * <li>BASE64(\"foob\") = \"Zm9vYg==\"</li>\n     * <li>BASE64(\"fooba\") = \"Zm9vYmE=\"</li>\n     * <li>BASE64(\"foobar\") = \"Zm9vYmFy\"</li>\n     * </ul>\n     *\n     * @see <a href=\"http://tools.ietf.org/html/rfc4648\">http://tools.ietf.org/\n     *      html/rfc4648</a>\n     */\n    @Test\n    public void testRfc4648Section10Decode() {\n        final String[] plain = {\"\", \"f\", \"fo\", \"foo\", \"foob\", \"fooba\", \"foobar\"};\n        final String[] encoded = {\"\", \"Zg==\", \"Zm8=\", \"Zm9v\", \"Zm9vYg==\", \"Zm9vYmE=\", \"Zm9vYmFy\"};\n        for (int i = 0; i < plain.length; i++) {\n            byte[] decoded = Base64.decodeBase64(encoded[i]);\n            String result = new String(decoded, CHARSET_UTF8);\n            assertEquals(\"Decoded value mismatch for index \" + i, plain[i], result);\n        }\n    }"
+      }
+    }
+  ],
+  "created": 1793851951,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 803,
+    "prompt_tokens": 1786,
+    "total_tokens": 2589
+  },
+  "id": "chatcmpl-hKeTALTfEbQr7cPpEcogfLJImWqQLGmK",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1786,
+    "prompt_ms": 730.329,
+    "prompt_per_token_ms": 0.4089188129899216,
+    "prompt_per_second": 2445.473204542063,
+    "predicted_n": 803,
+    "predicted_ms": 4421.505,
+    "predicted_per_token_ms": 5.506232876712329,
+    "predicted_per_second": 181.6123695438544
+  }
+}

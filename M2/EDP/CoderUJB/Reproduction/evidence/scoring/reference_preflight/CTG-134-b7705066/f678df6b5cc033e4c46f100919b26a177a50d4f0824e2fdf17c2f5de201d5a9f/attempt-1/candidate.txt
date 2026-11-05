@@ -1,0 +1,13 @@
+    @Test
+    public void testMessageWithCorruptFileName() throws Exception {
+        try (ZipArchiveInputStream in = new ZipArchiveInputStream(new FileInputStream(getFile("COMPRESS-351.zip")))) {
+            ZipArchiveEntry ze = in.getNextZipEntry();
+            while (ze != null) {
+                ze = in.getNextZipEntry();
+            }
+            fail("expected EOFException");
+        } catch (final EOFException ex) {
+            final String m = ex.getMessage();
+            assertTrue(m.startsWith("Truncated ZIP entry: ?2016")); // the first character is not printable
+        }
+    }

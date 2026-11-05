@@ -1,0 +1,70 @@
+The provided `formData` method is mostly correct, but there are a few areas where improvements and bug fixes can be made to ensure it handles all edge cases properly. Here are the identified issues and their fixes:
+
+1. **Handling of `textarea` elements**: The current implementation does not explicitly handle `textarea` elements, which should be treated similarly to other input elements.
+
+2. **Handling of `button` elements**: The current implementation does not handle `button` elements, which can also be part of form submissions.
+
+3. **Handling of `file` input elements**: File inputs should not be included in the form data as they are typically handled separately in file uploads.
+
+4. **Handling of `hidden` input elements**: Hidden inputs should be included in the form data.
+
+5. **Case sensitivity of `type` attribute**: The comparison for `type` should be case-insensitive.
+
+6. **Default value for checkboxes**: The default value for unchecked checkboxes should not be added to the form data.
+
+Here is the revised `formData` method with these considerations:
+
+```java
+/**
+ * Get the data that this form submits. The returned list is a copy of the data, and changes to the contents of the
+ * list will not be reflected in the DOM.
+ * @return a list of key vals
+ */
+public List<Connection.KeyVal> formData() {
+    ArrayList<Connection.KeyVal> data = new ArrayList<>();
+
+    // iterate the form control elements and accumulate their values
+    for (Element el : elements) {
+        if (!el.tag().isFormSubmittable()) continue; // contents are form listable, superset of submitable
+        if (el.hasAttr("disabled")) continue; // skip disabled form inputs
+        String name = el.attr("name");
+        if (name.length() == 0) continue;
+        String type = el.attr("type").toLowerCase(); // Ensure case-insensitive comparison
+
+        if ("select".equals(el.normalName())) {
+            Elements options = el.select("option[selected]");
+            boolean set = false;
+            for (Element option : options) {
+                data.add(HttpConnection.KeyVal.create(name, option.val()));
+                set = true;
+            }
+            if (!set) {
+                Element option = el.select("option").first();
+                if (option != null)
+                    data.add(HttpConnection.KeyVal.create(name, option.val()));
+            }
+        } else if ("checkbox".equals(type) || "radio".equals(type)) {
+            // only add checkbox or radio if they have the checked attribute
+            if (el.hasAttr("checked")) {
+                final String val = el.val().length() > 0 ? el.val() : "on";
+                data.add(HttpConnection.KeyVal.create(name, val));
+            }
+        } else if ("file".equals(type)) {
+            // Skip file inputs as they are typically handled separately in file uploads
+            continue;
+        } else {
+            // Handle text, textarea, hidden, button, etc.
+            data.add(HttpConnection.KeyVal.create(name, el.val()));
+        }
+    }
+    return data;
+}
+```
+
+### Key Changes:
+- **Case Insensitivity**: Converted the `type` attribute to lowercase to ensure case-insensitive comparisons.
+- **File Input Handling**: Added a check to skip `file` input elements.
+- **Generalized Input Handling**: Included handling for `textarea` and `button` elements by treating them similarly to other input elements.
+- **Checkbox Handling**: Ensured that only checked checkboxes are added to the form data.
+
+These changes should make the `formData` method more robust and handle a wider range of form elements correctly.

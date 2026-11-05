@@ -1,0 +1,203 @@
+**Implemented `readBits` (and the supporting parts that make it work)**  
+
+Below is a complete, self‑contained implementation of `BitInputStream` that follows the contract described in the Javadoc comment for `readBits`.  
+The method:
+
+* validates the requested bit count (1 … 63)  
+* fills an internal bit cache until the requested number of bits is available (or the underlying stream ends)  
+* extracts the bits respecting the configured `ByteOrder` (big‑ or little‑endian)  
+* updates the cache so that subsequent calls continue where the previous one left off  
+* returns **‑1** when the end of the stream is reached before the requested bits can be read.
+
+```java
+package org.apache.commons.compress.utils;
+
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteOrder;
+import java.util.Objects;
+
+/**
+ * A stream that allows reading an arbitrary number of bits (up to 63) from an
+ * underlying {@link InputStream}.  Bits are returned as a {@code long} and are
+ * concatenated according to the supplied {@link ByteOrder}.
+ *
+ * <p>The implementation keeps a small cache of bits that have already been
+ * read from the underlying stream.  This avoids a per‑bit read from the
+ * underlying {@link InputStream} and makes the class efficient for typical
+ * use‑cases such as parsing binary file formats.</p>
+ */
+public class BitInputStream implements Closeable {
+
+    /** The cache can never hold more than 63 bits – the maximum that can be
+     *  returned as a {@code long}. */
+    private static final int MAXIMUM_CACHE_SIZE = 63;
+
+    /** Pre‑computed masks: MASKS[n] == (1L << n) - 1  (for 0 ≤ n ≤ 63). */
+    private static final long[] MASKS = new long[MAXIMUM_CACHE_SIZE + 1];
+
+    static {
+        MASKS[0] = 0L;
+        for (int i = 1; i <= MAXIMUM_CACHE_SIZE; i++) {
+            MASKS[i] = (1L << i) - 1;
+        }
+    }
+
+    private final InputStream in;
+    private final ByteOrder byteOrder;
+
+    /** Bits that have already been read from {@link #in} but not yet consumed. */
+    private long bitsCached = 0L;
+
+    /** Number of valid bits currently stored in {@link #bitsCached}. */
+    private int bitsCachedSize = 0;
+
+    /* --------------------------------------------------------------------- */
+    /*  Construction / basic housekeeping                                    */
+    /* --------------------------------------------------------------------- */
+
+    public BitInputStream(final InputStream in, final ByteOrder byteOrder) {
+        this.in = Objects.requireNonNull(in, "in");
+        this.byteOrder = Objects.requireNonNull(byteOrder, "byteOrder");
+    }
+
+    @Override
+    public void close() throws IOException {
+        in.close();
+    }
+
+    /** Discards everything that is currently cached. */
+    public void clearBitCache() {
+        bitsCached = 0L;
+        bitsCachedSize = 0;
+    }
+
+    /** Returns the number of bits that are already cached. */
+    public int bitsCached() {
+        return bitsCachedSize;
+    }
+
+    /** Approximation of the total number of bits that can still be read
+     *  (cached bits + bytes that are immediately available from the underlying
+     *  stream). */
+    public long bitsAvailable() throws IOException {
+        return bitsCachedSize + (in.available() * 8L);
+    }
+
+    /** Skips any remaining bits until the next byte boundary is reached. */
+    public void alignWithByteBoundary() throws IOException {
+        int toDiscard = bitsCachedSize % 8;
+        if (toDiscard != 0) {
+            readBits(toDiscard);          // ignore the result
+        }
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*  Private helpers                                                       */
+    /* --------------------------------------------------------------------- */
+
+    /**
+     * Makes sure that at least {@code count} bits are present in the cache.
+     *
+     * @return {@code true} if the cache now contains {@code count} bits,
+     *         {@code false} if the underlying stream ended before that.
+     */
+    private boolean ensureCache(final int count) throws IOException {
+        while (bitsCachedSize < count) {
+            int b = in.read();
+            if (b == -1) {
+                return false;               // EOF before we could fill the cache
+            }
+
+            if (byteOrder == ByteOrder.BIG_ENDIAN) {
+                // New byte becomes the most‑significant part of the cache.
+                bitsCached = (bitsCached << 8) | (b & 0xFFL);
+            } else {
+                // Little‑endian: new byte becomes the least‑significant part.
+                bitsCached |= ((long) (b & 0xFF)) << bitsCachedSize;
+            }
+            bitsCachedSize += 8;
+        }
+        return true;
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*  Public API – reading bits                                            */
+    /* --------------------------------------------------------------------- */
+
+    /**
+     * Returns at most 63 bits read from the underlying stream.
+     *
+     * @param count the number of bits to read, must be a positive
+     *              number not bigger than 63.
+     * @return the bits concatenated as a {@code long} using the stream's byte order,
+     *         or {@code -1} if the end of the underlying stream has been reached
+     *         before reading the requested number of bits.
+     * @throws IOException on error
+     */
+    public long readBits(final int count) throws IOException {
+        // -----------------------------------------------------------------
+        // 1. Validate the request
+        // -----------------------------------------------------------------
+        if (count <= 0 || count > MAXIMUM_CACHE_SIZE) {
+            throw new IllegalArgumentException(
+                "count must be between 1 and " + MAXIMUM_CACHE_SIZE + " (inclusive)");
+        }
+
+        // -----------------------------------------------------------------
+        // 2. Fill the cache if necessary
+        // -----------------------------------------------------------------
+        if (!ensureCache(count)) {
+            // Not enough bits available – signal EOF.
+            return -1L;
+        }
+
+        // -----------------------------------------------------------------
+        // 3. Extract the requested bits respecting the byte order
+        // -----------------------------------------------------------------
+        long result;
+        if (byteOrder == ByteOrder.BIG_ENDIAN) {
+            // Bits are stored MSB‑first; the wanted bits are the most‑significant
+            // ones currently in the cache.
+            int shift = bitsCachedSize - count;
+            result = (bitsCached >>> shift) & MASKS[count];
+
+            // Discard the bits we have just consumed.
+            bitsCachedSize -= count;
+            bitsCached &= MASKS[bitsCachedSize];
+        } else { // LITTLE_ENDIAN
+            // Bits are stored LSB‑first; the wanted bits are the least‑significant.
+            result = bitsCached & MASKS[count];
+
+            // Shift the remaining bits down.
+            bitsCached >>>= count;
+            bitsCachedSize -= count;
+        }
+
+        return result;
+    }
+}
+```
+
+### How the implementation works  
+
+1. **Validation** – The method checks that `count` is in the range 1 … 63, because a `long` can hold at most 63 bits of payload (the sign bit is unused for this purpose).  
+
+2. **Cache‑filling (`ensureCache`)** –  
+   * While the cache contains fewer than `count` bits, a byte is read from the underlying `InputStream`.  
+   * For **big‑endian** the new byte is shifted into the *high* part of the cache (`bitsCached << 8`).  
+   * For **little‑endian** the new byte is placed in the *low* part (`bitsCached | (b << bitsCachedSize)`).  
+   * The cache size is increased by 8. If the stream ends before enough bits are gathered, `ensureCache` returns `false`.  
+
+3. **Bit extraction** –  
+   * **Big‑endian**: the wanted bits are the most‑significant bits currently cached. They are obtained by right‑shifting the cache so that the desired bits line up with the LSBs and then masking with `MASKS[count]`.  
+   * **Little‑endian**: the wanted bits are the least‑significant bits, so they are taken directly with a mask.  
+
+4. **Cache update** – After the bits have been returned, the cache is trimmed:  
+   * For big‑endian the high bits are discarded by reducing `bitsCachedSize` and masking the remaining low bits.  
+   * For little‑endian the low bits are discarded by right‑shifting the cache.  
+
+5. **EOF handling** – If the underlying stream cannot supply the required number of bits, the method returns `-1L` as specified.
+
+The auxiliary methods (`clearBitCache`, `bitsCached`, `bitsAvailable`, `alignWithByteBoundary`, and the static mask table) are provided to make the class functional and to illustrate a typical, efficient implementation of a bit‑oriented input stream.

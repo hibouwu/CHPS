@@ -1,0 +1,24 @@
+@Test
+public void testRule1() throws EncoderException {
+    // Test MAC → MCC
+    Assert.assertEquals("MCC", fullNysiis.nysiis("MAC"));
+    Assert.assertEquals("MCC", fullNysiis.nysiis("MacDonald"));
+
+    // Test KN → N
+    Assert.assertEquals("N", fullNysiis.nysiis("KN"));
+    Assert.assertEquals("NATHAN", fullNysiis.nysiis("KNAthan"));
+
+    // Test K → C
+    Assert.assertEquals("C", fullNysiis.nysiis("K"));
+    Assert.assertEquals("CALVIN", fullNysiis.nysiis("Kalvin"));
+
+    // Test PH, PF → FF
+    Assert.assertEquals("FF", fullNysiis.nysiis("PH"));
+    Assert.assertEquals("FF", fullNysiis.nysiis("PF"));
+    Assert.assertEquals("FFLIN", fullNysiis.nysiis("PHLIn"));
+    Assert.assertEquals("FFLIN", fullNysiis.nysiis("PFLIn"));
+
+    // Test SCH → SSS
+    Assert.assertEquals("SSS", fullNysiis.nysiis("SCH"));
+    Assert.assertEquals("SSSMITH", fullNysiis.nysiis("SCHSmith"));
+}

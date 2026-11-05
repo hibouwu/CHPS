@@ -1,0 +1,68 @@
+// Output constraint: Output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// package org.jsoup.nodes;
+// 
+// import org.jsoup.internal.StringUtil;
+// import org.jsoup.helper.Validate;
+// import java.io.IOException;
+// 
+// 
+// 
+// public class TextNode extends LeafNode  {
+// 
+// 
+//     public TextNode(String text);
+//     public TextNode(String text, String baseUri);
+//     public String nodeName();
+//     public String text();
+//     public TextNode text(String text);
+//     public String getWholeText();
+//     public boolean isBlank();
+//     public TextNode splitText(int offset);
+//     void outerHtmlHead(Appendable accum, int depth, Document.OutputSettings out) throws IOException;
+//     void outerHtmlTail(Appendable accum, int depth, Document.OutputSettings out);
+//     @Override
+//     public String toString();
+//     public static TextNode createFromEncoded(String encodedText, String baseUri);
+//     public static TextNode createFromEncoded(String encodedText);
+//     static String normaliseWhitespace(String text);
+//     static String stripLeadingWhitespace(String text);
+//     static boolean lastCharIsWhitespace(StringBuilder sb);
+// }
+
+// You are a professional Java programmer, please create a function named `splitText` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Split this text node into two nodes at the specified string offset. After splitting, this node will contain the
+     * original text up to the offset, and will have a new text node sibling containing the text after the offset.
+     * @param offset string offset point to split node at.
+     * @return the newly created text node containing the text after the offset.
+     */
+    public TextNode splitText(int offset) {
+        Validate.isTrue(offset >= 0, "Split offset must be not be negative");
+        Validate.isTrue(offset < getWholeText().length(), "Split offset must not be greater than current text length");
+        String head = getWholeText().substring(0, offset);
+        String tail = getWholeText().substring(offset);
+        TextNode tailNode = new TextNode(tail, baseUri());
+        setText(head);
+        if (parent() != null)
+            parent().addChildren(siblingIndex() + 1, tailNode);
+        return tailNode;
+    }
+
+// The following is the Java code of the abstract Java class context information:
+
+// package org.jsoup.nodes;
+// 
+// import org.jsoup.helper.Validate;
+// import java.io.IOException;
+// 
+// 
+// 
+// public abstract class Node {
+// 
+// 
+//     public Node parent();
+//     public void setParentNode(Node parent);
+//     public Node previousSibling();
+//     public Node nextSibling();

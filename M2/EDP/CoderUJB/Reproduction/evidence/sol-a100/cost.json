@@ -1,0 +1,37 @@
+{
+  "stage": "sol-a100",
+  "currency": "USD",
+  "source": "Responses usage and official standard prices; estimate, not account invoice",
+  "pilot": {
+    "requests": 5,
+    "input_tokens": 4242,
+    "output_tokens": 1794,
+    "reasoning_tokens": 1119,
+    "cached_tokens": 0,
+    "cache_write_tokens": 2948,
+    "standard_estimate_usd": 0.027898000000000003,
+    "conservative_usd": 0.031399500000000004,
+    "response_statuses": {
+      "completed": 5
+    }
+  },
+  "formal": {
+    "requests": 100,
+    "input_tokens": 78524,
+    "output_tokens": 35157,
+    "reasoning_tokens": 15001,
+    "cached_tokens": 0,
+    "cache_write_tokens": 49340,
+    "standard_estimate_usd": 0.5332879999999998,
+    "conservative_usd": 0.6026680000000001,
+    "response_statuses": {
+      "completed": 100
+    }
+  },
+  "total_estimate_usd": 0.5611859999999997,
+  "conservative_usd": 0.6340675000000001,
+  "original_worst_case_usd": 4.9584865,
+  "reserved_ceiling_usd": 10,
+  "unknown_billing_requests": 0,
+  "retries": 0
+}

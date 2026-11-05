@@ -1,0 +1,28 @@
+{
+  "task": "ITG",
+  "task_idx": 278,
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "source": "evidence/sol-a100/rows/ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "result": "evidence/scoring/model/ITG-278-9d01e632/4597bad804ae934a92925f962ed83204effb631709e833e4d13e0d3812948497/attempt-1/result.json",
+  "answer_sha256": "83da2684bd591644e037925b1265be22d202e0181dcedc5fb47e41c75472b3bd",
+  "response_id": "resp_01eea10ef45c6b6e016aebfb2d499c87d29a83d9cda186ceff",
+  "request_id": "req_fd5dc6bdbaf644c18038143555bcc93a",
+  "usage": {
+    "input_tokens": 157,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 427,
+    "output_tokens_details": {
+      "reasoning_tokens": 298
+    },
+    "total_tokens": 584
+  },
+  "finish_status": "completed",
+  "cost_standard_estimate_usd": 0.004584
+}

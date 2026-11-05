@@ -1,0 +1,18 @@
+```java
+    /**
+     * Tests comment's influence on equals comparisons.
+     * @see "https://issues.apache.org/jira/browse/COMPRESS-187"
+     */
+    @Test
+    public void testNullCommentEqualsEmptyComment() {
+        ZipArchiveEntry entry1 = new ZipArchiveEntry("test.txt");
+        ZipArchiveEntry entry2 = new ZipArchiveEntry("test.txt");
+
+        // Set one entry's comment to null and the other to an empty string
+        entry1.setComment(null);
+        entry2.setComment("");
+
+        // Check if they are equal
+        assertEquals(entry1, entry2);
+    }
+```

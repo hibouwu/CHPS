@@ -1,0 +1,18 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 754,
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "group": "b23",
+  "job": "817622",
+  "answer_sha256": "8426b6318ff3ef289b763b00f14f3ab5a63cd06ede1aa9252229e0a6660f2a26",
+  "source": "evidence/qwen-a100/rows/DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "result": "evidence/scoring/model/DD-754-3cf751c8/c75dc2a799e71062e8b126f92063df53327b8ca36601e715d7292be58c8dda04/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 298,
+  "output_tokens": 324
+}

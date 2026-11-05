@@ -9,7 +9,7 @@
   "arxiv": "https://arxiv.org/abs/2403.19287",
   "official_repository": "https://github.com/WisdomShell/ujb",
   "repository_commit": "e7b69a0b4f79d0d1896046079f6926d955f31452",
-  "status": "model_load_generation_probe_passed_benchmark_not_evaluated",
+  "status": "one_sample_generated_compiled_and_tested_full_benchmark_not_run",
   "bilingual_markdown": "CoderUJB_中英对照.md",
   "derived_assets_directory": "Images/",
   "translation_note": "Chinese translation paired by subsection; references remain in original language; editorial notes separated.",
@@ -39,7 +39,7 @@
     "local_pdf": "Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf",
     "local_source": "Presentation/LaTeX/CoderUJB_Equipe6_FR.tex",
     "pages": 32,
-    "pdf_sha256": "cfc2393e9e6584b766dd45ccd66068febe8b8f121ea7a9992a07c7d8de6c6090",
+    "pdf_sha256": "3c31cc7451ffe826e1b5547aef4c1e86b2074854266d636f1826b7711dede2f5",
     "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
     "updated_on": "2026-11-05",
     "aspect_ratio": "16:9",
@@ -73,6 +73,26 @@
       "left_cm": 1.0,
       "top_text_bbox_pt": 21.183,
       "note": "Standard top headings aligned with the body left margin and moved down; centered cover and section dividers retained."
+    },
+    "part5_update": {
+      "updated_on": "2026-11-05",
+      "source_pdf": "Presentation/CoderUJB_Partie5_Slides17-20_Simplifiees.pdf",
+      "source_sha256": "2ab62bbbd3d2ad1c9e77afa244902a9d900aa14ef594b0e13697e74ad295a6f4",
+      "original_source_pages": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "updated_deck_pages": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie5_FR.pdf",
+      "standalone_sha256": "d39c2660b5a40ed84e19cb4c7a1c07fdf0abd70510ae44de3409e8576009399e",
+      "validation": "Compiled with pdfLaTeX; 32 total pages, pixel differences limited to pages 24-27; four updated slides visually inspected."
     }
   },
   "reproduction_preparation": {
@@ -86,7 +106,7 @@
       5,
       6
     ],
-    "status": "samples_prepared_one_model_generation_probe_completed_no_benchmark_evaluation"
+    "status": "lang_task4_single_generation_evaluated_passed_tasks5and6_prepared"
   },
   "romeo_model_probe": {
     "run_on": "2026-11-05",
@@ -110,5 +130,23 @@
     "benchmark_evaluated": false,
     "model_storage": "Job-owned /dev/shm temporary directory; shell EXIT trap removes temporary weights. No persistent model cache.",
     "scope": "Feasibility probe: download, checksum verification, BF16 loading, one code completion. Not the full official evaluation; Java compilation and Defects4J tests have not run."
+  },
+  "single_sample_evaluation": {
+    "run_on": "2026-11-05",
+    "task_idx": 4,
+    "generation_job_id": "817583",
+    "result_file": "Reproduction/evidence/lang004-evaluation-20261105T002947Z/result.json",
+    "runner": "Reproduction/evaluate_lang004.py",
+    "environment_file": "Reproduction/evidence/test-environment.json",
+    "defects4j_commit": "a83e47921152721569cb95d6d7b91c4be277d940",
+    "jdk": "Temurin 8u504-b01",
+    "baseline_passed_all_tests": true,
+    "model_pass_syntax": true,
+    "model_pass_compile": true,
+    "model_pass_trigger": true,
+    "model_pass_all": true,
+    "generated_sample_count": 1,
+    "benchmark_metric_computed": false,
+    "paper_environment_fully_reproduced": false
   }
 }

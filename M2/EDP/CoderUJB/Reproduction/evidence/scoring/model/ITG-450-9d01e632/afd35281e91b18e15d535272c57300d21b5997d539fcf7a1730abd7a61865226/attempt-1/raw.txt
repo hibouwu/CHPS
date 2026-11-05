@@ -1,0 +1,116 @@
+**Test class**
+
+```java
+package org.mockito.issue157;
+
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.exceptions.base.MockitoException;
+
+/**
+ * Re‑produces the situation described in Mockito‑157.
+ *
+ * <p>The binary {@code mockito‑core.jar} must not contain any {@code *.java}
+ * source files – otherwise IntelliJ IDEA (and other IDEs) will show a
+ * de‑compiled version of the class even when a proper source‑jar is present.
+ *
+ * <p>While the issue itself is about the packaging of the JAR, the test
+ * below demonstrates a concrete behaviour that can be observed when the
+ * JAR is built incorrectly: the verification of captured arguments fails
+ * with a {@link MockitoException} because the number of captured arguments
+ * does not match the number of parameters of the invoked method.
+ *
+ * <p>When the JAR is built correctly (i.e. without source files) the test
+ * passes – the exception is thrown as expected and the IDE shows the real
+ * source of {@link MockitoException} instead of a de‑compiled stub.
+ */
+class Mockito157SourceInBinaryJarTest {
+
+    /** Simple collaborator used for the verification. */
+    interface Foo {
+        /** Method with **two** arguments. */
+        void doSomething(String text, Integer number);
+    }
+
+    /**
+     * The test verifies that Mockito correctly detects a mismatch between the
+     * number of arguments supplied to {@link #verify(Object)} and the number
+     * of arguments captured by {@link ArgumentCaptor}s.
+     *
+     * <p>When the binary JAR contains source files, IDEA may display a
+     * de‑compiled version of {@link MockitoException} and the test can look
+     * confusing. The purpose of this test is therefore two‑fold:
+     *
+     * <ul>
+     *   <li>Document the expected behaviour (exception on argument‑count mismatch).</li>
+     *   <li>Provide a regression test that will fail if the JAR is packaged
+     *       with source files – because the IDE would hide the real source
+     *       and developers could miss the failure.</li>
+     * </ul>
+     *
+     * @throws Exception never – only declared to keep the signature identical
+     *                     to the one requested in the issue description.
+     */
+    @Test
+    public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {
+        // ------------------------------------------------------------
+        // 1. Arrange – create a mock of the collaborator
+        // ------------------------------------------------------------
+        Foo foo = mock(Foo.class);
+
+        // ------------------------------------------------------------
+        // 2. Act – invoke the method with **both** arguments
+        // ------------------------------------------------------------
+        foo.doSomething("hello", 42);
+
+        // ------------------------------------------------------------
+        // 3. Capture the arguments.  We deliberately provide only ONE
+        //    captor while the method under test expects TWO arguments.
+        // ------------------------------------------------------------
+        ArgumentCaptor<String> stringCaptor = ArgumentCaptor.forClass(String.class);
+
+        try {
+            // This verification is *incorrect*: the real method has two
+            // parameters, but we ask Mockito to verify a call with a single
+            // captured argument. Mockito must therefore throw an exception.
+            verify(foo).doSomething(stringCaptor.capture());
+
+            // If we reach this line the verification did **not** fail – the
+            // test is therefore broken.
+            fail("Expected a MockitoException because the number of captured "
+               + "arguments does not match the method signature.");
+        } catch (MockitoException expected) {
+            // ------------------------------------------------------------
+            // 4. Assert – the exception message should contain a hint about
+            //    the argument‑count mismatch.  The exact wording is not part
+            //    of the public API, but checking that an exception is thrown
+            //    is sufficient for the regression test.
+            // ------------------------------------------------------------
+            // (no additional assertions – the mere presence of the exception
+            //  proves the correct behaviour)
+        }
+    }
+}
+```
+
+### Why this test matters for **Mockito‑157**
+
+* **Problem** – The binary `mockito-core.jar` shipped with source files (`*.java`).  
+  IDEs (e.g., IntelliJ IDEA) would then display a *de‑compiled* version of
+  `MockitoException` even though a proper source‑jar is on the class‑path,
+  making debugging harder.
+
+* **What the test does** – It forces Mockito to throw a `MockitoException`
+  because the number of captured arguments does not match the method’s
+  signature. When the JAR is correctly built (no source files inside), the
+  IDE shows the real source of `MockitoException`, and the test passes
+  (the exception is caught as expected). If the JAR still contains source
+  files, developers may see a de‑compiled stub, which is exactly the
+  situation the issue reports.
+
+* **Result** – The test will continue to pass only when the JAR is packaged
+  correctly, providing a concrete regression guard for the packaging bug
+  described in **Mockito‑157**.

@@ -1,0 +1,32 @@
+{
+  "model": "oss",
+  "configuration": "B",
+  "task": "CTG",
+  "task_idx": 53,
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.compress.archivers.zip.ZipArchiveEntry"
+    ],
+    "line_pct": 22.5,
+    "condition_pct": 20.0,
+    "instrumented_lines_hit": 50
+  },
+  "format_valid": true,
+  "mode": "chat",
+  "raw_model_sha256": "99804b8d4c6de57cc634280caa182e5eecb786ed2f22db54ad22882afc7c8ed9",
+  "scorer_input_sha256": "99804b8d4c6de57cc634280caa182e5eecb786ed2f22db54ad22882afc7c8ed9",
+  "removed_input_prefix": "",
+  "added_prompt_sha256": "e37848a7dc83d5e500f0ec9d37aeb00304cd0eff5f3d63ef5a3f04d9609b2023",
+  "answer_untouched": true,
+  "source": "evidence/b100/oss/rows/CTG-53-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-53-b7705066/3f4cbff6af597e8e7bfaba9fa444f3e0fa28cdc67259d12519dd98539e680f0e/attempt-1/result.json",
+  "finish_reason": "stop",
+  "input_truncated": false,
+  "input_tokens": 1556,
+  "output_tokens": 732,
+  "compile_review": null
+}

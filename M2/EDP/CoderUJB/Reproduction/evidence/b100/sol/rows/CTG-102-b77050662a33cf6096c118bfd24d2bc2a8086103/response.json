@@ -1,0 +1,105 @@
+{
+  "id": "resp_05a51a2b73ce3675016aec0179208487d2a215a36bd29e93b3",
+  "object": "response",
+  "created_at": 1793851769,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851778,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_05a51a2b73ce3675016aec017a620c87d2a8daa08ba851aa57",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AGC3259qtfUPoOjvOuGR3dP6FbYpIVYbbqeSSmV6kFpxJG6L3Heuic6vsE-SMI7x19UBl9Q-xHYID_PEAdNpkwM9OolDmJejABCyjbkLDfs6wtscghKOo2iQuAxI7mZn81IdtKj03QR8CVKt1BYWlcftoL4Naj5R8p11by0NC98DbuLCLtD4nREAwoq8FFxYRCWlJ2oa8OFiUch520bUOnZTZNwmrVSvXUnkgqwL2OLes-nWwizIwC7ZraOKehWa3vsHwoJJ2r7KEzAKE97EWHS461-gkUX1pduYRvSe1QXdF3o44pU6ZwMYW4Gzb7JCPv7OUq3iIXBuzapJByHw2YDCmq39skAyASwnpmrV9VNm-TSErt0H-c8eIcWa4lSWl1rqdzHDtLMjHmqsNoGki5WPrRPf12O5DyfsT8NqoRIDeBV4q-CYgEe5YCL2-9rLewsy0IW-GDBCK8cKN7MdLg3ch-7JnaJeXITCjiblh4_3M3atL2RqNS4CmVZJg51px8mFZFR2fJtC6w1cEzMVJG4JNFubbISHXWETQ54X9SplSCLtrD94jSQZXHNDtVA8ITQfv4rOxm1SxX6OM3A8BR2OY0eMirI9ZMqzR05cq0CBPkIaywSA5pvJW65DOhDc8c2C_oR9MFLSEr8ixs1Kontz4gpH2cleXJDgMuiAY9K9d0guPMrYIlpOn6ygVs3Xpu8WDR62Qjy70xL1rge98Tc5cNAYzLRJ0wsfHvXXby1Dc4RMyE6GXMhlDB2ECfL3QIiInA3MdqTZbwnCfHkdiypo6xQ1xdzIjbD-SgX8gFxkP5IAKuJbs-LGCXT18ysS9jU5HpFHqL9oIqknEnJNF16It4cmxigG27J7OfjvdbL9w_tCr0bbZDD85AvdV9RiVxTtbT8V_K1o3MM8U93KaKUccu0EEQUGMj4DEool3WHGk7SW7j3FhHttgmV-tKrCSH3MHkB6nWfRvjRand0DR79S-ldvoF7u1JqRbWsgU1kfOMU0oFkqoyluoQProxGlNeI8kAnRxmL12nUH2bSLKibN8365N8y8Eon5-yRq4rwGJVemQjD2wHI1WvcsNqza_vNlYwovOst2rqoax-JsGlaF9TUuFuDug4G8alaRqny6-EMsiUhSt-aHmzxUIYO1NZ0FnaXLg-8Syw_WyIa1YEzexdw4L1MSu_rbGAP07um9maGyEwPFkKCMvcMHjbWp6SNtZ9Y9Za6Fnfg7WUjnAeaqPmaFDWIikClS3_cFtP1HNmlz8M0sysx4Z6FyOkGZf9UxFKHb0QN3SJSX4GUUtoVOYcSGFfrwi9--1rQG3vtYF0Zd2za3FPkiriNHgenUzvOJj0_m1HpTgSRirPbpNYId3MUIvKW-XGbTmNeLUAv4zaggr1awSSsrDNV_3v0ManVGzKq8ogY0j1t4B8FMktEnoiB5x_PdzYnugmQNxB3RjwP1ELKn2Ni3ZLy4x0nRwZ35LHCPJnHVy09soW6cU1mpPCJn5ykeiGc1kwNIF8H1ZUykYJ6g1_2q0cYN81BxxI0X3wVq7baZRkvHsIdN3gq4MokauB7sUlF6Jb7tqUZTmVpT14AYRMqSWBC_BLW1pfajvkClJQBJIDn92mTiPsj6YQP1fq_ScJBnjCSLGwUKW-sS2ZnNuO29c0iiZl-WR3Pv5Clp3C682jWSWz5IHBfNaCRF2bXlL1RUflLGe9t4ky15Yad64YOfWrt7TI-KsPw3j7PkC82n8aH9-yBbpXuoJPbQe1UdfyfzVsOXf-4T3DV_UldtxbWzwkMiUU7akwG3hMTQNeKtQaUy7d-EOYg04YZvvczREg7K05kV6pMd70KpgE2ZHe2NR7k1yHCYZQa_YYNpB15kFnEcq9MjfbVuDLsncPDgIA66eXpH_vNw5F_xnM2g_Lz3EnCdVZ4AKqoJCl9HM0gLuG4Ok5x1veNGhPkd9iN4WwHzpD_YFPAW_murXWokGrURM9qjcd1exqkHQCih5Rrj0nH0aImOE5gxkRxeX50vFdSdMlessIF5u8zYrz1e7BWGfMbEfn-QxfS5TpPZ_EmdeS_hiWEfRCs_vz3Q-15ycXHgJeX9dWh2k1ZlWRx7YXAdZ1iEuMEf1qj7uHJITroaXIw5kZ5jbgXr496-IYHvBCRqJ7iv-thmUQ1a6UPmf8Ko29AO0hYClwdJMurCRn1RVi5hbXR6JJocT-t7ONcP3SnJlxtaBYXZjEAHvnD1DRHCW9rJBHD3fcNJBYiO2dHjzCdUKtL12IWLVp4DpDDgXVdlaz5m--eAyyM2ZZq1wpJGKXZX12jwINN-X2tO3Iwpp9skbFxv3j7vHRnKyy7mj6N2WzuzgckZ9_ep-O2Jt29RLAT7u9L_GEk8aPl1YhPmfvqs9MPqxhoQACjlA3zBj7oGxMuDEJUWW1GpwPOe8z5tf0LYpIiJ5X7j9UanwJCBXnIhCa7eNexyGHyW2RNePcQxPI96D4ovi4CvC6SMO98cJC_rZkWnW7SKP36XQYZNPtmd8uZhNw-lda6V6bzAqGilTxVvCPw8zFFrrFP9MFop37Ca04lwD8Zz1l9xxoUgQmdapoJ6zgHIuHGD5tRvkTJi_A6pzDYsQq29mYo87W7Qdrt8RALuxdvzErkUkZxTZCZPWUxnYpHeP4wtXVQMwOB19fzyG3S6ZCo7IiWynt1sN13WMpsTRznZAuV3pYd4Ouir3OgLHTvGx9S3DzKsF1uNEmTG3pZHCo7_NagHSf55gZ09LdPgtpPl69be0zO_uR5wWv0BZIaLhyp2bcrZbr-z6malT3e6Am7kPx_ScX5LEm7Mf2vsWNgIb2QovF9ToZYgMIZ2Z_4u1VYS-YFP5LG1xTHU-UQ_RsNvs-O1EA_fm_IswyuqXqzO9a_H1cESl0FoYlduWcp9_mqzFzS5a5o2tkPGaJqecJRJOBMcbFR1I50MTpCyxAqLmkRPgmHHykaV0awbG7ADYuQH92_79OrUwyjPMSAr8MMbFnrcfdv1ZaIOhQLlZxSUyU5gZa1N3n6-ONknmMXmN-o1LrmR8eKsRT66Wju4eGJy747EFM-P2CTc8qWR7XGZ2tRUIFAWP_-olKDYvwKp5hyTPW7EXOyXSi0AkWAnpAG_qt7ZTI9e98MAsC56_m7Hba3a6xZ8hFA5jFFhDHs89uOaH4axfQywWMQQI17yXnpLQH7fof4fnQfalrcb1pCoHp2QRZQEHPD9i-MreJ6RvWoVqLbJcAsHYcmZ7_dzbVEhMnsscqTSWDZKGEjHbTjRxg0IdNS_zYteTGwZ3xgIulIOQs1Z10L9cyojz-FRPALCtp1NCjXchYldbDf9QoHgea3j54D7YaIrEoEoNIou0Yz9coCF5alSoF1is3R1WRBL5_zHF8r6BP0lmP60GM2hQdMpTBy3e1jQ72vSVOBtLIIaRq0GJyxcKp_yHRAwZLFBfrEvmIHRDxrWl8IAA2-bjyYZckaMguoScBWbCUJFvt_Hqdvub7YXqqoBxKHtCZvmxxUUTP0NwwJ4SMwE8Ld21Udb6x2yQ5ubvc6D8YxLKh84SaT4MbdMmoIYfSNiY4JJKYxyDL-BBZumt5znQGuETNRySmv5H-eBWC4jDL-0N4W8P0G9lmeGyaL0H7GpUXslIRagJOg8HHJMZwrYEzXsvT6n1vMpn00svZhwvrV2G7yRGQ1cL86SaheLqslycfFsaN5QLxOgV6Uw492_H4JwQzcbj7HkQgeJoiwMbrTbwqWD3X_K0dDtgJC-R77oxdL_kQTRjnGok2VvtdlAN4qwBDgu-lGuDNlcb_9b2oU2ddd5zw4yqqycd96d8nJXufcTpIaM80zGjPPCd2k191cth-tPZ4EW-dGi2GUN9xns2ZzhtH_GRRzavjOKo0CoJeE-7Q_U0qiS0ApWcLSC_srZ6JTgw0h4rKTVRm_dpyGzGz22uPhgJbd9l0oXfhzQyWzlDp6sdPFLASCItvb8_wE5epecOQ8SHy5PFo4k1cqY_xZ0iRbEekwVMv0x_fgfObK3w7CDurjyobPUEvpl6DS_jR-3HcbxLkc3S6HbW_1-dtV-6Cps3haLq05q_c5A7bG-DdAjB_DamuK_luLKACHgBdL9Wx43_HDEz_uBjEuioBt4V0XDnAzUpTGuoIatMgmsyhZamfDbzGY8fN1umHwDA4meJYUgLHKjTnHYPji8YCpE2fMWA8AEnq6L72_TtyGPJ6HSHMMzrJ51pT1i9cFIvVO8vc9WxNR3Cl_bf3TPTgTvCxqwOk6GzSfaVHWouXxkThnyH1hPzDRF15BfO6x4qw4ds_tHXsrJ94QCxEJcHncnAjiPZkjCV5G5QEzQWp_tFGHUHnZfKG6rINuAoVEnYzFr0X-r2QfbtbrD09PbwmroCGWKx8WrPVw_vZQHzvU5pVbfdkZ9QZL88mOUbDU8GQZcPyWMeKTwnm2OfLHMw==",
+      "summary": []
+    },
+    {
+      "id": "msg_05a51a2b73ce3675016aec018166d887d28aca991a37ef1d38",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    @Test\n    public void testRule1() throws EncoderException {\n        Assert.assertEquals(\"MCAT\", fullNysiis.encode(\"MACAT\"));\n        Assert.assertEquals(\"NAT\", fullNysiis.encode(\"KNAT\"));\n        Assert.assertEquals(\"CAT\", fullNysiis.encode(\"KAT\"));\n        Assert.assertEquals(\"FAT\", fullNysiis.encode(\"PHAT\"));\n        Assert.assertEquals(\"FAT\", fullNysiis.encode(\"PFAT\"));\n        Assert.assertEquals(\"SAT\", fullNysiis.encode(\"SCHAT\"));\n\n        Assert.assertEquals(\"MC\", fullNysiis.encode(\"MAC\"));\n        Assert.assertEquals(\"N\", fullNysiis.encode(\"KN\"));\n        Assert.assertEquals(\"C\", fullNysiis.encode(\"K\"));\n        Assert.assertEquals(\"F\", fullNysiis.encode(\"PH\"));\n        Assert.assertEquals(\"F\", fullNysiis.encode(\"PF\"));\n        Assert.assertEquals(\"S\", fullNysiis.encode(\"SCH\"));\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 999,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 477,
+    "output_tokens_details": {
+      "reasoning_tokens": 264
+    },
+    "total_tokens": 1476
+  },
+  "user": null,
+  "metadata": {}
+}

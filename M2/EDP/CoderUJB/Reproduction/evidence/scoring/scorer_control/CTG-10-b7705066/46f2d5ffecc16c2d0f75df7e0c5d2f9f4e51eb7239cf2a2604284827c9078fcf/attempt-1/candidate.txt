@@ -1,0 +1,21 @@
+    @Test
+    public void testReflectionArrayAndObjectCycle() throws Exception {
+        final Object[] objects = new Object[1];
+        final SimpleReflectionTestFixture simple = new SimpleReflectionTestFixture(objects);
+        objects[0] = simple;
+        assertEquals(
+            this.toBaseString(objects)
+                + "[{"
+                + this.toBaseString(simple)
+                + "[o="
+                + this.toBaseString(objects)
+                + "]"
+                + "}]",
+            ToStringBuilder.reflectionToString(objects));
+        assertEquals(
+            this.toBaseString(simple)
+                + "[o={"
+                + this.toBaseString(simple)
+                + "}]",
+            ToStringBuilder.reflectionToString(simple));
+    }

@@ -2,6 +2,7 @@
 
 - [演示 PDF（32 页）](CoderUJB_Equipe6_FR.pdf)
 - [LaTeX Beamer 源码](CoderUJB_Equipe6_FR.tex)
+- [第五部分单独版（4 页，沿用总稿页码 24–27）](CoderUJB_Partie5_FR.pdf)
 
 ## 内容和版式
 
@@ -41,3 +42,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 ```
 
 也可将 `.tex` 上传到 Overleaf，选择 pdfLaTeX 编译。`make clean` 清理编译辅助文件。
+
+## 第五部分内容更新（2026-11-05）
+
+按用户提供的 `CoderUJB_Partie5_Slides17-20_Simplifiees.pdf` 更新第五部分四张正文，对应总稿第 24–27 页，采用简化后的标题、要点和结语。参考 PDF 已归档在上一层目录。采用现有统一的蓝色标题和白底版式，讲稿备注经核对与新要点一致。总稿仍为 32 页，逐页渲染比较确认变化仅在这四页。第五部分单独版保留总稿页码，供单独分享。

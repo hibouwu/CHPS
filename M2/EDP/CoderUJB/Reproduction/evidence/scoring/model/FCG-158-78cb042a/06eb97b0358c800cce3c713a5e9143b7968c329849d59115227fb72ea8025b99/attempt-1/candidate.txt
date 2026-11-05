@@ -1,0 +1,15 @@
+public Element getElementById(String id) {
+        if (id == null) {
+            return null;
+        }
+        if (id.equals(attr("id"))) {
+            return this;
+        }
+        for (Element child : children()) {
+            Element found = child.getElementById(id);
+            if (found != null) {
+                return found;
+            }
+        }
+        return null;
+    }

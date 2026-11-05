@@ -1,0 +1,7 @@
+public void testCheckSymbolsOverrideForQuiet() {
+  args.add("--warning_level=QUIET");
+  args.add("--jscomp_warning=checkVars");
+
+  // Explicitly enabling checkVars must override QUIET and report undefined foo.
+  test("foo = {};", "foo={};", VarCheck.UNDEFINED_VAR_ERROR);
+}

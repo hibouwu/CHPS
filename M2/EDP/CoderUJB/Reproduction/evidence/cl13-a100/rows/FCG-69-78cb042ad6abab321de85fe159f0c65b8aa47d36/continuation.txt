@@ -1,0 +1,30 @@
+
+        if (converter == null) {
+            return null;
+        }
+        checkAlterPeriodConverters();
+        return iPeriodConverters.remove(converter);
+    }
+
+// You are a professional Java programmer, please create a function named `removeIntervalConverter` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Removes a converter from the set of converters. If the converter was
+     * not in the set, no changes are made.
+     * 
+     * @param converter  the converter to remove, null ignored
+     * @return replaced converter, or null
+     */
+    public IntervalConverter removeIntervalConverter(IntervalConverter converter)
+            throws SecurityException {
+        if (converter == null) {
+            return null;
+        }
+        checkAlterIntervalConverters();
+        return iIntervalConverters.remove(converter);
+    }
+
+// You are a professional Java programmer, please create a function named `removePartialConverter` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+    

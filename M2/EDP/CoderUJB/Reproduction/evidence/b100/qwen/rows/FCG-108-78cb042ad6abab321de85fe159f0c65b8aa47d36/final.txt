@@ -1,0 +1,20 @@
+```java
+  /**
+   * Returns the {@link com.google.gson.stream.JsonToken#BOOLEAN boolean} value of the next token,
+   * consuming it.
+   *
+   * @throws IllegalStateException if the next token is not a boolean or if
+   *     this reader is closed.
+   */
+  public boolean nextBoolean() throws IOException {
+    int p = doPeek();
+    if (p == PEEKED_TRUE) {
+      peeked = PEEKED_NONE;
+      return true;
+    } else if (p == PEEKED_FALSE) {
+      peeked = PEEKED_NONE;
+      return false;
+    }
+    throw new IllegalStateException("Expected BOOLEAN but was " + peek() + locationString());
+  }
+```

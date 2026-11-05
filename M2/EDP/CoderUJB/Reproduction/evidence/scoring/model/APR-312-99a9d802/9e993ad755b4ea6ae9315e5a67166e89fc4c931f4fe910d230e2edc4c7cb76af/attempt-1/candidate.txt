@@ -1,0 +1,54 @@
+public static long parseOctal(final byte[] buffer,
+                                  final int offset,
+                                  final int length) {
+        // ----- argument sanity checks ---------------------------------------
+        if (buffer == null) {
+            throw new NullPointerException("buffer");
+        }
+        if (offset < 0 || length < 2 || offset + length > buffer.length) {
+            throw new IllegalArgumentException(
+                "Invalid offset/length: offset=" + offset + ", length=" + length);
+        }
+
+        long result = 0L;
+        boolean digitSeen = false;          // have we started to read digits?
+        boolean terminated = false;         // have we seen the required space/NUL?
+        final int end = offset + length;
+
+        for (int i = offset; i < end; i++) {
+            final byte b = buffer[i];
+
+            // ----- NUL or space terminates the field -----------------------
+            if (b == 0 || b == ' ') {
+                terminated = true;
+                break;                      // stop parsing – we have the terminator
+            }
+
+            // ----- ignore leading spaces only --------------------------------
+            if (!digitSeen && b == ' ') {
+                continue;                   // still in leading‑padding area
+            }
+
+            // ----- now we expect an octal digit (0‑7) -----------------------
+            if (b < '0' || b > '7') {
+                // use the *current* index for a helpful message
+                throw new IllegalArgumentException(
+                    exceptionMessage(buffer, offset, length, i, b));
+            }
+
+            digitSeen = true;
+            result = (result << 3) + (b - '0');   // shift‑left‑by‑3 == multiply by 8
+        }
+
+        // ----- we must have seen a terminating space or NUL -----------------
+        if (!terminated) {
+            throw new IllegalArgumentException(
+                "Missing trailing NUL or space in octal field (offset=" + offset
+                + ", length=" + length + ')');
+        }
+
+        // If the field consisted only of padding (spaces) the result stays 0.
+        // The “all‑NULs” case is already handled because the first byte
+        // would have been a NUL, causing the loop to break immediately.
+        return result;
+    }

@@ -1,0 +1,29 @@
+```java
+    private Token parseSimpleToken(final Token token, int ch) throws IOException {
+        final StringBuilder value = new StringBuilder();
+        while (ch != END_OF_STREAM) {
+            if (isEndOfLine(ch)) {
+                token.type = EORECORD;
+                break;
+            } else if (isDelimiter(ch)) {
+                token.type = TOKEN;
+                break;
+            } else if (isEscape(ch)) {
+                ch = readEscape();
+                if (ch == END_OF_STREAM) {
+                    token.type = EOF;
+                    break;
+                }
+                value.append((char) ch);
+            } else {
+                value.append((char) ch);
+            }
+            ch = reader.read();
+        }
+        if (ch == END_OF_STREAM) {
+            token.type = EOF;
+        }
+        token.content = value.toString();
+        return token;
+    }
+```

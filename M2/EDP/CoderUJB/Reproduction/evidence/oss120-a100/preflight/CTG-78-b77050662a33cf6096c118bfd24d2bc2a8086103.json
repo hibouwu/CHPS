@@ -1,0 +1,16 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 78,
+  "task_id": "9cca185a22be26faf343d59c734f865f78f3897e6a397fccf723778d00fce0d8",
+  "project": "Compress",
+  "bug_id": 47,
+  "chat_sha256": "f28ba1ea0c263f61dee09b6d42c1ff83f4a31eed8d87d5865eb35f0ff9ebd015",
+  "complete_sha256": "de71f7ce40e26fb06da42ef64c5467605e173b033e391b049da222a2997a0bc7",
+  "checked_at": "2026-11-05T02:54:40.854250+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/CTG-78-b7705066/ac313fa06634323d5f8c42927b4a3f8ad65696e25f733929c16fc2f57d4da78c/attempt-1/result.json"
+}

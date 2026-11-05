@@ -1,0 +1,119 @@
+**Test case – `testReflectionArrayAndObjectCycle`**
+
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
+/**
+ * Test a nasty combination of arrays and Objects pointing to each other.
+ * <p>
+ * The structure created is:
+ *
+ * <pre>
+ * objects[0] ──► SimpleReflectionTestFixture
+ *                     │
+ *                     └─► o (field) ──► objects
+ * </pre>
+ *
+ * The {@link ToStringBuilder} must detect the circular reference and replace it
+ * with the cycle placeholder (“&lt;...&gt;”) instead of recursing forever.
+ *
+ * @throws Exception if anything unexpected happens
+ */
+public class ToStringBuilderTest {
+
+    // -----------------------------------------------------------------------
+    //  Helper fixture used by the test (the real class lives in the same file)
+    // -----------------------------------------------------------------------
+    // The fixture is defined later in the source file – it simply stores an
+    // Object reference and its {@code toString()} delegates to
+    // {@link ToStringBuilder#reflectionToString(Object)}.
+    // -----------------------------------------------------------------------
+
+    @Test
+    public void testReflectionArrayAndObjectCycle() throws Exception {
+        /* --------------------------------------------------------------
+         * 1️⃣  Build the cyclic data structure
+         *
+         *    Object[] objects  →  [ fixture ]
+         *    SimpleReflectionTestFixture fixture → field “o” points back to objects
+         * -------------------------------------------------------------- */
+        Object[] objects = new Object[1];                     // the array part of the cycle
+        SimpleReflectionTestFixture fixture = new SimpleReflectionTestFixture(objects);
+        objects[0] = fixture;                                 // close the loop
+
+        /* --------------------------------------------------------------
+         * 2️⃣  Invoke the reflection based toString on the *array*.
+         *
+         *    The call must **not** throw a StackOverflowError – the
+         *    ToStringBuilder keeps a thread‑local registry of visited objects
+         *    and substitutes a placeholder when a cycle is found.
+         * -------------------------------------------------------------- */
+        String result = ToStringBuilder.reflectionToString(objects, ToStringStyle.DEFAULT_STYLE);
+
+        /* --------------------------------------------------------------
+         * 3️⃣  Basic sanity checks
+         * -------------------------------------------------------------- */
+        assertNotNull("Result must not be null", result);
+        // The output must contain the class name of the fixture
+        assertTrue("Result should contain the fixture class name",
+                result.contains(SimpleReflectionTestFixture.class.getSimpleName()));
+        // The output must contain the array type name
+        assertTrue("Result should contain the array type name",
+                result.contains("Object[]"));
+        // The cycle placeholder (“<...>”) must appear exactly once – once for the
+        // back‑reference from the fixture to the array.
+        assertTrue("Result must contain the cycle placeholder \"<...>\"",
+                result.contains("<...>"));
+    }
+
+    // -----------------------------------------------------------------------
+    //  The fixture classes used by the test suite (normally they are already
+    //  present in the source file you supplied – they are reproduced here only
+    //  for completeness of this isolated example).
+    // -----------------------------------------------------------------------
+
+    /**
+     * Simple fixture that stores a single {@code Object} reference.
+     * Its {@code toString()} delegates to {@link ToStringBuilder#reflectionToString(Object)}.
+     */
+    public static class SimpleReflectionTestFixture {
+        private final Object o;
+
+        public SimpleReflectionTestFixture() {
+            this.o = null;
+        }
+
+        public SimpleReflectionTestFixture(final Object o) {
+            this.o = o;
+        }
+
+        @Override
+        public String toString() {
+            // Use reflection style so that the field “o” is printed.
+            return ToStringBuilder.reflectionToString(this);
+        }
+    }
+}
+```
+
+### What the test does
+
+1. **Creates a cyclic structure**  
+   * An `Object[]` of length 1 is allocated.  
+   * A `SimpleReflectionTestFixture` is instantiated with the array as its field `o`.  
+   * The array’s sole element is set to the fixture, completing the cycle.
+
+2. **Calls** `ToStringBuilder.reflectionToString` **on the array**.  
+   The `ToStringBuilder` maintains a thread‑local registry of visited objects; when it encounters the same instance again it inserts the placeholder `"<...>"` instead of recursing.
+
+3. **Asserts**  
+   * The result is non‑null.  
+   * The string contains the fixture’s class name and the array type name (ensuring the reflection actually traversed both objects).  
+   * The cycle placeholder `"<...>"` appears, proving that the circular reference was detected and safely handled.
+
+If the implementation of `ToStringBuilder` were broken (e.g., missing cycle detection), this test would either throw a `StackOverflowError` or produce a string without the `"<...>"` marker, causing the assertions to fail. This makes the test a reliable guard against regressions in the cycle‑handling logic.

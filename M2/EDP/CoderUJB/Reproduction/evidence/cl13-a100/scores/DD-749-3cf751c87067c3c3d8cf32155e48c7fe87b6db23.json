@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 749,
+  "project": "Jsoup",
+  "bug_id": "19",
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "387a6b4a1a124418dea7a39f4bac200a20e13709c2108583305a4bb336ef69f9",
+  "input_sha256": "6feb3e7eec57780481857539f4942db21c5a67d97a089a84b2a9cafdfd788471",
+  "input_tokens": 1064,
+  "full_input_tokens": 1064,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-749-3cf751c8/1185c62550be2dbce1cb9942141c00e40c31df4b95c88225eec9b4dc73f49ff0/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

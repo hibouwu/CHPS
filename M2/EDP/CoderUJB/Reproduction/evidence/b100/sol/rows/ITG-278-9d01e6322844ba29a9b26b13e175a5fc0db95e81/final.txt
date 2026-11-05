@@ -1,0 +1,13 @@
+    @Test
+    public void shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine() {
+        java.util.List<String> mock = org.mockito.Mockito.mock(java.util.List.class);
+        java.util.List<String> otherMock = org.mockito.Mockito.mock(java.util.List.class);
+        org.mockito.Mockito.when(otherMock.get(0)).thenReturn("value");
+
+        mock.add("value");
+
+        org.mockito.Mockito.verify(mock).add(otherMock.get(0));
+
+        org.mockito.Mockito.verify(otherMock).get(0);
+        org.mockito.Mockito.verifyNoMoreInteractions(mock, otherMock);
+    }

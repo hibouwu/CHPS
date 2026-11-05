@@ -1,0 +1,31 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```markdown
+## Issue-ID: JacksonDatabind-810
+
+## Issue-Title: 
+Force value coercion for java.util.Properties, so that values are Strings
+
+## Issue-Description: 
+Currently there is no custom handling for `java.util.Properties`, and although it is possible to use it (since it really is a `Map` under the hood), results are only good if values are already `String`s.  
+
+The problem here is that `Properties` is actually declared as `Map<String,Object>`, probably due to backwards-compatibility constraints.
+
+
+But Jackson should know better: perhaps by `TypeFactory` tweaking parameterizations a bit?
+
+
+
+
+```
+
+You are a professional Java test case writer, please create a test case named `testMapToProperties` for the issue `JacksonDatabind-810`, utilizing the provided issue report information and the following function signature.
+
+```java
+    public void testMapToProperties() throws Exception {
+
+```<|im_end|>
+<|im_start|>assistant

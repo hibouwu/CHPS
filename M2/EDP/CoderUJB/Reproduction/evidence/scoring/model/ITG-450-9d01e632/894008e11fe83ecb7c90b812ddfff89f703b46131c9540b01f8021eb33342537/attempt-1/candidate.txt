@@ -1,0 +1,14 @@
+@Test
+public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {
+        // Given
+        List<String> mockList = mock(List.class);
+        ArgumentCaptor<String> argument = ArgumentCaptor.forClass(String.class);
+
+        // When
+        mockList.add("element1");
+        mockList.add("element2", "extraArg");
+
+        // Then
+        verify(mockList, times(1)).add(argument.capture());
+        assertEquals("element1", argument.getValue());
+    }

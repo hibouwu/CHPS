@@ -1,0 +1,5 @@
+    /**
+     * Write an long integer into a buffer as an octal string if this
+     * will fit, or as a binary number otherwise.
+     * 
+     * Uses {@link #formatUnsignedOctalString}

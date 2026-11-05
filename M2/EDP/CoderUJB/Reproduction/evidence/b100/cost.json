@@ -1,0 +1,14 @@
+{
+  "stage": "sol-b100",
+  "formal_requests": 100,
+  "responses": 100,
+  "standard_estimate_usd": 0.5590405,
+  "conservative_usd": 0.6312350000000001,
+  "uncertain": [],
+  "unknown_billing_reserve": 0,
+  "worst_case_usd": 4.731661,
+  "inputs": 82204,
+  "outputs": 36834,
+  "reasoning": 16258,
+  "cache_writes": 52585
+}

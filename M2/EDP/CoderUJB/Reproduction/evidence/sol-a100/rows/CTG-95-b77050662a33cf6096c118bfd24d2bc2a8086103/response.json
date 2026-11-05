@@ -1,0 +1,105 @@
+{
+  "id": "resp_0c7a85e66b364815016aebfacb8cec87d2b2173aa89438da7d",
+  "object": "response",
+  "created_at": 1793850059,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850071,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0c7a85e66b364815016aebfacc802487d2a5fae0f6552607d8",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_rXjzqYt1LIzkh5jl4dZfZpXL1jaqqW8mRtXA9sN2PStZ85lHGVGJxaLP-fB-KVwBsEtO5VUtaSdlyyuT4BmO-mcKhYI4La1INmIZwiT25Y2tpuec6cNQzGhT4Yj-cXiTIzX8MMylbGfBPWFUvjiELCpxJfj5LMB04aJGfYW-O6E3_cV44mXrfSDIcKPqqn8T-6UHqh0rhOyeBvopG-Q11XrYkGU_9LjREtxLdN32ldnK_H2HQyRqAPhvdN3vxb7u6vjNwR0wr9T44Vzd6As2a5dGLDyqbuIrHfK9gFhTQGqF2DHjsBeVG6Gv-SlxU9dOItKl3MZCLlessjsOxPbcUCf-3gFRlvPNkxNRMBKUHIMM236OThpFDNh7fTmqIp_oq04y4sENwkvza5lKd5V-D46P4DN9rqooVSoy6I2-I-zgoFIU3AWY_kcx9hlLO1MyZcV_0cUrpwBEYjFimKxsAkUXKnH9c0AjA9hJ64uS9X4lhjAfAd7Ndvk1yUaNK-PGO_4vLYWghg13pgfstqj2yh6KtO8CtIiuEj_zyd-eiZabdnTCCvyKJ76-ozfyzXZvn9v5kmCg7l3Yg6HzuUoHoCG8BhTqPb6LVvebv4P0VqLM9nsigh0fOrQv3_yoFYm29skx6AI8jr6sODxEghgMJYt6JgwueGN7NY9HjnHutGzgYLzkyODxcYTxzjKB_IyEk1S1PdQh0uNObNMwquGCy4KApHq7-tUDXzJMdztCO-hJN1BFgYQcXhAClzs3a3Onc0Pcn5Glcq0eABOkl-WCy0W-FcuHKSwa0Eua8Pm2I88L2ksY9QdLAcy7Nm_bXz6wgQLshknA_Yh0WhCMcXi3EpRGgsow08R14QBIaZUu8DaCb7a5VZbbdlqbwxj6NLwPUCK1rEOGgEJljEi6JDpzWFBgyuJAR1jq6OgZjSIBR57gh-9PtItL544E5P7Qju2wcWappr9pS74xtIVv5BQO1jIJ1tFje02DqD4KahyduDZtzZKjohNIoQ6BNrWDESfoHpqQm4XhgsXvGvo3r8OEcBteEPpNsmd6fmNIa5r21dYnW18siE2l1a9PGkmKrD7kk8DOXrMxzP96mTTm6RdUBTJLuWIr9YkCrdNd-c1fdSyYjUFtgSEBkimZj693UY0SImZHZyd1kEp4cu3ac00TQarfF8LUYxgwM9_17Wx8CoJ1EdPi8_Cgo_-TGmPpUsR1LZyVTfHMCVMGU03D3wded48t7gKd7_5wdSzBZjdh21NGwnMZXuy5fq5SULE3zKU48WLiQVUZO4OFM94AFoMVC93qjSFdpg5nsJ6jB_gIAhZMtfFYjfiYEC4_SNzHUzTLrGatIS4jE5490_qNVKDHCrSJk5veIjpVY2DHGr5SOfmKk2K1CqE9GIWyvDNsFYTEqT8M3aIF9-Dn_d3CJG5CtxdTLJzyDzCF6u5_aGwXstkKj7Hk_mlOkpkMf0ucWCj5ThMmXJtrpDGaAudAW7kvcGSP0Cc0_TMMIsMFZ-xqgyU3Jp6dWvE4x7Vje_kF0UcGUzkkkgnyRlV2difeJYlyfNRpm2gLw2GJb9DcseK_RmTu00NxXaOdGsm25WeSw8nHD1orejLmQByC_TILbQVhkT-ckttIa2uEzHYQZI8hXn426F__sdMiKEqAxLyJNZgwRXKWLHZPtht7LQPb9pe-WdH41vEFkwm8NYcMaOnsJIaF47wkvSlYR0lnhENu1Z1R7p8m22yMjPIMUeHolHAbyoMKLUt8hgYcAtLKy3PuDxbGWYce58msBih9gU_rMLDC65rSgzRrnzkIYBWQOwkMYuslcLKa75gMTgFD8De6JnMIMONxuK0AaKIude-B5DLFCQfnmYLnLP7O7AtYnUB9Qyp4Z1xpzaQk_iiucLWw2xbaYdZnVlQ2bXCapgNkgrSFC_C07Mu7EHEdf9ISASBdRN9WhG2M7KpQqxtVSY-SdZrkrSsRLe0qi2sCEH3ExkaNK5l1tarU3AF73KauQo3PJCYILwjhso8XOpqkThkHDoTHYDbX0zVTxsEAmXJsfGUtll_eU6BGxxQwz1AAO2TJ9Hmmjxu0v0dneMMDf-sXIGaYRxJ9iCvXZvh4IGQrMnJuCmWTumVAHC_KOyY7hQ88cbSeSxBrv_QtXvzpdVB5xQj3Ti-6jW-Kf2OgFDRaI23f90WN7S_oHNtjNyGtLHVDCYEk9h8JIhggU1JfH8c9-lbyh-gsbWCIsXrTnTtGIliEZnhOAxSRQnFr-iLHGyZyfXklkiwi9Fx8eGZ-Lz_puQw-xwZfZpsf-DC7dVLvly1pOdAreKPZD8TR8sasE-01CgMg0FKfH3SS_R_cW73T4sVS4Jew0lx0-0yjzN2XFbsBcArvPrcjT50HZEBd3RJphCAAkuhQqbiCKP92yMxOh5omg-Vd3qz9KJg-9v9YMfti5k7kCD040xJRMIdb_pBm9h5WamHygfY8Dbn0rYOCTru7u-qJRvo3FWIv_WCUQWHd4SuAJJF9qDo1K1K98z4b2w6oriLeN5o995uGwaLQJ41I1xGBc9UB7kXJsYitL2fIJ5iMtfBA5evJ4pfNVWSHsZ1jtZTk85ND_HnZuac610JsuG3-QtWxbhKY6IBcS3FkEkwoFRFJskscnVg8vQiUBrFufDSDtNZdSVBNBM8tkZ1c7BBWBBantRGBAgSeSYIOAsC1f-f83a9lwbX-E4CHAoKgEAdjsrXoSMG07jG-4S78eVDg-pfgE4svyYYZiI-5FtwjWUNDneIXsbtJpSo3gt2xXTrGZYX64rgLlWzjpXi8XBvM0NC48Qf9XW-sY_GFByQ6n7ht85UTxvMG9NFX8I0xScJsonoXTdk8epJnIekMAnnnv1hxAPfrNwLrP1y4JRF_odfSrlNMNtOfzkVgS4DzQEPOMNswCEz1XbGuItJm_mPYWcmMR8NnLkqpMG2XJV1RXiau4r7SZtjlO_q1G3t7zLoWiMTOjsmtel0q-KlaUp3hgeKv-15eAzBbqCy5Smz2mi3J9VNhNjrjseOwhkzwZ9qwzwJKsmAFKgtiZrX84IOiCDCGvhp37WkoOmoqy0S-4dMHM22LXh10UHjIeJJYrdPYgwz1fIcrstlPmpRsj-zU76Q-ht9w8M-WN5DJmTNIZECNk_R7Y1oWCO5OHzrTaQzFMNzgJZ8o10bN7Dl2CUhws_nj8kVyp4rlxLX4HZvUv0uzPop9oEU7QKXB2gQFCTXYAK_6AiDr5C8v1wAiRNTYdnD4Izj-kbRmxQynSyT1ndxt6YTl3W0CIvEUh_wVgAMOI0KRgA8YhrMk8hnxPkq_2jNpBs8IhPg-y0kFf7XafXDL0kpxyvIaLuO2DFN0JUknVt76myVvTcK2cm0YFkxGGOTEX9SK9nsa-MkXl8rLzhauVpFrSOYLe6ROCbhxNq1zI3CO9xbqGqOFG4OqSa5MvXoTi9nA-kKtQDzn51AJyFBPAzF4uS1GP-X4dHpsbZU74vT6oma1qLZbrbXCChQCxNhTH3M7k_BEFi_-XYpbUqXrt2_XeOFo4tCiOW-L52p0x9dO7cBhHflu8EqyF2C7PuzJNlGlag39d-YziPqjRcZab2J4Z8HM8iJ2dpglThXZLA5pLuo1Ij3N20ZYyd-SWATUCttrht4xEpliyHNTA813T2fOkvmj7O1u_HV9HYRGLlEPaWUhiAiQZexgRmGrYpjqxe1ltDskuFpnvsO54rleDneSkJc4M5RRWecXZ0TlJozcqz_Qu2rS22_7acGwYbUhMfzmOTzJjp9-dtI5kdRuTJMB_J7G9sy1_Jp5gv0KCg5t6JTMnxr-8s4YUFIzLNdnh157L7NiDxz400PDlg4eDVRPQrt3xNOI0M0fSvUGQyKLCCQAnarKN9kEbl7bVhfgAElzocKmyHbeXBQihjAizbF2LC_TmdIraIcfVaDVuaioE7vcdLMi6Mynf07A8zZVEf7doCJ8-Gy7aKW32rx3N8x-SB2-otSkfF1TmfVYxNfiS-mZp_kqmGRC88wO0yH0WVxFhIHIpKvvMiJ75pV3PfEnEP75WuLDS5ZfiUXxnXkrXO7fXX8oskhYNB-a71uq6QpgESWnSzW_KjgUpznokRwyaAwZPoibNhZMELY8jbHWSqBBegn_pj0pe70TIOT0pfPyKCBGjN-Vrr-JDMY1J8N_4nmLKwDfa5fd4x5VZ2r6SrVcwPAXkU3rfV1uG9GNR15FjwT9wrHYkX7yqJFBDcdLO56CkXNkRwkrHy2-v4XPehS3FEabnyc9XAGGiF2031Hr5ZqZySYwdcWy51UUbXjRCXp36qOyHcPhVR1dxV2UNT6MVRetIAa04MkUqgbjjLjzK8t7VhEoAUNVn9vgCj6fjDxoHnLLgxeUGB2Wcn9p-bLjZo1o0dOgjDdU1RcnLKJy5F6LSmqHp1j0ehUziJvQNw2smslT2SLLGk-MOB-FeJzLpBGVtWNw7jhwCFKD0YWj5cVKVYPSegJ6fIT4nZjipZkXAT59ZnxuWWQcZRoq1QyGJDjUnCsCjFIUcSwnJLxR7xuM4-d6cmXEcco4B8NyyXDLzC_ReLu30Yyff1u9ArctpbK4tJBj8zNoSKHm9w8El5-bf8UIol17siHyXJu1xSy5mMEUKUm3ZBmRcwfONRaC3ip1peUgLd1Ta5UxgHwv8XEywZadasCALVZtkf5-3VyhpwoyyHJwX1V0pjDr7UHsQ1biBZuw-OlWSdjYhJ_pY1NtIVW1pZLGU_V1kWbGMhafqaDwVEJWWKb_6JW-cZI7vePAmBF511E6p37580aUZtXhtubHekrbhxChnNP4SosWDGuzf6xJkSUfuyNBIc2CEhn_LJaiAzc_hOdu5HGPYUo7VIqRqE",
+      "summary": []
+    },
+    {
+      "id": "msg_0c7a85e66b364815016aebfad604d087d29a9718f060bd1da2",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n/**\n * Tests examples adapted from Caverphone version 2.0.\n *\n * @throws EncoderException if encoding fails\n */\n@Test\npublic void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {\n    final String[] words = {\n        \"add\", \"aid\", \"at\", \"art\", \"eat\", \"earth\", \"head\", \"hit\",\n        \"hot\", \"hold\", \"hard\", \"heart\", \"it\", \"out\", \"old\"\n    };\n\n    for (final String word : words) {\n        Assert.assertEquals(\n            \"Unexpected Caverphone1 encoding for: \" + word,\n            \"AT1111\",\n            getStringEncoder().encode(word)\n        );\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 388,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 498,
+    "output_tokens_details": {
+      "reasoning_tokens": 338
+    },
+    "total_tokens": 886
+  },
+  "user": null,
+  "metadata": {}
+}

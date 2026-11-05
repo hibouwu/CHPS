@@ -1,0 +1,10 @@
+@Test
+public void testHWRuleEx3() throws EncoderException {
+        Soundex soundex = new Soundex();
+        String codeWithW = soundex.soundex("BWB");
+        String codeWithH = soundex.soundex("BHB");
+        String codeSimple = soundex.soundex("BB");
+        Assert.assertEquals("B100", codeWithW);
+        Assert.assertEquals(codeWithW, codeWithH);
+        Assert.assertEquals(codeWithW, codeSimple);
+    }

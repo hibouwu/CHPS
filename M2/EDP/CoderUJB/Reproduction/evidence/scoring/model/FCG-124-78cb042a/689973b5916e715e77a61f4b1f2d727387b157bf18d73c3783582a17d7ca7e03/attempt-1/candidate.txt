@@ -1,0 +1,17 @@
+    public long readBits(final int count) throws IOException {
+        if (count < 1 || count > 63) {
+            throw new IllegalArgumentException("count must be between 1 and 63");
+        }
+
+        if (count > bitsCachedSize) {
+            if (!ensureCache(count)) {
+                return -1;
+            }
+        }
+
+        final int shift = bitsCachedSize - count;
+        final long result = bitsCached >>> shift;
+        bitsCached = bitsCached & MASKS[shift];
+        bitsCachedSize = shift;
+        return result;
+    }

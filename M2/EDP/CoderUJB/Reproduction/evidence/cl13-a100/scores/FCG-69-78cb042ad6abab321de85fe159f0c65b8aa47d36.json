@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 69,
+  "project": "Time",
+  "bug_id": 1,
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-69-78cb042a/9cba79b1e624c10ecd5a876f1f388b43f387fb1fb4682bfd1d2b49c42bf83cd7/attempt-1/result.json",
+  "raw_sha256": "b0d718bf7f8c51506a06704e01129f9dd25cff0614ed0b16e73d6cee2309a2db",
+  "input_sha256": "a5ef78319076252db3d642e2fe1f56fdcca5c730548f3e81ce81be91bb8f69ab",
+  "input_tokens": 739,
+  "full_input_tokens": 739,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-69-78cb042a/a8dfae13c202166836013e4e7b6fbba460606b0641febe80d4c1bd868629b68c/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-69-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

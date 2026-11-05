@@ -1,0 +1,19 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 312,
+  "batch": "b04",
+  "status": "fail",
+  "reason": "target test failed",
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": null,
+  "result": "evidence/scoring/model/APR-312-99a9d802/9e993ad755b4ea6ae9315e5a67166e89fc4c931f4fe910d230e2edc4c7cb76af/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 2874,
+    "prompt_tokens": 809,
+    "total_tokens": 3683
+  },
+  "final_sha256": "8bd323a6db57c2efcdb43d9433c9b6a7aa6e176101b4aff8abef5f69f22a1a98"
+}

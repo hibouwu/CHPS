@@ -1,0 +1,8 @@
+    protected JsonGenerator _createUTF8Generator(OutputStream out, IOContext ctxt) throws IOException {
+        // Apply any output decorator that may have been configured
+        OutputStream decoratedOut = _decorate(out, ctxt);
+        // Create a Writer that uses UTF-8 encoding for the underlying stream
+        Writer writer = _createWriter(decoratedOut, JsonEncoding.UTF8, ctxt);
+        // Delegate to the generic generator creation method that works with a Writer
+        return _createGenerator(writer, ctxt);
+    }

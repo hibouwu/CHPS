@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 237,
+  "project": "Collections",
+  "bug_id": "26",
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-237-99a9d802/226d0f933e77d28fbabd8f4ac5e18283b431404d6c13cfd1c2fca97d358baab9/attempt-1/result.json",
+  "raw_sha256": "d6ea5ff4ed6afd1a6d788ecd47aef96f288af5a9c385edd7f56c52232776db00",
+  "input_sha256": "49d4d5bfd7b8df4b042b49abe608404fb32870c8b40bebc6f1a6cfdeb83b42bf",
+  "input_tokens": 531,
+  "full_input_tokens": 531,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-237-99a9d802/465f71ccc7c135a4c09ece07bc446108569cb79b929dc7a7f8307ec4223744e4/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-237-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

@@ -1,0 +1,36 @@
+```java
+  /**
+   * Tests:
+   *  -Parsing of comments,
+   *  -Parsing of different styles of quotes,
+   *  -Parsing of empty arrays,
+   *  -Parsing of non-empty arrays,
+   *  -Correct recording of what was parsed.
+   */
+  public void testGoodParse() {
+    String fileContent = 
+        "// This is a comment\n" +
+        "goog.addDependency('file1.js', ['namespace1'], ['namespace2']);\n" +
+        "goog.addDependency(\"file2.js\", [], [\"namespace3\"]);\n" +
+        "goog.addDependency(`file3.js`, [`namespace4`], [`namespace5`, `namespace6`]);";
+
+    List<DependencyInfo> result = parser.parseFile(SRC_PATH, fileContent);
+
+    assertEquals(3, result.size());
+
+    DependencyInfo info1 = result.get(0);
+    assertEquals("file1.js", info1.getPathRelativeToClosureBase());
+    assertEquals(ImmutableList.of("namespace1"), info1.getProvides());
+    assertEquals(ImmutableList.of("namespace2"), info1.getRequires());
+
+    DependencyInfo info2 = result.get(1);
+    assertEquals("file2.js", info2.getPathRelativeToClosureBase());
+    assertEquals(EMPTY, info2.getProvides());
+    assertEquals(ImmutableList.of("namespace3"), info2.getRequires());
+
+    DependencyInfo info3 = result.get(2);
+    assertEquals("file3.js", info3.getPathRelativeToClosureBase());
+    assertEquals(ImmutableList.of("namespace4"), info3.getProvides());
+    assertEquals(ImmutableList.of("namespace5", "namespace6"), info3.getRequires());
+  }
+```

@@ -1,0 +1,2 @@
+  /**
+   * Encodes {@code value}

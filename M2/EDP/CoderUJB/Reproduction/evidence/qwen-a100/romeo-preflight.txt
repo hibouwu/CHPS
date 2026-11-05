@@ -1,0 +1,11 @@
+JOBID STATE TIME NODELIST(REASON)
+romeo-a030 820802 gpu:h100:4 idle
+romeo-a032 820802 gpu:h100:4 idle
+romeo-a033 820802 gpu:h100:4 idle
+romeo-a034 820802 gpu:h100:4 idle
+romeo-a035 820802 gpu:h100:4 idle
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             GB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+gpfs       home       USR              11         15         20          0     none |    91295 1000000  1500000        0     none romeo.romeo.univ-reims.fr
+gpfs       scratch    USR              11         15         20          0     none |   123927 1000000  1500000        0     none romeo.romeo.univ-reims.fr
+gpfs       projet     USR              22          0          0          0     none |   176330       0        0        0     none romeo.romeo.univ-reims.fr

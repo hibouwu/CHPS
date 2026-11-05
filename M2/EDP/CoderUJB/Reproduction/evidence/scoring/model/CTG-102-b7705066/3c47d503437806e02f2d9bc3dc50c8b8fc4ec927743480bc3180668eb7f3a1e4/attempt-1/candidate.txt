@@ -1,0 +1,31 @@
+@Test
+public void testRule1() throws EncoderException {
+        // input → expected prefix after rule‑1 processing
+        final String[][] cases = {
+                // MAC → MCC
+                {"MACDONALD", "MCC"},
+                // KN → N
+                {"KNIGHT",    "N"},
+                // K → C
+                {"KELLY",     "C"},
+                // PH → FF
+                {"PHILIP",    "FF"},
+                // PF → FF
+                {"PFISTER",   "FF"},
+                // SCH → SSS
+                {"SCHAEFER",  "SSS"}
+        };
+
+        for (final String[] test : cases) {
+            final String input          = test[0];
+            final String expectedPrefix = test[1];
+
+            final String encoded = fullNysiis.encode(input);
+
+            Assert.assertTrue(
+                    String.format(
+                            "Encoding of \"%s\" should start with \"%s\" (got \"%s\")",
+                            input, expectedPrefix, encoded),
+                    encoded.startsWith(expectedPrefix));
+        }
+    }

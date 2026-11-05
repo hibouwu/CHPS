@@ -1,0 +1,6 @@
+    public void testGenericSignature1195() throws Exception {
+        final ObjectMapper mapper = new ObjectMapper();
+        final JavaType type = mapper.getTypeFactory().constructParametricType(AtomicReference.class, String.class);
+        final String signature = type.getGenericSignature();
+        assertEquals("()Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;", signature);
+    }

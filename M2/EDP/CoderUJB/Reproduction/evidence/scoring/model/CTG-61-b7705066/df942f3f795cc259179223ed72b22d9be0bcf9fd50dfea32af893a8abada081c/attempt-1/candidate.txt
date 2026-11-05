@@ -1,0 +1,13 @@
+    @Test
+    public void testHWRuleEx3() throws EncoderException {
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Sound

@@ -1,0 +1,11 @@
+@Test
+public void shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine() {
+        List<String> mock = mock(List.class);
+        List<String> otherMock = mock(List.class);
+        when(otherMock.get(0)).thenReturn("value");
+
+        mock.add("value");
+
+        // The intervening call must not consume verification intended for mock.
+        verify(mock).add(otherMock.get(0));
+    }

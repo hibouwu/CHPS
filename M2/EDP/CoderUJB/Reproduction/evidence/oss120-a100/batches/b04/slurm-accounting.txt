@@ -1,0 +1,4 @@
+JobID|State|ExitCode|Elapsed|AllocTRES|MaxRSS
+817609|COMPLETED|0:0|00:05:28|billing=8,cpu=8,gres/gpu=1,mem=160G,node=1|
+817609.batch|COMPLETED|0:0|00:05:28|cpu=8,gres/gpu=1,mem=160G,node=1|3514176K
+817609.extern|COMPLETED|0:0|00:05:28|billing=8,cpu=8,gres/gpu=1,mem=160G,node=1|0

@@ -1,0 +1,105 @@
+{
+  "id": "resp_071bb54c6f7fbd79016aebfb4fe63487d2bc46fce21c5c066a",
+  "object": "response",
+  "created_at": 1793850191,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850202,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_071bb54c6f7fbd79016aebfb5128b887d2977d4d58faef76b1",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_taUsCmUFdjMCU0lKLfi4hhC7fEPhst8xapfNDtV1VcR8MbSbW0OnW8y6RBT2fTZWJtTvLQouw7FxYd3C-3v8zjVTAd9CZEQlNgVMbNzo7ZylUY1TQMzadvkyyhdVX_zlkMJGejtS_injYAsoNb33-Fddtnf2uKJ4sYq8FRSVyDrd_hWradA5ye-4LRgoqnyT57Zp4LgZ0Q52iYbqbQYt3w7xLvbTosxX7Ls2L0Ada2o6kRj6IwBTKu5j8esyIr1rkDAmUvcqohWjfa04LTJ68uCs6md0M9xDfwS3JMoJck9PS8RN93cy-GZoYetS9FwxB0i0NdqY4YKLTA_o6g-DQdSOEOioi87IQB1NcrJsVE3yjkVBojcyUjHbRAg4p7BDAztPACA5Tk_2EzzU9d0_JoZC-5Pji1wIanczvsjrOCBBdRVRSCeUNalYRiCoi2jGDf-KtIh6o7QQBSeFkdUG0PwK7RrAiwU3KIxOW4wTlq7QCPcUHCwh1swwafiwySj_aWS9OV1SF_WqajR03qZReaQuBn8iW_aA8KBI_BnfvlaN9f_QWoKgLZ6Sm2sZauISIpxd3zJ9RlGZlAcPVQnFStHkdeO5ifiSSVn18b9CtDe2mF--H6Br9rJ-I_QS98o4v59hlisYKdUKVPwhhedVRVE2MVPHHnUGSwpi4dx7b9CUOGNzTopRwNCRK-JTTK6iYWuXSh3EFxHsKL7jBME3xq9WzDpbKdWZIskVPWiE8J7_ydVTWwnwCI3m751Z9UzGFZSGSzoTborYI_8PIc1kQeWNt672-Cc11OKqHq8WX_cc5JioShzoAREVaSibs4hMpoQhKmwTax93cQV3KCrb5eJtqXtiAo5q8i9Q_OfapWRyEcLkpygHmJYq4hYcKwwYpMawlkPPCrJPrqieYmn08TNwJELjTSQiqpTFrC-P21QrkvQMsqJPKWBqf8i90ntJoDIr9BT9k4dOn2X31fCdFYo5hS9TX8IlbYQy6TpG7OZ0uQxHmkmgJUGCYo9Q1GZ75uttYz2tGP-lneRs-fbw9ULnVDFP_10jTFlTM3gJm6n-l3zW889kdci9GEqaGrfeyKInX5f3zGzaxEN8ipKN-03f1kM9Pr2ChCkrzPHvCpqNs4LNl-_erCB2r9nVBW2X7NZ4wubZerOTCdb9yxWgTr3B6ZFf4noBFbGwQTrA5spSG1Fg-MduhswaZt7BUC35b-YrsvMx2O3JutXxSvrjj0WvUkgDbKTWiPNcIwHMf5xvf3K7bQ8-dst-vCjrueXf2mHg5WtUmt6rrZl2135-YbxEkKOi2JPuz7fgOJu9tIOUm85CT8l52_tkQEId3hRT8iaMGGChPO1P7mNhfXibyeHuBzbOfhAeLjU2sPEA1gwReZPKO_VGoXWHjE9NQHOI8pA3WMuLH7nUuxc5SdPwTg_7IGQ7jwB2ElOcuek2RnKwOXAdDFPE65CDRbWhzMuLaZIBAUlE3PyUCCaETaGF3EDLtHNBR8KjvpCzpNxQHQN98w_19rdu9Hc7RPdGd8p8gnelJ_P4iuG51M-DctDM38_FWYuLvLnDOgOGcaLhQd633PDzlq8BkQGh1l1uPrZsaMoqGHWCfPy2EUu8hiw0QFkeV_a-YHYwchsLTWBrBzTfcHutZtUEvl51FqKSM-i6p48Ms2al_q7z7t5EPl0yNFKTkxnZFA7wUmcOFyyXsvbA9iLGbB_RlQ4ucgWF8fSUAo5B1ZCuFkwIhUjHk6urKBNFEBH77Xy58gYxEIC78I2VtOsW_Iup98JlbW3RM4oM8ffK4QDOwf35TTvDYRausk2OXEqRhdCibXw2tOPTTcFGz0DTWdqpaOcYj7WouxFW_E7j6tivMr3xcRwbuy9WSifd3KO5vQ7ScGGzW7cgfVzkVh98jVFiUdiu5XHm0n1q2DVKYIN4rz7ukanrPRCvres7PsjOJo3Mq3IVwzKAZdfjHyu5Fk2EcvbD_5ekfoefvku3C4hafvmdipD1ZKI8FWVmJmQvQmcJcYs5CqZcBqMPhDUAbpsh41WY7Y4MrF8GcKs3FXwKqxA_ZIRHJRzJNSfb_uIwMCrkkmGylpm0HA3UadqsMLPLx8Cn6aF2A13IjtyRuZYUSQt0y7FQ7IR-Rcgd971wgKkzZUDYh-JTfiwtIH9b0QGJpxHGXQHOGU1L7cpm9ONFm03s3RV9tJlyv0op0bXm16nG8u6Lp6Kr8eNacU23cjyHchEwzgF9hiB7bZMnSNaUw2kA9LJNCeUM8P3U4Dy-OcEiSXDSuB4m_OtNjvK3zMYQoHrbYoaPHEY8xkhF6BQevbNn53bZdHykF-BoiSKO3rYBdFT4dXQbpE2NjKEKbJ0zjy9gQ6H8_7OJimAbFhoR_M-4G2Uac2H3IwjXZV228cBbcus19ZKDVcCYPe8tQByypRJTB8tLyNqAL6wFd0fsXRYWrn7eJ77GDWIdWlwLkQI2cw2c_JpyL0vrrP6zTPicbZHFsYzG6x5cTInD06-VkNFXEJZ7yEFhPa8s0xwcNYj93n99r5XjAU2B7uQ88HeaMkFplw4D4tsEyyBohN5c4sX8cXI0EG_uikIk8E1ih8nN48BigTplRoLav_Qem1AtnD1RCUp8JPpQOwMHbOnY92O72hh7n06PhWXmvho-I5OyHGdOoHaO7uz7o4iJcNGbDfYOv6xUQMkZ5Vawk_efOpLlFioyRo5_gQOmQAdT5ksD0cd-18fqvjWhEMSljp-eubWi3uhkrOrBXkWzr4v6ZFSGMZPs91igE_W2g6pei_Ko035n-V3PBvo1SYfpRt7FkmrlRu-9ZGvlbtR15SAtXnVRROaAiKFcDQk0f5UrkZ0hhl-Wo1FlcCpbr7K2ALaQ3FigTxQdyBh18ptlbDYWZznPgyCuJi3Ql34BwADUapjU6BuSkZmeq8290ffN6witWFKGSptQQM3rcFTw2M0d32aWbJUyUmAIBSa_OfYW5XwQYjGlygOC3YEV_b1Sn_oSulhFwbI7y5LzHZ7hVfdBHWZPoFGOk6gjHA0LRjgMCVe1HtW9NEL2qcUnFMFGzHhOc2BYo_j6evtaWUgNmQqNKd337kuco7adjSb6e1eSIT85C_69z9DCiW99WIqQQtkzD3RZFBbFd6gu1kCYurJIR4zvfiuiBEVvcFkozwwyDhpSypXvVh11m5CpyiM8DaEEt7LsIOEYZK-dCO45huLo6scqMxqw_J0a5SWxIkhAPL7s67rQVxYBz8sPYA0ElWgjc0nyZiqs2B1oTI7_wZ7bzJWxC_V7wqSEIBBGtd89hvOheIx739yChKnJK1JV1jCbc0paDPqZguLPyYl__6gjrHbi_npVSPqNfEXi8vsEASuEDdY_J_dtCcmReSdSicW8G9S8ayWfKTbZO83TiygSr2dG1-7dSlUqbWVBXu-nEVphhs8LcypfPsOwdEEyym61qUe5FL75Y1ONYEyY27kZhG9n0Xsq_JjQQsMANdlqvqMEMwFfGKPvAqPqB_-GXv_1GcOrtJEzpshXbrWrDcdW9QQDLBE9AFFFCBiZK2eneklNsKvCjtvj8_xkqkrKJ1BkVeG-K4SMvU93zfQm8_BQTgnhS2MKtUKo_z5Pcyp4EYyCz4RNy7Re_5RycLTWNYRcblFu4Dm9UU54_fv5_Snuaf7JNGEPyJ43ALbcmxKq0B-a9Bx-LNkydy66LOwDUkrUNU1scFzZG6L5Gij5gY5oWtBdmNxUNuHVytlu6oxctaMBlbmT0-78UdjoCfZYH96ruSEtxqlpdIkrqZwO3854oi-uWQxSdfHwA_ZWpREjHyPwxrCeRzKXTrYAXV5_cvQgxRFCdQoaBxgtUeET3iQQ0ZsL2oZLDp4BF5SO-m1kn93OuU4ovGUS-c_ZA2uf-bFjp_keaex8ffeMUJAHSLoM_ihfjwhUlwGsZ-CyIuTSk8UdFkbzVCuTPvKMGCu7l59s-IX9ba5aOKY7JVlIeO9nVm36waBfTqo-ENPgqbLcL01RgzVusr9P6l-druXk89MGEJCH3FmTzEYRy91kXzEjtHmt_z7cUwvM21twSFJyg2p4btYHDBsZzfs3rLDBpo_rrvbDTfqvC0utctsH1TBn0KM3Roxwo4BCh-CgQz5snKBUOyv3a7Gbn50hE=",
+      "summary": []
+    },
+    {
+      "id": "msg_071bb54c6f7fbd79016aebfb57be5887d29ca428c3d3335d7a",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "This regression test checks that the binary JAR containing `Mockito` has no Java source entries. Run it against the built `mockito-core.jar`, rather than an unpacked classes directory.\n\n```java\nimport org.junit.Test;\nimport org.mockito.Mockito;\n\nimport java.io.File;\nimport java.util.Enumeration;\nimport java.util.jar.JarEntry;\nimport java.util.jar.JarFile;\n\nimport static org.junit.Assert.assertFalse;\nimport static org.junit.Assert.assertTrue;\n\npublic class MockitoBinaryJarTest {\n\n    @Test\n    public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {\n        File artifact = new File(\n                Mockito.class.getProtectionDomain()\n                        .getCodeSource()\n                        .getLocation()\n                        .toURI());\n\n        assertTrue(\n                \"Run this test against the packaged mockito-core.jar: \" + artifact,\n                artifact.isFile() && artifact.getName().endsWith(\".jar\"));\n\n        try (JarFile jar = new JarFile(artifact)) {\n            Enumeration<JarEntry> entries = jar.entries();\n\n            while (entries.hasMoreElements()) {\n                JarEntry entry = entries.nextElement();\n\n                assertFalse(\n                        \"Binary Mockito JAR must not contain Java source: \"\n                                + entry.getName(),\n                        !entry.isDirectory() && entry.getName().endsWith(\".java\"));\n            }\n        }\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 150,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 476,
+    "output_tokens_details": {
+      "reasoning_tokens": 192
+    },
+    "total_tokens": 626
+  },
+  "user": null,
+  "metadata": {}
+}

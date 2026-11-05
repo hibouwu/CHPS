@@ -1,0 +1,54 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```java
+package com.fasterxml.jackson.core.io;
+
+import com.fasterxml.jackson.core.util.BufferRecyclers;
+import com.fasterxml.jackson.core.util.ByteArrayBuilder;
+import com.fasterxml.jackson.core.util.TextBuffer;
+
+
+
+public final class JsonStringEncoder
+ {
+    private final static char[] HC = CharTypes.copyHexChars();
+    private final static byte[] HB = CharTypes.copyHexBytes();
+    private final static int SURR1_FIRST = 0xD800;
+    private final static int SURR1_LAST = 0xDBFF;
+    private final static int SURR2_FIRST = 0xDC00;
+    private final static int SURR2_LAST = 0xDFFF;
+    protected TextBuffer _text;
+    protected ByteArrayBuilder _bytes;
+    protected final char[] _qbuf;
+
+    public JsonStringEncoder();
+    @Deprecated
+    public static JsonStringEncoder getInstance();
+    public char[] quoteAsString(String input);
+    public void quoteAsString(CharSequence input, StringBuilder output);
+    @SuppressWarnings("resource")
+    public byte[] quoteAsUTF8(String text);
+    @SuppressWarnings("resource")
+    public byte[] encodeAsUTF8(String text);
+    private int _appendNumeric(int value, char[] qbuf);
+    private int _appendNamed(int esc, char[] qbuf);
+    private int _appendByte(int ch, int esc, ByteArrayBuilder bb, int ptr);
+    private static int _convert(int p1, int p2);
+    private static void _illegal(int c);
+}
+```
+
+You are a professional Java programmer, please create a function named `quoteAsUTF8` based on the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Will quote given JSON String value using standard quoting, encode
+     * results as UTF-8, and return result as a byte array.
+     */
+    @SuppressWarnings("resource")
+    public byte[] quoteAsUTF8(String text)
+    {
+
+```<|im_end|>
+<|im_start|>assistant

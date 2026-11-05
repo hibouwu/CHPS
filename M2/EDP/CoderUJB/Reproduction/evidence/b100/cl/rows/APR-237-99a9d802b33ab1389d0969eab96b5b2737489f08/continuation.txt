@@ -1,0 +1,27 @@
+
+    /**
+     * Recalculate the hash code after deserialization. The hash code of some
+     * keys might have change (hash codes based on the system hash code are
+     * only stable for the same process).
+     * @return the instance with recalculated hash code
+     */
+    private Object readResolve() {
+        calculateHashCode(keys);
+        return this;
+    }
+
+// Output constraint: Output only the complete corrected Java method with the provided signature and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// package org.apache.commons.collections4.keyvalue;
+// 
+// import java.io.Serializable;
+// import java.util.Arrays;
+// 
+// 
+// 
+// public class MultiKey<K> implements Serializable  {
+//     private static final long serialVersionUID = 4465448607415788805L;
+//     private final K[] keys;
+//     private transient int hashCode;
+// 
+//     @SuppressWarnings("

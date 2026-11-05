@@ -1,0 +1,22 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 297,
+  "project": "JacksonXml",
+  "bug_id": "1",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/ITG-297-9d01e632/e00a19fbb1d640b8f9beb6fdbd8efd34c556861ac61b0ac398bebd8594123edc/attempt-1/result.json",
+  "raw_sha256": "1393ea86c34ad5244a7383436c1695ada90ee32d6427da29da913af9156165d2",
+  "input_sha256": "2ad6a3daedd4bba479259a9a2d80400a92277d41c561c01e7855fe87fb1e2230",
+  "input_tokens": 327,
+  "full_input_tokens": 327,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-297-9d01e632/4d52ea86a3322105f93d543c1bc967145282fde498a4c19a7be4fe84e5941876/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-297-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

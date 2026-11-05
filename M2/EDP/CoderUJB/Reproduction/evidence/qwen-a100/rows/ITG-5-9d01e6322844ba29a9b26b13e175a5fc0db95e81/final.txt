@@ -1,0 +1,89 @@
+Certainly! Below is a test case named `testReadingOfFirstStoredEntry` that you can use to verify the behavior described in the issue `Compress-COMPRESS-264`. This test case will check if the content of the file `test.txt` inside the ZIP archive is read correctly using both versions of the `commons-compress` library.
+
+To run this test, you need to have JUnit and Apache Commons Compress in your project's dependencies. Here is the complete test case:
+
+```java
+import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
+import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
+import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class ZipReadTest {
+
+    private static final byte[] ZIP_DATA = {
+        (byte)0x50, (byte)0x4b, (byte)0x03, (byte)0x04, (byte)0x0a, (byte)0x00,
+        (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x03, (byte)0x7b,
+        (byte)0xd1, (byte)0x42, (byte)0x82, (byte)0xc5, (byte)0xc1, (byte)0xe6,
+        (byte)0x05, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x05, (byte)0x00,
+        (byte)0x00, (byte)0x00, (byte)0x08, (byte)0x00, (byte)0x1c, (byte)0x00,
+        (byte)0x74, (byte)0x65, (byte)0x73, (byte)0x74, (byte)0x2e, (byte)0x74,
+        (byte)0x78, (byte)0x74, (byte)0x55, (byte)0x54, (byte)0x09, (byte)0x00,
+        (byte)0x03, (byte)0x56, (byte)0x62, (byte)0xbf, (byte)0x51, (byte)0x2a,
+        (byte)0x63, (byte)0xbf, (byte)0x51, (byte)0x75, (byte)0x78, (byte)0x0b,
+        (byte)0x00, (byte)0x01, (byte)0x04, (byte)0x01, (byte)0xff, (byte)0x01,
+        (byte)0x00, (byte)0x04, (byte)0x88, (byte)0x13, (byte)0x00, (byte)0x00,
+        (byte)0x64, (byte)0x61, (byte)0x74, (byte)0x61, (byte)0x0a, (byte)0x50,
+        (byte)0x4b, (byte)0x01, (byte)0x02, (byte)0x1e, (byte)0x03, (byte)0x0a,
+        (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x03,
+        (byte)0x7b, (byte)0xd1, (byte)0x42, (byte)0x82, (byte)0xc5, (byte)0xc1,
+        (byte)0xe6, (byte)0x05, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x05,
+        (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x08, (byte)0x00, (byte)0x18,
+        (byte)0x00, (byte)0x00, (byte)0x00
+    };
+
+    @Test
+    public void testReadingOfFirstStoredEntry() throws Exception {
+        try (ByteArrayInputStream bais = new ByteArrayInputStream(ZIP_DATA);
+             ZipArchiveInputStream zais = new ZipArchiveInputStream(bais)) {
+
+            ZipArchiveEntry entry = zais.getNextZipEntry();
+            assertNotNull(entry, "The ZIP entry should not be null");
+            assertEquals("test.txt", entry.getName(), "The entry name should be 'test.txt'");
+
+            StringBuilder contentBuilder = new StringBuilder();
+            int len;
+            byte[] buffer = new byte[1024];
+            while ((len = zais.read(buffer)) > 0) {
+                contentBuilder.append(new String(buffer, 0, len, StandardCharsets.UTF_8));
+            }
+
+            String content = contentBuilder.toString().trim();
+            assertEquals("data", content, "The content of test.txt should be 'data'");
+        }
+    }
+
+    private void assertNotNull(ZipArchiveEntry entry, String message) {
+        if (entry == null) {
+            throw new AssertionError(message);
+        }
+    }
+
+    private void assertEquals(String expected, String actual, String message) {
+        if (!expected.equals(actual)) {
+            throw new AssertionError(message + ": expected '" + expected + "', but was '" + actual + "'");
+        }
+    }
+
+    private void assertEquals(Object expected, Object actual, String message) {
+        if (!expected.equals(actual)) {
+            throw new AssertionError(message + ": expected '" + expected + "', but was '" + actual + "'");
+        }
+    }
+}
+```
+
+### Explanation:
+1. **ZIP_DATA**: This is the byte array representing the ZIP file content as provided in the issue description.
+2. **testReadingOfFirstStoredEntry**: This test method reads the first entry from the ZIP archive and checks if its content is "data".
+3. **assertNotNull and assertEquals**: These are simple assertion methods used to verify conditions. In a real-world scenario, you would typically use JUnit's built-in assertions.
+
+### Running the Test:
+- Ensure you have JUnit 5 and Apache Commons Compress in your project dependencies.
+- Run the test using your preferred test runner (e.g., Maven, Gradle, or an IDE).
+
+This test will help you verify whether the issue is present in version 1.7 of the `commons-compress` library. If the test fails, it indicates that the problem still exists. If it passes, it suggests that the issue might have been resolved or does not occur in the current version.

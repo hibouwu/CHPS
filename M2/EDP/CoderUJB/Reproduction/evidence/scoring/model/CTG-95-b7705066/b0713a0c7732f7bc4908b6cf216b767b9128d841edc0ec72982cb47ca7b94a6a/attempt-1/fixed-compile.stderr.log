@@ -1,0 +1,190 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+commons-codec-from-maven.compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed/maven-build.xml:78: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+compile:
+
+commons-codec-from-maven.compile-tests:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed/target/test-classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed/maven-build.xml:114: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 59 source files to /data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed/target/test-classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/charset/Charset.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collections.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/OutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Random.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/BufferedReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStreamReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/Closeable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/UnsupportedEncodingException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/ByteBuffer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/charset/UnsupportedCharsetException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/FileOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/security/MessageDigest.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/security/NoSuchAlgorithmException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/jre/lib/jce.jar(javax/crypto/Mac.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/jre/lib/jce.jar(javax/crypto/spec/SecretKeySpec.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SuppressWarnings.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Field.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/FileNotFoundException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Properties.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/zip/CRC32.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/zip/Checksum.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/TreeMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/charset/Charset.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collections.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayInputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayOutputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/OutputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Random.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/BufferedReader.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStreamReader.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/Closeable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Override.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/UnsupportedEncodingException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/ByteBuffer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/charset/UnsupportedCharsetException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NullPointerException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/FileOutputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/security/MessageDigest.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/security/NoSuchAlgorithmException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SuppressWarnings.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Field.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/FileNotFoundException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Properties.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/zip/CRC32.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/zip/Checksum.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IndexOutOfBoundsException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed/src/test/java/org/apache/commons/codec/language/Caverphone1Test.java:51: error: cannot find symbol
+    [javac]             Assert.assertEquals(expectedCode, getEncoder().encode(word));
+    [javac]                                               ^
+    [javac]   symbol:   method getEncoder()
+    [javac]   location: class Caverphone1Test
+    [javac] 1 error
+    [javac] 100 warnings
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/CTG-95-0yxysts0/fixed/maven-build.xml:114: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

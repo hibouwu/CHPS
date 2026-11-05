@@ -1,0 +1,8 @@
+public void testDifferentDurationReturnDifferentObjects() {
+        // Exercise the logic in UnsupportedDateTimeField.getInstance
+        UnsupportedDateTimeField field1 = UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, durationFieldOne);
+        UnsupportedDateTimeField field2 = UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, durationFieldTwo);
+
+        // Verify that the fields are not the same object
+        assertNotSame("Fields with different duration fields should not be the same object", field1, field2);
+    }

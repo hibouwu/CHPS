@@ -1,0 +1,11 @@
+{
+  "rows": [
+    "FCG-124-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+    "FCG-142-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+    "FCG-158-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+    "FCG-184-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+  ],
+  "seed": 4,
+  "job": "817622",
+  "protocol_sha256": "b6bf86f70b69191c03ce353b77dd9ba2dfedff01bd17823a370f4e5d51bef35d"
+}

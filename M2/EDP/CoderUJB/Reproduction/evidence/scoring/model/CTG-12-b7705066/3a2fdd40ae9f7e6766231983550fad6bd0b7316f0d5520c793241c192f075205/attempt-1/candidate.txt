@@ -1,0 +1,19 @@
+@Test
+public void testDecodeObjectException() {
+    // Create an instance of BinaryCodec
+    instance = new BinaryCodec();
+
+    // Prepare invalid input data
+    Object invalidInput = "invalid string"; // This is an example of invalid input
+
+    try {
+        // Attempt to decode the invalid input
+        instance.decode(invalidInput);
+        // If no exception is thrown, the test should fail
+        fail("Expected DecoderException to be thrown for invalid input");
+    } catch (DecoderException e) {
+        // If a DecoderException is thrown, the test passes
+        // Optionally, you can check the message or type of the exception
+        assertEquals("Invalid object type", e.getMessage());
+    }
+}

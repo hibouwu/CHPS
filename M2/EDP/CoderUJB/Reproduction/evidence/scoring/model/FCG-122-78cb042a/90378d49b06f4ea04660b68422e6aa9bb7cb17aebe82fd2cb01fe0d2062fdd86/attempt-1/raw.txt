@@ -1,0 +1,76 @@
+Here is a compact, self‑contained implementation that follows the way the rest of the `SymbolTable` works.  
+It:
+
+1. Checks that the supplied symbol really represents a function.  
+2. Retrieves the *function‑body* lexical scope (the scope that holds the
+   parameters) via the existing private helper `getScopeInFunction`.  
+3. Looks for a symbol with the requested name in that scope – first as an
+   *own* slot (the usual place for parameters) and, as a safety net, via a
+   normal lookup that walks the scope chain.  
+4. Returns the found `Symbol` or `null` if nothing matches.
+
+```java
+/**
+ * If {@code sym} is a function, try to find a Symbol for
+ * a parameter with the given name.
+ *
+ * Returns {@code null} if we couldn't find one.
+ *
+ * Notice that this just makes a best effort, and may not be able
+ * to find parameters for non‑conventional function definitions.
+ * For example, we would not be able to find "y" in this code:
+ * <pre>
+ * var x = x() ? function(y) {} : function(y) {};
+ * </pre>
+ */
+public Symbol getParameterInFunction(Symbol sym, String paramName) {
+  // Defensive checks – a null symbol or a null name can never yield a result.
+  if (sym == null || paramName == null) {
+    return null;
+  }
+
+  // The symbol must represent a function.  In the Closure type system a
+  // function is identified by having a non‑null FunctionType.
+  FunctionType fnType = sym.getFunctionType();
+  if (fnType == null) {
+    // Not a function (or the type information is missing); give up.
+    return null;
+  }
+
+  // Obtain the lexical scope that corresponds to the *body* of the function.
+  // This private helper already knows how to walk from the function symbol
+  // to the inner scope that contains its parameters and local variables.
+  SymbolScope functionScope = getScopeInFunction(sym);
+  if (functionScope == null) {
+    return null;
+  }
+
+  // Parameters are declared as lexical variables inside the function scope.
+  // First try an exact (own) lookup – this is the most common case.
+  Symbol param = functionScope.getOwnSlot(paramName);
+  if (param != null) {
+    return param;
+  }
+
+  // As a fallback, perform a normal lookup that also walks up the scope
+  // chain.  This can succeed for some exotic patterns where the parameter
+  // ends up in a parent scope (e.g., certain externs).
+  return functionScope.getSlot(paramName);
+}
+```
+
+### Why this works
+
+* **Function detection** – `sym.getFunctionType()` is the public way the
+  existing code distinguishes function symbols from other symbols.
+* **Scope retrieval** – `getScopeInFunction(sym)` is already defined as a
+  private helper in `SymbolTable`; it returns the `SymbolScope` that
+  represents the function’s lexical environment (the place where parameters
+  are stored).
+* **Parameter lookup** – In the Closure Compiler’s symbol table,
+  parameters are ordinary lexical variables, therefore they appear as
+  *own* slots of the function’s scope.  The extra `getSlot` fallback mirrors
+  the “best‑effort” spirit expressed in the Javadoc.
+
+Add this method to the `SymbolTable` class and it will compile and behave
+as described.

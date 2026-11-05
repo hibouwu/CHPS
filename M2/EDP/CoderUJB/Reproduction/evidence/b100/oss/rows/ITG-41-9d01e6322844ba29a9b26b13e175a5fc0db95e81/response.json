@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the Java test method code, with the given signature, and stop after its closing brace. No markdown. Provide test case that reproduces issue: using Jackson's JavaType.getGenericSignature. Likely need to create a TypeReference for AtomicReference<String>, get JavaType via TypeFactory, then call getGenericSignature and assert equals expected string with proper closing >. Use JUnit (probably JUnit 4). So method body: create TypeFactory tf = TypeFactory.defaultInstance(); JavaType type = tf.constructParametricType(AtomicReference.class, String.class); String sig = type.getGenericSignature(); assertEquals(\"()Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;\", sig); Also need import statements? Not needed as only method body. Provide method with throws Exception. Use org.junit.Assert.assertEquals. Provide test annotation @Test. So final output:\n\n```java\n    @Test\n    public void testGenericSignature1195() throws Exception {\n        TypeFactory tf = TypeFactory.defaultInstance();\n        JavaType type = tf.constructParametricType(java.util.concurrent.atomic.AtomicReference.class, String.class);\n        String sig = type.getGenericSignature();\n        assertEquals(\"()Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;\", sig);\n    }\n```\n\nMake sure to include necessary imports? Not required. Provide only method. Ensure closing brace.",
+        "content": "    @Test\n    public void testGenericSignature1195() throws Exception {\n        TypeFactory tf = TypeFactory.defaultInstance();\n        JavaType type = tf.constructParametricType(java.util.concurrent.atomic.AtomicReference.class, String.class);\n        String sig = type.getGenericSignature();\n        assertEquals(\"()Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;\", sig);\n    }"
+      }
+    }
+  ],
+  "created": 1793852090,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 379,
+    "prompt_tokens": 324,
+    "total_tokens": 703
+  },
+  "id": "chatcmpl-sYZtS9CjR90spidhsRrGo8rbmE4WMYtI",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 324,
+    "prompt_ms": 229.324,
+    "prompt_per_token_ms": 0.7077901234567902,
+    "prompt_per_second": 1412.8481973103555,
+    "predicted_n": 379,
+    "predicted_ms": 2160.002,
+    "predicted_per_token_ms": 5.699213720316623,
+    "predicted_per_second": 175.46280049740696
+  }
+}

@@ -1,0 +1,107 @@
+**JUnit‑4 test class – reproducing the problem described in JxPath‑JXPATH‑93**
+
+```java
+package org.apache.commons.jxpath.test;
+
+import static org.junit.Assert.*;
+
+import java.io.StringReader;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.apache.commons.jxpath.JXPathContext;
+import org.junit.Test;
+import org.xml.sax.InputSource;
+
+/**
+ * Test that binary operators behave correctly when one of the operands
+ * is an empty node‑set.  According to the XPath specification the result
+ * of any comparison with an empty node‑set must be {@code false}.
+ *
+ * The bug JxPath‑JXPATH‑93 caused expressions such as
+ *
+ *     2.0 > child1
+ *
+ * to evaluate to {@code true} when the right‑hand side node‑set
+ * (here “child1”) is empty.  The test below checks the relational
+ * operators (<, >, <=, >=) as well as equality/inequality.
+ */
+public class JXPathEmptyNodeSetTest {
+
+    /**
+     * Helper that creates a JXPathContext for a document that contains
+     * only a root element <doc/> – i.e. it has no child named “child1”.
+     */
+    private JXPathContext emptyDocContext() throws Exception {
+        String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                   + "<doc/>";
+
+        return JXPathContext.newContext(
+                DocumentBuilderFactory.newInstance()
+                                      .newDocumentBuilder()
+                                      .parse(new InputSource(new StringReader(xml))));
+    }
+
+    @Test
+    public void testEmptyNodeSetOperations() throws Exception {
+        JXPathContext ctx = emptyDocContext();
+
+        // -----------------------------------------------------------------
+        // Relational operators – the right‑hand side node‑set is empty.
+        // All of them must evaluate to false.
+        // -----------------------------------------------------------------
+        assertFalse("2.0 > child1  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 > child1", Boolean.class));
+
+        assertFalse("2.0 < child1  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 < child1", Boolean.class));
+
+        assertFalse("2.0 >= child1 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 >= child1", Boolean.class));
+
+        assertFalse("2.0 <= child1 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 <= child1", Boolean.class));
+
+        // -----------------------------------------------------------------
+        // Equality / inequality – also must be false when one side is empty.
+        // -----------------------------------------------------------------
+        assertFalse("2.0 = child1   (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 = child1", Boolean.class));
+
+        assertTrue("2.0 != child1  (empty node‑set) should be true",
+                (Boolean) ctx.getValue("2.0 != child1", Boolean.class));
+
+        // -----------------------------------------------------------------
+        // The same checks with the empty node‑set on the left side.
+        // -----------------------------------------------------------------
+        assertFalse("child1 > 2.0  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 > 2.0", Boolean.class));
+
+        assertFalse("child1 < 2.0  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 < 2.0", Boolean.class));
+
+        assertFalse("child1 >= 2.0 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 >= 2.0", Boolean.class));
+
+        assertFalse("child1 <= 2.0 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 <= 2.0", Boolean.class));
+
+        assertFalse("child1 = 2.0   (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 = 2.0", Boolean.class));
+
+        assertTrue("child1 != 2.0  (empty node‑set) should be true",
+                (Boolean) ctx.getValue("child1 != 2.0", Boolean.class));
+    }
+}
+```
+
+### What the test does
+1. **Creates a minimal XML document** (`<doc/>`) that contains **no** element named `child1`.  
+2. **Builds a `JXPathContext`** for that document.  
+3. **Evaluates a series of XPath binary‑operator expressions** where one operand is the empty node‑set (`child1`).  
+4. **Asserts the expected boolean result** according to the XPath specification:
+   * All relational comparisons (`>`, `<`, `>=`, `<=`) must be `false`.  
+   * Equality (`=`) must be `false`.  
+   * Inequality (`!=`) must be `true` (because “not equal” is satisfied when the node‑set is empty).  
+
+If the bug described in **JxPath‑JXPATH‑93** is still present, the first assertion (`2.0 > child1`) will fail because JXPath would incorrectly return `true`. Running this test against a fixed version of JXPath will pass, confirming the correct handling of empty node‑sets.

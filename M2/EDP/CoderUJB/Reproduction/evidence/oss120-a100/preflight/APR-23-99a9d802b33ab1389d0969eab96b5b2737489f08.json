@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 23,
+  "task_id": "13ce1b3a1501df38e32809faed9a11a229ff960ed12f298981462576aa9bbb07",
+  "project": "Csv",
+  "bug_id": "11",
+  "chat_sha256": "693b3c0053814c262cfb936c66515ad91f59e4b48d2e1cbb7ac1e8c64e76604f",
+  "complete_sha256": "4790dc7314cfdcd20cea9746694a67187b791c69ebafafe8c3b11b161f5286b2",
+  "checked_at": "2026-11-05T03:01:17.076092+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-23-99a9d802/26fcd37039b3398e70987050b4fbd907b5cb2a909970a2a6710edc7cfcc8e567/attempt-1/result.json"
+}

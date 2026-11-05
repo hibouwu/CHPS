@@ -1,0 +1,22 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 171,
+  "project": "Codec",
+  "bug_id": "15",
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/ITG-171-9d01e632/aebcd973df6f636015d1836df7866cfc065259cdbb8887b881942361013048a9/attempt-1/result.json",
+  "raw_sha256": "9135f518a6e6551503babfe31334f295577132dffce2d92ba0069d914feb363d",
+  "input_sha256": "691e03c86fa5bdecc3a4cbe176ec6cd901691c0d8a515549a1d7eceda3a9c94c",
+  "input_tokens": 250,
+  "full_input_tokens": 250,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-171-9d01e632/dd49474fdb143646f71fc3a2b03482b92bf96e13cfa24110a7ed482d07640e5a/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-171-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

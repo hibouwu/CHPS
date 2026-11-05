@@ -1,0 +1,32 @@
+{
+  "model": "sol",
+  "configuration": "B",
+  "task": "CTG",
+  "task_idx": 78,
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.compress.archivers.zip.ZipFile"
+    ],
+    "line_pct": 61.9,
+    "condition_pct": 28.4,
+    "instrumented_lines_hit": 189
+  },
+  "format_valid": true,
+  "mode": "chat",
+  "raw_model_sha256": "2ce1dcfd29f72973fd3d37fcd5fd2ac906acc4392f6cc151a62826aa5a591e08",
+  "scorer_input_sha256": "2ce1dcfd29f72973fd3d37fcd5fd2ac906acc4392f6cc151a62826aa5a591e08",
+  "removed_input_prefix": "",
+  "added_prompt_sha256": "e37848a7dc83d5e500f0ec9d37aeb00304cd0eff5f3d63ef5a3f04d9609b2023",
+  "answer_untouched": true,
+  "source": "evidence/b100/sol/rows/CTG-78-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-78-b7705066/cb4e9ea720f59e13143f64b419fe8e8f186d61ea5b3fb50fad6d63739632c1fe/attempt-1/result.json",
+  "finish_reason": "completed",
+  "input_truncated": false,
+  "input_tokens": 1350,
+  "output_tokens": 585,
+  "compile_review": null
+}

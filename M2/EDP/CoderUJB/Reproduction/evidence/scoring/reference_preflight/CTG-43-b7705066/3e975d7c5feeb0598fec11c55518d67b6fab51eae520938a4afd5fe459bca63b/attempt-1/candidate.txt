@@ -1,0 +1,8 @@
+    public void testMethodsThatShouldAlwaysReturnNull() {
+        DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
+                dateTimeFieldTypeOne, UnsupportedDurationField
+                        .getInstance(weeks));
+
+        assertNull(fieldOne.getLeapDurationField());
+        assertNull(fieldOne.getRangeDurationField());
+    }

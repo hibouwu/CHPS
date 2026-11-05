@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the Java test method code, with the given signature, and stop after its closing brace. No markdown. Should include the method body. Need to create a test case for issue Mockito-157: \"Source files should not be put in binary JAR\". The test should verify that source files are not included? Actually the issue is about source files being packaged in binary JAR causing IDE confusion. A test could assert that the JAR does not contain .java files. Use java.util.jar.JarFile to inspect the JAR of mockito-core. But we are writing a test within Mockito's test suite. Likely they have a utility to get the jar location. Could use getClass().getProtectionDomain().getCodeSource().getLocation() to get jar path. Then open JarFile and check entries for .java. Assert that none end with .java.\n\nWrite test method:\n\n```java\n@Test\npublic void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {\n    // locate the mockito-core jar\n    URL location = Mockito.class.getProtectionDomain().getCodeSource().getLocation();\n    File jarFile = new File(location.toURI());\n    assertTrue(\"Mockito jar should be a file\", jarFile.isFile());\n    try (JarFile jar = new JarFile(jarFile)) {\n        Enumeration<? extends JarEntry> entries = jar.entries();\n        while (entries.hasMoreElements()) {\n            JarEntry entry = entries.nextElement();\n            assertFalse(\"Source file should not be packaged: \" + entry.getName(),\n                        entry.getName().endsWith(\".java\"));\n        }\n    }\n}\n```\n\nNeed imports? Not required in method. The test method only. Provide code only. Ensure method signature matches exactly. Provide closing brace. No extra.",
+        "content": "    @Test\n    public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {\n        // Locate the Mockito core JAR\n        java.net.URL location = org.mockito.Mockito.class.getProtectionDomain().getCodeSource().getLocation();\n        java.io.File jarFile = new java.io.File(location.toURI());\n        org.junit.Assert.assertTrue(\"Mockito JAR should exist as a file\", jarFile.isFile());\n\n        try (java.util.jar.JarFile jar = new java.util.jar.JarFile(jarFile)) {\n            java.util.Enumeration<? extends java.util.jar.JarEntry> entries = jar.entries();\n            while (entries.hasMoreElements()) {\n                java.util.jar.JarEntry entry = entries.nextElement();\n                org.junit.Assert.assertFalse(\n                    \"Source file should not be packaged in the binary JAR: \" + entry.getName(),\n                    entry.getName().endsWith(\".java\"));\n            }\n        }\n    }"
+      }
+    }
+  ],
+  "created": 1793852156,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 571,
+    "prompt_tokens": 263,
+    "total_tokens": 834
+  },
+  "id": "chatcmpl-IYTq1RMNRkzvCFXGLGK3KLAFrOfaDgIo",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 263,
+    "prompt_ms": 232.857,
+    "prompt_per_token_ms": 0.8853878326996197,
+    "prompt_per_second": 1129.4485456739544,
+    "predicted_n": 571,
+    "predicted_ms": 3253.479,
+    "predicted_per_token_ms": 5.697861646234676,
+    "predicted_per_second": 175.50443694273116
+  }
+}

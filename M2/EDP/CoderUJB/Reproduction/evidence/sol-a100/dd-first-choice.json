@@ -1,0 +1,141 @@
+{
+  "purpose": "Offline diagnostic only; formal scores unchanged",
+  "rows": [
+    {
+      "key": "DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "B. No, there are no defects",
+      "first_category": "tn",
+      "official_category": "tn"
+    },
+    {
+      "key": "DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "B. No, there are no defects",
+      "first_category": "tn",
+      "official_category": "tn"
+    },
+    {
+      "key": "DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "B. No, there are no defects",
+      "first_category": "tn",
+      "official_category": "tn"
+    },
+    {
+      "key": "DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "fp",
+      "official_category": "fp"
+    },
+    {
+      "key": "DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "B. No, there are no defects",
+      "first_category": "tn",
+      "official_category": "tn"
+    },
+    {
+      "key": "DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "B. No, there are no defects",
+      "first_category": "tn",
+      "official_category": "tn"
+    },
+    {
+      "key": "DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "B. No, there are no defects",
+      "first_category": "tn",
+      "official_category": "tn"
+    },
+    {
+      "key": "DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "fp",
+      "official_category": "fp"
+    },
+    {
+      "key": "DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "fp",
+      "official_category": "fp"
+    },
+    {
+      "key": "DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "fp",
+      "official_category": "fp"
+    },
+    {
+      "key": "DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    },
+    {
+      "key": "DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "first_line": "A. Yes, there are defects",
+      "first_category": "tp",
+      "official_category": "tp"
+    }
+  ],
+  "unambiguous": 20,
+  "disagreements": 0,
+  "first_choice": {
+    "tp": 10,
+    "tn": 6,
+    "fp": 4,
+    "fn": 0,
+    "error": 0,
+    "total": 20,
+    "correct": 16,
+    "acc": 0.8,
+    "acc_w_error": 0.8,
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1": 0.8333333333333333
+  }
+}

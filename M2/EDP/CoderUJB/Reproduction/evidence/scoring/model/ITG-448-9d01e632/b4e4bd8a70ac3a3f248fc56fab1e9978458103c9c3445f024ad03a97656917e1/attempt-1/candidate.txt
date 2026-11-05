@@ -1,0 +1,30 @@
+public void testFormat() {
+        // Create a date object representing January 1, 2003
+        Date date = new Date(1041379200000L); // January 1, 2003 in milliseconds since epoch
+
+        // Test with pattern 'Y'
+        String simpleDateFormatPatternY = "Y";
+        String fastDateFormatPatternY = "Y";
+
+        SimpleDateFormat simpleDateFormatY = new SimpleDateFormat(simpleDateFormatPatternY, Locale.US);
+        FastDateFormat fastDateFormatY = FastDateFormat.getInstance(fastDateFormatPatternY, Locale.US);
+
+        String expectedYearY = "2003"; // Expected output for year 2003 with pattern 'Y'
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'Y' the same", 
+                     expectedYearY, simpleDateFormatY.format(date));
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'Y' the same", 
+                     expectedYearY, fastDateFormatY.format(date));
+
+        // Test with pattern 'YYY'
+        String simpleDateFormatPatternYYY = "YYY";
+        String fastDateFormatPatternYYY = "YYY";
+
+        SimpleDateFormat simpleDateFormatYYY = new SimpleDateFormat(simpleDateFormatPatternYYY, Locale.US);
+        FastDateFormat fastDateFormatYYY = FastDateFormat.getInstance(fastDateFormatPatternYYY, Locale.US);
+
+        String expectedYearYYY = "2003"; // Expected output for year 2003 with pattern 'YYY'
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'YYY' the same", 
+                     expectedYearYYY, simpleDateFormatYYY.format(date));
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'YYY' the same", 
+                     expectedYearYYY, fastDateFormatYYY.format(date));
+    }

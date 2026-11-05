@@ -1,0 +1,14 @@
+private StringBuffer appendQuotedString(String pattern,
+                                        ParsePosition pos,
+                                        StringBuffer appendTo,
+                                        boolean escapingOn) {
+
+    final int start = pos.getIndex();          // remember where the quoted part begins
+    final int length = pattern.length();
+    final char[] chars = pattern.toCharArray();
+
+    // -----------------------------------------------------------------
+    // 1.  A leading quote that is *escaped* (i.e. the pattern contains "''")
+    // -----------------------------------------------------------------
+    // When escaping is on and the very first character we see is a quote,
+    //

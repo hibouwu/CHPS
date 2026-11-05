@@ -1,0 +1,18 @@
+
+        // TODO: Implement this test method
+    }
+
+
+// Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// You are a professional Java test case writer, please create a test case named `testCodec113` for the issue `Codec-CODEC-113`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: Codec-CODEC-113
+// 
+// ## Issue-Title: 
+// Base64.encodeBase64(byte[] binaryData, boolean isChunked, boolean urlSafe, int maxResultSize) throws IAE for valid maxResultSize if isChunked is true
+// 
+// ## Issue-Description: 
+// 
+// If isChunked is true, Base64.encodeBase64(byte[] binaryData, boolean isChunked, boolean urlSafe, int maxResultSize) throws IAE for valid maxResultSize.
+// 

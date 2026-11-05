@@ -1,0 +1,11 @@
+{
+  "rows": [
+    "DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+    "DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+    "DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+    "DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+  ],
+  "seed": 4,
+  "job": "817622",
+  "protocol_sha256": "b6bf86f70b69191c03ce353b77dd9ba2dfedff01bd17823a370f4e5d51bef35d"
+}

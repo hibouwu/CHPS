@@ -1,0 +1,28 @@
+
+        if (count < 1 || count > 63) {
+            throw new IllegalArgumentException("count must be between 1 and 63");
+        }
+
+        if (count > bitsCachedSize) {
+            if (bitsCachedSize == 0) {
+                bitsCached = in.read();
+                if (bitsCached == -1) {
+                    return -1;
+                }
+                bitsCachedSize = 8;
+            }
+            if (count > bitsCachedSize) {
+                bitsCached = (bitsCached << 8) | in.read();
+                if (bitsCached == -1) {
+                    return -1;
+                }
+                bitsCachedSize += 8;
+            }
+        }
+
+        final long result;
+        if (byteOrder == ByteOrder.BIG_ENDIAN) {
+            result = (bitsCached >>> (bitsCachedSize - count)) & MASKS[count];
+        } else {
+            result = (bitsCached & MASKS[count]) >>> 0;
+        }

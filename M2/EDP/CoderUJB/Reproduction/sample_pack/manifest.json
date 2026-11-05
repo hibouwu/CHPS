@@ -1,5 +1,5 @@
 {
-  "status": "one_generation_probe_completed_no_benchmark_evaluation",
+  "status": "one_sample_generated_and_evaluated_two_samples_prepared",
   "repository_url": "https://github.com/WisdomShell/ujb",
   "repository_commit": "e7b69a0b4f79d0d1896046079f6926d955f31452",
   "dataset": "ZHENGRAN/code_ucb_complete",
@@ -31,6 +31,16 @@
         "raw_output_file": "../evidence/romeo-model-probe-generation.txt",
         "result_file": "../evidence/romeo-model-probe-result.json",
         "benchmark_evaluated": false
+      },
+      "evaluation": {
+        "status": "evaluated_model_passed_all_tests",
+        "result_file": "../evidence/lang004-evaluation-20261105T002947Z/result.json",
+        "baseline_passed": true,
+        "pass_compile": true,
+        "pass_trigger": true,
+        "pass_all": true,
+        "sample_count": 1,
+        "benchmark_metric_computed": false
       }
     },
     {
@@ -70,5 +80,5 @@
       "completion_prompt_sha256": "15bf5481b383e992010874aa6e4879f02e9daa557657f9fda5c49edcadfa2957"
     }
   ],
-  "prompt_modes_note": "prompts/ contains original chat prompts; prompts_complete/ contains original completion prompts for base models such as CodeLlama-13B. One completion probe has run for task_idx 4; tasks 5 and 6 have not been generated. No compilation or benchmark evaluation has run."
+  "prompt_modes_note": "prompts/ contains original chat prompts; prompts_complete/ contains original completion prompts for base models such as CodeLlama-13B. Task 4 has one saved generation, now compiled and tested successfully with Defects4J 2.0.1. Tasks 5 and 6 have not been generated or evaluated."
 }

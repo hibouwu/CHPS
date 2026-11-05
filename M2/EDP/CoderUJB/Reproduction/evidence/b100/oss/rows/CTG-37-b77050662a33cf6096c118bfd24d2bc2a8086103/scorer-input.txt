@@ -1,0 +1,30 @@
+    // Ensure parser is initialized
+    if (parser == null) {
+      errorManager = new PrintStreamErrorManager(System.err);
+      parser = new DepsFileParser(errorManager);
+    }
+
+    String src = ""
+        + "// comment line\n"
+        + "goog.addDependency('path/to/a.js', ['goog.foo'], ['goog.bar']);\n"
+        + "goog.addDependency(\"path/to/b.js\", [], []);\n"
+        + "goog.addDependency('path/to/c.js', ['goog.baz'], []);\n";
+
+    List<DependencyInfo> deps = parser.parseFile("test.js", src);
+    assertEquals(3, deps.size());
+
+    DependencyInfo dep0 = deps.get(0);
+    assertEquals("path/to/a.js", dep0.getPath());
+    assertEquals(ImmutableList.of("goog.foo"), dep0.getProvideNames());
+    assertEquals(ImmutableList.of("goog.bar"), dep0.getRequireNames());
+
+    DependencyInfo dep1 = deps.get(1);
+    assertEquals("path/to/b.js", dep1.getPath());
+    assertEquals(ImmutableList.of(), dep1.getProvideNames());
+    assertEquals(ImmutableList.of(), dep1.getRequireNames());
+
+    DependencyInfo dep2 = deps.get(2);
+    assertEquals("path/to/c.js", dep2.getPath());
+    assertEquals(ImmutableList.of("goog.baz"), dep2.getProvideNames());
+    assertEquals(ImmutableList.of(), dep2.getRequireNames());
+  }

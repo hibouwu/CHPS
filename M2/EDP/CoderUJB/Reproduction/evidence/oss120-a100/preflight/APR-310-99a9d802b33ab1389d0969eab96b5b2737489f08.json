@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 310,
+  "task_id": "b0905d90078669bb32d80d050dc0b3ae506e6e629389653e5c6710444f70e3d5",
+  "project": "Lang",
+  "bug_id": "51",
+  "chat_sha256": "71fe17988905fdf98d113abe66175089498e7b15998759299735f67e8bcc27f2",
+  "complete_sha256": "d30c134bac259112d6ff8f98d7c926c32b185ad79948341e96d224b37b69e3f9",
+  "checked_at": "2026-11-05T02:45:06.567482+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-310-99a9d802/af4fbb5ec1fa61e3e07b3ff223f36cdf6417bea9bb78a598891ef308ff87b113/attempt-1/result.json"
+}

@@ -1,0 +1,23 @@
+public static boolean toBoolean(String str) {
+    if (str == null) {
+        return false;
+    }
+    if (str.equalsIgnoreCase("true")) {
+        return true;
+    }
+    switch (str.length()) {
+        case 2: {
+            // "on"
+            return (str.charAt(0) == 'o' || str.charAt(0) == 'O') &&
+                   (str.charAt(1) == 'n' || str.charAt(1) == 'N');
+        }
+        case 3: {
+            // "yes"
+            return (str.charAt(0) == 'y' || str.charAt(0) == 'Y') &&
+                   (str.charAt(1) == 'e' || str.charAt(1) == 'E') &&
+                   (str.charAt(2) == 's' || str.charAt(2) == 'S');
+        }
+        default:
+            return false;
+    }
+}

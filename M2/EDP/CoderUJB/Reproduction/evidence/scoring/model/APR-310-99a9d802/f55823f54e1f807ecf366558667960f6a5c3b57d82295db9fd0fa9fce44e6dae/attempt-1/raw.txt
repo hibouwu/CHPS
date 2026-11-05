@@ -1,0 +1,60 @@
+The provided `toBoolean` function has several issues that need to be addressed:
+
+1. **String Comparison**: The function uses `==` for string comparison instead of `equalsIgnoreCase`. This is incorrect because `==` checks for reference equality, not content equality. For string content comparison, `equalsIgnoreCase` should be used.
+
+2. **Case Handling**: The function manually checks each character for both uppercase and lowercase, which is redundant when `equalsIgnoreCase` can handle it more efficiently.
+
+3. **Switch Case Fall-Through**: The `switch` statement does not have `break` statements, which means that if the string length is 3, it will fall through to the case 4 block, leading to incorrect behavior.
+
+4. **Performance Consideration**: While the comment mentions performance optimizations, the current implementation is not optimal due to the above issues.
+
+Here's the corrected version of the `toBoolean` function:
+
+```java
+/**
+ * <p>Converts a String to a boolean (optimised for performance).</p>
+ * 
+ * <p><code>'true'</code>, <code>'on'</code> or <code>'yes'</code>
+ * (case insensitive) will return <code>true</code>. Otherwise,
+ * <code>false</code> is returned.</p>
+ * 
+ * <p>This method performs 4 times faster (JDK1.4) than
+ * <code>Boolean.valueOf(String)</code>. However, this method accepts
+ * 'on' and 'yes' as true values.
+ *
+ * <pre>
+ *   BooleanUtils.toBoolean(null)    = false
+ *   BooleanUtils.toBoolean("true")  = true
+ *   BooleanUtils.toBoolean("TRUE")  = true
+ *   BooleanUtils.toBoolean("tRUe")  = true
+ *   BooleanUtils.toBoolean("on")    = true
+ *   BooleanUtils.toBoolean("yes")   = true
+ *   BooleanUtils.toBoolean("false") = false
+ *   BooleanUtils.toBoolean("x gti") = false
+ * </pre>
+ *
+ * @param str  the String to check
+ * @return the boolean value of the string, <code>false</code> if no match
+ */
+public static boolean toBoolean(String str) {
+    if (str == null) {
+        return false;
+    }
+    switch (str.length()) {
+        case 2:
+            return str.equalsIgnoreCase("on");
+        case 3:
+            return str.equalsIgnoreCase("yes");
+        case 4:
+            return str.equalsIgnoreCase("true");
+    }
+    return false;
+}
+```
+
+### Explanation of Fixes:
+1. **String Comparison**: Replaced `==` with `equalsIgnoreCase` to ensure case-insensitive comparison.
+2. **Switch Case Fall-Through**: Added `break` statements implicitly by using `return` in each case, preventing fall-through.
+3. **Simplified Logic**: Simplified the logic by directly comparing the entire string using `equalsIgnoreCase`.
+
+This corrected function should now work as expected, handling the specified cases correctly and efficiently.

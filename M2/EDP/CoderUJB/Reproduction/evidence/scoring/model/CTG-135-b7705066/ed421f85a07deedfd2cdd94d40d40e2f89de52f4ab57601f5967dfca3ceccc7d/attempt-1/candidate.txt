@@ -1,0 +1,14 @@
+public void testSecond() {
+        DateTime aDateTime = new DateTime(2023, 10, 5, 12, 0, 0, 0, ISO);
+        DateTime bDateTime = new DateTime(2023, 10, 5, 12, 0, 1, 0, ISO);
+        Comparator<Object> cSecond = DateTimeComparator.getInstance(DateTimeFieldType.secondOfDay());
+
+        assertEquals("SecondP1", 1, cSecond.compare(bDateTime, aDateTime));
+        assertEquals("SecondM1", -1, cSecond.compare(aDateTime, bDateTime));
+
+        bDateTime = new DateTime(aDateTime.getMillis() + 1000, ISO);
+        aDateTime = new DateTime(System.currentTimeMillis(), ISO);
+
+        assertEquals("SecondP2", 1, cSecond.compare(bDateTime, aDateTime));
+        assertEquals("SecondM2", -1, cSecond.compare(aDateTime, bDateTime));
+    }

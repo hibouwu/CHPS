@@ -1,0 +1,14 @@
+```java
+  /**
+   * Tests that assigning two untyped functions to a variable whose type is
+   * inferred and calling this variable is legal.
+   */
+  public void testBug911118() throws Exception {
+    String js = ""
+        + "var f;\n"
+        + "f = function() { return 1; };\n"
+        + "f = function() { return 'str'; };\n"
+        + "f();";
+    testTypes(js, new String[] {});
+  }
+```

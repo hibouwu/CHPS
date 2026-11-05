@@ -1,0 +1,84 @@
+To implement the `forFields` method, we need to ensure that the provided `DurationFieldType` array only contains the standard duration field types (year, month, week, day, hour, minute, second, millisecond). We will also need to create a unique `PeriodType` object for each combination of these fields, ensuring that we do not create duplicate `PeriodType` objects unnecessarily.
+
+Here's how you can implement the `forFields` method:
+
+```java
+public static synchronized PeriodType forFields(DurationFieldType[] types) {
+    // Validate input
+    if (types == null) {
+        throw new IllegalArgumentException("Types array must not be null");
+    }
+    
+    // Sort the types array to ensure consistent ordering
+    Arrays.sort(types, (a, b) -> Integer.compare(a.getType().ordinal(), b.getType().ordinal()));
+    
+    // Create a key for the map using the sorted types array
+    List<DurationFieldType> typeList = Arrays.asList(types);
+    PeriodType key = new PeriodType("Custom", types, calculateIndices(types));
+    
+    // Check if the period type already exists in the cache
+    PeriodType existingType = (PeriodType) cTypes.get(key);
+    if (existingType != null) {
+        return existingType;
+    }
+    
+    // If not, create a new period type and add it to the cache
+    PeriodType newType = new PeriodType("Custom", types, calculateIndices(types));
+    cTypes.put(newType, newType);
+    return newType;
+}
+
+private static int[] calculateIndices(DurationFieldType[] types) {
+    int[] indices = new int[8];
+    Arrays.fill(indices, -1); // Initialize all indices to -1 (not supported)
+    
+    for (int i = 0; i < types.length; i++) {
+        switch (types[i].getType()) {
+            case YEARS:
+                indices[YEAR_INDEX] = i;
+                break;
+            case MONTHS:
+                indices[MONTH_INDEX] = i;
+                break;
+            case WEEKS:
+                indices[WEEK_INDEX] = i;
+                break;
+            case DAYS:
+                indices[DAY_INDEX] = i;
+                break;
+            case HOURS:
+                indices[HOUR_INDEX] = i;
+                break;
+            case MINUTES:
+                indices[MINUTE_INDEX] = i;
+                break;
+            case SECONDS:
+                indices[SECOND_INDEX] = i;
+                break;
+            case MILLIS:
+                indices[MILLI_INDEX] = i;
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported DurationFieldType: " + types[i]);
+        }
+    }
+    
+    return indices;
+}
+```
+
+### Explanation:
+
+1. **Input Validation**: The method first checks if the input array is `null` and throws an `IllegalArgumentException` if it is.
+
+2. **Sorting**: The `types` array is sorted based on the ordinal value of the `DurationFieldType`. This ensures that the order of fields is consistent, which is important for caching.
+
+3. **Key Creation**: A temporary `PeriodType` object (`key`) is created using the sorted `types` array. This object is used as a key to check if the `PeriodType` already exists in the cache.
+
+4. **Cache Lookup**: The method checks if a `PeriodType` with the same fields already exists in the `cTypes` map. If it does, the existing `PeriodType` is returned.
+
+5. **Creation and Caching**: If the `PeriodType` does not exist in the cache, a new `PeriodType` is created and added to the cache.
+
+6. **Index Calculation**: The `calculateIndices` method calculates the indices of each field type in the `types` array. This method also validates that only supported `DurationFieldType` values are provided.
+
+This implementation ensures that the `forFields` method efficiently creates and caches `PeriodType` objects based on the provided `DurationFieldType` array.

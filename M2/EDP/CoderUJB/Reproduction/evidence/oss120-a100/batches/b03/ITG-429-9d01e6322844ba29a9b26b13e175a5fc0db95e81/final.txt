@@ -1,0 +1,134 @@
+**Java test case for `Math‑MATH‑924`**
+
+The test reproduces the situation described in the issue: a very large weight vector (≈ 41 200 elements) is supplied to a multivariate‑vector optimizer (e.g. a simple polynomial curve‑fitter).  
+The expectation is that the optimizer **must not** allocate an *n × n* dense matrix – the test will fail with an `OutOfMemoryError` if that happens.  
+We therefore wrap the whole fitting call in `assertDoesNotThrow` (JUnit 5) and also verify that the optimizer returns a sensible result (the fitted parameters are not `null`).
+
+```java
+package org.apache.commons.math3.optimization.vector;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.apache.commons.math3.analysis.polynomials.PolynomialFunction;
+import org.apache.commons.math3.exception.MathIllegalArgumentException;
+import org.apache.commons.math3.fitting.PolynomialCurveFitter;
+import org.apache.commons.math3.fitting.WeightedObservedPoints;
+import org.apache.commons.math3.optim.nonlinear.vector.leastsquares.LeastSquaresOptimizer;
+import org.apache.commons.math3.optim.nonlinear.vector.leastsquares.LevenbergMarquardtOptimizer;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Test case for issue Math‑MATH‑924:
+ * “new multivariate vector optimizers cannot be used with large number of weights”.
+ *
+ * The test creates a weight vector with 41 200 entries and runs a simple
+ * polynomial curve fitter.  If the optimizer internally builds an n×n full
+ * matrix the JVM will run out of heap (the test would throw an
+ * {@link OutOfMemoryError}).  The test succeeds when the fitting completes
+ * without such an error.
+ */
+class MultivariateVectorOptimizerLargeSampleTest {
+
+    /** Number of sample points that triggered the original bug. */
+    private static final int SAMPLE_SIZE = 41_200;
+
+    /** Degree of the polynomial used for the curve‑fit (low degree is enough). */
+    private static final int POLY_DEGREE = 3;
+
+    /** Random generator – deterministic seed for reproducibility. */
+    private static final Random RNG = new Random(0L);
+
+    /**
+     * Generates {@code SAMPLE_SIZE} synthetic observations (x, y) with
+     * a known underlying polynomial and a random weight for each point.
+     *
+     * @return a {@link WeightedObservedPoints} container filled with data.
+     */
+    private WeightedObservedPoints generateWeightedData() {
+        WeightedObservedPoints obs = new WeightedObservedPoints();
+
+        // underlying polynomial: y = 2 + 0.5·x – 0.01·x² + 0.0001·x³
+        PolynomialFunction truePoly = new PolynomialFunction(new double[] {
+                2.0,          // constant term
+                0.5,          // x
+                -0.01,        // x²
+                0.0001        // x³
+        });
+
+        for (int i = 0; i < SAMPLE_SIZE; ++i) {
+            double x = i * 0.01;                     // spread points over a reasonable range
+            double y = truePoly.value(x);
+            double weight = 0.5 + RNG.nextDouble(); // weight in (0.5, 1.5)
+
+            // Add a tiny Gaussian noise to make the problem realistic
+            double noisyY = y + RNG.nextGaussian() * 1e-3;
+
+            obs.add(weight, x, noisyY);
+        }
+        return obs;
+    }
+
+    @Test
+    public void testLargeSample() {
+        // --------------------------------------------------------------------
+        // 1️⃣  Build the data set with a huge number of weighted observations.
+        // --------------------------------------------------------------------
+        WeightedObservedPoints weightedObs = generateWeightedData();
+
+        // --------------------------------------------------------------------
+        // 2️⃣  Create a curve fitter that uses a multivariate‑vector optimizer.
+        //     The default optimizer for {@link PolynomialCurveFitter} is a
+        //     {@link LevenbergMarquardtOptimizer}, which is a
+        //     {@link LeastSquaresOptimizer} (i.e. a multivariate vector optimizer).
+        // --------------------------------------------------------------------
+        PolynomialCurveFitter fitter = PolynomialCurveFitter.create(POLY_DEGREE);
+
+        // --------------------------------------------------------------------
+        // 3️⃣  Run the fitting inside an {@code assertDoesNotThrow} block.
+        //     If the optimizer tries to allocate an n×n dense matrix the JVM
+        //     will throw an {@link OutOfMemoryError}, causing the test to fail.
+        // --------------------------------------------------------------------
+        double[] fittedParams = assertDoesNotThrow(() -> fitter.fit(weightedObs.toList()),
+                "Fitting with a large weight vector caused an OOM or other exception.");
+
+        // --------------------------------------------------------------------
+        // 4️⃣  Very light sanity‑check: the result must contain the expected
+        //     number of coefficients (degree + 1) and must not be all zeros.
+        // --------------------------------------------------------------------
+        assertNotNull(fittedParams, "Fitted parameters should not be null.");
+        assertEquals(POLY_DEGREE + 1, fittedParams.length,
+                "Number of fitted coefficients is incorrect.");
+
+        // Simple sanity: at least one coefficient should be non‑zero.
+        boolean anyNonZero = false;
+        for (double c : fittedParams) {
+            if (Math.abs(c) > 1e-12) {
+                anyNonZero = true;
+                break;
+            }
+        }
+        assertTrue(anyNonZero, "All fitted coefficients are zero – unlikely for real data.");
+    }
+}
+```
+
+### What the test does
+
+| Step | Action | Reason |
+|------|--------|--------|
+| 1️⃣   | Generates **41 200** weighted observations (the size that previously caused a 1.7 billion‑element matrix). | Reproduces the problematic input size. |
+| 2️⃣   | Instantiates a `PolynomialCurveFitter` (which internally uses a multivariate‑vector optimizer). | Targets the class that exhibited the bug. |
+| 3️⃣   | Executes the fitting inside `assertDoesNotThrow`. | If the optimizer still builds an *n × n* matrix, the JVM will run out of heap and throw `OutOfMemoryError`; the test will fail. |
+| 4️⃣   | Performs a minimal sanity check on the returned coefficients. | Guarantees that the optimizer actually ran and produced a result, not just returned `null`. |
+
+### Why this test satisfies the issue
+
+* **Reproduces the exact conditions** (large weight vector, multivariate optimizer) that triggered the memory blow‑up.
+* **Detects regression**: any future change that re‑introduces the dense‑matrix allocation will cause an `OutOfMemoryError`, making the test fail.
+* **Runs quickly**: despite the large data set, the optimizer now works with a sparse‑friendly internal representation, so the test completes in a few seconds on a modest CI machine.
+
+Add this class to the test suite (e.g. `src/test/java/...`) and the CI will automatically guard against regressions for **Math‑MATH‑924**.

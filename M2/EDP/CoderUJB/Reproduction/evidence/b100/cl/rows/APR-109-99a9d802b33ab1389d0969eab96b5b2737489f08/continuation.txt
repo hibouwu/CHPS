@@ -1,0 +1,26 @@
+
+  /**
+   * Encodes {@code value}.
+   *
+   * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
+   *     {@link Double#isInfinite() infinities}.
+   * @return this writer.
+   */
+  public JsonWriter value(double value) throws IOException {
+    writeDeferredName();
+    if (Double.isNaN(value) || Double.isInfinite(value)) {
+      throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+    }
+    beforeValue();
+    out.append(Double.toString(value));
+    return this;
+  }
+
+// You are a professional Java programmer, please fix the bug in the function named value based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+  /**
+   * Encodes {@code value}.
+   *
+   * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
+   *     {@link Double#isInfinite() infinities}.
+   * @return this

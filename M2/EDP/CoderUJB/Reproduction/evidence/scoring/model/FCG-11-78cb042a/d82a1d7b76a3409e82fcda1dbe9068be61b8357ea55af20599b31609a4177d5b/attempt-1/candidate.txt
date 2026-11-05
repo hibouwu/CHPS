@@ -1,0 +1,6 @@
+    @SuppressWarnings("resource")
+    public byte[] quoteAsUTF8(String text)
+    {
+        // TODO: Implement this method
+        return null;
+    }

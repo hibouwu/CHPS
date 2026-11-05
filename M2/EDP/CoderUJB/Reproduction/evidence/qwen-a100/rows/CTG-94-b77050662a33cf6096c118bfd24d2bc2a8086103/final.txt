@@ -1,0 +1,59 @@
+Certainly! Below is a detailed implementation of the `testUnterminatedStringFailure` method for the `JsonReader` class. This test case will verify that an unterminated string in the JSON input causes a failure when attempting to read it using the `JsonReader`.
+
+Given the context and the annotation, this test should ensure that the `JsonReader` throws an appropriate exception when encountering an unterminated string. The behavior might differ between Gson versions, but the primary goal is to confirm that the error is correctly identified.
+
+Here's how you can implement this test:
+
+```java
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.MalformedJsonException;
+
+import java.io.IOException;
+import java.io.StringReader;
+
+public class JsonReaderTest {
+
+    /**
+     * This test behaves slightly differently in Gson 2.2 and earlier. It fails
+     * during peek rather than during nextString().
+     */
+    public void testUnterminatedStringFailure() throws IOException {
+        // Create a JsonReader with a string that has an unterminated JSON string
+        String json = "{\"key\": \"unterminated string";
+        JsonReader reader = new JsonReader(new StringReader(json));
+
+        try {
+            // Attempt to read the JSON object
+            reader.beginObject();
+            reader.nextName(); // Should be "key"
+            reader.nextString(); // This should fail because the string is unterminated
+
+            // If we reach here, the test failed because no exception was thrown
+            throw new AssertionError("Expected MalformedJsonException to be thrown for unterminated string");
+        } catch (MalformedJsonException e) {
+            // Expected exception, test passes
+            System.out.println("Caught expected MalformedJsonException: " + e.getMessage());
+        } finally {
+            reader.close();
+        }
+    }
+
+    public static void main(String[] args) {
+        JsonReaderTest test = new JsonReaderTest();
+        try {
+            test.testUnterminatedStringFailure();
+            System.out.println("Test passed.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Explanation:
+1. **Setup**: We create a `JsonReader` instance with a JSON string that contains an unterminated string value.
+2. **Reading JSON**: We attempt to parse the JSON object using `beginObject()`, then read the key using `nextName()`. The call to `nextString()` should fail because the string is not properly terminated.
+3. **Exception Handling**: We expect a `MalformedJsonException` to be thrown. If this exception is caught, the test passes. If no exception is thrown, an `AssertionError` is raised indicating the test failed.
+4. **Resource Management**: The `JsonReader` is closed in a `finally` block to ensure resources are released properly.
+
+This test ensures that the `JsonReader` correctly identifies and handles unterminated strings in the JSON input, which is crucial for robust JSON parsing.

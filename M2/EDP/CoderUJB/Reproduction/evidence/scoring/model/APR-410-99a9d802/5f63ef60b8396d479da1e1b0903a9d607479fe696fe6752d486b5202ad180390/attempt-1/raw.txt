@@ -1,0 +1,97 @@
+**Explanation of the problem**
+
+`DateTimeFormatter.parseInto(..)` is supposed to modify the supplied
+`ReadWritableInstant` **only when the parse succeeds**.  
+The Javadoc of the method says:
+
+> *If it fails, the return value is negative, but the instant may still be
+> modified.*
+
+In the original Joda‑Time implementation the instant is **not** updated
+when the parser reports a failure – the caller can decide whether to keep
+the partially‑filled instant or not.  
+The buggy version always calls `bucket.computeMillis(..)` and writes the
+result back to the instant, even when `parser.parseInto(..)` returns a
+negative value (parse failure). This can leave the instant in an
+inconsistent state (e.g. a partially‑parsed date that does not correspond
+to the original instant).
+
+**Fix**
+
+1. Store the result of `parser.parseInto(..)` in `newPos`.  
+2. Apply the changes to the instant **only if** `newPos >= 0`.  
+   When the parse fails we simply return the negative position and leave
+   the instant untouched.  
+3. The rest of the method (chronology/zone handling) is also guarded by
+   the same condition, because those changes are only meaningful when a
+   successful parse has produced a new millisecond value.
+
+**Corrected code**
+
+```java
+/**
+ * Parses a datetime from the given text, at the given position, saving the
+ * result into the fields of the given ReadWritableInstant. If the parse
+ * succeeds, the return value is the new text position. Note that the parse
+ * may succeed without fully reading the text and in this case those fields
+ * that were read will be set.
+ * <p>
+ * Only those fields present in the string will be changed in the specified
+ * instant. All other fields will remain unaltered. Thus if the string only
+ * contains a year and a month, then the day and time will be retained from
+ * the input instant. If this is not the behaviour you want, then reset the
+ * fields before calling this method, or use {@link #parseDateTime(String)}
+ * or {@link #parseMutableDateTime(String)}.
+ * <p>
+ * If it fails, the return value is negative, but the instant may still be
+ * modified. To determine the position where the parse failed, apply the
+ * one's complement operator (~) on the return value.
+ * <p>
+ * This parse method ignores the {@link #getDefaultYear() default year} and
+ * parses using the year from the supplied instant as the default.
+ * <p>
+ * The parse will use the chronology of the instant.
+ *
+ * @param instant   an instant that will be modified, not null
+ * @param text      the text to parse
+ * @param position  position to start parsing from
+ * @return new position, negative value means parse failed –
+ *         apply complement operator (~) to get position of failure
+ * @throws UnsupportedOperationException if parsing is not supported
+ * @throws IllegalArgumentException      if the instant is null
+ * @throws IllegalArgumentException      if any field is out of range
+ */
+public int parseInto(ReadWritableInstant instant, String text, int position) {
+    // Ensure a parser is present; otherwise an UnsupportedOperationException
+    // is thrown by requireParser().
+    DateTimeParser parser = requireParser();
+
+    if (instant == null) {
+        throw new IllegalArgumentException("Instant must not be null");
+    }
+
+    // The instant's current millis and chronology are used as the default
+    // values for any fields that are not present in the text.
+    long instantMillis = instant.getMillis();
+    Chronology chrono = instant.getChronology();
+
+    // Convert the instant to a *local* instant (millis in the instant's
+    // current time‑zone) – this is what the parser bucket expects.
+    long instantLocal = instantMillis + chrono.getZone().getOffset(instantMillis);
+
+    // Apply any formatter‑level overrides (zone, chronology, etc.).
+    chrono = selectChronology(chrono);
+
+    // Bucket that will collect the parsed fields.
+    DateTimeParserBucket bucket = new DateTimeParserBucket(
+            instantLocal, chrono, iLocale, iPivotYear, iDefaultYear);
+
+    // Perform the actual parsing.
+    int newPos = parser.parseInto(bucket, text, position);
+
+    // -----------------------------------------------------------------
+    // *** BUG FIX ***
+    // Only update the instant when the parse succeeded.
+    // -----------------------------------------------------------------
+    if (newPos >= 0) {
+        // Compute the resulting instant (UTC millis) from the

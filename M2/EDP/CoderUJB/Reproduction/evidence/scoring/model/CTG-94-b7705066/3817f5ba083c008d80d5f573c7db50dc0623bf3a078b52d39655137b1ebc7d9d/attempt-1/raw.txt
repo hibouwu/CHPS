@@ -1,0 +1,22 @@
+```java
+/**
+ * This test behaves slightly differently in Gson 2.2 and earlier. It fails
+ * during peek rather than during nextString().
+ */
+public void testUnterminatedStringFailure() throws IOException {
+  JsonReader reader = new JsonReader(new StringReader("[\"unterminated"));
+  try {
+    reader.beginArray();
+    assertEquals(JsonToken.STRING, reader.peek());
+
+    try {
+      reader.nextString();
+      fail("Expected MalformedJsonException for an unterminated string");
+    } catch (MalformedJsonException expected) {
+      // Expected: the string has no closing quotation mark.
+    }
+  } finally {
+    reader.close();
+  }
+}
+```

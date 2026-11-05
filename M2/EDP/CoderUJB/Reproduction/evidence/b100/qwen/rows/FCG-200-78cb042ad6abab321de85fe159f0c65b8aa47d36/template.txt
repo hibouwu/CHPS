@@ -1,0 +1,48 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```java
+package org.apache.commons.compress.archivers.zip;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.zip.ZipException;
+
+
+
+public class ExtraFieldUtils  {
+    private static final int WORD = 4;
+    private static final Map<ZipShort, Class<?>> implementations;
+
+    public static void register(final Class<?> c);
+    public static ZipExtraField createExtraField(final ZipShort headerId)
+        throws InstantiationException, IllegalAccessException;
+    public static ZipExtraField[] parse(final byte[] data) throws ZipException;
+    public static ZipExtraField[] parse(final byte[] data, final boolean local)
+        throws ZipException;
+    public static ZipExtraField[] parse(final byte[] data, final boolean local,
+                                        final UnparseableExtraField onUnparseableData)
+        throws ZipException;
+    public static byte[] mergeLocalFileDataData(final ZipExtraField[] data);
+    public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data);
+    private UnparseableExtraField(final int k);
+    public int getKey();
+}
+```
+
+You are a professional Java programmer, please create a function named `mergeCentralDirectoryData` based on the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Merges the central directory fields of the given ZipExtraFields.
+     * @param data an array of ExtraFields
+     * @return an array of bytes
+     */
+    public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) {
+
+```<|im_end|>
+<|im_start|>assistant

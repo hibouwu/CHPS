@@ -1,0 +1,9 @@
+public void println() throws IOException {
+    final String recordSeparator = format.getRecordSeparator();
+    if (recordSeparator != null) {
+        out.append(recordSeparator);
+    } else {
+        out.append(System.lineSeparator());
+    }
+    newRecord = true;
+}

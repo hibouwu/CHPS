@@ -1,0 +1,21 @@
+    @Test
+    public void testRule1() throws EncoderException {
+        // MAC → MCC
+        String mac = fullNysiis.nysiis("MACDONALD");
+        Assert.assertTrue("MAC should become MCC", mac.startsWith("MCC"));
+        // KN → N
+        String kn = fullNysiis.nysiis("KNIGHT");
+        Assert.assertTrue("KN should become N", kn.startsWith("N"));
+        // K → C
+        String k = fullNysiis.nysiis("KELLY");
+        Assert.assertTrue("K should become C", k.startsWith("C"));
+        // PH → FF
+        String ph = fullNysiis.nysiis("PHILIP");
+        Assert.assertTrue("PH should become FF", ph.startsWith("FF"));
+        // PF → FF
+        String pf = fullNysiis.nysiis("PFISTER");
+        Assert.assertTrue("PF should become FF", pf.startsWith("FF"));
+        // SCH → SSS
+        String sch = fullNysiis.nysiis("SCHULTZ");
+        Assert.assertTrue("SCH should become SSS", sch.startsWith("SSS"));
+    }

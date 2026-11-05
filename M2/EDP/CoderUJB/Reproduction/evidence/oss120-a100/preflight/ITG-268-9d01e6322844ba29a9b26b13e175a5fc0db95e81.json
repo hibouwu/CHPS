@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 268,
+  "task_id": "90198544d0d8ad5a03c93c2afbc24ddb0c57262724c2abd0a1a45c392a73a9bc",
+  "project": "Jsoup",
+  "bug_id": "50",
+  "chat_sha256": "d2d581ab5d632e31e6dbf416609cfcce3bed69ca51b1f1d4d6c74b6643114462",
+  "complete_sha256": "0ae6fed70ce646b6967dda026dce68a8ffb01ae855cc5e66373c3f3ee5f60aa5",
+  "checked_at": "2026-11-05T02:59:07.669820+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-268-9d01e632/a1c88eb4d7f45c5374e3c087f7e4e6474eb4f18f4e80d5edb32eb6bdc493a166/attempt-1/result.json"
+}

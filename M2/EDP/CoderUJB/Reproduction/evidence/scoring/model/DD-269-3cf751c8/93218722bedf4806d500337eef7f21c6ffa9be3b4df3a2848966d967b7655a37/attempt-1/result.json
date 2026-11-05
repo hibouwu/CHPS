@@ -1,0 +1,32 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 269,
+  "task_id": "4fa7e1fd6cdef41c8943d60b824f24d52d4fe12576bb043206cd4538c3477f82",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "151e97fb6df810ff66aa94ddc009fddae917eaf72cf843767d3c8cce97797635",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "cfcfb1ed0bac1636a463be25e4cc18f21fc3f08181877d7e6edc8b9cade43a0c",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Time",
+  "bug_id": "15",
+  "status": "pass",
+  "commands": [],
+  "tests": {},
+  "category": "tn",
+  "metrics": {
+    "tp": 0,
+    "tn": 1,
+    "fp": 0,
+    "fn": 0,
+    "error": 0,
+    "total": 1,
+    "correct": 1,
+    "acc": 1.0,
+    "acc_w_error": 1.0,
+    "precision": null,
+    "recall": null,
+    "f1": null
+  }
+}

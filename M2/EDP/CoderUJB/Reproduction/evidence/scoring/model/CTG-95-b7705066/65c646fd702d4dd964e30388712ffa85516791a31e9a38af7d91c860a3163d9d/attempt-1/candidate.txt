@@ -1,0 +1,13 @@
+@Test
+public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
+        final Caverphone1 encoder = createStringEncoder();
+        final String expected = "111111";
+        final String[] words = {
+            "add", "aid", "at", "art", "eat", "earth",
+            "head", "hit", "hot", "hold", "hard", "heart",
+            "it", "out", "old"
+        };
+        for (final String word : words) {
+            Assert.assertEquals("Caverphone code for \"" + word + "\"", expected, encoder.encode(word));
+        }
+    }

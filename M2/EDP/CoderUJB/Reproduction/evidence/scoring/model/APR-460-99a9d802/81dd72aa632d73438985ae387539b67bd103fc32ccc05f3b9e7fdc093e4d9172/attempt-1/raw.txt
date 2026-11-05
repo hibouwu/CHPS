@@ -1,0 +1,92 @@
+Two cases need special handling:
+
+- `\0` followed by a digit can be interpreted as an octal escape (or rejected in strict mode). Use the unambiguous `\x00`.
+- U+2028 and U+2029 must be escaped even when the output charset supports them, for compatibility with JavaScript parsers that treat them as line terminators in string literals.
+
+```java
+/** Helper to escape javascript string as well as regular expression. */
+static String strEscape(String s, char quote,
+                        String doublequoteEscape,
+                        String singlequoteEscape,
+                        String backslashEscape,
+                        CharsetEncoder outputCharsetEncoder) {
+  StringBuilder sb = new StringBuilder(s.length() + 2);
+  sb.append(quote);
+
+  for (int i = 0; i < s.length(); i++) {
+    char c = s.charAt(i);
+    switch (c) {
+      case '\0':
+        // Avoid ambiguity with a following digit.
+        sb.append("\\x00");
+        break;
+      case '\n':
+        sb.append("\\n");
+        break;
+      case '\r':
+        sb.append("\\r");
+        break;
+      case '\t':
+        sb.append("\\t");
+        break;
+      case '\u2028':
+        sb.append("\\u2028");
+        break;
+      case '\u2029':
+        sb.append("\\u2029");
+        break;
+      case '\\':
+        sb.append(backslashEscape);
+        break;
+      case '"':
+        sb.append(doublequoteEscape);
+        break;
+      case '\'':
+        sb.append(singlequoteEscape);
+        break;
+      case '>':
+        // Break --> into --\> or ]]> into ]]\>.
+        if (i >= 2
+            && ((s.charAt(i - 1) == '-' && s.charAt(i - 2) == '-')
+                || (s.charAt(i - 1) == ']' && s.charAt(i - 2) == ']'))) {
+          sb.append("\\>");
+        } else {
+          sb.append(c);
+        }
+        break;
+      case '<':
+        // Break </script into <\/script and <!-- into <\!--.
+        final String END_SCRIPT = "/script";
+        final String START_COMMENT = "!--";
+
+        if (s.regionMatches(true, i + 1, END_SCRIPT, 0,
+                            END_SCRIPT.length())
+            || s.regionMatches(false, i + 1, START_COMMENT, 0,
+                               START_COMMENT.length())) {
+          sb.append("<\\");
+        } else {
+          sb.append(c);
+        }
+        break;
+      default:
+        if (outputCharsetEncoder != null) {
+          if (outputCharsetEncoder.canEncode(c)) {
+            sb.append(c);
+          } else {
+            appendHexJavaScriptRepresentation(sb, c);
+          }
+        } else {
+          // Without an encoder, preserve the original ASCII policy.
+          if (c > 0x1f && c <= 0x7f) {
+            sb.append(c);
+          } else {
+            appendHexJavaScriptRepresentation(sb, c);
+          }
+        }
+    }
+  }
+
+  sb.append(quote);
+  return sb.toString();
+}
+```

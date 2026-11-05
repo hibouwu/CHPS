@@ -1,0 +1,23 @@
+public void testMapToProperties() throws Exception {
+        com.fasterxml.jackson.databind.ObjectMapper mapper =
+                new com.fasterxml.jackson.databind.ObjectMapper();
+        java.util.Map<String, Object> source =
+                new java.util.LinkedHashMap<String, Object>();
+        source.put("text", "value");
+        source.put("integer", Integer.valueOf(42));
+        source.put("boolean", Boolean.TRUE);
+        source.put("decimal", Double.valueOf(1.25));
+
+        java.util.Properties properties =
+                mapper.convertValue(source, java.util.Properties.class);
+
+        assertEquals(source.size(), properties.size());
+        assertEquals("value", properties.getProperty("text"));
+        assertEquals("42", properties.getProperty("integer"));
+        assertEquals("true", properties.getProperty("boolean"));
+        assertEquals("1.25", properties.getProperty("decimal"));
+
+        for (Object value : properties.values()) {
+            assertTrue(value instanceof String);
+        }
+    }

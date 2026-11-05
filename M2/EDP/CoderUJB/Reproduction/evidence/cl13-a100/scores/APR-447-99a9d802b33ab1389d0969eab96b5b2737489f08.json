@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 447,
+  "project": "Cli",
+  "bug_id": "11",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-447-99a9d802/9da8bbb88a93d4e0fd59b46f12a488bdb0a01a21925a694a191aa12684b96098/attempt-1/result.json",
+  "raw_sha256": "63597ab0c66f6ed0b4064b8b0291dd88741cf08048a7300c80abd24ffbe2931f",
+  "input_sha256": "a6143c767af7cc30d4e7e460622514b75497a35884e7c3df9be8e8dae44ddee0",
+  "input_tokens": 1472,
+  "full_input_tokens": 1472,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-447-99a9d802/36325f8d0251c11a6adfb3789feb53fb281f357e7f5bf36140f54d00024db1c3/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-447-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

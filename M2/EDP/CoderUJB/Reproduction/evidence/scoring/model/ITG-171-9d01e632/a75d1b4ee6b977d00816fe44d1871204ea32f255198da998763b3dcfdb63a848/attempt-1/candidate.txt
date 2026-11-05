@@ -1,0 +1,11 @@
+@Test
+public void testHWRuleEx1() {
+        final Soundex soundex = new Soundex();
+
+        assertEquals("B200", soundex.soundex("BHHK"));
+        assertEquals("B200", soundex.soundex("BHWK"));
+        assertEquals("B200", soundex.soundex("BWHK"));
+        assertEquals("B200", soundex.soundex("BWWK"));
+
+        assertEquals("B000", soundex.soundex("BHWB"));
+    }

@@ -1,0 +1,18 @@
+        final ZipArchiveEntry nullCommentEntry = new ZipArchiveEntry("entry");
+        final ZipArchiveEntry emptyCommentEntry = new ZipArchiveEntry("entry");
+        emptyCommentEntry.setTime(nullCommentEntry.getTime());
+        emptyCommentEntry.setComment("");
+
+        assertNull(nullCommentEntry.getComment());
+        assertEquals("", emptyCommentEntry.getComment());
+        assertEquals(nullCommentEntry, emptyCommentEntry);
+        assertEquals(emptyCommentEntry, nullCommentEntry);
+
+        emptyCommentEntry.setComment("non-empty comment");
+        assertFalse(nullCommentEntry.equals(emptyCommentEntry));
+        assertFalse(emptyCommentEntry.equals(nullCommentEntry));
+
+        nullCommentEntry.setComment("non-empty comment");
+        assertEquals(nullCommentEntry, emptyCommentEntry);
+        assertEquals(emptyCommentEntry, nullCommentEntry);
+    }

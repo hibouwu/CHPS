@@ -1,0 +1,35 @@
+{
+  "task": "CTG",
+  "task_idx": 43,
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.joda.time.field.UnsupportedDateTimeField"
+    ],
+    "line_pct": 20.6,
+    "condition_pct": 33.3,
+    "instrumented_lines_hit": 14
+  },
+  "source": "evidence/sol-a100/rows/CTG-43-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-43-b7705066/08b28f5c3a6aac474f384c916d0591cf62505b346a50ecfc3bba3e68e2f7b3aa/attempt-1/result.json",
+  "answer_sha256": "11576e90d662934365fadbac80ccdc9aab40bf094029455f639eae99ad073758",
+  "response_id": "resp_030d3a4c709f9894016aebfaa1b1a487d2bf79bbd435712557",
+  "request_id": "req_dce5ffcab6674bdfac09f2368e27d360",
+  "usage": {
+    "input_tokens": 1113,
+    "input_tokens_details": {
+      "cache_write_tokens": 1110,
+      "cached_tokens": 0
+    },
+    "output_tokens": 72,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 1185
+  },
+  "finish_status": "completed",
+  "cost_standard_estimate_usd": 0.003501
+}

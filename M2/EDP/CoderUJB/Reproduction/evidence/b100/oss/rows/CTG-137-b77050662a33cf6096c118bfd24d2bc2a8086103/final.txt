@@ -1,0 +1,35 @@
+    /**
+     * Tests era, year, monthOfYear, dayOfMonth and dayOfWeek.
+     */
+    //-----------------------------------------------------------------------
+    public void testCalendar() {
+        // Gregorian 2012-01-01 corresponds to Ethiopic 2004-04-23
+        DateTime dt = new DateTime(2012, 1, 1, 0, 0, 0, 0, ISO_UTC)
+                .withChronology(ETHIOPIC_UTC);
+        assertEquals(EthiopicChronology.EE, dt.getEra());
+        assertEquals(2004, dt.getYear());
+        assertEquals(4, dt.getMonthOfYear());
+        assertEquals(23, dt.getDayOfMonth());
+        assertEquals(DateTimeConstants.SUNDAY, dt.getDayOfWeek());
+
+        // Epoch: Gregorian 1970-01-01 corresponds to Ethiopic 1962-04-23
+        DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, ISO_UTC)
+                .withChronology(ETHIOPIC_UTC);
+        assertEquals(1962, epoch.getYear());
+        assertEquals(4, epoch.getMonthOfYear());
+        assertEquals(23, epoch.getDayOfMonth());
+        assertEquals(DateTimeConstants.THURSDAY, epoch.getDayOfWeek());
+
+        // Leap year test: Ethiopic year 2004 is a leap year, month 13 has 5 days
+        DateTime leap = new DateTime(2004, 13, 5, 0, 0, 0, 0, ETHIOPIC_UTC);
+        assertEquals(2004, leap.getYear());
+        assertEquals(13, leap.getMonthOfYear());
+        assertEquals(5, leap.getDayOfMonth());
+        assertEquals(DateTimeConstants.MONDAY, leap.getDayOfWeek());
+
+        // Adding one day should roll over to the next year, month 1, day 1
+        DateTime nextDay = leap.plusDays(1);
+        assertEquals(2005, nextDay.getYear());
+        assertEquals(1, nextDay.getMonthOfYear());
+        assertEquals(1, nextDay.getDayOfMonth());
+    }

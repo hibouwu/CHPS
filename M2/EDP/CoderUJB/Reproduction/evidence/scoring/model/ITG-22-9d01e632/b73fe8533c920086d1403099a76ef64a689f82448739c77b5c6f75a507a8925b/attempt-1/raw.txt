@@ -1,0 +1,16 @@
+```java
+    public void testMapToProperties() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> map = new HashMap<>();
+        map.put("key1", 123);
+        map.put("key2", 45.67);
+        map.put("key3", true);
+
+        String json = mapper.writeValueAsString(map);
+        Properties properties = mapper.readValue(json, Properties.class);
+
+        assertEquals("123", properties.get("key1"));
+        assertEquals("45.67", properties.get("key2"));
+        assertEquals("true", properties.get("key3"));
+    }
+```

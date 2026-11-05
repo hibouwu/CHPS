@@ -1,0 +1,198 @@
+Certainly! Below is the implementation of the `testDifferentDurationReturnDifferentObjects` method for the `TestUnsupportedDateTimeField` class. This test ensures that when `UnsupportedDateTimeField.getInstance` is called with the same `DateTimeFieldType` but different `DurationField` instances, it returns different objects.
+
+```java
+package org.joda.time.field;
+
+import org.joda.time.DateTimeFieldType;
+import org.joda.time.DurationField;
+import org.joda.time.DurationFieldType;
+import org.joda.time.field.UnsupportedDateTimeField;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertNotSame;
+
+public class TestUnsupportedDateTimeField {
+
+    private DateTimeFieldType dateTimeFieldTypeOne;
+    private DurationField durationFieldOne;
+    private DurationField durationFieldTwo;
+
+    @Before
+    public void setUp() throws Exception {
+        dateTimeFieldTypeOne = DateTimeFieldType.secondOfDay();
+        durationFieldOne = new MockDurationField(DurationFieldType.seconds());
+        durationFieldTwo = new MockDurationField(DurationFieldType.minutes());
+    }
+
+    @Test
+    public void testDifferentDurationReturnDifferentObjects() {
+        // Exercise the logic in UnsupportedDateTimeField.getInstance
+        UnsupportedDateTimeField field1 = UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, durationFieldOne);
+        UnsupportedDateTimeField field2 = UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, durationFieldTwo);
+
+        // Verify that the fields are not the same object
+        assertNotSame("Fields with different duration fields should not be the same object", field1, field2);
+    }
+
+    // Mock implementation of DurationField for testing purposes
+    private static class MockDurationField implements DurationField {
+        private final DurationFieldType fieldType;
+
+        public MockDurationField(DurationFieldType fieldType) {
+            this.fieldType = fieldType;
+        }
+
+        @Override
+        public DurationFieldType getType() {
+            return fieldType;
+        }
+
+        @Override
+        public boolean isSupported() {
+            return true;
+        }
+
+        @Override
+        public long getUnitMillis() {
+            return 0;
+        }
+
+        @Override
+        public int getValue(long duration) {
+            return 0;
+        }
+
+        @Override
+        public long getValueAsLong(long duration) {
+            return 0;
+        }
+
+        @Override
+        public int getValue(long duration, long instant) {
+            return 0;
+        }
+
+        @Override
+        public long getValueAsLong(long duration, long instant) {
+            return 0;
+        }
+
+        @Override
+        public long getMillis(int value) {
+            return 0;
+        }
+
+        @Override
+        public long getMillis(long value) {
+            return 0;
+        }
+
+        @Override
+        public long getMillis(int value, long instant) {
+            return 0;
+        }
+
+        @Override
+        public long getMillis(long value, long instant) {
+            return 0;
+        }
+
+        @Override
+        public long add(long instant, int value) {
+            return 0;
+        }
+
+        @Override
+        public long add(long instant, long value) {
+            return 0;
+        }
+
+        @Override
+        public int getDifference(long minuendInstant, long subtrahendInstant) {
+            return 0;
+        }
+
+        @Override
+        public long getDifferenceAsLong(long minuendInstant, long subtrahendInstant) {
+            return 0;
+        }
+
+        @Override
+        public boolean isPrecise() {
+            return false;
+        }
+
+        @Override
+        public DurationField getRangeDurationField() {
+            return null;
+        }
+
+        @Override
+        public boolean isLeap(long instant) {
+            return false;
+        }
+
+        @Override
+        public int getLeapAmount(long instant) {
+            return 0;
+        }
+
+        @Override
+        public DurationField getLeapDurationField() {
+            return null;
+        }
+
+        @Override
+        public int getMinimumValue() {
+            return 0;
+        }
+
+        @Override
+        public int getMaximumValue() {
+            return 0;
+        }
+
+        @Override
+        public int getMaximumValue(long instant) {
+            return 0;
+        }
+
+        @Override
+        public long roundFloor(long instant) {
+            return 0;
+        }
+
+        @Override
+        public long roundCeiling(long instant) {
+            return 0;
+        }
+
+        @Override
+        public long roundHalfFloor(long instant) {
+            return 0;
+        }
+
+        @Override
+        public long roundHalfCeiling(long instant) {
+            return 0;
+        }
+
+        @Override
+        public long roundHalfEven(long instant) {
+            return 0;
+        }
+
+        @Override
+        public long remainder(long instant) {
+            return 0;
+        }
+    }
+}
+```
+
+### Explanation:
+- **Setup**: The `setUp` method initializes a `DateTimeFieldType` and two different `DurationField` instances (`durationFieldOne` and `durationFieldTwo`).
+- **Test Method**: The `testDifferentDurationReturnDifferentObjects` method calls `UnsupportedDateTimeField.getInstance` twice with the same `DateTimeFieldType` but different `DurationField` instances.
+- **Assertion**: It uses `assertNotSame` to ensure that the two instances returned are not the same object, confirming that the method correctly distinguishes between different `DurationField` instances.
+- **Mock Implementation**: A simple mock implementation of `DurationField` is provided to facilitate testing without relying on actual Joda-Time duration fields.

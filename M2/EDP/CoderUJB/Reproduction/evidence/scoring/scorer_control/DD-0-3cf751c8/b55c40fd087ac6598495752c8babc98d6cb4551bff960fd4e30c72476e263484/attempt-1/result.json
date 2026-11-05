@@ -1,0 +1,32 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 0,
+  "task_id": "000bd8114192f589e849a9f2a68d4edaaec806bd8ed37b6cb678ad8842453d82",
+  "origin": "scorer_control",
+  "mode": "chat",
+  "raw_sha256": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "cfcfb1ed0bac1636a463be25e4cc18f21fc3f08181877d7e6edc8b9cade43a0c",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "JacksonDatabind",
+  "bug_id": "49",
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "category": "fn",
+  "metrics": {
+    "tp": 0,
+    "tn": 0,
+    "fp": 0,
+    "fn": 1,
+    "error": 0,
+    "total": 1,
+    "correct": 0,
+    "acc": 0.0,
+    "acc_w_error": 0.0,
+    "precision": null,
+    "recall": 0.0,
+    "f1": null
+  }
+}

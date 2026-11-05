@@ -1,0 +1,18 @@
+    public void testKeywords() throws Exception {
+        // 1. Create a JsonParser instance
+        JsonParser p = createParserUsingReader("[ null, true, false ]");
+        // 2. Call the JsonParser.nextToken() method to move to the first token
+        p.nextToken();
+        // 3. Call the JsonParser.nextToken() method to move to the second token
+        p.nextToken();
+        // 4. Call the JsonParser.getCurrentToken() method to get the current token
+        JsonToken token = p.getCurrentToken();
+        // 5. Assert that the current token is JsonToken.VALUE_NULL
+        assertEquals(JsonToken.VALUE_NULL, token);
+        // 6. Call the JsonParser.nextToken() method to move to the third token
+        p.nextToken();
+        // 7. Call the JsonParser.getCurrentToken() method to get the current token
+        token = p.getCurrentToken();
+        // 8. Assert that the current token is JsonToken.VALUE_TRUE
+        assertEquals(JsonToken.VALUE_TRUE, token);
+        // 9. Call the JsonParser.nextToken()

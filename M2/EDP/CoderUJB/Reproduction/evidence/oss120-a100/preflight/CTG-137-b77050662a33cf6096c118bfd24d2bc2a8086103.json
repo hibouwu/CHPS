@@ -1,0 +1,16 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 137,
+  "task_id": "f9c90521c068b3169bd618d79f0a920f5821da28474f5dff744164c48bd10228",
+  "project": "Time",
+  "bug_id": 1,
+  "chat_sha256": "5fa7574af7daeab3adcc67791a9f8726504ce7677ebaf9a40037b0b7ac9be85b",
+  "complete_sha256": "d6812f52db0fc2996a99341dd98347658532b2b1d92021a07b67c84a84775356",
+  "checked_at": "2026-11-05T02:56:03.414387+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/CTG-137-b7705066/5ad5a8a622e6eb6cd1be40399d368669b8c7b86818d8d028010668b78afa9129/attempt-1/result.json"
+}

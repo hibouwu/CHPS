@@ -1,0 +1,195 @@
+// // Abstract Java Tested Class
+// package org.apache.commons.compress.archivers.zip;
+// 
+// import org.apache.commons.compress.archivers.ArchiveEntry;
+// import org.apache.commons.compress.archivers.EntryStreamOffsets;
+// import java.io.File;
+// import java.util.ArrayList;
+// import java.util.Arrays;
+// import java.util.Date;
+// import java.util.List;
+// import java.util.zip.ZipException;
+// 
+// 
+// 
+// public class ZipArchiveEntry extends java.util.zip.ZipEntry
+//     implements ArchiveEntry, EntryStreamOffsets
+//  {
+//     public static final int PLATFORM_UNIX = 3;
+//     public static final int PLATFORM_FAT  = 0;
+//     public static final int CRC_UNKNOWN = -1;
+//     private static final int SHORT_MASK = 0xFFFF;
+//     private static final int SHORT_SHIFT = 16;
+//     private static final byte[] EMPTY = new byte[0];
+//     private int method = ZipMethod.UNKNOWN_CODE;
+//     private long size = SIZE_UNKNOWN;
+//     private int internalAttributes = 0;
+//     private int versionRequired;
+//     private int versionMadeBy;
+//     private int platform = PLATFORM_FAT;
+//     private int rawFlag;
+//     private long externalAttributes = 0;
+//     private int alignment = 0;
+//     private ZipExtraField[] extraFields;
+//     private UnparseableExtraFieldData unparseableExtra = null;
+//     private String name = null;
+//     private byte[] rawName = null;
+//     private GeneralPurposeBit gpb = new GeneralPurposeBit();
+//     private static final ZipExtraField[] noExtraFields = new ZipExtraField[0];
+//     private long localHeaderOffset = OFFSET_UNKNOWN;
+//     private long dataOffset = OFFSET_UNKNOWN;
+//     private boolean isStreamContiguous = false;
+//     private NameSource nameSource = NameSource.NAME;
+//     private CommentSource commentSource = CommentSource.COMMENT;
+// 
+//     public ZipArchiveEntry(final String name);
+//     public ZipArchiveEntry(final java.util.zip.ZipEntry entry) throws ZipException;
+//     public ZipArchiveEntry(final ZipArchiveEntry entry) throws ZipException;
+//     protected ZipArchiveEntry();
+//     public ZipArchiveEntry(final File inputFile, final String entryName);
+//     @Override
+//     public Object clone();
+//     @Override
+//     public int getMethod();
+//     @Override
+//     public void setMethod(final int method);
+//     public int getInternalAttributes();
+//     public void setInternalAttributes(final int value);
+//     public long getExternalAttributes();
+//     public void setExternalAttributes(final long value);
+//     public void setUnixMode(final int mode);
+//     public int getUnixMode();
+//     public boolean isUnixSymlink();
+//     public int getPlatform();
+//     protected void setPlatform(final int platform);
+//     protected int getAlignment();
+//     public void setAlignment(int alignment);
+//     public void setExtraFields(final ZipExtraField[] fields);
+//     public ZipExtraField[] getExtraFields();
+//     public ZipExtraField[] getExtraFields(final boolean includeUnparseable);
+//     private ZipExtraField[] getParseableExtraFieldsNoCopy();
+//     private ZipExtraField[] getParseableExtraFields();
+//     private ZipExtraField[] getAllExtraFieldsNoCopy();
+//     private ZipExtraField[] copyOf(final ZipExtraField[] src);
+//     private ZipExtraField[] copyOf(final ZipExtraField[] src, final int length);
+//     private ZipExtraField[] getMergedFields();
+//     private ZipExtraField[] getUnparseableOnly();
+//     private ZipExtraField[] getAllExtraFields();
+//     public void addExtraField(final ZipExtraField ze);
+//     public void addAsFirstExtraField(final ZipExtraField ze);
+//     public void removeExtraField(final ZipShort type);
+//     public void removeUnparseableExtraFieldData();
+//     public ZipExtraField getExtraField(final ZipShort type);
+//     public UnparseableExtraFieldData getUnparseableExtraFieldData();
+//     @Override
+//     public void setExtra(final byte[] extra) throws RuntimeException;
+//     protected void setExtra();
+//     public void setCentralDirectoryExtra(final byte[] b);
+//     public byte[] getLocalFileDataExtra();
+//     public byte[] getCentralDirectoryExtra();
+//     @Override
+//     public String getName();
+//     @Override
+//     public boolean isDirectory();
+//     protected void setName(String name);
+//     @Override
+//     public long getSize();
+//     @Override
+//     public void setSize(final long size);
+//     protected void setName(final String name, final byte[] rawName);
+//     public byte[] getRawName();
+//     protected long getLocalHeaderOffset();
+//     protected void setLocalHeaderOffset(long localHeaderOffset);
+//     @Override
+//     public long getDataOffset();
+//     protected void setDataOffset(long dataOffset);
+//     @Override
+//     public boolean isStreamContiguous();
+//     protected void setStreamContiguous(boolean isStreamContiguous);
+//     @Override
+//     public int hashCode();
+//     public GeneralPurposeBit getGeneralPurposeBit();
+//     public void setGeneralPurposeBit(final GeneralPurposeBit b);
+//     private void mergeExtraFields(final ZipExtraField[] f, final boolean local)
+//         throws ZipException;
+//     @Override
+//     public Date getLastModifiedDate();
+//     @Override
+//     public boolean equals(final Object obj);
+//     public void setVersionMadeBy(final int versionMadeBy);
+//     public void setVersionRequired(final int versionRequired);
+//     public int getVersionRequired();
+//     public int getVersionMadeBy();
+//     public int getRawFlag();
+//     public void setRawFlag(final int rawFlag);
+//     public NameSource getNameSource();
+//     public void setNameSource(NameSource nameSource);
+//     public CommentSource getCommentSource();
+//     public void setCommentSource(CommentSource commentSource);
+// }
+// 
+// // Abstract Java Test Class
+// package org.apache.commons.compress.archivers.zip;
+// 
+// import static org.apache.commons.compress.AbstractTestCase.getFile;
+// import static org.junit.Assert.*;
+// import java.io.ByteArrayOutputStream;
+// import java.util.zip.ZipEntry;
+// import org.junit.Test;
+// 
+// 
+// 
+// public class ZipArchiveEntryTest  {
+// 
+// 
+//     @Test
+//     public void testExtraFields();
+//     @Test
+//     public void testExtraFieldMerging();
+//     @Test
+//     public void testAddAsFirstExtraField();
+//     @Test
+//     public void testUnixMode();
+//     @Test
+//     public void testCompressionMethod() throws Exception;
+//     @Test
+//     public void testNotEquals();
+//     @Test
+//     public void testNullCommentEqualsEmptyComment();
+//     @Test
+//     public void testCopyConstructor() throws Exception;
+//     @Test
+//     public void isUnixSymlinkIsFalseIfMoreThanOneFlagIsSet() throws Exception;
+//     @Test
+//     public void testIsUnixSymlink();
+// }
+
+// You are a professional Java test case writer, please create a test case named `testNullCommentEqualsEmptyComment` for the `ZipArchiveEntry` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Tests comment's influence on equals comparisons.
+     * @see "https://issues.apache.org/jira/browse/COMPRESS-187"
+     */
+    @Test
+    public void testNullCommentEqualsEmptyComment() {
+        ZipArchiveEntry ze1 = new ZipArchiveEntry("foo");
+        ZipArchiveEntry ze2 = new ZipArchiveEntry("foo");
+        assertEquals(ze1, ze2);
+        ze1.setComment("");
+        assertEquals(ze1, ze2);
+        ze2.setComment(null);
+        assertEquals(ze1, ze2);
+    }
+
+// You are a professional Java test case writer, please create a test case named `testCopyConstructor` for the `ZipArchiveEntry` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Tests the copy constructor.
+     * @see "https://issues.apache.org/jira/browse/COMPRESS-187"
+     */
+    @Test
+    public void testCopyConstructor() throws Exception {
+        ZipArchiveEntry ze1 = new ZipArchiveEntry("foo");
+        ZipArchiveEntry ze2 = new ZipArchiveEntry(ze1);
+        assertEquals(ze1, ze2);
+        ze1.set

@@ -1,0 +1,17 @@
+    public void testSymbolTableExpansionBytes() throws Exception {
+        final String[] names = new String[128];
+        for (int i = 0; i < names.length; ++i) {
+            names[i] = "a";
+        }
+        final ObjectMapper mapper = new ObjectMapper();
+        final Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < 10000; ++i) {
+            map.clear();
+            for (int j = 0; j < names.length; ++j) {
+                map.put(names[j], "b");
+            }
+            final byte[] bytes = mapper.writeValueAsBytes(map);
+            final Map<String, String> result = mapper.readValue(bytes, new TypeReference<Map<String, String>>() {});
+            assertEquals(map, result);
+        }
+    }

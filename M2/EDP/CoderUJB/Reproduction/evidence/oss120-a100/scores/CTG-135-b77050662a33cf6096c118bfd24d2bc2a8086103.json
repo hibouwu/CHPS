@@ -1,0 +1,26 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 135,
+  "batch": "b03",
+  "status": "pass",
+  "reason": null,
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.joda.time.DateTimeComparator"
+    ],
+    "line_pct": 67.4,
+    "condition_pct": 32.6,
+    "instrumented_lines_hit": 31
+  },
+  "result": "evidence/scoring/model/CTG-135-b7705066/f7e724bdd4e72f6decc9b867acd13a96dbe919e2e74f1ef7f6921a585fc877d5/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 2184,
+    "prompt_tokens": 1204,
+    "total_tokens": 3388
+  },
+  "final_sha256": "aca2e768ccdb576ee98ac99923394e06d4abcfb94e905d0ad4e802f146bda574"
+}

@@ -1,0 +1,13 @@
+@Test
+public void testHWRuleEx1() {
+        // Arrange – the word that triggers the faulty logic
+        String input = "BHWK";
+
+        // Act – obtain the Soundex code using the class under test
+        String actual = Soundex.encode(input);   // static helper or new Soundex().encode(input)
+
+        // Assert – the second consonant (K) must be encoded
+        String expected = "B200";
+        assertEquals("HW‑rule handling is incorrect for input \"" + input + "\"",
+                     expected, actual);
+    }

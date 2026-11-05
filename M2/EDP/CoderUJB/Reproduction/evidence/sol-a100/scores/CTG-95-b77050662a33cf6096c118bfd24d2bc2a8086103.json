@@ -1,0 +1,35 @@
+{
+  "task": "CTG",
+  "task_idx": 95,
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.codec.language.Caverphone1"
+    ],
+    "line_pct": 98.4,
+    "condition_pct": 50.0,
+    "instrumented_lines_hit": 60
+  },
+  "source": "evidence/sol-a100/rows/CTG-95-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-95-b7705066/4b278772060e9a7ee0ab8d06664a5431039daf9da1d4312ba5240f79167d5238/attempt-1/result.json",
+  "answer_sha256": "f1944b8d1f1fc013bca3d235756e5daa856b13e56c81947109ba7e0c02b8b618",
+  "response_id": "resp_0c7a85e66b364815016aebfacb8cec87d2b2173aa89438da7d",
+  "request_id": "req_187ec323431d4297aec91918c19a5253",
+  "usage": {
+    "input_tokens": 388,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 498,
+    "output_tokens_details": {
+      "reasoning_tokens": 338
+    },
+    "total_tokens": 886
+  },
+  "finish_status": "completed",
+  "cost_standard_estimate_usd": 0.005756
+}

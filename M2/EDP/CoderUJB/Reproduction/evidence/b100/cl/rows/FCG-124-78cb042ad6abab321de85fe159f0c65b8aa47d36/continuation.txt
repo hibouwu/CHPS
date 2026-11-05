@@ -1,0 +1,35 @@
+
+        if (count < 1 || count > 63) {
+            throw new IllegalArgumentException("count must be between 1 and 63");
+        }
+
+        if (count > bitsCachedSize) {
+            if (!ensureCache(count)) {
+                return -1;
+            }
+        }
+
+        final int shift = bitsCachedSize - count;
+        final long result = bitsCached >>> shift;
+        bitsCached = bitsCached & MASKS[shift];
+        bitsCachedSize = shift;
+        return result;
+    }
+
+    /**
+     * Returns the number of bits currently cached.
+     *
+     * @return the number of bits currently cached
+     */
+    public int bitsCached() {
+        return bitsCachedSize;
+    }
+
+    /**
+     * Returns the number of bits available in the underlying stream.
+     *
+     * @return the number of bits available in the underlying stream
+     * @throws IOException on error
+     */
+    public long bitsAvailable() throws IOException {
+        return (in.available() << 3) + bits

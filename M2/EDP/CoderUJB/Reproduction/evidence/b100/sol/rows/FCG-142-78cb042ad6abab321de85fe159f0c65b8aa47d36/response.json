@@ -1,0 +1,105 @@
+{
+  "id": "resp_0a1314efccc2d616016aec013393c087d2b317d9de258becf2",
+  "object": "response",
+  "created_at": 1793851699,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851709,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0a1314efccc2d616016aec0134612087d29ac3f36ab63d171d",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AE99mJ0qSl7WBtSsbZ9oCbvrSbyeoQIhgkaCB2DtyNB1YF5OmTWUTCdVfImZOOcRdQJUEP8c1m0ix0UDnsViaII978rSwW_rN4rPfMfdcCPWqxJbHO_d2qE4b-sCkHivLwzEySFPfGKeyw8SIoRCIcGIxE-kWoO4hW1BgckuTop_KNX4TAsy-w2be44n_Obun1FRPoDVbyV34zdUkVp3CIwT8FZmRg3HVv9raCSaGpjbR8Q3GQj2ZUgl-_Cct_3pefKBd3K_Xnp7mQenq91kaXjJqkFgnjTmMrj30uszyiI6pU_XlFvDd4oSGgssXcu-gtSPPzIha2BSUPJukAdVtjWB-0ZFZxawtz_0YVZg0FM4cEGelfKkAvQxOyRsj7qAklRQ0lrOfQDCt6bDbo_KPfVm5pU43Kn_Atuzcnph0GfDtaAn6KpoARvQ7s40A7Ylmwec0gU-XpCKXa4dNA0FEKZizgmntVcErJpswW92a31_HR1JRaC-Y4iTwNgDDMHVxyO7SDz3wHxKk-ern2L9lGV9AjqADiU-PDYQWIpHbgox36rzlZgBh9DHY9Q0UJP4YIJyMPbindLjPKy2s0jWhdKEf6szOJgmBsU8MpcSK1Tzm0JDWdU01MyZJeiBObs9V6E_9h6qlncUPTcSpTmIK_x3c0ST-GIBEMjXn2U820D8nzYfwu77Jd4MNcmr99iJR9T_nIPDubxmVs2ra4VtiGWlS9Gen3PjJOlXH1rbLJIq_IlkZVYiv4J6vMYvEd1oPxptPAGeC-J45g_Ax8zszZRBZqb0RY6QvxixAnIwoYW0sGpSjEvzvKnZG6U-838oARDqUoaDWVJ0TWyRBDe3KXhJdv_Rqz36pHabGnBo3UD8txVNkdLhkmkKP9_Pt7TQ3odDJHlYquwnhYe3XZL0eGJEoAJJQky9zmIej2D0tBddmymXTaR6avUiijhoFR4_AskGUFE9I0pZk3Rcxa5gtlCMJqLly9bEqa9ecpv__7yD04NvHAk0qcUTB8sj_cmO0QoMvitpcAoD5AuRxPHphcagKVX463ITz_uMTZStoZC57iY77BK06xVzdB1LwsXsoofz_i7ijABF1ZsBs5HphqeRHVaeEwV5Cqg1wUjHzLj2le99FfCOjahKMZu6cDOQKZp4xGElxxSY0rBVCq6OuKZcH1RW30nXbiv9kBpCjrtpTO6KXVNSZfKQpNR6eiDw4AqWQfV7q2ybNzRUTRhWc5oOY-zlpUQ1RUN9dW5rr5j0rpBZ9ZDGmIlH4ORf3Cdbmy32--D_yHPV95AySBF7nj8XK1HndhgdkWEZh-HNzre5mSiFi5o38pKAjiOTahaiWXotr43lqK7_eUZpklEwZYsr0OhYDtR95nMvlOpXBx0EeUxP2vRDZftBaGQmjDZkC2xJ6wL7SkYZ_uFjptsh03v9zJWZcH17kf18VwxAcd4o1dRZMyI02mfipPttaES5crybOvAUEi7Uqxl6GcsUwaJYB8FQaWplo4hSYztsV6_5Op3K98GYzdpyjUrWButghLdN25aCqQNf4MEFTlfgM4uH0bLe4I-spx9jc7yqRx6wSG8-49xS3BiFPQkbJxax_TrRN2FECGbE-lmMaTvU1Li0zaP5WE2gkHx9q4DTuOQHLYDHInyc8oGCLo5kOXXJUE0ZN2nzyORZHZp9mPGxfvQGoOEoUHkApiDFaMmfzIbatxbzFBqhWysIZHlkFu_jnqH0LcHaYAKGC4uUq15-W5G6rX5NJsobFX21hv7NkD82X26ecNclFy8UZmARFEWSPiwyULBpvh1uZoNO1w9jzh7qxPoHnZKspl0d22YtK51DPIeJPswbKpRcJlOry8pav7IHoUHoiqpPDGHjTYpPLTCw8L_jpgz0zssHgWt_SjokMfz3WZ3uP1jhGBq8MT-2FEhN8CkChdNBMEF5kC1xYtP4tQy5Uw4Kr_yzJlK_IBPZI2pV5MVCTHfvaXHgYwhCam0OMwUk8LtPhTpDWYROS4bcqDfzWyQ4g5jZ7wGt3u9ZSypqxQM2CEpE0ZMiJT_qP5H3wI4wfFM7MImwETUGVEvdRYp8tN0_NBab--4Hi98QAmPNU3atoFv45bLFktaR_Gz8PfBSNbiWhGBLPPmFcHDjh1Be7mj-pRgI-IFz1GGzSOXNRMOMfx2TOaQIDtU-jZBkWQedr7ZzJ7CaXwb_vCKWJgWEpUbHnNWmd3Yyn4_t5USm-co-AAPZeRICdPP7kXd90oX_kh78LqNKTJfSTu4cD-vHQc5olEw_mn85bdSDT3qDCifta1Mk7UeEXi5Ow67Vw6-Tx47gxraD-DIH31DKOqSF6HadfrzDzHDYBVNeTxBbsl6Cis8Vh8sIaTHFLZ7fU2O1TeXHCcebdMWofigt4bCgu5GV3nBOZLeTOZHopwMoIplgcWHDJN3sh7JoxFSqDzYTYNNAmgRzBlIReRalGiBmHOAcy83WzWTt8bdBE8VkPtDAss181PVwc5Ezg0I3tmt5_3qX0divKLyBjSiJxpwDvuBE7mHV-GG4P77EwWSoXOQ0uWEarPxoubmSvsOZP8xT4bP0CMzrM__l5d6eXBQVcJyCmFgu0pd8bSD7m5_4JuBrsSKs4d9FNzq8Nx784LsJ6ygfsD1cMI57jtw25VKOTEhXCy-392IdHwJKwJ4QbTDFNfrBZ_VKJeM_oVSmRWXZy4RGozyqQ-FwKw1_pW_gUm4eCx6VTfOUS0Pp99nUWMGNHM0RMXhrchhd6Z7QICsMP-0Ayn2kM7nAmfRI_98WxQmXAsleR6zEv0o24AYQpGoo_BdYtHfMsHpdArk7jjaQT9PgkkmS3EwgxQVH3C2q2RayI-qg5RDByN0AfjpW9f7N5DT3jPB0g9uafAqVZtuiQaybaKvt6gdWC2pnqbFxKFcX4ki3HQVxUaEIixw-uZ-pe6dTvBYMg2NNLuGHVKpOxJQ1nXOyoENy0ujxiL-uES4fJ0rjIWq751X4E4Bf7Ftl-AsMkSh8J3DQeA2ntC8887nGBO6M2hUtzN78fEhe3DzyfaiU04G-ndnJCrwnzwx34zE2hIEImBr7oxaCsotaI98EwJKtK6_6ucbkKwcTiD4-tS7A3acji--SYOrSHzGLaxc9N8C0ZtyCOLGj9dFBjQBdGWPaZKADSG22GSFDwGI8iR_Wsg7h9dymqOzstWDng6Taih7eJk9qVg4L9ilDrreGfcZLKqFI8dW1ZEdqk4-Gqb_d-fBFQUA0eA9BTGl0syJNGbSPCL98VI3qeNwuKr2sLTS16E4vC2rh1xnYoCwX1EKDMvB6I5l9-_CdDCH5AdNRqobvU-Ye-tmoFw089GXTUzlZE67lNxqkcy2dApd06Py6wLgvwIAcPxuK8KMFsdDnhpQaKBOgwT5BZ7j9iW5z6xCRXDsOU0ciMgMwB7Xr4zGA_-aG8X4FrHLtNQFIp1E3xPqLZrpkmov6o6wWVrnvDQ2pXBygRGGcp6IJJCC3mM3hAuYisMUJKaPlFQzjDnQym6qQNkeAyPcZmXGFFBdYER3Ux9z7egN73GnpSWs-wSA6WCBcaq6uirm9Tf6vmGpQ7griFqyKSW5XNdkfQ8N5qFk4FCavqeB1KwAwdakbn2z11u0JcGRC5FgI_NcvUTDpchzknTfBgg9WzLTsBzV1tKGQTO8FX_cFS7TQff5fstYu4R_c8ZgyIfzFKNWREIXx9rwcjla5bPX9qxCZEiFIFfFKUnQQMGH4rEjIxh_0huPXkgYnLd8R0ZSCrMc0VIB78Eh9cEiypLkxbq4Jg0UH2qGMqR15RNJUBnHBbQvKxV_a2khgFMeyFS1CSOqOLEN5OebJ-ot-1KxgegKHbRwkoj8XWeJxYEv1MrQq_KHUOYUcj5EEv1MzAuWCDcvmCPHbIIWt3fbGhLpApq74xWeSl_X3ePJ9twVbR64tImD8jBoo4slqGuWOeJN4ISEVs92R1rVHqUgu0SjtSguilF00SH_dHZ6RaN93y5BVWn1p3H81obsQERgGJaQFZwJMd8Gdz8Gam1fIX5I2LNKeALb2QqSKOppuprfaS0Tx7TMJsKGYXTRDukXDnLTmodfwwjXpKlVjk1TbGoUIhZSixfkW8ZOSFcVIvHiKjcJO-jcyCJu43ZkZqYCLo6f82gI_h47HZhIPEVdE5o4mf55BPQReX8Qhgaq1NWTrB7kpi8JFOqpVwdCS8STCXd9GYabIHDS93FGUKVHmhTvY0sexsFEk4lNV9rMuJ9i_VtgkJmB_2sIRRx3Eka8Ls8=",
+      "summary": []
+    },
+    {
+      "id": "msg_0a1314efccc2d616016aec013a77dc87d2ac2a49526cc76204",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    public static synchronized PeriodType forFields(DurationFieldType[] types) {\n        if (types == null || types.length == 0) {\n            throw new IllegalArgumentException(\"Types array must not be null or empty\");\n        }\n        types = types.clone();\n        for (DurationFieldType type : types) {\n            if (type == null) {\n                throw new IllegalArgumentException(\"Types array must not contain null\");\n            }\n        }\n\n        if (cTypes.isEmpty()) {\n            PeriodType[] predefined = {\n                standard(), yearMonthDayTime(), yearMonthDay(),\n                yearWeekDayTime(), yearWeekDay(), yearDayTime(), yearDay(),\n                dayTime(), time(), years(), months(), weeks(), days(),\n                hours(), minutes(), seconds(), millis()\n            };\n            for (PeriodType type : predefined) {\n                cTypes.put(type, type);\n            }\n        }\n\n        PeriodType key = new PeriodType(null, types, null);\n        Object cached = cTypes.get(key);\n        if (cached instanceof PeriodType) {\n            return (PeriodType) cached;\n        }\n        if (cached != null) {\n            throw new IllegalArgumentException(\"PeriodType does not support fields: \" + cached);\n        }\n\n        PeriodType result = standard();\n        List<DurationFieldType> remaining =\n                new ArrayList<DurationFieldType>(Arrays.asList(types));\n\n        if (!remaining.remove(DurationFieldType.years())) {\n            result = result.withYearsRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.months())) {\n            result = result.withMonthsRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.weeks())) {\n            result = result.withWeeksRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.days())) {\n            result = result.withDaysRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.hours())) {\n            result = result.withHoursRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.minutes())) {\n            result = result.withMinutesRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.seconds())) {\n            result = result.withSecondsRemoved();\n        }\n        if (!remaining.remove(DurationFieldType.millis())) {\n            result = result.withMillisRemoved();\n        }\n\n        if (!remaining.isEmpty()) {\n            cTypes.put(key, remaining);\n            throw new IllegalArgumentException(\n                    \"PeriodType does not support fields: \" + remaining);\n        }\n\n        Object canonical = cTypes.get(result);\n        if (canonical instanceof PeriodType) {\n            result = (PeriodType) canonical;\n        } else {\n            cTypes.put(result, result);\n        }\n        cTypes.put(key, result);\n        return result;\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 868,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 764,
+    "output_tokens_details": {
+      "reasoning_tokens": 211
+    },
+    "total_tokens": 1632
+  },
+  "user": null,
+  "metadata": {}
+}

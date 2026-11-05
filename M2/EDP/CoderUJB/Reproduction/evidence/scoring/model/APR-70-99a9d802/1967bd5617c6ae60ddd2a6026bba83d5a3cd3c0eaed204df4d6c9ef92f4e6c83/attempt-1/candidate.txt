@@ -1,0 +1,45 @@
+public static int formatLongOctalOrBinaryBytes(
+        final long value, final byte[] buf, final int offset, final int length) {
+
+    // ------------------------------------------------------------
+    // 1. Decide whether the value can be stored as an octal string.
+    // ------------------------------------------------------------
+    // UID, GID and MODE fields have the same size and the same
+    // maximum octal value (MAXID).  All other numeric fields (SIZE,
+    // MTIME, …) use MAXSIZE.
+    final long maxAsOctalChar = (length == TarConstants.UIDLEN
+                                 || length == TarConstants.GIDLEN)
+                                ? TarConstants.MAXID
+                                : TarConstants.MAXSIZE;
+
+    final boolean negative = value < 0;
+
+    // If the value is non‑negative and fits into the octal range,
+    // store it as an octal string.
+    if (!negative && value <= maxAsOctalChar) {
+        return formatLongOctalBytes(value, buf, offset, length);
+    }
+
+    // ------------------------------------------------------------
+    // 2. Binary representation (two‑s complement, big‑endian)
+    // ------------------------------------------------------------
+    // For fields shorter than 9 bytes the value fits into a signed
+    // Java long, otherwise we have to use a BigInteger because the
+    // field may be up to 12 bytes (e.g. the SIZE field in GNU tar).
+    if (length < 9) {
+        // Write the binary representation of a long (without the sign byte)
+        formatLongBinary(value, buf, offset, length, negative);
+    } else {
+        // Write the binary representation of a BigInteger (without the sign byte)
+        formatBigIntegerBinary(value, buf, offset, length, negative);
+    }
+
+    // ------------------------------------------------------------
+    // 3. Write the sign byte (first byte of the field)
+    // ------------------------------------------------------------
+    // Positive numbers are marked with 0x80, negative numbers with 0xff.
+    buf[offset] = (byte) (negative ? 0xff : 0x80);
+
+    // Return the position just after the field.
+    return offset + length;
+}

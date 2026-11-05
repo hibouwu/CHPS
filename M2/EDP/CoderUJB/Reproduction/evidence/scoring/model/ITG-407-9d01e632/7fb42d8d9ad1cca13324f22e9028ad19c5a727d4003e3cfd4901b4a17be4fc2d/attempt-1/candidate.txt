@@ -1,0 +1,24 @@
+public void testUnexpectedToken() throws Exception {
+    com.google.gson.Gson gson = new com.google.gson.GsonBuilder()
+        .setDateFormat("yyyyMMdd")
+        .create();
+
+    Class<?>[] dateTypes = {
+        java.util.Date.class, java.sql.Date.class, java.sql.Timestamp.class
+    };
+    String[] unexpectedTokens = {"true", "false", "20170101", "[]", "{}"};
+
+    for (Class<?> dateType : dateTypes) {
+      com.google.gson.TypeAdapter<?> adapter = gson.getAdapter(dateType);
+      assertNotNull(adapter.fromJson("\"20170101\""));
+
+      for (String json : unexpectedTokens) {
+        try {
+          adapter.fromJson(json);
+          fail("Expected JsonSyntaxException for " + dateType.getName() + ": " + json);
+        } catch (com.google.gson.JsonSyntaxException expected) {
+          // Dates must be represented by JSON strings, not other token types.
+        }
+      }
+    }
+  }

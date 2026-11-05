@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the requested Java test method, continuing any answer prefix already provided, and stop after its closing brace; no markdown, no explanations. So we need to write the method body for testDifferentDurationReturnDifferentObjects inside the TestUnsupportedDateTimeField class.\n\nWe need to use the context: there is a static getInstance(DateTimeFieldType type, DurationField durationField). We need to test that with same type but different duration fields returns different objects (not equal). We need to create two DurationField instances. Since DurationField is abstract, we can use a mock or a concrete subclass like org.joda.time.field.PreciseDurationField? Not sure if available. But we can use a stub implementation via anonymous subclass.\n\nWe also need a DateTimeFieldType; we can use DateTimeFieldType.year() or something. Use a known type.\n\nWe need to assert that the two returned fields are not the same (i.e., not ==) and not equal (maybe .equals). Use assertNotSame and assertFalse(field1.equals(field2)).\n\nAlso need to handle caching: getInstance is synchronized and caches per type/duration. So we need to ensure different duration leads to different object.\n\nImplementation:\n\npublic void testDifferentDurationReturnDifferentObjects() {\n    DateTimeFieldType type = DateTimeFieldType.year();\n    DurationField duration1 = new org.joda.time.field.PreciseDurationField(DurationFieldType.days(), 86400000L);\n    DurationField duration2 = new org.joda.time.field.PreciseDurationField(DurationFieldType.hours(), 3600000L);\n    UnsupportedDateTimeField field1 = UnsupportedDateTimeField.getInstance(type, duration1);\n    UnsupportedDateTimeField field2 = UnsupportedDateTimeField.getInstance(type, duration2);\n    assertNotSame(\"Fields with different durations should not be same instance\", field1, field2);\n    assertFalse(\"Fields with different durations should not be equal\", field1.equals(field2));\n}\n\nBut need imports: DurationField, DurationFieldType, etc. Already imported.\n\nPotential compile: PreciseDurationField is in org.joda.time.field.PreciseDurationField. It has a constructor (DurationFieldType type, long unitMillis). Yes.\n\nThus method.\n\nWe must output only the method code, including its signature and body, ending with closing brace. No extra.\n\nLet's produce.",
+        "content": "    public void testDifferentDurationReturnDifferentObjects() {\n        DateTimeFieldType type = DateTimeFieldType.year();\n        DurationField duration1 = new org.joda.time.field.PreciseDurationField(DurationFieldType.days(), 86400000L);\n        DurationField duration2 = new org.joda.time.field.PreciseDurationField(DurationFieldType.hours(), 3600000L);\n        UnsupportedDateTimeField field1 = UnsupportedDateTimeField.getInstance(type, duration1);\n        UnsupportedDateTimeField field2 = UnsupportedDateTimeField.getInstance(type, duration2);\n        assertNotSame(\"Fields with different durations should not be same instance\", field1, field2);\n        assertFalse(\"Fields with different durations should not be equal\", field1.equals(field2));\n    }"
+      }
+    }
+  ],
+  "created": 1793852011,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 651,
+    "prompt_tokens": 1277,
+    "total_tokens": 1928
+  },
+  "id": "chatcmpl-FEHRGoJM9KcEgOHgDGSoymysJD4eiIKA",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1277,
+    "prompt_ms": 566.553,
+    "prompt_per_token_ms": 0.4436593578700078,
+    "prompt_per_second": 2253.981533942985,
+    "predicted_n": 651,
+    "predicted_ms": 3628.845,
+    "predicted_per_token_ms": 5.574262672811059,
+    "predicted_per_second": 179.39592349631909
+  }
+}

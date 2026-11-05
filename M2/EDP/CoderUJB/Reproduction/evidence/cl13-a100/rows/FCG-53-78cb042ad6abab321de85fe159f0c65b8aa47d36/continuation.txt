@@ -1,0 +1,23 @@
+
+        Node node = transform(n);
+        if (node.getType() == Token.NAME) {
+            node.setType(Token.STRING);
+            node.setQuotedString();
+        } else if (node.getType() == Token.STRING) {
+            node.setQuotedString();
+        }
+        return node;
+    }
+
+// You are a professional Java programmer, please create a function named `processGeneric` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Transforms the given node and then sets its type to Token.STRING if it
+     * was Token.NAME. If its type was already Token.STRING, then quotes it.
+     * Used for properties, as the old AST uses String tokens, while the new one
+     * uses Name tokens for unquoted strings. For example, in
+     * var o = {'a' : 1, b: 2};
+     * the string 'a' is quoted, while the name b is turned into a string, but
+     * unquoted.
+     */
+    private Node processGeneric(com.

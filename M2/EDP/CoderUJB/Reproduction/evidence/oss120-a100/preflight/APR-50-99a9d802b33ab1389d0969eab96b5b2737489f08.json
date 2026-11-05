@@ -1,0 +1,16 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 50,
+  "task_id": "1fded2b2ea014bc2afec864ffa2716472e358acca9011c6bcf7f30bba441dceb",
+  "project": "Codec",
+  "bug_id": "7",
+  "chat_sha256": "e03eb48603293354c34347a7c2a171a024f4fe720a909ec8cc32af8e3d4706d9",
+  "complete_sha256": "481f050760c0a3efbf295b66ea45c25763355017c503eb8f51e5b72c8cbf8389",
+  "checked_at": "2026-11-05T03:01:30.754286+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/APR-50-99a9d802/e131310e350e73f1e87d75ccf6cb517460abc26656920cb4d88a60d372611be8/attempt-1/result.json"
+}

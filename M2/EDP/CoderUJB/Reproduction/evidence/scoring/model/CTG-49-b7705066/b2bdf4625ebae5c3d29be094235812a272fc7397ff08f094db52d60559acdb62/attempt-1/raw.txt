@@ -1,0 +1,38 @@
+Here is a complete implementation of the **`testUnaliasable`** unit‑test for `AliasExternals`.  
+The test configures the `AliasExternals` pass so that the globals **`arguments`** and **`eval`** are listed as *unaliasable*.  
+It then feeds a small snippet that references those two identifiers to the compiler and asserts that the output is **identical** to the input – i.e. the pass must **not** introduce any alias variables for them.
+
+```java
+/**
+ * Some globals should not be aliased because they have special meaning
+ * within the language (like arguments).
+ */
+public void testUnaliasable() {
+  // Declare the globals that must stay untouched.
+  // The test harness passes these strings to the AliasExternals constructor.
+  unaliasableGlobals = "arguments,eval";
+
+  // No explicit whitelist of alias‑able globals for this test.
+  aliasableGlobals = null;
+
+  // Source that uses the two special globals.  The expected output is
+  // exactly the same source because the pass must not create aliases.
+  String src = ""
+      + "function foo() {"
+      + "  var a = arguments;"   // 'arguments' must stay as‑is
+      + "  eval('var b = 1;');" // 'eval' must stay as‑is
+      + "}";
+
+  // `testSame` asserts that the transformed code equals the original.
+  testSame(src);
+}
+```
+
+### Why this works
+
+* **Configuration** – By setting `unaliasableGlobals` to `"arguments,eval"` the `AliasExternals` pass knows that these identifiers are prohibited from being aliased.
+* **Input program** – The snippet references both identifiers in typical usage patterns.
+* **Assertion** – `testSame` (inherited from `CompilerTestCase`) runs the compiler with the `AliasExternals` pass and verifies that the generated code matches the input verbatim.  
+  If the pass incorrectly attempted to alias either `arguments` or `eval`, the output would differ and the test would fail.
+
+Add the method to `AliasExternalsTest` and the test suite will automatically verify the correct handling of un‑aliasable globals.

@@ -1,0 +1,12 @@
+  public void testBug911118() throws Exception {
+    // verifying the type assigned to function expressions assigned variables
+    Scope s = parseAndTypeCheckWithScope("var a = function(){};").scope;
+    JSType type = s.getVar("a").getType();
+    assertEquals("function (): undefined", type.toString());
+
+    // verifying the bug example
+    testTypes("function nullFunction() {};" +
+        "var foo = nullFunction;" +
+        "foo = function() {};" +
+        "foo();");
+  }

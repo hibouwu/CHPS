@@ -1,0 +1,29 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 94,
+  "project": "Gson",
+  "bug_id": 18,
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "com.google.gson.stream.JsonReader"
+    ],
+    "line_pct": 18.3,
+    "condition_pct": 10.9,
+    "instrumented_lines_hit": 123
+  },
+  "reference_log": "evidence/scoring/reference_preflight/CTG-94-b7705066/99f0a0d004b25ec1a1565bf5ccce3fa7bc015ea8cf18186281c28a951b9a9f30/attempt-1/result.json",
+  "raw_sha256": "1eef66f1ffd17c110e10539c2dbc85087f127507fa037a0c42f122154fd587ee",
+  "input_sha256": "b23a47673f5a403b5753ffe4f367b0a1ead73625c496010b53db91ef0cfee216",
+  "input_tokens": 2200,
+  "full_input_tokens": 2200,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/CTG-94-b7705066/b599839d6fcbe2033cc26175bcba3e1163103c61ada77d8ca72c243fcdc208b0/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/CTG-94-b77050662a33cf6096c118bfd24d2bc2a8086103"
+}

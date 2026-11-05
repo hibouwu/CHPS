@@ -1,0 +1,9 @@
+        aDateTime = new DateTime(2004, 6, 9, 12, 30, 15, 0, DateTimeZone.UTC);
+        bDateTime = new DateTime(aDateTime.getMillis() + 999, DateTimeZone.UTC);
+        assertEquals("SecondEqual", 0, cSecond.compare(aDateTime, bDateTime));
+        assertEquals("SecondEqualReverse", 0, cSecond.compare(bDateTime, aDateTime));
+
+        bDateTime = new DateTime(aDateTime.getMillis() + 1000, DateTimeZone.UTC);
+        assertEquals("SecondM1", -1, cSecond.compare(aDateTime, bDateTime));
+        assertEquals("SecondP1", 1, cSecond.compare(bDateTime, aDateTime));
+    }

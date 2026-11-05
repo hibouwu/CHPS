@@ -1,0 +1,18 @@
+[
+  {
+    "time": "2026-11-05T04:09:35.866576+00:00",
+    "reason": "Enforce the already frozen scoring admission cutoff at execution start, including queued futures; no prompt, generation, extraction, or verdict changes.",
+    "file": "score_b100.py",
+    "before_sha256": "ebd5c0553f131b20860e0721324d841447686a1ca5c0889b744f40327b8320fc",
+    "after_sha256": "998b9780f261f31f84355e2d3bd67cef86cc1d459e551439e95166169c917329",
+    "formal_scores_existing": 0
+  },
+  {
+    "time": "2026-11-05T04:18:23.106489+00:00",
+    "reason": "Preserve raw model bytes when reading text: read_text universal-newline conversion changed CRLF and was caught by the existing answer-hash assertion before scoring the affected row. Use bytes.decode; unchanged prompts, model output, official extraction and scorer. No regenerated answer or evaluation retry.",
+    "file": "score_b100.py",
+    "before_sha256": "998b9780f261f31f84355e2d3bd67cef86cc1d459e551439e95166169c917329",
+    "after_sha256": "981d5d419f77028baa3f33be78292bc44f54750afe353c3bb6a2014d5640b713",
+    "formal_scores_existing": 48
+  }
+]

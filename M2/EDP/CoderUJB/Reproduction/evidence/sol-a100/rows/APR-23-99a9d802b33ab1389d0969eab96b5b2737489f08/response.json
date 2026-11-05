@@ -1,0 +1,105 @@
+{
+  "id": "resp_06e4e1606c6a7cd4016aebfb5ac52887d2abc1ec78277a2f67",
+  "object": "response",
+  "created_at": 1793850202,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850208,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_06e4e1606c6a7cd4016aebfb5bd50087d2a37049873311ee2f",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_tgup-16G-WE-wvBwBVcfdNvaf0JDvogIY7tM99wxFJguVoI3u7u34zXOfHNZt7yyI8piGr27Gdxaff_fAODqIZD3C7SXfNviNABi8TrBxN4LhaZyBiSC3DLrt4dVfVaJ9l6HjeLW9Mt5Kxs22fmppg8K4N8G-igYnaLVPcATbvDk5evMndMCGrI8zSdzNmNxjOkeYM68SctNRW6qvvidQ5K7EdBOXtPO1myWpIbzSRlo4ojKzGIruuJHLvy8j4N5IP-AUL5-mn4KHzU7axmoN1JRoqX4q2roO9421XctP6DYjOoxGIYkgyB_SbwwFR0Yu_Ss17clrCDTo2MLC6wjTGrrHklduLXtiV3oEyeD_Yp9lmb7tRW5rQ5c5OdSH6SRHBzyZt_1N6wyhz7iX8jikW6eOn6F_R-BJF00JOCgUTUGLSPxSb7WosDkhiFKqiB5LOYU3t-srzxb0XqkBkAmIMFcZ2UZHvhSDH8D7QF5EdIC_CGfnIZbaHEAm_pfrVMfyFxZYcYi22XkA9kZP7c7TBk0Q0tqH99yqc7icXnHMmTdgZ2ghHeFNyp9-3wlkZ7DG2NPDZ8Kf3sXEDM4L1IOXWOQCi-p12JwJyIPjrC2hGTDXg5I8o10BkZb41jE8qjfa007Sqyk6Vn77Mjf29T_65dI50OvxKsypPiU1pgRQDW4qSdOwZ-h9Xg8RBhXpEStl9DTb1szwAnKf0NQfGW9Lyg47dfdq_VYP4MmiD4jdQZMIsqULODTjplQougXsrGTLazLo_sM40x5aqBpQqhSPTCBd6yNZpiZw-ECKQgHk8CStSf6mUkLSbPH8KZYkd-KPV93GqPayx6sA6W-FFne6aehT8t9ng5_p6YwAo1gqNJ4yLcj-S4MX5CuD004wQ1ZMB0rTJ0G15JaYPzyMRl44EgllMqGLCfMmEVpYHubqB4dRTGW1-dfO1uBbRg-9dbRZ5i7_oaO7SNHvAS_MIToInBfnWB6XVWn5Ghk7HmHMV8NmX3U3dEyxbm2f5Ue9Swd5VdKLsDjpzuun29UMkx5JbRP9D9mHjxd-MKPNvHtV7W4LPM3Iki7tgHoj8fxY96ABmmi-EoxfrR3X5CxlgL6lWRSYsLulckw8Vvnx5Hg8O4EnWMkaOS3bHju9AOAGpmbSIvGSZMGlPE3BXJWwfJXtftEHZtDbMfIrLKrXWi1zo4ltHIgahQDaJGCGD70DaCMz0Kx6RUmpVyTWyXopVEf2Rpq0cOsGdTPUBwYKvqVgBwRlrOvrn-IeODdY3pLAKIGweAn0-qgL0iSFM0WFOUSJuxM-Og0wfDb4cn-PEGmc40UgNnvrkLpAigH-VFJ2b4W3jTjnr1J8qjRF8oF3ehpOhM0EPWsJr_sRfFD0hCm9dZnJauATmTi_0abvzgh0XXHS3PwcLkmZiipplOYfK7KE_4sOze_sgPKf7OtSb0xjkmAigqmCOGpBKWiWh1mu9_JwfTBZZiYiVArlZINXa6CpfCHEV1jKBKPT3NJlGUhSpp-Gt7mb-lviyr1t4TX3C6hDSLollJd67-91sk1JQf5LbsEKY9bzK9ct5MtxnXqhxhtW9J48ETgtwH-wv-onB-gjD3xQY2r8-Ce3_iLKib6FfcXjBTDAfGnqlVxPTe8XeMxczLvyGHsqOdctbZVtcPCGyiSb0II_jCAmDfQTBH1lBHUO8eYRImXS4sDU8xEnyUVtnVZIAeG8DVcspyKSsgnuvp1-uOgMQOzvd2J_txC_ALRrbwk7zHmaTG98_vwxwywMi4kHQKNvwGwQ3edRQfffb0eOtUV6BcKYScX2G0ct9AOZZ_AgSraTea8cB_cyvZ1X0QI_DhxpKHJPfoZgFgOJLSVRMt5bAztRkBAh-8pmrOilm_yTiYfXU3398eBWPvHlVnLxx1xxOaV0s0YtMQXPuV-MV86JRQ4keAp1kUuWvar82mzU9gJCFydYy6qHLANfBCTIXAUwjMORSJPxtCG8JQIi9972PP_vInejo0xatmUBahw8B366A_vzAsEzB-5rqSR5k6CsSl42eAZepSdnvBoKPfzw-WybRE8VoPP39PdBhD7-hy5XKr8dhrLMJIWG2lgiDyzWWu_QmjkhFn-cd25CpVHxRUxpvT4Ich13oEjvCYLEniZT6A1wYM1fCscFKTyQxz05ZAcxgFbOsq2TGoO_gMHWxRhquk6cyXjlPjTCgX9I3avaBuVAdEsjgLobqXJyPRTjicgt4gd4TVLr7hQ9YmPvLHDR-JSH2epUgI8ai0G_5zm55jBjYQltzcNx_uHkqXnK7PwWibZkqwqshqXuwNllQzbjYdC1tVH8NS-u8XgY08jr5sVblvYCK0trhpeeAykUWbOoFlm0Osqr2",
+      "summary": []
+    },
+    {
+      "id": "msg_06e4e1606c6a7cd4016aebfb5d801c87d285658e8a52591ca0",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "The bug is the unconditional call to `header.trim()`: a header entry can be `null`, causing a `NullPointerException`. Treat `null` as an empty header while preserving the existing duplicate-header rules.\n\n```java\n/**\n * Initializes the name to index mapping if the format defines a header.\n *\n * @return null if the format has no header.\n * @throws IOException if there is a problem reading the header or skipping the first record\n */\nprivate Map<String, Integer> initializeHeader() throws IOException {\n    Map<String, Integer> hdrMap = null;\n    final String[] formatHeader = this.format.getHeader();\n    if (formatHeader != null) {\n        hdrMap = new LinkedHashMap<String, Integer>();\n\n        String[] headerRecord = null;\n        if (formatHeader.length == 0) {\n            // Read the header from the first record of the file.\n            final CSVRecord nextRecord = this.nextRecord();\n            if (nextRecord != null) {\n                headerRecord = nextRecord.values();\n            }\n        } else {\n            if (this.format.getSkipHeaderRecord()) {\n                this.nextRecord();\n            }\n            headerRecord = formatHeader;\n        }\n\n        // Build the name to index mappings.\n        if (headerRecord != null) {\n            for (int i = 0; i < headerRecord.length; i++) {\n                final String header = headerRecord[i];\n                final boolean containsHeader = hdrMap.containsKey(header);\n                final boolean emptyHeader =\n                        header == null || header.trim().isEmpty();\n\n                if (containsHeader\n                        && (!emptyHeader || !this.format.getIgnoreEmptyHeaders())) {\n                    throw new IllegalArgumentException(\n                            \"The header contains a duplicate name: \\\"\" + header\n                                    + \"\\\" in \" + Arrays.toString(headerRecord));\n                }\n                hdrMap.put(header, Integer.valueOf(i));\n            }\n        }\n    }\n    return hdrMap;\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 826,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 468,
+    "output_tokens_details": {
+      "reasoning_tokens": 68
+    },
+    "total_tokens": 1294
+  },
+  "user": null,
+  "metadata": {}
+}

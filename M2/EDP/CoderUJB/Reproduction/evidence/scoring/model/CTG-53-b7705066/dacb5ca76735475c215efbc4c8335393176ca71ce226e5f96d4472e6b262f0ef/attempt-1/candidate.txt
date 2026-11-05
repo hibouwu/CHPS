@@ -1,0 +1,10 @@
+    @Test
+    public void testNullCommentEqualsEmptyComment() {
+        ZipArchiveEntry ze1 = new ZipArchiveEntry("foo");
+        ZipArchiveEntry ze2 = new ZipArchiveEntry("foo");
+        assertEquals(ze1, ze2);
+        ze1.setComment("");
+        assertEquals(ze1, ze2);
+        ze2.setComment(null);
+        assertEquals(ze1, ze2);
+    }

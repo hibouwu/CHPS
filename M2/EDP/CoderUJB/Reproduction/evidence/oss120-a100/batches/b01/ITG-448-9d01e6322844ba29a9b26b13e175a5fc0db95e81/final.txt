@@ -1,0 +1,79 @@
+**Test case for LANG‑719 – FastDateFormat must format the week‑year (`Y` / `YYY`) the same way as `SimpleDateFormat` in Java 7 and later.**  
+
+```java
+package org.apache.commons.lang3.time;
+
+import static org.junit.Assert.assertEquals;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import org.junit.Test;
+
+/**
+ * Tests that {@link FastDateFormat} produces the same output as
+ * {@link SimpleDateFormat} for the week‑year pattern symbols introduced
+ * in Java 7 (pattern “Y” or “YYY”).  According to the Javadoc the result
+ * must be the full year (e.g. “2003”), not the two‑digit form (“03”).
+ *
+ * @see <a href="https://issues.apache.org/jira/browse/LANG-719">LANG‑719</a>
+ */
+public class FastDateFormatTest {
+
+    /**
+     * Verifies that FastDateFormat formats the week‑year pattern exactly
+     * like SimpleDateFormat for a known date (2003‑01‑01).  The test uses
+     * a fixed UTC time‑zone and Locale.US to make the result deterministic.
+     */
+    @Test
+    public void testFormat() {
+        // -----------------------------------------------------------------
+        // 1. Prepare a deterministic Date: 2003‑01‑01 00:00:00 UTC
+        // -----------------------------------------------------------------
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        cal.clear();                                 // clear all fields
+        cal.set(2003, Calendar.JANUARY, 1);          // year, month, day
+        Date date = cal.getTime();
+
+        // -----------------------------------------------------------------
+        // 2. SimpleDateFormat – the reference implementation (Java 7+)
+        // -----------------------------------------------------------------
+        SimpleDateFormat sdfY = new SimpleDateFormat("Y", Locale.US);
+        sdfY.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String expectedY = sdfY.format(date);       // should be "2003"
+
+        SimpleDateFormat sdfYYY = new SimpleDateFormat("YYY", Locale.US);
+        sdfYYY.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String expectedYYY = sdfYYY.format(date);   // should also be "2003"
+
+        // -----------------------------------------------------------------
+        // 3. FastDateFormat – the class under test
+        // -----------------------------------------------------------------
+        FastDateFormat fdfY = FastDateFormat.getInstance("Y",
+                TimeZone.getTimeZone("UTC"), Locale.US);
+        String actualY = fdfY.format(date);
+
+        FastDateFormat fdfYYY = FastDateFormat.getInstance("YYY",
+                TimeZone.getTimeZone("UTC"), Locale.US);
+        String actualYYY = fdfYYY.format(date);
+
+        // -----------------------------------------------------------------
+        // 4. Assertions – FastDateFormat must match SimpleDateFormat
+        // -----------------------------------------------------------------
+        assertEquals("FastDateFormat should format pattern \"Y\" like SimpleDateFormat",
+                expectedY, actualY);
+        assertEquals("FastDateFormat should format pattern \"YYY\" like SimpleDateFormat",
+                expectedYYY, actualYYY);
+    }
+}
+```
+
+**Explanation**
+
+* The test creates a fixed `Date` (2003‑01‑01) in UTC to avoid any locale‑ or time‑zone‑dependent variations.  
+* It formats the date with `SimpleDateFormat` using the patterns `"Y"` and `"YYY"` – the expected behaviour after the Java 7 change (full year, e.g. `"2003"`).  
+* It then formats the same date with `FastDateFormat` using the identical patterns, time‑zone, and locale.  
+* Finally, it asserts that the two results are equal, guaranteeing that `FastDateFormat` has been updated to follow the corrected Java 7 semantics, satisfying LANG‑719.

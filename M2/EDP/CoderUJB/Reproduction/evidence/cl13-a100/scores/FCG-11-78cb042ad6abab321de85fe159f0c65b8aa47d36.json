@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 11,
+  "project": "JacksonCore",
+  "bug_id": 26,
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-11-78cb042a/0c96adb4c1f65da5ddfeadd178579ab1db37d1e99ac83220fb39a2ceab1a5462/attempt-1/result.json",
+  "raw_sha256": "cd576d9318c76d03bd095aa289f7ea94b64ceccf027a190300d4adabc79f70fc",
+  "input_sha256": "84d524a75737d87c330fe082b5e04f87566fc14a3873c22d2b10bc2ffa36a0b8",
+  "input_tokens": 567,
+  "full_input_tokens": 567,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-11-78cb042a/d82a1d7b76a3409e82fcda1dbe9068be61b8357ea55af20599b31609a4177d5b/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-11-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

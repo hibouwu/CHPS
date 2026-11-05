@@ -1,0 +1,6 @@
+Can not find target function in answer!
+
+private Object readResolve() throws java.io.ObjectStreamException {
+    calculateHashCode(keys);
+    return this;
+}

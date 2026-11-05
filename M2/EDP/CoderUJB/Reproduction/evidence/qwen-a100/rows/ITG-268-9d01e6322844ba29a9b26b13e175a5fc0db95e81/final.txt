@@ -1,0 +1,50 @@
+Certainly! Below is a test case named `supportsBOMinFiles` for the issue `Jsoup-695`. This test case will verify that `DataUtil.parseByteData(...)` correctly handles UTF-16 streams with a Byte Order Mark (BOM).
+
+First, ensure you have the necessary imports:
+```java
+import org.jsoup.helper.DataUtil;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+```
+
+Now, here is the test case:
+
+```java
+@Test
+public void supportsBOMinFiles() throws IOException {
+    // UTF-16 LE BOM: 0xFF 0xFE
+    byte[] utf16leBOM = new byte[]{(byte) 0xFF, (byte) 0xFE};
+    String utf16leText = "Hello, World!";
+    byte[] utf16leBytes = ("Hello, World!").getBytes(StandardCharsets.UTF_16LE);
+    byte[] utf16leWithBOM = new byte[utf16leBOM.length + utf16leBytes.length];
+    System.arraycopy(utf16leBOM, 0, utf16leWithBOM, 0, utf16leBOM.length);
+    System.arraycopy(utf16leBytes, 0, utf16leWithBOM, utf16leBOM.length, utf16leBytes.length);
+
+    // UTF-16 BE BOM: 0xFE 0xFF
+    byte[] utf16beBOM = new byte[]{(byte) 0xFE, (byte) 0xFF};
+    byte[] utf16beBytes = ("Hello, World!").getBytes(StandardCharsets.UTF_16BE);
+    byte[] utf16beWithBOM = new byte[utf16beBOM.length + utf16beBytes.length];
+    System.arraycopy(utf16beBOM, 0, utf16beWithBOM, 0, utf16beBOM.length);
+    System.arraycopy(utf16beBytes, 0, utf16beWithBOM, utf16beBOM.length, utf16beBytes.length);
+
+    // Test UTF-16 LE with BOM
+    String resultUtf16le = DataUtil.parseByteData(new ByteArrayInputStream(utf16leWithBOM), null);
+    assertEquals("UTF-16 LE parsing failed", utf16leText, resultUtf16le);
+
+    // Test UTF-16 BE with BOM
+    String resultUtf16be = DataUtil.parseByteData(new ByteArrayInputStream(utf16beWithBOM), null);
+    assertEquals("UTF-16 BE parsing failed", utf16leText, resultUtf16be);
+}
+```
+
+### Explanation:
+1. **UTF-16 LE BOM**: The Byte Order Mark for UTF-16 Little Endian is `0xFF 0xFE`.
+2. **UTF-16 BE BOM**: The Byte Order Mark for UTF-16 Big Endian is `0xFE 0xFF`.
+3. **Concatenation**: We concatenate the BOM with the actual text bytes to simulate a file with a BOM.
+4. **Parsing**: We use `DataUtil.parseByteData(...)` to parse the byte arrays and check if the output matches the expected string "Hello, World!".
+
+This test case ensures that the `parseByteData` method correctly identifies and processes UTF-16 encoded data with a BOM, distinguishing it from UTF-8.

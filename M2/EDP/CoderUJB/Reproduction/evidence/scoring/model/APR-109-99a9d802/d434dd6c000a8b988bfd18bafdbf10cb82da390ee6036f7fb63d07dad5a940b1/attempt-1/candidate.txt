@@ -1,0 +1,14 @@
+public JsonWriter value(double value) throws IOException {
+    writeDeferredName();
+    if (Double.isNaN(value) || Double.isInfinite(value)) {
+        throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+    }
+    beforeValue();
+    
+    // Use String.format to ensure a consistent and precise representation
+    // Here we use "%.17g" which is a common format for JSON serialization
+    // It provides enough precision for most use cases
+    out.append(String.format("%.17g", value));
+    
+    return this;
+}

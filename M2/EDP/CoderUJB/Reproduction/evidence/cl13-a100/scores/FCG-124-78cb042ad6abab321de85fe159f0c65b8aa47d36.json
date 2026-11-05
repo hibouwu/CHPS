@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 124,
+  "project": "Compress",
+  "bug_id": 47,
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-124-78cb042a/d9a55320c796864ab07ea2d3f8eb6bde3a79bc2a8eabdec56c3d2f85ceef0911/attempt-1/result.json",
+  "raw_sha256": "1d8402796ba2e05a4fced4e003c941801046b5df2dc793320fc07ea83c79376f",
+  "input_sha256": "49754decb8f7347d66c48ea233bba1c8d159567c42cee6910642f755acff8f4d",
+  "input_tokens": 462,
+  "full_input_tokens": 462,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-124-78cb042a/615facae6567344ea12c2f02c365e880d73c26e97ca9bbf997aa75976c23b731/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-124-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

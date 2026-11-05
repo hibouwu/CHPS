@@ -1,0 +1,43 @@
+Here is a complete implementation of **`testDecodeObjectException`** that verifies the `BinaryCodec.decode(Object)` method throws a `DecoderException` when it receives an argument of an unsupported type (or `null`).  
+The test follows the JUnit‑4 style used in the surrounding test class.
+
+```java
+/**
+ * Tests for Object decode(Object)
+ * ------------------------------------------------------------------------
+ * Test decode(Object) – verify that an illegal argument causes a
+ * DecoderException to be thrown.
+ * ------------------------------------------------------------------------
+ */
+@Test
+public void testDecodeObjectException() {
+    // The BinaryCodec instance is created in setUp().
+    // Pass an object that is *not* a byte[] or String – the contract
+    // of BinaryCodec.decode(Object) states that such a value must cause
+    // a DecoderException.
+    try {
+        instance.decode(new Object());          // illegal argument
+        fail("DecoderException expected when decoding an unsupported object type");
+    } catch (DecoderException e) {
+        // Expected path – the exception message can be inspected if desired
+        assertEquals("Input object is not a byte[] or String", e.getMessage());
+    }
+
+    // Additionally verify that a null argument also triggers the exception.
+    try {
+        instance.decode(null);
+        fail("DecoderException expected when decoding a null reference");
+    } catch (DecoderException e) {
+        // Expected – the codec should not accept null as a valid input.
+        assertEquals("Input object is null", e.getMessage());
+    }
+}
+```
+
+### What the test does
+1. **Invalid type** – Calls `decode` with a plain `new Object()` which the codec cannot handle.  
+   The test expects a `DecoderException`; if none is thrown, the test fails.
+2. **Null input** – Calls `decode` with `null`.  
+   According to the contract, this should also result in a `DecoderException`.
+
+Both cases confirm that `BinaryCodec.decode(Object)` correctly guards against illegal arguments, satisfying the requirement for the `testDecodeObjectException` test case.

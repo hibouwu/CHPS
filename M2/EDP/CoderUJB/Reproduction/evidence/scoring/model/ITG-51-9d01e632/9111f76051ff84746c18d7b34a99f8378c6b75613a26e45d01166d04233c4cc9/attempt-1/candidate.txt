@@ -1,0 +1,18 @@
+public void testEmptyNodeSetOperations() throws ParserConfigurationException {
+        // Create a JXPathContext with an XML document that does not contain "child1"
+        JXPathContext pathContext = JXPathContext.newContext(
+            DocumentBuilderFactory.newInstance()
+                .newDocumentBuilder().parse(
+                    new InputSource(new StringReader(
+                        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                        "<doc/>"
+                    ))
+                )
+        );
+
+        // Perform the comparison 2.0 > child1
+        Boolean result = (Boolean) pathContext.getValue("2.0 > child1", Boolean.class);
+
+        // According to the XPath specification, this should return false because the right operand node set is empty
+        assertFalse("The comparison should return false when the right operand node set is empty", result.booleanValue());
+    }

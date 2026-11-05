@@ -1,0 +1,31 @@
+{
+  "http_status": 200,
+  "request_id": "req_c48b0ddc08ac4929b6ec7307e6929971",
+  "response_id": "resp_0f5caa4975f75f2f016aec0166b76c87d2b9becc0e2b30eec5",
+  "model": "gpt-6.1-sol",
+  "status": "completed",
+  "service_tier": "default",
+  "usage": {
+    "input_tokens": 1204,
+    "input_tokens_details": {
+      "cache_write_tokens": 1201,
+      "cached_tokens": 0
+    },
+    "output_tokens": 277,
+    "output_tokens_details": {
+      "reasoning_tokens": 108
+    },
+    "total_tokens": 1481
+  },
+  "elapsed_seconds": 4.809286946998327,
+  "response_sha256": "7b88906db6ab6f8c0b231698fc0e16580db5ca00e53d75455eaf8cdf90187a68",
+  "finished": "2026-11-05T04:09:15.438206+00:00",
+  "extraction": "final_answer message output_text; unphased assistant messages only when no final_answer",
+  "message_phases": [
+    "final_answer"
+  ],
+  "answer_sha256": "9a9eaf8f41ba1acc5bdf953647fe069e08af3149d13d14a7188dd66c2257508f",
+  "incomplete_details": null,
+  "cost_standard_estimate_usd": 0.0057785,
+  "cost_conservative_usd": 0.006358000000000001
+}

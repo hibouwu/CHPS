@@ -1,0 +1,13 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 294,
+  "task_id": "55574722fe8ea96342e3f18aa4bd95b72fb7f8a779827881c15595bbd35fece9",
+  "project": "Gson",
+  "bug_id": "11",
+  "chat_sha256": "7ea519765f6e6df7911f30ba61385098805ad4601e7f57853036605b9da7dabf",
+  "complete_sha256": "7e9178911e07b0bcc87c318fb582237461ee896ff6a9f6b5fa7d734520513b3b",
+  "checked_at": "2026-11-05T02:45:05.738654+01:00",
+  "eligible": true,
+  "check": "label_available_parser_controlled"
+}

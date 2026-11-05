@@ -1,0 +1,105 @@
+{
+  "id": "resp_02ed2b8380aa9d3a016aec02619a1887d28de19a45045ebee0",
+  "object": "response",
+  "created_at": 1793852001,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793852003,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_02ed2b8380aa9d3a016aec0262840c87d2b0378a05c16cb840",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AJj4qL2otDlYlkYLXeYzfvK5LlYEu8dvgY3pY8DaydcH61v5gEemDIRRsBpi5I36fN1wARDBRgRgQYercrr_1d5CpIBt62xY1tzIWq4qiHOWc77y-Dspx_79F1aVMIQENv6UGqICoCjp3Y8bWieS8UhvuMP_QrSg0euIcT-wjtu3CG6SrX2_Pv4oEzknKM7TnSqbA3CDGYcvd6wwzs6Qq2fVaRGQ3SmbL_o0SIQ_elWMU69jZ-5LRq7j16HxvN1DNT-YqYuTowzBXMsEvppwQKN-bLRH9F9ChKcvyKfWsc-hGxez765bUjx0FDPsVFCGvFxyhZN813kLv1PKS2FWnfkf1O3f5VPz27b86YbjtWL_e0g4qHhaD8wI4pUYNNuNIrKSZVxxHjC12FEjrdnNQmRm6OMpe1TQKrnpUa7RKwuqkfpwedPCU_3dNYQrWh_Y153EjndPF-U4DmnvzAKhCNyoEETaj4g-lfJkUeqUWUMI2aRBD-MKwVVsQcallggmexypSYA4srBOk8HP0YKIw0H_2KNjgYK9G_Xi2_oM06imJEXLxqMYC78xf_E41RjdZDSmT7ck-YPabUHWHrghX7WXcgTNl518qqjKayZmV7qqayIxjajSj34gVv-AbHOduAGAFKvtyWwI-mH8YwyaUEyAMU5gD7tXNN1yRuazeYFPgLbrNqHKYWN0NSvjLOnljCGKApK7e5nW_dSGTa2-KnDPwIVvBaIa2KrDdGm6nvqrXKeq4kvoifpRrPKgA9cMMN8TrUqmJyL8qSnK7RF540OmV02BAHuQwDVZg8eQ58sEbbvVOfOaTT8eL0H2KcufqIAh2fMaBnknECkh6v09dmeUWo5gRRo4RIO59Ks6vslc_CWaeSKU8nAOLaqJd5z-srP05Tp-nR8jkHr7uCkTkxgmhMb-45PUq9F6lfRgpPrCxvx9RWf6bIR70Scs0mmLJUkCuY4Mx5em82zn_25YoDk42cTh8v0l0kZiQ0MJtEXhmWPsvvMdRclk5rCbbMTuIKF6v7cXvcL8YVjeIyomHLjtjkuXOPohEBlFFfaN3QcX8S1K0LI-Eliv2h0WKPbB_F4ZjS_nYcDx03xLLnEj7sIMKcV9aS20zKHwUltbsQdlvc8hl8IL2bRJahRH25EEB_Oe2Siv4JPO0FCMY0XCrM0iBjTHPAv64e-QAxFSfF_nCuA8QpNdzp0ClKsCKSwZ5hDcPH6_BVbN53AcGMdElgXBwM33cQBBVJ24aieEjdABgpRSLmGpXyYWkv76VpGBYCdmPS4VuKKg1UGv0WsGr6wfa3E-14P3vtQlm-oI_3RK-TaOGmOVKNayr88IT4oi9z8L2pEVA9Q9iuxSHzcCanXesWwca9K23_aw9flYU6SyEA-NzIqS4lTH9aVxgsZBqisl19cVx-DZofAmrcXc3tt8nzNpjxKK1Fubj1quNH-qdFlj_OnvMlcEz5Xc77yfFnfLUmTjpNWQEhsOm7KB4f56Us-_nBEHtMrHwyihLWgAr1qby8tOG_WlPDIUdmzyQl3vBoC05G9RqLzJvSn6hplTCH-sCFNcIsLCzK2dMeIw18X1KqB-KLwL8vdAodQzfFf9kgm6nHx9RIuzc3pNUxUBdP96OJC5ZePfuhVJfiN6HQ5q2_RZ-zP_LXSxv6Lj3gjMZYK8X85b-2BsETtnDmxMR0EHWrMo1RfUTWgtAoDGbU4gUVI7_fwebrN9YSzOutPhBvXW-V--E8ZiS8J7bN8fjNM1PYsI0xfeY6rDxE2neS9cS_1edEQHfOtQBebS01CvSbeq82hgY3saCdha4rCzX3D_eHQAR-xjx921NN9E5f1PG8XsajeL9j6dY215Qdj7Wf4Q7z8NWU9wm6nTZnVTSIbMqZd8CdFvSIBeX5gqEse5Wkg-06j7o_83PzYn_3d2j6BxqtV7OkB6zMOsQpmbDv4Is1hkCjNMheuK5Fccu5C3czwnDNNheYoCILgNDhqBxZFD8yahXWWwjDLTEqJ2w==",
+      "summary": []
+    },
+    {
+      "id": "msg_02ed2b8380aa9d3a016aec02639f7887d2a54ffa1fbb9a0211",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "A. Yes, it has defects"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 254,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 54,
+    "output_tokens_details": {
+      "reasoning_tokens": 41
+    },
+    "total_tokens": 308
+  },
+  "user": null,
+  "metadata": {}
+}

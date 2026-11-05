@@ -1,0 +1,31 @@
+Certainly! Based on the provided context and the natural language annotation, the `deleteFirst` method should delete the first occurrence of the specified string in the `StrBuilder`. Here's how you can implement this method:
+
+```java
+/**
+ * Deletes the first occurrence of the specified string in the builder.
+ *
+ * @param str  the string to delete, null causes no action
+ * @return this, to enable chaining
+ */
+public StrBuilder deleteFirst(final String str) {
+    if (str == null || str.length() == 0) {
+        return this; // No action if the string is null or empty
+    }
+
+    // Find the first occurrence of the string
+    int index = indexOf(str);
+    if (index != -1) {
+        // Delete the string at the found index
+        delete(index, index + str.length());
+    }
+    return this; // Return this for chaining
+}
+```
+
+### Explanation:
+- **Null or Empty Check**: The method first checks if the input string `str` is `null` or empty. If so, it returns `this` immediately without making any changes.
+- **Finding the Index**: It uses the `indexOf` method to find the first occurrence of the string `str` in the `StrBuilder`.
+- **Deleting the String**: If the string is found (`indexOf` returns a non-negative index), it deletes the substring starting at that index with the length of `str`.
+- **Chaining**: Finally, it returns `this` to allow method chaining.
+
+This implementation ensures that only the first occurrence of the specified string is deleted, and it handles edge cases where the input string is `null` or empty.

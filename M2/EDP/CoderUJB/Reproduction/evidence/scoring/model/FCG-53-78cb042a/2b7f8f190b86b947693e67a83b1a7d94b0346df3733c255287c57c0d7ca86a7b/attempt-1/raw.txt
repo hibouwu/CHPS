@@ -1,0 +1,41 @@
+Certainly! Based on the provided context and the natural language annotations, here's how you can implement the `transformAsString` method:
+
+```java
+/**
+ * Transforms the given node and then sets its type to Token.STRING if it
+ * was Token.NAME. If its type was already Token.STRING, then quotes it.
+ * Used for properties, as the old AST uses String tokens, while the new one
+ * uses Name tokens for unquoted strings. For example, in
+ * var o = {'a' : 1, b: 2};
+ * the string 'a' is quoted, while the name b is turned into a string, but
+ * unquoted.
+ */
+private Node transformAsString(AstNode n) {
+    Node transformedNode = transform(n);
+
+    if (transformedNode.getType() == Token.NAME) {
+        // Convert NAME to STRING
+        String nameValue = transformedNode.getString();
+        Node stringNode = newStringNode(nameValue);
+        return stringNode;
+    } else if (transformedNode.getType() == Token.STRING) {
+        // Ensure the string is properly quoted
+        String stringValue = transformedNode.getString();
+        if (!stringValue.startsWith("\"") && !stringValue.startsWith("'")) {
+            stringValue = "\"" + stringValue + "\"";
+            transformedNode.setString(stringValue);
+        }
+    }
+
+    return transformedNode;
+}
+```
+
+### Explanation:
+1. **Transformation**: The method starts by transforming the input node `n` using the `transform` method.
+2. **Check Type**:
+   - If the transformed node's type is `Token.NAME`, it converts this node to a `Token.STRING`. This is done by creating a new string node with the same value as the name node.
+   - If the transformed node's type is already `Token.STRING`, it checks if the string value is properly quoted. If not, it adds double quotes around the string value.
+3. **Return**: Finally, the method returns the transformed node, which is now either a properly quoted string or a converted string from a name.
+
+This implementation ensures that the node is correctly transformed and formatted according to the specified rules.

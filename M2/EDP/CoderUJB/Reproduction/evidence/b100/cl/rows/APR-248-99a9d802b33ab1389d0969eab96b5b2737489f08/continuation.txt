@@ -1,0 +1,32 @@
+
+    /**
+     * Outputs the record separator.
+     *
+     * @throws IOException
+     *             If an I/O error occurs
+     */
+    public void println() throws IOException {
+        final String recordSeparator = format.getRecordSeparator();
+        if (recordSeparator == null) {
+            out.append(LF);
+        } else {
+            out.append(recordSeparator);
+        }
+        newRecord = true;
+    }
+
+// You are a professional Java programmer, please fix the bug in the function named printAndEscape based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+    /**
+     * Prints the contents of the given CharSequence without any escaping.
+     *
+     * @param value
+     *            The value to be written
+     * @param offset
+     *            The index of the first character to write
+     * @param len
+     *            The number of characters to write
+     * @throws IOException
+     *             If an I/O error occurs
+     */
+    private void printAndEscape(final CharSequence

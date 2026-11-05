@@ -1,0 +1,329 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-codec 1.5-SNAPSHOT --------
+
+prepare:
+
+static:
+
+compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/build.xml:56: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+compile.tests:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/build.xml:189: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 33 source files to /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/target/tests
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.4
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:343: error: illegal start of expression
+    [javac]     org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> {
+    [javac]                                                          ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:343: error: illegal start of expression
+    [javac]     org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> {
+    [javac]                                                             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:343: error: illegal start of expression
+    [javac]     org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> {
+    [javac]                                                               ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:343: error: ';' expected
+    [javac]     org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> {
+    [javac]                                                                ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:344: error: illegal start of expression
+    [javac]         byte[] encoded = Base64.encodeBase64(binaryData, false, false, maxResultSize);
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:344: error: ';' expected
+    [javac]         byte[] encoded = Base64.encodeBase64(binaryData, false, false, maxResultSize);
+    [javac]              ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:348: error: illegal start of type
+    [javac]     });
+    [javac]      ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:351: error: class or interface expected
+    [javac]     private void testEncodeOverMaxSize(int maxSize) throws Exception {
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:354: error: class or interface expected
+    [javac]             fail("Expected " + IllegalArgumentException.class.getName());
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:354: error: <identifier> expected
+    [javac]             fail("Expected " + IllegalArgumentException.class.getName());
+    [javac]                                                              ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:354: error: invalid method declaration; return type required
+    [javac]             fail("Expected " + IllegalArgumentException.class.getName());
+    [javac]                                                               ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:354: error: ';' expected
+    [javac]             fail("Expected " + IllegalArgumentException.class.getName());
+    [javac]                                                                        ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:355: error: class or interface expected
+    [javac]         } catch (IllegalArgumentException e) {
+    [javac]           ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:360: error: class or interface expected
+    [javac]     public void testIgnoringNonBase64InDecode() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:363: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:365: error: class or interface expected
+    [javac]     public void testIsArrayByteBase64() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:367: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{-125}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:368: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{-10}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:369: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{0}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:370: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{64, Byte.MAX_VALUE}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:371: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{Byte.MAX_VALUE}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:372: error: class or interface expected
+    [javac]         assertTrue(Base64.isBase64(new byte[]{'A'}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:373: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{'A', Byte.MIN_VALUE}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:374: error: class or interface expected
+    [javac]         assertTrue(Base64.isBase64(new byte[]{'A', 'Z', 'a'}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:375: error: class or interface expected
+    [javac]         assertTrue(Base64.isBase64(new byte[]{'/', '=', '+'}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:376: error: class or interface expected
+    [javac]         assertFalse(Base64.isBase64(new byte[]{'$'}));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:377: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:382: error: class or interface expected
+    [javac]     public void testIsUrlSafe() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:384: error: class or interface expected
+    [javac]         Base64 base64URLSafe = new Base64(true);
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:386: error: class or interface expected
+    [javac]         assertFalse("Base64.isUrlSafe=false", base64Standard.isUrlSafe());
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:387: error: class or interface expected
+    [javac]         assertTrue("Base64.isUrlSafe=true", base64URLSafe.isUrlSafe());
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:389: error: class or interface expected
+    [javac]         byte[] whiteSpace = {' ', '\n', '\r', '\t'};
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:390: error: class or interface expected
+    [javac]         assertTrue("Base64.isBase64(whiteSpace)=true", Base64.isBase64(whiteSpace));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:391: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:393: error: class or interface expected
+    [javac]     public void testKnownDecodings() throws UnsupportedEncodingException {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:396: error: class or interface expected
+    [javac]         assertEquals("It was the best of times, it was the worst of times.", new String(Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:398: error: class or interface expected
+    [javac]         assertEquals("http://jakarta.apache.org/commmons", new String(Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:400: error: class or interface expected
+    [javac]         assertEquals("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz", new String(Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:402: error: class or interface expected
+    [javac]         assertEquals("{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }", new String(Base64.decodeBase64("eyAwLCAxLCAyLCAzLCA0LCA1LCA2LCA3LCA4LCA5IH0="
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:404: error: class or interface expected
+    [javac]         assertEquals("xyzzy!", new String(Base64.decodeBase64("eHl6enkh".getBytes("UTF-8"))));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:405: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:407: error: class or interface expected
+    [javac]     public void testKnownEncodings() throws UnsupportedEncodingException {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:410: error: class or interface expected
+    [javac]         assertEquals(
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:416: error: class or interface expected
+    [javac]         assertEquals("SXQgd2FzIHRoZSBiZXN0IG9mIHRpbWVzLCBpdCB3YXMgdGhlIHdvcnN0IG9mIHRpbWVzLg==", new String(Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:418: error: class or interface expected
+    [javac]         assertEquals("aHR0cDovL2pha2FydGEuYXBhY2hlLm9yZy9jb21tbW9ucw==", new String(Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:420: error: class or interface expected
+    [javac]         assertEquals("QWFCYkNjRGRFZUZmR2dIaElpSmpLa0xsTW1Obk9vUHBRcVJyU3NUdFV1VnZXd1h4WXlaeg==", new String(Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:422: error: class or interface expected
+    [javac]         assertEquals("eyAwLCAxLCAyLCAzLCA0LCA1LCA2LCA3LCA4LCA5IH0=", new String(Base64.encodeBase64("{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }"
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:424: error: class or interface expected
+    [javac]         assertEquals("eHl6enkh", new String(Base64.encodeBase64("xyzzy!".getBytes("UTF-8"))));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:425: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:427: error: class or interface expected
+    [javac]     public void testNonBase64Test() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:431: error: class or interface expected
+    [javac]         assertFalse("Invalid Base64 array was incorrectly validated as " + "an array of Base64 encoded data", Base64
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:434: error: class or interface expected
+    [javac]         try {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:436: error: class or interface expected
+    [javac]             byte[] result = b64.decode(bArray);
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:438: error: class or interface expected
+    [javac]             assertTrue("The result should be empty as the test encoded content did " + "not contain any valid base 64 characters",
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:440: error: class or interface expected
+    [javac]         } catch (Exception e) {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:445: error: class or interface expected
+    [javac]         }
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:448: error: class or interface expected
+    [javac]     public void testObjectDecodeWithInvalidParameter() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:451: error: class or interface expected
+    [javac]         try {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:453: error: class or interface expected
+    [javac]             fail("decode(Object) didn't throw an exception when passed an Integer object");
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:454: error: class or interface expected
+    [javac]         } catch (DecoderException e) {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:460: error: class or interface expected
+    [javac]     public void testObjectDecodeWithValidParameter() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:463: error: class or interface expected
+    [javac]         Object o = Base64.encodeBase64(original.getBytes("UTF-8"));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:465: error: class or interface expected
+    [javac]         Base64 b64 = new Base64();
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:466: error: class or interface expected
+    [javac]         Object oDecoded = b64.decode(o);
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:467: error: class or interface expected
+    [javac]         byte[] baDecoded = (byte[]) oDecoded;
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:468: error: class or interface expected
+    [javac]         String dest = new String(baDecoded);
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:470: error: class or interface expected
+    [javac]         assertTrue("dest string does not equal original", dest.equals(original));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:471: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:473: error: class or interface expected
+    [javac]     public void testObjectEncodeWithInvalidParameter() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:475: error: class or interface expected
+    [javac]         try {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:477: error: class or interface expected
+    [javac]             fail("encode(Object) didn't throw an exception when passed a String object");
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:478: error: class or interface expected
+    [javac]         } catch (EncoderException e) {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:483: error: class or interface expected
+    [javac]     public void testObjectEncodeWithValidParameter() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:486: error: class or interface expected
+    [javac]         Object origObj = original.getBytes("UTF-8");
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:488: error: class or interface expected
+    [javac]         Base64 b64 = new Base64();
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:489: error: class or interface expected
+    [javac]         Object oEncoded = b64.encode(origObj);
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:490: error: class or interface expected
+    [javac]         byte[] bArray = Base64.decodeBase64((byte[]) oEncoded);
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:491: error: class or interface expected
+    [javac]         String dest = new String(bArray);
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:493: error: class or interface expected
+    [javac]         assertTrue("dest string does not equal original", dest.equals(original));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:494: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:496: error: class or interface expected
+    [javac]     public void testObjectEncode() throws Exception {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:498: error: class or interface expected
+    [javac]         assertEquals("SGVsbG8gV29ybGQ=", new String(b64.encode("Hello World".getBytes("UTF-8"))));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:499: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:501: error: class or interface expected
+    [javac]     public void testPairs() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:503: error: class or interface expected
+    [javac]         for (int i = -128; i <= 127; i++) {
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:503: error: class or interface expected
+    [javac]         for (int i = -128; i <= 127; i++) {
+    [javac]                            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:503: error: class or interface expected
+    [javac]         for (int i = -128; i <= 127; i++) {
+    [javac]                                      ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:505: error: class or interface expected
+    [javac]             assertTrue(Arrays.equals(test, Base64.decodeBase64(Base64.encodeBase64(test))));
+    [javac]             ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:506: error: class or interface expected
+    [javac]         }
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:512: error: class or interface expected
+    [javac]     public void testRfc2045Section2Dot1CrLfDefinition() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:514: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:519: error: class or interface expected
+    [javac]     public void testRfc2045Section6Dot8ChunkSizeDefinition() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:521: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:526: error: class or interface expected
+    [javac]     public void testRfc1421Section6Dot8ChunkSizeDefinition() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:528: error: class or interface expected
+    [javac]     }
+    [javac]     ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:544: error: class or interface expected
+    [javac]     public void testRfc4648Section10Decode() {
+    [javac]            ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:546: error: class or interface expected
+    [javac]         assertEquals("f", StringUtils.newStringUsAscii(Base64.decodeBase64("Zg==")));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:547: error: class or interface expected
+    [javac]         assertEquals("fo", StringUtils.newStringUsAscii(Base64.decodeBase64("Zm8=")));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:548: error: class or interface expected
+    [javac]         assertEquals("foo", StringUtils.newStringUsAscii(Base64.decodeBase64("Zm9v")));
+    [javac]         ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/src/test/org/apache/commons/codec/binary/Base64Test.java:549: error: class or interface expected
+    [javac]         assertEquals("foob", StringUtils.newStringUsAscii(Base64.decodeBase64("Zm9vYg==")));
+    [javac]         ^
+    [javac] 100 errors
+    [javac] 1 warning
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/ITG-232-al8qy9al/fixed/build.xml:189: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

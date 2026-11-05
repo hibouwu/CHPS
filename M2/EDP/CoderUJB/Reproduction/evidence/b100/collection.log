@@ -1,0 +1,713 @@
+progress {'cl': 'RUNNING', 'oss': 'RUNNING', 'qwen': 'RUNNING'} {'cl': 48, 'oss': 0, 'qwen': 0, 'sol': 0} 5
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-171-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_syntax
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-232-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'RUNNING', 'oss': 'RUNNING', 'qwen': 'RUNNING'} {'cl': 50, 'oss': 0, 'qwen': 0, 'sol': 0} 6
+cl ITG-241-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-268-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_syntax
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-139-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-297-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_syntax
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+cl ITG-304-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_syntax
+progress {'cl': 'RUNNING', 'oss': 'RUNNING', 'qwen': 'RUNNING'} {'cl': 56, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+cl ITG-429-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'RUNNING'} {'cl': 58, 'oss': 0, 'qwen': 0, 'sol': 0} 3
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl ITG-450-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+cl APR-1-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl ITG-448-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'RUNNING'} {'cl': 61, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl APR-23-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl APR-50-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'RUNNING'} {'cl': 63, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl APR-70-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official_extraction_missing_method
+cl APR-109-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official_extraction_missing_method
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 65, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl APR-112-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl APR-119-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 67, 'oss': 0, 'qwen': 0, 'sol': 0} 3
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl APR-218-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+cl APR-237-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+cl APR-248-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 70, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl APR-312-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl APR-310-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official_extraction_missing_method
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 72, 'oss': 0, 'qwen': 0, 'sol': 0} 3
+cl APR-319-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl APR-313-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl APR-367-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 75, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl APR-391-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official_extraction_missing_method
+cl APR-410-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official_extraction_missing_method
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 77, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl APR-447-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 78, 'oss': 0, 'qwen': 0, 'sol': 0} 4
+cl APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+cl DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+cl DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 81, 'oss': 0, 'qwen': 0, 'sol': 0} 3
+cl DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+cl DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 83, 'oss': 0, 'qwen': 0, 'sol': 0} 4
+cl DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+cl DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+cl DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+cl APR-432-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 87, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 failcl  NoneDD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23
+ pass None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 89, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+cl DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 91, 'oss': 0, 'qwen': 0, 'sol': 0} 3
+cl DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail Nonecl
+ DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+cl DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 94, 'oss': 0, 'qwen': 0, 'sol': 0} 2
+cl DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+cl DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+progress {'cl': 'RUNNING', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 96, 'oss': 0, 'qwen': 0, 'sol': 0} 3
+cl DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass clNone 
+DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+cl DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 99, 'oss': 0, 'qwen': 0, 'sol': 0} 1
+cl DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 0, 'qwen': 0, 'sol': 0} 100
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-11-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-53-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-26-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-69-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-75-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-78-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 6, 'qwen': 0, 'sol': 0} 94
+oss FCG-91-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-108-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-113-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-116-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-120-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 11, 'qwen': 0, 'sol': 0} 89
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 11, 'qwen': 0, 'sol': 0} 89
+oss FCG-124-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-142-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 13, 'qwen': 0, 'sol': 0} 87
+oss FCG-158-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-184-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-191-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 16, 'qwen': 0, 'sol': 0} 84
+oss FCG-200-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-122-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss FCG-218-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 19, 'qwen': 0, 'sol': 0} 81
+oss FCG-228-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-12-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+oss CTG-37-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-21-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-43-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 24, 'qwen': 0, 'sol': 0} 76
+oss CTG-48-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+oss CTG-52-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-53-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-61-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 28, 'qwen': 0, 'sol': 0} 72
+oss CTG-49-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-78-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-84-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 31, 'qwen': 0, 'sol': 0} 69
+oss CTG-63-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+oss CTG-94-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-88-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+oss CTG-101-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-95-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-102-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-134-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 38, 'qwen': 0, 'sol': 0} 62
+oss CTG-137-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-14-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-5-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-22-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-41-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-42-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-51-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 46, 'qwen': 0, 'sol': 0} 54
+oss ITG-67-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-139-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-171-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-232-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 51, 'qwen': 0, 'sol': 0} 49
+oss ITG-268-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-241-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-297-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-304-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 57, 'qwen': 0, 'sol': 0} 43
+oss ITG-429-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-448-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss ITG-450-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-1-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-50-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-23-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 63, 'qwen': 0, 'sol': 0} 37
+oss APR-109-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 64, 'qwen': 0, 'sol': 0} 36
+oss APR-112-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-70-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-218-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_compile
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+oss APR-237-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official extraction missing target function
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-119-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-248-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-312-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-310-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 72, 'qwen': 0, 'sol': 0} 28
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-313-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-319-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-391-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+oss APR-367-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-410-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 77, 'qwen': 0, 'sol': 0} 23
+oss APR-447-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+oss APR-432-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_compile
+oss DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+oss DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+oss APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 0, 'sol': 0} 100
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-11-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_syntax
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-26-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-69-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 3, 'sol': 0} 97
+qwen FCG-75-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-78-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-91-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 6, 'sol': 0} 94
+qwen FCG-108-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-113-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-116-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-120-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 10, 'sol': 0} 90
+qwen FCG-122-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-124-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 12, 'sol': 0} 88
+qwen FCG-142-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-53-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-184-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-191-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_syntax
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-158-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-200-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-218-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 19, 'sol': 0} 81
+qwen CTG-12-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen FCG-228-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-21-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-37-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 23, 'sol': 0} 77
+qwen CTG-43-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-48-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-49-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-52-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 27, 'sol': 0} 73
+qwen CTG-61-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-53-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-78-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-84-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 31, 'sol': 0} 69
+qwen CTG-88-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-63-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-94-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_syntax
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-95-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-101-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-102-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-134-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-137-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 39, 'sol': 0} 61
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-14-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+qwen ITG-5-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+ candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-22-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-41-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-51-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-42-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-67-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 47, 'sol': 0} 53
+qwen ITG-139-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-171-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-232-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 51, 'sol': 0} 49
+qwen ITG-268-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-241-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-297-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 55, 'sol': 0} 45
+qwen ITG-304-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-448-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-429-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-1-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen ITG-450-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-50-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_compile
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-23-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 63, 'sol': 0} 37
+qwen APR-70-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+qwen APR-109-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-119-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_compile
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-218-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+qwen APR-237-99a9d802b33ab1389d0969eab96b5b2737489f08 fail official extraction missing target function
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-248-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 69, 'sol': 0} 31
+qwen APR-112-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-312-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-310-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-313-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-319-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 74, 'sol': 0} 26
+qwen APR-367-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-391-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-410-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-447-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+qwen APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08 fail candidate_syntax
+qwen DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+qwen DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+qwen DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 99, 'sol': 0} 1
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 99, 'sol': 0} 1
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 99, 'sol': 0} 1
+qwen APR-432-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 0} 100
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-26-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-11-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 2} 98
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 2} 98
+sol FCG-69-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 3} 97
+sol FCG-75-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-78-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 5} 95
+sol FCG-91-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-108-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-53-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 8} 92
+sol FCG-116-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+sol FCG-120-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail official extraction missing target function
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 10} 90
+sol FCG-113-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 11} 89
+sol FCG-124-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 12} 88
+sol FCG-142-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 13} 87
+sol FCG-158-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-122-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 15} 85
+sol FCG-184-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-191-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 17} 83
+sol FCG-218-78cb042ad6abab321de85fe159f0c65b8aa47d36 fail project suite failed
+<unknown>:358: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-200-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+sol CTG-12-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol FCG-228-78cb042ad6abab321de85fe159f0c65b8aa47d36 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-21-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 22} 78
+sol CTG-43-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-37-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 24} 76
+sol CTG-49-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-48-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+sol CTG-53-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-52-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+sol CTG-63-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 29} 71
+sol CTG-61-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-78-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-84-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-94-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 33} 67
+sol CTG-88-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-101-b77050662a33cf6096c118bfd24d2bc2a8086103 fail candidate_compile
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-95-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-134-b77050662a33cf6096c118bfd24d2bc2a8086103 fail target test failed
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+Can not find target function in answer!
+sol CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103 fail official extraction missing target function
+<unknown>:389: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-102-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 39} 61
+sol ITG-5-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol CTG-137-b77050662a33cf6096c118bfd24d2bc2a8086103 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-14-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 42} 58
+sol ITG-22-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-41-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-42-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-67-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 46} 54
+sol ITG-51-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 48} 52
+sol ITG-171-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-232-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-139-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 51} 49
+sol ITG-268-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 52} 48
+sol ITG-241-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-297-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail candidate_compile
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-304-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 56} 44
+sol ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail target test failed
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-448-9d01e6322844ba29a9b26b13e175a5fc0db95e81 pass None
+<unknown>:462: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 58} 42
+sol ITG-429-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-1-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-23-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 61} 39
+sol APR-50-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol ITG-450-9d01e6322844ba29a9b26b13e175a5fc0db95e81 fail test did not detect buggy version
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 63} 37
+sol APR-109-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-70-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-112-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 66} 34
+sol APR-218-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-119-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-248-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 69} 31
+sol APR-237-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-310-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-312-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-313-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 73} 27
+sol APR-319-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-367-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-391-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 76} 24
+sol APR-410-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 77} 23
+sol APR-447-99a9d802b33ab1389d0969eab96b5b2737489f08 pass None
+<unknown>:345: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+sol APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+sol DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+sol DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+sol DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+sol DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 fail None
+sol DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+sol DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23 pass None
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 99} 1
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 99} 1
+sol APR-432-99a9d802b33ab1389d0969eab96b5b2737489f08 fail target test failed
+progress {'cl': 'COMPLETED', 'oss': 'COMPLETED', 'qwen': 'COMPLETED'} {'cl': 100, 'oss': 100, 'qwen': 100, 'sol': 100} 0

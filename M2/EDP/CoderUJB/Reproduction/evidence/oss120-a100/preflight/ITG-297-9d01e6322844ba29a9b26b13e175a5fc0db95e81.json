@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 297,
+  "task_id": "a57e5cc4e6d83a176e3ad4e4fb97da33881889324dcb64840681f519b508f27c",
+  "project": "JacksonXml",
+  "bug_id": "1",
+  "chat_sha256": "45d6506f55d4d74a9695fd6a6cce1340d4eeea945a10f4bad7630199c7550331",
+  "complete_sha256": "2ad6a3daedd4bba479259a9a2d80400a92277d41c561c01e7855fe87fb1e2230",
+  "checked_at": "2026-11-05T02:59:38.403424+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-297-9d01e632/e00a19fbb1d640b8f9beb6fdbd8efd34c556861ac61b0ac398bebd8594123edc/attempt-1/result.json"
+}

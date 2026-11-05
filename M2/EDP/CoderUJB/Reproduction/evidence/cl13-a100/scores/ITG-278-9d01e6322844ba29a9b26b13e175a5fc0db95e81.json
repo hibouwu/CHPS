@@ -1,0 +1,22 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 278,
+  "project": "Mockito",
+  "bug_id": "13",
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/ITG-278-9d01e632/445592f34fd25cdde959b7c9c5b485f3d88ec7c1792c4fd14fbc595fc4b59458/attempt-1/result.json",
+  "raw_sha256": "63946dfcd0dd865b708ac3cad1237eb8d34bbdcba58a917b970468afb169c381",
+  "input_sha256": "bf46b1cf17b0bc6e5c549bb6f354f5fe08d69f2f402b429243e13c317e9f7e47",
+  "input_tokens": 200,
+  "full_input_tokens": 200,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-278-9d01e632/941954cd47f7b439fa2f2519d6b20ed6a9ea92c1c42974e71b61860e449a432b/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

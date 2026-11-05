@@ -1,0 +1,48 @@
+To create a test case for the issue `JacksonCore-216`, we need to simulate the conditions that lead to the `ArrayIndexOutOfBoundsException` in the Jackson library. The exception occurs during the serialization or deserialization process, specifically when dealing with symbol table expansion in the `ByteQuadsCanonicalizer` class.
+
+Given the stack trace, it seems that the issue arises when parsing JSON data and adding names to the symbol table. The error message indicates an attempt to access an index of 128, which suggests that the symbol table might not be expanding correctly under certain conditions.
+
+Here's a test case that attempts to reproduce the issue by repeatedly serializing and deserializing a large JSON object. This test will use a map with many entries to stress the symbol table and potentially trigger the exception.
+
+```java
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class JacksonCoreTest {
+
+    @Test
+    public void testSymbolTableExpansionBytes() throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        int numberOfEntries = 1000; // Adjust this number to increase the load on the symbol table
+
+        // Create a large map to serialize and deserialize
+        Map<String, String> largeMap = new HashMap<>();
+        for (int i = 0; i < numberOfEntries; i++) {
+            largeMap.put("key" + i, "value" + i);
+        }
+
+        // Serialize the map to a byte array
+        byte[] serializedBytes = objectMapper.writeValueAsBytes(largeMap);
+
+        // Deserialize the byte array back to a map multiple times
+        for (int i = 0; i < 100; i++) { // Repeat the deserialization process to increase the chance of triggering the issue
+            Map<?, ?> deserializedMap = objectMapper.readValue(serializedBytes, Map.class);
+            if (deserializedMap.size() != numberOfEntries) {
+                throw new AssertionError("Deserialized map size does not match the original map size");
+            }
+        }
+    }
+}
+```
+
+### Explanation:
+1. **ObjectMapper Initialization**: We initialize an `ObjectMapper` instance, which is used for both serialization and deserialization.
+2. **Large Map Creation**: We create a `HashMap` with a large number of entries (`numberOfEntries`). Each entry has a unique key and value.
+3. **Serialization**: We serialize the large map to a byte array using `writeValueAsBytes`.
+4. **Repeated Deserialization**: We repeatedly deserialize the byte array back into a map. The loop runs multiple times to increase the likelihood of triggering the symbol table expansion issue.
+5. **Assertion**: After each deserialization, we check if the size of the deserialized map matches the original map. If not, an `AssertionError` is thrown.
+
+This test case should help in reproducing the `ArrayIndexOutOfBoundsException` and verifying that the issue is resolved after applying any fixes. Adjust the `numberOfEntries` and the number of iterations in the loop as needed to better simulate the conditions that lead to the issue.

@@ -1,0 +1,63 @@
+{
+  "defects4j_tag": "v2.0.1",
+  "defects4j_commit": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "runtime_directory": "/data/jianyeshi/coderujb-reproduction/runtime",
+  "initialization_scope": "Lang checkout, compile and developer-written tests only; unused Gradle and test-generation tool directory prechecks are satisfied with empty directories. Gradle, EvoSuite, Randoop, coverage and mutation workflows are not initialized.",
+  "perl_dependencies": "Fedora RPMs downloaded and extracted into runtime/perl-rpm-root; no RPM packages installed into system",
+  "failed_cpan_attempt": "test-perl-setup.log retained; missing Perl build modules, replaced with locally extracted RPMs",
+  "archive_empty_ref_placeholders_removed": [
+    "commons-lang.git/refs/heads/.empty",
+    "commons-lang.git/refs/tags/.empty"
+  ],
+  "repository_fsck": "passed after removing two archive placeholder files",
+  "job_environment": {
+    "PERL5LIB": "/data/jianyeshi/coderujb-reproduction/runtime/perl-rpm-root/usr/share/perl5/vendor_perl:/data/jianyeshi/coderujb-reproduction/runtime/perl-rpm-root/usr/lib64/perl5/vendor_perl",
+    "JAVA_HOME": "/data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01"
+  },
+  "jdk": {
+    "metadata_url": "https://api.github.com/repos/adoptium/temurin8-binaries/releases?per_page=5",
+    "release_name": "jdk8u504-b01",
+    "release_url": "https://github.com/adoptium/temurin8-binaries/releases/tag/jdk8u504-b01",
+    "asset": {
+      "name": "OpenJDK8U-jdk_x64_linux_hotspot_8u504b01.tar.gz",
+      "size": 103542511,
+      "url": "https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_x64_linux_hotspot_8u504b01.tar.gz",
+      "api_digest": "sha256:9c70e102f527ac674ac2fe9c7d47b9a04e2d19842ba5ab8e9b33f368bbadfaea"
+    },
+    "checksum_url": "https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u504-b01/OpenJDK8U-jdk_x64_linux_hotspot_8u504b01.tar.gz.sha256.txt",
+    "downloaded_sha256": "9c70e102f527ac674ac2fe9c7d47b9a04e2d19842ba5ab8e9b33f368bbadfaea",
+    "verified_against_github_digest": true,
+    "extracted_directory": "/data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01"
+  },
+  "python_packages": [
+    "javalang==0.13.0",
+    "six==1.16.0"
+  ],
+  "perl_rpm_packages": [
+    {
+      "file": "perl-DBD-CSV-0.62-5.fc44.noarch.rpm",
+      "sha256": "7c3a973aeb42bec53148d16708d22dc29ee244735116386046e4aa7cf97ce8df"
+    },
+    {
+      "file": "perl-JSON-Parse-0.62-14.fc44.x86_64.rpm",
+      "sha256": "6d995cc0779be61d543296a99289bdcae7fefa401fedb4f9bd4ec2a24b3d0abd"
+    },
+    {
+      "file": "perl-Math-Base-Convert-0.13-2.fc44.noarch.rpm",
+      "sha256": "d221333b4893b208492358b2457e4dcea2b05c297678c91304f08449eae29887"
+    },
+    {
+      "file": "perl-SQL-Statement-1.414-17.fc44.noarch.rpm",
+      "sha256": "7c320eadcd442fc5a62235890b30821ffd75102ab35846290efd0e28e5a52c54"
+    },
+    {
+      "file": "perl-sort-2.06-525.fc44.noarch.rpm",
+      "sha256": "215c46bde3ba4217136dce9455a26ace4999f5059a23e5e78355ab343e1b9a43"
+    }
+  ],
+  "major_archive": {
+    "file": "major-1.3.4_jre7.zip",
+    "sha256": "d84d2e41a5eb8033263e224d159bb1c0f2314494a099a5c368352816ca7cef8a"
+  },
+  "lang_repository_source": "Official defects4j-repos.zip, selected Lang and README byte ranges only; all selected member CRC32 values verified, git fsck passed after removing empty archive placeholder refs."
+}

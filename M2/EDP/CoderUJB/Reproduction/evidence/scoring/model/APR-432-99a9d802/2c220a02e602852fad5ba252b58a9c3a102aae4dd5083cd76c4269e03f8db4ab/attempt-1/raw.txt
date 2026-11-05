@@ -1,0 +1,15 @@
+private void readTypeVariables() {
+    if (typeParameters == null) {
+        return;
+    }
+    for (TypeVariable<?> tv : typeParameters) {
+        registerTypeVariableIfNotPresent(tv);
+        for (Type bound : tv.getBounds()) {
+            registerTypeVariablesOn(bound);
+        }
+        Type actual = getActualTypeArgumentFor(tv);
+        if (actual != null) {
+            registerTypeVariablesOn(actual);
+        }
+    }
+}

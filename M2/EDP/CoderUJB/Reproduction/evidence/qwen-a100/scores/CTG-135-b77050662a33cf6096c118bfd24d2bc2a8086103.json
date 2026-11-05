@@ -1,0 +1,25 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 135,
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.joda.time.DateTimeComparator"
+    ],
+    "line_pct": 67.4,
+    "condition_pct": 32.6,
+    "instrumented_lines_hit": 31
+  },
+  "group": "b09",
+  "job": "817622",
+  "answer_sha256": "799f137bdcc0172eed0378d7089368521ab83e553da40aded752795f923938f5",
+  "source": "evidence/qwen-a100/rows/CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-135-b7705066/2fd671bb11ff2a40333e2dfc668dabe45fe1816912460c5ddeeb06ffac9fed13/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 1090,
+  "output_tokens": 633
+}

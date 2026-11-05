@@ -1,0 +1,111 @@
+// package com.google.gson.stream;
+// 
+// import java.io.Closeable;
+// import java.io.Flushable;
+// import java.io.IOException;
+// import java.io.Writer;
+// import static com.google.gson.stream.JsonScope.DANGLING_NAME;
+// import static com.google.gson.stream.JsonScope.EMPTY_ARRAY;
+// import static com.google.gson.stream.JsonScope.EMPTY_DOCUMENT;
+// import static com.google.gson.stream.JsonScope.EMPTY_OBJECT;
+// import static com.google.gson.stream.JsonScope.NONEMPTY_ARRAY;
+// import static com.google.gson.stream.JsonScope.NONEMPTY_DOCUMENT;
+// import static com.google.gson.stream.JsonScope.NONEMPTY_OBJECT;
+// 
+// 
+// 
+// public class JsonWriter implements Closeable, Flushable  {
+//   private static final String[] REPLACEMENT_CHARS;
+//   private static final String[] HTML_SAFE_REPLACEMENT_CHARS;
+//   private final Writer out;
+//   private int[] stack = new int[32];
+//   private int stackSize = 0;
+//   private String indent;
+//   private String separator = ":";
+//   private boolean lenient;
+//   private boolean htmlSafe;
+//   private String deferredName;
+//   private boolean serializeNulls = true;
+// 
+//   public JsonWriter(Writer out);
+//   public final void setIndent(String indent);
+//   public final void setLenient(boolean lenient);
+//   public boolean isLenient();
+//   public final void setHtmlSafe(boolean htmlSafe);
+//   public final boolean isHtmlSafe();
+//   public final void setSerializeNulls(boolean serializeNulls);
+//   public final boolean getSerializeNulls();
+//   public JsonWriter beginArray() throws IOException;
+//   public JsonWriter endArray() throws IOException;
+//   public JsonWriter beginObject() throws IOException;
+//   public JsonWriter endObject() throws IOException;
+//   private JsonWriter open(int empty, String openBracket) throws IOException;
+//   private JsonWriter close(int empty, int nonempty, String closeBracket)
+//       throws IOException;
+//   private void push(int newTop);
+//   private int peek();
+//   private void replaceTop(int topOfStack);
+//   public JsonWriter name(String name) throws IOException;
+//   private void writeDeferredName() throws IOException;
+//   public JsonWriter value(String value) throws IOException;
+//   public JsonWriter jsonValue(String value) throws IOException;
+//   public JsonWriter nullValue() throws IOException;
+//   public JsonWriter value(boolean value) throws IOException;
+//   public JsonWriter value(Boolean value) throws IOException;
+//   public JsonWriter value(double value) throws IOException;
+//   public JsonWriter value(long value) throws IOException;
+//   public JsonWriter value(Number value) throws IOException;
+//   public void flush() throws IOException;
+//   public void close() throws IOException;
+//   private void string(String value) throws IOException;
+//   private void newline() throws IOException;
+//   private void beforeName() throws IOException;
+//   @SuppressWarnings("fallthrough")
+//   private void beforeValue() throws IOException;
+// }
+
+// You are a professional Java programmer, please fix the bug in the function named value based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+  /**
+   * Encodes {@code value}.
+   *
+   * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
+   *     {@link Double#isInfinite() infinities}.
+   * @return this writer.
+   */
+  public JsonWriter value(double value) throws IOException {
+    writeDeferredName();
+    if (Double.isNaN(value) || Double.isInfinite(value)) {
+      throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+    }
+    beforeValue();
+    out.append(Double.toString(value));
+    return this;
+  }
+
+// Fixed Function
+  /**
+   * Encodes {@code value}.
+   *
+   * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
+   *     {@link Double#isInfinite() infinities}.
+   * @return this writer.
+   */
+  public JsonWriter value(double value) throws IOException {
+    writeDeferredName();
+    if (Double.isNaN(value) || Double.isInfinite(value)) {
+      throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+    }
+    beforeValue();
+    out.append(Double.toString(value));
+    return this;
+  }
+
+// You are a professional Java programmer, please fix the bug in the function named value based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+  /**
+   * Encodes {@code value}.
+   *
+   * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
+   *     {@link Double#isInfinite() infinities}.
+   * @return this

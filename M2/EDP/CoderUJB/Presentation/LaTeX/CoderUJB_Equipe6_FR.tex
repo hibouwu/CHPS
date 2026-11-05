@@ -748,25 +748,25 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 24 / 32; intervenant 5
 
-\begin{frame}{Les limites reconnues par les auteurs}
+\begin{frame}{Les trois limites principales}
 \small
 \begin{block}{Validité interne}
 \begin{itemize}
-  \item Erreurs possibles dans l’implémentation
+  \item Erreurs possibles dans les scripts
 \end{itemize}
 \end{block}
 \begin{block}{Validité externe}
 \begin{itemize}
-  \item Représentativité des modèles sélectionnés
+  \item Choix des modèles et généralisation
 \end{itemize}
 \end{block}
 \begin{block}{Validité des mesures}
 \begin{itemize}
-  \item Indicateurs et couverture des tests
+  \item Indicateurs et qualité des tests
 \end{itemize}
 \end{block}
 \medskip
-{\small Limites explicitement discutées dans la section 6 de l’article.\par}
+{\small Les auteurs cherchent à limiter ces risques.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
@@ -789,25 +789,25 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 25 / 32; intervenant 5
 
-\begin{frame}{Les scripts et les tests restent imparfaits}
+\begin{frame}{Réussir les tests ne suffit pas}
 \small
-\begin{block}{Réponse des auteurs}
+\begin{block}{Ce que font les auteurs}
 \begin{itemize}
-  \item Relecture des scripts et publication des résultats
+  \item Vérification des scripts et publication des résultats
 \end{itemize}
 \end{block}
-\begin{block}{Réserve sur les tests}
+\begin{block}{Limite des tests}
 \begin{itemize}
-  \item Un cas non testé peut encore contenir une erreur
+  \item Un programme peut encore contenir des bugs
 \end{itemize}
 \end{block}
-\begin{block}{Réserve sur la couverture}
+\begin{block}{Limite de la couverture}
 \begin{itemize}
-  \item Exécuter une ligne ne vérifie pas tous ses comportements
+  \item Exécuter du code $\ne$ vérifier tous ses comportements
 \end{itemize}
 \end{block}
 \medskip
-{\small Réussir les tests disponibles ne prouve pas une correction complète.\par}
+{\small Passer les tests $\ne$ correction garantie.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
@@ -830,25 +830,25 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 26 / 32; intervenant 5
 
-\begin{frame}{Un périmètre précis de projets et de modèles}
+\begin{frame}{Des résultats difficiles à généraliser}
 \small
 \begin{block}{Modèles}
 \begin{itemize}
-  \item Versions précises sélectionnées pour l’étude
+  \item Des versions précises des LLM
 \end{itemize}
 \end{block}
 \begin{block}{Données}
 \begin{itemize}
-  \item 17 projets Java provenant de Defects4J
+  \item 17 projets Java issus de Defects4J
 \end{itemize}
 \end{block}
-\begin{block}{Réparation}
+\begin{block}{Réparation (APR)}
 \begin{itemize}
-  \item Défauts concentrés dans une seule fonction
+  \item Des bugs dans une seule fonction
 \end{itemize}
 \end{block}
 \medskip
-{\small La cohérence de la source facilite l’étude, mais limite sa diversité.\par}
+{\small Pas nécessairement les mêmes résultats ailleurs.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
@@ -871,25 +871,25 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 27 / 32; intervenant 5
 
-\begin{frame}{Un protocole de réponse relativement simple}
+\begin{frame}{Une évaluation encore limitée}
 \small
 \begin{block}{Protocole étudié}
 \begin{itemize}
-  \item Question-réponse ou complétion de code
+  \item Prompt $\rightarrow$ réponse $\rightarrow$ évaluation
 \end{itemize}
 \end{block}
-\begin{block}{Autre situation à tester}
+\begin{block}{Autre approche possible}
 \begin{itemize}
-  \item Boucles avec outils, exécution et correction
+  \item Tester $\rightarrow$ corriger $\rightarrow$ recommencer
 \end{itemize}
 \end{block}
-\begin{block}{Information reçue}
+\begin{block}{Contexte fourni}
 \begin{itemize}
-  \item Contexte du prompt \(\ne\) tout le dépôt
+  \item Le modèle ne reçoit pas forcément tout le projet
 \end{itemize}
 \end{block}
 \medskip
-{\small Ces réserves définissent le périmètre des conclusions ; elles ne suppriment pas l’intérêt du travail.\par}
+{\small Ces limites précisent la portée des conclusions.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude

@@ -1,0 +1,17 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Reasoning: medium"
+    },
+    {
+      "role": "user",
+      "content": "```java\n// Abstract Java Tested Class\npackage com.google.javascript.jscomp.deps;\n\nimport com.google.common.base.CharMatcher;\nimport com.google.common.base.Function;\nimport com.google.common.base.Functions;\nimport com.google.common.collect.Lists;\nimport com.google.javascript.jscomp.ErrorManager;\nimport java.io.FileReader;\nimport java.io.IOException;\nimport java.io.Reader;\nimport java.io.StringReader;\nimport java.util.List;\nimport java.util.logging.Level;\nimport java.util.logging.Logger;\nimport java.util.regex.Matcher;\nimport java.util.regex.Pattern;\n\n\n\npublic class DepsFileParser extends JsFileLineParser  {\n  private static Logger logger = Logger.getLogger(DepsFileParser.class.getName());\n  private final Matcher depMatcher =\n      Pattern.compile(\"\\\\s*goog.addDependency\\\\((.*)\\\\);?\\\\s*\").matcher(\"\");\n  private final Matcher depArgsMatch =\n      Pattern.compile(\"\\\\s*([^,]*), (\\\\[[^\\\\]]*\\\\]), (\\\\[[^\\\\]]*\\\\])\\\\s*\").matcher(\"\");\n  private List<DependencyInfo> depInfos;\n  private final Function<String, String> pathTranslator;\n\n  public DepsFileParser(ErrorManager errorManager);\n  public DepsFileParser(Function<String, String> pathTranslator,\n      ErrorManager errorManager);\n  public List<DependencyInfo> parseFile(String filePath) throws IOException;\n  public List<DependencyInfo> parseFile(String filePath, String fileContents);\n  public List<DependencyInfo> parseFileReader(String filePath, Reader reader);\n  @Override\n  protected boolean parseLine(String line) throws ParseException;\n}\n\n// Abstract Java Test Class\npackage com.google.javascript.jscomp.deps;\n\nimport com.google.common.collect.ImmutableList;\nimport com.google.javascript.jscomp.deps.DependencyInfo;\nimport com.google.javascript.jscomp.deps.DepsFileParser;\nimport com.google.javascript.jscomp.ErrorManager;\nimport com.google.javascript.jscomp.PrintStreamErrorManager;\nimport junit.framework.TestCase;\nimport java.util.Collections;\nimport java.util.List;\n\n\n\npublic class DepsFileParserTest extends TestCase  {\n  private DepsFileParser parser;\n  private ErrorManager errorManager;\n  private static final String SRC_PATH = \"/path/1.js\";\n  private final List<String> EMPTY = Collections.emptyList();\n\n  @Override\n  public void setUp();\n  public void testGoodParse();\n  public void testTooFewArgs();\n  public void testTooManyArgs();\n  public void testShortcutMode();\n  public void testNoShortcutMode();\n}\n```\n\nYou are a professional Java test case writer, please create a test case named `testGoodParse` for the `DepsFileParser` class, utilizing the provided abstract Java class context information and the following natural language annotations.\n\n```java\n  /**\n   * Tests:\n   *  -Parsing of comments,\n   *  -Parsing of different styles of quotes,\n   *  -Parsing of empty arrays,\n   *  -Parsing of non-empty arrays,\n   *  -Correct recording of what was parsed.\n   */\n  public void testGoodParse() {\n\n```"
+    }
+  ],
+  "seed": 4,
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "n": 1,
+  "stream": false
+}

@@ -1,0 +1,78 @@
+To create a test case for the issue `Gson-1100`, we need to focus on the problems reported with the `DefaultDateTypeAdapter` in Gson version 2.8.1. The issues mentioned include:
+
+1. **Nullability**: The adapter is not handling null values correctly.
+2. **JSON Primitives Contract**: There might be inconsistencies in how dates are serialized and deserialized.
+
+Given these points, the `testUnexpectedToken` method should aim to verify that the `DefaultDateTypeAdapter` correctly handles null values and ensures consistent serialization and deserialization of dates.
+
+Here's a possible implementation of the `testUnexpectedToken` method:
+
+```java
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
+import org.junit.Test;
+
+import java.util.Date;
+
+import static org.junit.Assert.*;
+
+public class GsonDefaultDateTypeAdapterTest {
+
+    @Test
+    public void testUnexpectedToken() throws Exception {
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
+
+        // Test serialization of null date
+        Date nullDate = null;
+        String serializedNullDate = gson.toJson(nullDate);
+        assertEquals("null", serializedNullDate);
+
+        // Test deserialization of null date
+        Date deserializedNullDate = gson.fromJson("null", Date.class);
+        assertNull(deserializedNullDate);
+
+        // Test serialization of a valid date
+        Date validDate = new Date();
+        String serializedValidDate = gson.toJson(validDate);
+        assertNotNull(serializedValidDate);
+
+        // Test deserialization of a valid date
+        Date deserializedValidDate = gson.fromJson(serializedValidDate, Date.class);
+        assertNotNull(deserializedValidDate);
+        assertEquals(validDate.getTime(), deserializedValidDate.getTime());
+
+        // Test deserialization of an invalid date string (should throw JsonSyntaxException)
+        try {
+            gson.fromJson("\"invalid-date\"", Date.class);
+            fail("Expected JsonSyntaxException for invalid date string");
+        } catch (JsonSyntaxException e) {
+            // Expected exception
+        }
+
+        // Test deserialization of a non-string token (should throw JsonSyntaxException)
+        try {
+            gson.fromJson("12345", Date.class);
+            fail("Expected JsonSyntaxException for non-string token");
+        } catch (JsonSyntaxException e) {
+            // Expected exception
+        }
+    }
+}
+```
+
+### Explanation:
+
+1. **Serialization and Deserialization of Null Dates**:
+   - We serialize a `null` `Date` object and expect the output to be `"null"`.
+   - We deserialize the string `"null"` back into a `Date` object and expect it to be `null`.
+
+2. **Serialization and Deserialization of Valid Dates**:
+   - We serialize a valid `Date` object and ensure the output is not `null`.
+   - We deserialize the serialized string back into a `Date` object and compare the time values to ensure consistency.
+
+3. **Handling of Invalid Inputs**:
+   - We attempt to deserialize an invalid date string (`"invalid-date"`) and expect a `JsonSyntaxException`.
+   - We attempt to deserialize a non-string token (`"12345"`) and expect a `JsonSyntaxException`.
+
+This test case covers the main aspects of the reported issues, ensuring that the `DefaultDateTypeAdapter` handles null values correctly and manages unexpected tokens appropriately.

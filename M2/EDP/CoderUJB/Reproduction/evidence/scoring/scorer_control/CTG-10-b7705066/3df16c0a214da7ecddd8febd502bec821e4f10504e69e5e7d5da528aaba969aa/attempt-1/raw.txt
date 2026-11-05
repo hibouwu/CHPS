@@ -1,0 +1,2 @@
+@Test
+    public void testReflectionArrayAndObjectCycle() throws Exception { throw new AssertionError("negative control"); }

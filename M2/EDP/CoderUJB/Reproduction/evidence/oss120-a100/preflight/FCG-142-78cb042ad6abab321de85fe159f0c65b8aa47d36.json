@@ -1,0 +1,16 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 142,
+  "task_id": "9b486955a9b9f907465ed6dd9f535ffd330de4a87edb178299e901fedc11085d",
+  "project": "Time",
+  "bug_id": 1,
+  "chat_sha256": "7be1db9fcaa533d423fcc53df24ce2736f8478250edaa53d00251d9acf889fdb",
+  "complete_sha256": "57d9bcb72874d505d6eaf4fd56450382ffcc408106e228ee1d421e54954bc7e8",
+  "checked_at": "2026-11-05T02:49:58.508967+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/FCG-142-78cb042a/f890df710a5fc41b6d8c9041b552c7b9a59939829781d867fd7c7f1f2e4aa28d/attempt-1/result.json"
+}

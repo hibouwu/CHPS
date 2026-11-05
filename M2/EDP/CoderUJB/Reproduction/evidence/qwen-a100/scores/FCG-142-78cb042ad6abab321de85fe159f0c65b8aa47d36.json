@@ -1,0 +1,18 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 142,
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "group": "b03",
+  "job": "817622",
+  "answer_sha256": "f823f8ebd16d003aa2beb9ac7dee63b31ee26530b54d557eba89a70253980800",
+  "source": "evidence/qwen-a100/rows/FCG-142-78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "result": "evidence/scoring/model/FCG-142-78cb042a/0d8fdb6216469bc33de1b0835e1ebeb4f1c3438242da46641b372caccc66b4e8/attempt-1/result.json",
+  "finish_reason": "eos",
+  "output_truncated": false,
+  "input_tokens": 853,
+  "output_tokens": 811
+}

@@ -1,0 +1,24 @@
+
+        // BEGINNING OF USER CODE
+        // END OF USER CODE
+    }
+
+// You are a professional Java programmer, please create a function named `parseEncapsulatedToken` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Parses an encapsulated token.
+     * <p/>
+     * Encapsulated tokens are tokens which are surrounded by encapsulators. An encapsulated token might contain escaped
+     * encapsulators (as \, or \;). The token is finished when one of the following conditions become true:
+     * <ul>
+     * <li>end of line has been reached (EORECORD)</li>
+     * <li>end of stream has been reached (EOF)</li>
+     * <li>an unescaped encapsulator has been reached (TOKEN)</li>
+     * </ul>
+     *
+     * @param token
+     *            the current token
+     * @return the filled token
+     * @throws IOException
+     *             on stream access error
+     */

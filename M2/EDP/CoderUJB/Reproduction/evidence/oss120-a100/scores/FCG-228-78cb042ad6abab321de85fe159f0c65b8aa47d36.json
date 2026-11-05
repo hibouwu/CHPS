@@ -1,0 +1,19 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 228,
+  "batch": "b02",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": null,
+  "result": "evidence/scoring/model/FCG-228-78cb042a/e964b1b081a83604f62f15549b5bf9446e6bdd4a26d4ba0c61eae3c9032d7693/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 2254,
+    "prompt_tokens": 1176,
+    "total_tokens": 3430
+  },
+  "final_sha256": "6ee45dfefcac9448145a8bee8df5eff14656e12737d2d61eecf2b6e046809ca4"
+}

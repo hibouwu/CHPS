@@ -1,0 +1,17 @@
+`getRecordSeparator()` may return `null`. Passing it to `Appendable.append()` can write the literal `"null"` instead of omitting the separator. Guard the append while still resetting the record state.
+
+```java
+/**
+ * Outputs the record separator.
+ *
+ * @throws IOException
+ *             If an I/O error occurs
+ */
+public void println() throws IOException {
+    final String recordSeparator = format.getRecordSeparator();
+    if (recordSeparator != null) {
+        out.append(recordSeparator);
+    }
+    newRecord = true;
+}
+```

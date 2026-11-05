@@ -1,0 +1,22 @@
+
+        // 1. Create a file with the following content:
+        //    <?xml version="1.0" encoding="UTF-16"?>
+        //    <root>
+        //      <test>test</test>
+        //    </root>
+        // 2. Write the file to disk
+        // 3. Read the file using Jsoup.parse(File, String)
+        // 4. Assert that the document contains the text "test"
+        // 5. Delete the file
+
+        File file = new File("test.xml");
+        FileOutputStream fos = new FileOutputStream(file);
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos, "UTF-16"));
+        writer.write("<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n");
+        writer.write("<root>\n");
+        writer.write("  <test>test</test>\n");
+        writer.write("</root>\n");
+        writer.close();
+
+        Document doc = Jsoup.parse(file, "UTF-16");
+        assertEquals("

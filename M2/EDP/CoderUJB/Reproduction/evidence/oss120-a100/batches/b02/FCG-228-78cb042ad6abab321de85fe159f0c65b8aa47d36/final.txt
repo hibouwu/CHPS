@@ -1,0 +1,77 @@
+Here is a faithful implementation of **`nextName()`** that follows the behaviour of the original Gson `JsonReader`.  
+It handles all the possible “peeked” states, falls back to `doPeek()` when necessary, updates the internal path bookkeeping, and throws a clear `IOException` when the next token is not a name.
+
+```java
+/**
+ * Returns the next token, a {@link com.google.gson.stream.JsonToken#NAME property name}, and
+ * consumes it.
+ *
+ * @throws java.io.IOException if the next token in the stream is not a property name.
+ */
+public String nextName() throws IOException {
+    // Fast‑path: we have already peeked a name token.
+    int p = peeked;
+    String result;
+
+    switch (p) {
+        case PEEKED_UNQUOTED_NAME:          // name without quotes
+            result = peekedString;
+            break;
+
+        case PEEKED_SINGLE_QUOTED_NAME:     // name in single quotes
+            result = nextQuotedValue('\'');
+            break;
+
+        case PEEKED_DOUBLE_QUOTED_NAME:     // name in double quotes
+            result = nextQuotedValue('\"');
+            break;
+
+        case PEEKED_BUFFERED:               // name already buffered by a previous peek()
+            result = peekedString;
+            break;
+
+        default:                            // we have not peeked yet – do it now
+            p = doPeek();
+            switch (p) {
+                case PEEKED_UNQUOTED_NAME:
+                    result = peekedString;
+                    break;
+
+                case PEEKED_SINGLE_QUOTED_NAME:
+                    result = nextQuotedValue('\'');
+                    break;
+
+                case PEEKED_DOUBLE_QUOTED_NAME:
+                    result = nextQuotedValue('\"');
+                    break;
+
+                case PEEKED_BUFFERED:
+                    result = peekedString;
+                    break;
+
+                default:
+                    // Not a name token – report an error that mirrors Gson's original message.
+                    throw syntaxError("Expected a name but was " + peek());
+            }
+    }
+
+    // We have successfully consumed a name token.
+    peeked = PEEKED_NONE;
+
+    // Update the path information: the just‑read name belongs to the current object.
+    // stackSize is guaranteed to be > 0 when nextName() is called (the caller must be inside an object).
+    pathNames[stackSize - 1] = result;
+
+    return result;
+}
+```
+
+### What the code does
+
+1. **Fast‑path** – If a name token has already been identified (`peeked` holds one of the name constants), we simply turn it into a `String`.
+2. **Lazy‑peek** – If we haven’t peeked yet, we invoke `doPeek()` to discover the next token and handle the same set of name cases.
+3. **Error handling** – When the token is anything other than a name, we throw an `IOException` with a helpful message (`syntaxError`).
+4. **State cleanup** – After consuming the name we reset `peeked` to `PEEKED_NONE`.
+5. **Path bookkeeping** – The name is stored in `pathNames[stackSize‑1]` so that `getPath()` can later report the correct location in the JSON document.
+
+This implementation fits seamlessly into the surrounding `JsonReader` class and mirrors the behaviour of the reference Gson library.

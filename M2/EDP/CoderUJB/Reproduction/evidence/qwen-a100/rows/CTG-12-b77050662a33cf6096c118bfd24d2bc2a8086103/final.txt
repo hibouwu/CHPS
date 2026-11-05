@@ -1,0 +1,39 @@
+Certainly! To create a test case for the `decode(Object)` method in the `BinaryCodec` class, we need to ensure that the method handles invalid input correctly by throwing a `DecoderException`. Here's how you can implement the `testDecodeObjectException` method:
+
+```java
+/**
+ * Tests for Object decode(Object)
+ */
+// ------------------------------------------------------------------------
+//
+// Test decode(Object)
+//
+// ------------------------------------------------------------------------
+@Test
+public void testDecodeObjectException() {
+    // Create an instance of BinaryCodec
+    instance = new BinaryCodec();
+
+    // Prepare invalid input data
+    Object invalidInput = "invalid string"; // This is an example of invalid input
+
+    try {
+        // Attempt to decode the invalid input
+        instance.decode(invalidInput);
+        // If no exception is thrown, the test should fail
+        fail("Expected DecoderException to be thrown for invalid input");
+    } catch (DecoderException e) {
+        // If a DecoderException is thrown, the test passes
+        // Optionally, you can check the message or type of the exception
+        assertEquals("Invalid object type", e.getMessage());
+    }
+}
+```
+
+### Explanation:
+- **Instance Creation**: We create an instance of `BinaryCodec` to use its `decode(Object)` method.
+- **Invalid Input**: We prepare an invalid input object. In this example, a `String` is used as invalid input, but depending on the implementation details, other types might also be considered invalid.
+- **Try-Catch Block**: We use a try-catch block to attempt decoding the invalid input. If the method does not throw a `DecoderException`, the test fails using `fail()`.
+- **Exception Handling**: If a `DecoderException` is thrown, we catch it and verify that the exception message matches our expectations. This step is optional but recommended for more robust testing.
+
+This test ensures that the `decode(Object)` method behaves correctly when given invalid input by throwing the appropriate exception. Adjust the invalid input and expected exception message as necessary based on the actual implementation of the `BinaryCodec` class.

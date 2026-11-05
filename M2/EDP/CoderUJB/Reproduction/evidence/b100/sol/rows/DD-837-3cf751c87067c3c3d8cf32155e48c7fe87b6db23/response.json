@@ -1,0 +1,105 @@
+{
+  "id": "resp_05c7728e74704ad2016aec0265a11487d2a73d7ad5cd059056",
+  "object": "response",
+  "created_at": 1793852005,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793852008,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_05c7728e74704ad2016aec0267c88487d2ace4d7d5506a397f",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AJoPYkk2o1RMMnvdTyDjH5sF3-CcSpfyl5FZ05P3NgANhHbish44jKeLN0I3syzeRLXn15W7MY4szkNBYngHWtRg1DX7p1UTLPI0aBEYkE-aJzIU8GQBMvIUFp3r3Krof_NS8RQzXN0QBCGu31dVMChe4Gnc9RjFMtR7I8K__FQyvAW1RNMpjUjENP8SAfgWowOJBcUkyrDnSsLTird_I6VEvjtnqc3kQdLSoQBDjmH0Zdn2ORjWclnj3zlMi5_AARhwbzB9jfBOF1i5dDhRAaNsQ9eBOL1IcIBWYsrF_DcSMAjABsz91DXKLrbz8ZARqwyZ1Tl3nrv04ufSio5WzMvI3A-gk8GJkp8O3qTDNt_MoV7Cu89UMqApiHBPpBe3MmdQLc7zZqfuQCaMgso7XIx4KUC4bntTcYCxFIXVQGtJuKU_I7ViE9Y8s8VU4FYbKr7NBwcjxJAs0ZbtkKwKZT-IimVd6vgu3PhJ_L1JFafZoiTXpJVtvcioju-2OaHp-asP_HoQHhtCTvBmIllRbD0LiAALNDsU_wWY993sApiZmYKUSSDr-kRD4fWJzRd3pwYlJKuDft-XcT9hFU85DhFe0SaGqIRyn_MpXYPFP2nM7_J9MwllRlIPfe7keczcrRvPGTrMy0NGCx74-flBCdbpBvivMiGD4ATbG_f6_GeaaUl4Yz0Sr2xZNUDqtNBQ9aWjGNL7u7CvfaiO6iNBAg41_D7BAzZCxuo0tIa-89KDZhQ32UgqtzpGbcR6vb0aGjwlTxOfUBxPYeEfN_d7JTHATphH_H9P2oCGqus-tspOBsP5coJI8yrgb5lvdaFksd0xG7fNlV1B3Z2epAmdJoWWFpb3vlYKboQqpDj-uv6YoWdFx2c2AmvL6jU5ej08vC9HDTcD_bB-P6KXK4iK2xAfR58TTAtzw0hX1gT_ttVaTkqymoevOgoc0a7LBaIwty5aER4q49L7rcZL-U_GzUY-vzMI30q_uuhAGIqubY8ue628wNv3l28NmQGueVBUcthQGVsZpNQ4PPRxJF7O8BJCU3XLwWQK4TG7wc7r2pR3LmECdfFyU-SqUtce1quBT3-4P6pfUI4StBMpjyY0PJO_rEHlwPf8u3nEETGsU9tTRy1Fq-JM40LUvT6uhJ4Hpb55pg6KVUYKuYhyKaFJJgL6Vef4taiBicI_HcV3JwGTFMHp6seq3MkUrbuL9i6giOVmOKBwJ8OzIeAtKgiV4c6thISGMPgq409xLSHtDQhHmX78FGzHh86QwCOXQ9FG_y9WE3tDw3A3u5BFE7BIKjXbOQcyZ6HquBJNYR6et2xREo4z8WHshtJBj7pXK_hg8ULf1JjO9EXYy9-kWRZ0cDV4jMTsV54ZgwUp99kogYcUoOZGKGBig_h5AiHZRhg8IYi6BjZ1wPRVqX350IdWx4Ep_OXqmqH7P1Jxk-rIVMW9qTxWJPSowOkGUX4gEPtz0oX-inzfe4vmZJ8tNlIQQAcY2VZrOjqy0af_Ogsh7Ho_Qcgkg4XDoB3wmLI8eUiojgmD6yb6WYsq2UMZPaFRNbl-ALRojAXXIpT0W4xqERXogLZjN5lV2735R93QYJ6keqYIUaliyNZp5OQwokv9sX0K-v1BKe0J3xsyim5XLdDO-o97SFbiX84ABUyLyrz_3VdHDBCpUW7K5IiblC1bBSqUQ==",
+      "summary": []
+    },
+    {
+      "id": "msg_05c7728e74704ad2016aec02683b4087d296f88f06d3fb09ba",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "A. Yes, it has defects"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 324,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 31,
+    "output_tokens_details": {
+      "reasoning_tokens": 18
+    },
+    "total_tokens": 355
+  },
+  "user": null,
+  "metadata": {}
+}

@@ -1,0 +1,21 @@
+public void testEqualsAfterSerializationOfDerivedClass()
+            throws IOException, ClassNotFoundException {
+        final DerivedMultiKey original = new DerivedMultiKey("bla", "blub");
+
+        final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        try (ObjectOutputStream out = new ObjectOutputStream(buffer)) {
+            out.writeObject(original);
+        }
+
+        final DerivedMultiKey restored;
+        try (ObjectInputStream in = new ObjectInputStream(
+                new ByteArrayInputStream(buffer.toByteArray()))) {
+            restored = (DerivedMultiKey) in.readObject();
+        }
+
+        assertNotSame(original, restored);
+        assertEquals("Deserialization must preserve the keys",
+                original, restored);
+        assertEquals("Deserialization must recompute the inherited transient hash code",
+                original.hashCode(), restored.hashCode());
+    }

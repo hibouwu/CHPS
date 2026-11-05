@@ -1,0 +1,53 @@
+    public void testEmptyNodeSetOperations() {
+        try {
+            org.w3c.dom.Document document =
+                    javax.xml.parsers.DocumentBuilderFactory.newInstance()
+                            .newDocumentBuilder()
+                            .parse(new org.xml.sax.InputSource(
+                                    new java.io.StringReader(
+                                            "<?xml version=\"1.0\" encoding=\"UTF-8\"?><doc/>")));
+            JXPathContext context = JXPathContext.newContext(document);
+
+            String[] expressions = {
+                "2.0 > child1",
+                "2.0 >= child1",
+                "2.0 < child1",
+                "2.0 <= child1",
+                "2.0 = child1",
+                "2.0 != child1",
+                "child1 > 2.0",
+                "child1 >= 2.0",
+                "child1 < 2.0",
+                "child1 <= 2.0",
+                "child1 = 2.0",
+                "child1 != 2.0",
+                "child1 > child2",
+                "child1 >= child2",
+                "child1 < child2",
+                "child1 <= child2",
+                "child1 = child2",
+                "child1 != child2",
+                "child1 > /doc",
+                "child1 >= /doc",
+                "child1 < /doc",
+                "child1 <= /doc",
+                "child1 = /doc",
+                "child1 != /doc",
+                "/doc > child1",
+                "/doc >= child1",
+                "/doc < child1",
+                "/doc <= child1",
+                "/doc = child1",
+                "/doc != child1"
+            };
+
+            for (int i = 0; i < expressions.length; i++) {
+                Boolean result = (Boolean) context.getValue(
+                        expressions[i], Boolean.class);
+                assertFalse("Expected false for: " + expressions[i],
+                        result.booleanValue());
+            }
+        } catch (Exception e) {
+            fail("Could not evaluate empty node-set comparisons: " + e);
+        }
+    }

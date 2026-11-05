@@ -1,0 +1,37 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 312,
+  "task_id": "b10a02c5bc05e9e1a0e89b502fe4024e0480e89bea0588e8f02f709bda7f23d9",
+  "origin": "model",
+  "mode": "complete",
+  "raw_sha256": "54e26f77b8973fe976d2c0ccdc494c24b03b9cef1bda807e96375267ef006111",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "7c8daa829175a038038c6dc63447650ddc37059801f57e29bd84f7f5a49d4b72",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Compress",
+  "bug_id": "8",
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Compress",
+        "-v",
+        "8f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-312-gzeqa_y9/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 2.669,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    }
+  ],
+  "tests": {},
+  "reason": "candidate_syntax"
+}

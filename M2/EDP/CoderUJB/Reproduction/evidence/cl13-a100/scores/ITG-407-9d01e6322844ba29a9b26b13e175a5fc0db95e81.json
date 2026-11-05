@@ -1,0 +1,22 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 407,
+  "project": "Gson",
+  "bug_id": "17",
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/ITG-407-9d01e632/125b09959642454b4a7d4ee85aedea5e0f244e3cb57a81d25bb3b070ff9a35ad/attempt-1/result.json",
+  "raw_sha256": "d0dffa915cb5994eea2b7d5096f9a50ca62170dac68dd0d358c34703a0cfb618",
+  "input_sha256": "a253067522420fbf8f2337ca64d05002bfa7d201d700074d44eca4ff5dd2a39c",
+  "input_tokens": 394,
+  "full_input_tokens": 394,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-407-9d01e632/ef7b01e299aff9b4195c8a1c184a10b19bb6f632a560af5b221876711f4a8451/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

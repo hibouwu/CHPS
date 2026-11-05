@@ -1,0 +1,49 @@
+public void testEmptyNodeSetOperations() throws Exception {
+        JXPathContext ctx = emptyDocContext();
+
+        // -----------------------------------------------------------------
+        // Relational operators – the right‑hand side node‑set is empty.
+        // All of them must evaluate to false.
+        // -----------------------------------------------------------------
+        assertFalse("2.0 > child1  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 > child1", Boolean.class));
+
+        assertFalse("2.0 < child1  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 < child1", Boolean.class));
+
+        assertFalse("2.0 >= child1 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 >= child1", Boolean.class));
+
+        assertFalse("2.0 <= child1 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 <= child1", Boolean.class));
+
+        // -----------------------------------------------------------------
+        // Equality / inequality – also must be false when one side is empty.
+        // -----------------------------------------------------------------
+        assertFalse("2.0 = child1   (empty node‑set) should be false",
+                (Boolean) ctx.getValue("2.0 = child1", Boolean.class));
+
+        assertTrue("2.0 != child1  (empty node‑set) should be true",
+                (Boolean) ctx.getValue("2.0 != child1", Boolean.class));
+
+        // -----------------------------------------------------------------
+        // The same checks with the empty node‑set on the left side.
+        // -----------------------------------------------------------------
+        assertFalse("child1 > 2.0  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 > 2.0", Boolean.class));
+
+        assertFalse("child1 < 2.0  (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 < 2.0", Boolean.class));
+
+        assertFalse("child1 >= 2.0 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 >= 2.0", Boolean.class));
+
+        assertFalse("child1 <= 2.0 (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 <= 2.0", Boolean.class));
+
+        assertFalse("child1 = 2.0   (empty node‑set) should be false",
+                (Boolean) ctx.getValue("child1 = 2.0", Boolean.class));
+
+        assertTrue("child1 != 2.0  (empty node‑set) should be true",
+                (Boolean) ctx.getValue("child1 != 2.0", Boolean.class));
+    }

@@ -1,0 +1,22 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 102,
+  "project": "Codec",
+  "bug_id": 18,
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/CTG-102-b7705066/d9f2565fa2e95e18b2496814742478700a079a8c98d8882771bf6e45f215921d/attempt-1/result.json",
+  "raw_sha256": "7ede2f3213409b4349e788dcff3e52e051d0b1e7c5fd5763fa2a1f2eab7dc6f6",
+  "input_sha256": "7afd4dd20e8000e7f4631bd92c40d307e2258b40d0490cdd73ccf8272457725c",
+  "input_tokens": 1281,
+  "full_input_tokens": 1281,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/CTG-102-b7705066/bf464efb4b67be6ef34e37d151f8b06103cc643fd909566d587c4be89b6b93a1/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/CTG-102-b77050662a33cf6096c118bfd24d2bc2a8086103"
+}

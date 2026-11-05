@@ -1,0 +1,11 @@
+{
+  "rows": [
+    "ITG-42-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+    "ITG-51-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+    "ITG-67-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+    "ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+  ],
+  "seed": 4,
+  "job": "817622",
+  "protocol_sha256": "b6bf86f70b69191c03ce353b77dd9ba2dfedff01bd17823a370f4e5d51bef35d"
+}

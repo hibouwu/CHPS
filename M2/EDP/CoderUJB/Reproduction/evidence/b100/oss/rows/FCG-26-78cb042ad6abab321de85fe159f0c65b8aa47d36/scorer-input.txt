@@ -1,0 +1,16 @@
+public TextNode splitText(int offset) {
+    Validate.isTrue(offset >= 0, "Split offset must be non-negative");
+    String whole = getWholeText();
+    Validate.isTrue(offset <= whole.length(), "Split offset must not be greater than text length");
+    String head = whole.substring(0, offset);
+    String tail = whole.substring(offset);
+    // set this node's text to the head part
+    text(head);
+    // create the new sibling node with the tail part
+    TextNode tailNode = new TextNode(tail, baseUri());
+    // insert the new node after this one in the parent, if there is a parent
+    if (parent() != null) {
+        parent().addChildren(siblingIndex() + 1, tailNode);
+    }
+    return tailNode;
+}

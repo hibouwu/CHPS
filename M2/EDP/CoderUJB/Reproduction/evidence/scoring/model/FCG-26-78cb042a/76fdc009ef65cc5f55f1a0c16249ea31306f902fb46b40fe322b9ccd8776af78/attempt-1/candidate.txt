@@ -1,0 +1,42 @@
+public TextNode splitText(int offset) {
+    // -----------------------------------------------------------------
+    // 1️⃣  Validate the offset – it must be inside the current text.
+    // -----------------------------------------------------------------
+    String current = text();                     // the whole text of this node
+    int length = current.length();
+
+    // jsoup throws an IllegalArgumentException when the offset is illegal.
+    Validate.isTrue(offset >= 0 && offset <= length,
+            "Split offset must be between 0 and %d (inclusive); got %d", length, offset);
+
+    // -----------------------------------------------------------------
+    // 2️⃣  Split the string.
+    // -----------------------------------------------------------------
+    String head = current.substring(0, offset); // text that stays in this node
+    String tail = current.substring(offset);    // text that will go to the new node
+
+    // Update the current node with the head part.
+    text(head);
+
+    // -----------------------------------------------------------------
+    // 3️⃣  Create the sibling node that holds the tail part.
+    // -----------------------------------------------------------------
+    // The new node must keep the same base URI as the original node.
+    TextNode tailNode = new TextNode(tail, baseUri());
+
+    // -----------------------------------------------------------------
+    // 4️⃣  Insert the new node directly after this one (if we have a parent).
+    // -----------------------------------------------------------------
+    // If this node is not attached to a parent yet, we simply return the
+    // newly‑created node – the caller can attach it later.
+    if (parent() != null) {
+        // Node provides the `after(Node)` helper that inserts the argument
+        // right after the current node in the parent's child list.
+        this.after(tailNode);
+    }
+
+    // -----------------------------------------------------------------
+    // 5️⃣  Return the newly created node.
+    // -----------------------------------------------------------------
+    return tailNode;
+}

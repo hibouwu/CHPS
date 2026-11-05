@@ -1,0 +1,105 @@
+{
+  "id": "resp_03b762c9eef1a142016aec013ea6a487d294cad49a027cedb8",
+  "object": "response",
+  "created_at": 1793851710,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851715,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_03b762c9eef1a142016aec013fd20c87d2b477f8c8e9f05b07",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AFDes87sDkjJHX3vx07lyu05OjCwHyD54sCr7qVV1UNLVqtRkTqUKZwwb9RZzHsVEPBR_DVSPIS06IZ__SmyPTw0QyvJbo0nFydonI1nOjvK6FrJ74c04KZnwSFLOwOZ3JtmdjBX2fXdIAJVaJp-Izg-BX6R94OpMJs4FSkDMCHszjjQhZ2razB0SKMKU_SkvSM-3jV_pi9Pzn0B9QamjvH158yYw_EVmxXVrOadYxOLpGAAdsOvactRjNNSFyLlTrpWcvj56Xt_RDWopAfR6KL5EMxtz89MjHyOcM8DcBFwGZpcEBh8EYbPAAmzFG4LvVo85sCH6QCfUaheYNyS9Q0eY5j8PfSMalfQxq9zhkFt5PHv5QTtkBleDvHFna323qsmcirdqnJAyZPl2-xvnz1KN3cKJuV5e47FQcOH9qnPZW11oJuuqKWoRK7Eqwb3gOijYaMiA07aEDQCooiMnJPx5-COCeXzy8cbZgjtoqL9t8d1o9d1rU7ptw2BLBWv9fVQpx_zhC81Tqph2AWyt6HHH06nePgdKYmu5XadhcL1SQRKR509SPfZuB4Rlk1gnHzg9DxGnFTi8KlWseLF09EJ3pRHiHA2wY7Vv7K-VozVzPRse_hr3pr_LTfWWK2nx5YNdetWqlfPoQ-exY6JcCkzPVY3d0C_cgKJHujYlfj3TEEbIrpI-kyMKJvpboWyxrNIpZu51isYTQaxKZSXvOiJfBLTAe0Jwnxiu_0zEStNa7up_gjFhGlWV6oLzHDH_iNhR09QgjSXzwsmTKce_QAWgEoiAc3CQ_0qVT0XsuCC5TyxzUTTI1pF31JDHkP8QV0JxsBKyd3hEHpwmfu9o0Xb-07lQ3_qoYE-B4c3yxiM28392_zFHzvfVjETO8Oj48aS7HTV2_aKqrd8USfNef0h9JStsjo8q2tlZ0eyIA_mFKcGDl5jHpsZR7K6-gi7kx65-s5RjT9fr60wW-CMwTHK1JuvgINuc0jAw-d6xwoBkys5DTRIn7wRanzom1so_Y5GyFV3oUW5eKLUpyMHkVwp5xDzBIzwb4u0qZDratrtsQjAVGKLPTN-VC7Z10yhemdbchOscKibrS4QnxqZHM1A39e0Jzf6PszMdysnZD2qpO0cbOH1keUjCPziJt--lsW8mfDr395cWkSY_ZiCIIMGIXOYQ8DjOzXVBLYCb9ZicB4tTHvw4RJOZKVVERJSqQ3W7YE25D7IDb-BaQJ3YsVapLL3Z4cALE73AUDo7VTBZzmJhBGavIy9WHtYStszYwCzyse7-Z0OT5_izoVuBpN2sVq7WRBTlAl88bjyL43yuUdQRKE3mnsV0NR-E-6gAMRU4mjvP-pNtLaL-IvUAJ_UkxFC5excIw-3CceqLH_fUySlpi115JfgM-oc7ty8588nkaYZB6ZOvPoKO9hq_kXeklnbSGgVLB8Ejy_sGYQGYux8Aa1Gmx6xnNyt9RA3v0LFd9UTxcJyZCoDuC40L9VM18Uf9rAwIULwVwBF2KGHoRjjG67t6Ph93juocKtBmQ4tYrIi8Ute0PFA3XB9ho46LWKOTi3wzJPDiixL4DdgCLAPePgEtFeTjXgOIabuF329UkLmd3zlM3G6Vel00y-DmBIqpmlJkX5ocGBxeSeuF6EwYaQKHHr4lB1V8ZM2DRDN_Zw-5BjK_99D8W29rE-FzIsMwvYk-BoRNXeYlwNRxB1bQwzLVBQc-5nonwtKFd0Uphzu0GHJ8MtcO4wi3x0tLQCT4fTEry9pkelMgAEc23PhLQy6xHvdkClWNxMI_OSD2MR-54FEtt7v_S9BM377zNcF7k5jI4x97y8KZFmnLwVxkghf0hV8tOk2WEbCwLq2SAz11v5NgBid2aNRZdY5MANtjHZW2xKxkJwIc0g6-W6Tzy-8Wbh61UoBwKxexFQPSNcAY5P8Ss7kb4a7tSTNklKfmkD9_V2vt7xZ48whSKjdlmWIoFmY57W5rEroxQZ4EruEMzo67NZpJSmJ1d-Pt-YgOe1VDpkHZTAJjFGTFnK84F20Dx3QJf_BQknAJ5G1-1Vk2sBST80q-k6_HFE99dJcsI_E54n1nnNE3BkngY=",
+      "summary": []
+    },
+    {
+      "id": "msg_03b762c9eef1a142016aec0141472487d2af0dfc413d9e1535",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    public static byte[] mergeCentralDirectoryData(final ZipExtraField[] data) {\n        final boolean lastIsUnparseable = data.length > 0\n                && data[data.length - 1] instanceof UnparseableExtraFieldData;\n        final int regularCount = lastIsUnparseable ? data.length - 1 : data.length;\n        int length = WORD * regularCount;\n        for (final ZipExtraField field : data) {\n            length += field.getCentralDirectoryLength().getValue();\n        }\n\n        final byte[] result = new byte[length];\n        int offset = 0;\n        for (int i = 0; i < regularCount; i++) {\n            final ZipExtraField field = data[i];\n            System.arraycopy(field.getHeaderId().getBytes(), 0, result, offset, 2);\n            System.arraycopy(field.getCentralDirectoryLength().getBytes(), 0,\n                    result, offset + 2, 2);\n            offset += WORD;\n            final byte[] fieldData = field.getCentralDirectoryData();\n            System.arraycopy(fieldData, 0, result, offset, fieldData.length);\n            offset += fieldData.length;\n        }\n\n        if (lastIsUnparseable) {\n            final byte[] fieldData = data[data.length - 1].getCentralDirectoryData();\n            System.arraycopy(fieldData, 0, result, offset, fieldData.length);\n        }\n        return result;\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 370,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 351,
+    "output_tokens_details": {
+      "reasoning_tokens": 51
+    },
+    "total_tokens": 721
+  },
+  "user": null,
+  "metadata": {}
+}

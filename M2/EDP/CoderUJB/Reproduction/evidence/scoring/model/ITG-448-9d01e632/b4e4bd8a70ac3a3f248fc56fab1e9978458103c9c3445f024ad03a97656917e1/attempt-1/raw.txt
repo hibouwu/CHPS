@@ -1,0 +1,51 @@
+Certainly! Below is a test case named `testFormat` that addresses the issue `Lang-LANG-719`. This test case will compare the output of `SimpleDateFormat` and `FastDateFormat` when using the year patterns 'Y' and 'YYY' to ensure they both format the year consistently as per the behavior described in the issue report.
+
+```java
+import org.apache.commons.lang3.time.FastDateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import static org.junit.Assert.assertEquals;
+
+public class DateFormatTest {
+
+    public void testFormat() {
+        // Create a date object representing January 1, 2003
+        Date date = new Date(1041379200000L); // January 1, 2003 in milliseconds since epoch
+
+        // Test with pattern 'Y'
+        String simpleDateFormatPatternY = "Y";
+        String fastDateFormatPatternY = "Y";
+
+        SimpleDateFormat simpleDateFormatY = new SimpleDateFormat(simpleDateFormatPatternY, Locale.US);
+        FastDateFormat fastDateFormatY = FastDateFormat.getInstance(fastDateFormatPatternY, Locale.US);
+
+        String expectedYearY = "2003"; // Expected output for year 2003 with pattern 'Y'
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'Y' the same", 
+                     expectedYearY, simpleDateFormatY.format(date));
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'Y' the same", 
+                     expectedYearY, fastDateFormatY.format(date));
+
+        // Test with pattern 'YYY'
+        String simpleDateFormatPatternYYY = "YYY";
+        String fastDateFormatPatternYYY = "YYY";
+
+        SimpleDateFormat simpleDateFormatYYY = new SimpleDateFormat(simpleDateFormatPatternYYY, Locale.US);
+        FastDateFormat fastDateFormatYYY = FastDateFormat.getInstance(fastDateFormatPatternYYY, Locale.US);
+
+        String expectedYearYYY = "2003"; // Expected output for year 2003 with pattern 'YYY'
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'YYY' the same", 
+                     expectedYearYYY, simpleDateFormatYYY.format(date));
+        assertEquals("SimpleDateFormat and FastDateFormat should format year 'YYY' the same", 
+                     expectedYearYYY, fastDateFormatYYY.format(date));
+    }
+}
+```
+
+### Explanation:
+- **Date Object**: A `Date` object is created to represent January 1, 2003, which is used for formatting.
+- **Patterns**: The test checks both 'Y' and 'YYY' patterns.
+- **SimpleDateFormat and FastDateFormat**: Both formatters are initialized with the respective patterns and the US locale.
+- **Assertions**: The test asserts that both `SimpleDateFormat` and `FastDateFormat` produce the same output ("2003") for the given date and patterns, ensuring consistency as per the issue description.
+
+This test case assumes that you have the Apache Commons Lang library available in your project for `FastDateFormat`. If not, you'll need to include it in your project dependencies.

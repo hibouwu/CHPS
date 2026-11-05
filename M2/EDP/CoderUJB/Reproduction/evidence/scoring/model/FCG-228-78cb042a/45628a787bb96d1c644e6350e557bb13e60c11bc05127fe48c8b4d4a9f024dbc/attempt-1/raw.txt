@@ -1,0 +1,24 @@
+```java
+public String nextName() throws IOException {
+  int p = peeked;
+  if (p == PEEKED_NONE) {
+    p = doPeek();
+  }
+
+  String result;
+  if (p == PEEKED_UNQUOTED_NAME) {
+    result = nextUnquotedValue();
+  } else if (p == PEEKED_SINGLE_QUOTED_NAME) {
+    result = nextQuotedValue('\'');
+  } else if (p == PEEKED_DOUBLE_QUOTED_NAME) {
+    result = nextQuotedValue('"');
+  } else {
+    throw new IllegalStateException(
+        "Expected a name but was " + peek() + locationString());
+  }
+
+  peeked = PEEKED_NONE;
+  pathNames[stackSize - 1] = result;
+  return result;
+}
+```

@@ -1,0 +1,69 @@
+**Explanation**
+
+`XmlSerializerProvider` is a specialization of Jackson’s `DefaultSerializerProvider` that knows how to write a *root* element when the value being serialized is `null`.  
+The original implementation did two things:
+
+1. If the generator is a `ToXmlGenerator` it called `_initWithRootName(...)` to emit the start‑element for the configured root name (`<null/>` in the default case).  
+2. It then delegated to `super.serializeValue(jgen, null)`.
+
+The second step is wrong for two reasons:
+
+* **Wrong output** – `DefaultSerializerProvider.serializeValue(.., null)` writes a JSON *null* token. When the underlying generator is an XML generator this results in an *empty* document (or an element without the expected name) instead of the `<null/>` element that the caller asked for.  
+* **Unnecessary work** – after we have already written the start‑element we only need to emit the XML‑null representation (`xgen.writeNull()`). Calling the super‑method makes the provider go through its whole null‑handling path again, which is both inefficient and can lead to subtle bugs (e.g., double‑closing of the root element).
+
+The fix therefore:
+
+* Keep the call to `_initWithRootName` (or `_startRootArray` when appropriate).  
+* Write the XML‑null token **directly** via `ToXmlGenerator.writeNull()`.  
+* Fall back to the default handling only when the generator is **not** an XML generator (this keeps the method usable with non‑XML generators, which is how the original code behaved).
+
+Below is the corrected implementation.
+
+---
+
+```java
+/**
+ * Serialize a {@code null} value as the configured XML root name.
+ * <p>
+ * For XML generators we need to emit a start‑element with the root name
+ * (e.g. {@code <null/>}) and then write the XML‑null token.  Delegating to
+ * {@code super.serializeValue(..., null)} would produce a JSON‑null token,
+ * which is not appropriate for XML output.
+ *
+ * @param jgen Generator used for output
+ *
+ * @throws IOException if an I/O error occurs
+ */
+protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
+{
+    // If we are dealing with an XML generator we can honour the configured
+    // root name for a null value.
+    if (jgen instanceof ToXmlGenerator) {
+        ToXmlGenerator xgen = (ToXmlGenerator) jgen;
+
+        // Write the start element using the special root name for nulls.
+        // This method also takes care of any necessary namespace handling.
+        _initWithRootName(xgen, ROOT_NAME_FOR_NULL);
+
+        // Finally write the XML representation of a null value.
+        // For XML this results in an empty element (e.g. <null/>)
+        // or, depending on configuration, an element with xsi:nil="true".
+        xgen.writeNull();
+        return;
+    }
+
+    // Non‑XML generators (or a mis‑configured generator) fall back to the
+    // default handling provided by the base class.
+    super.serializeValue(jgen, null);
+}
+```
+
+**Key points of the fix**
+
+| Problem | Fix |
+|---------|-----|
+| `super.serializeValue(jgen, null)` writes a JSON‑null token, not an XML element. | Use `ToXmlGenerator.writeNull()` after emitting the start element. |
+| Potential double‑processing of the null value (inefficiency / risk of malformed output). | Return immediately after handling the XML case. |
+| Preserve original behaviour for non‑XML generators. | Keep the fallback to `super.serializeValue` when the generator is not an instance of `ToXmlGenerator`. |
+
+With this change the provider correctly produces `<null/>` (or the configured equivalent) when the root value to serialize is `null`, and it no longer relies on the generic JSON‑null handling path that is inappropriate for XML output.

@@ -1,0 +1,105 @@
+{
+  "id": "resp_0f4e71699f1db81a016aec01bec48087d29e4a043a5edf3f91",
+  "object": "response",
+  "created_at": 1793851838,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851847,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0f4e71699f1db81a016aec01bf7ffc87d29eb2fb843e9b4f8e",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AHHbCc-iGpfsbyDSJ0QlemUiw9ghK9OXS2Y_X9ArYuMAzrEHm9z9NeyJJtESpKgk7NxOgbaTOMcWIZGF4ihCPQUb--9DtWYp05nH2KYX31dBMkztv0AsseJe-bSIch4u0HPaqDM9C179jfJAczFpY4fyLy-7q9c7xSFTdi1kd9VUnj-b5xCiBE6PTKn_1R-mJwwDCW9NoMUueGxRWcRc4OWKJiHiyE0wnkhx8bfyp5uzFAx4oB7IFuv6SQ5aSfCyL8CEacsqa71j55kHEoNfaAONsucSwFfbJTk-3Rnl2I7xJduWtzR7kG_UtoT_gt9-9TeymzZlQ1ABp7d-9flPOD3kTVyWLf90_dWrxRooUqfdSEVlJczTqABFbK_kYyF9nmpFf6jevadtEXDmp6f0-rVjK1mKhbnYXO-Y-I4noRxB5cZFtmTMYHfceDCmGVKVbWM7lZR69EIzdC1NV5QBRkhT0txROvuawgkjOWRxPGdgYXeqFApf527WV1zx4tJOd-zhe85i6x3OeGvPfJMmS0edfwBhSarbZT44W3Iw1Cwnez8cBXWg6G2q2dLon9P_iVWfQOud-JIBh1BanG1E0TAJznc-sfSD-mHcbVrCOqKVSTAKUAO_4ANqXzyd8BRxNjBcEQQYsmlANcYxamy_COKKoNB9XXxNxUq-BKYK9eP_je4ziqejU9MAGI80rfFnwz0dR8Yzep9fzMLQNlDUIAnX7EOLN1PijqXMNyGny3tli8MUJYJiy7lu9PrvXF0z76hF6Ix16_Ty0x1JZZznDdcajpgYMKCVHtiZHOcUISlDUTI64JYEb3bOtt7uaih7WgntH9KI-7fg36K0VO5FPJc8r8n-aq1yHK5QvodhEvGviVNpnkG-8Rek0GfopsiYZ5CPwqfZq7XM0NCBiyUIFf9rz9CEqGi8_Jpuvgy-eXKTtAAc2L0b5XG4tDxwPFdznl1pwTGJZdJ3BNZiR5C6DEl60meo6BumT_s-i2wKsgsMgNaZ__eHbGxYKSbSULqZXtEfNRf_hA2U6fBp9PsvryX-9uGQ85mItgd9rlZ-n9pWCYjsHwHriu23cczK7lEkBUX1hssiomfuhtc3z1-68TgG505IcuMMU2-VTJmUtcAvF0Dyw0UceXqJs-yjXKRpw9XfTxUq9i6DlOLIiiPDHh8BvDqF3V_0i5hTYTLfC7tnC8WVOnQSdz5ZO-bIW9htYQTgYmQHFLu-9PQxYeRcU3_0C-bHjbznP84OzrAptzO46bbh9ut0MeTmXnDO_U9843h8xDKQ4sL48gIlSQACwCMYwwnHX2bxwW_FuVqofNHLiIKjbf6O8uTRXis4-hFUhoDtgUHXjSMas_dHhLF6kR8t8PJ3vMstnnPUTeCYO23dh4_6zgiKhOcgZujVsSTBIbQ8o16AfQ7TfWFG-8k-xqZ0r-Y0n-qGMu_BfaeP45aNhSvLp53wizDUrxBM16W4u8B8tfYh7hGtj5UHi9Krr4QV6WFf5Re3UKNUShsX1ETPp73Jgrx6hcOGToCrQGQgd5w40WkN2D5IDX6AMPL8zYWkrWy8JMJpd8G1UDA7P-Q2whHFBqw45YFHCci-uGAbASEiXfiui9bfGYWF-OURMzILqKxcpz0w7xPA7LuaLVqeELhxc7RHpdgd_Mc3irAO3-eAcvd7ZiAD_U8lMAz5wo5hCinvob-RoSW2xqATg7lOg0VSioHQUMpKx6eXKbURwtBoKTw7U0hCpPRtSUR0UDWfDywrC67pe8geioWAdTfRX4lPo9oVziJz5lBRJBndJ99YgADxFFMRtA7MuWbZBsVAyULE16hocZEhqQ5s3vuDNHgWi3dMPFulARSNoVZ4ECMOiYmCXYxRFKXG-ToEs7oWmq1ci69HYydva4Iylc9GIOI6ym4hbAaSe3AWyCs3Wg2G-Zdqs0yaX21PhWYoAiuzbfluTfAFTLe-_7v0hJwIuFMfUlgpKmhImallM8b6U1zC43YUOwwVMBoCS6ISQ0_muM3nXuxV4fmvvhJz4NBywzBVmc8FVYbQAmP3B0EAGLg6Q_2eHgaxeTlqk_ogYc2rzH3bq6H8u4Sk36jl0RU_uv4BuEOt2J78OjIrksSg5PqNhrwD_uBNxUU51HaSI9OSRI4436wsyZOooFOy6LwKbwxYwZc6UDfsbqQwpCZdl4OJwPTCzVAP91m6-M6EZmMcSBa8MFKimBqGLFvlia6MvJ0Owt_MgYrTShwoTwBiYoE9V7IbPzl-eWIMb6XCjYURtYORV8oKVQYqQGpcL5dwuHDmAEcs28UH9ZIAU_4SjpDujYuKo6EEQleeuzAOdvKCVthTzstQDgHwTu7zKHxDYN2Pn6vXDoTuppNqdFDqUENDNDt_6m_kxA5taxxEa4XQNfUK_OIBMaMSU2jxxNrY06fL3iqaBJc1T2yo5wwBZVce2ifPSsbNfVajrw0Urg3bVSSf79braUOd-S-wYIqu8hRjn6u6o-9XufoSL6ucix5s0iBDeA9d3hWW_7csRs4l3osRmSVZhSeR1lD1DmVEo0vGP-_IZxo-Nik6OVaGzAimSIUmtHgjcOb5uvqlmF3ekc3C2yj252twWcLGK9tYlS2pzHNNnKR9a2nfZIZ4cGB_HdIJT8SMGu9VjOOcLl92W_GdXLmbfCOl22qSS7w7GO0X_yG86x5Nvsiqz22hQTOb-OmAi5CbZbX5SU5Qh4K0z3vLAGbnen7opCfSc_FzTFtaFuTgmPpznWrrhICX8Ot4LZ58nz8bKEcg4UmZ9q_0hM-OYXBjFc2TjRR43VJ1DXziPJUUTfnY0UjASYeox3I6NdCq5TPWs7LicsRM4mMC_APEYnIG3mtbFSFgk2uXv8WlRDsYdzEt7jjLY0yAJ4xWvJO0OKyQ9yCF9CZeypLbLiGOzJ5j-X17cBMkKaKRltO7Libh8BqaxBetvDV20QTXQa_w5iKZnkiDM5TxJ6O7Da8_VaPS04YPzV3WsuvWq33CSE52E1_olSoLdprTlxSFlu0B-eUBhc-sP5iKz1zMuz2PIbj0mEqsz5YFGTsj01DH8XBXb1ZeBcVDYZvUi7avf1radtYO2v_YiLu0xLRup3XjT25pNRrDtoJIE8L7-spg9D9u_NE8BKqUsYrzvpazysgw7xx7D-oyq6x3lo8y-ev5g1B954L-wCUOJJQ-jwTwTTD0C6tXw4vucZDp5udIHsjEK4oxwoRQmmosWMEiL8Mf2-zN1HzRZQbxt6gI28qsRQdM-A7asLRMCLjcTPGx9vsPQZDmQwCeD1dqrfCvtXvBJFUs46Lxply5V8_NY-d03frh1ksQRM350H4tDqIcowZDCX8PBxA0R6NZj779KH3hAo-RbNfKAT9e222OwAaPge1pUqpnoPBPy3Jaa4_vw3G7fkSPhx5GeET-0stlOhvVPHoLQdNL3zm-2CakNARGrted7zZcXUMVNuqJl7qhmuCcjH6xC1W9Ccoo6oQv-DBal_uV-c5322unMyDje5hchX-5fma3TVXPeJuoUNRyQDb9dGJ90-p2zMnIlU7EFQ4A9-nPxxorU5LdMV-RGbuxcCtDO-Xc_IufThrxneTwWnk9T_iFs2pGb6FHqYKAcwDqtKLdpDcVdbaliRiuokZy2jC0V7kGKHBWeYMVMQQ-CcTEMcFRmjyDcwxjC3zQXYCMuGKjv2wt_M8WgLv6vpCStgJEGjXT5aVOW-b4oPmSd5QVbj7OTdqM8nP123OEC81YvhguNgvzOxcQplzcmYeqS5MFxRe9e_ePHBYGhMGhG9EVhVt2QvaVwnyFxMyxAWHiCPr_P8LCJZFQqqSPdRBVQE8ZNqYv7zYSyPDxpRtBxY4CFsKzowiEoV8Qo4HgS1byZcgl8CRxnKDKsAdk5JWrkO5lCngehDYsnjvT-rLkJ7T5DQ7iIDwWy4GFS8_GrWCLZ_XclwtzmqYwpA5647W-wo9QZdRjUuAU_0w8N8IOtqR2g55uLlZpZxaW8Hcw4cN10PJqVrsBLgQLT9c95mmXTmOEMpPYqNKJ1Hq8jwdZjls4D2Sfedtnr81WyoHacfTvk1JmA3kHNq6v9MsXYkeNOTx2tZqAHIWrnL_q4m5XxND6Js8OyAx98ZL_iKF4xwsynlZcJgzktOYZKZ6uz9svU6NqnvHfCLLiWP2faYes7aL6HCDEmbxREy3bXdEIwdkXoPgrZKvU8oGLkPUDp3cL3SBmpm3CJn3N25pg-v1",
+      "summary": []
+    },
+    {
+      "id": "msg_0f4e71699f1db81a016aec01c5b1f087d29580909fc4e06b63",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    public void testCodec112() {\n        byte[] input = new byte[] { 1, 2, 3 };\n        byte[] expected = new byte[] { 'A', 'Q', 'I', 'D' };\n\n        byte[] encoded = Base64.encodeBase64(input, false, false, 4);\n        assertTrue(java.util.Arrays.equals(expected, encoded));\n\n        encoded = Base64.encodeBase64(input, false, true, 4);\n        assertTrue(java.util.Arrays.equals(expected, encoded));\n\n        try {\n            Base64.encodeBase64(input, false, false, 3);\n            fail(\"Expected IllegalArgumentException when maxResultSize is too small\");\n        } catch (IllegalArgumentException expectedException) {\n            // Expected: four encoded bytes cannot fit within a limit of three.\n        }\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 217,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 416,
+    "output_tokens_details": {
+      "reasoning_tokens": 241
+    },
+    "total_tokens": 633
+  },
+  "user": null,
+  "metadata": {}
+}

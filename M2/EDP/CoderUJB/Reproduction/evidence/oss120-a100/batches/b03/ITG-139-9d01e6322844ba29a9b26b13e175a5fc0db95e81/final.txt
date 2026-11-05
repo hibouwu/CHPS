@@ -1,0 +1,90 @@
+**Java test case – `testCheckSymbolsOverrideForQuiet`**  
+The test reproduces the command‑line situation described in *Closure‑467*: the default warning level is **QUIET**, but the diagnostic groups *checkVars* and *undefinedVars* are explicitly enabled (the same effect as using `--jscomp_warning checkVars` or `--jscomp_warning undefinedVars`). The test verifies that the compiler still reports the expected “undefined variable” error.
+
+```java
+package com.google.javascript.jscomp;
+
+import com.google.common.collect.ImmutableList;
+import com.google.javascript.jscomp.CompilerOptions.CheckLevel;
+import com.google.javascript.jscomp.testing.TestErrorReporter;
+import org.junit.Test;
+
+/**
+ * Regression test for Closure‑467.
+ *
+ * <p>When the compiler is run with the default QUIET warning level, enabling the
+ * {@code checkVars} or {@code undefinedVars} diagnostic groups via the
+ * {@code --jscomp_warning} flag must still cause the corresponding diagnostics
+ * to be emitted.  This test builds a {@link CompilerOptions} object that mimics
+ * that command‑line configuration and asserts that the “variable foo is undefined”
+ * error is produced.
+ */
+public class Closure467Test extends CompilerTestCase {
+
+  /** The source that triggers the undefined‑variable diagnostic. */
+  private static final String TEST_SRC =
+      "foo = {};\n"
+    + "foo.bar = function() { alert(this.baz); };\n";
+
+  /** Build the options that correspond to “quiet + jscomp_warning checkVars/undefinedVars”. */
+  @Override
+  protected CompilerOptions getOptions() {
+    CompilerOptions options = super.getOptions();
+
+    // 1. Default warning level is QUIET (the same as not passing any
+    //    --warning_level flag on the command line).
+    options.setWarningLevel(DiagnosticGroups.ALL_DIAGNOSTICS, CheckLevel.QUIET);
+
+    // 2. Explicitly enable the two diagnostic groups that were broken.
+    //    In the command‑line world this is what “--jscomp_warning checkVars”
+    //    and “--jscomp_warning undefinedVars” do.
+    options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES,   CheckLevel.ERROR);
+    options.setWarningLevel(DiagnosticGroups.UNDEFINED_VARIABLES, CheckLevel.ERROR);
+
+    // The test does not need any other special options.
+    return options;
+  }
+
+  /** The actual test – compile the source and assert that the undefined‑var error appears. */
+  @Test
+  public void testCheckSymbolsOverrideForQuiet() {
+    // Use a fresh compiler instance so we can inspect the Result.
+    Compiler compiler = new Compiler(new TestErrorReporter());
+
+    // Compile a single synthetic file named “test.js”.
+    Result result = compiler.compile(
+        // No externs – we are only interested in the error on the source file.
+        ImmutableList.of(),
+        ImmutableList.of(SourceFile.fromCode("test.js", TEST_SRC)),
+        getOptions());
+
+    // 1. The compilation must have failed (there is at least one error).
+    assertFalse("Compilation succeeded when an error was expected", result.success);
+
+    // 2. Verify that the expected diagnostic is present.
+    //    The message format used by the compiler is:
+    //    “variable <name> is undefined”.
+    boolean foundUndefinedFoo = false;
+    for (JSError error : result.errors) {
+      if (error.getDescription().contains("variable foo is undefined")) {
+        foundUndefinedFoo = true;
+        break;
+      }
+    }
+    assertTrue(
+        "Expected undefined‑variable error for 'foo' was not reported.\n"
+        + "Actual errors: " + Joiner.on('\n').join(result.errors),
+        foundUndefinedFoo);
+  }
+}
+```
+
+### How the test maps to the original issue
+
+| Command‑line scenario | Equivalent in the test |
+|-----------------------|------------------------|
+| `java -jar compiler.jar --js test.js` (default QUIET) | `getOptions()` sets `ALL_DIAGNOSTICS` to `QUIET`. |
+| `--jscomp_warning checkVars` / `--jscomp_warning undefinedVars` | `options.setWarningLevel(DiagnosticGroups.CHECK_VARIABLES, ERROR)` and `options.setWarningLevel(DiagnosticGroups.UNDEFINED_VARIABLES, ERROR)`. |
+| Expected output: an error “variable foo is undefined” | The test asserts that such an error is present in `Result.errors`. |
+
+If the bug were still present, the compilation would succeed silently (no errors), and the assertion would fail, reproducing the exact symptom reported in *Closure‑467*. Once the bug is fixed, the test passes, confirming that the diagnostic groups are correctly honoured even when the overall warning level is QUIET.

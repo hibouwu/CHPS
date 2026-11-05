@@ -1,0 +1,4 @@
+Running ant (compile.tests)................................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.dev.tests)................................................ OK
+Running ant (coverage.report).............................................. OK

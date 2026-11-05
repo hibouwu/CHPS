@@ -1,0 +1,9 @@
+{
+  "http_status": 200,
+  "body": {
+    "object": "response.input_tokens",
+    "input_tokens": 870
+  },
+  "request_id": "req_c6e488570bbf499bbddc9ad5a35a2c05",
+  "prompt_sha256": "6be3a5c86426069903beae2dbc4e7826c30c0071e64274b0bbab9a9c6b0f3398"
+}

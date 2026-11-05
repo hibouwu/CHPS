@@ -1,0 +1,22 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 85,
+  "project": "Chart",
+  "bug_id": "9",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/ITG-85-9d01e632/b5785708c8a8f9b222b47a5e96e28a4b2c0480990b60b1a93fd77e9c04795c82/attempt-1/result.json",
+  "raw_sha256": "e55964b6f5f85b12f3709fbbbe4f26aafc9a56669741649e02c2a692f45f4383",
+  "input_sha256": "a5b35845ac3c48f32f2976d0ef3b65d5369ea5c8df2357ceb1315dec42385932",
+  "input_tokens": 588,
+  "full_input_tokens": 588,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-85-9d01e632/86596e6a35316707073e012e57ca543e347b85cf2659c618f5028a6bedda833e/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

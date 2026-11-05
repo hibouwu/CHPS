@@ -1,0 +1,28 @@
+
+    // TODO: set up your test
+    String json = "{\"name\":\"John Doe\",\"age\":42}";
+    // TODO: set up your expected values
+    String expectedName = "John Doe";
+    int expectedAge = 42;
+    // TODO: perform your test
+    Person person = gson.fromJson(json, Person.class);
+    // TODO: validate your results
+    assertEquals(expectedName, person.name);
+    assertEquals(expectedAge, person.age);
+  }
+
+  static class Person {
+    String name;
+    int age;
+  }
+
+  // TODO: set up your test
+  String json = "{\"name\":\"John Doe\",\"age\":42}";
+  // TODO: set up your expected values
+  String expectedName = "John Doe";
+  int expectedAge = 42;
+  // TODO: perform your test
+  Person person = gson.fromJson(json, Person.class);
+  // TODO: validate your results
+  assertEquals(expectedName, person.name);
+  assertEquals(expected

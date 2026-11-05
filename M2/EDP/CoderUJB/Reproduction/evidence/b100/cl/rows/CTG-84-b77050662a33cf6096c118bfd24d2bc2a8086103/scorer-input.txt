@@ -1,0 +1,188 @@
+//             + "   \"foo\n,,\n\"\",,\n\"\"\",d,e\n";
+//     private static final String CSV_INPUT_1 = "a,b,c,d";
+//     private static final String CSV_INPUT_2 = "a,b,1 2";
+//     private static final String[][] RESULT = { { "a", "b", "c", "d" }, { "a", "b", "1 2" }, { "foo baar", "b", "" },
+//             { "foo\n,,\n\",,\n\"", "d", "e" } };
+// 
+//     private BOMInputStream createBOMInputStream(final String resource) throws IOException;
+//     @Test
+//     public void testBackslashEscaping() throws IOException;
+//     @Test
+//     public void testBackslashEscaping2() throws IOException;
+//     @Test
+//     @Ignore
+//     public void testBackslashEscapingOld() throws IOException;
+//     @Test
+//     @Ignore("CSV-107")
+//     public void testBOM() throws IOException;
+//     @Test
+//     public void testBOMInputStream_ParserWithReader();
+//     @Test
+//     public void testBOMInputStream_parseWithReader();
+//     @Test
+//     public void testBOMInputStream_ParserWithInputStream();
+//     @Test
+//     public void testCarriageReturnEndings() throws IOException;
+//     @Test
+//     public void testCarriageReturnLineFeedEndings() throws IOException;
+//     @Test
+//     public void testFirstEndOfLineCrLf() throws IOException;
+//     @Test
+//     public void testFirstEndOfLineLf() throws IOException;
+//     @Test
+//     public void testFirstEndOfLineCr() throws IOException;
+//     @Test(expected = NoSuchElementException.class)
+//     public void testClose() throws Exception;
+//     @Test
+//     public void testCSV57() throws Exception;
+//     @Test
+//     public void testDefaultFormat() throws IOException;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testDuplicateHeaders() throws Exception;
+//     @Test
+//     public void testEmptyFile() throws Exception;
+//     @Test
+//     public void testEmptyLineBehaviourCSV() throws Exception;
+//     @Test
+//     public void testEmptyLineBehaviourExcel() throws Exception;
+//     @Test
+//     public void testEndOfFileBehaviorCSV() throws Exception;
+//     @Test
+//     public void testEndOfFileBehaviourExcel() throws Exception;
+//     @Test
+//     public void testExcelFormat1() throws IOException;
+//     @Test
+//     public void testExcelFormat2() throws Exception;
+//     @Test
+//     public void testExcelHeaderCountLessThanData() throws Exception;
+//     @Test
+//     public void testForEach() throws Exception;
+//     @Test
+//     public void testGetHeaderMap() throws Exception;
+//     @Test
+//     public void testGetLine() throws IOException;
+//     @Test
+//     public void testGetLineNumberWithCR() throws Exception;
+//     @Test
+//     public void testGetLineNumberWithCRLF() throws Exception;
+//     @Test
+//     public void testGetLineNumberWithLF() throws Exception;
+//     @Test
+//     public void testGetOneLine() throws IOException;
+//     @Test
+//     public void testGetOneLineOneParser() throws IOException;
+//     @Test
+//     public void testGetRecordNumberWithCR() throws Exception;
+//     @Test
+//     public void testGetRecordNumberWithCRLF() throws Exception;
+//     @Test
+//     public void testGetRecordNumberWithLF() throws Exception;
+//     @Test
+//     public void testGetRecordPositionWithCRLF() throws Exception;
+//     @Test
+//     public void testGetRecordPositionWithLF() throws Exception;
+//     @Test
+//     public void testGetRecords() throws IOException;
+//     @Test
+//     public void testGetRecordWithMultiLineValues() throws Exception;
+//     @Test
+//     public void testHeader() throws Exception;
+//     @Test
+//     public void testHeaderComment() throws Exception;
+//     @Test
+//     public void testHeaderMissing() throws Exception;
+//     @Test
+//     public void testHeaderMissingWithNull() throws Exception;
+//     @Test
+//     public void testHeadersMissing() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testHeadersMissingException() throws Exception;
+//     @Test
+//     public void testIgnoreCaseHeaderMapping() throws Exception;
+//     @Test
+//     public void testIgnoreEmptyLines() throws IOException;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testInvalidFormat() throws Exception;
+//     @Test
+//     public void testIterator() throws Exception;
+//     @Test
+//     public void testLineFeedEndings() throws IOException;
+//     @Test
+//     public void testMappedButNotSetAsOutlook2007ContactExport() throws Exception;
+//     @Test
+//     // TODO this may lead to strange behavior, throw an exception if iterator() has already been called?
+//     public void testMultipleIterators() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testNewCSVParserNullReaderFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testNewCSVParserReaderNullFormat() throws Exception;
+//     @Test
+//     public void testNoHeaderMap() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParseFileNullFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParseNullFileFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParseNullStringFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParseNullUrlCharsetFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParserUrlNullCharsetFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParseStringNullFormat() throws Exception;
+//     @Test(expected = IllegalArgumentException.class)
+//     public void testParseUrlCharsetNullFormat() throws Exception;
+//     @Test
+//     public void testProvidedHeader() throws Exception;
+//     @Test
+//     public void testProvidedHeaderAuto() throws Exception;
+//     @Test
+//     public void testRoundtrip() throws Exception;
+//     @Test
+//     public void testSkipAutoHeader() throws Exception;
+//     @Test
+//     public void testSkipHeaderOverrideDuplicateHeaders() throws Exception;
+//     @Test
+//     public void testSkipSetAltHeaders() throws Exception;
+//     @Test
+//     public void testSkipSetHeader() throws Exception;
+//     @Test
+//     @Ignore
+//     public void testStartWithEmptyLinesThenHeaders() throws Exception;
+//     @Test
+//     public void testTrailingDelimiter() throws Exception;
+//     @Test
+//     public void testTrim() throws Exception;
+//     @Test
+//     public void testIteratorSequenceBreaking() throws IOException;
+//     private void validateLineNumbers(final String lineSeparator) throws IOException;
+//     private void validateRecordNumbers(final String lineSeparator) throws IOException;
+//     private void validateRecordPosition(final String lineSeparator) throws IOException;
+// }
+
+// You are a professional Java test case writer, please create a test case named `testGetOneLineOneParser` for the `CSVParser` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Tests reusing a parser to process new string records one at a time as they are being discovered. See [CSV-110].
+     *
+     * @throws IOException
+     */
+    @Test
+    public void testGetOneLineOneParser() throws IOException {
+        final String[][] expected = { { "a", "b", "c", "d" }, { "a", "b", "1 2" }, { "foo baar", "b", "" },
+                { "foo\n,,\n\",,\n\"", "d", "e" } };
+        final CSVParser parser = CSVParser.parse(CSV_INPUT_1 + CSV_INPUT_2, CSVFormat.DEFAULT);
+        for (int i = 0; i < expected.length; i++) {
+            final CSVRecord record = parser.iterator().next();
+            assertArrayEquals(expected[i], record.values());
+        }
+    }
+
+// You are a professional Java test case writer, please create a test case named `testGetOneLine` for the `CSVParser` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Tests reusing a parser to process new string records one at a time as they are being discovered. See [CSV-110].
+     *
+     * @throws IOException
+     */
+    @

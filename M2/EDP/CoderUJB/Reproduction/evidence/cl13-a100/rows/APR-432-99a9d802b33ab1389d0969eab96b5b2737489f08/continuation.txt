@@ -1,0 +1,28 @@
+
+
+        private void readTypeVariables() {
+            for (Type type : typeVariable.getBounds()) {
+                registerTypeVariablesOn(type);
+            }
+            registerTypeVariablesOn(getActualTypeArgumentFor(typeVariable));
+            registerTypeVariablesOn(typeVariable.getGenericDeclaration());
+        }
+
+// You are a professional Java programmer, please fix the bug in the function named readTypeParameters based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+
+        private void readTypeParameters() {
+            for (Type type : typeVariable.getBounds()) {
+                registerTypeParametersOn(type.getTypeParameters());
+            }
+            registerTypeParametersOn(getActualTypeArgumentFor(typeVariable).getTypeParameters());
+        }
+
+// Fixed Function
+
+        private void readTypeParameters() {
+            for (Type type : typeVariable.getBounds()) {
+                registerTypeParametersOn(type.getTypeParameters());
+            }
+            registerTypeParametersOn(getActualTypeArgumentFor(typeVariable).getTypeParameters());
+            registerTypeParametersOn(type

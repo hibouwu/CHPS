@@ -1,0 +1,17 @@
+    public void testDifferentDurationReturnDifferentObjects() {
+        UnsupportedDurationField weeksField = UnsupportedDurationField.getInstance(weeks);
+        UnsupportedDurationField monthsField = UnsupportedDurationField.getInstance(months);
+
+        UnsupportedDateTimeField first =
+                UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, weeksField);
+        assertSame(first,
+                UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, weeksField));
+
+        UnsupportedDateTimeField second =
+                UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, monthsField);
+        assertNotSame(first, second);
+        assertSame(weeksField, first.getDurationField());
+        assertSame(monthsField, second.getDurationField());
+        assertSame(second,
+                UnsupportedDateTimeField.getInstance(dateTimeFieldTypeOne, monthsField));
+    }

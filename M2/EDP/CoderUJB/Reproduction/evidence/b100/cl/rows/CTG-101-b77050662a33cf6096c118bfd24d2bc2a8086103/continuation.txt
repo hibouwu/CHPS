@@ -1,0 +1,20 @@
+
+        _testKeywords(createParserUsingReader("null"), false);
+        _testKeywords(createParserUsingReader("true"), false);
+        _testKeywords(createParserUsingReader("false"), false);
+        _testKeywords(createParserUsingStream("null"), false);
+        _testKeywords(createParserUsingStream("true"), false);
+        _testKeywords(createParserUsingStream("false"), false);
+        _testKeywords(createParserUsingReader("null"), true);
+        _testKeywords(createParserUsingReader("true"), true);
+        _testKeywords(createParserUsingReader("false"), true);
+        _testKeywords(createParserUsingStream("null"), true);
+        _testKeywords(createParserUsingStream("true"), true);
+        _testKeywords(createParserUsingStream("false"), true);
+    }
+
+    private void _testKeywords(JsonParser p, boolean checkColumn) throws Exception
+    {
+        assertToken(JsonToken.VALUE_NULL, p.nextToken());
+        assertToken(JsonToken.VALUE_TRUE, p.nextToken());
+        assertToken

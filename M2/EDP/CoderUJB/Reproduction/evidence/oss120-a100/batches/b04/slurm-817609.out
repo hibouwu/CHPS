@@ -1,0 +1,23 @@
+romeo-a058
+name, uuid, memory.total [MiB], memory.free [MiB]
+NVIDIA GH200 120GB, GPU-ef8692f3-8bd7-80a2-608b-10731c9ec114, 97871 MiB, 97277 MiB
+/scratch_p/hibouwu/coderujb/oss120-20261105-v1/build/bin/llama-server: OK
+APR-1-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 3594, 'prompt_tokens': 2563, 'total_tokens': 6157}
+APR-23-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 2268, 'prompt_tokens': 899, 'total_tokens': 3167}
+APR-50-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 924, 'prompt_tokens': 1782, 'total_tokens': 2706}
+APR-70-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1972, 'prompt_tokens': 1305, 'total_tokens': 3277}
+APR-109-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 882, 'prompt_tokens': 833, 'total_tokens': 1715}
+APR-112-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1462, 'prompt_tokens': 943, 'total_tokens': 2405}
+APR-119-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1561, 'prompt_tokens': 665, 'total_tokens': 2226}
+APR-218-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1727, 'prompt_tokens': 500, 'total_tokens': 2227}
+APR-237-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1807, 'prompt_tokens': 494, 'total_tokens': 2301}
+APR-248-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 922, 'prompt_tokens': 525, 'total_tokens': 1447}
+APR-312-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 2874, 'prompt_tokens': 809, 'total_tokens': 3683}
+APR-313-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 2330, 'prompt_tokens': 1664, 'total_tokens': 3994}
+APR-319-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 2462, 'prompt_tokens': 650, 'total_tokens': 3112}
+APR-367-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 2639, 'prompt_tokens': 1236, 'total_tokens': 3875}
+APR-391-99a9d802b33ab1389d0969eab96b5b2737489f08 length {'completion_tokens': 4096, 'prompt_tokens': 2010, 'total_tokens': 6106}
+APR-410-99a9d802b33ab1389d0969eab96b5b2737489f08 length {'completion_tokens': 4096, 'prompt_tokens': 1551, 'total_tokens': 5647}
+APR-432-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1349, 'prompt_tokens': 774, 'total_tokens': 2123}
+APR-447-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 1624, 'prompt_tokens': 1187, 'total_tokens': 2811}
+APR-460-99a9d802b33ab1389d0969eab96b5b2737489f08 stop {'completion_tokens': 2702, 'prompt_tokens': 1370, 'total_tokens': 4072}

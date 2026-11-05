@@ -1,0 +1,74 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 228,
+  "task_id": "f626eb1ad88c484d9c12706a361ab97514804f46e2cbdf010c7bce4d926a931a",
+  "origin": "model",
+  "mode": "complete",
+  "raw_sha256": "2cc8db68fdfb0ebc283359f2f78f378f3b9bd61118bb7b0ef77f9dbfa471f632",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "dd0fb853beee33f9146650104818d22d3a8125e49a5a0ade90c94c8bd5be490d",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Gson",
+  "bug_id": 18,
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Gson",
+        "-v",
+        "18f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/FCG-228-h8iu1tk0/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.517,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/FCG-228-h8iu1tk0/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 2.82,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/FCG-228-h8iu1tk0/fixed",
+        "-t",
+        "com.google.gson.stream.JsonReaderTest::testStrictUnquotedNames"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.005,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "com.google.gson.stream.JsonReaderTest::testStrictUnquotedNames",
+      "failed": [
+        "com.google.gson.stream.JsonReaderTest::testStrictUnquotedNames"
+      ]
+    }
+  },
+  "reason": "target test failed"
+}

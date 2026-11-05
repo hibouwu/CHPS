@@ -1,0 +1,14 @@
+{
+  "name": "timeout-fixture",
+  "argv": [
+    "/usr/bin/python3",
+    "-c",
+    "import subprocess,sys,time;subprocess.Popen([sys.executable,\"-c\",\"import signal,time,pathlib;signal.signal(signal.SIGTERM,signal.SIG_IGN);time.sleep(1);pathlib.Path('/tmp/tmpktnyax5b/survived').touch()\"]);time.sleep(4)"
+  ],
+  "exit_code": -9,
+  "timeout": true,
+  "elapsed_seconds": 0.402,
+  "stdout": "timeout-fixture.stdout.log",
+  "stderr": "timeout-fixture.stderr.log",
+  "child_marker_exists": false
+}

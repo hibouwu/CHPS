@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 450,
+  "task_id": "ff5d5673d84afa7e81c05657887fc762368c350c5675cfa3c920c1d6ba1335a2",
+  "project": "Mockito",
+  "bug_id": "34",
+  "chat_sha256": "22b5b652eea1cf89af388326034eeccc701afb90076ac3884919d49294d2479e",
+  "complete_sha256": "41a1770f390e5917864eb3ec1b32ee75fcdc8dfb4843dfdc63b1e46e83560663",
+  "checked_at": "2026-11-05T03:00:41.821032+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-450-9d01e632/b1b9d25f256bbcdcf5dcc6978c68e6f92176ebc0284184669a575ec1396490df/attempt-1/result.json"
+}

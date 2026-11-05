@@ -1,0 +1,151 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 12,
+  "task_id": "09e21fc9f93ec3b58ce73a20100c02baa5b8011972117677c0d29019423b3d43",
+  "origin": "scorer_control",
+  "mode": "extracted",
+  "raw_sha256": "2b9cff48643eda5e9d7f373dfac5177c8c9bbd820be0f9b0acfdfed684ee4dca",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "9c3bef43c992b0f1fb0da6a78eafd45e779735f1883403cd77288fcbcc33dfac",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Lang",
+  "bug_id": "42",
+  "status": "pass",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Lang",
+        "-v",
+        "42f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.721,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.422,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/fixed",
+        "-t",
+        "org.apache.commons.lang.StringEscapeUtilsTest::testEscapeHtmlHighUnicode"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.073,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    },
+    {
+      "name": "coverage",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "coverage",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/fixed",
+        "-t",
+        "org.apache.commons.lang.StringEscapeUtilsTest::testEscapeHtmlHighUnicode",
+        "-i",
+        "/home/jianyeshi/Note/SiteCHPS/CHPS/M2/EDP/CoderUJB/Reproduction/evidence/scoring/scorer_control/ITG-12-9d01e632/30c34c08d2e89a3758e5904b9e057231ec451a58131ba848e9b60032c951e021/attempt-1/instrument-classes.txt"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.773,
+      "stdout": "coverage.stdout.log",
+      "stderr": "coverage.stderr.log"
+    },
+    {
+      "name": "buggy-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Lang",
+        "-v",
+        "42b",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/buggy"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.67,
+      "stdout": "buggy-checkout.stdout.log",
+      "stderr": "buggy-checkout.stderr.log"
+    },
+    {
+      "name": "buggy-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/buggy"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.621,
+      "stdout": "buggy-compile.stdout.log",
+      "stderr": "buggy-compile.stderr.log"
+    },
+    {
+      "name": "buggy-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-12-wbg87v8b/buggy",
+        "-t",
+        "org.apache.commons.lang.StringEscapeUtilsTest::testEscapeHtmlHighUnicode"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.066,
+      "stdout": "buggy-test-0.stdout.log",
+      "stderr": "buggy-test-0.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "org.apache.commons.lang.StringEscapeUtilsTest::testEscapeHtmlHighUnicode",
+      "failed": []
+    },
+    "buggy-test-0": {
+      "selected": "org.apache.commons.lang.StringEscapeUtilsTest::testEscapeHtmlHighUnicode",
+      "failed": [
+        "org.apache.commons.lang.StringEscapeUtilsTest::testEscapeHtmlHighUnicode"
+      ]
+    }
+  },
+  "coverage": {
+    "classes": [
+      "org.apache.commons.lang.Entities"
+    ],
+    "line_pct": 38.2,
+    "condition_pct": 29.4,
+    "instrumented_lines_hit": 70
+  }
+}

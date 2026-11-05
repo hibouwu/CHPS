@@ -1,0 +1,112 @@
+{
+  "id": "resp_0c16fc964a4f7a6e016aec01ffbf5487d29e7ff97b8191fa94",
+  "object": "response",
+  "created_at": 1793851903,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851921,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0c16fc964a4f7a6e016aec0200e9e087d281141c23b742605f",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AIReXAdA6tCcwUgcI9EfQuN8RzAgBH0wyc-9Akgc_LIYFEYX8tBq7_qAss-CEdoT91PKzQk52o8LfrtVWh-08ihAkVUObkURHT_r17iS2roh0I-TT-Ouf75onwkv1SdDGL0eevnxGd757fB9WSZkD4Eqq3mcelUweUEECTGGLgIynlCMLvfIFK1WfvszEiwTw2amhup96YhdtlUDvSjUdViGEEOLuKewDWVfb_skf_5NxZAFijMGhlTc9oQjhG8mLBPjZAY03NkiRmC9HURoEKHb5Lmq9799XCD_mVOsfUfkWjbMDpejcKSTJqDxWqE8FwujDUrC0i7Cfr7NjlaU1U12ac0Y6AWjb-ZGuhCYmlSFukBvNGLips0uXv-A-TIC6BjjtATj7_rgOU6QYEqCF5nyPBYhvSflQSVcd8XD3Pi5VB1wlRpgrqNi_DKY8g5uzU6iyonSMTrI4abfU5yB7VikiIHOZTEyZ0FDgDNQXUUEgJaaR_JbWiKaxChSIC1YiqypbP3iX4L9M7WdU2idZc5CSYKszWMSzXRbfVomLfhLfUARkzDEjdpm-oJAHpOGpOYoPhYOPRJC1hPxC0UbmA1RSEJLTQZAEUpN16pto-3wbwUpmGhAxtoBsJk5YXyKnarknNTFlLlOQHj-zAjVWTp16dpAJC9QgRHSmosHlOcGUaus13RBSteXpDlH4a8sVmwoC2XmGQbSG-lMCrOLy_QofGjrLZfQTg2PmztcwqocSN8JrH2kuYtviu2iMiHJpMfvd-Kd6yXdLYpRLgpi0yofgtdM_X__RVpJskFQ8lkwebNqnmhNZ6XKWH4Th0QHreQjzE0rD_oEYcQOcGanp3l1oHYxGkyg8oPqHwOpfhmiSpv4h7tenh9aC5TfYMJ7UNYnYB6CvJ-9MkPdReuQ0D-Ul05Qjw7Uw931nJHJqhPlx7FqgDGbLa1D2qxEYffJtD6qeDV283UPSt7hwGYndc1qH3afIA7th8THwZNQ3vyM-Rukm1puagPxFB0bM1lSe-nKC9smR4NqUimacaT2BlsvLymybGIDb9lQvpVdqqXGEK51C8RUM5_xxU5_PNLLhuTFQ6wWEpYFOS7A4nCzzp9eKJ9B7_2lgVnL55tMGyRj8AS4y1h2WSeWNqHxGe4o2ixJ3S_6QUqYCs22B8l40qFa6Oq38FF4Dbn4U66_dgDfgC86yAEc2htEZKRHZYPZuk9jiIbclAU806ZP6-i3WhdwfRfu4NSqLSIt6udXXgnenKwevT-d9Hs7hGZtVyeSQOJTq3hOAjOoomJPNGziV2LnLZcb1-N81_4wegGorbOeRJTB137yeX6gQL4_A6eG5cuhbHQZEaG3Ik_n7-LyZuO141E1RNQgMEDFbFZedZyssbZPczZWUMhhco5HKOY2Uv6SBMmNxdgniO6xbgBSbILROULRX4rvwbzmItak_bk6hdsD5ZENVFG0es-QR1i7DFthfNzXaXgVFThDKEgUqK4SXubWZOQt5HNyhSwgE7E3BZjEZd_AYXHhrDtarXgsrCQz0gFsAZhGfTUMe4HfRQYNo5OM__m1MRMGMU5iE6kn-yl3bw9Cpg8W4zlzvntQ_8e8_G7DRyc2OeMq-zINFyW9WF5iwnNELSHPsvg8TK0HxYi1GcukzQBki9k5AQx7aIgBYxIQifh1Dq1DGpcOujJt3syhatFcrorEs3YBH6ru7qdP36IugnVN8k4B_HPLVXJ8wQkyyhVYSMqJCsUAaWprAu9LAyAyWWSMM92Ilg7c4O5mxaCrALNiPCrm7xiU8cOQElZuQwlVttCFg7kbgX71VHfSkEg3WOCDODuITFqYs-NNLy2nO0Wqy0t-GGC5bDI_yeKqdfisTm5xkgmNy_-S83ruu4aXS2RScCSqUQJm74PkukKVSXvDxssVJi-wQsuQ2aATSJZ3r40cnsP5gxbUouIZ15tnDJnnoyiHC5Rv53v-DeBkSsCSxPaD8Ie8YTVTTTla0D3M7duJW0tu4O3Cv953Z1sm4TlWqWver7XpCH5YVsmGz6vrMrx9JUEq1ChPuddoRfPsv6K5hQQO3E3Gqfw-f-R4h6weDhq626wjZaW4XDBcX8AETkQUsMd2hUygTq86CUOgfq7lPRYNbin7olAsNmUecIpt8nd-ZVp8N8slAx25pB6z7x68ErjaOroRgYZVUJBckkwuuMSoeaW3YuAY1S2Ibc0KkqEYKiJftieo8YJTsGkZYpGcj-8Kj4DUNl0MhpBriCxYZtv_GceHNrD3yYVmI17-drwkGzEy-tLHc3elPHNTVPPuwZxxt3V3lcYeDHO-xZZ5M4Kx9s_ccsHPyqX4yoydAnpjeD7vzLIPRYk3n5S98nWjcaob1HV4UAMtJUHg54GGku-Z04B7U-mIxrszC3iMLUf_NZ358iiGnPkBS1URIefg-SYLDqjXqWzzwE3b1I-JXpE_mTDga5blRUvfuvzXjR1ke6BY8urAoC4hHi6uyQOipAcgOOt6A86AEkhEv7VHVURnCfQB4RPEsGstcwYLKJtkqh4CE2sV5Qb1arRpQhT2vAjc7XuMjvzPhBFYZijLUVJAxJJFwSY3WtEd6902p5dIihjsHW__JDeddVROk6fFRrAqSDaf6sC_m9M3_BwD3-dmgW2CXZX15c7I5NbEWWMK0TCCndWvOcgY6Q3NuZlamwwzW7mBAz5342gxUXmu9y1qJO_lAVaTVZXRFaukcKM1ctA_SSiRpLWkf0kxVOh4kKiGF76zdBO8S5SfQlS8uOQ90TEzpEYjVuRGa9yEKjZt2cWVMOdNjgp7_Lj94cmJGw0MIl_YhdfcnKWZdw1bkXxcSHKquwmVeWzGs0kOay6Fr0jzwgsVxbzOOPogA797oQX5nNIkJmUlmMS_g5prLskYJyYX8yIzE3ld_67ucWnPs9CgYrJVYdMYmOO99e2KlZPFzYyLejj9L9PmUCKEixQBZFMRKpThLT2diKvjBo9Qj4Gd9g5kh2qfGXYgVWDe_UUgyxVI_eHEG4RAo0wmCk_V3ygLADdOEAeDkl5xgk33tw-W4elequRHZdzuSYKfRFQS_fEIg0-SMfMN5VQsezCn70XWjFDg8mMvoWDjiqRCNZrwFNJqZztZWeQ43ib4XyUwLHjQcGiyoc4_3EplE8xEI2ZF6614CeVS3ZBBswigzBWJ3dLCV91-5e1-lTIVKagoTpoma_cBJMSEs9lKcxhFfI9kfiavk4Yvk-qirc6pFdu_Kyqh2dm2dmgmym1v_iJOJy0OoCB69tpl_-IoJuM_e7U-vuI27KiaKdxbTmg3UGtvHNx_QlqsoDQcXZrkjKI6utVIeZNeHOGsUcfwVpRR-mIZb-_qjY-vzDU07BhVZsztXmShJnoue--LPJoH4oEmuAY_LsUklolrtplOH8O2UO5JfA4VJEFodkhcJnURKxuBZuPWkUYIqe0qVvSiRo8lsb2mboU4F23Qz9avz_dVsc_cEw8FeD-uoEkmqC7HSo4XEK69gol7ftjdcKRU6xt8B-2qQe9pgTvppyVjKtD_mO_yDznBqWOEiD0S9_uPO8PUoA5ZsoRybkCQPPId7SSeZWnmufPfcin_0xfXrhWI2ErpZ4sd1rEPjs2cLmNrpoerFN6Q9c_WPspUZpsHJx5MdcoAW9lqXI1bjp5Vl_GG30OfvIMHef6lDE8ZSiAEBgpGpFeEsl-r4wRBC0iKlxwQug7q2SVQB_IW5_kmSiCiir-kPNd0jDzKv4Ic8jUssvK4KRtIQAjyECgD20jYJtFvfsGFB2JS-mGfhDtXcvAwN_qvw41AaJwYRnGuH_v-AOH9FG6edx6RgCaGI0mT2B6Xh2EjrgDsMufV48C5aCjqV7IaiTS8Fq9nXP4O1_L6OSNsll4IsDjLkIEuBlq8WEiUjMp3_FHfykWUQI4-MtbjnKtRbzuxQzXNiKyfX9DnVZsm0_8eobBSxGIGyQOHPn0RA20vuSZ10WF1Vc6CGLyKUHJ4Z-GL-QzkokEzNDNmI8rBJEkLvZm9RBm1IFJnsMjIHsGAAZGCu9m6R6UiuY9E9vTWibHwyLdJ4nF1XZndfjtP6fHpeP1HRZMd3zq9LBZZg4TJkYRFMVObzAC47czOqUYE7rUbSCZ9KEDOwtl375Ox8bgTO3U3tQeULDLuOmOXU62iFUts-RiSV18-td8ZP1JfrK7Q0bRFlh7m2eexgXdt90lvY5V0JQxhvmwIltziQqAVQvlPaAaDZPnMU0NgZxQlclmtGFZ4nZb07ADQ_xmLDn72m4fqlMNla0hcYldIr9biMTNJaFQA0l-3-uooM2PUDt1fzDrFmc0gi0ZeA0IkBO9qQn8rcsWMkNZ_kiqok91PI2EDr-oBGiFmrF2CRWJiZwT91NOWmJMeSngDMDoF4bIat1ztV4XSC9ITqRiqXz4xqYmi6O3UN6xvqzNcVDvuAqkn60iubU0Qo4RJdaJlsF2PNSDvtyAsB5PpNCLemhF-qTxY-2LnjDheTWizwwE54WVFrSlYh-s1BNLbOMJ4t-BZyJfX1OSX7ibJVxwsxStqZEh8Ss6WdKDdUhmeEuyUaNv40YJ_vUDUt9GpbzwTvEyK1DsIscx8gr7FyJmjGa9Ol-4c4N1V5kQU4314uZLt8Dq-HyMIoMLDW5j8qT8rT3FsqUmjiprGB9qFC74FfmIEkT4a8qUyu4hB3FRS5haHKZ8z-cTK6_MqcuplO7WSGatMzYp5rEHOwGpKzSD-erqUJdNvCn0dmFzbFyuf7JGcrINu2PHk09A2tvwp-keIfUHwIsbjufpDL8auYT49v3TGK2VMUJ9ru3RHcFdOXsJTCyPA836SCJp9jX1ZIHeJh5R9hwpyQ_VpiBVtooQ2zkT9qfJU0x9lLdeshKMJzcF2VZgXIEmKQf8Kiv8PNtfbviEDrEsnvKhL8NFD-0I6gnQsPIH_GVr3VZQNCasMjgOkollgq311eSBOTjcU7wNfc3KLIv1U8zvknL8sk9OnbkH5m9Nt5LqvU6jJmtCk9-7J3bHRY2NQ215IfoDgQfRsHs_rYNJLo_1DgdJ73Wl9JbYvdz2cTGgxnQxq6vS9vmS2XWWW1N-JVs32ukSBbVgpcYoA4cpa_Cncld74TY0__u132Hi25bjpFlo0EbcVWyCld4E1Hu6FZ4yu1QHX1eeoULQiU1J-ad_WJ1T4kUPv-P69_FeyB8CX-O8QrNkU2qAJpl6Cytkc5dbu2RZKgqfZPTxnuV8XL_K1XyAc2URv6iuQVcZf1E2UB85bQfYjkL0LqMTAhDPTAK3gLnXY02u1aVTb1tOtj2BO9-kGMYyZmXtAMMYLXfE3fB03Nme-AV71nKwXc6Nc-Wk0IIfFhuy_0qJdZTSforJDVS-2O8X4SEu3zZXSmuPNSCT-_lcBXcSDqQneBwhmj7hZVbM1OkuuoyYxiA-s2qbKvKw-1Ek89pZqi3YENRjFnjJg75UERu8T4t6DHjW2_gaW1_hdeadY1zT8Imb0cd3QXxLwX59kiY2HngnC_6OXmoz2S7Q5H2XGmRNxiWZ6vCbPBqMOXepKC3ilLVBCHqu0MA0jxXzwUIzx09VLyMXWEcVcXbAGwBrritqmY7m_JsRbFeqyRy_oFuKCxfBiYqaH7xswoOUVD-5aPprSKIKSzuvxgPs-GLr7eHfzw8nq98FsOkSWt2l6z75AoGfbBwGZ4FMpVIOKwrPnfEfqsaaOTLRAp07Wp45G8nl6zB4WoIsoOBb67DWbSFDVKMy4wXNgtN5iuMfUQ3x-gvL7grNtynvpvfdeb5RIfuxYzXhCpZYZxsWARQREBtFHB_k3o5H1vaaJX69Plp0dnpiCZ-9lVgrqwJA2qGxq2gxSxmuBai8-jCy4L1jyc7or5K1ccsfMNN7yeMc7moPWqMXfVwORSDajzTXAXShp6RJtVmHIJge3ynRm5R8hk3kM0lA8cSjtwmCo2Q8L_aaLNRtSodD1R9LMZY8WGiWd4iHgK-by9kfzLAnpoEMJpMW6PrlbXghml0oGE8VboWhOKMd3Ap5chP7jPOZ2TCWYIYHLMB_Rx7o-8dAYQmO5Q9ahmNf-4RwMQ5wwBeUL_NsU8VuldSqbp8BO_MHia7M-2qJxqulqluCeVM3WKwLosU8R6X-F9GdxBqG_WZxoa5YlJvAE5uedeatAsA7HTsXjbhlEf7kCv6NMlVVx7yUb1QRiq2vEJzQiCLnFyH4AMry7ML7S8HLJejLB_5k9jNwM2RqMLCRmRBCa_wDQGqNiCFgTouYOR0EPKeGuH9hwYw2tZkaBbJQZNdXq36_UQ74oGsDMPIOAZK93mHyUr7xsuukUZpaPNuMHf9WySd7EU_tgF_1JFzPlwYGoqN9n54Migs1hzFGqPWG6rEvjZjLSpHLpFSjpy438Uwn7srI2FheRRY17GpeQ2Tw7piOJ8HxwD9Wr1CIa_r6BTdk9azvodkbTm6nLExV4yRxg1rMI8V_EQyp8PzgpXtbOxZu4RVhq4jX6eCtSx3C_QMGrb_nVNA_HfM5nH8KZYdO-hkuVoG-MZihGoMt5R62ZckRW3kAXcpRbGmRAuk4gRg2TN4pN8gGGbxdMoiCFaCjs1Gh81ciEbG3Ub-NfH6tjDJC5txgRannHuYXvMacvBnk0Iyi8PJo5SXbdlDHUfA8jn96QtFv57RSiM5Kz-BiKPPsmJjrlMEgZilNhs-EMovVYlnL9dXUjgEpaa7jJY4ms1Q7bKZ0xvvLB9w6tAAVIvMSEXbbm_FT9VnuBjqwGmYgFA6InYIpB10YvQV68Q7QyEjsMk2CofnH0L4R57mcEkZm__3AzEHCxMQfgLz3qH0IoHcKtkcSDwm-dUyb4abHyIvouN0cmi3MwY6Hyic2RHVnYefmru7tTXSkKp2aBKqHydGv4wuuFKaMyq57KUPpJsJouCP745m4XMTgDXLG02GxG9k1mvj6FkVJHqjUGSF_GmPG-Hy2ZN3x_eJ0HSCmzuIJyjlVhNVq0doM5RoaR7X5UTXJcUCW9wzKcKk41pQjnei_kwDlq3avaqzj8yC-W7zfAXgcv5QVYUit9aYqPFjUn5rcva2DRqd2rONqRshunahGYUqZrdwLWGEwGBfUaPcyieObxlIxBnL8CX3NZVh4xXd8UyhKUxQVTuqVgZ57gzEMeFL04QvYUpi0wL0pazO5pte2RAPUsyhbKPhvEwsBCJfJIjXAmLKqFe9IUljWBmJDXMUDvyuNGU1MLAcxSHDvmYUZqXjD2rileTTFLwE2wddQwj9Iqj9rsVljxiTWGGHKp-KG6AzDTzo48YKvAMXScDOpj-4ucwIHdiAI7Pb4cyEAWEn2kLhoA265FTctbAvV-0Pyrvx9UNZCgj2VYZRPZT0CG9j42kaIE4XsZ1OoE5tW5_5lx2BVfitWeuT_4xkgf4VbFcsMFC5TjTdf_WKl3MarV3lL4JWQf4Vinzuc4eYjWvMzxJSkpm4qT-E-9Grs7GX5ov42EWCS7ohjGvaYWlUzKL9VR5TXdB2XNteOoIMTY2-cwfxnN69b4yCdnzzRrz7ZcNuF1K9MX-HSJo2wRqnDlteYAuJmyeo88GyoJtKZgvPMQc5Tf0OOxuta5NEmMxYuAZvvc0Gsp_7gSotKhRjkNG9yQt0f0EQDCUQMh2vxiJNf6r1S9c1heHVblg1hfUa3A9_bIVPBcIr1pT2fdOZMa4PaTKCxej6_Y16whOmVbzL-x1_CyIxfRZ-2aJbin9d48kbzPjTBQu9E9aQsCODN_Ygs3FYYp4vFp2v4bbQ1JunNCzRlu2KIx46kxOYhC6N_66D7HKam6NMKNIfdBzAulEwbu9heNnMtMOIm8O08ql-ZNU6bqHWpMk-wlRZABjAqUcTzEj76CzkHDOX-mI6LwymrnYmh6t2u4tIQojcoavj9NovSgoCMpcUWG-_Kp3a7Y2gj4RKBzValHLXuUcWwjmIm0Bd_-KIkJnSlqhwzTKyrbeTZBRYzpJFQ39mD7J7gJCOqJb5Gk11ejDhvUwfG",
+      "summary": []
+    },
+    {
+      "id": "rs_0c16fc964a4f7a6e016aec02094bf487d2b6ba9e5889f573a9",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AIRTxo5fsRgEl_lET3msSNMTnd2-b1G8JII3PQA06rC-z7GlBeSYGHsoFua36CKmNvjLxAjkd_AhzrM_nxHbKHtxVxi6iAEq_9EM1ul4igGhoi3uQK7WAv9Qa19w48NzYKz__GtU_dTXAz1qjJG92OlttsuvU1WBa0ogRatQqZSIcYyhlt92v3pMb83crbdad35Ad5MMNuCEflUzMhWLgz7OW_UhMaOZesArN9nzp-IAC0huPM_y2rsnmSgvP957EwAl0VuqvInbBTPgbWUbYn4Qjh8ysbhYIkafUFJR0jgXk2_PBj3n5jQf46JfZcKljyxv2YR1tc40fKwK8jbNNbm9BJCj24MZO8JhyMjv6nOnRufaYYY0SCrS9Ej1RpXcoX-hmW6wG_RgRe84bilKX8vBlmi4sxIIP9778viu-9KJyKqFL-AoJJTZAdjm-uTkZqs0FUQTBqjFHGLW7lqiTEgbEnCrld3Xbu1zXbAItNJ_4idu8qd46GNrIOJLLfSr_RFbntCMExgyVq1Hz7UdpfNLQBXVn5UHhKyw9cCFKeRCygZsQmiTwFZzyFVwtccbOQ0DH9_Vqd9J0tQRtAW84XD9-srDnxZmHFzbj75DZ3HYJ9tgwg7MtDlBKa1rYC-IFsloQRfh7MW7ziIlHYQmr_pz9-yP6Tmu3KEEP6wO4cCWIyey1SkrV2nqwj5_WcwKiE1FbfsinUMzj0ahUlVBbpIydK9Hn91aG-tbpMpdfzq13mZWLEoR7H8a2mIjUJ3Fj4ZUKzBEZ9uMCcxBFjMW-75fcOktIpI8Jnf-Krdam-X_Wj-9u3btkIsuC_knJjoSJ4fiS7a7WtTF6oTk3KxzMQ8vO0vvc68iuL8AQYJmsTQXUHIipXfbtogtNve0Zwl2LVBPVG-5QXw7EtMkFWItgwHBgUvHtIGSMMRGBqpR37T_F-O67Nmp4tsIDK-Zv6-QCxfDMdGsuDRnFcwI2Z118K2QzXmzl-TFqI0rHRDtBjoeg3rel9R0Ec-OFuaku03wB29Yt53JoOm-wGl2SMSH4JnIEjPXDXIM-uq6vwQu84samVRMAgCpgAXaRM7NqfEiMoJ7xFANe-IFSFxHGFBTJ64fwLoSrSnHwHOmPTYZwGCd1MK5ybQs23Q_QBz4M5QjmVErrTLinZIn0yAx-lCI9XsJLg_pGlrGlP2JB5w6hhoRb4OIMNJkbzFowgnqxBj8uBMe6o_TIi0Q_HATY4-i0CwDO46CsH7NRWIn_NJCW9yVyTKdBPWxQjYOEOOfrJ2O-H38nq0kB5xWuciDZZ5v1g7qkat9__W3EAYUgGGt21BuDrtiJCbS9Jup1HwaZUNevFpLm1VoEnPT-adqI6oQoJrQ8gl9lqEbx9FA6OXmlCsxBWAFdHknVyQARPu3KE3bEDqhm4PN3fblWXdSFa2zK7VhL6tGPRCbU_Xdvv0Hs1dO7ZI2ASPbrR9j3qQwrnuaeQj3FK2Q3tjPSCth4zlFHVp8kdfLl8NGMrSpAJLT3yDRnMY_Yo3T8U370ygdxVCOPIbAiazkLLB6kp0CGhKo9nPP96gXEyP41ApR-1dZ5i--c8AQFswc7XiOR3AJ5Eti7skKXhidylppZFRG1Aza_duQ1i6RfQOGawHpN24jKrQJrGl_lgyyMZOXUdNxlc3X4eKza0Tr2ni_SlPHG5ax3WUHGc6Nfja7wC26aOofelp62xTFuhX1NOdhRgV_Oh6ooTjZVjuPEDsMZxseNj6ulG-Nx00ZyuDdphF_fBlhhS9a-rqwx4fekoM2iII81iK6dMKE72Z_pygfYnFvKXjPLCM65ihuCLA8vJkXT2yyvP0f6ulfcy2uKBN84RgW94klzq_",
+      "summary": []
+    },
+    {
+      "id": "msg_0c16fc964a4f7a6e016aec0209eca087d29135d9fc73626db3",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    @Override\n    public JsonToken nextToken() throws IOException\n    {\n        if (!_allowMultipleMatches && (_currToken != null)\n                && (_exposedContext == null)) {\n            if (_currToken.isStructEnd() && _headContext.inRoot()) {\n                return (_currToken = null);\n            }\n            if (_currToken.isScalarValue() && !_headContext.isStartHandled()\n                    && !_includePath && (_itemFilter == TokenFilter.INCLUDE_ALL)) {\n                return (_currToken = null);\n            }\n        }\n\n        TokenFilterContext ctxt = _exposedContext;\n        if (ctxt != null) {\n            while (true) {\n                JsonToken t = ctxt.nextTokenToRead();\n                if (t != null) {\n                    return (_currToken = t);\n                }\n                if (ctxt == _headContext) {\n                    _exposedContext = null;\n                    if (ctxt.inArray()) {\n                        return (_currToken = delegate.getCurrentToken());\n                    }\n                    break;\n                }\n                ctxt = _headContext.findChildOf(ctxt);\n                _exposedContext = ctxt;\n                if (ctxt == null) {\n                    throw _constructError(\"Unexpected problem: chain of filtered context broken\");\n                }\n            }\n        }\n\n        JsonToken t = delegate.nextToken();\n        if (t == null) {\n            return (_currToken = null);\n        }\n\n        TokenFilter f;\n        switch (t.id()) {\n        case ID_START_ARRAY:\n            f = _itemFilter;\n            if (f == TokenFilter.INCLUDE_ALL) {\n                _headContext = _headContext.createChildArrayContext(f, true);\n                return (_currToken = t);\n            }\n            if (f == null) {\n                delegate.skipChildren();\n                break;\n            }\n            f = _headContext.checkValue(f);\n            if (f == null) {\n                delegate.skipChildren();\n                break;\n            }\n            if (f != TokenFilter.INCLUDE_ALL) {\n                f = f.filterStartArray();\n            }\n            _itemFilter = f;\n            if (f == TokenFilter.INCLUDE_ALL) {\n                _headContext = _headContext.createChildArrayContext(f, true);\n                return (_currToken = t);\n            }\n            _headContext = _headContext.createChildArrayContext(f, false);\n            if (_includePath) {\n                t = _nextTokenWithBuffering(_headContext);\n                if (t != null) {\n                    return (_currToken = t);\n                }\n            }\n            break;\n\n        case ID_START_OBJECT:\n            f = _itemFilter;\n            if (f == TokenFilter.INCLUDE_ALL) {\n                _headContext = _headContext.createChildObjectContext(f, true);\n                return (_currToken = t);\n            }\n            if (f == null) {\n                delegate.skipChildren();\n                break;\n            }\n            f = _headContext.checkValue(f);\n            if (f == null) {\n                delegate.skipChildren();\n                break;\n            }\n            if (f != TokenFilter.INCLUDE_ALL) {\n                f = f.filterStartObject();\n            }\n            _itemFilter = f;\n            if (f == TokenFilter.INCLUDE_ALL) {\n                _headContext = _headContext.createChildObjectContext(f, true);\n                return (_currToken = t);\n            }\n            _headContext = _headContext.createChildObjectContext(f, false);\n            if (_includePath) {\n                t = _nextTokenWithBuffering(_headContext);\n                if (t != null) {\n                    return (_currToken = t);\n                }\n            }\n            break;\n\n        case ID_END_ARRAY:\n        case ID_END_OBJECT:\n            {\n                boolean returnEnd = _headContext.isStartHandled();\n                f = _headContext.getFilter();\n                if ((f != null) && (f != TokenFilter.INCLUDE_ALL)) {\n                    if (t == JsonToken.END_ARRAY) {\n                        f.filterFinishArray();\n                    } else {\n                        f.filterFinishObject();\n                    }\n                }\n                _headContext = _headContext.getParent();\n                _itemFilter = _headContext.getFilter();\n                if (returnEnd) {\n                    return (_currToken = t);\n                }\n            }\n            break;\n\n        case ID_FIELD_NAME:\n            {\n                final String name = delegate.getCurrentName();\n                f = _headContext.setFieldName(name);\n                if (f == TokenFilter.INCLUDE_ALL) {\n                    _itemFilter = f;\n                    if (!_includePath) {\n                        if (_includeImmediateParent && !_headContext.isStartHandled()) {\n                            t = _headContext.nextTokenToRead();\n                            _exposedContext = _headContext;\n                        }\n                    }\n                    return (_currToken = t);\n                }\n                if (f == null) {\n                    delegate.nextToken();\n                    delegate.skipChildren();\n                    break;\n                }\n                f = f.includeProperty(name);\n                if (f == null) {\n                    delegate.nextToken();\n                    delegate.skipChildren();\n                    break;\n                }\n                _itemFilter = f;\n                if (f == TokenFilter.INCLUDE_ALL) {\n                    if (_includePath) {\n                        return (_currToken = t);\n                    }\n                }\n                if (_includePath) {\n                    t = _nextTokenWithBuffering(_headContext);\n                    if (t != null) {\n                        return (_currToken = t);\n                    }\n                }\n                break;\n            }\n\n        default:\n            f = _itemFilter;\n            if (f == TokenFilter.INCLUDE_ALL) {\n                return (_currToken = t);\n            }\n            if (f != null) {\n                f = _headContext.checkValue(f);\n                if ((f == TokenFilter.INCLUDE_ALL)\n                        || ((f != null) && f.includeValue(delegate))) {\n                    return (_currToken = t);\n                }\n            }\n            break;\n        }\n\n        return _nextToken2();\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 2522,
+    "input_tokens_details": {
+      "cache_write_tokens": 2519,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1773,
+    "output_tokens_details": {
+      "reasoning_tokens": 548
+    },
+    "total_tokens": 4295
+  },
+  "user": null,
+  "metadata": {}
+}

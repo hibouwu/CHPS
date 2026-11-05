@@ -1,0 +1,22 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 160,
+  "project": "Cli",
+  "bug_id": "26",
+  "status": "pass",
+  "reason": null,
+  "category": "tp",
+  "coverage": null,
+  "reference_log": null,
+  "raw_sha256": "f1ada9eb8828691eb433315d8c43a8cb35f30c221d65713b52f9e0a1e3f481e9",
+  "input_sha256": "9e7c613277862b45af43466b1a335018faa804aa491a39388178724f984bcd02",
+  "input_tokens": 1160,
+  "full_input_tokens": 1160,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/DD-160-3cf751c8/dbd2b06779b617f6364408171edfa6fa8e6e221e7f312e324075dc02ac2fa8bf/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23"
+}

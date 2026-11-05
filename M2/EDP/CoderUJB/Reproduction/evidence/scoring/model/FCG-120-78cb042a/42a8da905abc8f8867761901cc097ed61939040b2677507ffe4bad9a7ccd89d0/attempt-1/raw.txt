@@ -1,0 +1,58 @@
+Here is a faithful implementation of the **`updateDigest`** method that follows the contract described in the Javadoc and matches the behaviour of the original Apache Commons Codec `DigestUtils` class.
+
+```java
+/**
+ * Reads through an {@link InputStream} and updates the supplied {@link MessageDigest}
+ * with the data that is read.
+ *
+ * <p>The method does **not** close the supplied stream – the caller remains
+ * responsible for closing it.  A {@link BufferedInputStream} is used internally
+ * (when the supplied stream is not already buffered) to minimise the number of
+ * native read calls.</p>
+ *
+ * @param digest the {@link MessageDigest} to update (e.g. MD5, SHA‑256). Must not be {@code null}.
+ * @param data   the {@link InputStream} containing the data to be digested. Must not be {@code null}.
+ * @return the same {@link MessageDigest} instance that was passed in, now containing the
+ *         digest of the data that has been read.
+ * @throws IOException              if an I/O error occurs while reading the stream.
+ * @throws IllegalArgumentException if {@code digest} or {@code data} is {@code null}.
+ * @since 1.8
+ */
+public static MessageDigest updateDigest(final MessageDigest digest,
+                                          final InputStream data) throws IOException {
+    // Validate arguments – this mirrors the defensive checks performed by the original library.
+    if (digest == null) {
+        throw new IllegalArgumentException("MessageDigest must not be null");
+    }
+    if (data == null) {
+        throw new IllegalArgumentException("InputStream must not be null");
+    }
+
+    // Wrap the stream in a BufferedInputStream only when necessary.
+    final InputStream in = (data instanceof BufferedInputStream)
+            ? data
+            : new BufferedInputStream(data);
+
+    // Re‑use a single buffer for the whole read‑loop – the constant is defined in the class.
+    final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+    int read = in.read(buffer, 0, STREAM_BUFFER_LENGTH);
+    while (read != -1) {
+        digest.update(buffer, 0, read);
+        read = in.read(buffer, 0, STREAM_BUFFER_LENGTH);
+    }
+
+    // Return the same MessageDigest instance for method‑chaining / convenience.
+    return digest;
+}
+```
+
+### Key Points of the Implementation
+| Aspect | Detail |
+|--------|--------|
+| **Argument validation** | Throws `IllegalArgumentException` when either argument is `null`. |
+| **Buffering** | Uses a `BufferedInputStream` unless the supplied stream is already buffered, matching the original library’s optimisation. |
+| **Read‑loop** | Reads chunks of size `STREAM_BUFFER_LENGTH` (1024 bytes) and feeds each chunk to `MessageDigest.update`. |
+| **Resource handling** | **Does not** close the input stream – the caller retains ownership of the stream lifecycle, which is the behaviour of the upstream library. |
+| **Return value** | Returns the same `MessageDigest` instance that was passed in, allowing fluent usage (`DigestUtils.updateDigest(md, is).digest()` etc.). |
+
+You can paste this method directly into the `DigestUtils` class shown in the stub. It will compile and work correctly with the rest of the utility methods.

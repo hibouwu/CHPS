@@ -1,0 +1,56 @@
+private static NodePointer createChildPointerForStep(
+            PropertyOwnerPointer parentPointer, Step step) {
+
+    // The step tells us what kind of node we are looking for.
+    NodeTest test = step.getNodeTest();
+
+    // --------------------------------------------------------------
+    // 1) Simple element/property name test (e.g. /book/title)
+    // --------------------------------------------------------------
+    if (test instanceof NodeNameTest) {
+        String name = ((NodeNameTest) test).getName();
+
+        // Wild‑card (“*”) does not refer to a concrete property – let the
+        // caller handle it later.
+        if ("*".equals(name)) {
+            return parentPointer;
+        }
+
+        // Ask the parent for the property pointer.
+        NodePointer pointer = parentPointer.getPropertyPointer(name);
+        if (pointer == null) {
+            // Property does not exist – use a null placeholder.
+            return new NullPropertyPointer(parentPointer, name);
+        }
+        return pointer;
+    }
+
+    // --------------------------------------------------------------
+    // 2) Attribute name test (e.g. /book/@lang)
+    // --------------------------------------------------------------
+    if (test instanceof NameAttributeTest) {
+        QName qname = ((NameAttributeTest) test).getName();
+
+        // The XML‑lang attribute has a dedicated pointer implementation.
+        if (isLangAttribute(qname)) {
+            return new LangAttributePointer(parentPointer);
+        }
+
+        // Treat other attributes as ordinary properties.
+        String name = qname.getName();
+        NodePointer pointer = parentPointer.getPropertyPointer(name);
+        if (pointer == null) {
+            return new NullPropertyPointer(parentPointer, name);
+        }
+        return pointer;
+    }
+
+    // --------------------------------------------------------------
+    // 3) All other node tests (node‑type, processing‑instruction, …)
+    // --------------------------------------------------------------
+    // The simple interpreter does not have a specialised pointer for
+    // these cases.  Returning a NullElementPointer keeps the evaluation
+    // chain functional while signalling that the concrete node could
+    // not be materialised here.
+    return new NullElementPointer(parentPointer);
+}

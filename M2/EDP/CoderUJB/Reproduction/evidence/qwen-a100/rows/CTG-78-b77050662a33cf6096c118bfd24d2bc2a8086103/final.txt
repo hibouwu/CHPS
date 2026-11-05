@@ -1,0 +1,76 @@
+Certainly! Below is a detailed implementation of the `testReadingOfFirstStoredEntry` method for the `ZipFile` class. This test case is designed to verify that the first stored entry in a ZIP file can be correctly read and its contents match the expected data.
+
+```java
+/**
+ * Test case for
+ * <a href="https://issues.apache.org/jira/browse/COMPRESS-264"
+ * >COMPRESS-264</a>.
+ */
+@Test
+public void testReadingOfFirstStoredEntry() throws Exception {
+    // Create a temporary ZIP file with a stored entry
+    File tempZipFile = File.createTempFile("test", ".zip");
+    tempZipFile.deleteOnExit();
+
+    // Prepare some test data
+    String testData = "This is a test stored entry.";
+    byte[] testDataBytes = testData.getBytes(Charset.forName("UTF-8"));
+
+    // Create a ZIP file and add a stored entry
+    try (ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new FileOutputStream(tempZipFile))) {
+        ZipArchiveEntry entry = new ZipArchiveEntry("test.txt");
+        entry.setMethod(ZipEntry.STORED);
+        entry.setSize(testDataBytes.length);
+        CRC32 crc32 = new CRC32();
+        crc32.update(testDataBytes);
+        entry.setCrc(crc32.getValue());
+        zos.putArchiveEntry(entry);
+        zos.write(testDataBytes);
+        zos.closeArchiveEntry();
+    }
+
+    // Open the ZIP file using ZipFile class
+    try (ZipFile zipFile = new ZipFile(tempZipFile)) {
+        Enumeration<ZipArchiveEntry> entries = zipFile.getEntries();
+        assertTrue("ZIP file should contain at least one entry", entries.hasMoreElements());
+
+        // Get the first entry
+        ZipArchiveEntry firstEntry = entries.nextElement();
+        assertEquals("Entry name should match", "test.txt", firstEntry.getName());
+        assertEquals("Entry method should be STORED", ZipEntry.STORED, firstEntry.getMethod());
+        assertEquals("Entry size should match", testDataBytes.length, firstEntry.getSize());
+
+        // Read the contents of the first entry
+        try (InputStream inputStream = zipFile.getInputStream(firstEntry)) {
+            byte[] buffer = new byte[(int) firstEntry.getSize()];
+            int bytesRead = inputStream.read(buffer);
+            assertEquals("Number of bytes read should match entry size", testDataBytes.length, bytesRead);
+            assertArrayEquals("Content of the entry should match", testDataBytes, buffer);
+        }
+    }
+}
+```
+
+### Explanation:
+
+1. **Temporary ZIP File Creation**:
+   - A temporary ZIP file is created using `File.createTempFile`.
+   - The file is marked to be deleted on exit using `deleteOnExit()`.
+
+2. **Test Data Preparation**:
+   - A string `testData` is defined as the content of the stored entry.
+   - The string is converted to a byte array `testDataBytes`.
+
+3. **ZIP File Creation**:
+   - A `ZipArchiveOutputStream` is used to create a ZIP file.
+   - A `ZipArchiveEntry` named "test.txt" is created and set to use the STORED compression method.
+   - The size and CRC32 checksum of the entry are set based on the test data.
+   - The test data is written to the entry.
+
+4. **Reading the ZIP File**:
+   - The ZIP file is opened using the `ZipFile` class.
+   - The entries in the ZIP file are enumerated.
+   - The first entry is retrieved and verified to have the correct name, method, and size.
+   - The content of the first entry is read into a buffer and compared to the original test data to ensure they match.
+
+This test case ensures that the `ZipFile` class can correctly handle and read a stored entry from a ZIP file, addressing the issue described in COMPRESS-264.

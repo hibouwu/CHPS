@@ -1,0 +1,25 @@
+
+
+    protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
+    {
+        // 14-Nov-2016, tatu: As per [dataformat-xml#213], we may have explicitly
+        //    configured root name...
+        if (jgen instanceof ToXmlGenerator) {
+            _initWithRootName((ToXmlGenerator) jgen, ROOT_NAME_FOR_NULL);
+        }
+        super.serializeValue(jgen, null);
+    }
+
+// You are a professional Java programmer, please fix the bug in the function named _startRootArray based on the provided abstract Java class context information and the following buggy function.
+// Buggy Function
+
+    protected void _startRootArray(ToXmlGenerator xgen, QName rootName) throws IOException
+    {
+        if (rootName == null) {
+            rootName = _rootNameFromConfig();
+        }
+        if (rootName == null) {
+            rootName = ROOT_NAME_FOR_NULL;
+        }
+        _initWithRootName(xgen, rootName);
+        xgen.

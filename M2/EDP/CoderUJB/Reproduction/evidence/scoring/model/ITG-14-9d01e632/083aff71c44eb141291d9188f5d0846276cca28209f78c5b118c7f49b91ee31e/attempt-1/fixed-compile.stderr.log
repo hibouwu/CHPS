@@ -1,0 +1,31 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+jackson-core-from-maven.compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed/maven-build.xml:74: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+compile:
+
+jackson-core-from-maven.compile-tests:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed/target/test-classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed/maven-build.xml:102: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 83 source files to /data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed/target/test-classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed/src/test/java/com/fasterxml/jackson/core/sym/SymbolsViaParserTest.java:38: error: diamond operator is not supported in -source 1.6
+    [javac]         Map<String, Object> testData = new HashMap<>();
+    [javac]                                                    ^
+    [javac]   (use -source 7 or higher to enable diamond operator)
+    [javac] 1 error
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/ITG-14-7z9bvuw3/fixed/maven-build.xml:102: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 50,
+  "project": "Codec",
+  "bug_id": "7",
+  "status": "fail",
+  "reason": "target test failed",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-50-99a9d802/e131310e350e73f1e87d75ccf6cb517460abc26656920cb4d88a60d372611be8/attempt-1/result.json",
+  "raw_sha256": "e19a7d493519197da70d509f3b0373469f1c6d37ea0ea77d217a19b013c656eb",
+  "input_sha256": "481f050760c0a3efbf295b66ea45c25763355017c503eb8f51e5b72c8cbf8389",
+  "input_tokens": 2108,
+  "full_input_tokens": 2108,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-50-99a9d802/b88470db6b1f3fc7107fc210cf23ae8f1b94cfa2c4ac5f613975b81f940fdb5d/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-50-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

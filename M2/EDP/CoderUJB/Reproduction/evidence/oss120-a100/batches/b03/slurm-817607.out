@@ -1,0 +1,34 @@
+romeo-a058
+name, uuid, memory.total [MiB], memory.free [MiB]
+NVIDIA GH200 120GB, GPU-ef8692f3-8bd7-80a2-608b-10731c9ec114, 97871 MiB, 97277 MiB
+/scratch_p/hibouwu/coderujb/oss120-20261105-v1/build/bin/llama-server: OK
+CTG-63-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 828, 'prompt_tokens': 1903, 'total_tokens': 2731}
+CTG-78-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1615, 'prompt_tokens': 1387, 'total_tokens': 3002}
+CTG-84-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1628, 'prompt_tokens': 1650, 'total_tokens': 3278}
+CTG-88-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1266, 'prompt_tokens': 1241, 'total_tokens': 2507}
+CTG-94-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1268, 'prompt_tokens': 1794, 'total_tokens': 3062}
+CTG-95-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1284, 'prompt_tokens': 461, 'total_tokens': 1745}
+CTG-101-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1824, 'prompt_tokens': 1616, 'total_tokens': 3440}
+CTG-102-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1410, 'prompt_tokens': 1036, 'total_tokens': 2446}
+CTG-134-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 1788, 'prompt_tokens': 1567, 'total_tokens': 3355}
+CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 2184, 'prompt_tokens': 1204, 'total_tokens': 3388}
+CTG-137-b77050662a33cf6096c118bfd24d2bc2a8086103 stop {'completion_tokens': 2235, 'prompt_tokens': 1134, 'total_tokens': 3369}
+ITG-5-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 2314, 'prompt_tokens': 1076, 'total_tokens': 3390}
+ITG-14-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1392, 'prompt_tokens': 779, 'total_tokens': 2171}
+ITG-22-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1333, 'prompt_tokens': 273, 'total_tokens': 1606}
+ITG-41-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1017, 'prompt_tokens': 284, 'total_tokens': 1301}
+ITG-42-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1352, 'prompt_tokens': 755, 'total_tokens': 2107}
+ITG-51-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1368, 'prompt_tokens': 479, 'total_tokens': 1847}
+ITG-67-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1366, 'prompt_tokens': 300, 'total_tokens': 1666}
+ITG-85-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1231, 'prompt_tokens': 455, 'total_tokens': 1686}
+ITG-139-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 2126, 'prompt_tokens': 483, 'total_tokens': 2609}
+ITG-171-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1714, 'prompt_tokens': 273, 'total_tokens': 1987}
+ITG-232-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1133, 'prompt_tokens': 250, 'total_tokens': 1383}
+ITG-241-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1250, 'prompt_tokens': 287, 'total_tokens': 1537}
+ITG-268-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1210, 'prompt_tokens': 287, 'total_tokens': 1497}
+ITG-278-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1210, 'prompt_tokens': 230, 'total_tokens': 1440}
+ITG-297-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1831, 'prompt_tokens': 329, 'total_tokens': 2160}
+ITG-304-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 980, 'prompt_tokens': 288, 'total_tokens': 1268}
+ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1730, 'prompt_tokens': 357, 'total_tokens': 2087}
+ITG-429-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1753, 'prompt_tokens': 279, 'total_tokens': 2032}
+ITG-450-9d01e6322844ba29a9b26b13e175a5fc0db95e81 stop {'completion_tokens': 1985, 'prompt_tokens': 223, 'total_tokens': 2208}

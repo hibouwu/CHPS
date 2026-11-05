@@ -1,0 +1,10 @@
+    //-----------------------------------------------------------------------
+    public void testCalendar() {
+        DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0, ETHIOPIC_UTC);
+        assertEquals(ETHIOPIC_UTC, dt.getChronology());
+        assertEquals(2004, dt.getYear());
+        assertEquals(6, dt.getMonthOfYear());
+        assertEquals(9, dt.getDayOfMonth());
+        assertEquals(DateTimeConstants.WEDNESDAY, dt.getDayOfWeek());
+        assertEquals(2004, dt.getEra());
+    }

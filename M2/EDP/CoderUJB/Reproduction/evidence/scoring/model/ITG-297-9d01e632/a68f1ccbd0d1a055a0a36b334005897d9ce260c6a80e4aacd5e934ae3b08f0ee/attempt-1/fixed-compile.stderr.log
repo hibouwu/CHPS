@@ -1,0 +1,72 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+jackson-dataformat-xml-from-maven.compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/maven-build.xml:88: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+compile:
+
+jackson-dataformat-xml-from-maven.compile-tests:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/target/test-classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/maven-build.xml:116: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 62 source files to /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/target/test-classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:52: error: cannot find symbol
+    [javac]         Definition result = new XmlMapper().readValue(xml, Definition.class);
+    [javac]         ^
+    [javac]   symbol:   class Definition
+    [javac]   location: class NestedUnwrappedLists180Test
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:52: error: cannot find symbol
+    [javac]         Definition result = new XmlMapper().readValue(xml, Definition.class);
+    [javac]                                                            ^
+    [javac]   symbol:   class Definition
+    [javac]   location: class NestedUnwrappedLists180Test
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:60: error: cannot find symbol
+    [javac]         assertEquals("first", first.id);
+    [javac]                                    ^
+    [javac]   symbol:   variable id
+    [javac]   location: variable first of type Record
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:62: error: cannot find symbol
+    [javac]         assertEquals("a", first.fields.get(0).value);
+    [javac]                                              ^
+    [javac]   symbol:   variable value
+    [javac]   location: class Field
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:63: error: cannot find symbol
+    [javac]         assertEquals("b", first.fields.get(1).value);
+    [javac]                                              ^
+    [javac]   symbol:   variable value
+    [javac]   location: class Field
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:66: error: cannot find symbol
+    [javac]         assertEquals("empty", empty.id);
+    [javac]                                    ^
+    [javac]   symbol:   variable id
+    [javac]   location: variable empty of type Record
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:71: error: cannot find symbol
+    [javac]         assertEquals("last", last.id);
+    [javac]                                  ^
+    [javac]   symbol:   variable id
+    [javac]   location: variable last of type Record
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:73: error: cannot find symbol
+    [javac]         assertEquals("c", last.fields.get(0).value);
+    [javac]                                             ^
+    [javac]   symbol:   variable value
+    [javac]   location: class Field
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/src/test/java/com/fasterxml/jackson/dataformat/xml/lists/NestedUnwrappedLists180Test.java:74: error: cannot find symbol
+    [javac]         assertEquals("d", last.fields.get(1).value);
+    [javac]                                             ^
+    [javac]   symbol:   variable value
+    [javac]   location: class Field
+    [javac] 9 errors
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/ITG-297-g3i7w15g/fixed/maven-build.xml:116: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

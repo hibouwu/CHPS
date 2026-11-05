@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the Java test method with the given signature, continuing any answer prefix already provided, and stop after its closing brace. No markdown, no explanations. So we need to write the method body that tests mapping a Map to Properties with Jackson, ensuring values are coerced to strings. Use ObjectMapper, maybe configure something. The test should assert that after deserialization, the Properties contains string values even if original map had non-string values.\n\nWe need to output only the method, starting with \"public void testMapToProperties() throws Exception {\" and ending with \"}\". No extra. Ensure imports not needed. Use JUnit (likely JUnit 4). Use assertEquals, assertTrue.\n\nWrite code:\n\npublic void testMapToProperties() throws Exception {\n    ObjectMapper mapper = new ObjectMapper();\n    // maybe enable something? Not needed.\n    Map<String,Object> source = new HashMap<>();\n    source.put(\"int\", 123);\n    source.put(\"bool\", true);\n    source.put(\"string\", \"value\");\n    // Serialize to JSON then deserialize as Properties\n    String json = mapper.writeValueAsString(source);\n    Properties props = mapper.readValue(json, Properties.class);\n    assertEquals(\"123\", props.getProperty(\"int\"));\n    assertEquals(\"true\", props.getProperty(\"bool\"));\n    assertEquals(\"value\", props.getProperty(\"string\"));\n    // also ensure class of values is String\n    for (String name : props.stringPropertyNames()) {\n        assertTrue(props.get(name) instanceof String);\n    }\n}\n\nThat's it. Ensure no extra.",
+        "content": "public void testMapToProperties() throws Exception {\n    ObjectMapper mapper = new ObjectMapper();\n    Map<String, Object> source = new HashMap<>();\n    source.put(\"int\", 123);\n    source.put(\"bool\", true);\n    source.put(\"string\", \"value\");\n    String json = mapper.writeValueAsString(source);\n    Properties props = mapper.readValue(json, Properties.class);\n    assertEquals(\"123\", props.getProperty(\"int\"));\n    assertEquals(\"true\", props.getProperty(\"bool\"));\n    assertEquals(\"value\", props.getProperty(\"string\"));\n    for (String name : props.stringPropertyNames()) {\n        assertTrue(props.get(name) instanceof String);\n    }\n}"
+      }
+    }
+  ],
+  "created": 1793852087,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 472,
+    "prompt_tokens": 313,
+    "total_tokens": 785
+  },
+  "id": "chatcmpl-DDHCN7sUkQ1fBNmNPgbVEl4g8mU5ZeUr",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 313,
+    "prompt_ms": 252.78,
+    "prompt_per_token_ms": 0.8076038338658147,
+    "prompt_per_second": 1238.2308726956246,
+    "predicted_n": 472,
+    "predicted_ms": 2692.927,
+    "predicted_per_token_ms": 5.705353813559323,
+    "predicted_per_second": 175.27396769388847
+  }
+}

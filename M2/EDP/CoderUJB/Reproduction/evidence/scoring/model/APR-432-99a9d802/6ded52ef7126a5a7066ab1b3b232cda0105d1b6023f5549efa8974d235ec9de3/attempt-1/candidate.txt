@@ -1,0 +1,16 @@
+private void readTypeVariables() {
+    for (Type type : typeVariable.getBounds()) {
+        registerTypeVariablesOn(type);
+    }
+
+    Type actualType = extractActualBoundedTypeOf(getActualTypeArgumentFor(typeVariable));
+    if (actualType instanceof BoundedType) {
+        BoundedType boundedType = (BoundedType) actualType;
+        registerTypeVariablesOn(boundedType.firstBound());
+        for (Type interfaceBound : boundedType.interfaceBounds()) {
+            registerTypeVariablesOn(interfaceBound);
+        }
+    } else {
+        registerTypeVariablesOn(actualType);
+    }
+}

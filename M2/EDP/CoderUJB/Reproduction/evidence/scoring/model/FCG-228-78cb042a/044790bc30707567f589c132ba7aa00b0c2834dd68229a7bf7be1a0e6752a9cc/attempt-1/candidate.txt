@@ -1,0 +1,15 @@
+public String nextName() throws IOException {
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+      p = doPeek();
+    }
+    if (p == PEEKED_UNQUOTED_NAME || p == PEEKED_SINGLE_QUOTED_NAME || p == PEEKED_DOUBLE_QUOTED_NAME) {
+      String result = peekedString;
+      peekedString = null;
+      peeked = PEEKED_NONE;
+      pathNames[stackSize - 1] = result;
+      return result;
+    } else {
+      throw new IllegalStateException("Expected a name but was " + peek() + locationString());
+    }
+  }

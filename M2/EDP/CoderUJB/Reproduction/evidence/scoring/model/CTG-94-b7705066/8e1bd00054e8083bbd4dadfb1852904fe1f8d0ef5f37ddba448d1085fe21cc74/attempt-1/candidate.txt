@@ -1,0 +1,9 @@
+public void testUnterminatedStringFailure() throws IOException {
+    JsonReader reader = new JsonReader(reader("\"unterminated"));
+    try {
+      reader.nextString();
+      fail("Expected an IOException due to unterminated string");
+    } catch (IOException expected) {
+    }
+  }
+```

@@ -1,0 +1,31 @@
+public boolean nextBoolean() throws IOException {
+    // 1. Determine the type of the next token.
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+        p = doPeek();               // may throw IOException
+    }
+
+    // 2. Accept only the two boolean token types.
+    if (p == PEEKED_TRUE) {
+        // token is the literal "true"
+        peeked = PEEKED_NONE;       // clear cached token
+        // advance the index for the current container (array or object)
+        if (stackSize > 0) {
+            pathIndices[stackSize - 1]++;
+        }
+        return true;
+    }
+
+    if (p == PEEKED_FALSE) {
+        // token is the literal "false"
+        peeked = PEEKED_NONE;
+        if (stackSize > 0) {
+            pathIndices[stackSize - 1]++;
+        }
+        return false;
+    }
+
+    // 3. Anything else is an error – the caller expected a boolean.
+    throw new IllegalStateException(
+            "Expected a boolean but was " + peek()); // peek() will give the JsonToken
+}

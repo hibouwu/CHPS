@@ -1,0 +1,39 @@
+public void testFormat() {
+        // -----------------------------------------------------------------
+        // 1. Prepare a deterministic Date: 2003‑01‑01 00:00:00 UTC
+        // -----------------------------------------------------------------
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        cal.clear();                                 // clear all fields
+        cal.set(2003, Calendar.JANUARY, 1);          // year, month, day
+        Date date = cal.getTime();
+
+        // -----------------------------------------------------------------
+        // 2. SimpleDateFormat – the reference implementation (Java 7+)
+        // -----------------------------------------------------------------
+        SimpleDateFormat sdfY = new SimpleDateFormat("Y", Locale.US);
+        sdfY.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String expectedY = sdfY.format(date);       // should be "2003"
+
+        SimpleDateFormat sdfYYY = new SimpleDateFormat("YYY", Locale.US);
+        sdfYYY.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String expectedYYY = sdfYYY.format(date);   // should also be "2003"
+
+        // -----------------------------------------------------------------
+        // 3. FastDateFormat – the class under test
+        // -----------------------------------------------------------------
+        FastDateFormat fdfY = FastDateFormat.getInstance("Y",
+                TimeZone.getTimeZone("UTC"), Locale.US);
+        String actualY = fdfY.format(date);
+
+        FastDateFormat fdfYYY = FastDateFormat.getInstance("YYY",
+                TimeZone.getTimeZone("UTC"), Locale.US);
+        String actualYYY = fdfYYY.format(date);
+
+        // -----------------------------------------------------------------
+        // 4. Assertions – FastDateFormat must match SimpleDateFormat
+        // -----------------------------------------------------------------
+        assertEquals("FastDateFormat should format pattern \"Y\" like SimpleDateFormat",
+                expectedY, actualY);
+        assertEquals("FastDateFormat should format pattern \"YYY\" like SimpleDateFormat",
+                expectedYYY, actualYYY);
+    }

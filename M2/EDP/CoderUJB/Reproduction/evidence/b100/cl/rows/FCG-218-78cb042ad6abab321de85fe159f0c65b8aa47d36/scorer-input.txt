@@ -1,0 +1,164 @@
+//     protected Object readResolve();
+//     @Override
+//     public boolean requiresPropertyOrdering();
+//     @Override
+//     public boolean canHandleBinaryNatively();
+//     public boolean canUseCharArrays();
+//     @Override
+//     public boolean canParseAsync();
+//     @Override
+//     public Class<? extends FormatFeature> getFormatReadFeatureType();
+//     @Override
+//     public Class<? extends FormatFeature> getFormatWriteFeatureType();
+//     @Override
+//     public boolean canUseSchema(FormatSchema schema);
+//     @Override
+//     public String getFormatName();
+//     public MatchStrength hasFormat(InputAccessor acc) throws IOException;
+//     public boolean requiresCustomCodec();
+//     protected MatchStrength hasJSONFormat(InputAccessor acc) throws IOException;
+//     @Override
+//     public Version version();
+//     @Deprecated
+//     public final JsonFactory configure(JsonFactory.Feature f, boolean state);
+//     @Deprecated
+//     public JsonFactory enable(JsonFactory.Feature f);
+//     @Deprecated
+//     public JsonFactory disable(JsonFactory.Feature f);
+//     public final boolean isEnabled(JsonFactory.Feature f);
+//     @Override
+//     public final int getParserFeatures();
+//     @Override
+//     public final int getGeneratorFeatures();
+//     @Override
+//     public int getFormatParserFeatures();
+//     @Override
+//     public int getFormatGeneratorFeatures();
+//     public final JsonFactory configure(JsonParser.Feature f, boolean state);
+//     public JsonFactory enable(JsonParser.Feature f);
+//     public JsonFactory disable(JsonParser.Feature f);
+//     @Override
+//     public final boolean isEnabled(JsonParser.Feature f);
+//     public final boolean isEnabled(StreamReadFeature f);
+//     public InputDecorator getInputDecorator();
+//     @Deprecated
+//     public JsonFactory setInputDecorator(InputDecorator d);
+//     public final JsonFactory configure(JsonGenerator.Feature f, boolean state);
+//     public JsonFactory enable(JsonGenerator.Feature f);
+//     public JsonFactory disable(JsonGenerator.Feature f);
+//     @Override
+//     public final boolean isEnabled(JsonGenerator.Feature f);
+//     public final boolean isEnabled(StreamWriteFeature f);
+//     public CharacterEscapes getCharacterEscapes();
+//     public JsonFactory setCharacterEscapes(CharacterEscapes esc);
+//     public OutputDecorator getOutputDecorator();
+//     @Deprecated
+//     public JsonFactory setOutputDecorator(OutputDecorator d);
+//     public JsonFactory setRootValueSeparator(String sep);
+//     public String getRootValueSeparator();
+//     public JsonFactory setCodec(ObjectCodec oc);
+//     public ObjectCodec getCodec();
+//     @Override
+//     public JsonParser createParser(File f) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(URL url) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(InputStream in) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(Reader r) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(byte[] data) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(byte[] data, int offset, int len) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(String content) throws IOException, JsonParseException;
+//     @Override
+//     public JsonParser createParser(char[] content) throws IOException;
+//     @Override
+//     public JsonParser createParser(char[] content, int offset, int len) throws IOException;
+//     @Override
+//     public JsonParser createParser(DataInput in) throws IOException;
+//     @Override
+//     public JsonParser createNonBlockingByteArrayParser() throws IOException;
+//     @Override
+//     public JsonGenerator createGenerator(OutputStream out, JsonEncoding enc)
+//         throws IOException;
+//     @Override
+//     public JsonGenerator createGenerator(OutputStream out) throws IOException;
+//     @Override
+//     public JsonGenerator createGenerator(Writer w) throws IOException;
+//     @Override
+//     public JsonGenerator createGenerator(File f, JsonEncoding enc) throws IOException;
+//     @Override
+//     public JsonGenerator createGenerator(DataOutput out, JsonEncoding enc) throws IOException;
+//     @Override
+//     public JsonGenerator createGenerator(DataOutput out) throws IOException;
+//     @Deprecated
+//     public JsonParser createJsonParser(File f) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonParser createJsonParser(URL url) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonParser createJsonParser(InputStream in) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonParser createJsonParser(Reader r) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonParser createJsonParser(byte[] data) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonParser createJsonParser(byte[] data, int offset, int len) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonParser createJsonParser(String content) throws IOException, JsonParseException;
+//     @Deprecated
+//     public JsonGenerator createJsonGenerator(OutputStream out, JsonEncoding enc) throws IOException;
+//     @Deprecated
+//     public JsonGenerator createJsonGenerator(Writer out) throws IOException;
+//     @Deprecated
+//     public JsonGenerator createJsonGenerator(OutputStream out) throws IOException;
+//     protected JsonParser _createParser(InputStream in, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(Reader r, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(char[] data, int offset, int len, IOContext ctxt,
+//             boolean recyclable) throws IOException;
+//     protected JsonParser _createParser(byte[] data, int offset, int len, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(DataInput input, IOContext ctxt) throws IOException;
+//     protected JsonGenerator _createGenerator(Writer out, IOContext ctxt) throws IOException;
+//     protected JsonGenerator _createUTF8Generator(OutputStream out, IOContext ctxt) throws IOException;
+//     protected Writer _createWriter(OutputStream out, JsonEncoding enc, IOContext ctxt) throws IOException;
+//     protected final InputStream _decorate(InputStream in, IOContext ctxt) throws IOException;
+//     protected final Reader _decorate(Reader in, IOContext ctxt) throws IOException;
+//     protected final DataInput _decorate(DataInput in, IOContext ctxt) throws IOException;
+//     protected final OutputStream _decorate(OutputStream out, IOContext ctxt) throws IOException;
+//     protected final Writer _decorate(Writer out, IOContext ctxt) throws IOException;
+//     public BufferRecycler _getBufferRecycler();
+//     protected IOContext _createContext(Object srcRef, boolean resourceManaged);
+//     protected IOContext _createNonBlockingContext(Object srcRef);
+//     private final void _requireJSONFactory(String msg);
+//     private final boolean _isJSONFactory();
+// }
+
+// You are a professional Java programmer, please create a function named `_createUTF8Generator` based on the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Overridable factory method that actually instantiates generator for
+     * given {@link OutputStream} and context object, using UTF-8 encoding.
+     *<p>
+     * This method is specifically designed to remain
+     * compatible between minor versions so that sub-classes can count
+     * on it being called as expected. That is, it is part of official
+     * interface from sub-class perspective, although not a public
+     * method available to users of factory implementations.
+     */
+    protected JsonGenerator _createUTF8Generator(OutputStream out, IOContext ctxt) throws IOException {
+        return null;
+    }
+
+// Output constraint: Output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+//     protected JsonGenerator _createUTF8Generator(OutputStream out, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(InputStream in, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(Reader r, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(char[] data, int offset, int len, IOContext ctxt,
+//             boolean recyclable) throws IOException;
+//     protected JsonParser _createParser(byte[] data, int offset, int len, IOContext ctxt) throws IOException;
+//     protected JsonParser _createParser(DataInput input, IOContext ctxt) throws IOException;
+//     protected JsonGenerator _createGenerator(Writer out, IOContext ctxt) throws IOException;
+//     protected JsonGenerator _createUTF8Generator(OutputStream out, IOContext ctxt) throws IOException;
+//     protected Writer _createWriter

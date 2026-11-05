@@ -1,0 +1,25 @@
+```java
+@Test
+public void testExactOptionNameMatch() throws ParseException {
+    Options options = new Options();
+    options.addOption(Option.builder()
+            .longOpt("importToOpen")
+            .hasArg()
+            .argName("FILE")
+            .build());
+    options.addOption(Option.builder("i")
+            .longOpt("import")
+            .hasArg()
+            .argName("FILE")
+            .build());
+
+    // An exact match must take precedence over a longer option sharing its prefix.
+    CommandLine commandLine = new DefaultParser().parse(
+            options, new String[] {"--import=FILE"});
+
+    assertTrue(commandLine.hasOption("import"));
+    assertTrue(commandLine.hasOption("i"));
+    assertEquals("FILE", commandLine.getOptionValue("import"));
+    assertFalse(commandLine.hasOption("importToOpen"));
+}
+```

@@ -1,0 +1,22 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 319,
+  "project": "Jsoup",
+  "bug_id": "93",
+  "status": "fail",
+  "reason": "candidate_syntax",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/APR-319-99a9d802/5f49aad48dcf3bef7f16594c3d57054907c420b0f9a06f0a4df1d52f715229a7/attempt-1/result.json",
+  "raw_sha256": "67d3daa44707234459f65c65aaa7710c35b05b1ac559041f092bd5135d19b1c2",
+  "input_sha256": "bf302820b52fc7e38248244612f3f8e9b57a900903e9158510415c0302f613a7",
+  "input_tokens": 725,
+  "full_input_tokens": 725,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/APR-319-99a9d802/814466a75425c74c79edb95f8c3e5ce1cef232b98d7efa679bcf15b9549ac680/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/APR-319-99a9d802b33ab1389d0969eab96b5b2737489f08"
+}

@@ -1,0 +1,106 @@
+Below is a complete JUnit 4 test class for **`Caverphone1`** that implements the missing abstract methods and adds the requested test case **`testCaverphoneRevisitedCommonCodeAT1111`**.  
+The test verifies that every word listed in the annotation is encoded to the canonical Caverphone‑1 result **`"111111"`** (the constant `SIX_1` defined in `Caverphone1`).
+
+```java
+package org.apache.commons.codec.language;
+
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.StringEncoderAbstractTest;
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link Caverphone1}.
+ *
+ * <p>The test data are taken from the “AT1111” example set described in
+ * <a href="http://caversham.otago.ac.nz/files/working/ctp150804.pdf">
+ *   Caverphone 2.0 specification (PDF)
+ * </a>.  All of the listed words should be reduced to the same
+ * six‑character Caverphone‑1 code {@code "111111"}.</p>
+ */
+public class Caverphone1Test extends StringEncoderAbstractTest<Caverphone1> {
+
+    /** The expected Caverphone‑1 result for the AT1111 word list. */
+    private static final String EXPECTED = "111111";
+
+    /* --------------------------------------------------------------------- */
+    /*  AbstractStringEncoder test‑framework hooks                         */
+    /* --------------------------------------------------------------------- */
+
+    @Override
+    protected Caverphone1 createStringEncoder() {
+        // The class under test has a public no‑arg constructor.
+        return new Caverphone1();
+    }
+
+    /* --------------------------------------------------------------------- */
+    /*  Test cases                                                          */
+    /* --------------------------------------------------------------------- */
+
+    /**
+     * Tests example adapted from version 2.0
+     * <a href="http://caversham.otago.ac.nz/files/working/ctp150804.pdf">
+     *   http://caversham.otago.ac.nz/files/working/ctp150804.pdf
+     * </a>.
+     *
+     * <p>AT1111 words: add, aid, at, art, eat, earth, head, hit, hot,
+     * hold, hard, heart, it, out, old</p>
+     *
+     * @throws EncoderException if the encoder throws an unexpected exception
+     */
+    @Test
+    public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
+        // Words that, according to the specification, must all map to "111111".
+        final String[] words = {
+                "add", "aid", "at", "art", "eat", "earth",
+                "head", "hit", "hot", "hold", "hard", "heart",
+                "it", "out", "old"
+        };
+
+        // Obtain a fresh encoder instance.
+        final Caverphone1 encoder = createStringEncoder();
+
+        // Verify each word yields the expected six‑character code.
+        for (final String word : words) {
+            final String result = encoder.encode(word);
+            Assert.assertEquals(
+                    "Caverphone1 encoding of \"" + word + "\" should be \"" + EXPECTED + "\"",
+                    EXPECTED,
+                    result);
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // The remaining test methods are placeholders required by the
+    // abstract test class.  They can be filled in later.
+    // -----------------------------------------------------------------
+
+    @Test
+    public void testEndMb() throws EncoderException {
+        // TODO: implement
+    }
+
+    @Test
+    public void testIsCaverphoneEquals() throws EncoderException {
+        // TODO: implement
+    }
+
+    @Test
+    public void testSpecificationV1Examples() throws EncoderException {
+        // TODO: implement
+    }
+
+    @Test
+    public void testWikipediaExamples() throws EncoderException {
+        // TODO: implement
+    }
+}
+```
+
+### What the test does
+1. **Creates** a fresh `Caverphone1` encoder via `createStringEncoder()`.
+2. **Iterates** over the 15 words listed in the annotation.
+3. **Encodes** each word and asserts that the result equals `"111111"` (the constant `SIX_1` in `Caverphone1`).
+4. Provides a clear failure message that includes the offending input word.
+
+You can drop this class into the same package (`org.apache.commons.codec.language`) as the production code and run it with any JUnit 4 runner. All assertions should pass if `Caverphone1` implements the algorithm correctly.

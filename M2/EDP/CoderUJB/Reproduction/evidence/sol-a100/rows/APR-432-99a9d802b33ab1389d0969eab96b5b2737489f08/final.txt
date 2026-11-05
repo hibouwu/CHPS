@@ -1,0 +1,17 @@
+The resolved argument can be a `BoundedType`, rather than a standard reflection `ParameterizedType`. Passing that wrapper directly to `registerTypeVariablesOn` can leave its underlying generic arguments unregistered. Unwrap its first bound before registering it.
+
+```java
+private void readTypeVariables() {
+    for (Type type : typeVariable.getBounds()) {
+        registerTypeVariablesOn(type);
+    }
+
+    Type actualTypeArgument = getActualTypeArgumentFor(typeVariable);
+    if (actualTypeArgument instanceof BoundedType) {
+        registerTypeVariablesOn(
+                ((BoundedType) actualTypeArgument).firstBound());
+    } else {
+        registerTypeVariablesOn(actualTypeArgument);
+    }
+}
+```

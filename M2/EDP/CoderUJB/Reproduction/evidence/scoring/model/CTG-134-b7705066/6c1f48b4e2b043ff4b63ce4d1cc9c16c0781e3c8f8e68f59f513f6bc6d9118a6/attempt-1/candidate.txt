@@ -1,0 +1,21 @@
+@Test
+public void testMessageWithCorruptFileName() throws Exception {
+        final byte[] archive = new byte[31];
+        System.arraycopy(ZipLong.LFH_SIG.getBytes(), 0, archive, 0, 4);
+        archive[4] = 20;
+        archive[7] = 8; // UTF-8 filename flag.
+        archive[26] = 1; // Filename length.
+        archive[30] = (byte) 0xff; // Invalid UTF-8.
+
+        try (ZipArchiveInputStream in =
+                new ZipArchiveInputStream(new ByteArrayInputStream(archive))) {
+            try {
+                in.getNextZipEntry();
+                fail("Expected a ZipException for the corrupt entry name");
+            } catch (final ZipException ex) {
+                Assert.assertNotNull("The exception should have a diagnostic message", ex.getMessage());
+                assertTrue("The message should identify the corrupt entry name: " + ex.getMessage(),
+                        ex.getMessage().contains("name"));
+            }
+        }
+    }

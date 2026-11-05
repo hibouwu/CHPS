@@ -1,0 +1,68 @@
+**Test case implementation – `testCalendar`**
+
+```java
+/**
+ * Tests era, year, monthOfYear, dayOfMonth and dayOfWeek.
+ */
+public void testCalendar() {
+    // -----------------------------------------------------------------
+    // 1) A Gregorian date that falls *after* the Ethiopian New Year
+    //    (i.e. after 11‑Sep).  For 2015‑09‑12 the Ethiopian date is
+    //    2008‑01‑02 (year 2008, month 1, day 2) and the era is CE.
+    // -----------------------------------------------------------------
+    DateTime isoDateAfter = new DateTime(2015, 9, 12, 0, 0, 0, 0, ISO_UTC);
+    DateTime ethDateAfter = isoDateAfter.withChronology(ETHIOPIC_UTC);
+
+    // era – Joda‑Time uses 1 for CE (the constant defined in
+    // DateTimeConstants.CE).  The EthiopicChronology defines its own
+    // era field (named "EE") but it maps to the same value.
+    assertEquals("Era should be CE (1)", DateTimeConstants.CE, ethDateAfter.getEra());
+
+    // year, month and day of month
+    assertEquals("Year should be 2008", 2008, ethDateAfter.getYear());
+    assertEquals("Month should be 1 (Meskerem)", 1, ethDateAfter.getMonthOfYear());
+    assertEquals("Day of month should be 2", 2, ethDateAfter.getDayOfMonth());
+
+    // day of week – the day of week is identical for all chronologies
+    // (Saturday = 6).
+    assertEquals("Day of week should be Saturday (6)",
+                 isoDateAfter.getDayOfWeek(),
+                 ethDateAfter.getDayOfWeek());
+
+    // -----------------------------------------------------------------
+    // 2) A Gregorian date that falls *before* the Ethiopian New Year
+    //    (i.e. before 11‑Sep).  For 2015‑09‑10 the Ethiopian date is
+    //    2007‑13‑05 (year 2007, month 13, day 5) and the era is CE.
+    // -----------------------------------------------------------------
+    DateTime isoDateBefore = new DateTime(2015, 9, 10, 0, 0, 0, 0, ISO_UTC);
+    DateTime ethDateBefore = isoDateBefore.withChronology(ETHIOPIC_UTC);
+
+    assertEquals("Era should be CE (1)", DateTimeConstants.CE, ethDateBefore.getEra());
+    assertEquals("Year should be 2007", 2007, ethDateBefore.getYear());
+    assertEquals("Month should be 13 (Pagume)", 13, ethDateBefore.getMonthOfYear());
+    assertEquals("Day of month should be 5", 5, ethDateBefore.getDayOfMonth());
+    assertEquals("Day of week should be Thursday (4)",
+                 isoDateBefore.getDayOfWeek(),
+                 ethDateBefore.getDayOfWeek());
+}
+```
+
+### Explanation of the test
+
+* **Era** – The Ethiopic chronology defines a single era (`EE`) that maps to the standard
+  `DateTimeConstants.CE` value (`1`). The test verifies that `getEra()` returns this value.
+
+* **Year / Month / Day** – The conversion rules between the Gregorian (ISO) calendar and the
+  Ethiopic calendar are exercised:
+  * After 11 September the Ethiopic year is *Gregorian year – 7*,
+    month 1 (Meskerem) starts on 11 September, and the day‑of‑month is offset by one.
+  * Before 11 September the Ethiopic year is *Gregorian year – 8*,
+    month 13 (Pagume) contains the last five days of the Gregorian year.
+
+* **Day‑of‑Week** – Day‑of‑week is calendar‑independent, therefore the value obtained from the
+  ISO chronology must be identical when the same instant is viewed through the Ethiopic
+  chronology.
+
+The method uses only the public API of `EthiopicChronology` and `DateTime`, making it a
+pure unit test that can run on any JDK/JUnit 3 environment (the same style used by the
+rest of the supplied test suite).

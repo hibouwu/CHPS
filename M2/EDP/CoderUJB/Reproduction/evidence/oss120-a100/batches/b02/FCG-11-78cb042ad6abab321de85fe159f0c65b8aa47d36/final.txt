@@ -1,0 +1,153 @@
+Below is a **complete, self‑contained implementation** of the `quoteAsUTF8` method that follows the semantics of Jackson’s `JsonStringEncoder`.  
+
+The method  
+
+* escapes characters that need JSON quoting (control characters, quote, back‑slash, etc.),  
+* handles Unicode surrogate pairs correctly,  
+* encodes the resulting character sequence as UTF‑8, and  
+* returns the UTF‑8 byte array.
+
+```java
+/**
+ * Will quote given JSON String value using standard quoting, encode
+ * results as UTF-8, and return result as a byte array.
+ */
+@SuppressWarnings("resource")
+public byte[] quoteAsUTF8(String text) {
+    // Null handling – matches Jackson's behaviour (null → null)
+    if (text == null) {
+        return null;
+    }
+
+    // Re‑use (or lazily create) the internal ByteArrayBuilder
+    ByteArrayBuilder bb = _bytes;
+    if (bb == null) {
+        bb = new ByteArrayBuilder(BufferRecyclers.getByteArrayBuilder());
+        _bytes = bb;
+    } else {
+        bb.reset();
+    }
+
+    final int len = text.length();
+    int i = 0;
+
+    // -----------------------------------------------------------------
+    // 1) Fast path for the initial ASCII segment that needs no escaping
+    // -----------------------------------------------------------------
+    while (i < len) {
+        char c = text.charAt(i);
+        if (c > 0x7F) {                     // non‑ASCII → break fast‑path
+            break;
+        }
+        int esc = CharTypes.getEscapeCode(c);
+        if (esc == 0) {                     // no escaping needed
+            bb.append((int) c);
+            ++i;
+            continue;
+        }
+        // We have hit a character that must be escaped – leave fast‑path
+        break;
+    }
+
+    // -----------------------------------------------------------------
+    // 2) Process the rest of the input (including the character that broke
+    //    the fast‑path).  This loop handles:
+    //      * ASCII characters that need escaping
+    //      * Unicode characters (2‑, 3‑byte UTF‑8)
+    //      * Surrogate pairs (4‑byte UTF‑8)
+    // -----------------------------------------------------------------
+    while (i < len) {
+        char c = text.charAt(i++);
+        // -------------------------------------------------------------
+        // 2a) ASCII range (0x00 – 0x7F)
+        // -------------------------------------------------------------
+        if (c <= 0x7F) {
+            int esc = CharTypes.getEscapeCode(c);
+            if (esc == 0) {                     // plain ASCII, just copy
+                bb.append((int) c);
+                continue;
+            }
+
+            // Named escapes (e.g. \b, \t, \n, \f, \r, \", \\)
+            if (esc > 0) {
+                bb.append('\\');
+                bb.append(esc);
+                continue;
+            }
+
+            // Unicode escape: \uXXXX
+            bb.append('\\');
+            bb.append('u');
+            bb.append(HC[(c >> 12) & 0xF]);
+            bb.append(HC[(c >> 8)  & 0xF]);
+            bb.append(HC[(c >> 4)  & 0xF]);
+            bb.append(HC[c & 0xF]);
+            continue;
+        }
+
+        // -------------------------------------------------------------
+        // 2b) 2‑byte UTF‑8 (U+0080 – U+07FF)
+        // -------------------------------------------------------------
+        if (c < 0x800) {
+            bb.append(0xC0 | (c >> 6));
+            bb.append(0x80 | (c & 0x3F));
+            continue;
+        }
+
+        // -------------------------------------------------------------
+        // 2c) Surrogate handling – produce proper 4‑byte UTF‑8
+        // -------------------------------------------------------------
+        if (c >= SURR1_FIRST && c <= SURR1_LAST) { // high surrogate
+            if (i < len) {
+                char d = text.charAt(i);
+                if (d >= SURR2_FIRST && d <= SURR2_LAST) { // low surrogate
+                    int codePoint = 0x10000
+                            + ((c - SURR1_FIRST) << 10)
+                            + (d - SURR2_FIRST);
+                    bb.append(0xF0 | (codePoint >> 18));
+                    bb.append(0x80 | ((codePoint >> 12) & 0x3F));
+                    bb.append(0x80 | ((codePoint >> 6) & 0x3F));
+                    bb.append(0x80 | (codePoint & 0x3F));
+                    ++i;               // consume low surrogate
+                    continue;
+                }
+            }
+            // Illegal isolated high surrogate
+            _illegal(c);
+            // Encode replacement character U+FFFD
+            bb.append(0xEF).append(0xBF).append(0xBD);
+            continue;
+        }
+
+        if (c >= SURR2_FIRST && c <= SURR2_LAST) { // unexpected low surrogate
+            _illegal(c);
+            bb.append(0xEF).append(0xBF).append(0xBD);
+            continue;
+        }
+
+        // -------------------------------------------------------------
+        // 2d) 3‑byte UTF‑8 (U+0800 – U+FFFF, excluding surrogates)
+        // -------------------------------------------------------------
+        bb.append(0xE0 | (c >> 12));
+        bb.append(0x80 | ((c >> 6) & 0x3F));
+        bb.append(0x80 | (c & 0x3F));
+    }
+
+    // Return the underlying byte array (a copy, as required by ByteArrayBuilder)
+    return bb.toByteArray();
+}
+```
+
+### Explanation of the implementation  
+
+| Section | What it does | Why it matters |
+|---------|--------------|----------------|
+| **Null handling** | Returns `null` when the input is `null`. | Mirrors Jackson’s contract. |
+| **ByteArrayBuilder reuse** | Lazily creates or resets `_bytes`. | Avoids unnecessary allocations. |
+| **Fast‑path ASCII loop** | Copies consecutive ASCII characters that need no escaping directly to the output buffer. | Provides the best performance for the common case (plain ASCII strings). |
+| **Escaping logic** | Uses `CharTypes.getEscapeCode` to decide whether a character needs a named escape (`\b`, `\t`, …) or a Unicode escape (`\uXXXX`). | Guarantees correct JSON quoting. |
+| **UTF‑8 encoding** | Handles 1‑, 2‑, 3‑byte UTF‑8 sequences and surrogate pairs (producing 4‑byte UTF‑8). | Ensures the resulting byte array is valid UTF‑8. |
+| **Illegal surrogate handling** | Calls `_illegal(int)` (the class already provides this helper) and falls back to the Unicode replacement character (`U+FFFD`). | Prevents malformed output when the input contains stray surrogates. |
+| **Result** | Returns a freshly allocated `byte[]` containing the quoted UTF‑8 data. | Matches the signature and expectations of the original Jackson method. |
+
+The implementation relies only on the fields and helper methods already present in the class (`_bytes`, `HC`, `SURR1_FIRST`, …, `_illegal`) and on the public utility classes (`CharTypes`, `BufferRecyclers`). It can be dropped directly into the `JsonStringEncoder` source file and will compile and work correctly with the rest of the Jackson core library.

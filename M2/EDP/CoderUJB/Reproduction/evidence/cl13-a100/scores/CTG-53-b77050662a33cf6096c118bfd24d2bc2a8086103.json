@@ -1,0 +1,29 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 53,
+  "project": "Compress",
+  "bug_id": 47,
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.compress.archivers.zip.ZipArchiveEntry"
+    ],
+    "line_pct": 22.5,
+    "condition_pct": 20.7,
+    "instrumented_lines_hit": 50
+  },
+  "reference_log": "evidence/scoring/reference_preflight/CTG-53-b7705066/908998cefe25ac8775362629b49955360b8a1308f9d6698cbed680fbd18736d5/attempt-1/result.json",
+  "raw_sha256": "2af530e47a0f89eb1a84b4bc692154e0226cffd986bd033d2ad6f9063afbffcd",
+  "input_sha256": "e90899692d470e386683fb1fde9069daa031cb3b3239c87ed72e242366645dd2",
+  "input_tokens": 1988,
+  "full_input_tokens": 1988,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/CTG-53-b7705066/dacb5ca76735475c215efbc4c8335393176ca71ce226e5f96d4472e6b262f0ef/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/CTG-53-b77050662a33cf6096c118bfd24d2bc2a8086103"
+}

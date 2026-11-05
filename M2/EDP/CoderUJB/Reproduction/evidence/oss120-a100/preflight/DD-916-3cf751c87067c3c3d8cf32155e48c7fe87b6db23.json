@@ -1,0 +1,13 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 916,
+  "task_id": "f7f8005e9c05bcb5fb98677e933934662bdef441fb166c9ffd0168d3a43397a9",
+  "project": "Compress",
+  "bug_id": "15",
+  "chat_sha256": "104eb4ec3fe2a32f6b57b967b7f8a1636e26a1763a56b8c41ab2a1bd88b16ed5",
+  "complete_sha256": "6a131fd0778ee95ffa2afff81e0bb9bab0cfcf1ad96008ff1080fe5249a9431f",
+  "checked_at": "2026-11-05T02:45:05.865405+01:00",
+  "eligible": true,
+  "check": "label_available_parser_controlled"
+}

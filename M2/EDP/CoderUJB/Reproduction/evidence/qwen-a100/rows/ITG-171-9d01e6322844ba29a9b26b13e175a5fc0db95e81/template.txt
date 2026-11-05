@@ -1,0 +1,31 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```markdown
+## Issue-ID: Codec-CODEC-199
+
+## Issue-Title: 
+Bug in HW rule in Soundex
+
+## Issue-Description: 
+
+The Soundex algorithm says that if two characters that map to the same code are separated by H or W, the second one is not encoded.  
+
+However, in the implementation (in Soundex.getMappingCode() line 191), a character that is preceded by two characters that are either H or W, is not encoded, regardless of what the last consonant was.  
+
+Source: <http://en.wikipedia.org/wiki/Soundex#American_Soundex>
+
+
+
+
+
+```
+
+You are a professional Java test case writer, please create a test case named `testHWRuleEx1` for the issue `Codec-CODEC-199`, utilizing the provided issue report information and the following function signature.
+
+```java
+    @Test
+    public void testHWRuleEx1() {
+
+```<|im_end|>
+<|im_start|>assistant

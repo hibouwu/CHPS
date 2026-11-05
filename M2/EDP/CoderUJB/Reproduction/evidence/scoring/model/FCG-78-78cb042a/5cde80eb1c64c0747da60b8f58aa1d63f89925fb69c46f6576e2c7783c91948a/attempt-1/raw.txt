@@ -1,0 +1,83 @@
+Here is a concrete implementation of **`createChildPointerForStep`** that follows the way JXPath creates child pointers for a step.  
+The method examines the `NodeTest` that belongs to the supplied `Step` and, depending on its concrete type, creates the appropriate `NodePointer`:
+
+* **`NodeNameTest`** – a normal property name.  
+  * If the property exists we return the `PropertyPointer` obtained from the parent.  
+  * If it does not exist we return a `NullPropertyPointer` so that later processing can treat the missing node correctly.
+
+* **`NameAttributeTest`** – an attribute name test.  
+  * The special `xml:lang` attribute is represented by `LangAttributePointer`.  
+  * All other attributes are handled like normal properties (again falling back to a `NullPropertyPointer` when the attribute is absent).
+
+* **any other test** – JXPath does not have a dedicated pointer type for those tests in this simplified interpreter, so we return a `NullElementPointer` (or the parent itself) to keep the evaluation pipeline intact.
+
+```java
+/**
+ * Create the child pointer for a given step.
+ *
+ * @param parentPointer parent pointer
+ * @param step          associated step
+ * @return a {@link NodePointer} that represents the child selected by {@code step}
+ */
+private static NodePointer createChildPointerForStep(
+            PropertyOwnerPointer parentPointer, Step step) {
+
+    // The step tells us what kind of node we are looking for.
+    NodeTest test = step.getNodeTest();
+
+    // --------------------------------------------------------------
+    // 1) Simple element/property name test (e.g. /book/title)
+    // --------------------------------------------------------------
+    if (test instanceof NodeNameTest) {
+        String name = ((NodeNameTest) test).getName();
+
+        // Wild‑card (“*”) does not refer to a concrete property – let the
+        // caller handle it later.
+        if ("*".equals(name)) {
+            return parentPointer;
+        }
+
+        // Ask the parent for the property pointer.
+        NodePointer pointer = parentPointer.getPropertyPointer(name);
+        if (pointer == null) {
+            // Property does not exist – use a null placeholder.
+            return new NullPropertyPointer(parentPointer, name);
+        }
+        return pointer;
+    }
+
+    // --------------------------------------------------------------
+    // 2) Attribute name test (e.g. /book/@lang)
+    // --------------------------------------------------------------
+    if (test instanceof NameAttributeTest) {
+        QName qname = ((NameAttributeTest) test).getName();
+
+        // The XML‑lang attribute has a dedicated pointer implementation.
+        if (isLangAttribute(qname)) {
+            return new LangAttributePointer(parentPointer);
+        }
+
+        // Treat other attributes as ordinary properties.
+        String name = qname.getName();
+        NodePointer pointer = parentPointer.getPropertyPointer(name);
+        if (pointer == null) {
+            return new NullPropertyPointer(parentPointer, name);
+        }
+        return pointer;
+    }
+
+    // --------------------------------------------------------------
+    // 3) All other node tests (node‑type, processing‑instruction, …)
+    // --------------------------------------------------------------
+    // The simple interpreter does not have a specialised pointer for
+    // these cases.  Returning a NullElementPointer keeps the evaluation
+    // chain functional while signalling that the concrete node could
+    // not be materialised here.
+    return new NullElementPointer(parentPointer);
+}
+```
+
+### Why this works
+* **Correct pointer type selection** – The method mirrors the logic used by the original JXPath interpreter: element/property names become `PropertyPointer`s, the special `xml:lang` attribute becomes a `LangAttributePointer`, and missing nodes are represented by the appropriate *null* pointer classes.
+* **Graceful handling of wild‑cards and unknown tests** – Returning the parent (or a `NullElementPointer`) ensures that later stages of the interpreter can still iterate over possible children without throwing a `NullPointerException`.
+* **Self‑contained** – All required classes (`NodeTest`, `NodeNameTest`, `NameAttributeTest`, `NullPropertyPointer`, `NullElementPointer`, `LangAttributePointer`) are already imported in the file, so the code compiles without additional dependencies.

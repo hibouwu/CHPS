@@ -1,0 +1,20 @@
+public Element getElementById(String id) {
+    // Check if the current element has the desired ID
+    if (id != null && id.equals(this.id())) {
+        return this;
+    }
+
+    // Traverse the child nodes of the current element
+    for (Node child : childNodes) {
+        if (child instanceof Element) {
+            Element element = (Element) child;
+            Element result = element.getElementById(id);
+            if (result != null) {
+                return result;
+            }
+        }
+    }
+
+    // If no matching element is found, return null
+    return null;
+}

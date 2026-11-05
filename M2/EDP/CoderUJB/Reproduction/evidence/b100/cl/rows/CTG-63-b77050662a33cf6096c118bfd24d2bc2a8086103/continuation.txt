@@ -1,0 +1,33 @@
+
+    testTypes(
+        "var x = function() {};" +
+        "var y = function() {};" +
+        "var z = x || y;" +
+        "z();");
+  }
+
+  public void testBug911118b() throws Exception {
+    testTypes(
+        "var x = function() {};" +
+        "var y = function() {};" +
+        "var z = x && y;" +
+        "z();");
+  }
+
+  public void testBug911118c() throws Exception {
+    testTypes(
+        "var x = function() {};" +
+        "var y = function() {};" +
+        "var z = x ? y : x;" +
+        "z();");
+  }
+
+  public void testBug911118d() throws Exception {
+    testTypes(
+        "var x = function() {};" +
+        "var y = function() {};" +
+        "var z = x ? x : y;" +
+        "z();");
+  }
+
+  public void testB

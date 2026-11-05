@@ -1,0 +1,76 @@
+public static synchronized PeriodType forFields(DurationFieldType[] types) {
+        if (types == null || types.length == 0) {
+            throw new IllegalArgumentException("Types array must not be null or empty");
+        }
+        types = types.clone();
+        for (DurationFieldType type : types) {
+            if (type == null) {
+                throw new IllegalArgumentException("Types array must not contain null");
+            }
+        }
+
+        if (cTypes.isEmpty()) {
+            PeriodType[] predefined = {
+                standard(), yearMonthDayTime(), yearMonthDay(),
+                yearWeekDayTime(), yearWeekDay(), yearDayTime(), yearDay(),
+                dayTime(), time(), years(), months(), weeks(), days(),
+                hours(), minutes(), seconds(), millis()
+            };
+            for (PeriodType type : predefined) {
+                cTypes.put(type, type);
+            }
+        }
+
+        PeriodType key = new PeriodType(null, types, null);
+        Object cached = cTypes.get(key);
+        if (cached instanceof PeriodType) {
+            return (PeriodType) cached;
+        }
+        if (cached != null) {
+            throw new IllegalArgumentException("PeriodType does not support fields: " + cached);
+        }
+
+        PeriodType result = standard();
+        List<DurationFieldType> remaining =
+                new ArrayList<DurationFieldType>(Arrays.asList(types));
+
+        if (!remaining.remove(DurationFieldType.years())) {
+            result = result.withYearsRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.months())) {
+            result = result.withMonthsRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.weeks())) {
+            result = result.withWeeksRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.days())) {
+            result = result.withDaysRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.hours())) {
+            result = result.withHoursRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.minutes())) {
+            result = result.withMinutesRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.seconds())) {
+            result = result.withSecondsRemoved();
+        }
+        if (!remaining.remove(DurationFieldType.millis())) {
+            result = result.withMillisRemoved();
+        }
+
+        if (!remaining.isEmpty()) {
+            cTypes.put(key, remaining);
+            throw new IllegalArgumentException(
+                    "PeriodType does not support fields: " + remaining);
+        }
+
+        Object canonical = cTypes.get(result);
+        if (canonical instanceof PeriodType) {
+            result = (PeriodType) canonical;
+        } else {
+            cTypes.put(result, result);
+        }
+        cTypes.put(key, result);
+        return result;
+    }

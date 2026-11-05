@@ -1,0 +1,46 @@
+//         "c = a;" +
+//         "b.test = 'b';" +
+//         "a.test = 'a';" +
+//         "var a = {}, b = {}, c;" +
+//     helperCanInlineReferenceToFunction(true,
+//     // ... foo can be inlined as it is side-effect free.
+//   public void testCanInlineReferenceToFunctionInExpression15() {
+// TODO(nicksantos): Re-enable with side-effect detection.
+  public void testCanInlineReferenceToFunctionInExpression18() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression17() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression16() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression15() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression14a() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression14() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression13() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression12() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression10a() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression10() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression9() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression8() {
+  }
+
+  public void testCanInlineReferenceToFunctionInExpression7a() {
+  }

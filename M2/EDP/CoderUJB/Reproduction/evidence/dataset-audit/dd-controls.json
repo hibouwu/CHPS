@@ -1,0 +1,70 @@
+{
+  "synthetic_only": true,
+  "official_sha256": "cfcfb1ed0bac1636a463be25e4cc18f21fc3f08181877d7e6edc8b9cade43a0c",
+  "cases": {
+    "mixed": {
+      "inputs": [
+        [
+          true,
+          "Yes"
+        ],
+        [
+          false,
+          "No"
+        ],
+        [
+          true,
+          "No"
+        ],
+        [
+          false,
+          "Uncertain"
+        ]
+      ],
+      "result": {
+        "total": 4,
+        "tp": 1,
+        "tn": 1,
+        "correct": 2,
+        "fp": 0,
+        "fn": 1,
+        "error": 1,
+        "acc": 0.6666666666666666,
+        "acc_w_error": 0.5,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      }
+    },
+    "no_predicted_positives": {
+      "inputs": [
+        [
+          true,
+          "No"
+        ],
+        [
+          false,
+          "No"
+        ]
+      ],
+      "result": {
+        "official_error": "ZeroDivisionError"
+      }
+    },
+    "all_unparseable": {
+      "inputs": [
+        [
+          true,
+          "Uncertain"
+        ],
+        [
+          false,
+          "Uncertain"
+        ]
+      ],
+      "result": {
+        "official_error": "ZeroDivisionError"
+      }
+    }
+  }
+}

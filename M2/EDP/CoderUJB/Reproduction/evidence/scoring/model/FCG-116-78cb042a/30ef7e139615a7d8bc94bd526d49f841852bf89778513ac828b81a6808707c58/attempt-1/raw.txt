@@ -1,0 +1,59 @@
+Certainly! Below is the implementation of the `parseSimpleToken` method based on the provided context and annotations:
+
+```java
+private Token parseSimpleToken(final Token token, int ch) throws IOException {
+    final StringBuilder buffer = new StringBuilder();
+
+    while (ch != END_OF_STREAM) {
+        if (isEndOfFile(ch)) {
+            // End of file reached
+            token.type = EOF;
+            break;
+        } else if (isEndOfLine(ch)) {
+            // End of line reached
+            token.type = EORECORD;
+            if (firstEol == null) {
+                firstEol = String.valueOf((char) ch);
+                if (ch == CR && reader.peek() == LF) {
+                    // CRLF
+                    firstEol += (char) reader.read();
+                }
+            }
+            break;
+        } else if (isDelimiter(ch)) {
+            // Unescaped delimiter reached
+            token.type = TOKEN;
+            break;
+        } else if (isEscape(ch)) {
+            // Handle escape character
+            ch = readEscape();
+            if (ch == END_OF_STREAM) {
+                token.type = EOF;
+                break;
+            }
+            buffer.append((char) ch);
+        } else {
+            // Regular character
+            buffer.append((char) ch);
+        }
+
+        ch = reader.read();
+    }
+
+    token.content = buffer.toString();
+    return token;
+}
+```
+
+### Explanation:
+1. **StringBuilder Initialization**: We use a `StringBuilder` to efficiently build the content of the token.
+2. **Loop Until End of Stream**: We loop until we reach the end of the stream (`END_OF_STREAM`).
+3. **Check for End of File**: If the current character is the end of the file, we set the token type to `EOF` and break out of the loop.
+4. **Check for End of Line**: If the current character is an end-of-line character, we set the token type to `EORECORD`. We also capture the first end-of-line sequence encountered.
+5. **Check for Delimiter**: If the current character is a delimiter, we set the token type to `TOKEN` and break out of the loop.
+6. **Handle Escape Character**: If the current character is an escape character, we read the next character (which is assumed to be escaped) and append it to the buffer.
+7. **Regular Characters**: Any other character is appended directly to the buffer.
+8. **Read Next Character**: After processing each character, we read the next character from the reader.
+9. **Set Token Content**: Once the loop exits, we set the content of the token to the accumulated string in the buffer and return the token.
+
+This method ensures that simple tokens are parsed correctly, handling escape sequences and recognizing the boundaries defined by delimiters, end-of-line characters, and the end of the file.

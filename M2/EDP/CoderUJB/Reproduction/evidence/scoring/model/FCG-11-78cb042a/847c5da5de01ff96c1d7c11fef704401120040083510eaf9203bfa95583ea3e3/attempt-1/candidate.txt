@@ -1,0 +1,52 @@
+@SuppressWarnings("resource")
+public byte[] quoteAsUTF8(String text)
+    {
+        if (text == null) {
+            return null;
+        }
+        if (_bytes == null) {
+            _bytes = BufferRecyclers.getByteBuffer();
+        } else {
+            _bytes.reset();
+        }
+        final int len = text.length();
+        for (int i = 0; i < len; ++i) {
+            char c = text.charAt(i);
+            if (c < 0x80) { // ASCII
+                if (c == '"') {
+                    _bytes.appendByte((byte) '\\');
+                    _bytes.appendByte((byte) '"');
+                } else if (c == '\\') {
+                    _bytes.appendByte((byte) '\\');
+                    _bytes.appendByte((byte) '\\');
+                } else {
+                    _bytes.appendByte((byte) c);
+                }
+            } else if (c < 0x800) { // 2-byte UTF-8
+                _bytes.appendByte((byte) (0xc0 | (c >> 6)));
+                _bytes.appendByte((byte) (0x80 | (c & 0x3f)));
+            } else if (c >= SURR1_FIRST && c <= SURR1_LAST) { // surrogate pairs
+                // must ensure we have a valid pair
+                if (i + 1 < len) {
+                    char d = text.charAt(i + 1);
+                    if (d >= SURR2_FIRST && d <= SURR2_LAST) {
+                        int codePoint = _convert(c, d);
+                        _bytes.appendByte((byte) (0xf0 | (codePoint >> 18)));
+                        _bytes.appendByte((byte) (0x80 | ((codePoint >> 12) & 0x3f)));
+                        _bytes.appendByte((byte) (0x80 | ((codePoint >> 6) & 0x3f)));
+                        _bytes.appendByte((byte) (0x80 | (codePoint & 0x3f)));
+                        ++i; // skip the second char of surrogate pair
+                    } else {
+                        _illegal(c);
+                    }
+                } else {
+                    _illegal(c);
+                }
+            } else if (c >= SURR2_FIRST && c <= SURR2_LAST) {
+                _illegal(c);
+            } else { // 3-byte UTF-8
+                _bytes.appendByte((byte) (0xe0 | (c >> 12)));
+                _bytes.appendByte((byte) (0x80 | ((c >> 6) & 0x3f)));
+                _bytes.appendByte((byte) (0x80 | (c & 0x3f)));
+            }
+        }

@@ -1,0 +1,150 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 448,
+  "task_id": "fec544dcf14f8541d7bf7111738de24ced64f2fd0a56652b323c93e68dccc80f",
+  "origin": "model",
+  "mode": "complete",
+  "raw_sha256": "8e7ae554c52fdadc33f4f341c7d36c9de22c015dec9ff49a8de05ebd08984e75",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "9c3bef43c992b0f1fb0da6a78eafd45e779735f1883403cd77288fcbcc33dfac",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Lang",
+  "bug_id": "18",
+  "status": "fail",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Lang",
+        "-v",
+        "18f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.671,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.47,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/fixed",
+        "-t",
+        "org.apache.commons.lang3.time.FastDateFormatTest::testFormat"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.066,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    },
+    {
+      "name": "coverage",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "coverage",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/fixed",
+        "-t",
+        "org.apache.commons.lang3.time.FastDateFormatTest::testFormat",
+        "-i",
+        "/home/jianyeshi/Note/SiteCHPS/CHPS/M2/EDP/CoderUJB/Reproduction/evidence/scoring/model/ITG-448-9d01e632/8e9ab866a20ff46f685f7a2d1e28a84fc9e19433b4c0514c1a1eb74a54eae844/attempt-1/instrument-classes.txt"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.674,
+      "stdout": "coverage.stdout.log",
+      "stderr": "coverage.stderr.log"
+    },
+    {
+      "name": "buggy-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Lang",
+        "-v",
+        "18b",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/buggy"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.672,
+      "stdout": "buggy-checkout.stdout.log",
+      "stderr": "buggy-checkout.stderr.log"
+    },
+    {
+      "name": "buggy-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/buggy"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 3.471,
+      "stdout": "buggy-compile.stdout.log",
+      "stderr": "buggy-compile.stderr.log"
+    },
+    {
+      "name": "buggy-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/ITG-448-6m0ry5ca/buggy",
+        "-t",
+        "org.apache.commons.lang3.time.FastDateFormatTest::testFormat"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.016,
+      "stdout": "buggy-test-0.stdout.log",
+      "stderr": "buggy-test-0.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "org.apache.commons.lang3.time.FastDateFormatTest::testFormat",
+      "failed": []
+    },
+    "buggy-test-0": {
+      "selected": "org.apache.commons.lang3.time.FastDateFormatTest::testFormat",
+      "failed": []
+    }
+  },
+  "coverage": {
+    "classes": [
+      "org.apache.commons.lang3.time.FastDateFormat"
+    ],
+    "line_pct": 34.7,
+    "condition_pct": 30.7,
+    "instrumented_lines_hit": 80
+  },
+  "reason": "test did not detect buggy version"
+}

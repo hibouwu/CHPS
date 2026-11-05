@@ -1,0 +1,57 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the complete corrected Java method with the provided signature and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```java
+package org.apache.commons.collections4.keyvalue;
+
+import java.io.Serializable;
+import java.util.Arrays;
+
+
+
+public class MultiKey<K> implements Serializable  {
+    private static final long serialVersionUID = 4465448607415788805L;
+    private final K[] keys;
+    private transient int hashCode;
+
+    @SuppressWarnings("unchecked")
+    public MultiKey(final K key1, final K key2);
+    @SuppressWarnings("unchecked")
+    public MultiKey(final K key1, final K key2, final K key3);
+    @SuppressWarnings("unchecked")
+    public MultiKey(final K key1, final K key2, final K key3, final K key4);
+    @SuppressWarnings("unchecked")
+    public MultiKey(final K key1, final K key2, final K key3, final K key4, final K key5);
+    public MultiKey(final K[] keys);
+    public MultiKey(final K[] keys, final boolean makeClone);
+    public K[] getKeys();
+    public K getKey(final int index);
+    public int size();
+    @Override
+    public boolean equals(final Object other);
+    @Override
+    public int hashCode();
+    @Override
+    public String toString();
+    private void calculateHashCode(final Object[] keys);
+    private Object readResolve();
+}
+```
+
+You are a professional Java programmer, and I will provide you with a buggy function named `readResolve`, without specifying the location of the bug. Your task is to identify and fix any issues within the given function based on the provided abstract Java class context information along with the following buggy function.
+
+```java
+    /**
+     * Recalculate the hash code after deserialization. The hash code of some
+     * keys might have change (hash codes based on the system hash code are
+     * only stable for the same process).
+     * @return the instance with recalculated hash code
+     */
+    private Object readResolve() {
+        calculateHashCode(keys);
+        return this;
+    }
+```<|im_end|>
+<|im_start|>assistant

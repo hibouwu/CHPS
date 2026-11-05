@@ -1,0 +1,93 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Output constraint: Output only the complete corrected Java method with the provided signature and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+```java
+package org.mockito.internal.util.reflection;
+
+import org.mockito.exceptions.base.MockitoException;
+import org.mockito.internal.util.Checks;
+import java.lang.reflect.*;
+import java.util.*;
+
+
+
+public abstract class GenericMetadataSupport  {
+    protected Map<TypeVariable, Type> contextualActualTypeParameters = new HashMap<TypeVariable, Type>();
+
+    protected void registerTypeVariablesOn(Type classType);
+    protected void registerTypeParametersOn(TypeVariable[] typeParameters);
+    private void registerTypeVariableIfNotPresent(TypeVariable typeVariable);
+    private BoundedType boundsOf(TypeVariable typeParameter);
+    private BoundedType boundsOf(WildcardType wildCard);
+    public abstract Class<?> rawType();
+    public List<Type> extraInterfaces();
+    public Class<?>[] rawExtraInterfaces();
+    public boolean hasRawExtraInterfaces();
+    public Map<TypeVariable, Type> actualTypeArguments();
+    protected Type getActualTypeArgumentFor(TypeVariable typeParameter);
+    public GenericMetadataSupport resolveGenericReturnType(Method method);
+    public static GenericMetadataSupport inferFrom(Type type);
+    public FromClassGenericMetadataSupport(Class<?> clazz);
+    private Class superClassOf(Class currentExploredClass);
+    private void readActualTypeParametersOnDeclaringClass(Class<?> clazz);
+    @Override
+        public Class<?> rawType();
+    public FromParameterizedTypeGenericMetadataSupport(ParameterizedType parameterizedType);
+    private void readActualTypeParameters();
+    @Override
+        public Class<?> rawType();
+    public ParameterizedReturnType(GenericMetadataSupport source, TypeVariable[] typeParameters, ParameterizedType parameterizedType);
+    private void readTypeParameters();
+    private void readTypeVariables();
+    @Override
+        public Class<?> rawType();
+    public TypeVariableReturnType(GenericMetadataSupport source, TypeVariable[] typeParameters, TypeVariable typeVariable);
+    private void readTypeParameters();
+    private void readTypeVariables();
+    @Override
+        public Class<?> rawType();
+    private Class<?> extractRawTypeOf(Type type);
+    @Override
+        public List<Type> extraInterfaces();
+    public Class<?>[] rawExtraInterfaces();
+    private Type extractActualBoundedTypeOf(Type type);
+    public NotGenericReturnTypeSupport(Type genericReturnType);
+    @Override
+        public Class<?> rawType();
+    public TypeVarBoundedType(TypeVariable typeVariable);
+    public Type firstBound();
+    public Type[] interfaceBounds();
+    @Override
+        public boolean equals(Object o);
+    @Override
+        public int hashCode();
+    @Override
+        public String toString();
+    public TypeVariable typeVariable();
+    public WildCardBoundedType(WildcardType wildcard);
+    public Type firstBound();
+    public Type[] interfaceBounds();
+    @Override
+        public boolean equals(Object o);
+    @Override
+        public int hashCode();
+    @Override
+        public String toString();
+    public WildcardType wildCard();
+}
+```
+
+You are a professional Java programmer, and I will provide you with a buggy function named `readTypeVariables`, without specifying the location of the bug. Your task is to identify and fix any issues within the given function based on the provided abstract Java class context information along with the following buggy function.
+
+```java
+
+        private void readTypeVariables() {
+            for (Type type : typeVariable.getBounds()) {
+                registerTypeVariablesOn(type);
+            }
+            registerTypeVariablesOn(getActualTypeArgumentFor(typeVariable));
+        }
+```<|im_end|>
+<|im_start|>assistant

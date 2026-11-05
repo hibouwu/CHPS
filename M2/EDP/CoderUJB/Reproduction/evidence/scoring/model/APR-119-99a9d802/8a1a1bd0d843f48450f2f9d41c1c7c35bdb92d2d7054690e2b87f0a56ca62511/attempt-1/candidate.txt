@@ -1,0 +1,11 @@
+protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
+{
+    if (jgen instanceof ToXmlGenerator) {
+        QName rootName = _rootNameFromConfig();
+        if (rootName == null) {
+            rootName = ROOT_NAME_FOR_NULL;
+        }
+        _initWithRootName((ToXmlGenerator) jgen, rootName);
+    }
+    super.serializeValue(jgen, null);
+}

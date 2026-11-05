@@ -1,0 +1,28 @@
+@Test
+public void testCompressionMethod() throws Exception {
+    final ZipArchiveEntry entry = new ZipArchiveEntry("test.txt");
+    assertEquals("Compression method should initially be unknown",
+            -1, entry.getMethod());
+
+    entry.setMethod(ZipEntry.STORED);
+    assertEquals(ZipEntry.STORED, entry.getMethod());
+
+    entry.setMethod(ZipEntry.DEFLATED);
+    assertEquals(ZipEntry.DEFLATED, entry.getMethod());
+
+    // Unlike java.util.zip.ZipEntry, support methods other than STORED/DEFLATED.
+    final int implodingMethod = 6;
+    entry.setMethod(implodingMethod);
+    assertEquals(implodingMethod, entry.getMethod());
+
+    final ZipArchiveEntry copy = new ZipArchiveEntry(entry);
+    assertEquals("Copy constructor should preserve the compression method",
+            implodingMethod, copy.getMethod());
+
+    try {
+        entry.setMethod(-1);
+        fail("Negative compression methods must be rejected");
+    } catch (final IllegalArgumentException expected) {
+        // Expected.
+    }
+}

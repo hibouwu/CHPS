@@ -1,0 +1,169 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed && ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+compile:
+
+gradle.compile:
+
+ant.compile:
+
+clean:
+
+prepare:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/classes
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/test-classes
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/reports/junit
+
+compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/build.xml:76: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 230 source files to /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/configuration/DefaultMockitoConfiguration.java:7: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/configuration/IMockitoConfiguration.java:7: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/configuration/GlobalConfiguration.java:7: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/runners/JUnit44RunnerImpl.java:7: warning: [deprecation] InitializationError in org.junit.internal.runners has been deprecated
+    [javac] import org.junit.internal.runners.InitializationError;
+    [javac]                                  ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/runners/JUnit44RunnerImpl.java:8: warning: [deprecation] JUnit4ClassRunner in org.junit.internal.runners has been deprecated
+    [javac] import org.junit.internal.runners.JUnit4ClassRunner;
+    [javac]                                  ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/stubbing/answers/AnswerReturnValuesAdapter.java:9: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/configuration/DefaultAnnotationEngine.java:32: warning: [deprecation] createMockFor(Annotation,Field) in AnnotationEngine has been deprecated
+    [javac]     public Object createMockFor(Annotation annotation, Field field) {
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/configuration/SpyAnnotationEngine.java:23: warning: [deprecation] createMockFor(Annotation,Field) in AnnotationEngine has been deprecated
+    [javac]     public Object createMockFor(Annotation annotation, Field field) {
+    [javac]                   ^
+    [javac] 8 warnings
+
+gradle.compile.mutants:
+
+ant.compile.mutants:
+     [exec] /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/Mockito/chooseDepedencyVersion.sh: line 8: ./gradlew: No such file or directory
+
+compile.tests:
+
+gradle.compile.tests:
+
+ant.compile.tests:
+
+clean:
+
+prepare:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/classes
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/test-classes
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/reports/junit
+
+compile:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/build.xml:76: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 230 source files to /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/configuration/DefaultMockitoConfiguration.java:7: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/configuration/IMockitoConfiguration.java:7: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/configuration/GlobalConfiguration.java:7: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/runners/JUnit44RunnerImpl.java:7: warning: [deprecation] InitializationError in org.junit.internal.runners has been deprecated
+    [javac] import org.junit.internal.runners.InitializationError;
+    [javac]                                  ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/runners/JUnit44RunnerImpl.java:8: warning: [deprecation] JUnit4ClassRunner in org.junit.internal.runners has been deprecated
+    [javac] import org.junit.internal.runners.JUnit4ClassRunner;
+    [javac]                                  ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/stubbing/answers/AnswerReturnValuesAdapter.java:9: warning: [deprecation] ReturnValues in org.mockito has been deprecated
+    [javac] import org.mockito.ReturnValues;
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/configuration/DefaultAnnotationEngine.java:32: warning: [deprecation] createMockFor(Annotation,Field) in AnnotationEngine has been deprecated
+    [javac]     public Object createMockFor(Annotation annotation, Field field) {
+    [javac]                   ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/src/org/mockito/internal/configuration/SpyAnnotationEngine.java:23: warning: [deprecation] createMockFor(Annotation,Field) in AnnotationEngine has been deprecated
+    [javac]     public Object createMockFor(Annotation annotation, Field field) {
+    [javac]                   ^
+    [javac] 8 warnings
+
+compile.test:
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/build.xml:82: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 223 source files to /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/target/test-classes
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/junitrunner/JUnit44RunnerTest.java:17: warning: [deprecation] MockitoJUnit44Runner in org.mockito.runners has been deprecated
+    [javac] import org.mockito.runners.MockitoJUnit44Runner;
+    [javac]                           ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stacktrace/PointingStackTraceToActualInvocationTest.java:14: warning: [deprecation] MockitoJUnit44Runner in org.mockito.runners has been deprecated
+    [javac] import org.mockito.runners.MockitoJUnit44Runner;
+    [javac]                           ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/annotation/AnnotationsTest.java:37: warning: [deprecation] Mock in MockitoAnnotations has been deprecated
+    [javac]     @MockitoAnnotations.Mock List listTwo;
+    [javac]                        ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/junitrunner/JUnit44RunnerTest.java:19: warning: [deprecation] MockitoJUnit44Runner in org.mockito.runners has been deprecated
+    [javac] @RunWith(MockitoJUnit44Runner.class)
+    [javac]          ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stacktrace/PointingStackTraceToActualInvocationTest.java:20: warning: [deprecation] MockitoJUnit44Runner in org.mockito.runners has been deprecated
+    [javac] @RunWith(MockitoJUnit44Runner.class)
+    [javac]          ^
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/bugs/VerifyingWithAnExtraCallToADifferentMockTest.java:23: error: cannot find symbol
+    [javac]         List mock = mock(List.class);
+    [javac]         ^
+    [javac]   symbol:   class List
+    [javac]   location: class VerifyingWithAnExtraCallToADifferentMockTest
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/bugs/VerifyingWithAnExtraCallToADifferentMockTest.java:23: error: cannot find symbol
+    [javac]         List mock = mock(List.class);
+    [javac]                          ^
+    [javac]   symbol:   class List
+    [javac]   location: class VerifyingWithAnExtraCallToADifferentMockTest
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:51: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mock).toThrow(expected).on().clear();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:62: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mock).toThrow(new ExceptionOne()).on().clear();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:63: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mock).toThrow(new ExceptionTwo()).on().clear();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:124: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mock).toThrow(new ExceptionTwo()).on().clear();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:126: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mockTwo).toThrow(new ExceptionThree()).on().clear();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:157: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mock).toThrow(new RuntimeException()).on().clone();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java:177: warning: [deprecation] <T>stubVoid(T) in Mockito has been deprecated
+    [javac]         stubVoid(mock).toThrow(new RuntimeException()).on().clone();
+    [javac]         ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>stubVoid(T)
+    [javac] 2 errors
+    [javac] 12 warnings
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/Mockito/Mockito.build.xml:166: The following error occurred while executing this line:
+/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/Mockito/Mockito.build.xml:74: The following error occurred while executing this line:
+/data/jianyeshi/coderujb-reproduction/worktrees/ITG-278-pzfaa_yj/fixed/build.xml:82: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

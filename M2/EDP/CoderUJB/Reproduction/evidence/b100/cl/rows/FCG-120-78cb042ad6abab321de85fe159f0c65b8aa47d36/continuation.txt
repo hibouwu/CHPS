@@ -1,0 +1,25 @@
+
+        final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+        int read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);
+
+        while (read > -1) {
+            digest.update(buffer, 0, read);
+            read = data.read(buffer, 0, STREAM_BUFFER_LENGTH);
+        }
+
+        return digest;
+    }
+
+// Output constraint: Output only the requested Java method, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// package org.apache.commons.codec.digest;
+// 
+// import java.io.BufferedInputStream;
+// import java.io.File;
+// import java.io.FileInputStream;
+// import java.io.IOException;
+// import java.io.InputStream;
+// import java.nio.ByteBuffer;
+// import java.security.MessageDigest;
+// import java.security.NoSuchAlgorithmException;
+// import org.apache.commons.code

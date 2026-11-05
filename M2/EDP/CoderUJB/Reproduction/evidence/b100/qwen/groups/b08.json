@@ -1,0 +1,11 @@
+{
+  "rows": [
+    "CTG-88-b77050662a33cf6096c118bfd24d2bc2a8086103",
+    "CTG-94-b77050662a33cf6096c118bfd24d2bc2a8086103",
+    "CTG-95-b77050662a33cf6096c118bfd24d2bc2a8086103",
+    "CTG-101-b77050662a33cf6096c118bfd24d2bc2a8086103"
+  ],
+  "seed": 4,
+  "job": "817662",
+  "protocol_sha256": "34e2f003b99f8cfa69cfee72d83be54144c30eef7a457eecd2a46dfee11e1e87"
+}

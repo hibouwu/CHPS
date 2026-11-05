@@ -1,0 +1,37 @@
+Certainly! Based on the provided context and the pattern from the existing test cases, let's create a test case for `testCanInlineReferenceToFunctionInExpression18`. This test will follow the same structure as the other tests, using the `helperCanInlineReferenceToFunction` method to verify whether a function can be inlined based on its side effects.
+
+Here's how you can write the test case:
+
+```java
+public void testCanInlineReferenceToFunctionInExpression18() {
+    // Define the JavaScript code snippet to test
+    String code = 
+        "/** @nosideeffects */ function foo(){return 'foo';}" +
+        "function x(){return c;}" +
+        "c = a;" +
+        "b.test = 'b';" +
+        "a.test = 'a';" +
+        "var a = {}, b = {}, c;" +
+        "x().test = foo();";
+
+    // Expected result: false, because x() might have side effects
+    CanInlineResult expectedResult = CanInlineResult.NO;
+
+    // Function name to inline
+    String fnName = "foo";
+
+    // Inlining mode
+    InliningMode mode = InliningMode.INLINE_BLOCK;
+
+    // Call the helper method to perform the test
+    helperCanInlineReferenceToFunction(expectedResult, code, fnName, mode);
+}
+```
+
+### Explanation:
+- **Code Snippet**: The JavaScript code snippet includes a function `foo` that is marked with `@nosideeffects`, meaning it does not have any side effects. However, the function `x()` is not marked with `@nosideeffects`, which means it might have side effects.
+- **Expected Result**: Since `x()` might have side effects, we expect that `foo` cannot be inlined into the expression `x().test = foo();`. Therefore, the expected result is `CanInlineResult.NO`.
+- **Function Name**: The function we want to test inlining for is `foo`.
+- **Inlining Mode**: We use `InliningMode.INLINE_BLOCK` as the inlining mode, which is consistent with the other test cases.
+
+This test case ensures that the inlining logic correctly identifies that `foo` cannot be inlined due to the potential side effects of `x()`.

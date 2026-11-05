@@ -1,0 +1,78 @@
+Can not find target function in answer!
+
+**What’s wrong?**  
+
+`readResolve()` is invoked by the Java serialization mechanism **after** the object has been read from the stream.  
+Its purpose is to give the class a chance to replace the deserialized instance (or to finish its
+initialisation).  
+
+In the original implementation the method:
+
+```java
+private Object readResolve() {
+    calculateHashCode(keys);
+    return this;
+}
+```
+
+has two subtle problems:
+
+1. **No declared `ObjectStreamException`** – the serialization spec states that a
+   `readResolve` method *may* throw `ObjectStreamException`.  
+   If something goes wrong (for example a corrupted stream that yields a `null` `keys` array) the
+   method should be able to signal the problem.  By not declaring the exception the code cannot
+   throw a proper `InvalidObjectException`, and a `NullPointerException` would leak out of the
+   deserialization process.
+
+2. **Missing defensive check for a `null` `keys` array** – a malformed or tampered stream could
+   deserialize a `MultiKey` with `keys == null`.  The original code would then call
+   `calculateHashCode(null)`, which would throw a `NullPointerException` inside the private
+   helper.  The contract of `readResolve` is to either return a fully‑initialised object **or**
+   throw an `ObjectStreamException`.
+
+Both issues are unrelated to the generic type `K`; they are purely about the contract of the
+serialization callback.
+
+---
+
+## Fixed implementation
+
+```java
+import java.io.InvalidObjectException;
+import java.io.ObjectStreamException;
+
+/**
+ * Re‑calculate the hash code after deserialization. The hash code of some
+ * keys might have changed (hash codes based on the system hash code are
+ * only stable for the same process).
+ *
+ * @return the instance with a freshly calculated hash code
+ * @throws ObjectStreamException if the deserialized state is invalid
+ */
+private Object readResolve() throws ObjectStreamException {
+    // Defensive programming – a corrupted stream could give us a null array.
+    if (keys == null) {
+        throw new InvalidObjectException("Deserialized MultiKey has a null keys array");
+    }
+
+    // Re‑calculate the transient hashCode field.
+    calculateHashCode(keys);
+    return this;
+}
+```
+
+### Why this works
+
+* **Exception declaration** – By declaring `throws ObjectStreamException` we obey the
+  serialization specification and can throw an `InvalidObjectException` (a subclass of
+  `ObjectStreamException`) when the internal state is inconsistent.
+
+* **Null‑check** – Guarantees that `calculateHashCode` receives a non‑null array, preventing an
+  unexpected `NullPointerException` during deserialization.
+
+* **No behavioural change** – For a correctly‑deserialized `MultiKey` the method still simply
+  recomputes the transient `hashCode` field and returns `this`, exactly as the original code
+  intended.
+
+With these adjustments the `readResolve` method is robust, conforms to the serialization API,
+and safely restores the transient `hashCode` after a `MultiKey` instance is deserialized.

@@ -1,0 +1,29 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 232,
+  "project": "Codec",
+  "bug_id": "9",
+  "status": "fail",
+  "reason": "test did not detect buggy version",
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.codec.binary.Base64"
+    ],
+    "line_pct": 0.0,
+    "condition_pct": 0.0,
+    "instrumented_lines_hit": 0
+  },
+  "reference_log": "evidence/scoring/reference_preflight/ITG-232-9d01e632/0620a47ea9e000f35adb2404e2c9336610ef98a4d3c495df58bf27bbb05b7c2b/attempt-1/result.json",
+  "raw_sha256": "7b527fa1ae0a84a391708bf24709b74926eb2aafd1d5ab252c239e9185bfe49f",
+  "input_sha256": "d064299828750250a7bf0f4030094142bd8982c3212a6056efa711deb7644505",
+  "input_tokens": 235,
+  "full_input_tokens": 235,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-232-9d01e632/d0071d0849f32c52001f3956c6659ba9c2c30785ca4888425107f6392b030314/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-232-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

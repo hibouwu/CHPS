@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 42,
+  "task_id": "17672c8b1b39290675eea755b8b75fa120a2edb3265e497b9c7cb8422c0079db",
+  "project": "Collections",
+  "bug_id": "26",
+  "chat_sha256": "0131d7d14a5146216d9ea3a9ac6ed53925a4d1ecb2028047639168c047281d96",
+  "complete_sha256": "76a2240bb0e7abe64af55f9ad6b7d371b19969a3facbef84f50d45a9e78d15b3",
+  "checked_at": "2026-11-05T02:57:12.888432+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-42-9d01e632/09f100cbb68c8480bc16c95dff35e6e1cd6b3840b539b90f741b905b0506cb51/attempt-1/result.json"
+}

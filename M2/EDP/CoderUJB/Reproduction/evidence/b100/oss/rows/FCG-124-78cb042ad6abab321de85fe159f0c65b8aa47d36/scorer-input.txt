@@ -1,0 +1,29 @@
+public long readBits(final int count) throws IOException {
+    if (count <= 0 || count > MAXIMUM_CACHE_SIZE) {
+        throw new IllegalArgumentException("count must be between 1 and 63");
+    }
+    while (bitsCachedSize < count) {
+        int next = in.read();
+        if (next == -1) {
+            return -1L;
+        }
+        if (byteOrder == ByteOrder.BIG_ENDIAN) {
+            bitsCached = (bitsCached << 8) | (next & 0xFFL);
+        } else {
+            bitsCached = bitsCached | ((next & 0xFFL) << bitsCachedSize);
+        }
+        bitsCachedSize += 8;
+    }
+    long result;
+    if (byteOrder == ByteOrder.BIG_ENDIAN) {
+        int shift = bitsCachedSize - count;
+        result = (bitsCached >>> shift) & MASKS[count];
+        bitsCachedSize -= count;
+        bitsCached = bitsCached & MASKS[bitsCachedSize];
+    } else {
+        result = bitsCached & MASKS[count];
+        bitsCached >>>= count;
+        bitsCachedSize -= count;
+    }
+    return result;
+}

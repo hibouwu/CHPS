@@ -1,0 +1,35 @@
+
+        List mock = mock(List.class);
+        when(mock.size()).thenReturn(10);
+        mock.add(1);
+        assertEquals(10, mock.size());
+        verify(mock).add(1);
+    }
+
+// ## Issue-Link: https://github.com/mockito/mockito/issues/138
+// 
+// ## Issue-Key: Mockito-138
+// 
+// ## Issue-Type: Bug
+// 
+// ## Issue-Status: Open
+// 
+// ## Issue-Author: bric3
+// 
+// ## Issue-Assignee: 
+// 
+// ## Issue-Labels: 
+// 
+// ## Issue-Comments: 0
+// 
+// ## Issue-Description: 
+// 
+// ## Issue-Link: https://github.com/mockito/mockito/issues/138
+// 
+// ## Issue-Key: Mockito-138
+// 
+// ## Issue-Type: Bug
+// 
+// ## Issue-Status: Open
+// 
+// ## Issue-

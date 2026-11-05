@@ -1,0 +1,25 @@
+```java
+  public Symbol getParameterInFunction(Symbol sym, String paramName) {
+    if (sym == null || !sym.isFunction()) {
+      return null;
+    }
+
+    FunctionType functionType = sym.getFunctionType();
+    if (functionType == null) {
+      return null;
+    }
+
+    Node parametersNode = functionType.getSourceNode();
+    if (parametersNode == null || !parametersNode.isParamList()) {
+      return null;
+    }
+
+    for (Node paramNode : parametersNode.children()) {
+      if (paramNode.isName() && paramName.equals(paramNode.getString())) {
+        return getSymbolForName(paramNode, paramName);
+      }
+    }
+
+    return null;
+  }
+```

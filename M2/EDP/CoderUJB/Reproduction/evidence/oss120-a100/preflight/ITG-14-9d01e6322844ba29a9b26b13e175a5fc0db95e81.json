@@ -1,0 +1,16 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 14,
+  "task_id": "0a65e0609f40f9f4ca3a294cb7a25a7f8be29dea86533bc5633d37a768f6352f",
+  "project": "JacksonCore",
+  "bug_id": "11",
+  "chat_sha256": "ca7ca1afec30a4497dfd16e0c76b070fe8f18279e200da71bfe8be8a5df0d184",
+  "complete_sha256": "7cd3dd0ab44e876834ddfa79e11e337a4db6dc494e81762077bc5474bcc6b26c",
+  "checked_at": "2026-11-05T02:56:38.181977+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/ITG-14-9d01e632/4f7f2183e59943e9591942354e7984c29f3b8399814e201dfec9b219a9ab25cd/attempt-1/result.json"
+}

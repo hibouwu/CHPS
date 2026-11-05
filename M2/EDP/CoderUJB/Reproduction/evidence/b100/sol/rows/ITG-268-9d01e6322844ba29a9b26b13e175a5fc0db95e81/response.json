@@ -1,0 +1,105 @@
+{
+  "id": "resp_0f9cdf23afbf3f65016aec01c7bb9487d29e1b0bafc6050c77",
+  "object": "response",
+  "created_at": 1793851847,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851858,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0f9cdf23afbf3f65016aec01c8bc4c87d2aa0b4d5929865615",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AHS3HYVTugdw_Uxl7FbOzm7TgFouImtQI6T-ROO-y2nJPwXa_SGgjXsXDXeMUOlfhuuIBgJwIhSQalf86T0v5WZQ7bXOmPz6ETvO-8GmPZ8NmhikAd2-CqJMPsEHmujxdF8k2V_mfJVvMPHfw3QpCBUbccrwoBNJJ_YNNmzd1VKEDyVAWmRXHUVahxy9qoc9-RiAuahdXV5cYioYD8HQgVfHNbmAuKtuVJIwZvP0CKY9OzvPbM2wqcdhUfNjNhFaZgJz-YnuMJxmkTXhZyQsieDtD60l26yEw3CUjr-tIKB_Ojh4wZu1IC5vhf673Wk6Vf1i3xo8tCB7Rl_YJDgdAT3UgFXJ5cwl7kYxIEwLfnqEx7kqGoZnGujh4LgR5hkAslbDERv0ForOVZPLWgqjk7FQ5mPbHrKg6h-BkJ6sAeIwS5XIvgv6RefPRzDOk05wDWX9ydNvfk8O7EHktSczz-8X_5sB3aKkK93IDi2y-dKjsNTUfDnwvMG_lrDRj6PzyqGTbADLRusgJldf92PydEbMM_7Q8NmZgBKL61Q_YZVsisfM-K_bCiJhSczpeEwRSr1rJ3pgqq9ygPsBAGYO15Y5T76Y4Y8wDrxYtkeumBLRagQJcTyT-ZkhkQFAwonj9ULMG9lmd2HqfQRVX2y2EOlTSKxh18Mr8KOpkclip6MSsx_TAbEX4HUcNvEEK5DOeXUVEeOs_v5wN5Baxsh6dUFdxLToBOY8ynORz3d_cJtLdT1mZxqtJioniEl8N2mkUpek23p6e09PlgQOZySxGX0DiVG-0P5mNOp4XrfYLoRmz1z9Xt9HLztizRodd_XeTtV79Ld3wum8Rfvd-qKtlrB3QcD37oGAdOaPmCz7VhJ0WAKSVpyIkmTKDkNz4uaI1SfghFy5ZBXxDduShJ4kNrp6Pi-bWmpR4S3CmvTQvbKK2b24IteAEhkf2UzUIW6y75ZjSgJgjvwLF4maqEXCCAAsx6Tv_EE-8-ICvpFfqi8ZAWxn6b69JKIEsqL5GUKII6e9yTW3Xg5Km4ydBmQnkm1TN927eyHDMdUB6iSE8QPwS7A6YuwiVorYrFusZcoLOPRnqRDvjh7026xEbQQUhdhUUI1HwqfTZ88iDbjBIoApIUc4NEI4SxAO5pJvKNiyiNtgX8iBZ-Wp0rNiegD8zXaOv2evlml_kvcxW5qHiIpXw9ZvO4WFPLv1InPYpAlQloql7n5KMvbnQsdzfemJoRrRkb9J6G7FSj0oXTLwVDXL6R4K1MEesXsmXmnYAV_gq5vNemtcPSi8sADT2v7pGyw6C96Ar-f2PT1Ykvr5j2swDEboSvPLZG-nrOOcajfm0eID_dHdqIh_umxoUFeNC9d6b52HvwpldACNjf-hRA0f-zOguezrKRdeLOd-NGQjEWH48M_4Zu6O62RA62mIoLZBeLfq84Xm6ruhiRTc6X4bF_31R9GAlbNZ3p9WbOi3-ZjcAG5BnqM6-_g_fSjJFlpmOYiIeYkDpXP52chrLZNR5RF3WUEOsSEJvj5cdoc7aFRZVWtjzOrC7jcdShibJW8e-PXi580CSIaPKMogasDndBxOzOgcL8PlR-CZbtNxr8Hdk5Kj31vhC8SDApcTDVk3fNaFffihxqoEA0OsMihENQVpEji1Kaxq3rj3V_Y7SfJx7iXWJN3X3a60Tt8A8UiqGrPfSHRl1S5DsovQ-yYEAI1jl4ujQF1fYv7ve-nDfO4Qxpso9ZBPUn-j4t8wSVzonk0WWFX_hYBTRLlID15s0SAwqi_8x9kwH4CRKTNX5exxUVKXlD4L9QJlaF_xSrXGNat6SU2C6nP5O5mR66-9rtAYddhEYzyZgfhZ20qX7M4ARq_qKLObK2HePMgs-gwd1ZXGMCDXyDqrswOALBl7TV-gvtUtZT7eDRNhfZAGg2Hi43mQm9Bo-z-_R_74E60sB0JBYpZ4j51RvDN5j8cY-An86zOBsacy75fJCjuJkVcENp_SlJwk9cSxbWNhHsuxyXNDzlcZaQx7AcK7dGpdCSnzfwu0F9P583H8sSs2rPgG1HvOxM1Q_gcyUlhtH3cKH_wKW2A9y7mHuEPE5PBXTeIi40My_qHOdj0WbVpxGWftW-SU6VIGhKz3CBhKNX9m8wSyk2n6ZK0hixZByD_eyTGpQ4p9_fMgpOlTXcIbn_cEH5eun92kd-S0WjWlD0ufRFtxNB9aY6tf-Ey99LwywUJhISc5TR6mOTHCPG6CmqciTnbqy0cHLsEuMJFz6MO-XHIYeqYU_Ba_eDlad8-uF2FAKKLML6EZPhw0UOCxGSf8F5VVne9w5fJHDiLFA9bDnslVX5eJSHvxzJ93e-Al6XdaQVRZ4qEULrbsN9yoDuh8frR67ujiXXDqNPvj9n3czBYGXN_VtyKPB3NWqDtU-Vrumj1sfngA-7Fi7GbdvYQxHPQBWi_Ng8TlACgLff94GA52txLWw7rSpXagMEd8MwsXXAxdpu-dTSUfHdEEjbJ5SE0VVewjiB2WXEOoQ06uB48Jq4QtNM6trxALXsFkx6NCzMTkJmpVpWyP4cQ4cI1Ou3XQ1Q_IM2_gtf2Lwuh9e6RVs6OzpmVaR0yZwvbRYl9nnyM6Bmg8run_TCTpDWzGHwDmQVasCrr9hsl-8ZAqydJ_d_jTkvvJdUu68VXBho_-KzPNpFKaFszGcgctgZOQ4YZMk46qAlgzxG6AYRhEf-UqIkN-fmP620DkGpyghLdRrpE3XHuQtf7hjzlRKBivH5i6dMYD1GmRiLHSoPhFlKg8PM60IRKEr27a-NcYBd9W4dtdI4lJd1mFydiqVVxjtxIgTSOkqxYliTfJWwmMLBGHEcx8-jOEp3YxWrXye9ODXqC9y3KUThAauhubUtZYhfmvZnI9-TuOCylJae8xHIhSb0_F0G4-9Rq26B3khRZpImDmvNUtbmNnDpKn-s4Y0S8uTCq87OChdmpI4nmoblVYh0zLG4fmen7q-94hk_UkSahOQm6vASWY_-eNQigFmyk9xVmLqUl1UNTLUuCvkSrv0hLhiFkuG86gfR2uFqlz9sk4kGisQ-g9JZcKy77KlX-YZ3Y_pRUVePozG4bEd2zHRCSoMNtKbu2niC5NyEqVirZ7d_vbCLZTkXC83Xx878KZYkqss4GAaqF559vj0IEmzhBzIh0DPieQ3S7JMH3PxGgF4ElihFjgADW6Ut9G4-WpehodSavY6f6ktxRn58TYZfkqQSOC1I7qzB1XnAkuHJZYmWRx_3vQd2vPtEKrHzPtWgSGC71zJsYM6xYbDBodVcAeMFKJwo8AhG1UwzFQmzhtgjXJedkOrppkubwUKiRj0M1QrsdwzW3jZyOVj_0tLMZZT-Zwx83J9dcyqowoec0ANGnZuC_W7r1I0QJ955W_9tWVTYf4FqZ2KEwrJ1ppDRGZEmNiX3unP7uvathU2h6RlF2klxXfX8kpwcvgEoLATiuIaR0_9TSGMrblyQmymCzy-jnfUtBM4eR1UPGvUBdLSYOPdNYWFWf1dkyWEYKxSgDFy2lWUeSV1Yfnf9fqHdokMff4xCZPCqzY6dzAT63Wu_FUpSp_kvIIBfgalRca56C1oXm1KcQDTFnG2n1z2KzQBplGEUUsVRD4dLbbN4QxV1ltz0YHIi5oJDFqloSidqv7MoDmsByakGv9BLM9v8tlRXFSd0O7_3gN9BpEgEyVgZR77vlCQBV5Z_YatoN8TvfQFfmsdiwhXTWfzBB9k47LQIHjbr4pUSlBLET8SAIeCUObPVuyKz1NO2kZUr7LXSZZB31qgwMBJNR6JhxGH_c91Snwv9WYaMFtcoPWtLl1NRdbCp2RsRtoB1i73ju1Lo-s84BPw5LsalVvJUh73iF9n66LYm6odbkfG08fZI5o39c3TtK_ePXHIPTscQFCnv_5iIqNQcxSQLahkLCgUW-mFH03tGBLIiec_jUgs_FXLJADhUQ0xixmvfTxlXrVhhqi0Jqru23Y9yRr4s2BXVuC36JeYvj1cYJp_sFvi7K3TIfRMDfvlWWlU17d5mk2DLySAeaCDKfNUfD3mMwt0SwoE6i0xT1o4j3kHICQsZ9oahWJW74IEBCO4KC1qxPoe3-hwVouCzXlph0Rzr53FibkNKfq_WCZWtPZ5Y1wDJrkBUewjoLwqlGmrQXbdzxBGc0eqAMTDcAO4r7pZLZYopnIyeUVwFN5mpdk8JmVcIYkNlsdZzeKkttexeNek3IM6H8qtf26zgT9Brv-bOdQ9pO8vTfxiQTqDNQR688WMMp0uJOIWGTAb888LzX",
+      "summary": []
+    },
+    {
+      "id": "msg_0f9cdf23afbf3f65016aec01cf6ad887d29118a15ab3859ee2",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    @Test\n    public void supportsBOMinFiles() throws IOException {\n        String html = \"<html><head><title>BOM test</title></head>\"\n                + \"<body><p>H\\u00e9llo \\u4e16\\u754c</p></body></html>\";\n        String[] encodings = {\"UTF-8\", \"UTF-16BE\", \"UTF-16LE\"};\n        byte[][] boms = {\n                {(byte) 0xEF, (byte) 0xBB, (byte) 0xBF},\n                {(byte) 0xFE, (byte) 0xFF},\n                {(byte) 0xFF, (byte) 0xFE}\n        };\n\n        for (int i = 0; i < encodings.length; i++) {\n            byte[] content = html.getBytes(encodings[i]);\n            byte[] input = new byte[boms[i].length + content.length];\n            System.arraycopy(boms[i], 0, input, 0, boms[i].length);\n            System.arraycopy(content, 0, input, boms[i].length, content.length);\n\n            org.jsoup.nodes.Document document = org.jsoup.Jsoup.parse(\n                    new java.io.ByteArrayInputStream(input), null, \"\");\n\n            org.junit.Assert.assertEquals(encodings[i], \"BOM test\", document.title());\n            org.junit.Assert.assertEquals(encodings[i], \"H\\u00e9llo \\u4e16\\u754c\",\n                    document.body().text());\n            org.junit.Assert.assertFalse(encodings[i],\n                    document.text().contains(\"\\uFEFF\"));\n        }\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 254,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 565,
+    "output_tokens_details": {
+      "reasoning_tokens": 220
+    },
+    "total_tokens": 819
+  },
+  "user": null,
+  "metadata": {}
+}

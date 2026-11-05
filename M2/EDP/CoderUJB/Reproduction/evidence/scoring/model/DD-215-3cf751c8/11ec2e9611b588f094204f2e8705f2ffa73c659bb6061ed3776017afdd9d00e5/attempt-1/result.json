@@ -1,0 +1,32 @@
+{
+  "task": "DD",
+  "revision": "3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+  "task_idx": 215,
+  "task_id": "39c06f3ed16f11344dfa55768a09ab1a4a76f123912b9082277ef481313fcdaa",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "e357217b7cbee32e125170344d8612a61dddc664399317905cc20c464f7d80b2",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "cfcfb1ed0bac1636a463be25e4cc18f21fc3f08181877d7e6edc8b9cade43a0c",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "JxPath",
+  "bug_id": "6",
+  "status": "fail",
+  "commands": [],
+  "tests": {},
+  "category": "fp",
+  "metrics": {
+    "tp": 0,
+    "tn": 0,
+    "fp": 1,
+    "fn": 0,
+    "error": 0,
+    "total": 1,
+    "correct": 0,
+    "acc": 0.0,
+    "acc_w_error": 0.0,
+    "precision": 0.0,
+    "recall": null,
+    "f1": null
+  }
+}

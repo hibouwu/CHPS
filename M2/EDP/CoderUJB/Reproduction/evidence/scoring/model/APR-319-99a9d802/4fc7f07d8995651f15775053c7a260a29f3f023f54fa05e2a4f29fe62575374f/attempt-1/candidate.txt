@@ -1,0 +1,54 @@
+public List<Connection.KeyVal> formData() {
+    List<Connection.KeyVal> data = new ArrayList<>();
+
+    // iterate over all form‑control elements that belong to this form
+    for (Element el : elements) {
+        // 1. Only controls that are submittable according to the spec
+        if (!el.tag().isFormSubmittable()) continue;
+
+        // 2. Skip disabled controls
+        if (el.hasAttr("disabled")) continue;
+
+        // 3. Controls must have a name attribute to be successful
+        String name = el.attr("name");
+        if (name.isEmpty()) continue;
+
+        // 4. Special handling for <select> elements
+        if ("select".equals(el.tagName())) {
+            Elements selectedOptions = el.select("option[selected]");
+
+            // If nothing is selected we have to treat single‑ and multiple‑select differently
+            if (selectedOptions.isEmpty()) {
+                // single‑select → first option is the default
+                if (!el.hasAttr("multiple")) {
+                    Element first = el.select("option").first();
+                    if (first != null) {
+                        data.add(Connection.KeyVal.create(name, first.val()));
+                    }
+                }
+                // multiple‑select → nothing is submitted when no option is selected
+                // (just continue to the next element)
+                continue;
+            }
+
+            // At least one option is selected – add each selected option
+            for (Element option : selectedOptions) {
+                data.add(Connection.KeyVal.create(name, option.val()));
+            }
+        }
+        // 5. Checkboxes and radios – only if they are checked
+        else {
+            String type = el.attr("type");
+            if ("checkbox".equalsIgnoreCase(type) || "radio".equalsIgnoreCase(type)) {
+                if (el.hasAttr("checked")) {
+                    String value = el.val().isEmpty() ? "on" : el.val();
+                    data.add(Connection.KeyVal.create(name, value));
+                }
+            } else {
+                // 6. All other controls (input, textarea, etc.)
+                data.add(Connection.KeyVal.create(name, el.val()));
+            }
+        }
+    }
+    return data;
+}

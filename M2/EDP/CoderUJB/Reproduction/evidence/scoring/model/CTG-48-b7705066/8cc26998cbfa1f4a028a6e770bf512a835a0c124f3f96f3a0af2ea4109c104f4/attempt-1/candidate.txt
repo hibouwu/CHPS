@@ -1,0 +1,23 @@
+public void testCanInlineReferenceToFunctionInExpression18() {
+    // Define the JavaScript code snippet to test
+    String code = 
+        "/** @nosideeffects */ function foo(){return 'foo';}" +
+        "function x(){return c;}" +
+        "c = a;" +
+        "b.test = 'b';" +
+        "a.test = 'a';" +
+        "var a = {}, b = {}, c;" +
+        "x().test = foo();";
+
+    // Expected result: false, because x() might have side effects
+    CanInlineResult expectedResult = CanInlineResult.NO;
+
+    // Function name to inline
+    String fnName = "foo";
+
+    // Inlining mode
+    InliningMode mode = InliningMode.INLINE_BLOCK;
+
+    // Call the helper method to perform the test
+    helperCanInlineReferenceToFunction(expectedResult, code, fnName, mode);
+}

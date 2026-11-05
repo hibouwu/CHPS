@@ -1,0 +1,105 @@
+{
+  "id": "resp_07f81c2e65510466016aebfaba620c87d295f3d920e583cf9d",
+  "object": "response",
+  "created_at": 1793850042,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850048,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_07f81c2e65510466016aebfabb5ef087d297281017cf8b45c8",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_rAlk2mmVC-261IMzP_Z5jjHaPx2iNnxDuqWW-CO6QJy5WMpsNey0G_GGcphpl8uHi1O3rCkwfOqJ63tvJ503U2A6SHDnYKihn5oZE3qUqJZwMqwWA-YrYqg9gsGcF13kZjODpHx0ZAmbeh4DQYsM0jVVoQAbYWZCJRPgR7yJehwTxQFaL3NQyCmC24W9ao_LoNPFTsUFohSzHtBjKPyCL8RTaVcSxRFT7xorwOwgLC162_lJpmSHRW0dNu2Oo7-v4ZPsrc0t3qMLmpJItzY4eAOoGi2dKu2gSmKynK4SXsQfdkYMnl0LEzbXCNmBhNHE5FwLnI0bWx5t0DsSQ-Z3Sle-FrfJeiiVnPknpBj6IDXhYDGRFKM0PrakZwtaBwSPlx8SKoEDa1QbGyd2cOP6TV5SVDBZ3kG015HtYiSr0YU53GcPyblcKzxG05yNglfL1imMFArv7iGoKHlHXV8gBwCajeA6elOp6ZhPdrPF2dLnazjj7U7ecXP1f1744JCethoRBvJkhUhCymGQa48aOXaK4xVHtjVGjaTCRB5ySxWNxDRVFuYUQRa_TUkRvpVJSPccYLJWvQ0KC8YsDAp_ekVKjlFjVaLk7DhMKmJmHMrG5aiuxUgvubioL8Z980QT6GVY1VzXGZgBAOjQahk6k1p5DeNqId-FIbQcj4QjzocaEOpvUlIOheEJKvhbl_xzlPtE4wyzahpgiEMTpmHxfAuwZvaLTVjyxvvbGUdRSKE4JaYp1zOiRcF0r60jIsH-4tLHBsz_1EZWVAwFOc9M7nqBr1Vtk67GUPs5WpZ7XXUucdsePJsPXCDXfvmc_KUbF11vYud1W4UGBOg-gd4HA2_NW_6opXD5ylDq3QfMEkkBjiIfb7XYRso7ZEYgQbFX2oYdaoCY2wJGIXt25VjenQpvGBoaD0lYNupb6BqcKCNSBo3hIhEViJPQBSn0P8V4quYgkhuSQwHK0uyK-rgn6ajOn-VZBBW783WTVLoL6JEeGC3coptUm5PNVrJ7gADHoDESkHg68PMoEczYr6WJG8YoVG9Elc_MsFc3EwQ9-CXjdpuq-dW3DXSdC3e__TRFBNaXdoAUQoqx80JfnPMhJ0IPDhMDPclmSSV5XvgrUlKy9PKcbrAQOZSpxgZiZ5KvnXi8YNkOTiiJeBFRiDbkZpBD2kDAzel6qw6rlKZvSt5sqyFg64U40nrZSsXhLgXxGytd1hkAD-j-UVMzQ1evU-DKyom_EW6XbA9WOECxTjc54dBt4a3Pw87ZnqFUr_ldui2UPSTMQCBdCeVyEWLOOXVdwzFwLEsB7D6PkW1AN_vgV5z8MrT3RKpPh-3WA0sh3KPWJq7mskb_FxJHExKqrLs8KZE8SOlGssmWA9slC0AtpgJUVqbC5cw7mc-TXO7b8_4XYYbRsJyTC6AjpmDeB1BEZx85SNecDLiR0DMaPBXK7nmrwkOiT6-9KZvDb8jn0ASIZFaw3A1_CEpk7rmFiWArhoJAhklHvl58qGkZfEuQ_2uem0H-sk6S09QPkPKhhf44KcPVk4J7yANcVxQYVAkCTgIBuUhXu2hICCwqCJFHmiTBGzstZSYVxcRwhdl1bvdwKQJUBhUcZ4-p_k5vuWoHQq7pu8AyCq9Q682lcgxnR_NKGd5MshxGQDj_GJJxYyCDO24iF8I60sTd_X9EFNsA4c6MWjdu6_a86sYaYDgLswmCOT2M85drZQA5IVoopLRZI-fnI-umMkFNPHcmskAuZxBPQ5un_3P5gHspdDQYj9UR9gCDwZLzp22UTazo_YJOKoU8Uv85U-WRzH2xmN1NclLF7J4g2Vnw3j566jUH6B7AsTJyU89ys_1jJSKVo0Rfp7cvPcbOBWzmLF0FTbnfu5fWcnGJbfeQGiTjGrWtF3_phljEBLWO9u6yoTteb9o5RWS_HAH4SGrL5NiXBM9WEr0f14HrwepFzKncTt9USkEoD3M4eHuhVFsnPXsUfaJCNCZb_VQ5Xxpnw_L9a8bkJXFzs6MAgxtqXJwZ6PSu19ZXE5rvPp87dzdbM9LBsDUQ-k75-l3eRuiC0FUg_WiKGh_gxZyiBQW9ZSfLisekAfWHUtRXcuFe2MJWEOwYMWCG9Rs8csg1Av0Sr35CYNxZW3LF7NyRQvRjbX2SLG4AQf00NV1BW65KhSY0l9p5BTu2vm2Aa6zUbPqOZDZilOMbYoo3RdwitPS06sy8f7Qj8mdneZgi08z7IEsaDHYW5YUBVPgpjBw6891I2zbX44LsSxjr9PlTvrqZXu-A-wk_PAf33i5Gjz5z7Gx957VT5GmePl6qqcGA37FtECR5bSGIlRUW03h_vrw8Y5iT_BQhU_g-3UhgF-EPIBUyAaWp7aSFt-sF_3bOuxyfcURq6nWSncealCaK2w85Q4Qh8lJ8Ao705J_QCX-LXPjCAeun9_XlzpxA2e062psXUeaIHhE3cwmgaLLCAt97ZTKSL4k3tIK9WPWeXneda-cLyyHUn-6Ha-OQa6Zb0v-7sp5iUctvwzU7RakU2sOjGb1hCisWUM1zEktAoB7LddyKtLQLPQcRJ8TC3sj0nHVCLTJRUDXQdbjfD7Sq1kOyAdRC5FCOOlstPMOiOyCB9zovGLTIo2",
+      "summary": []
+    },
+    {
+      "id": "msg_07f81c2e65510466016aebfabda47087d2bd25b8befa2390d7",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n/**\n * Test case for\n * <a href=\"https://issues.apache.org/jira/browse/COMPRESS-264\"\n * >COMPRESS-264</a>.\n */\n@Test\npublic void testReadingOfFirstStoredEntry() throws Exception {\n    final byte[] content = \"Contents of the first stored entry\"\n        .getBytes(Charset.forName(\"UTF-8\"));\n    final CRC32 crc = new CRC32();\n    crc.update(content);\n\n    final ByteArrayOutputStream archive = new ByteArrayOutputStream();\n    try (java.util.zip.ZipOutputStream out =\n             new java.util.zip.ZipOutputStream(archive)) {\n        final ZipEntry first = new ZipEntry(\"first.txt\");\n        first.setMethod(ZipEntry.STORED);\n        first.setSize(content.length);\n        first.setCompressedSize(content.length);\n        first.setCrc(crc.getValue());\n        out.putNextEntry(first);\n        out.write(content);\n        out.closeEntry();\n\n        // Ensure the first entry's stream stops before the next local header.\n        out.putNextEntry(new ZipEntry(\"second.txt\"));\n        out.write(\"Second entry\".getBytes(Charset.forName(\"UTF-8\")));\n        out.closeEntry();\n    }\n\n    zf = new ZipFile(new SeekableInMemoryByteChannel(archive.toByteArray()));\n    final Enumeration<ZipArchiveEntry> entries = zf.getEntries();\n    assertTrue(entries.hasMoreElements());\n\n    final ZipArchiveEntry first = entries.nextElement();\n    assertEquals(\"first.txt\", first.getName());\n    assertEquals(ZipEntry.STORED, first.getMethod());\n    assertEquals(content.length, first.getSize());\n\n    try (InputStream in = zf.getInputStream(first)) {\n        assertNotNull(in);\n        assertArrayEquals(content, IOUtils.toByteArray(in));\n        assertEquals(-1, in.read());\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1314,
+    "input_tokens_details": {
+      "cache_write_tokens": 1311,
+      "cached_tokens": 0
+    },
+    "output_tokens": 484,
+    "output_tokens_details": {
+      "reasoning_tokens": 92
+    },
+    "total_tokens": 1798
+  },
+  "user": null,
+  "metadata": {}
+}

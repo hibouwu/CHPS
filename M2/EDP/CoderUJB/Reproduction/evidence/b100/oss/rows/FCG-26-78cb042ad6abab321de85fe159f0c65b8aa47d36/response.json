@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the Java method implementation for splitText, continuing any answer prefix already provided, and stop after its closing brace. No markdown. Provide method body.\n\nWe need to understand context: class TextNode extends LeafNode. Need to implement splitText similar to jsoup's TextNode.splitText. Let's recall jsoup source. In jsoup 1.15.4, TextNode has method:\n\npublic TextNode splitText(int offset) {\n    Validate.isTrue(offset >= 0);\n    String text = getWholeText();\n    Validate.isTrue(offset <= text.length(), \"Split offset must be within text length\");\n    String head = text.substring(0, offset);\n    String tail = text.substring(offset);\n    TextNode tailNode = new TextNode(tail, baseUri());\n    // add sibling after this node\n    siblingIndex = siblingIndex + 1? Actually need to insert after this node in parent.\n    // In jsoup, they do:\n    // Node parent = parent();\n    // if (parent != null) {\n    //     parent.addChildren(siblingIndex()+1, tailNode);\n    // }\n    // set this text to head\n    // set text of this node to head\n    // return tailNode;\n\nBut need to see LeafNode methods. In jsoup, TextNode extends Node, not LeafNode? Actually in jsoup, TextNode extends Node. But here extends LeafNode. Probably similar.\n\nWe need to use methods: parent(), siblingIndex(), etc. Let's assume Node methods exist: parent(), siblingIndex(), etc. Also there is a method setText? Actually TextNode has text() getter and text(String) setter. So we can set this node's text to head.\n\nImplementation steps:\n\n- Validate offset >=0 and <= text length.\n- String whole = getWholeText();\n- String head = whole.substring(0, offset);\n- String tail = whole.substring(offset);\n- Set this node's text to head via text(head);\n- Create new TextNode tailNode = new TextNode(tail, baseUri()); // need baseUri method from Node? There is baseUri() method in Node.\n- Insert tailNode after this node: if (parent() != null) { parent().addChildren(siblingIndex()+1, tailNode); } else { // no parent, just return tailNode? Probably just return tailNode.\n- Return tailNode.\n\nNeed to import Validate already imported.\n\nThus method:\n\npublic TextNode splitText(int offset) {\n    Validate.isTrue(offset >= 0);\n    String text = getWholeText();\n    Validate.isTrue(offset <= text.length(), \"Split offset must be within text length\");\n    String head = text.substring(0, offset);\n    String tail = text.substring(offset);\n    text(head);\n    TextNode tailNode = new TextNode(tail, baseUri());\n    if (parent() != null) {\n        parent().addChildren(siblingIndex() + 1, tailNode);\n    }\n    return tailNode;\n}\n\nBut need to know method names: baseUri() is in Node. siblingIndex() method exists. addChildren? In jsoup Node has addChildren(int index, Node... children). Actually Node has addChildren(int index, Node... children). So we can call parent().addChildren(siblingIndex()+1, tailNode);\n\nThus final method.\n\nWe must output only the method, including its signature and body, and stop after closing brace. No extra. Ensure imports not needed.\n\nLet's produce.",
+        "content": "public TextNode splitText(int offset) {\n    Validate.isTrue(offset >= 0, \"Split offset must be non-negative\");\n    String whole = getWholeText();\n    Validate.isTrue(offset <= whole.length(), \"Split offset must not be greater than text length\");\n    String head = whole.substring(0, offset);\n    String tail = whole.substring(offset);\n    // set this node's text to the head part\n    text(head);\n    // create the new sibling node with the tail part\n    TextNode tailNode = new TextNode(tail, baseUri());\n    // insert the new node after this one in the parent, if there is a parent\n    if (parent() != null) {\n        parent().addChildren(siblingIndex() + 1, tailNode);\n    }\n    return tailNode;\n}"
+      }
+    }
+  ],
+  "created": 1793851830,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 895,
+    "prompt_tokens": 444,
+    "total_tokens": 1339
+  },
+  "id": "chatcmpl-x20p3KoOM1Ee7D4vBNOSag1CycFbSDpw",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 444,
+    "prompt_ms": 250.335,
+    "prompt_per_token_ms": 0.5638175675675676,
+    "prompt_per_second": 1773.6233447180775,
+    "predicted_n": 895,
+    "predicted_ms": 4466.034,
+    "predicted_per_token_ms": 4.989982122905028,
+    "predicted_per_second": 200.40151955851658
+  }
+}

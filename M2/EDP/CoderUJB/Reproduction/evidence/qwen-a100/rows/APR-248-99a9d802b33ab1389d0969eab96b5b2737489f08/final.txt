@@ -1,0 +1,31 @@
+The provided `println` method in the `CSVPrinter` class looks mostly correct based on the context and the description. However, there are a few considerations and potential improvements that can be made:
+
+1. **Null Check for Record Separator**: It's a good practice to check if the `recordSeparator` is `null` before appending it to the `out`. This can prevent a `NullPointerException`.
+
+2. **Handling of New Record State**: The `newRecord` flag is set to `true` after appending the record separator. This is correct as it indicates that the next print operation should not prepend a delimiter.
+
+3. **Code Formatting**: Ensure consistent code formatting for readability.
+
+Here is the revised version of the `println` method with these considerations:
+
+```java
+/**
+ * Outputs the record separator.
+ *
+ * @throws IOException
+ *             If an I/O error occurs
+ */
+public void println() throws IOException {
+    final String recordSeparator = format.getRecordSeparator();
+    if (recordSeparator != null) {
+        out.append(recordSeparator);
+    }
+    newRecord = true;
+}
+```
+
+### Explanation:
+- **Null Check**: Added a check to ensure `recordSeparator` is not `null` before appending it to `out`.
+- **Consistent Formatting**: Ensured the code is consistently formatted for better readability.
+
+This should address any potential issues with the `println` method in the `CSVPrinter` class.

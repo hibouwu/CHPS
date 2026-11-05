@@ -1,0 +1,26 @@
+@Test
+public void testRfc4648Section10Decode() {
+        // Define the test vectors as pairs of (encoded, decoded)
+        String[][] testVectors = {
+            {"", ""},
+            {"Zg==", "f"},
+            {"Zm8=", "fo"},
+            {"Zm9v", "foo"},
+            {"Zm9vYg==", "foob"},
+            {"Zm9vYmE=", "fooba"},
+            {"Zm9vYmFy", "foobar"}
+        };
+
+        // Iterate over each test vector and verify the decoding
+        for (String[] vector : testVectors) {
+            String encoded = vector[0];
+            String expectedDecoded = vector[1];
+
+            // Decode the encoded string
+            byte[] decodedBytes = Base64.decodeBase64(encoded);
+            String decoded = new String(decodedBytes);
+
+            // Assert that the decoded string matches the expected value
+            assertEquals("Decoding failed for input: " + encoded, expectedDecoded, decoded);
+        }
+    }

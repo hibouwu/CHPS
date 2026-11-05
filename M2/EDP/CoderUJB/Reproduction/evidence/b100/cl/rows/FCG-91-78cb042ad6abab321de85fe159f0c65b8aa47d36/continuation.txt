@@ -1,0 +1,32 @@
+
+        if (str == null) {
+            return null;
+        }
+        str = SoundexUtils.clean(str);
+        if (str.length() == 0) {
+            return str;
+        }
+        final char[] in = str.toUpperCase().toCharArray();
+        final char[] out = new char[4];
+        out[0] = in[0];
+        int len = 1;
+        char last, current;
+        for (int i = 1; i < in.length && len < out.length; i++) {
+            current = map(in[i]);
+            if (current != 0) {
+                if (current != last || len == 0) {
+                    out[len] = current;
+                    len++;
+                }
+                last = current;
+            }
+        }
+        return new String(out, 0, len);
+    }
+
+    /**
+     * Maps the given character to a Soundex value.
+     *
+     * @param ch
+     *                  The character to map.
+     * @return The Soundex value of

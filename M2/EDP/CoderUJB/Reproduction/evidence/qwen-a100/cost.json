@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    "817622"
+  ],
+  "slurm_seconds": 1443,
+  "allocations": "1 GH200, 8 CPUs, 192 GiB requested RAM",
+  "paid_api_calls": 0,
+  "paid_api_spend": 0,
+  "formal_generated": 100,
+  "formal_scored": 100,
+  "input_tokens": 80825,
+  "output_tokens": 60606,
+  "pilot_output_tokens": 344,
+  "peak_cuda_allocated": 70226138112,
+  "peak_cuda_reserved": 74633445376,
+  "scorer_attempts": 101,
+  "command_seconds": 703.457,
+  "paid_ledger": "../dataset-audit/窗口预算.json"
+}

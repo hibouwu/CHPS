@@ -1,0 +1,23 @@
+    public void testDifferentDurationReturnDifferentObjects() {
+
+        /**
+         * The fields returned by getInstance should be the same when the
+         * duration is the same for both method calls.
+         */
+        DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
+                dateTimeFieldTypeOne, UnsupportedDurationField
+                        .getInstance(weeks));
+        DateTimeField fieldTwo = UnsupportedDateTimeField.getInstance(
+                dateTimeFieldTypeOne, UnsupportedDurationField
+                        .getInstance(weeks));
+        assertSame(fieldOne, fieldTwo);
+
+        /**
+         * The fields returned by getInstance should NOT be the same when the
+         * duration is the same for both method calls.
+         */
+        DateTimeField fieldThree = UnsupportedDateTimeField.getInstance(
+                dateTimeFieldTypeOne, UnsupportedDurationField
+                        .getInstance(months));
+        assertNotSame(fieldOne, fieldThree);
+    }

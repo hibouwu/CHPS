@@ -1,0 +1,28 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```markdown
+## Issue-ID: Mockito-138
+
+## Issue-Title: 
+fix proposal for #114
+
+## Issue-Description: 
+[@bric3](https://github.com/bric3), can you take a look at this one? If you don't have time I'll just merge it. All existing tests are passing.
+
+
+Thanks for the fix!!!
+
+
+
+
+```
+
+You are a professional Java test case writer, please create a test case named `shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine` for the issue `Mockito-138`, utilizing the provided issue report information and the following function signature.
+
+```java
+    @Test 
+    public void shouldAllowVerifyingWhenOtherMockCallIsInTheSameLine() {
+
+```<|im_end|>
+<|im_start|>assistant

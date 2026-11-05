@@ -1,0 +1,22 @@
+
+        final ObjectMapper mapper = new ObjectMapper();
+        final JavaType type = mapper.getTypeFactory().constructType(new TypeReference<AtomicReference<String>>() {});
+        final String signature = type.getGenericSignature();
+        assertEquals("()Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;", signature);
+    }
+
+    // ## Issue-ID: JacksonDatabind-1194
+    // 
+    // ## Issue-Title: 
+    // Incorrect signature for generic type via `JavaType.getGenericSignature
+    // 
+    // ## Issue-Description: 
+    // (see [FasterXML/jackson-modules-base#8](https://github.com/FasterXML/jackson-modules-base/issues/8) for background)
+    // 
+    // 
+    // It looks like generic signature generation is missing one closing `>` character to produce:
+    // 
+    // 
+    // 
+    // ```
+    // ()Ljava/util/concurrent/atomic/AtomicReference<Ljava/

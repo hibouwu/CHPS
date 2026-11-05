@@ -1,0 +1,34 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": "We need to output only the Java test method with the given signature, continuing any answer prefix already provided, and stop after its closing brace. No markdown, no explanations. So we need to write a method body that reproduces the issue: repeatedly serializing to a byte array causing symbol table expansion leading to ArrayIndexOutOfBoundsException. We need to create a test that triggers the bug. Use Jackson ObjectMapper, maybe create many objects with many field names to cause symbol table expansion. The test should catch the exception? Actually the issue is that exception occurs, so test should assert that no exception occurs after fix, or reproduce. Usually test would loop many times serializing a map with many entries.\n\nWe'll write something like:\n\npublic void testSymbolTableExpansionBytes() throws Exception {\n    ObjectMapper mapper = new ObjectMapper();\n    // create a map with many entries to cause many field names\n    for (int i = 0; i < 2000; i++) {\n        Map<String, Object> map = new HashMap<>();\n        for (int j = 0; j < 10; j++) {\n            map.put(\"field\" + i + \"_\" + j, \"value\");\n        }\n        byte[] json = mapper.writeValueAsBytes(map);\n        // deserialize to ensure parsing works\n        Map<?,?> result = mapper.readValue(json, Map.class);\n        // optional assert size\n        assertEquals(map.size(), result.size());\n    }\n}\n\nBut need imports? Not needed inside method. Use JUnit assertions. Use assertEquals from org.junit.Assert.\n\nMake sure to include try-catch? Not needed.\n\nThus output only method. Ensure closing brace.",
+        "content": "    public void testSymbolTableExpansionBytes() throws Exception {\n        ObjectMapper mapper = new ObjectMapper();\n        for (int i = 0; i < 2000; i++) {\n            Map<String, Object> map = new HashMap<>();\n            for (int j = 0; j < 10; j++) {\n                map.put(\"field\" + i + \"_\" + j, \"value\");\n            }\n            byte[] json = mapper.writeValueAsBytes(map);\n            Map<?, ?> result = mapper.readValue(json, Map.class);\n            assertEquals(map.size(), result.size());\n        }\n    }"
+      }
+    }
+  ],
+  "created": 1793852084,
+  "model": "gpt-3.5-turbo",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 474,
+    "prompt_tokens": 819,
+    "total_tokens": 1293
+  },
+  "id": "chatcmpl-wfkfKBpMDYJbZeZmkNmiwoDfCzAL11Ey",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 819,
+    "prompt_ms": 419.172,
+    "prompt_per_token_ms": 0.5118095238095238,
+    "prompt_per_second": 1953.8518794194267,
+    "predicted_n": 474,
+    "predicted_ms": 2702.115,
+    "predicted_per_token_ms": 5.700664556962025,
+    "predicted_per_second": 175.41814467555972
+  }
+}

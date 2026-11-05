@@ -1,0 +1,35 @@
+{
+  "task": "ITG",
+  "task_idx": 407,
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "com.google.gson.DefaultDateTypeAdapter"
+    ],
+    "line_pct": 22.0,
+    "condition_pct": 12.5,
+    "instrumented_lines_hit": 11
+  },
+  "source": "evidence/sol-a100/rows/ITG-407-9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "result": "evidence/scoring/model/ITG-407-9d01e632/eb78c4cfb08a168021a998b9603ac06c1af14d6cb762134e8e1fc91f662d00f7/attempt-1/result.json",
+  "answer_sha256": "3a31e0aa4bfe1212998a6634f209dd28aed1b8c2a0eca03e36445954b00651ee",
+  "response_id": "resp_04826202102e9dd6016aebfb42487887d29a713048e054f708",
+  "request_id": "req_a577a4f51a0e4285a35064c90f4992d7",
+  "usage": {
+    "input_tokens": 284,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 538,
+    "output_tokens_details": {
+      "reasoning_tokens": 446
+    },
+    "total_tokens": 822
+  },
+  "finish_status": "completed",
+  "cost_standard_estimate_usd": 0.005948
+}

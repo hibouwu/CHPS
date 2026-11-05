@@ -1,0 +1,21 @@
+@Test
+public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
+        // Words that, according to the specification, must all map to "111111".
+        final String[] words = {
+                "add", "aid", "at", "art", "eat", "earth",
+                "head", "hit", "hot", "hold", "hard", "heart",
+                "it", "out", "old"
+        };
+
+        // Obtain a fresh encoder instance.
+        final Caverphone1 encoder = createStringEncoder();
+
+        // Verify each word yields the expected six‑character code.
+        for (final String word : words) {
+            final String result = encoder.encode(word);
+            Assert.assertEquals(
+                    "Caverphone1 encoding of \"" + word + "\" should be \"" + EXPECTED + "\"",
+                    EXPECTED,
+                    result);
+        }
+    }

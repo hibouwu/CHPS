@@ -1,0 +1,56 @@
+Below is a faithful implementation of **`nextBoolean()`** that follows the behaviour of the original Gson `JsonReader`.  
+It:
+
+1. **Peeks** at the next token (using the cached `peeked` value or by calling `doPeek()`).  
+2. **Accepts** only the two boolean token types (`PEEKED_TRUE` and `PEEKED_FALSE`).  
+3. **Consumes** the token, clears the cached state, updates the path‑index bookkeeping and returns the appropriate primitive value.  
+4. **Throws** an `IllegalStateException` when the next token is not a boolean (or the reader is already closed).
+
+```java
+/**
+ * Returns the {@link com.google.gson.stream.JsonToken#BOOLEAN boolean} value of the next token,
+ * consuming it.
+ *
+ * @throws IllegalStateException if the next token is not a boolean or if
+ *     this reader is closed.
+ */
+public boolean nextBoolean() throws IOException {
+    // 1. Determine the type of the next token.
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+        p = doPeek();               // may throw IOException
+    }
+
+    // 2. Accept only the two boolean token types.
+    if (p == PEEKED_TRUE) {
+        // token is the literal "true"
+        peeked = PEEKED_NONE;       // clear cached token
+        // advance the index for the current container (array or object)
+        if (stackSize > 0) {
+            pathIndices[stackSize - 1]++;
+        }
+        return true;
+    }
+
+    if (p == PEEKED_FALSE) {
+        // token is the literal "false"
+        peeked = PEEKED_NONE;
+        if (stackSize > 0) {
+            pathIndices[stackSize - 1]++;
+        }
+        return false;
+    }
+
+    // 3. Anything else is an error – the caller expected a boolean.
+    throw new IllegalStateException(
+            "Expected a boolean but was " + peek()); // peek() will give the JsonToken
+}
+```
+
+### How it fits into the class
+
+* **`peeked`** – holds the result of the most recent `doPeek()` call.  
+* **`PEEKED_TRUE` / `PEEKED_FALSE`** – the internal constants that represent the two boolean literals.  
+* **`stackSize`**, **`pathIndices`** – bookkeeping used by `getPath()`; they must be updated whenever a value token is consumed.  
+
+The method mirrors the implementation used in the official Gson source, ensuring consistent behaviour with the rest of the `JsonReader` API.

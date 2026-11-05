@@ -1,0 +1,429 @@
+{
+  "purpose": "Post-run scorer diagnostic only. Formal paired scores are unchanged.",
+  "systems": {
+    "cl": {
+      "released": {
+        "tp": 10,
+        "tn": 0,
+        "fp": 10,
+        "fn": 0,
+        "error": 0,
+        "total": 20,
+        "correct": 10,
+        "acc": 0.5,
+        "acc_w_error": 0.5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "first_choice": {
+        "tp": 3,
+        "tn": 8,
+        "fp": 2,
+        "fn": 7,
+        "error": 0,
+        "total": 20,
+        "correct": 11,
+        "acc": 0.55,
+        "acc_w_error": 0.55,
+        "precision": 0.6,
+        "recall": 0.3,
+        "f1": 0.4
+      },
+      "disagreements": 15
+    },
+    "oss": {
+      "released": {
+        "tp": 9,
+        "tn": 3,
+        "fp": 7,
+        "fn": 1,
+        "error": 0,
+        "total": 20,
+        "correct": 12,
+        "acc": 0.6,
+        "acc_w_error": 0.6,
+        "precision": 0.5625,
+        "recall": 0.9,
+        "f1": 0.6923076923076923
+      },
+      "first_choice": {
+        "tp": 9,
+        "tn": 3,
+        "fp": 7,
+        "fn": 1,
+        "error": 0,
+        "total": 20,
+        "correct": 12,
+        "acc": 0.6,
+        "acc_w_error": 0.6,
+        "precision": 0.5625,
+        "recall": 0.9,
+        "f1": 0.6923076923076923
+      },
+      "disagreements": 0
+    }
+  },
+  "rows": [
+    {
+      "key": "DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-98-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-123-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-160-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "B. No, there are no defects",
+        "first_class": "tn",
+        "released_class": "tn",
+        "changed": false,
+        "source": "batches/b01/DD-180-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-213-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-215-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-243-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "B. No, there are no defects",
+        "first_class": "tn",
+        "released_class": "tn",
+        "changed": false,
+        "source": "batches/b01/DD-269-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "B. No, there are no defects",
+        "first_class": "fn",
+        "released_class": "fn",
+        "changed": false,
+        "source": "batches/b01/DD-294-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "A. Yes, it has defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "rows/DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "B. No, there are no defects",
+        "first_class": "tn",
+        "released_class": "tn",
+        "changed": false,
+        "source": "batches/b01/DD-377-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects.",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-465-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-580-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "A. Yes, it has defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "rows/DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-589-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "tn",
+        "released_class": "fp",
+        "changed": true,
+        "source": "rows/DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-702-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-749-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "A. Yes, it has defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "rows/DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-754-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": false,
+      "cl": {
+        "first_line": "A. Yes, it has defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "rows/DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "fp",
+        "released_class": "fp",
+        "changed": false,
+        "source": "batches/b01/DD-795-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "A. Yes, it has defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "rows/DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-837-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-871-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    },
+    {
+      "key": "DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23",
+      "defective": true,
+      "cl": {
+        "first_line": "B. No, it doesn't have defects",
+        "first_class": "fn",
+        "released_class": "tp",
+        "changed": true,
+        "source": "rows/DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/continuation.txt"
+      },
+      "oss": {
+        "first_line": "A. Yes, there are defects",
+        "first_class": "tp",
+        "released_class": "tp",
+        "changed": false,
+        "source": "batches/b01/DD-916-3cf751c87067c3c3d8cf32155e48c7fe87b6db23/final.txt"
+      }
+    }
+  ]
+}

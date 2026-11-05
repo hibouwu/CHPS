@@ -1,0 +1,13 @@
+public JsonWriter value(double value) throws IOException {
+    // If the writer is not lenient we must reject non‑finite numbers.
+    // When lenient we allow them (the caller is responsible for handling them).
+    if (!lenient && (Double.isNaN(value) || Double.isInfinite(value))) {
+        throw new IllegalArgumentException(
+                "Numeric values must be finite, but was " + value);
+    }
+
+    writeDeferredName();   // write any pending property name
+    beforeValue();         // handle commas, indentation, etc.
+    out.append(Double.toString(value));
+    return this;
+}

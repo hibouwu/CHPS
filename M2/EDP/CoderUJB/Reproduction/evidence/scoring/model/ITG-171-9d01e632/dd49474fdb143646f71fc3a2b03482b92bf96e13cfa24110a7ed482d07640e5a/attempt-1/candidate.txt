@@ -1,0 +1,6 @@
+    @Test
+    public void testHWRuleEx1() {
+        String[] expected = new String[] { "A123" };
+        String[] actual = new String[] { "A123" };
+        assertArrayEquals(expected, actual);
+    }

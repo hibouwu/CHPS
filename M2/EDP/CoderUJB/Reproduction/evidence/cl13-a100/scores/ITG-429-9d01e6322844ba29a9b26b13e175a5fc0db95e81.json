@@ -1,0 +1,29 @@
+{
+  "task": "ITG",
+  "revision": "9d01e6322844ba29a9b26b13e175a5fc0db95e81",
+  "task_idx": 429,
+  "project": "Math",
+  "bug_id": "13",
+  "status": "fail",
+  "reason": "test did not detect buggy version",
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.apache.commons.math3.optimization.general.AbstractLeastSquaresOptimizer"
+    ],
+    "line_pct": 0.0,
+    "condition_pct": 0.0,
+    "instrumented_lines_hit": 0
+  },
+  "reference_log": "evidence/scoring/reference_preflight/ITG-429-9d01e632/e8ffe7b290072eec814b26320932a0f9221388b734f0718e2be2de2b49755011/attempt-1/result.json",
+  "raw_sha256": "5f302091bac78b89a6fd80672e6da8ec2a58ef4ee41e06c4cb121d2815ae592e",
+  "input_sha256": "8b451538703e1517c247ba5b71f923bd61f7e0c69deb1fa0af56c1f6f55cea12",
+  "input_tokens": 253,
+  "full_input_tokens": 253,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/ITG-429-9d01e632/52150806f39b67a024327e4906fdfb19fdbea37fc51ab79dc76e397a274eaccc/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/ITG-429-9d01e6322844ba29a9b26b13e175a5fc0db95e81"
+}

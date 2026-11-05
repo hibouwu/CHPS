@@ -1,0 +1,5 @@
+Failing tests: 4
+  - org.apache.commons.compress.archivers.sevenz.SevenZFileTest::test7zDeflate64Unarchive
+  - org.apache.commons.compress.compressors.deflate64.Deflate64BugsTest::readBeyondMemoryException
+  - org.apache.commons.compress.utils.BitInputStreamTest::shouldNotAllowReadingOfANegativeAmountOfBits
+  - org.apache.commons.compress.utils.BitInputStreamTest::shouldNotAllowReadingOfMoreThan63BitsAtATime

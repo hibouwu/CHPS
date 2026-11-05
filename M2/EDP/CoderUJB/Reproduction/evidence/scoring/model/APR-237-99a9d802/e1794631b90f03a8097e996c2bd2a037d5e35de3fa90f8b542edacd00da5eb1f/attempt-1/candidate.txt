@@ -1,0 +1,45 @@
+Can not find target function in answer!
+
+The `readResolve` method is used during the deserialization process to replace the deserialized object with another object. In this case, it's intended to recalculate the hash code of the `MultiKey` object after deserialization because hash codes can vary between different JVM instances or even different runs of the same application.
+
+The provided `readResolve` method seems mostly correct, but there are a few considerations and potential improvements:
+
+1. **Null Check**: Ensure that `keys` is not null before calling `calculateHashCode`.
+2. **Visibility of `keys` Field**: The `keys` field should be accessible within the `readResolve` method. Since it's declared as `private final K[] keys;`, it should be accessible.
+3. **Correctness of `calculateHashCode`**: Ensure that `calculateHashCode` is correctly implemented to handle the array of keys.
+
+Here is the improved version of the `readResolve` method with added null check:
+
+```java
+/**
+ * Recalculate the hash code after deserialization. The hash code of some
+ * keys might have changed (hash codes based on the system hash code are
+ * only stable for the same process).
+ * @return the instance with recalculated hash code
+ */
+private Object readResolve() {
+    if (keys != null) {
+        calculateHashCode(keys);
+    } else {
+        // Handle the case where keys is null, which might indicate an issue in deserialization
+        throw new IllegalStateException("Keys array is null after deserialization");
+    }
+    return this;
+}
+```
+
+Additionally, ensure that the `calculateHashCode` method is correctly implemented. Here is a possible implementation of `calculateHashCode`:
+
+```java
+private void calculateHashCode(final Object[] keys) {
+    int hash = 1;
+    for (final Object key : keys) {
+        hash = hash * 31 + (key == null ? 0 : key.hashCode());
+    }
+    this.hashCode = hash;
+}
+```
+
+This implementation iterates over the `keys` array, calculates the hash code for each key, and combines them into a single hash code for the `MultiKey` object. If any key is `null`, it contributes `0` to the hash code.
+
+By adding the null check and ensuring the `calculateHashCode` method is correctly implemented, you can mitigate potential issues during deserialization.

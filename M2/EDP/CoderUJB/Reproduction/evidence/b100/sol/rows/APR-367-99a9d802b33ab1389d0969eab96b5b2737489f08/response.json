@@ -1,0 +1,105 @@
+{
+  "id": "resp_0d1b669439c6f1e7016aec022f76c887d295a746c8d747363e",
+  "object": "response",
+  "created_at": 1793851951,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793851956,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0d1b669439c6f1e7016aec0230746887d2a9e38e45872b5a1f",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq7AI0KvBExamBNYN2TbcApSc0LOzszLUAlX6ypy8FXDmTsfyoZyeMsqCy8i2YhM1W7GbYC_Z_X8KVXcMXQRMXPsBGcnUcQtzhQ8CRLoyZOrP1DjvB1D6GW6xfG2v4SJ8qhJehB74oSRfQRKxnL4NGDhYFRGhteFLxFcRhx6aDjOnl99BJXo4hUQKmueNpSW-pqQWswjGK7TP6OSTTyLaBgOOoAdav0oFlXwYpNV4uWmjEw4HQGzrkSoIa67EuUPnieXw95P9gQEUsScz8JqW6wLkZjc27f6IMhCsQM9ySdsmPBbt-NUauZgDpHQcFAbvgu_JrqDObtAJddxhun4cRB1SxzQIFcyu7UK1htWL7_QdXIXuKPU8Vn_snw15ZLFM6d3elDW6DQexKAhQbgPego2-DxkgPzsRLRGrixIrHYbl8IjipfSeKjTT4kd8xoP3DFY50JBUIeew_peS5JyPgUZAFEUXXMMKDF8liK6tB8CvGhwpcy7AuhyZVxsah4TPaRv3ZbtD-y90o_PMbb_YBrYqhee95vRHeresnEJVBSdxh1u_2x46SVFQXZ-n6C_XMMOW5nBcy4W85W5qvmaB3viF0l8IqBLGMJQo2wvfPzV0GfVsg76ESv4TrdqSOhrd6PqZKjEWTk6aOCeG4tCxLPb86KRsMw5pl1wAvqQWRRfC_2RJQvFFX9FcCUdm8Pk5f4WXoQd2uoUSNU15nXrzS1m_kDh1EQnBxZyfELP68IPW7yKCmzJdb3Df89W7Y1Gf877r3ymBpD9ZOfnSyXs9uMHDEck0GuqerYFSIgfhl0tkfutfgCFjzhddKFjV04WKbpNN_o4bpAGnXh-g01HXOw4Clru2ks1C_SbI-rIGcFlxEp_7zs1sKtKWOGKNwZBzdS1wbS_p_0fntrkNFX6yz9FI1TzFayPwsmxsNagZ2G59s5WSFKDTvqubUG_xKLaS0KnPRVbLj6wGq5MJZFz5FysFzFach_DhBCcjoN0h09jrqE3W7W9kIw7NOWHLd1s6h6j6lIN5cWxnnlHokSkMM2CplcrVM4AAOVwKNLt1dFHAuyvuwNV0jzpmnaMPDEBuWcZEYDea346IhlvMuyY55hA57Iy3H6Qak-CwMzsHLZXWCAdQxgw5t-L-AegPIu_TFWs0YbDi4n_rLwuzZaTzZpNJBmgeLhK3PlsS703KhM-Nj89awCQCP2iet9PM6214CH-CCXLGbXCBMZUKX8-4hkC1DuXkU394guWcbngvCRr7dI0tpCRZoRUDiuvInXF_RebhAM53_4DrZsRV55TTf92KmJqXCLXNIP0vkdo_kma-5l0ax4AUX4TJ2WEQ-tQ8r9w1oZpE7qYOlq3yTIIttpbBdQSSr6_gfTpUFG8IMfTUTTlO4xH3KaHnjkjirYLqQLlb-80jcOs4_oovCUEbCDANSyI0tkIFtlt6GNqQuaS7vtBc6gkVq4ARTveBK54nf-y3bcwtNJG_oufZEkfNJC5y8hdM7n-FuWhvj3oq9K_k-psgB0p_0T6idMrmVDcfVdIRUb1A1m0yzp2KJ06tq2gRi8EyWnzudjP8XEMzh5qfZPidlbQuSL4NqUp_9RsQK0SQ7oQzdyR8VuJ0Oz-kyjdNZgmXqwW5kU1LNTO2YYU-RYqPNp4AXT5Ft8jzLBo0bA5uu7fXO86wtua4oWQx0PZtpS01owwaOVPcIImHgHwRvc4hclBZJMKuEYKYUjaGmTyGVGWzWIZupV90LvSprbMBKslIokuv3H-Xlv054tWLdRLb09f61WJqVgZ5BfriRWHGDrk-sHy91WR6WDRFb45uoLNfiqBZq6G0hils3EQHvwOMJ_T047ffCXWpcxply0SxbW5U3TFHM3CxSFWy6Hq-CTTvIsGMGy_rBlsP4Lij0ozpFIMoUAZ6PD9rJ3iiLaiCvqe-2TWIexy2NyR0DmTUgkA==",
+      "summary": []
+    },
+    {
+      "id": "msg_0d1b669439c6f1e7016aec023165fc87d299422b87fd38008d",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "    public static StdKeyDeserializer forType(Class<?> raw)\n    {\n        if (raw.isPrimitive()) {\n            raw = ClassUtil.wrapperType(raw);\n        }\n\n        int kind;\n\n        if (raw == String.class || raw == Object.class) {\n            return StringKD.forType(raw);\n        } else if (raw == UUID.class) {\n            kind = TYPE_UUID;\n        } else if (raw == Integer.class) {\n            kind = TYPE_INT;\n        } else if (raw == Long.class) {\n            kind = TYPE_LONG;\n        } else if (raw == Date.class) {\n            kind = TYPE_DATE;\n        } else if (raw == Calendar.class) {\n            kind = TYPE_CALENDAR;\n        } else if (raw == Boolean.class) {\n            kind = TYPE_BOOLEAN;\n        } else if (raw == Byte.class) {\n            kind = TYPE_BYTE;\n        } else if (raw == Character.class) {\n            kind = TYPE_CHAR;\n        } else if (raw == Short.class) {\n            kind = TYPE_SHORT;\n        } else if (raw == Float.class) {\n            kind = TYPE_FLOAT;\n        } else if (raw == Double.class) {\n            kind = TYPE_DOUBLE;\n        } else if (raw == URI.class) {\n            kind = TYPE_URI;\n        } else if (raw == URL.class) {\n            kind = TYPE_URL;\n        } else if (raw == Class.class) {\n            kind = TYPE_CLASS;\n        } else if (raw == Locale.class) {\n            FromStringDeserializer<?> deser = FromStringDeserializer.findDeserializer(Locale.class);\n            return new StdKeyDeserializer(TYPE_LOCALE, raw, deser);\n        } else if (raw == Currency.class) {\n            FromStringDeserializer<?> deser = FromStringDeserializer.findDeserializer(Currency.class);\n            return new StdKeyDeserializer(TYPE_CURRENCY, raw, deser);\n        } else {\n            return null;\n        }\n        return new StdKeyDeserializer(kind, raw);\n    }"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1195,
+    "input_tokens_details": {
+      "cache_write_tokens": 1192,
+      "cached_tokens": 0
+    },
+    "output_tokens": 445,
+    "output_tokens_details": {
+      "reasoning_tokens": 38
+    },
+    "total_tokens": 1640
+  },
+  "user": null,
+  "metadata": {}
+}

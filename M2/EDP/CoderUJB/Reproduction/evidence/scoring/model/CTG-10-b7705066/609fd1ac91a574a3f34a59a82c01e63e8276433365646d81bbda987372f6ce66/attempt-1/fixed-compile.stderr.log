@@ -1,0 +1,242 @@
+Running ant (compile)...................................................... OK
+Running ant (compile.tests)................................................ FAIL
+Executed command:  cd /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed && /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/major/bin/ant -f /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1 -Dd4j.dir.projects=/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects -Dbasedir=/data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang3 3.2-SNAPSHOT --------
+
+compile:
+
+compile.tests:
+    [mkdir] Created dir: /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/target/tests
+    [javac] Compiling 128 source files to /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/target/tests
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Array.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Field.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/InvocationHandler.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Method.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Proxy.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Date.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/text/NumberFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Calendar.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Character.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collections.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Set.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SuppressWarnings.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/UUID.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/EnumSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/BitSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Comparator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/Random.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Byte.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Float.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/OutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/FileInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/StringWriter.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/UnsupportedEncodingException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/nio/CharBuffer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/LinkedList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/Callable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/CopyOnWriteArrayList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ExecutionException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ExecutorService.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/Executors.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/Future.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/InterruptedException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Runnable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/CountDownLatch.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/atomic/AtomicInteger.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/TimeUnit.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/atomic/AtomicReference.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ThreadFactory.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ConcurrentHashMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ConcurrentMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/regex/Pattern.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ScheduledExecutorService.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ScheduledFuture.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/concurrent/ScheduledThreadPoolExecutor.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Thread.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/beans/PropertyChangeEvent.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/beans/PropertyVetoException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/beans/VetoableChangeListener.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/beans/PropertyChangeListener.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/util/TreeMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/javax/naming/event/ObjectChangeListener.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintWriter.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigDecimal.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/ParameterizedType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /data/jianyeshi/coderujb-reproduction/runtime/jdk8u504-b01/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Type.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest.java:609: error: cannot find symbol
+    [javac]         assertNotNull("Result must not be null", result);
+    [javac]         ^
+    [javac]   symbol:   method assertNotNull(String,String)
+    [javac]   location: class ToStringBuilderTest
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest.java:611: error: cannot find symbol
+    [javac]         assertTrue("Result should contain the fixture class name",
+    [javac]         ^
+    [javac]   symbol:   method assertTrue(String,boolean)
+    [javac]   location: class ToStringBuilderTest
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest.java:614: error: cannot find symbol
+    [javac]         assertTrue("Result should contain the array type name",
+    [javac]         ^
+    [javac]   symbol:   method assertTrue(String,boolean)
+    [javac]   location: class ToStringBuilderTest
+    [javac] /data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest.java:618: error: cannot find symbol
+    [javac]         assertTrue("Result must contain the cycle placeholder \"<...>\"",
+    [javac]         ^
+    [javac]   symbol:   method assertTrue(String,boolean)
+    [javac]   location: class ToStringBuilderTest
+    [javac] 4 errors
+    [javac] 100 warnings
+
+BUILD FAILED
+/data/jianyeshi/coderujb-reproduction/worktrees/CTG-10-vaeacv61/fixed/build.xml:73: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile tests! at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.
+Compilation failed in require at /data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j line 195.

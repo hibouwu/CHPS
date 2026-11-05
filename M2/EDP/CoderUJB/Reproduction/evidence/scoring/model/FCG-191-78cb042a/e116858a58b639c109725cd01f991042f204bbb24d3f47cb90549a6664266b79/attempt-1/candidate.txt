@@ -1,0 +1,28 @@
+public String nextString() throws IOException {
+    int p = peeked;
+    if (p == PEEKED_NONE) {
+        p = doPeek();
+    }
+    String result;
+    if (p == PEEKED_UNQUOTED || p == PEEKED_SINGLE_QUOTED || p == PEEKED_DOUBLE_QUOTED) {
+        result = peekedString;
+        peeked = PEEKED_NONE;
+        pathIndices[stackSize - 1]++;
+    } else if (p == PEEKED_BUFFERED) {
+        result = buffer.toString();
+        peeked = PEEKED_NONE;
+        pathIndices[stackSize - 1]++;
+    } else if (p == PEEKED_LONG) {
+        result = Long.toString(peekedLong);
+        peeked = PEEKED_NONE;
+        pathIndices[stackSize - 1]++;
+    } else if (p == PEEKED_NUMBER) {
+        result = new String(buffer, pos - peekedNumberLength, peekedNumberLength);
+        pos -= peekedNumberLength;
+        peeked = PEEKED_NONE;
+        pathIndices[stackSize - 1]++;
+    } else {
+        throw new IllegalStateException("Expected a string but was " + peek() + locationString());
+    }
+    return result;
+}

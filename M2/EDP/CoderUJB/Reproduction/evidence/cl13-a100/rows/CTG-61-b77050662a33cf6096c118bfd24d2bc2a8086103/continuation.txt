@@ -1,0 +1,12 @@
+
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Soundex().encode("Hilbert"));
+        Assert.assertEquals("063525", new Sound

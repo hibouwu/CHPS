@@ -1,0 +1,13 @@
+```java
+  public void testCanInlineReferenceToFunctionInExpression18() {
+    helperCanInlineReferenceToFunction(
+        CanInlineResult.YES,
+        "c.test=foo();",
+        "/** @nosideeffects */ function foo(){return 'foo'};" +
+        "c = a;" +
+        "b.test = 'b';" +
+        "a.test = 'a';" +
+        "var a = {}, b = {}, c;",
+        InliningMode.INLINE_BLOCK);
+  }
+```

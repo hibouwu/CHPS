@@ -1,0 +1,26 @@
+--- baseline/StrBuilder.java
++++ model/StrBuilder.java
+@@ -1753,12 +1753,17 @@
+      * @return this, to enable chaining
+      */
+     public StrBuilder deleteFirst(final String str) {
+-        final int len = (str == null ? 0 : str.length());
+-        if (len > 0) {
+-            final int index = indexOf(str, 0);
+-            if (index >= 0) {
+-                deleteImpl(index, index + len, len);
+-            }
++
++        if (str == null) {
++            return this;
++        }
++        final int len = str.length();
++        if (len == 0) {
++            return this;
++        }
++        int index = indexOf(str);
++        if (index >= 0) {
++            delete(index, index + len);
+         }
+         return this;
+     }

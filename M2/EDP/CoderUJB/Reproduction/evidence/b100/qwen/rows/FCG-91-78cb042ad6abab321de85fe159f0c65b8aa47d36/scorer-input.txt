@@ -1,0 +1,41 @@
+```java
+    /**
+     * Retrieves the Soundex code for a given String object.
+     *
+     * @param str
+     *                  String to encode using the Soundex algorithm
+     * @return A soundex code for the String supplied
+     * @throws IllegalArgumentException
+     *                  if a character is not mapped
+     */
+    public String soundex(String str) {
+        if (str == null || str.isEmpty()) {
+            return "0000";
+        }
+
+        str = str.toUpperCase();
+        StringBuilder soundex = new StringBuilder();
+        soundex.append(str.charAt(0));
+
+        char lastCode = '0';
+        for (int i = 1; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+            char mappedCode = map(currentChar);
+
+            if (mappedCode != '0' && mappedCode != lastCode) {
+                soundex.append(mappedCode);
+            }
+            lastCode = mappedCode;
+
+            if (soundex.length() == maxLength) {
+                break;
+            }
+        }
+
+        while (soundex.length() < maxLength) {
+            soundex.append('0');
+        }
+
+        return soundex.toString().substring(0, maxLength);
+    }
+```

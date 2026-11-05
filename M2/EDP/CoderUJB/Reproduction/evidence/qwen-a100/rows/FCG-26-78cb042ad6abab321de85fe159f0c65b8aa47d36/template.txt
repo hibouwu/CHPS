@@ -1,0 +1,48 @@
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+```java
+package org.jsoup.nodes;
+
+import org.jsoup.internal.StringUtil;
+import org.jsoup.helper.Validate;
+import java.io.IOException;
+
+
+
+public class TextNode extends LeafNode  {
+
+
+    public TextNode(String text);
+    public TextNode(String text, String baseUri);
+    public String nodeName();
+    public String text();
+    public TextNode text(String text);
+    public String getWholeText();
+    public boolean isBlank();
+    public TextNode splitText(int offset);
+    void outerHtmlHead(Appendable accum, int depth, Document.OutputSettings out) throws IOException;
+    void outerHtmlTail(Appendable accum, int depth, Document.OutputSettings out);
+    @Override
+    public String toString();
+    public static TextNode createFromEncoded(String encodedText, String baseUri);
+    public static TextNode createFromEncoded(String encodedText);
+    static String normaliseWhitespace(String text);
+    static String stripLeadingWhitespace(String text);
+    static boolean lastCharIsWhitespace(StringBuilder sb);
+}
+```
+
+You are a professional Java programmer, please create a function named `splitText` based on the provided abstract Java class context information and the following natural language annotations.
+
+```java
+    /**
+     * Split this text node into two nodes at the specified string offset. After splitting, this node will contain the
+     * original text up to the offset, and will have a new text node sibling containing the text after the offset.
+     * @param offset string offset point to split node at.
+     * @return the newly created text node containing the text after the offset.
+     */
+    public TextNode splitText(int offset) {
+
+```<|im_end|>
+<|im_start|>assistant

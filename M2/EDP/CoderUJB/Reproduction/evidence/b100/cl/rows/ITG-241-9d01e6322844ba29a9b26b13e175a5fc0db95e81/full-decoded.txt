@@ -1,0 +1,56 @@
+// Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// You are a professional Java test case writer, please create a test case named `testForID_String_old` for the issue `Time-112`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: Time-112
+// 
+// ## Issue-Title: 
+// #112 Incorrect mapping of the MET time zone
+// 
+// 
+// 
+// 
+// 
+// ## Issue-Description: 
+// This timezone is mapped to Asia/Tehran in DateTimeZone. It should be middle europena time.
+// 
+// 
+// I know that this bug has been raised before (Incorrect mapping of the MET time zone - ID: 2012274), and there is a comment stating that you won't break backward compatibility to fix this bug.
+// 
+// 
+// 1. I disagree that this is a backward compatibility argument
+// 2. No matter how you look at it, it is a bug.
+// 
+// 
+// You could very well state that ALL bugs won't be fixed, because of backward compatibility.
+// 
+// 
+// I request again that this bug be fixed.
+// 
+// 
+// 
+// 
+
+    public void testForID_String_old() {
+        DateTimeZone zone = DateTimeZone.forID("MET");
+        assertEquals(DateTimeZone.forID("Europe/Bucharest"), zone);
+    }
+
+// Output constraint: Output only the requested Java test method with the provided signature, continuing any answer prefix already provided, and stop after its closing brace; do not include Markdown, explanations, or other declarations.
+
+// You are a professional Java test case writer, please create a test case named `testForID_String_new` for the issue `Time-112`, utilizing the provided issue report information and the following function signature.
+
+// ## Issue-ID: Time-112
+// 
+// ## Issue-Title: 
+// #112 Incorrect mapping of the MET time zone
+// 
+// 
+// 
+// 
+// 
+// ## Issue-Description: 
+// This timezone is mapped to Asia/Tehran in DateTimeZone. It should be middle europena time.
+// 
+// 
+// I know that this bug has been raised before (Incorrect mapping of the MET time zone - ID: 20122

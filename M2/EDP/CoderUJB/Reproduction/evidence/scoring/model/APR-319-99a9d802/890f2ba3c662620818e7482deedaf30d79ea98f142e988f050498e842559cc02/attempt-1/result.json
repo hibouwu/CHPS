@@ -1,0 +1,89 @@
+{
+  "task": "APR",
+  "revision": "99a9d802b33ab1389d0969eab96b5b2737489f08",
+  "task_idx": 319,
+  "task_id": "b44e86bdfc2e98bfc905b3e7c9737b2ec0dd0cb1a5829513192763e2aee51b10",
+  "origin": "model",
+  "mode": "chat",
+  "raw_sha256": "b6d9a602194780b8707d6e92258a7a7a018590022359b4f01e932291e009380b",
+  "scorer_sha256": "2e1f2cf913db791ca9b27d09b0e01367ba0031d75ae09339c9f10383cf6c2b11",
+  "upstream_sha256": "7c8daa829175a038038c6dc63447650ddc37059801f57e29bd84f7f5a49d4b72",
+  "d4j_revision": "a83e47921152721569cb95d6d7b91c4be277d940",
+  "project": "Jsoup",
+  "bug_id": "93",
+  "status": "pass",
+  "commands": [
+    {
+      "name": "fixed-checkout",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "checkout",
+        "-p",
+        "Jsoup",
+        "-v",
+        "93f",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-319-xi3h5eq7/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 2.519,
+      "stdout": "fixed-checkout.stdout.log",
+      "stderr": "fixed-checkout.stderr.log"
+    },
+    {
+      "name": "fixed-compile",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "compile",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-319-xi3h5eq7/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 2.669,
+      "stdout": "fixed-compile.stdout.log",
+      "stderr": "fixed-compile.stderr.log"
+    },
+    {
+      "name": "fixed-test-0",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-319-xi3h5eq7/fixed",
+        "-t",
+        "org.jsoup.nodes.FormElementTest::createsFormData"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.116,
+      "stdout": "fixed-test-0.stdout.log",
+      "stderr": "fixed-test-0.stderr.log"
+    },
+    {
+      "name": "suite",
+      "argv": [
+        "/data/jianyeshi/coderujb-reproduction/runtime/defects4j-2.0.1/framework/bin/defects4j",
+        "test",
+        "-w",
+        "/data/jianyeshi/coderujb-reproduction/worktrees/APR-319-xi3h5eq7/fixed"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.321,
+      "stdout": "suite.stdout.log",
+      "stderr": "suite.stderr.log"
+    }
+  ],
+  "tests": {
+    "fixed-test-0": {
+      "selected": "org.jsoup.nodes.FormElementTest::createsFormData",
+      "failed": []
+    },
+    "suite": {
+      "selected": null,
+      "failed": []
+    }
+  }
+}

@@ -1,0 +1,72 @@
+private Map<String, Integer> initializeHeader() throws IOException {
+    // No header defined by the format → nothing to initialise.
+    final String[] formatHeader = this.format.getHeader();
+    if (formatHeader == null) {
+        return null;
+    }
+
+    // The map must preserve insertion order (required by the spec).
+    final Map<String, Integer> hdrMap = new LinkedHashMap<>();
+
+    String[] headerRecord;
+
+    // -----------------------------------------------------------------
+    // 1️⃣  Header supplied by the user (formatHeader.length > 0)
+    // -----------------------------------------------------------------
+    if (formatHeader.length > 0) {
+        // If the format says "skip the header record", we must consume the first
+        // line of the underlying CSV source.  We use getNextRecord() (the low‑level
+        // method that does **not** add the record to the public data list) to
+        // avoid the side‑effect of nextRecord().
+        if (this.format.getSkipHeaderRecord()) {
+            // Discard the first record – we do not need its values.
+            getNextRecord(); // may return null for an empty source – that's fine.
+        }
+
+        // Defensive copy – we never want external modifications to affect the parser.
+        headerRecord = Arrays.copyOf(formatHeader, formatHeader.length);
+    }
+    // -----------------------------------------------------------------
+    // 2️⃣  Header must be read from the first line of the CSV source
+    // -----------------------------------------------------------------
+    else {
+        // Read the first record (the header) and *do not* add it to the data list.
+        final CSVRecord headerCsvRecord = getNextRecord();
+        if (headerCsvRecord == null) {
+            // The source is empty – an empty header map is still a valid result.
+            headerRecord = new String[0];
+        } else {
+            headerRecord = headerCsvRecord.values();
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // 3️⃣  Build the name‑to‑index map, checking for duplicates.
+    // -----------------------------------------------------------------
+    for (int i = 0; i < headerRecord.length; i++) {
+        // Guard against a null element – treat it as an empty string.
+        String header = headerRecord[i];
+        if (header == null) {
+            header = "";
+        }
+
+        final boolean emptyHeader = header.trim().isEmpty();
+        final boolean duplicate = hdrMap.containsKey(header);
+
+        // Duplicate handling:
+        //   * If the header is empty and the format says "ignore empty headers",
+        //     duplicates are allowed.
+        //   * Otherwise a duplicate (empty or non‑empty) is illegal.
+        if (duplicate) {
+            if (!(emptyHeader && this.format.getIgnoreEmptyHeaders())) {
+                throw new IllegalArgumentException(
+                        "The header contains a duplicate name: \"" + header + "\" in "
+                                + Arrays.toString(headerRecord));
+            }
+        }
+
+        hdrMap.put(header, i);
+    }
+
+    return hdrMap;
+}

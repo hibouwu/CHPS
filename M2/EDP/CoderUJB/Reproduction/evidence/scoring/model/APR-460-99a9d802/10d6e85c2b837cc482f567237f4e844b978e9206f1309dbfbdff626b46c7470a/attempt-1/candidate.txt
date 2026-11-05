@@ -1,0 +1,128 @@
+static String strEscape(String s,
+                        char quote,
+                        String doublequoteEscape,
+                        String singlequoteEscape,
+                        String backslashEscape,
+                        CharsetEncoder outputCharsetEncoder) {
+
+    // The result will be at most a few characters longer than the input,
+    // so we start with a capacity that avoids most reallocations.
+    StringBuilder sb = new StringBuilder(s.length() + 2);
+    sb.append(quote);
+
+    for (int i = 0; i < s.length(); ) {
+        int cp = s.codePointAt(i);          // Unicode code‑point
+        int charCount = Character.charCount(cp);
+        i += charCount;                     // advance to the next code‑point
+
+        // Fast‑path for the most common single‑character escapes.
+        switch (cp) {
+            case 0x0000: sb.append("\\0"); continue;
+            case '\n':  sb.append("\\n"); continue;
+            case '\r':  sb.append("\\r"); continue;
+            case '\t':  sb.append("\\t"); continue;
+            case '\\':  sb.append(backslashEscape); continue;
+            case '\"':  sb.append(doublequoteEscape); continue;
+            case '\'':  sb.append(singlequoteEscape); continue;
+            case '>':
+                // Break --> into --\> or ]]> into ]]\>
+                if (i >= 3) { // we need at least two previous characters
+                    char prev1 = s.charAt(i - 2);
+                    char prev2 = s.charAt(i - 3);
+                    if ((prev1 == '-' && prev2 == '-') ||
+                        (prev1 == ']' && prev2 == ']')) {
+                        sb.append("\\>");
+                        continue;
+                    }
+                }
+                sb.append('>');
+                continue;
+            case '<':
+                // Break </script into <\/script
+                // Break <!-- into <\!--
+                final String END_SCRIPT = "/script";
+                final String START_COMMENT = "!--";
+
+                // Look ahead safely – we already know the current index (i)
+                // points *after* the '<' character.
+                if (s.regionMatches(true, i, END_SCRIPT, 0, END_SCRIPT.length())) {
+                    sb.append("<\\");
+                    continue;
+                } else if (s.regionMatches(false, i, START_COMMENT, 0,
+                                            START_COMMENT.length())) {
+                    sb.append("<\\");
+                    continue;
+                } else {
+                    sb.append('<');
+                    continue;
+                }
+        }
+
+        // At this point we have a code‑point that does not need a special
+        // escape sequence.  Decide whether we can emit it directly or must
+        // Unicode‑escape it.
+        if (outputCharsetEncoder != null) {
+            // The encoder works with CharSequences, not raw ints.
+            if (outputCharsetEncoder.canEncode(new String(Character.toChars(cp)))) {
+                sb.appendCodePoint(cp);
+            } else {
+                // Encode as one or two \\uXXXX escapes.
+                appendUnicodeEscape(sb, cp);
+            }
+        } else {
+            // No encoder – we only allow printable ASCII (0x20‑0x7e) to pass
+            // through unchanged.
+            if (cp >= 0x20 && cp <= 0x7e) {
+                sb.appendCodePoint(cp);
+            } else {
+                appendUnicodeEscape(sb, cp);
+            }
+        }
+    }
+
+    sb.append(quote);
+    return sb.toString();
+}
+
+/**
+ * Emits a JavaScript Unicode escape for the supplied code‑point.
+ *
+ * <p>For BMP characters we emit a single {@code \uXXXX}.  For supplementary
+ * characters we emit the surrogate pair as two {@code \uXXXX} escapes,
+ * which is what the original Closure Compiler does.
+ */
+private static void appendUnicodeEscape(StringBuilder out, int codePoint) {
+    if (Character.isBmpCodePoint(codePoint)) {
+        // BMP – one escape.
+        appendHexJavaScriptRepresentation(out, (char) codePoint);
+    } else {
+        // Supplementary – encode the surrogate pair.
+        char[] surrogates = Character.toChars(codePoint);
+        appendHexJavaScriptRepresentation(out, surrogates[0]);
+        appendHexJavaScriptRepresentation(out, surrogates[1]);
+    }
+}
+
+/**
+ * Original helper that writes a single {@code \uXXXX} escape for a BMP char.
+ */
+private static void appendHexJavaScriptRepresentation(StringBuilder sb, char c) {
+    sb.append("\\u");
+    sb.append(HEX_CHARS[(c >> 12) & 0xF]);
+    sb.append(HEX_CHARS[(c >> 8) & 0xF]);
+    sb.append(HEX_CHARS[(c >> 4) & 0xF]);
+    sb.append(HEX_CHARS[c & 0xF]);
+}
+```
+
+---
+
+**Why the fix works**
+
+* **Supplementary characters** – By iterating over code‑points (`codePointAt`) and using `appendUnicodeEscape`, the method now correctly turns a character such as U+1F600 (😀) into `\uD83D\uDE00`. The generated JavaScript is syntactically valid and will be interpreted as the original character by any ECMAScript engine.
+
+* **Printable‑ASCII range** – The condition `cp >= 0x20 && cp <= 0x7e` matches exactly the characters that are safe to emit unescaped according to the ECMAScript specification. The DEL character (0x7F) is now escaped, preventing the generation of an invisible control character in the output.
+
+* **All other logic** – The handling of the special cases (`\0`, `\n`, `\r`, `\t`, back‑slash, quotes, `>` and `<`) is unchanged, preserving the original intent of breaking `-->`/`]]>` and `</script`/`<!--` sequences.
+
+With these changes the `strEscape` method behaves correctly for the full range of Unicode input and produces valid, safe JavaScript string literals.

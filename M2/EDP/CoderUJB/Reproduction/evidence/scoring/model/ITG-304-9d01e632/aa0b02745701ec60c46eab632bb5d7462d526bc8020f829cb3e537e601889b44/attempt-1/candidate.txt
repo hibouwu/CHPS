@@ -1,0 +1,17 @@
+    @Test
+    public void testDontQuoteEuroFirstChar() throws IOException {
+        final String euro = "\u20ac";
+        final String euroFirst = euro + "123";
+        final String euroFirstQuoted = "\"" + euroFirst + "\"";
+        final String euroSecond = "123" + euro;
+        final String euroSecondQuoted = "123" + "\"" + euro + "\"";
+        final String euroBoth = euroFirst + euroSecond;
+        final String euroBothQuoted = euroFirstQuoted + euroSecondQuoted;
+        final String euroBothQuoted2 = euroFirstQuoted + euroSecond;
+        final String euroBothQuoted3 = euroFirst + euroSecondQuoted;
+
+        final CSVFormat format = CSVFormat.EXCEL;
+        final CSVPrinter printer = new CSVPrinter(new StringWriter(), format);
+        printer.printRecord(euroFirst, euroSecond, euroBoth);
+        printer.printRecord(euroFirstQuoted, euroSecondQuoted, euroBothQuoted);
+        printer.printRecord(euroFirstQuoted, euroSecond, euroBothQuoted2);

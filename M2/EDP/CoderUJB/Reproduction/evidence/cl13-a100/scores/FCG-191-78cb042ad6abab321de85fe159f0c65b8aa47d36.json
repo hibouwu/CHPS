@@ -1,0 +1,22 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 191,
+  "project": "Gson",
+  "bug_id": 18,
+  "status": "fail",
+  "reason": "candidate_compile",
+  "category": null,
+  "coverage": null,
+  "reference_log": "evidence/scoring/reference_preflight/FCG-191-78cb042a/17c2fe10b90cd1ee11078bc973ca421558753c0a56a8d4e45c47de211881c485/attempt-1/result.json",
+  "raw_sha256": "6ff43b0b6aa250c4e33f679c5af5b7871d680708191e9db03048beb493ba4a83",
+  "input_sha256": "8e05129c5fd545cf90794b7b6585d31bc5e760038e9305b8f6de98692dab6e72",
+  "input_tokens": 1513,
+  "full_input_tokens": 1513,
+  "input_truncated": false,
+  "finish_reason": "length",
+  "output_tokens": 256,
+  "output_truncated": true,
+  "result": "evidence/scoring/model/FCG-191-78cb042a/9d07c98d5a999373ece9097a23798de9422c841ea49225a400866bb31e46c92c/attempt-1/result.json",
+  "source": "evidence/cl13-a100/rows/FCG-191-78cb042ad6abab321de85fe159f0c65b8aa47d36"
+}

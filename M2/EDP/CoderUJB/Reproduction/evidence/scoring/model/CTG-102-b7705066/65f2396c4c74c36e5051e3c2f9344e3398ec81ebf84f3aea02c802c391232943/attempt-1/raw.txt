@@ -1,0 +1,17 @@
+```java
+/**
+ * Tests rule 1: Translate first characters of name:
+ * MAC → MCC, KN → N, K → C, PH, PF → FF, SCH → SSS.
+ *
+ * @throws EncoderException
+ */
+@Test
+public void testRule1() throws EncoderException {
+    Assert.assertEquals("MCDANALD", fullNysiis.encode("MACDONALD"));
+    Assert.assertEquals("NAT", fullNysiis.encode("KNUTH"));
+    Assert.assertEquals("CARL", fullNysiis.encode("KARL"));
+    Assert.assertEquals("FALAP", fullNysiis.encode("PHILIP"));
+    Assert.assertEquals("FASTAR", fullNysiis.encode("PFISTER"));
+    Assert.assertEquals("SNAD", fullNysiis.encode("SCHMIDT"));
+}
+```

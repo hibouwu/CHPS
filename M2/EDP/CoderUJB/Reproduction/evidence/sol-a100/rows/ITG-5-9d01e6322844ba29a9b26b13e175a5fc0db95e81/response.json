@@ -1,0 +1,105 @@
+{
+  "id": "resp_0aa0180ca2c9b810016aebfae7e5c887d28bf502b37929b02a",
+  "object": "response",
+  "created_at": 1793850087,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1793850104,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "image": {
+    "context_compression": "disabled"
+  },
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 4096,
+  "max_tool_calls": null,
+  "model": "gpt-6.1-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "rs_0aa0180ca2c9b810016aebfae8d62887d290c7b421d84404a3",
+      "type": "reasoning",
+      "content": [],
+      "encrypted_content": "gAAAAABq6_r4E9eDatBbOGCgZBfJ75sCZAqZvGvDNSxQTzNzFzmMw7He0Kf0_XCfSUg8tpCp7_7oV0ZU_m-bl7D9Gu2smksFRkP2lZ6XxDwqAHAelvPWtXh9XDCkY0axYjOyORTBwz9RhkixnN4TQs20ICglnTLKNRTlMG1MyFkGokEvNN5SnKq535qxDVUwPfvzleRTKD4_RhXRy16t8P8zudhXVQz8mHjOelrcw-rjASXq9hbfn-2wfaXcY5z74axuQgPLvUG0hZy06zoi5IIrz1rCvl9E9tn49gfEoc0jl5x-RjwJr9XIGTp-5bpCHt09Aix2mwvFFclfieoAierw2BGzwLl31tWiNV19fmVT_9aPhmQOyfg8y8MkOo6MMyZDw4RsCHJlp1xIrwxtCNyb7xLUpHbKVoOzD9L2rcRPUW5Tecl8W83DbmagmeswVDLJgkz7ppwNsZVwpTUhyaIkI59wf02cspEJpHSacePu_fKR_lurgp8sFQuE4hcgdIgtVLRu0cUUuunwmd3t4FUkYXCrVQernZBnoZxeno8J87zqXoJ3H3eLs1rP7gPF6vyBp2h8JiWxTHXUnwmVpFIq0fN0MqOF5OFlXy8s3DDDy7jBrG4JFBOWiWmbkrL4ZZRPmDnvj9CfviJ3BuqTDemuxP2UfR3O5fV98TKiKRf5L4ccZT-M37nWdzvKOS78TYv1318ggDpV7LrJvr86rCt-BUwNAHW8csPKhXwYhKcaQpIXpXhYr4CPNarMetEF60G-fPCdGGAQkjchMVuIJ3VyzixjscvL5H99C--ojUvRJ-faEAyZ4cIycaHm8nzWCfItXrJFpfn3F1sE_QLUxrTdt6V0JPc3z4PQGkjRSQKcXCAwVFlPBVcZJ9KcCB8OeqXjLJ9abYytvprQ4BPQNv9g9TIvUWUWXaswLUAzmI3_EcocMc-kb56HFQTdX1h8gB9OTWGdMyMc4HHTkY5-WZVILvAoz-Zrnhizz_D2UbTKStmtqs_8aW0q_fhlcuV3G_qhOeLR--v8zC8Xu8yWtcIQ6T8ECeBBLPqLoZzkv9LX847k2SbYdNgxqYdLXsm5WNBbN_zX5rqxySJ4py9jxtWtjjLGHvpe0HT1FbAJALZsFXovYs43vE75iNwh2GvPuqDAXbDpdjeBK9LdIE8iqy1xWWhonf4KO4mdE1MQ-sfBKz1fCTXGKBooPRyUEGgzhUHrmeXkXQ3LnRsnqB_x23XKnlYqYiqsYA1WWm4QbcmYUnDD01b_UUHd0LlIf7PwgBMvAeURHUJM1luzzaDXCTR7hxUFFVd0vEyxMrDaCcMhnpw7ivDkzXXOltYcWrL3v5AxtpXo-qY_v5LFcFW1OvQ5eq5pOjN9Grtttf2oNPO70Bdv7AOutqbGqtkaZ1soeMQ5Dva9reuE-SEGitkzFOwLTgIUbuynVoZklSSvumVKEZ3CwYu5ql8EhKOP7x2LYsPkOXoojCeRlAcr8ImpmgFcXaDD17HishIfYG6K-KzTISpsnDWxIsN5aTVhiDmiFgfZofID1UvQ9O4IwRKA6qHFuWP62cxpW_MXgb5bCFADbaCtLBTkYck9-v7UyjuBIpjsc4jBHcc-Yqg972D10Dnuw6T-6uMu13twQ2ePR162TKO90xF9lvrqsCpSDWrJG60fqM95-i__vHYIHkfz2BaChuyS92aYy-oEhn7W5lgjb_NpYZAEJUn1nOoaPIQEW6UYaNBd7xnBR-ga4b7isg12fjalWxw2Shyb4BFewTn9dOEad6nPnnQ7nPtSooFeqVgFNv01knsL8ZraPHAigz0Wuq1YYTKM16TTtz8fXaS59DlDLj1UZa-nWgpeuOnxtewKtIc9LrVV0bAWwq7k-3SmTuaXkEdlDwVhPvODlLRNw5KmqhCXoh0xMBethgfEv6kxkfJYxkMuCYxkay8qD4fwV58sTfcr5NJQ8lC_7Y6FtX7pBv2qzG-OGFyQE1qQ3tOC7oSOnJzvcvPwqIIGr_6VPiI6lpgawRI8_0cjfRVQzJFQFCXGAxhvuyrjqQkwF6l7nQst4gB9JJUtrzeFDDMl2N9NMlibRlbr7XRzgMXf2fDvIRYlbUE87N2gEeRmjVshXTSlYfqqTmm91sGUbuNpNE3rXAG4jhkOhLPDAxPpArMqHu7CeEifGN9YtYANrmcYeZ-gG2p8xvLqgptBg17eiFuVJrptoWM-FBvic246uJKj0szRjGgayjft3m3Zo_IAMHjDXjIFznnp9_WygiXIopt-yiIctnfJZNppEsaUflmsXHSBoCU2bwLOCJkKTta1jxhUD5SHuQnwklRF5bdaFgB1mH8B3stvbx--VrFp8mIaNZrBwrgjIWV6hQDkiNMs1lfWCXrCenRJ85aSe8wlz2AijA3-lZiBf7TSXuTDAS9_FGgU9QqnK_BKqen8Hi89FLyIcz0VEBlu28t0UmTn_uMHXIsGsAUnC3GP3wkzsZOagAcLGJ-yAO5d9fKlTCNrlcJC5gKPFrdFm8GYObR8mshyMPua6B3VgU0O-kGA4KlKewYm2NaO7iEcpqOrmQq_QZ0OA1KmZkKp5EVALNTUVlLUZfUT1MfYHFu40UoBSgC2ooBzjJQxJ2OQX9qC3HllD_7fZda69xr1TJ0p6YQgMeDIFYrUGmxXh2gCM1KPIhFOtzQ0cCexa9vZzfcnMRRGcMMAQGo9HkZexa-vCCfz4GynurelgSrhZxyMxrdqTj00mVNhoIe9SLEDMGmSS9QAnxJ7-eCYnkOCaBFt4ikf0XlTRjdAE-o6nZHXd9nzIKd5wWWlt2okCc9g60dbn2fdTTcF4VWoYoOavyYV23UHfXUNIueUXXhWg6TcQ9erZeegC_ECHaw1J-LTzZdgGYqiTyVcWBKZY8JaZgYaon2xjDcZ3YJMjzRxR8szwnScP3xiSiPXPENflZPPenx3lwIMv4nKEve-SgMMPj2SZXlo0ikjWVStOUxUV0kc9NVKM5cIY0Y83TWYdPKSjH5vw25WEp74Kj7_NMb9suhwUtPDmBzms_tbzixK7qYTBZMfWOY2N8BX3S0VW4qzPnP441oNZaCxdVfzUlj7z66iV5l66XBUc-YOPkpUbiyoAccHfnAfkx0JJe6cko3RZamhtNgwEU-WOa67hFvWwFjHmQmsRorujBFWFULnnIz85HX3_FNqP9QEUB01zhaI6Pq20f-0QNCcKAJPpD-5rmERh3ZyQ8g7hAOT3epTLw3Uwl4PwM-0OEM7Z-mKbqwQF1VT-k1EdH8xzeFxMxXmta0n-6xXUGOJoygWsFXO4mXL0EozpyfNhXcFHNbQaRheS4fiKifT1y1P1mWlptLN97UmXzwzSrJrnDPb_MalPOyGS_g3Sgcy_oQQ33EyMzml3yEFHdfN6uMBPHmXevi1SLH0qNN_v5EINwVJZpnYRSQYJJ31TZpmW4YRMQpM3LUke8twhVl8L44clGy3qunbTzuQqzZzzVXx10UGiosz6fEeawnNmKzcUFdxDl7LdGBhePpb9KgERXQeemn72vdmPfrCaXBERuHl3yKhK9herFltCe6xBNeqmENBmMZpjUsd-eqLeNuhqoed0FWWKcRcJ3WTUeS6kAFolrvo-KDCwgJdgsCyLFJ_gVBVkN__VD9tu1jBCdrlLffRt66wt4_xAzsXKYIYVYbpQFPrH8EgaXrxQ1RWu66hLJ5SwVe5YQysiPBqEUJfkiOXpgSReDLtD13-QurahW9QiMZzwD8wj7Hr8_3tilRniOvRUWcg8kE51SJiota1y22t3SiI_KmgUC4eAfRp4_47KddelD9Ym32k2fJv8UY0ai0K_JkqDr1w8IWfep55eJsNoFpWkVjhSt9haK-onYBpaou485oekD1yndJTA4ZQS-DftyWDnIKMeetwJccFpaKO_pNO93BH89y0vw2S9Hl61uLKEp9NVxFsCGMCk-KOfslbbKxX_I4JOQkIcRfngH9U49vmLdkaTmwnmhmRWi3J3BJzskttWt81HxDn7alPsvwtjSzYLOKeXbEsvxOnEvyIrTcPXhmKC9RNvk_2gZMmkL-yS95yxCoJv5OGTHjq7wgz6AosOo-mAnPdteoZe2qHN3TC6hG8n4J8qUcf1zKh2AwingtQ653Cxfwo-pi5q0EmNuA-J9o4DGM6vhWu_GR3nAUACZT8K2_RleXFMPyk6xHmzd15jKsHQL50nhwF9Px4Gl17_X0CktXDW5iaVug6RR6prXSX3HgiWZaYQVW5Yu46J8ygy3iM5mybdj5dz2wNp01mbK-KmYry9BdRio-so_QrHRcvKc87Bb50WuEjLAc2qKOOupOW7up8K0u3bgpfXjlR-WBoKAep5GJe3oA8gqshfLGiFGyi69FZFQ4xplSFqS3cwLWuVKCi3LNuYnwKOFNKrUbMNYz-VyWf3aoYY-ForFK1Ov3B05Wuze-rkjHRc8JjKvewnkleGNnfOBZGHYxABdZ9ViZJNWJuyUZeeM6UgFnAytga8SBhS8CHo979W3XbDk-ckOmCDcu9zVHgFUkyu7mCpeVWR3lW9uHUg7PDUyAwT9JEijI0TOzTfLn-cBAiH2bS_2ROV9pUGZWErbgTxvgo_1YxibIQP6jzsmotFQxgACaDBSdNN1kXl6D5NRd6S5zyK2dhaAsrofNKjbe2-yy58ZfjcrXvWwO2P-BBMEK1BV5Vxl6-rJLIrqwPM_LHjzrBjzDqMnV43xgkbHR6WcKzwgTMvGgYN3jlL-tyZ2CymIiAKTV37gT2EfBYJNnyNFEE9VmW4SywVVzFd4ulx6gWeVdmIHzwozWcwgkORT6-C4M1z-hwaK6ZYa22-39N4lAFyhVSW9BA9EyGmwZFDBWZoBRFdmKDvEwPmXpIv1txJTVSlM2NLsiedEH2jYzlA6VKxEpp49fcqDXE-L618vwtn9RlwLYIDvnBMUxJewdqlGKWrfpjLEfHSot14jMa9pc0aqVBBYLTtghWTQzb6RfbAc7xWeYrTEaVaQnjUnMi5uDJeLDmiV6-lYcIvEg8R6biBBCYiYZP7esipiazEYl5WOFNoFuyO5HZLOtantuO8RqkXhMMu7ACfNYkFsWPCT_FrtEFW0xO31mm-UIE1rD_Y3LVTdAk2MDNY7GCIHE-uvuc9sVIMFJ2HVbPOcwG4n6bEKum7R1yREWVBvwoppRfyOP-qtPNP-_Ka5EZGQXE8yTBvoBjSQF8Q1jYej9GtmRGxTs4oKPgY9ztEyDtmoOYleV3oIIB0dtppBSwHY3m15OuNeC47ML6BUladg==",
+      "summary": []
+    },
+    {
+      "id": "msg_0aa0180ca2c9b810016aebfaf22e2087d2b46a7a9fb6ab6530",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "```java\n@Test\npublic void testReadingOfFirstStoredEntry() throws Exception {\n    // Local file header and STORED entry data from COMPRESS-264.\n    final byte[] zip = {\n        0x50, 0x4b, 0x03, 0x04, 0x0a, 0x00,\n        0x00, 0x00, 0x00, 0x00, 0x03, 0x7b,\n        (byte) 0xd1, 0x42, (byte) 0x82, (byte) 0xc5,\n        (byte) 0xc1, (byte) 0xe6,\n        0x05, 0x00, 0x00, 0x00, 0x05, 0x00,\n        0x00, 0x00, 0x08, 0x00, 0x1c, 0x00,\n        0x74, 0x65, 0x73, 0x74, 0x2e, 0x74,\n        0x78, 0x74, 0x55, 0x54, 0x09, 0x00,\n        0x03, 0x56, 0x62, (byte) 0xbf, 0x51, 0x2a,\n        0x63, (byte) 0xbf, 0x51, 0x75, 0x78, 0x0b,\n        0x00, 0x01, 0x04, 0x01, (byte) 0xff, 0x01,\n        0x00, 0x04, (byte) 0x88, 0x13, 0x00, 0x00,\n        0x64, 0x61, 0x74, 0x61, 0x0a\n    };\n    final byte[] expected = { 0x64, 0x61, 0x74, 0x61, 0x0a };\n\n    // Verify both bulk reads and single-byte reads of the first entry.\n    for (int mode = 0; mode < 2; mode++) {\n        final ZipArchiveInputStream in = new ZipArchiveInputStream(\n                new java.io.ByteArrayInputStream(zip));\n        try {\n            final ZipArchiveEntry entry = in.getNextZipEntry();\n            org.junit.Assert.assertNotNull(entry);\n            org.junit.Assert.assertEquals(\"test.txt\", entry.getName());\n            org.junit.Assert.assertEquals(\n                    java.util.zip.ZipEntry.STORED, entry.getMethod());\n            org.junit.Assert.assertEquals(5L, entry.getSize());\n\n            final byte[] actual = new byte[expected.length];\n            if (mode == 0) {\n                int offset = 0;\n                while (offset < actual.length) {\n                    final int count = in.read(\n                            actual, offset, actual.length - offset);\n                    org.junit.Assert.assertTrue(\n                            \"Expected entry data rather than EOF or an empty read\",\n                            count > 0);\n                    offset += count;\n                }\n            } else {\n                for (int i = 0; i < actual.length; i++) {\n                    final int value = in.read();\n                    org.junit.Assert.assertTrue(\n                            \"Unexpected end of entry\", value >= 0);\n                    actual[i] = (byte) value;\n                }\n            }\n\n            org.junit.Assert.assertArrayEquals(expected, actual);\n            org.junit.Assert.assertEquals(-1, in.read());\n        } finally {\n            in.close();\n        }\n    }\n}\n```"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1003,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1081,
+    "output_tokens_details": {
+      "reasoning_tokens": 283
+    },
+    "total_tokens": 2084
+  },
+  "user": null,
+  "metadata": {}
+}

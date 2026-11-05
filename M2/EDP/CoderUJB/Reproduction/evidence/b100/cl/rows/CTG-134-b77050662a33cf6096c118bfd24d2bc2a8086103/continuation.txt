@@ -1,0 +1,21 @@
+
+        final File f = getFile("COMPRESS-351.zip");
+        try (final ZipArchiveInputStream zis = new ZipArchiveInputStream(new FileInputStream(f))) {
+            final ZipArchiveEntry ze = zis.getNextZipEntry();
+            assertEquals("test.txt", ze.getName());
+            assertEquals(0, zis.read(new byte[1024]));
+            try {
+                zis.getNextZipEntry();
+                fail("Should have thrown an exception");
+            } catch (final ZipException e) {
+                assertEquals("ZipException: Corrupt ZIP file - " +
+                             "no end of central directory", e.getMessage());
+            }
+        }
+    }
+
+// You are a professional Java test case writer, please create a test case named `testUnzipBZip2CompressedEntry` for the `ZipArchiveInputStream` class, utilizing the provided abstract Java class context information and the following natural language annotations.
+
+    /**
+     * Test case for
+     * <a href="https://issues.apache.org/jira/brow

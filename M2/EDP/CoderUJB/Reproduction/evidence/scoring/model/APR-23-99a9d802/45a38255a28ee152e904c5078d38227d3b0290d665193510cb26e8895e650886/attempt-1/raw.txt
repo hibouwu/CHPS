@@ -1,0 +1,128 @@
+**Explanation of the problems**
+
+The original `initializeHeader()` method has a few subtle bugs that can break the parser in real‑world usage:
+
+| # | Problem | Why it is a bug |
+|---|---------|-----------------|
+| 1 | **`nextRecord()` is used to read the header** – this method advances the lexer **and also stores the record in the internal `record` list**. When the header is read from the first line the parser later treats that line as a *data* record, so the first data row is lost. | The header must be *consumed* without being added to the list of data records. |
+| 2 | **`header.trim()` can throw NPE** – a header element may be `null` (e.g. when the user supplies a `String[]` that contains `null`). The original code calls `header.trim()` unconditionally. | NullPointerException. |
+| 3 | **Duplicate‑header detection logic is overly complex and wrong** – the condition `containsHeader && (!emptyHeader || (emptyHeader && !this.format.getIgnoreEmptyHeaders()))` throws for duplicate *non‑empty* headers **and** for duplicate *empty* headers when `ignoreEmptyHeaders` is `false`. The intention of the library is to ignore duplicate empty headers **only** when `ignoreEmptyHeaders` is `true`. | The original condition throws when `ignoreEmptyHeaders` is `true` and the duplicate header is empty, which is the opposite of the documented behaviour. |
+| 4 | **When the format declares a header (`formatHeader.length == 0`) but the source is empty** the method returns `null` silently. The caller expects a map (possibly empty) or an exception. | The parser later works with a `null` header map and may mis‑behave. |
+| 5 | **`headerRecord = formatHeader` stores a reference to the user‑supplied array**. If the caller later mutates that array the internal header map would change unexpectedly. | Defensive copy is required. |
+| 6 | **The method does not honour `skipHeaderRecord` when the header is read from the source** – the first line is consumed as a header, but the parser must also *skip* it so that iteration starts with the first *data* line. The original code already consumes the line via `nextRecord()`, but because `nextRecord()` also adds the values to the internal `record` list, the line is still considered a data record. | Leads to an off‑by‑one error. |
+
+All of the above can be fixed without changing the public API of `CSVParser`.  
+Below is a corrected implementation that:
+
+* reads the header safely,
+* skips the header line correctly,
+* protects against `null` header values,
+* implements the duplicate‑header rule exactly as the Apache Commons CSV specification,
+* returns an **empty** map (instead of `null`) when a header is defined but no columns are present,
+* makes a defensive copy of the user‑supplied header array.
+
+---
+
+## Fixed implementation
+
+```java
+/**
+ * Initializes the name‑to‑index mapping if the format defines a header.
+ *
+ * @return {@code null} if the format has no header; otherwise a map that
+ *         maps each header name to its column index.
+ * @throws IOException if there is a problem reading the header or skipping the first record.
+ */
+private Map<String, Integer> initializeHeader() throws IOException {
+    // No header defined by the format → nothing to initialise.
+    final String[] formatHeader = this.format.getHeader();
+    if (formatHeader == null) {
+        return null;
+    }
+
+    // The map must preserve insertion order (required by the spec).
+    final Map<String, Integer> hdrMap = new LinkedHashMap<>();
+
+    String[] headerRecord;
+
+    // -----------------------------------------------------------------
+    // 1️⃣  Header supplied by the user (formatHeader.length > 0)
+    // -----------------------------------------------------------------
+    if (formatHeader.length > 0) {
+        // If the format says "skip the header record", we must consume the first
+        // line of the underlying CSV source.  We use getNextRecord() (the low‑level
+        // method that does **not** add the record to the public data list) to
+        // avoid the side‑effect of nextRecord().
+        if (this.format.getSkipHeaderRecord()) {
+            // Discard the first record – we do not need its values.
+            getNextRecord(); // may return null for an empty source – that's fine.
+        }
+
+        // Defensive copy – we never want external modifications to affect the parser.
+        headerRecord = Arrays.copyOf(formatHeader, formatHeader.length);
+    }
+    // -----------------------------------------------------------------
+    // 2️⃣  Header must be read from the first line of the CSV source
+    // -----------------------------------------------------------------
+    else {
+        // Read the first record (the header) and *do not* add it to the data list.
+        final CSVRecord headerCsvRecord = getNextRecord();
+        if (headerCsvRecord == null) {
+            // The source is empty – an empty header map is still a valid result.
+            headerRecord = new String[0];
+        } else {
+            headerRecord = headerCsvRecord.values();
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // 3️⃣  Build the name‑to‑index map, checking for duplicates.
+    // -----------------------------------------------------------------
+    for (int i = 0; i < headerRecord.length; i++) {
+        // Guard against a null element – treat it as an empty string.
+        String header = headerRecord[i];
+        if (header == null) {
+            header = "";
+        }
+
+        final boolean emptyHeader = header.trim().isEmpty();
+        final boolean duplicate = hdrMap.containsKey(header);
+
+        // Duplicate handling:
+        //   * If the header is empty and the format says "ignore empty headers",
+        //     duplicates are allowed.
+        //   * Otherwise a duplicate (empty or non‑empty) is illegal.
+        if (duplicate) {
+            if (!(emptyHeader && this.format.getIgnoreEmptyHeaders())) {
+                throw new IllegalArgumentException(
+                        "The header contains a duplicate name: \"" + header + "\" in "
+                                + Arrays.toString(headerRecord));
+            }
+        }
+
+        hdrMap.put(header, i);
+    }
+
+    return hdrMap;
+}
+```
+
+### What changed and why
+
+| Change | Reason |
+|--------|--------|
+| **Early return when `format.getHeader() == null`** | The original code already did this, but we keep it explicit for readability. |
+| **Use `getNextRecord()` instead of `nextRecord()`** when we need to *consume* a line without adding it to the public record list. | Prevents the first data row from being duplicated or lost. |
+| **Defensive copy of `formatHeader`** (`Arrays.copyOf`) | Guarantees that later external modifications cannot corrupt the internal header map. |
+| **Null‑safe handling of header elements** (`header == null ? "" : header`) | Avoids `NullPointerException` when a user‑supplied header array contains `null`. |
+| **Simplified duplicate‑header logic** | The new condition matches the documented behaviour: duplicate empty headers are allowed **only** when `ignoreEmptyHeaders` is `true`. |
+| **When the source is empty and we need to read the header, we return an empty array** | Guarantees that the method always returns a non‑null map (or `null` when no header is defined) and never leaves `headerRecord` as `null`. |
+| **Added extensive inline comments** | Makes the intent clear for future maintainers. |
+
+With these fixes the parser now:
+
+* correctly skips the header line,
+* never throws NPE for `null` header values,
+* respects the `ignoreEmptyHeaders` flag,
+* protects against external mutation of the user‑supplied header array,
+* and behaves predictably when the CSV source is empty.

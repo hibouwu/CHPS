@@ -1,0 +1,64 @@
+Here is a complete implementation of **`transformAsString`** that follows the description in the Javadoc and fits naturally into the surrounding `IRFactory` class.
+
+```java
+/**
+ * Transforms the given {@link AstNode} and then makes sure the resulting
+ * {@link Node} is a {@code Token.STRING}.  If the transformed node is a
+ * {@code Token.NAME} we turn it into a string node (the identifier becomes the
+ * string value).  If the node is already a {@code Token.STRING} we keep it as‑is
+ * – the string literal is already quoted in the source, so no extra work is
+ * required.
+ *
+ * <p>This method is used for object‑literal property keys.  In the old Rhino
+ * AST a quoted property key is a {@code Token.STRING} while an unquoted key is a
+ * {@code Token.NAME}.  The new IR uses only {@code Token.STRING} nodes for
+ * property keys, with the string value unquoted.  The conversion therefore
+ * consists of:
+ *
+ * <ul>
+ *   <li>transform the child node with the normal {@link #transform(AstNode)}
+ *       machinery;</li>
+ *   <li>if the resulting node is a {@code Token.NAME}, replace it with a new
+ *       {@code Token.STRING} node that contains the same identifier;</li>
+ *   <li>preserve source‑position information.</li>
+ * </ul>
+ *
+ * @param n the AST node to be transformed
+ * @return a {@link Node} whose token type is {@code Token.STRING}
+ */
+private Node transformAsString(AstNode n) {
+    // First let the regular transformer do its job.
+    Node result = transform(n);
+
+    // If the result is a NAME token we have to turn it into a STRING token.
+    // The identifier of a NAME node is stored in its string field.
+    if (result.getToken() == Token.NAME) {
+        // Grab the identifier and create a new STRING node.
+        String identifier = result.getString();
+        result = newStringNode(identifier);
+    }
+
+    // If the result is already a STRING token we leave it untouched.
+    // (The string literal is already quoted in the source.)
+
+    // Keep the original source‑position information.
+    setSourceInfo(result, n);
+    return result;
+}
+```
+
+### Why this works
+
+* **`transform(n)`** – delegates to the existing visitor logic, producing a
+  `Node` that may be a `NAME`, `STRING`, or any other token.
+* **`result.getToken() == Token.NAME`** – detects the case where the old AST
+  used a `NAME` token for an unquoted property key.
+* **`newStringNode(identifier)`** – creates a fresh `Node` of type
+  `Token.STRING` containing the same identifier (now an unquoted string).
+* **`setSourceInfo(result, n)`** – copies line/column information from the
+  original `AstNode` to the newly‑created IR node, preserving accurate error
+  reporting and debugging data.
+
+The helper methods (`transform`, `newStringNode`, `setSourceInfo`) already
+exist in the surrounding class, so this implementation integrates cleanly
+without adding any new dependencies.

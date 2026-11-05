@@ -1,0 +1,17 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Reasoning: medium"
+    },
+    {
+      "role": "user",
+      "content": "```markdown\n## Issue-ID: JacksonDatabind-810\n\n## Issue-Title: \nForce value coercion for java.util.Properties, so that values are Strings\n\n## Issue-Description: \nCurrently there is no custom handling for `java.util.Properties`, and although it is possible to use it (since it really is a `Map` under the hood), results are only good if values are already `String`s.  \n\nThe problem here is that `Properties` is actually declared as `Map<String,Object>`, probably due to backwards-compatibility constraints.\n\n\nBut Jackson should know better: perhaps by `TypeFactory` tweaking parameterizations a bit?\n\n\n\n\n```\n\nYou are a professional Java test case writer, please create a test case named `testMapToProperties` for the issue `JacksonDatabind-810`, utilizing the provided issue report information and the following function signature.\n\n```java\n    public void testMapToProperties() throws Exception {\n\n```"
+    }
+  ],
+  "seed": 4,
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "n": 1,
+  "stream": false
+}

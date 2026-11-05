@@ -1,0 +1,32 @@
+{
+  "model": "oss",
+  "configuration": "B",
+  "task": "CTG",
+  "task_idx": 135,
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "status": "pass",
+  "reason": null,
+  "category": null,
+  "coverage": {
+    "classes": [
+      "org.joda.time.DateTimeComparator"
+    ],
+    "line_pct": 67.4,
+    "condition_pct": 32.6,
+    "instrumented_lines_hit": 31
+  },
+  "format_valid": true,
+  "mode": "chat",
+  "raw_model_sha256": "b9948887c76eccf014c8343ba7c16cadf8f2580c50b81865c0b76f05d5b6c7f2",
+  "scorer_input_sha256": "b9948887c76eccf014c8343ba7c16cadf8f2580c50b81865c0b76f05d5b6c7f2",
+  "removed_input_prefix": "",
+  "added_prompt_sha256": "e37848a7dc83d5e500f0ec9d37aeb00304cd0eff5f3d63ef5a3f04d9609b2023",
+  "answer_untouched": true,
+  "source": "evidence/b100/oss/rows/CTG-135-b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "result": "evidence/scoring/model/CTG-135-b7705066/a274115d61d96bbabe23bce906125a498dfecd578e6707238659332c8dbdefdd/attempt-1/result.json",
+  "finish_reason": "stop",
+  "input_truncated": false,
+  "input_tokens": 1240,
+  "output_tokens": 855,
+  "compile_review": null
+}

@@ -1,0 +1,108 @@
+**What was wrong**
+
+The `visit` method of `LocalScopeBuilder` is the place where the builder discovers the
+variables that belong to a *local* scope (function‑body, block‑scope, catch‑clause …).
+The original implementation had three problems:
+
+| # | Problem | Why it is a bug |
+|---|---------|-----------------|
+| 1 | It looked for the *parameter list* node by testing `n.getType() == Token.LP`.  In the current AST the parameter list is a node of type **`Token.PARAM_LIST`** (or `Node.isParamList()`).  Using `Token.LP` works only for very old versions of the compiler and fails on modern code, so the arguments of a function are never declared. |
+| 2 | When the parameter list is found the code called `handleFunctionInputs(parent)`.  `parent` is the `FUNCTION` node, but `handleFunctionInputs` expects the **function node itself**, not the parameter‑list node.  Passing the wrong node makes the method look at the wrong children and the arguments are not added to the scope. |
+| 3 | The method only handled `Token.VAR`.  Since the compiler now supports block‑scoped declarations, `let` and `const` (tokens `Token.LET` and `Token.CONST`) must also be processed.  Ignoring them means that block‑scoped variables are never entered into the symbol table. |
+
+Because of these three issues the local scope was built incorrectly – function
+parameters were missing and block‑scoped variables were invisible to later passes
+(type‑checking, linting, etc.).
+
+---
+
+**How we fix it**
+
+* Detect the *parameter‑list* node correctly (`Token.PARAM_LIST` or `n.isParamList()`).
+* Pass the **function** node (`parent`) to `handleFunctionInputs` – the same node that
+  the original code intended to use, but only after we have verified that we are
+  really looking at a parameter list.
+* Add `Token.LET` and `Token.CONST` to the `switch` so that block‑scoped
+  declarations are treated the same way as `var` (the existing `defineVar`
+  routine already knows how to record the declaration kind).
+
+The resulting method is short, clear and works with every AST version that the
+Closure Compiler currently produces.
+
+```java
+@Override
+public void visit(NodeTraversal t, Node n, Node parent) {
+  // -----------------------------------------------------------------
+  // 1.  Do not process the root node of the scope we are building.
+  // -----------------------------------------------------------------
+  if (n == scope.getRootNode()) {
+    return;
+  }
+
+  // -----------------------------------------------------------------
+  // 2.  The parameter list of a function is a child of the FUNCTION node.
+  //     When we see it we have to declare the arguments.
+  // -----------------------------------------------------------------
+  // In the current AST the parameter list node has type Token.PARAM_LIST.
+  // (Older code used Token.LP – that no longer works.)
+  if (n.getToken() == Token.PARAM_LIST && parent.getToken() == Token.FUNCTION) {
+    // `parent` is the FUNCTION node; handleFunctionInputs expects the
+    // function node, not the PARAM_LIST node.
+    handleFunctionInputs(parent);
+    return;
+  }
+
+  // -----------------------------------------------------------------
+  // 3.  Attach literal types (e.g. object‑literal, array‑literal) before we
+  //     start looking at declarations.
+  // -----------------------------------------------------------------
+  attachLiteralTypes(n);
+
+  // -----------------------------------------------------------------
+  // 4.  Process the different declaration kinds that can appear in a
+  //     local scope.
+  // -----------------------------------------------------------------
+  switch (n.getToken()) {
+    case FUNCTION:
+      // Named function expressions have a NAME node as their parent.
+      // The name is already declared by the parent, so we skip it.
+      if (parent.getToken() == Token.NAME) {
+        return;
+      }
+      defineDeclaredFunction(n, parent);
+      break;
+
+    case CATCH:
+      defineCatch(n, parent);
+      break;
+
+    // `var`, `let` and `const` all introduce a new variable in the current
+    // scope.  The existing `defineVar` routine records the declaration kind.
+    case VAR:
+    case LET:
+    case CONST:
+      defineVar(n, parent);
+      break;
+
+    default:
+      // No local declaration to handle.
+      break;
+  }
+}
+```
+
+### What changed, line‑by‑line
+
+| Line (old) | Change | Reason |
+|------------|--------|--------|
+| `if (n.getType() == Token.LP && parent == scope.getRootNode()) {` | `if (n.getToken() == Token.PARAM_LIST && parent.getToken() == Token.FUNCTION) {` | Detect the real *parameter‑list* node; the old `Token.LP` is obsolete. |
+| `handleFunctionInputs(parent);` (unchanged) | **kept** but now called only after the correct test above. | `parent` is the FUNCTION node, which is what `handleFunctionInputs` expects. |
+| `case Token.VAR:` | `case VAR: case LET: case CONST:` | Add support for block‑scoped declarations. |
+| Added comment blocks and a default case | Improves readability and makes the intent explicit. | No functional impact, but helps future maintenance. |
+
+With these corrections the `LocalScopeBuilder` now:
+
+* correctly registers function parameters,
+* correctly registers `let`/`const` variables,
+* continues to handle `var`, `catch`, and function declarations as before,
+* and works with the current Closure Compiler AST.

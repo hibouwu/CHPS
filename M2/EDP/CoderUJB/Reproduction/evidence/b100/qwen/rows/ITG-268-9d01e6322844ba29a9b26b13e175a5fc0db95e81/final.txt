@@ -1,0 +1,22 @@
+```java
+    @Test
+    public void supportsBOMinFiles() throws IOException {
+        byte[] utf16leBOM = new byte[]{(byte) 0xFF, (byte) 0xFE};
+        byte[] utf16beBOM = new byte[]{(byte) 0xFE, (byte) 0xFF};
+        String testString = "Test String";
+        byte[] utf16leBytes = (testString + "\uFEFF").getBytes("UTF-16LE");
+        byte[] utf16beBytes = (testString + "\uFEFF").getBytes("UTF-16BE");
+
+        // Create input streams with BOM
+        InputStream utf16leStream = new ByteArrayInputStream(utf16leBytes);
+        InputStream utf16beStream = new ByteArrayInputStream(utf16beBytes);
+
+        // Parse the byte data
+        Document utf16leDoc = DataUtil.parseByteData(utf16leStream, null, "about:blank", Parser.htmlParser());
+        Document utf16beDoc = DataUtil.parseByteData(utf16beStream, null, "about:blank", Parser.htmlParser());
+
+        // Check if the parsed documents contain the correct text
+        assertEquals(testString, utf16leDoc.text());
+        assertEquals(testString, utf16beDoc.text());
+    }
+```

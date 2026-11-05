@@ -1,0 +1,16 @@
+{
+  "task": "FCG",
+  "revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "task_idx": 158,
+  "task_id": "a834f1590256fe04f2e0f76c4d049d707dd31438fb274eaa29d7cb9a8ce3e6c1",
+  "project": "Jsoup",
+  "bug_id": 93,
+  "chat_sha256": "31a8c885a3c507529ceb4f06baefec59dc4bcaec928b37fede205d46596d3962",
+  "complete_sha256": "fffe17c5d50a8f7390195a0aca8704713ee79c08dbe679da06968a4725142147",
+  "checked_at": "2026-11-05T02:50:35.471676+01:00",
+  "eligible": true,
+  "check": "dataset_reference_in_project",
+  "reference_status": "pass",
+  "reason": null,
+  "log": "evidence/scoring/reference_preflight/FCG-158-78cb042a/2d4865ca694414f983d2f355d97ccbc2565a066a4e66f3a4b695cf7a2c72f4c6/attempt-1/result.json"
+}

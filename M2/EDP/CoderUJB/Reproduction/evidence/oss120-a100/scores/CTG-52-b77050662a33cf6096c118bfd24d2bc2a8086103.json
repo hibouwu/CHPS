@@ -1,0 +1,19 @@
+{
+  "task": "CTG",
+  "revision": "b77050662a33cf6096c118bfd24d2bc2a8086103",
+  "task_idx": 52,
+  "batch": "b02",
+  "status": "fail",
+  "reason": "target test failed",
+  "finish_reason": "stop",
+  "truncated": false,
+  "category": null,
+  "coverage": null,
+  "result": "evidence/scoring/model/CTG-52-b7705066/2b9010efc1da7fa0682123f6c328f2e3c3c807aeba3ae1cf125f1bb67767e0e2/attempt-1/result.json",
+  "usage": {
+    "completion_tokens": 1575,
+    "prompt_tokens": 1523,
+    "total_tokens": 3098
+  },
+  "final_sha256": "7160cd8eda99189c40f4039a691ec56a963637bd286ffefd197fbe5f44709016"
+}
