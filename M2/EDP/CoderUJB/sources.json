@@ -38,7 +38,7 @@
     "local_pdf": "Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf",
     "local_source": "Presentation/LaTeX/CoderUJB_Equipe6_FR.tex",
     "pages": 32,
-    "pdf_sha256": "e572d0721c9b741ae2f97832f4416cb37d0be0f1e3a35f005040a92516e46d78",
+    "pdf_sha256": "ec6cb764252263334efd105da613e5ceb62fcc7ac9674849308e68c53b1df637",
     "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
     "updated_on": "2026-11-05",
     "aspect_ratio": "16:9",
@@ -108,6 +108,28 @@
       "script_pdf": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
       "script_markdown": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.md",
       "validation": "Deck has 32 pages; rendered differences limited to pages 14-17; all displayed percentages preserved; scripts match speaker notes; slide and script PDFs visually inspected."
+    },
+    "part4_update": {
+      "updated_on": "2026-11-05",
+      "source_pptx": "Presentation/LaTeX/CoderUJB_Equipe6_FR_Training_Updated.pptx",
+      "source_sha256": "a63ce28c49acf58f2df7e355ac65568d0705819c25669d0a2beda5b30956d861",
+      "source_pages": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "updated_pages": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "presenter": "Xiang BIAN",
+      "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie4_FR.pdf",
+      "standalone_sha256": "0b7639b36965776902cd6f93a4ac3552d975f488ae861fbbdbbd95bcf6254f54",
+      "notes": "Added explanation of Table 5 syntax and compilation evidence; retained APR metric distinction.",
+      "validation": "32 pages; only pages 19-22 differ in rendering; content outside Section 4 unchanged; percentages match the updated PPTX; no overfull boxes."
     }
   }
 }

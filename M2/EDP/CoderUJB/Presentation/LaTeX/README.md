@@ -56,3 +56,11 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 - [法语讲稿 Markdown](CoderUJB_Partie3_Script_FR.md)
 
 独立讲稿与完整演示稿的第三部分备注一致。讲稿 PDF 可从同名 `.tex` 用 pdfLaTeX 编译。
+
+## 第四部分同步同学更新版（2026-11-05）
+
+按 `CoderUJB_Equipe6_FR_Training_Updated.pptx` 第 13–16 页同步第四部分，对应总稿第 19–22 页。采用更新版的标题、RQ3/RQ4 说明、StarCoder 语言取舍图、表 5 的语法与编译数据以及总结内容。沿用当前 LaTeX 蓝色标题、白底和简单页码格式；图表用 LaTeX 排版，两个条形图采用相同的线性比例。讲稿备注补上新增数据的解释，并保留 APR 在 k=1 与 k=10 时表现不同的提醒。
+
+- [第四部分单独版（4 页，沿用总稿页码 19–22）](CoderUJB_Partie4_FR.pdf)
+
+总稿仍为 32 页，逐页渲染比较确认仅第 19–22 页变化。其他章节的 LaTeX 内容保持原样。

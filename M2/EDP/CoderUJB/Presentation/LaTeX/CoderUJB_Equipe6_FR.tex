@@ -586,20 +586,20 @@ Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne
 
 % Slide 19 / 32; intervenant 4
 
-\begin{frame}{Deux façons de poursuivre l’entraînement}
+\begin{frame}{Plus d’entraînement = de meilleures performances ?}
 \small
-\begin{block}{RQ3 : spécialisation par langage}
+\begin{block}{RQ3 : préentraînement spécialisé par langage}
 \begin{itemize}
-  \item Du code supplémentaire en Python ou en Java
+  \item Continuer l’entraînement avec du code Python ou Java
 \end{itemize}
 \end{block}
 \begin{block}{RQ4 : ajustement sur instructions}
 \begin{itemize}
-  \item Des exemples de demandes et de réponses
+  \item Apprendre à suivre des demandes grâce à des exemples de réponses
 \end{itemize}
 \end{block}
 \medskip
-{\small Comparaison avec le modèle de départ, selon la tâche et la métrique.\par}
+{\small Question commune : quel effet sur les tâches réelles de CoderUJB ?\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
@@ -614,34 +614,50 @@ Le second est l’ajustement sur des instructions. On entraîne alors le modèle
 
 Ils comparent ces versions aux modèles de départ : quelles tâches progressent ?
 
-REPÈRES : RQ3 / langage / RQ4 / instructions
+REPÈRES : RQ3 / continued pre-training / RQ4 / instruction tuning
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §4.1-4.2, RQ3-RQ4, pp. 130, 133. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 4 : 349 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Le temps de présentation de cette partie mise à jour est à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 20 / 32; intervenant 4
 
-\begin{frame}{Le langage d’entraînement change les résultats}
+\begin{frame}{Se spécialiser dans un langage : un compromis}
 \small
 \textbf{StarCoder-15B}
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.35}
-\begin{tabular}{@{}lrr@{}}
-\toprule
-\textbf{Version} & \textbf{CoderUJB FCG / Java} & \textbf{HumanEval / Python} \\
-\midrule
-Base & 15,32 \% & 30,35 \% \\
-+ Python & 14,39 \% & 33,57 \% \\
-+ Java & 18,82 \% & 27,07 \% \\
-\bottomrule
-\end{tabular}
-\end{center}
 \medskip
-{\small Génération de fonctions, k = 1. Deux benchmarks différents, comparés chacun entre versions.\par}
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}
+\textbf{CoderUJB FCG / Java}
+\medskip
+
+\renewcommand{\arraystretch}{1.65}
+\begin{tabular}{@{}l@{\quad}l@{\quad}r@{}}
+Base & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{0.9958cm}{1.1ex}}} & 15,32 \% \\
++ Python & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{0.9354cm}{1.1ex}}} & 14,39 \% \\
++ Java & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{1.2233cm}{1.1ex}}} & 18,82 \% \\
+\end{tabular}
+\end{column}
+\begin{column}{0.49\textwidth}
+\textbf{HumanEval / Python}
+\medskip
+
+\renewcommand{\arraystretch}{1.65}
+\begin{tabular}{@{}l@{\quad}l@{\quad}r@{}}
+Base & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{1.9728cm}{1.1ex}}} & 30,35 \% \\
++ Python & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{2.1821cm}{1.1ex}}} & 33,57 \% \\
++ Java & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{1.7596cm}{1.1ex}}} & 27,07 \% \\
+\end{tabular}
+\end{column}
+\end{columns}
+\bigskip
+\textbf{En FCG, la spécialisation favorise généralement le langage ciblé.}
+\medskip
+
+{\small Mais ce résultat n’est pas systématique pour ITG et APR (RQ3).\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
@@ -654,22 +670,21 @@ Sur HumanEval en Python, on observe le mouvement inverse : la version Python pro
 
 Cela illustre un compromis entre langages. Mais pour reproduire des bugs ou réparer des fonctions, les auteurs observent des effets moins réguliers. Il ne faut donc pas généraliser cet exemple à toutes les tâches.
 
-REPÈRES : StarCoder / Python / Java / génération
+REPÈRES : StarCoder-15B / FCG / pass-all@1 / RQ3
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ3 et tableau 4, pp. 132-133. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 4 : 349 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Le temps de présentation de cette partie mise à jour est à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 21 / 32; intervenant 4
 
-\begin{frame}{Les instructions n’améliorent pas tout}
+\begin{frame}{L’instruction tuning n’améliore pas toutes les tâches}
 \small
 \textbf{CodeLlama-13B}
 \begin{center}
-\small
-\renewcommand{\arraystretch}{1.35}
+\renewcommand{\arraystretch}{1.15}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{Tâche et indicateur} & \textbf{Base} & \textbf{Instruct} \\
@@ -681,8 +696,22 @@ APR : pass-all@10 & 8,39 \% & 15,72 \% \\
 \bottomrule
 \end{tabular}
 \end{center}
-\medskip
-{\small Un gain à k = 10 ne garantit pas un gain à k = 1.\par}
+\smallskip
+\textbf{Tableau 5 : pourquoi la génération se dégrade-t-elle ?}
+
+{\footnotesize FCG, CodeLlama-13B\par}
+\begin{center}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Indicateur} & \textbf{Base} & \textbf{Instruct} \\
+\midrule
+Syntaxe & 94,14 \% & 95,99 \% \\
+Compilation & 63,49 \% & 40,76 \% \\
+\bottomrule
+\end{tabular}
+\end{center}
+{\small La syntaxe reste correcte, mais le code compile moins souvent.\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
@@ -695,37 +724,33 @@ Pour compléter une fonction, le score à une tentative passe d’environ vingt-
 
 Pour la réparation, il faut préciser le nombre de tentatives. Avec une seule proposition, le score baisse légèrement. Avec dix propositions, il passe d’environ huit à seize pour cent.
 
+Le tableau cinq donne un autre élément. Pour cette même tâche de génération de fonctions, la syntaxe reste presque aussi bonne : environ quatre-vingt-quatorze pour cent pour le modèle de base et quatre-vingt-seize pour cent pour Instruct. Mais le taux de compilation passe d’environ soixante-trois à quarante et un pour cent. Une syntaxe correcte ne suffit donc pas pour compiler dans le projet.
+
 Dire simplement que les instructions améliorent la réparation serait donc trop général. La métrique compte aussi.
 
-REPÈRES : CodeLlama-13B / FCG / CTG / APR
+REPÈRES : CodeLlama-13B / pass-all@k / syntaxe / compilation
 
-SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ4 et tableau 4, pp. 132-134. DOI: 10.1145/3650212.3652115.
+SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ4 et tableaux 4-5, pp. 132-134. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 4 : 349 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Le temps de présentation de cette partie mise à jour est à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 22 / 32; intervenant 4
 
-\begin{frame}{Une conclusion liée au protocole étudié}
+\begin{frame}{Plus d’entraînement $\ne$ meilleures performances}
 \small
-\begin{block}{Constat}
-\begin{itemize}
-  \item Les effets varient selon la tâche et le nombre d’essais
-\end{itemize}
+\begin{block}{RQ3 : préentraînement par langage}
+La spécialisation aide certaines tâches, mais ses effets varient selon le langage et la tâche.
+\end{block}
+\begin{block}{RQ4 : instruction fine-tuning}
+La génération peut se dégrader ; certaines réparations peuvent s’améliorer.
 \end{block}
 \begin{block}{Interprétation des auteurs}
-\begin{itemize}
-  \item La proximité avec le préentraînement pourrait compter
-\end{itemize}
-\end{block}
-\begin{block}{Cas particulier}
-\begin{itemize}
-  \item CodeLlama-Instruct-34B : réponses répétées en FCG et CTG
-\end{itemize}
+La proximité entre préentraînement et tâche évaluée pourrait expliquer ces différences.
 \end{block}
 \medskip
-{\small Les observations concernent les modèles et les réglages de l’article.\par}
+{\small Cas particulier : CodeLlama-Instruct-34B produit des réponses répétées (mode collapse).\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
@@ -738,11 +763,11 @@ CodeLlama Instruct trente-quatre milliards produit des réponses identiques pour
 
 Nous retenons donc qu’il faut tester chaque stratégie sur plusieurs tâches. La personne suivante va préciser les limites de cette étude.
 
-REPÈRES : effets variables / hypothèse / prudence
+REPÈRES : RQ3 / RQ4 / effets selon la tâche / prudence
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ3-RQ4, tableau 5 et discussion, pp. 133-134. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 4 : 349 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Le temps de présentation de cette partie mise à jour est à vérifier par répétition chronométrée.
 }
 \end{frame}
 
