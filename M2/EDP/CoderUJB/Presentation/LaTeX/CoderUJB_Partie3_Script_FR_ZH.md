@@ -72,11 +72,11 @@ Ce sont les versions évaluées dans l’article de 2024.
 
 **Français**
 
-Regardons maintenant les quatre tâches pour GPT-4. Le score est d’environ 31 % pour compléter une fonction, et de 24 % pour écrire un test à partir du code.
+Pour GPT-4, le score est d’environ 31 % pour compléter une fonction, et de 24 % pour écrire un test à partir du code.
 
 **中文**
 
-现在来看 GPT-4 在四种任务上的表现。补全函数的得分约为 31%，根据代码编写测试的得分约为 24%。
+对于 GPT-4，补全函数的得分约为 31%，根据代码编写测试的得分约为 24%。
 
 **Français**
 
@@ -88,11 +88,11 @@ Pour écrire un test qui reproduit un bug décrit dans un rapport, il est de 6,6
 
 **Français**
 
-Les critères de réussite changent selon la tâche. Ces résultats montrent surtout pourquoi il faut évaluer plusieurs activités de programmation.
+Les critères de réussite changent selon la tâche. Le score en génération de fonctions ne décrit donc pas les résultats en test ou en réparation.
 
 **中文**
 
-不同任务的成功标准并不一样。这些结果主要说明，评估模型时，需要考察多种编程活动。
+不同任务的成功标准并不一样。因此，函数生成的得分不能说明模型在测试生成或修复任务上的表现。
 
 ## Diapositive 17 — Détecter les bugs reste difficile
 ## 第 17 页——检测缺陷仍然很困难

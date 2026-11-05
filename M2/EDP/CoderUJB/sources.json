@@ -38,7 +38,7 @@
     "local_pdf": "Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf",
     "local_source": "Presentation/LaTeX/CoderUJB_Equipe6_FR.tex",
     "pages": 32,
-    "pdf_sha256": "ec6cb764252263334efd105da613e5ceb62fcc7ac9674849308e68c53b1df637",
+    "pdf_sha256": "4ae4cd0e47b4784191c5b4130901ad2ba05a85824b3646bd15ac4aa7dbad5701",
     "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
     "updated_on": "2026-11-05",
     "aspect_ratio": "16:9",
@@ -90,7 +90,7 @@
         27
       ],
       "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie5_FR.pdf",
-      "standalone_sha256": "d39c2660b5a40ed84e19cb4c7a1c07fdf0abd70510ae44de3409e8576009399e",
+      "standalone_sha256": "5a8d5589794683322c16c25df34047e605a1909d4df630b761ef14d30cd805cc",
       "validation": "Compiled with pdfLaTeX; 32 total pages, pixel differences limited to pages 24-27; four updated slides visually inspected."
     },
     "part3_update": {
@@ -103,11 +103,12 @@
       ],
       "presenter": "Jianye SHI",
       "slide15_title": "Un écart plus marqué en réparation",
-      "script_word_estimate": 287,
+      "script_word_estimate": 297,
       "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie3_FR.pdf",
       "script_pdf": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
       "script_markdown": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.md",
-      "validation": "Deck has 32 pages; rendered differences limited to pages 14-17; all displayed percentages preserved; scripts match speaker notes; slide and script PDFs visually inspected."
+      "validation": "Deck has 32 pages; rendered differences limited to pages 14-17; all displayed percentages preserved; scripts match speaker notes; slide and script PDFs visually inspected.",
+      "standalone_sha256": "8078a0580fb3d2ed2d1b7338a4739e2825bbcf2a28d9d478e4c427b633a69e1e"
     },
     "part4_update": {
       "updated_on": "2026-11-05",
@@ -127,9 +128,75 @@
       ],
       "presenter": "Xiang BIAN",
       "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie4_FR.pdf",
-      "standalone_sha256": "0b7639b36965776902cd6f93a4ac3552d975f488ae861fbbdbbd95bcf6254f54",
+      "standalone_sha256": "744cbbdd83d29aee89b3907855dee8bbd3baa0e3e4993437d22b4f5b8a37d688",
       "notes": "Added explanation of Table 5 syntax and compilation evidence; retained APR metric distinction.",
       "validation": "32 pages; only pages 19-22 differ in rendering; content outside Section 4 unchanged; percentages match the updated PPTX; no overfull boxes."
+    },
+    "part1_update": {
+      "updated_on": "2026-11-05",
+      "source_pdf": "Presentation/Sources/CoderUJB_Premieres5Pages_FR.pdf",
+      "source_sha256": "d8088b2d019c8da649488d43a25f0d32b4ab39d62df1b7fa71352644d25a37ea",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "updated_deck_pages": [
+        1,
+        4,
+        5,
+        6,
+        7
+      ],
+      "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie1_FR.pdf",
+      "standalone_sha256": "410f97ddae6b62d02291a2a7160bf8b91a1994d4bdba5226862fced47aa5db6e",
+      "structure": "Source cover includes a five-item plan; full deck retains separate cover, six-section contents and six presenter dividers.",
+      "validation": "32 pages; no overfull boxes; all notes preserved; source after Section 1 unchanged; other pages have identical words, with at most 0.03 pt glyph encoding rounding differences."
+    },
+    "humanization_update": {
+      "updated_on": "2026-11-05",
+      "reference": "CoderUJB_中英对照.md",
+      "reference_sha256": "2d5653918c0717f8062d4d00a98e4ce000c1a9f98d822c2cb96232a958caa536",
+      "skills": [
+        "humanizer",
+        "academic-humanizer"
+      ],
+      "changed_visible_pages": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        32
+      ],
+      "notes": "Trimmed formulaic introductions and conclusions; kept task-specific evidence and qualified interpretations. Added CTG success criterion from section 3.5. Synchronized Part 3 script variants.",
+      "validation": "32 slides; six presenter sections and names preserved; every table/bar numeric sequence and per-page percentage unchanged; citation lines unchanged; no overfull boxes; all 24 content slides visually inspected.",
+      "current_outputs": {
+        "CoderUJB_Equipe6_FR.pdf": "4ae4cd0e47b4784191c5b4130901ad2ba05a85824b3646bd15ac4aa7dbad5701",
+        "CoderUJB_Partie1_FR.pdf": "410f97ddae6b62d02291a2a7160bf8b91a1994d4bdba5226862fced47aa5db6e",
+        "CoderUJB_Partie3_FR.pdf": "8078a0580fb3d2ed2d1b7338a4739e2825bbcf2a28d9d478e4c427b633a69e1e",
+        "CoderUJB_Partie4_FR.pdf": "744cbbdd83d29aee89b3907855dee8bbd3baa0e3e4993437d22b4f5b8a37d688",
+        "CoderUJB_Partie5_FR.pdf": "5a8d5589794683322c16c25df34047e605a1909d4df630b761ef14d30cd805cc",
+        "CoderUJB_Partie3_Script_FR.pdf": "bc357b391a0ce747f05e86ab0985443652ec1046c51af455594fc972005e4ef3",
+        "CoderUJB_Partie3_Script_FR.md": "9b408025a45262ebe4f6e9532c6de2702d7cea279af920bc9712cd02b2b424ee",
+        "CoderUJB_Partie3_Script_FR_ZH.md": "0cf94ea5be5293bd7899c167eaa8131c05cddbfaad6e327cf83fe7df65cc0e33"
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 # Troisième partie — Résultats : contexte et modèles
 
-Jianye SHI · Diapositives 14–17 · 287 mots environ
+Jianye SHI · Diapositives 14–17 · 297 mots environ
 
 ## Diapositive 14 — Le contexte du projet aide la génération
 
@@ -22,11 +22,11 @@ Ce sont les versions évaluées dans l’article de 2024.
 
 ## Diapositive 16 — GPT-4 : des scores différents selon la tâche
 
-Regardons maintenant les quatre tâches pour GPT-4. Le score est d’environ 31 % pour compléter une fonction, et de 24 % pour écrire un test à partir du code.
+Pour GPT-4, le score est d’environ 31 % pour compléter une fonction, et de 24 % pour écrire un test à partir du code.
 
 Pour écrire un test qui reproduit un bug décrit dans un rapport, il est de 6,66 %. Pour réparer une fonction, il atteint environ 19 %.
 
-Les critères de réussite changent selon la tâche. Ces résultats montrent surtout pourquoi il faut évaluer plusieurs activités de programmation.
+Les critères de réussite changent selon la tâche. Le score en génération de fonctions ne décrit donc pas les résultats en test ou en réparation.
 
 ## Diapositive 17 — Détecter les bugs reste difficile
 

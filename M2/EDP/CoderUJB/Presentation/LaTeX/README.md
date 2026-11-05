@@ -70,3 +70,21 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 原始来稿见 [Sources 索引](../Sources/README.md)。ZIP 为可生成的交付件，不再作为日常维护文件保存；需要分享完整 LaTeX 材料时运行 `make package`，将在上一层生成 `CoderUJB_Equipe6_LaTeX.zip`。
 
 第三部分中法讲稿：[Markdown](CoderUJB_Partie3_Script_FR_ZH.md)。
+
+## 封面与第一部分更新（2026-11-05）
+
+按 [五页来稿](../Sources/CoderUJB_Premieres5Pages_FR.pdf) 更新总稿第 1、4–7 页：封面采用简短法语题名、Zeng et al. 与课程名称；正文补齐 LLM 用途、阅读与执行的区别、HumanEval 和真实项目对照、多任务评估局限及研究问题。保留已有讲稿，内容与更新页对应。
+
+来稿将封面和五项简要目录合在一页；总稿沿用已确认的独立封面、独立六段目录和六位演讲者分段页，不更改后续章节页码。仍为 32 页，沿用蓝色标题、白底和简单页码格式。
+
+- [封面与第一部分单独版（5 页，保留总稿页码 1、4–7）](CoderUJB_Partie1_FR.pdf)
+
+验证：无排版溢出；第二部分起的 LaTeX 内容及全部讲稿保持原样。其他页文字一致，仅部分字形的 PDF 编码舍入产生不超过 0.03 pt 的微小坐标差异。
+
+## Révision du français / 法语表达修订（2026-11-05）
+
+依据本地 `humanizer`、`academic-humanizer` 技能和论文中英对照文档修订全部正文页面及讲稿备注。去掉重复的引入与收尾、泛泛的评价和口号式标题，保留能说明任务、数据和限制的表述。第 22 页改为“L’effet de l’entraînement dépend de la tâche”；第 31 页直接说明 GPT-4 的 ITG 数值在正文与表格之间不一致。
+
+三类有效性威胁、真实任务分类和有依据的比较均保留。表格数字、百分比、模型名称和来源不变；CTG 的成功条件按论文第 3.5 节补充为测试可执行并覆盖被测代码。第三部分保持此前的简短表达，仅微调第 16 页讲稿；中法 Markdown、法语 PDF 与 LaTeX 备注同步。
+
+总稿仍为 32 页，六位演讲者与分段顺序不变。各部分单独 PDF 已从当前总稿重新导出。第三部分讲稿当前约 297 词，实际时长以排练为准。编译无溢出，逐页核对百分比及全部表格数值一致。
