@@ -10,11 +10,11 @@
 
 **Français**
 
-Ici, les auteurs comparent trois façons de présenter une question au modèle. On donne soit un exemple, soit quatre exemples, soit du contexte du projet, comme les signatures des méthodes et les champs de la classe.
+L’extrait montre les informations de contexte : les imports, les champs de la classe et les signatures des méthodes. Le tableau compare trois façons de présenter une question au modèle : un exemple, quatre exemples ou le contexte du projet.
 
 **中文**
 
-这里，作者比较了向模型提供题目的三种方式：给一个示例，给四个示例，或者给出项目的上下文，例如方法签名和类中的字段。
+这张局部原图展示了上下文中的信息：导入的类、类中的字段，以及方法签名。表格比较了向模型提供题目的三种方式：给一个示例，给四个示例，或者给出项目上下文。
 
 **Français**
 
@@ -135,11 +135,11 @@ Après ces résultats, Xiang va présenter l’effet de l’entraînement sur le
 
 **Français**
 
-Les chiffres présentés proviennent de Zeng et al., ISSTA 2024, tableaux 3 et 4. Les versions comparées sont GPT-3.5-Turbo-0301 et GPT-4-0314.
+Les chiffres présentés proviennent de Zeng et al., ISSTA 2024, figure 2 et tableaux 3 et 4. Les versions comparées sont GPT-3.5-Turbo-0301 et GPT-4-0314.
 
 **中文**
 
-上述数据来自 Zeng 等人发表于 ISSTA 2024 的论文，见表 3 和表 4。这里比较的 GPT 版本为 GPT-3.5-Turbo-0301 和 GPT-4-0314。
+上述数据来自 Zeng 等人发表于 ISSTA 2024 的论文，见图 2、表 3 和表 4。这里比较的 GPT 版本为 GPT-3.5-Turbo-0301 和 GPT-4-0314。
 
 **Repères de lecture / 数字读法（练习用，不需要额外念出来）**
 

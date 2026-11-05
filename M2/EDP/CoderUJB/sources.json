@@ -38,7 +38,7 @@
     "local_pdf": "Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf",
     "local_source": "Presentation/LaTeX/CoderUJB_Equipe6_FR.tex",
     "pages": 32,
-    "pdf_sha256": "4ae4cd0e47b4784191c5b4130901ad2ba05a85824b3646bd15ac4aa7dbad5701",
+    "pdf_sha256": "f98813664ba7bcc421001b7267024e53ea569820cfd7401b2c007c3c783e1f4b",
     "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
     "updated_on": "2026-11-05",
     "aspect_ratio": "16:9",
@@ -103,12 +103,12 @@
       ],
       "presenter": "Jianye SHI",
       "slide15_title": "Un écart plus marqué en réparation",
-      "script_word_estimate": 297,
+      "script_word_estimate": 301,
       "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie3_FR.pdf",
       "script_pdf": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
       "script_markdown": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.md",
       "validation": "Deck has 32 pages; rendered differences limited to pages 14-17; all displayed percentages preserved; scripts match speaker notes; slide and script PDFs visually inspected.",
-      "standalone_sha256": "8078a0580fb3d2ed2d1b7338a4739e2825bbcf2a28d9d478e4c427b633a69e1e"
+      "standalone_sha256": "e79d27f330ac1cb90c2fa92cf87b43b02b4ff833443fd4af4ed5bf4bec595336"
     },
     "part4_update": {
       "updated_on": "2026-11-05",
@@ -188,15 +188,31 @@
       "notes": "Trimmed formulaic introductions and conclusions; kept task-specific evidence and qualified interpretations. Added CTG success criterion from section 3.5. Synchronized Part 3 script variants.",
       "validation": "32 slides; six presenter sections and names preserved; every table/bar numeric sequence and per-page percentage unchanged; citation lines unchanged; no overfull boxes; all 24 content slides visually inspected.",
       "current_outputs": {
-        "CoderUJB_Equipe6_FR.pdf": "4ae4cd0e47b4784191c5b4130901ad2ba05a85824b3646bd15ac4aa7dbad5701",
+        "CoderUJB_Equipe6_FR.pdf": "f98813664ba7bcc421001b7267024e53ea569820cfd7401b2c007c3c783e1f4b",
         "CoderUJB_Partie1_FR.pdf": "410f97ddae6b62d02291a2a7160bf8b91a1994d4bdba5226862fced47aa5db6e",
-        "CoderUJB_Partie3_FR.pdf": "8078a0580fb3d2ed2d1b7338a4739e2825bbcf2a28d9d478e4c427b633a69e1e",
+        "CoderUJB_Partie3_FR.pdf": "e79d27f330ac1cb90c2fa92cf87b43b02b4ff833443fd4af4ed5bf4bec595336",
         "CoderUJB_Partie4_FR.pdf": "744cbbdd83d29aee89b3907855dee8bbd3baa0e3e4993437d22b4f5b8a37d688",
         "CoderUJB_Partie5_FR.pdf": "5a8d5589794683322c16c25df34047e605a1909d4df630b761ef14d30cd805cc",
-        "CoderUJB_Partie3_Script_FR.pdf": "bc357b391a0ce747f05e86ab0985443652ec1046c51af455594fc972005e4ef3",
-        "CoderUJB_Partie3_Script_FR.md": "9b408025a45262ebe4f6e9532c6de2702d7cea279af920bc9712cd02b2b424ee",
-        "CoderUJB_Partie3_Script_FR_ZH.md": "0cf94ea5be5293bd7899c167eaa8131c05cddbfaad6e327cf83fe7df65cc0e33"
+        "CoderUJB_Partie3_Script_FR.pdf": "ef3ac543808d4abc74350581369d0933dc5e97c0ec6259ef1da3c9061dd871c3",
+        "CoderUJB_Partie3_Script_FR.md": "0e392ca93d2b958ebdfe59a26ac249655b8c91cdd1da9bdcfb053f3e52a44fdf",
+        "CoderUJB_Partie3_Script_FR_ZH.md": "975927d21d87c709183e6acaa967062811cbe0c9a9d595bd11aacba134c35f5e"
       }
+    },
+    "slide14_original_figure_update": {
+      "updated_on": "2026-11-05",
+      "source_pdf": "CoderUJB_ISSTA2024.pdf",
+      "source_pdf_page": 5,
+      "source_figure": "Figure 2(a), context excerpt",
+      "clip_rect_pt_top_left": [
+        318,
+        249,
+        559,
+        309
+      ],
+      "asset": "Presentation/LaTeX/assets/coderujb-figure2a-context.pdf",
+      "asset_sha256": "da8b8ac76fd48d449b1cc9f104469d96710cc3faa5e40c5b38b29503b7cc5f38",
+      "source_preservation": "Source PDF unchanged; page content outside the crop removed from the derived vector asset.",
+      "validation": "32 pages; pixel differences limited to page 14; percentages unchanged; three context labels visible; no overfull boxes; scripts synchronized."
     }
   }
 }

@@ -466,28 +466,41 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 \begin{frame}{Le contexte du projet aide la génération}
 \small
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.35}
+\includegraphics[width=\textwidth]{assets/coderujb-figure2a-context.pdf}
+\smallskip
+{\footnotesize Exemple de contexte : imports, champs de la classe et signatures des méthodes.\par}
+\smallskip
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.40\textwidth}
+\textbf{CodeLlama-13B}\par
+\smallskip
+Génération de fonctions (FCG)\par
+\medskip
+Le contexte du projet donne ici\newline un meilleur score que les exemples.
+\end{column}
+\begin{column}{0.56\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.15}
 \begin{tabular}{@{}lr@{}}
 \toprule
-\textbf{Prompt} & \textbf{FCG : pass-all@1} \\
+\textbf{Prompt} & \textbf{pass-all@1} \\
 \midrule
 Un exemple & 12,84 \% \\
 Quatre exemples & 14,50 \% \\
 Contexte du projet & 21,91 \% \\
 \bottomrule
 \end{tabular}
-\end{center}
-\medskip
-{\small CodeLlama-13B. Génération de fonctions (FCG), tableau 3.\par}
+\end{column}
+\end{columns}
+\smallskip
+{\scriptsize Source : Zeng et al., ISSTA 2024, fig. 2(a), extrait ; tableau 3.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 14 / 32
 
-Ici, les auteurs comparent trois façons de présenter une question au modèle. On donne soit un exemple, soit quatre exemples, soit du contexte du projet, comme les signatures des méthodes et les champs de la classe.
+L’extrait montre les informations de contexte : les imports, les champs de la classe et les signatures des méthodes. Le tableau compare trois façons de présenter une question au modèle : un exemple, quatre exemples ou le contexte du projet.
 
 Pour CodeLlama-13B, le score passe d’environ 13 \% avec un exemple à 22 \% avec le contexte du projet. Quatre exemples donnent environ 15 \%.
 
@@ -495,9 +508,9 @@ Sur cette tâche, les informations sur le projet aident donc davantage que les e
 
 REPÈRES : RQ1 / contexte du projet / exemples
 
-SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ1, tableau 3, p. 131. DOI: 10.1145/3650212.3652115.
+SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.4, figure 2(a) et RQ1, tableau 3, pp. 128, 131. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 297 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -538,7 +551,7 @@ REPÈRES : RQ2 / mêmes métriques / modèles de l’étude
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Tableaux 2 et 4, pp. 130, 132. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 297 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -578,7 +591,7 @@ REPÈRES : FCG / CTG / ITG / APR
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Tableau 4, p. 132 ; valeurs choisies plutôt que le texte contradictoire de RQ2. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 297 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -613,7 +626,7 @@ REPÈRES : 940 exemples / 50 \% / 52,16 \%
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.3, RQ2 et tableau 4, pp. 128, 132. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 297 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 

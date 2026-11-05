@@ -27,7 +27,7 @@
 
 ## 编译
 
-需要 TeX Live 或 MiKTeX，包含 Beamer、Babel French、Booktabs、Latin Modern 与 T1 字体。源码不依赖外部图片或私有字体。
+需要 TeX Live 或 MiKTeX，包含 Beamer、Babel French、Booktabs、Latin Modern 与 T1 字体。源码使用 `assets/` 下的论文原图截取，编译或上传 Overleaf 时需保留该目录；无需私有字体。
 
 在此目录执行：
 
@@ -89,3 +89,9 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 三类有效性威胁、真实任务分类和有依据的比较均保留。表格数字、百分比、模型名称和来源不变；CTG 的成功条件按论文第 3.5 节补充为测试可执行并覆盖被测代码。第三部分保持此前的简短表达，仅微调第 16 页讲稿；中法 Markdown、法语 PDF 与 LaTeX 备注同步。
 
 总稿仍为 32 页，六位演讲者与分段顺序不变。各部分单独 PDF 已从当前总稿重新导出。第三部分讲稿当前约 297 词，实际时长以排练为准。编译无溢出，逐页核对百分比及全部表格数值一致。
+
+## 第 14 页加入论文原图（2026-11-05）
+
+上半页使用论文图 2(a) 的上下文局部，展示 Import、Field 和 Signature Context；下半页保留 CodeLlama-13B 的结果表，数值为 12.84%、14.50%、21.91%。原图仅用于说明上下文包含什么，不将图 2(a) 的对话格式当作 CodeLlama 基础模型的实际调用格式。图下标注论文来源和截取范围。
+
+图像资源为 `assets/coderujb-figure2a-context.pdf`，从原论文 PDF 第 5 页裁切生成并保留矢量文字。`make package` 会将 `assets/` 一起打包；上传 Overleaf 时也需保留此目录。法语、中法及中文讲稿已同步调整开头，先解释图中内容，再讲结果。总稿 32 页，渲染变化仅在第 14 页。

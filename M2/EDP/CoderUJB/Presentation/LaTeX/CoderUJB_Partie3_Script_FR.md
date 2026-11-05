@@ -1,10 +1,10 @@
 # Troisième partie — Résultats : contexte et modèles
 
-Jianye SHI · Diapositives 14–17 · 297 mots environ
+Jianye SHI · Diapositives 14–17 · 301 mots environ
 
 ## Diapositive 14 — Le contexte du projet aide la génération
 
-Ici, les auteurs comparent trois façons de présenter une question au modèle. On donne soit un exemple, soit quatre exemples, soit du contexte du projet, comme les signatures des méthodes et les champs de la classe.
+L’extrait montre les informations de contexte : les imports, les champs de la classe et les signatures des méthodes. Le tableau compare trois façons de présenter une question au modèle : un exemple, quatre exemples ou le contexte du projet.
 
 Pour CodeLlama-13B, le score passe d’environ 13 % avec un exemple à 22 % avec le contexte du projet. Quatre exemples donnent environ 15 %.
 
@@ -38,4 +38,4 @@ Certains modèles donnent aussi des réponses que le script ne peut pas interpr�
 
 Après ces résultats, Xiang va présenter l’effet de l’entraînement sur les performances.
 
-Les chiffres présentés proviennent de Zeng et al., ISSTA 2024, tableaux 3 et 4. Les versions comparées sont GPT-3.5-Turbo-0301 et GPT-4-0314.
+Les chiffres présentés proviennent de Zeng et al., ISSTA 2024, figure 2 et tableaux 3 et 4. Les versions comparées sont GPT-3.5-Turbo-0301 et GPT-4-0314.

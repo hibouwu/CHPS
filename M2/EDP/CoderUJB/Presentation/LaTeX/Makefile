@@ -9,4 +9,4 @@ clean:
 	$(LATEXMK) -c $(MAIN).tex
 
 package: all
-	zip -j -FS ../CoderUJB_Equipe6_LaTeX.zip CoderUJB_*.tex CoderUJB_*.pdf CoderUJB_*.md README.md Makefile .gitignore
+	zip -FS ../CoderUJB_Equipe6_LaTeX.zip CoderUJB_*.tex CoderUJB_*.pdf CoderUJB_*.md README.md Makefile .gitignore assets/*.pdf
