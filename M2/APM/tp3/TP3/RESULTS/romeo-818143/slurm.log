@@ -1,0 +1,55 @@
+2026-11-05T12:15:54+01:00
+romeo-a046
+aarch64
+Filesystem      Size  Used Avail Use% Mounted on
+gpfs            2.8P  538T  2.3P  20% /gpfs
+Filesystem        Inodes    IUsed    IFree IUse% Mounted on
+gpfs           100003840 21680949 78322891   22% /gpfs
+JobId=818143 JobName=apm-tp3-teacher
+   UserId=hibouwu(100800) GroupId=hibouwu(100800) MCS_label=N/A
+   Priority=7105 Nice=0 Account=r260073 QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:03 TimeLimit=00:15:00 TimeMin=N/A
+   SubmitTime=2026-11-05T12:15:51 EligibleTime=2026-11-05T12:15:51
+   AccrueTime=2026-11-05T12:15:51
+   StartTime=2026-11-05T12:15:51 EndTime=2026-11-05T12:30:51 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-05T12:15:51 Scheduler=Main
+   Partition=instant AllocNode:Sid=romeo1:3669704
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=romeo-a046
+   BatchHost=romeo-a046
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=2,mem=4G,node=1,billing=2,gres/gpu=1
+   AllocTRES=cpu=2,mem=4G,node=1,billing=2,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=4G MinTmpDiskNode=0
+   Features=armgpu DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/scratch_p/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/SOLUTION/run_teacher_romeo.sh
+   WorkDir=/scratch_p/hibouwu/coursework/apm-tp3-20261105T111435Z
+   StdErr=/scratch_p/hibouwu/coursework/apm-tp3-20261105T111435Z/slurm-818143.out
+   StdIn=/dev/null
+   StdOut=/scratch_p/hibouwu/coursework/apm-tp3-20261105T111435Z/slurm-818143.out
+   Power=
+   TresPerNode=gres/gpu:1
+   TresPerTask=cpu:2
+   
+
+environment: exit=0
+nvcc_version: exit=0
+host_compiler_version: exit=0
+build_1d: exit=0
+check_1d_32: exit=0
+check_1d_64: exit=0
+check_1d_1024: exit=0
+memcheck_1d: exit=0
+racecheck_1d: exit=0
+build_2d: exit=0
+check_2d_32: exit=0
+check_2d_64: exit=0
+check_2d_1024: exit=0
+memcheck_2d: exit=0
+racecheck_2d: exit=0
+TEACHER_LAYOUT_COMPARISON_PASSED
+ALL_CHECKS_PASSED

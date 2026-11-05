@@ -1,4 +1,0 @@
-    private Token parseSimpleToken(final Token token, int ch) throws IOException {
-        // BEGINNING OF USER CODE
-        // END OF USER CODE
-    }

@@ -1,6 +1,0 @@
-    @Test
-    public void testLargeSample() {
-        // Arrange
-        // Act
-        // Assert
-    }

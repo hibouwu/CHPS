@@ -1,0 +1,27 @@
+{
+  "job_id": "818095",
+  "remote_stage": "/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z",
+  "submission_command": [
+    "sbatch",
+    "--parsable",
+    "--account=r260073",
+    "--partition=instant",
+    "--constraint=armgpu",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=4G",
+    "--gpus-per-node=1",
+    "--time=00:15:00",
+    "--job-name=apm-tp3-regs",
+    "--chdir=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z",
+    "--export=ALL,APM_TP3_STAGE=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z",
+    "--output=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z/slurm-%j.out",
+    "/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/run_registers_romeo.sh"
+  ],
+  "submitted_utc": "2026-11-05T10:52:20.235886+00:00",
+  "source_sha256": "0cef892c05f1079dbfb240a00162e1afafc692bf69f04dabc7ba54207be1bbed",
+  "archive_sha256": "d4dbf2994660bcf4d84c5d93d34bea871bdd10de79f5094f498a8c6b0c79e25b",
+  "verified_remote_files": 71,
+  "retrieved_utc": "2026-11-05T10:53:09.297338+00:00"
+}

@@ -1,4 +1,0 @@
-public Symbol getParameterInFunction(Symbol sym, String paramName) {
-  SymbolScope scope = getScopeInFunction(sym);
-  return scope == null ? null : scope.getOwnSlot(paramName);
-}

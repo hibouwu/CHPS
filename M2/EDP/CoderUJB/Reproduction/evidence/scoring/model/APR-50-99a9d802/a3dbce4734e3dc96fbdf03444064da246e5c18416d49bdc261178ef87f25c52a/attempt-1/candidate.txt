@@ -1,4 +1,0 @@
-public static String encodeBase64String(byte[] binaryData) {
-    byte[] encodedBytes = encodeBase64(binaryData, true);
-    return new String(encodedBytes, StandardCharsets.UTF_8);
-}

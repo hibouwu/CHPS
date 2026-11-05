@@ -1,0 +1,19 @@
+ptxas info    : Overriding maximum register limit 256 for '_Z10dgemm_safeILi4EEviiidPKdS1_dPd' with  40 of maxrregcount option
+ptxas info    : Overriding maximum register limit 256 for '_Z10dgemm_safeILi1EEviiidPKdS1_dPd' with  40 of maxrregcount option
+ptxas info    : Overriding maximum register limit 256 for '_Z12dgemm_sharediiidPKdS0_dPd' with  40 of maxrregcount option
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z10dgemm_safeILi4EEviiidPKdS1_dPd' for 'sm_90'
+ptxas info    : Function properties for _Z10dgemm_safeILi4EEviiidPKdS1_dPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 16384 bytes smem
+ptxas info    : Compile time = 21.365 ms
+ptxas info    : Compiling entry function '_Z10dgemm_safeILi1EEviiidPKdS1_dPd' for 'sm_90'
+ptxas info    : Function properties for _Z10dgemm_safeILi1EEviiidPKdS1_dPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 16384 bytes smem
+ptxas info    : Compile time = 12.161 ms
+ptxas info    : Compiling entry function '_Z12dgemm_sharediiidPKdS0_dPd' for 'sm_90'
+ptxas info    : Function properties for _Z12dgemm_sharediiidPKdS0_dPd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 40 registers, used 1 barriers, 16384 bytes smem
+ptxas info    : Compile time = 4.353 ms

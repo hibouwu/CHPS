@@ -1,7 +1,0 @@
-    @Test
-    public void testGenericSignature1195() throws Exception {
-        TypeFactory tf = TypeFactory.defaultInstance();
-        JavaType type = tf.constructParametricType(java.util.concurrent.atomic.AtomicReference.class, String.class);
-        String sig = type.getGenericSignature();
-        assertEquals("()Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/String;>;", sig);
-    }

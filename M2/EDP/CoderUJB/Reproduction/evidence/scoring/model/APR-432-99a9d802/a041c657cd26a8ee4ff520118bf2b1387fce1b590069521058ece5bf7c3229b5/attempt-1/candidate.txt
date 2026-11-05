@@ -1,9 +1,0 @@
-private void readTypeVariables(TypeVariable<?> typeVariable) {
-    for (Type type : typeVariable.getBounds()) {
-        registerTypeVariablesOn(type);
-    }
-    Type actualTypeArgument = getActualTypeArgumentFor(typeVariable);
-    if (actualTypeArgument != null) {
-        registerTypeVariablesOn(actualTypeArgument);
-    }
-}

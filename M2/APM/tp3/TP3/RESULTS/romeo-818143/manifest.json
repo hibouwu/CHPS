@@ -1,0 +1,221 @@
+{
+  "job_id": "818143",
+  "node": "romeo-a046",
+  "started_utc": "2026-11-05T11:15:54.409878+00:00",
+  "commands": [
+    {
+      "label": "environment",
+      "argv": [
+        "nvidia-smi"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "nvcc_version",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "host_compiler_version",
+      "argv": [
+        "g++",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "build_1d",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "-O3",
+        "-std=c++17",
+        "-lineinfo",
+        "-Xptxas=-v",
+        "-arch=sm_90",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/SOLUTION/dgemm_tp3.cu",
+        "-o",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_1d.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_1d_32",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_1d.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_1d_64",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_1d.exe",
+        "64",
+        "64",
+        "64",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_1d_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_1d.exe",
+        "1024",
+        "1024",
+        "1024",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_1d",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_1d.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "racecheck_1d",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "racecheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_1d.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "build_2d",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "-O3",
+        "-std=c++17",
+        "-lineinfo",
+        "-Xptxas=-v",
+        "-arch=sm_90",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/variant_2d/dgemm_tp3_2d.cu",
+        "-o",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_2d.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_2d_32",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_2d.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_2d_64",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_2d.exe",
+        "64",
+        "64",
+        "64",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_2d_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_2d.exe",
+        "1024",
+        "1024",
+        "1024",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_2d",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_2d.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "racecheck_2d",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "racecheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T111435Z/TP3/RESULTS/romeo-818143/teacher_2d.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "source/CODE/Makefile": "49dc6af9d825a6ab96d8f189fa5df3feac639563ca41e861d21ce46d298d585d",
+    "source/CODE/dgemm-shared.cu": "0415d9c3a47a797a08dfb39349f9a459b929a69e5bb8abf8b5f99bfe7bfd0c26",
+    "source/CODE/parse_sass.sh": "a7429c1efc414be6b99f0b17403192749115e74e6fe2b3c5327e6f39a2c52b9c",
+    "source/SOLUTION/.gitignore": "ebae7cfadfc7d9bfe0d2b9ca73ee4b87ad6da4dd11d8d0a6cf601b369888537a",
+    "source/SOLUTION/Makefile": "aabb2e36f692471aa14ebdd162a92b46c5dd92c119d6eb81e63ddee802fc51de",
+    "source/SOLUTION/compare_registers.py": "d9756bcc3ee86fe98973a5f9d4b0f0f6d4e0063a04d4e341a7093115786abc45",
+    "source/SOLUTION/compare_teacher_layouts.py": "5a01ab2ff302708289c9cddfd51e7d4fd0c269331ea694c7fc24db061c82e85d",
+    "source/SOLUTION/dgemm_tp3.cu": "0cef892c05f1079dbfb240a00162e1afafc692bf69f04dabc7ba54207be1bbed",
+    "source/SOLUTION/run_registers_romeo.sh": "3396e0e31461cfe55875c3dc55150fdb7b2f99b65d626d2b46778f0e4a6ab703",
+    "source/SOLUTION/run_romeo.sh": "4be4e07a6ad1c3c074f8be612acf04d95efee160490e425ed436f7aa247f5b61",
+    "source/SOLUTION/run_teacher_romeo.sh": "c6bf63942881099c9b53728aaf8db6d099e49486b5b0b70fde47634084391dc2",
+    "source/SOLUTION/validate.py": "c1ba22f2558750ca4c794079aab21d8e7ea112f0ef6530fa01f8819bf090bca3",
+    "teacher_1d.exe": "7050aa0e9c919584b19746fd00bce4f6b931e0d58f74bd12d645549616b3767f",
+    "teacher_2d.exe": "08b542fc6676543b3f1ac06969ec15ef2da7fb63390abc17912d2e2988a676fa",
+    "variant_2d/dgemm_tp3_2d.cu": "d02151ea1eaeba5e7914bd10280f14d044f7f78b9ce851549a89d720bbc5546a",
+    "variant_2d/teacher_2d.cu": "8ca3e794cbe6b57e6750600905292050997c7b9f25641804608a9f0d8032caba"
+  },
+  "layouts": {
+    "1d": [
+      1024,
+      1,
+      1
+    ],
+    "2d": [
+      32,
+      32,
+      1
+    ]
+  },
+  "finished_utc": "2026-11-05T11:16:04.988995+00:00"
+}

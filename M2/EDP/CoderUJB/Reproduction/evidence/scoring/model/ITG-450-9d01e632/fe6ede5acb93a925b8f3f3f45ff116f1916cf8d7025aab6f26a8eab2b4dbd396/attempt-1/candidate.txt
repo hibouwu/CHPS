@@ -1,9 +1,0 @@
-    @Test
-    public void shouldMatchCaptureArgumentsWhenArgsCountDoesNOTMatch() throws Exception {
-        //given
-        Captor<String> captor = new Captor<>();
-        //when
-        verify(mock).doSomething(captor.capture(), anyString());
-        //then
-        assertEquals("foo", captor.getValue());
-    }

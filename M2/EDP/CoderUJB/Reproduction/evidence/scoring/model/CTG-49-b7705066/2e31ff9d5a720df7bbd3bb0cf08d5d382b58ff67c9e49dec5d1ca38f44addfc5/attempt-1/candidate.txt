@@ -1,3 +1,0 @@
-  public void testUnaliasable() {
-    // TODO: Create a test case named `testUnaliasable` for the `AliasExternals` class, utilizing the provided abstract Java class context information and the following natural language annotations.
-  }

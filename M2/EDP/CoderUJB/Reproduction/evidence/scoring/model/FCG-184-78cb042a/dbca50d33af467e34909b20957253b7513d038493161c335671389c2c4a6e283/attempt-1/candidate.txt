@@ -1,4 +1,0 @@
-public InputStream getDataStream() {
-    // Create a MergedStream that combines the buffered data with the original stream
-    return new MergedStream(_match, _originalStream, _bufferedData, _bufferedStart, _bufferedLength);
-}

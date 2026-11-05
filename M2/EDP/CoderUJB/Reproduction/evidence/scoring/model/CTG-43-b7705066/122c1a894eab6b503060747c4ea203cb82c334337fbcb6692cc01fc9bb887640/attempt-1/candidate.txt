@@ -1,4 +1,0 @@
-    public void testMethodsThatShouldAlwaysReturnNull() {
-        assertNull(field.getRangeDurationField());
-        assertNull(field.getLeapDurationField());
-    }

@@ -1,1 +1,0 @@
-public void testEscapeHtmlHighUnicode() throws java.io.UnsupportedEncodingException {  }

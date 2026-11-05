@@ -1,7 +1,0 @@
-  public void testBug911118() throws Exception {
-    testTypes(
-        "var x = function() {};" +
-        "var y = function() {};" +
-        "var z = x || y;" +
-        "z();");
-  }

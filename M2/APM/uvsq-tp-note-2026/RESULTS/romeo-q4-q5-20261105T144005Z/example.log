@@ -1,0 +1,14 @@
+Graphe de base :
+    0     3    10     . 
+    .     0     4     8 
+    .     .     0     1 
+    .     .     .     0 
+Validation CPU/GPU : PASS
+Graphe final (plus courts chemins) :
+    0     3     7     8 
+    .     0     4     5 
+    .     .     0     1 
+    .     .     .     0 
+n = 4
+CPU : 0.000 ms
+GPU (transferts compris) : 310.332 ms

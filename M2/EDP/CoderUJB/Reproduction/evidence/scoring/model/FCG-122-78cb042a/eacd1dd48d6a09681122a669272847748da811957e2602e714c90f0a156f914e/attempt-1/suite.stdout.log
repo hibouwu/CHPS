@@ -1,5 +1,0 @@
-Failing tests: 4
-  - com.google.javascript.jscomp.SymbolTableTest::testReferencesInJSDocName
-  - com.google.javascript.jscomp.SymbolTableTest::testLocalThisReferences
-  - com.google.javascript.jscomp.SymbolTableTest::testLocalThisReferences2
-  - com.google.javascript.jscomp.SymbolTableTest::testLocalThisReferences3

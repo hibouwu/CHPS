@@ -1,0 +1,696 @@
+{
+  "started_utc": "2026-11-05T10:52:23.489459+00:00",
+  "job_id": "818095",
+  "node": "romeo-a043",
+  "commands": [
+    {
+      "label": "environment",
+      "argv": [
+        "nvidia-smi"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "nvcc_version",
+      "argv": [
+        "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "host_compiler_version",
+      "argv": [
+        "g++",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "build_default",
+      "argv": [
+        "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "-O3",
+        "-std=c++17",
+        "-lineinfo",
+        "-Xptxas=-v",
+        "-arch=sm_90",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/dgemm_tp3.cu",
+        "-o",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "resource_default",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-resource-usage",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "sass_default",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-sass",
+        "--function",
+        "_Z10dgemm_safeILi4EEviiidPKdS1_dPd",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_1_1_1",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_31_31_31",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "31",
+        "31",
+        "31",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_32_32_32",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_33_33_33",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_63_65_37",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "63",
+        "65",
+        "37",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_128_96_160",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "128",
+        "96",
+        "160",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_default_256_256_256",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "256",
+        "256",
+        "256",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_default_32",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_default_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "racecheck_default_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "racecheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "synccheck_default_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "synccheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "initcheck_default_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "initcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "build_maxreg40",
+      "argv": [
+        "/apps/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "-O3",
+        "-std=c++17",
+        "-lineinfo",
+        "-Xptxas=-v",
+        "-arch=sm_90",
+        "--maxrregcount=40",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/dgemm_tp3.cu",
+        "-o",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "resource_maxreg40",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-resource-usage",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "sass_maxreg40",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-sass",
+        "--function",
+        "_Z10dgemm_safeILi4EEviiidPKdS1_dPd",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_1_1_1",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_31_31_31",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "31",
+        "31",
+        "31",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_32_32_32",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_33_33_33",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_63_65_37",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "63",
+        "65",
+        "37",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_128_96_160",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "128",
+        "96",
+        "160",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "check_maxreg40_256_256_256",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "256",
+        "256",
+        "256",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_maxreg40_32",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_maxreg40_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "racecheck_maxreg40_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "racecheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "synccheck_maxreg40_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "synccheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "initcheck_maxreg40_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "initcheck",
+        "--error-exitcode",
+        "99",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_default_1000",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_maxreg40_1000",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_default_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_maxreg40_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_default_2048",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "2048",
+        "2048",
+        "2048",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_maxreg40_2048",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "2048",
+        "2048",
+        "2048",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_default_4096",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "4096",
+        "4096",
+        "4096",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch1_maxreg40_4096",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "4096",
+        "4096",
+        "4096",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_maxreg40_1000",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_default_1000",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_maxreg40_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_default_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_maxreg40_2048",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "2048",
+        "2048",
+        "2048",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_default_2048",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "2048",
+        "2048",
+        "2048",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_maxreg40_4096",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "4096",
+        "4096",
+        "4096",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_default_4096",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "4096",
+        "4096",
+        "4096",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_default_1000",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_maxreg40_1000",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_default_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_maxreg40_1024",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_default_2048",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "2048",
+        "2048",
+        "2048",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_maxreg40_2048",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "2048",
+        "2048",
+        "2048",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_default_4096",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_default.exe",
+        "4096",
+        "4096",
+        "4096",
+        "7"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_maxreg40_4096",
+      "argv": [
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/RESULTS/romeo-818095/dgemm_maxreg40.exe",
+        "4096",
+        "4096",
+        "4096",
+        "7"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "CODE/Makefile": "49dc6af9d825a6ab96d8f189fa5df3feac639563ca41e861d21ce46d298d585d",
+    "CODE/dgemm-shared.cu": "0415d9c3a47a797a08dfb39349f9a459b929a69e5bb8abf8b5f99bfe7bfd0c26",
+    "CODE/parse_sass.sh": "a7429c1efc414be6b99f0b17403192749115e74e6fe2b3c5327e6f39a2c52b9c",
+    "SOLUTION/.gitignore": "ebae7cfadfc7d9bfe0d2b9ca73ee4b87ad6da4dd11d8d0a6cf601b369888537a",
+    "SOLUTION/Makefile": "aabb2e36f692471aa14ebdd162a92b46c5dd92c119d6eb81e63ddee802fc51de",
+    "SOLUTION/compare_registers.py": "d9756bcc3ee86fe98973a5f9d4b0f0f6d4e0063a04d4e341a7093115786abc45",
+    "SOLUTION/dgemm_tp3.cu": "0cef892c05f1079dbfb240a00162e1afafc692bf69f04dabc7ba54207be1bbed",
+    "SOLUTION/run_registers_romeo.sh": "3396e0e31461cfe55875c3dc55150fdb7b2f99b65d626d2b46778f0e4a6ab703",
+    "SOLUTION/run_romeo.sh": "4be4e07a6ad1c3c074f8be612acf04d95efee160490e425ed436f7aa247f5b61",
+    "SOLUTION/validate.py": "c1ba22f2558750ca4c794079aab21d8e7ea112f0ef6530fa01f8819bf090bca3"
+  },
+  "binary_sha256": {
+    "dgemm_default.exe": "0ee19d09e368b51883e66248ec1def3d39476f4fce7b3f694abb752f87f50c21",
+    "dgemm_maxreg40.exe": "d679d2387a49f3520919b3e2bf54bf1f836a9dac230c2cbcfa13577bccb7b655"
+  },
+  "finished_utc": "2026-11-05T10:53:01.033280+00:00"
+}

@@ -1,8 +1,0 @@
-    protected void _serializeXmlNull(JsonGenerator jgen) throws IOException
-    {
-        if (jgen instanceof ToXmlGenerator) {
-            ToXmlGenerator xgen = _asXmlGenerator(jgen);
-            _initWithRootName(xgen, ROOT_NAME_FOR_NULL);
-        }
-        super.serializeValue(jgen, null);
-    }

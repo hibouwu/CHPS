@@ -1,0 +1,4 @@
+Validation CPU/GPU : PASS
+n = 64
+CPU : 0.274 ms
+GPU (transferts compris) : 203.426 ms

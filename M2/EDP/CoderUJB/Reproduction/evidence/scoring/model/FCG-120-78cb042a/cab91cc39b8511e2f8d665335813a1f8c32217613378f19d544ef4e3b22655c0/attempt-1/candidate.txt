@@ -1,9 +1,0 @@
-Can not find target function in answer!
-
-        final byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
-        int read;
-        while ((read = data.read(buffer)) != -1) {
-            digest.update(buffer, 0, read);
-        }
-        return digest;
-    }

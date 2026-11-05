@@ -1,8 +1,0 @@
-{
-  "time": "2026-11-05T04:12:46.137351+00:00",
-  "event": "collector missing local scores directories",
-  "first_collector_exit": 1,
-  "action": "create per-model scores directories and restart collection only; existing scorer terminal caches reused; no generation or evaluation retries",
-  "first_log": "collection-attempt1.log",
-  "active_collector_loads_cutoff_amendment": true
-}

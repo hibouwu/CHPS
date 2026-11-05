@@ -1,4 +1,0 @@
-  public String nextName() throws IOException {
-    // TODO: implement this method
-    return null;
-  }

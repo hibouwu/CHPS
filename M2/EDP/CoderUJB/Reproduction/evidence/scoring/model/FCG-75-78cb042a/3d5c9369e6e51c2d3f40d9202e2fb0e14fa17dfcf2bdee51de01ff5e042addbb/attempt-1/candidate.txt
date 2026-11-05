@@ -1,7 +1,0 @@
-private static synchronized String getConvertedId(String id) {
-        if (cZoneIdConversion == null) {
-            return id;
-        }
-        String convertedId = cZoneIdConversion.get(id);
-        return convertedId != null ? convertedId : id;
-    }

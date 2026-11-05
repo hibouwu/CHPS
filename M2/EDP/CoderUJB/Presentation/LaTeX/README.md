@@ -46,3 +46,13 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 ## 第五部分内容更新（2026-11-05）
 
 按用户提供的 `CoderUJB_Partie5_Slides17-20_Simplifiees.pdf` 更新第五部分四张正文，对应总稿第 24–27 页，采用简化后的标题、要点和结语。参考 PDF 已归档在上一层目录。采用现有统一的蓝色标题和白底版式，讲稿备注经核对与新要点一致。总稿仍为 32 页，逐页渲染比较确认变化仅在这四页。第五部分单独版保留总稿页码，供单独分享。
+
+## 第三部分口语化更新（2026-11-05）
+
+第 14–17 页的标题、说明和讲稿采用更简单的法语。第 15 页标题改为 `Un écart plus marqué en réparation`，讲稿直接解释不同任务的分数差距。第三部分讲稿约 287 词，实际时长需按数字读法与停顿计时。所有表格百分比逐页核对一致。完整 PDF 渲染差异仅在第 14–17 页。
+
+- [第三部分单独版](CoderUJB_Partie3_FR.pdf)
+- [法语讲稿 PDF（每页对应一张幻灯片）](CoderUJB_Partie3_Script_FR.pdf)
+- [法语讲稿 Markdown](CoderUJB_Partie3_Script_FR.md)
+
+独立讲稿与完整演示稿的第三部分备注一致。讲稿 PDF 可从同名 `.tex` 用 pdfLaTeX 编译。

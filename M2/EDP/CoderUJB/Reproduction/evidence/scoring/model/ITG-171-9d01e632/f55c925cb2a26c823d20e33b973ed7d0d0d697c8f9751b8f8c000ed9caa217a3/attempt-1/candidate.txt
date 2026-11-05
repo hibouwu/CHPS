@@ -1,6 +1,0 @@
-@Test
-public void testHWRuleEx1() {
-        Soundex soundex = new Soundex();
-        String result = soundex.encode("BHHC");
-        assertEquals("B200", result);
-    }

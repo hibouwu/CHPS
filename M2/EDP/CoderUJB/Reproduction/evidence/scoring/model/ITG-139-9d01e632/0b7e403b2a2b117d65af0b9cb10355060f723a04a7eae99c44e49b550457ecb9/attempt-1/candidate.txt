@@ -1,3 +1,0 @@
-  public void testCheckSymbolsOverrideForQuiet() {
-    testSame("foo={bar:function(){alert(this.baz)}};");
-  }

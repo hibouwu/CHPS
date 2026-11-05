@@ -1,7 +1,0 @@
-Can not find target function in answer!
-
-    testTypes(
-        "var f = function() {};" +
-        "f = function() {};" +
-        "f();");
-  }

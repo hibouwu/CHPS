@@ -1,0 +1,4 @@
+JobID|JobName|Partition|State|ExitCode|Elapsed|AllocTRES|NodeList
+818095|apm-tp3-regs|instant|COMPLETED|0:0|00:00:41|billing=2,cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a043
+818095.batch|batch||COMPLETED|0:0|00:00:41|cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a043
+818095.extern|extern||COMPLETED|0:0|00:00:41|billing=2,cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a043

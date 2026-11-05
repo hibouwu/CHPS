@@ -1,0 +1,52 @@
+DEVICE name=NVIDIA GeForce RTX 5070 Laptop GPU cc=12.0 SMs=36 runtime=13000 driver=13040
+SM shared=102400 threads=1536 registers=65536 max_blocks=24 warp_size=32
+BLOCK shared_default=49152 shared_optin=101376 threads=1024 registers=65536 reserved_smem=1024
+
+KERNEL original_extra_smem
+threads=1024 warps_per_block=32 registers_per_thread=28 registers_per_warp_raw=896
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=16384 total_user_smem=32768
+blocks_smem_model=3 blocks_threads=1 blocks_registers_model=2 blocks_warps=1 blocks_hardware=24
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=1 api_warps=32 api_occupancy_pct=66.666667
+
+KERNEL original_no_extra_smem
+threads=1024 warps_per_block=32 registers_per_thread=28 registers_per_warp_raw=896
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=6 blocks_threads=1 blocks_registers_model=2 blocks_warps=1 blocks_hardware=24
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=1 api_warps=32 api_occupancy_pct=66.666667
+
+KERNEL shared_safe
+threads=1024 warps_per_block=32 registers_per_thread=32 registers_per_warp_raw=1024
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=6 blocks_threads=1 blocks_registers_model=2 blocks_warps=1 blocks_hardware=24
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=1 api_warps=32 api_occupancy_pct=66.666667
+
+KERNEL tiled_tm4
+threads=256 warps_per_block=8 registers_per_thread=64 registers_per_warp_raw=2048
+registers_per_warp_rounded=2048 registers_per_block_model=16384 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=6 blocks_threads=6 blocks_registers_model=4 blocks_warps=6 blocks_hardware=24
+manual_blocks=4 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=4 api_warps=32 api_occupancy_pct=66.666667
+
+RESULT original_extra_smem M=1024 N=1024 K=1024 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/1048576 max_abs=2.1649349e-14 max_scaled=1.54141741e-14 PASS
+SAMPLES_MS original_extra_smem 5.775424 7.09219217 6.94876814 6.75225592 6.20544004 6.18291187 7.15587187
+TIMING original_extra_smem repeats=7 median_ms=6.75225592 min_ms=5.775424 max_ms=7.15587187 gemm_gflops=318.039434
+
+RESULT original_no_extra_smem M=1024 N=1024 K=1024 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/1048576 max_abs=2.1649349e-14 max_scaled=1.54141741e-14 PASS
+SAMPLES_MS original_no_extra_smem 5.96992016 7.6412158 6.41932821 6.77126408 6.61910391 6.66819191 7.3910718
+TIMING original_no_extra_smem repeats=7 median_ms=6.66819191 min_ms=5.96992016 max_ms=7.6412158 gemm_gflops=322.048867
+
+RESULT shared_safe M=1024 N=1024 K=1024 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/1048576 max_abs=2.1649349e-14 max_scaled=1.54141741e-14 PASS
+SAMPLES_MS shared_safe 7.7417922 6.51295996 6.63449621 6.10508823 6.16243219 7.03193617 6.60992002
+TIMING shared_safe repeats=7 median_ms=6.60992002 min_ms=6.10508823 max_ms=7.7417922 gemm_gflops=324.887993
+
+RESULT tiled_tm4 M=1024 N=1024 K=1024 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/1048576 max_abs=2.1649349e-14 max_scaled=1.54141741e-14 PASS
+SAMPLES_MS tiled_tm4 6.26985598 6.27196789 5.75795221 6.24854422 6.75932789 6.59456015 6.07129622
+TIMING tiled_tm4 repeats=7 median_ms=6.26985598 min_ms=5.75795221 max_ms=6.75932789 gemm_gflops=342.509247
+GPU_COMPARE checked=1048576 max_abs=0 PASS

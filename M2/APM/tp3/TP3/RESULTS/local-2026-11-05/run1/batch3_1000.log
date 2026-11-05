@@ -1,0 +1,44 @@
+DEVICE name=NVIDIA GeForce RTX 5070 Laptop GPU cc=12.0 SMs=36 runtime=13000 driver=13040
+SM shared=102400 threads=1536 registers=65536 max_blocks=24 warp_size=32
+BLOCK shared_default=49152 shared_optin=101376 threads=1024 registers=65536 reserved_smem=1024
+
+KERNEL original_extra_smem
+threads=1024 warps_per_block=32 registers_per_thread=28 registers_per_warp_raw=896
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=16384 total_user_smem=32768
+blocks_smem_model=3 blocks_threads=1 blocks_registers_model=2 blocks_warps=1 blocks_hardware=24
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=1 api_warps=32 api_occupancy_pct=66.666667
+
+KERNEL original_no_extra_smem
+threads=1024 warps_per_block=32 registers_per_thread=28 registers_per_warp_raw=896
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=6 blocks_threads=1 blocks_registers_model=2 blocks_warps=1 blocks_hardware=24
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=1 api_warps=32 api_occupancy_pct=66.666667
+
+KERNEL shared_safe
+threads=1024 warps_per_block=32 registers_per_thread=32 registers_per_warp_raw=1024
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=6 blocks_threads=1 blocks_registers_model=2 blocks_warps=1 blocks_hardware=24
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=1 api_warps=32 api_occupancy_pct=66.666667
+
+KERNEL tiled_tm4
+threads=256 warps_per_block=8 registers_per_thread=64 registers_per_warp_raw=2048
+registers_per_warp_rounded=2048 registers_per_block_model=16384 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=6 blocks_threads=6 blocks_registers_model=4 blocks_warps=6 blocks_hardware=24
+manual_blocks=4 manual_warps=32 manual_occupancy_pct=66.666667 api_blocks=4 api_warps=32 api_occupancy_pct=66.666667
+
+SKIP original kernels: dimensions must be multiples of 32 (no edge guards).
+
+RESULT shared_safe M=1000 N=1000 K=1000 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/1000000 max_abs=9.76996262e-15 max_scaled=7.49120478e-15 PASS
+SAMPLES_MS shared_safe 6.02588797 6.06377602 6.82918406 6.35391998 6.55795193 6.1818881 6.18086386
+TIMING shared_safe repeats=7 median_ms=6.1818881 min_ms=6.02588797 max_ms=6.82918406 gemm_gflops=323.525752
+
+RESULT tiled_tm4 M=1000 N=1000 K=1000 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/1000000 max_abs=9.76996262e-15 max_scaled=7.49120478e-15 PASS
+SAMPLES_MS tiled_tm4 6.43187189 6.70281601 6.39494419 5.77331209 5.81529617 6.09993601 6.074368
+TIMING tiled_tm4 repeats=7 median_ms=6.09993601 min_ms=5.77331209 max_ms=6.70281601 gemm_gflops=327.872292
+GPU_COMPARE checked=1000000 max_abs=0 PASS

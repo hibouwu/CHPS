@@ -1,0 +1,40 @@
+
+Fatbin elf code:
+================
+arch = sm_90
+code version = [1,7]
+host = linux
+compile_size = 64bit
+identifier = /gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/dgemm_tp3.cu 
+
+Resource usage:
+ Common:
+  GLOBAL:0
+
+Fatbin elf code:
+================
+arch = sm_90
+code version = [1,7]
+host = linux
+compile_size = 64bit
+identifier = /gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/dgemm_tp3.cu
+
+Resource usage:
+ Common:
+  GLOBAL:0
+ Function _Z10dgemm_safeILi4EEviiidPKdS1_dPd:
+  REG:42 STACK:0 SHARED:17408 LOCAL:0 CONSTANT[0]:584 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z10dgemm_safeILi1EEviiidPKdS1_dPd:
+  REG:40 STACK:0 SHARED:17408 LOCAL:0 CONSTANT[0]:584 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function _Z12dgemm_sharediiidPKdS0_dPd:
+  REG:32 STACK:0 SHARED:17408 LOCAL:0 CONSTANT[0]:584 TEXTURE:0 SURFACE:0 SAMPLER:0
+
+Fatbin ptx code:
+================
+arch = sm_90
+code version = [8,8]
+host = linux
+compile_size = 64bit
+compressed
+identifier = /gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/dgemm_tp3.cu
+ptxasOptions = -v  --generate-line-info 

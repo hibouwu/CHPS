@@ -1,0 +1,52 @@
+DEVICE name=NVIDIA GH200 120GB cc=9.0 SMs=132 runtime=12090 driver=13010
+SM shared=233472 threads=2048 registers=65536 max_blocks=32 warp_size=32
+BLOCK shared_default=49152 shared_optin=232448 threads=1024 registers=65536 reserved_smem=1024
+
+KERNEL original_extra_smem
+threads=1024 warps_per_block=32 registers_per_thread=32 registers_per_warp_raw=1024
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=16384 total_user_smem=32768
+blocks_smem_model=7 blocks_threads=2 blocks_registers_model=2 blocks_warps=2 blocks_hardware=32
+manual_blocks=2 manual_warps=64 manual_occupancy_pct=100.000000 api_blocks=2 api_warps=64 api_occupancy_pct=100.000000
+
+KERNEL original_no_extra_smem
+threads=1024 warps_per_block=32 registers_per_thread=32 registers_per_warp_raw=1024
+registers_per_warp_rounded=1024 registers_per_block_model=32768 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=14 blocks_threads=2 blocks_registers_model=2 blocks_warps=2 blocks_hardware=32
+manual_blocks=2 manual_warps=64 manual_occupancy_pct=100.000000 api_blocks=2 api_warps=64 api_occupancy_pct=100.000000
+
+KERNEL shared_safe
+threads=1024 warps_per_block=32 registers_per_thread=40 registers_per_warp_raw=1280
+registers_per_warp_rounded=1280 registers_per_block_model=40960 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=14 blocks_threads=2 blocks_registers_model=1 blocks_warps=2 blocks_hardware=32
+manual_blocks=1 manual_warps=32 manual_occupancy_pct=50.000000 api_blocks=1 api_warps=32 api_occupancy_pct=50.000000
+
+KERNEL tiled_tm4
+threads=256 warps_per_block=8 registers_per_thread=42 registers_per_warp_raw=1344
+registers_per_warp_rounded=1536 registers_per_block_model=12288 local_bytes_per_thread=0
+static_smem=16384 dynamic_smem=0 total_user_smem=16384
+blocks_smem_model=14 blocks_threads=8 blocks_registers_model=5 blocks_warps=8 blocks_hardware=32
+manual_blocks=5 manual_warps=40 manual_occupancy_pct=62.500000 api_blocks=5 api_warps=40 api_occupancy_pct=62.500000
+
+RESULT original_extra_smem M=4096 N=4096 K=4096 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/16777216 max_abs=2.57571742e-14 max_scaled=8.69165572e-15 PASS
+SAMPLES_MS original_extra_smem 28.6350727 28.5134716 28.5686398 28.4882565 28.5922565 28.5353928 28.6524792
+TIMING original_extra_smem repeats=7 median_ms=28.5686398 min_ms=28.4882565 max_ms=28.6524792 gemm_gflops=4810.83295
+
+RESULT original_no_extra_smem M=4096 N=4096 K=4096 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/16777216 max_abs=2.57571742e-14 max_scaled=8.69165572e-15 PASS
+SAMPLES_MS original_no_extra_smem 28.6506557 28.6905289 28.6864643 28.4787846 28.4982071 28.4035511 28.5250874
+TIMING original_no_extra_smem repeats=7 median_ms=28.5250874 min_ms=28.4035511 max_ms=28.6905289 gemm_gflops=4818.17818
+
+RESULT shared_safe M=4096 N=4096 K=4096 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/16777216 max_abs=2.57571742e-14 max_scaled=8.69165572e-15 PASS
+SAMPLES_MS shared_safe 39.1521263 39.1017265 39.0826569 39.0813446 39.0847054 39.0867844 39.0938225
+TIMING shared_safe repeats=7 median_ms=39.0867844 min_ms=39.0813446 max_ms=39.1521263 gemm_gflops=3516.25123
+
+RESULT tiled_tm4 M=4096 N=4096 K=4096 alpha=1.25 beta=-0.50
+CPU_CHECK mode=sampled checked=128/16777216 max_abs=2.57571742e-14 max_scaled=8.69165572e-15 PASS
+SAMPLES_MS tiled_tm4 15.8867197 16.4327679 16.4299202 16.5250874 16.5655041 16.2967358 16.541151
+TIMING tiled_tm4 repeats=7 median_ms=16.4327679 min_ms=15.8867197 max_ms=16.5655041 gemm_gflops=8363.71295
+GPU_COMPARE checked=16777216 max_abs=0 PASS

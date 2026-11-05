@@ -1,0 +1,97 @@
+2026-11-05T11:52:23+01:00
+romeo-a043
+aarch64
+Filesystem      Size  Used Avail Use% Mounted on
+gpfs            2.8P  538T  2.3P  20% /gpfs
+Filesystem        Inodes    IUsed    IFree IUse% Mounted on
+gpfs           100003840 21576093 78427747   22% /gpfs
+JobId=818095 JobName=apm-tp3-regs
+   UserId=hibouwu(100800) GroupId=hibouwu(100800) MCS_label=N/A
+   Priority=7111 Nice=0 Account=r260073 QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:03 TimeLimit=00:15:00 TimeMin=N/A
+   SubmitTime=2026-11-05T11:52:20 EligibleTime=2026-11-05T11:52:20
+   AccrueTime=2026-11-05T11:52:20
+   StartTime=2026-11-05T11:52:20 EndTime=2026-11-05T12:07:20 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-05T11:52:20 Scheduler=Main
+   Partition=instant AllocNode:Sid=romeo1:3592962
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=romeo-a043
+   BatchHost=romeo-a043
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=2,mem=4G,node=1,billing=2,gres/gpu=1
+   AllocTRES=cpu=2,mem=4G,node=1,billing=2,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=4G MinTmpDiskNode=0
+   Features=armgpu DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z/TP3/SOLUTION/run_registers_romeo.sh
+   WorkDir=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z
+   StdErr=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z/slurm-818095.out
+   StdIn=/dev/null
+   StdOut=/scratch_p/hibouwu/coursework/apm-tp3-20261105T105218Z/slurm-818095.out
+   Power=
+   TresPerNode=gres/gpu:1
+   TresPerTask=cpu:2
+   
+
+environment: exit=0
+nvcc_version: exit=0
+host_compiler_version: exit=0
+build_default: exit=0
+resource_default: exit=0
+sass_default: exit=0
+check_default_1_1_1: exit=0
+check_default_31_31_31: exit=0
+check_default_32_32_32: exit=0
+check_default_33_33_33: exit=0
+check_default_63_65_37: exit=0
+check_default_128_96_160: exit=0
+check_default_256_256_256: exit=0
+memcheck_default_32: exit=0
+memcheck_default_33: exit=0
+racecheck_default_33: exit=0
+synccheck_default_33: exit=0
+initcheck_default_33: exit=0
+build_maxreg40: exit=0
+resource_maxreg40: exit=0
+sass_maxreg40: exit=0
+check_maxreg40_1_1_1: exit=0
+check_maxreg40_31_31_31: exit=0
+check_maxreg40_32_32_32: exit=0
+check_maxreg40_33_33_33: exit=0
+check_maxreg40_63_65_37: exit=0
+check_maxreg40_128_96_160: exit=0
+check_maxreg40_256_256_256: exit=0
+memcheck_maxreg40_32: exit=0
+memcheck_maxreg40_33: exit=0
+racecheck_maxreg40_33: exit=0
+synccheck_maxreg40_33: exit=0
+initcheck_maxreg40_33: exit=0
+batch1_default_1000: exit=0
+batch1_maxreg40_1000: exit=0
+batch1_default_1024: exit=0
+batch1_maxreg40_1024: exit=0
+batch1_default_2048: exit=0
+batch1_maxreg40_2048: exit=0
+batch1_default_4096: exit=0
+batch1_maxreg40_4096: exit=0
+batch2_maxreg40_1000: exit=0
+batch2_default_1000: exit=0
+batch2_maxreg40_1024: exit=0
+batch2_default_1024: exit=0
+batch2_maxreg40_2048: exit=0
+batch2_default_2048: exit=0
+batch2_maxreg40_4096: exit=0
+batch2_default_4096: exit=0
+batch3_default_1000: exit=0
+batch3_maxreg40_1000: exit=0
+batch3_default_1024: exit=0
+batch3_maxreg40_1024: exit=0
+batch3_default_2048: exit=0
+batch3_maxreg40_2048: exit=0
+batch3_default_4096: exit=0
+batch3_maxreg40_4096: exit=0
+REGISTER_COMPARISON_PASSED
+ALL_CHECKS_PASSED

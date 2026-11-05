@@ -1,0 +1,4 @@
+JobID|JobName|Partition|State|ExitCode|Elapsed|AllocTRES|NodeList
+817904|apm-tp3|instant|FAILED|1:0|00:00:00|billing=2,cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a052
+817904.batch|batch||FAILED|1:0|00:00:00|cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a052
+817904.extern|extern||COMPLETED|0:0|00:00:00|billing=2,cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a052

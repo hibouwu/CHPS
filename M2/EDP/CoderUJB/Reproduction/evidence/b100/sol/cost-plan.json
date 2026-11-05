@@ -1,9 +1,0 @@
-{
-  "stage": "sol-b100",
-  "requests": 100,
-  "input_tokens": 82204,
-  "max_output_tokens": 409600,
-  "worst_case_usd": 4.731661,
-  "reserved_usd": 10,
-  "retries": 0
-}

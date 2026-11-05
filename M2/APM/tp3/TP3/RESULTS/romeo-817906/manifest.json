@@ -1,0 +1,395 @@
+{
+  "started_utc": "2026-11-05T10:06:32.311433+00:00",
+  "compiler": "nvcc",
+  "arch": "sm_90",
+  "commands": [
+    {
+      "label": "environment",
+      "argv": [
+        "nvidia-smi"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "nvcc_version",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "--version"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "host_compiler_version",
+      "argv": [
+        "g++",
+        "--version"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "build",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/nvcc",
+        "-O3",
+        "-std=c++17",
+        "-lineinfo",
+        "-Xptxas=-v",
+        "-arch=sm_90",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION/dgemm_tp3.cu",
+        "-o",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_1_1_1",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1",
+        "1",
+        "1",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_31_31_31",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "31",
+        "31",
+        "31",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_32_32_32",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "32",
+        "32",
+        "32",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_33_33_33",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "33",
+        "33",
+        "33",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_63_65_37",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "63",
+        "65",
+        "37",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_128_96_160",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "128",
+        "96",
+        "160",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_256_256_256",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "256",
+        "256",
+        "256",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_1000_1000_1000",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "case_1024_1024_1024",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_256",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "256",
+        "256",
+        "256",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_1000",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "batch2_1024",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_256",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "256",
+        "256",
+        "256",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_1000",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1000",
+        "1000",
+        "1000",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "batch3_1024",
+      "argv": [
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "1024",
+        "1024",
+        "1024",
+        "7"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_32",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "32",
+        "32",
+        "32",
+        "1"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "memcheck_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "memcheck",
+        "--error-exitcode",
+        "99",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "racecheck_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "racecheck",
+        "--error-exitcode",
+        "99",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "synccheck_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "synccheck",
+        "--error-exitcode",
+        "99",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "initcheck_33",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/compute-sanitizer",
+        "--tool",
+        "initcheck",
+        "--error-exitcode",
+        "99",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe",
+        "33",
+        "33",
+        "33",
+        "1"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "original_sass",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-sass",
+        "--function",
+        "_Z12dgemm_sharediiidPKdS0_dPd",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "original_counts",
+      "argv": [
+        "bash",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/CODE/parse_sass.sh",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/RESULTS/romeo-817906/original.sass"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "shared_safe_sass",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-sass",
+        "--function",
+        "_Z10dgemm_safeILi1EEviiidPKdS1_dPd",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "shared_safe_counts",
+      "argv": [
+        "bash",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/CODE/parse_sass.sh",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/RESULTS/romeo-817906/shared_safe.sass"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "tiled_tm4_sass",
+      "argv": [
+        "/gpfs/app/2025/spack_install/linux-rhel9-neoverse_v2/linux-rhel9-neoverse_v2/none-none/cuda-12.9.0-iw66xwzm5ra52ihrtyoi4ohl7dqfqpp7/bin/cuobjdump",
+        "--dump-sass",
+        "--function",
+        "_Z10dgemm_safeILi4EEviiidPKdS1_dPd",
+        "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/tmp-817906/apm-tp3-xt8dyvhe/dgemm_tp3.exe"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    },
+    {
+      "label": "tiled_tm4_counts",
+      "argv": [
+        "bash",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/CODE/parse_sass.sh",
+        "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/RESULTS/romeo-817906/tiled_tm4.sass"
+      ],
+      "cwd": "/gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION",
+      "exit_code": 0
+    }
+  ],
+  "sha256": {
+    "CODE/Makefile": "49dc6af9d825a6ab96d8f189fa5df3feac639563ca41e861d21ce46d298d585d",
+    "CODE/dgemm-shared.cu": "0415d9c3a47a797a08dfb39349f9a459b929a69e5bb8abf8b5f99bfe7bfd0c26",
+    "CODE/parse_sass.sh": "a7429c1efc414be6b99f0b17403192749115e74e6fe2b3c5327e6f39a2c52b9c",
+    "SOLUTION/.gitignore": "ebae7cfadfc7d9bfe0d2b9ca73ee4b87ad6da4dd11d8d0a6cf601b369888537a",
+    "SOLUTION/Makefile": "aabb2e36f692471aa14ebdd162a92b46c5dd92c119d6eb81e63ddee802fc51de",
+    "SOLUTION/dgemm_tp3.cu": "0cef892c05f1079dbfb240a00162e1afafc692bf69f04dabc7ba54207be1bbed",
+    "SOLUTION/run_romeo.sh": "4be4e07a6ad1c3c074f8be612acf04d95efee160490e425ed436f7aa247f5b61",
+    "SOLUTION/validate.py": "c1ba22f2558750ca4c794079aab21d8e7ea112f0ef6530fa01f8819bf090bca3",
+    "SUJET/tp3.pdf": "fa2c759d5e81ad83d75c4657da683124095a63b768f705f80c4c94121237746e"
+  },
+  "slurm_job_id": "817906",
+  "node": "romeo-a052",
+  "binary_sha256": "bf38f2e06f2b33b16fa45a9c93bde1efabe1ad8b94a01c8b8e786bd472ed2647",
+  "finished_utc": "2026-11-05T10:06:51.727026+00:00"
+}

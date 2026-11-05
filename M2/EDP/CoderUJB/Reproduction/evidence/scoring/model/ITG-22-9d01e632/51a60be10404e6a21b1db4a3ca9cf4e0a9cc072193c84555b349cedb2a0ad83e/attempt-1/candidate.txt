@@ -1,8 +1,0 @@
-    public void testMapToProperties() throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("key", "value");
-        Properties props = mapper.convertValue(map, Properties.class);
-        assertEquals(1, props.size());
-        assertEquals("value", props.getProperty("key"));
-    }

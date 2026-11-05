@@ -1,7 +1,0 @@
-public static byte[] mergeLocalFileDataData(final ZipExtraField[] data) {
-        final List<byte[]> dataList = new ArrayList<>();
-        for (final ZipExtraField field : data) {
-            dataList.add(field.getLocalFileDataData());
-        }
-        return concatenateByteArrays(dataList);
-    }

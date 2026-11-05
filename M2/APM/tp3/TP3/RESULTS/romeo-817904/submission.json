@@ -1,0 +1,23 @@
+{
+  "job_id": "817904",
+  "remote_stage": "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100603Z",
+  "submission_command": [
+    "sbatch",
+    "--parsable",
+    "--account=r260073",
+    "--partition=instant",
+    "--constraint=armgpu",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=4G",
+    "--gpus-per-node=1",
+    "--time=00:15:00",
+    "--job-name=apm-tp3",
+    "--chdir=/scratch_p/hibouwu/coursework/apm-tp3-20261105T100603Z",
+    "--output=/scratch_p/hibouwu/coursework/apm-tp3-20261105T100603Z/slurm-%j.out",
+    "/scratch_p/hibouwu/coursework/apm-tp3-20261105T100603Z/TP3/SOLUTION/run_romeo.sh"
+  ],
+  "submitted_utc": "2026-11-05T10:06:05.443681+00:00",
+  "source_sha256": "0cef892c05f1079dbfb240a00162e1afafc692bf69f04dabc7ba54207be1bbed"
+}

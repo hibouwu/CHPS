@@ -1,0 +1,6 @@
+========= COMPUTE-SANITIZER
+Validation CPU/GPU : PASS
+n = 33
+CPU : 0.043 ms
+GPU (transferts compris) : 305.366 ms
+========= ERROR SUMMARY: 0 errors

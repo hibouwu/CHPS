@@ -1,0 +1,71 @@
+2026-11-05T11:06:32+01:00
+romeo-a052
+aarch64
+Filesystem      Size  Used Avail Use% Mounted on
+gpfs            2.8P  538T  2.3P  20% /gpfs
+Filesystem        Inodes    IUsed    IFree IUse% Mounted on
+gpfs           100003840 21473981 78529859   22% /gpfs
+JobId=817906 JobName=apm-tp3
+   UserId=hibouwu(100800) GroupId=hibouwu(100800) MCS_label=N/A
+   Priority=7198 Nice=0 Account=r260073 QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:02 TimeLimit=00:15:00 TimeMin=N/A
+   SubmitTime=2026-11-05T11:06:29 EligibleTime=2026-11-05T11:06:29
+   AccrueTime=2026-11-05T11:06:29
+   StartTime=2026-11-05T11:06:30 EndTime=2026-11-05T11:21:30 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-05T11:06:30 Scheduler=Main
+   Partition=instant AllocNode:Sid=romeo1:3433809
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=romeo-a052
+   BatchHost=romeo-a052
+   NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=2 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=2,mem=4G,node=1,billing=2,gres/gpu=1
+   AllocTRES=cpu=2,mem=4G,node=1,billing=2,gres/gpu=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=2 MinMemoryNode=4G MinTmpDiskNode=0
+   Features=armgpu DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/SOLUTION/run_romeo.sh
+   WorkDir=/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z
+   StdErr=/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/slurm-817906.out
+   StdIn=/dev/null
+   StdOut=/scratch_p/hibouwu/coursework/apm-tp3-20261105T100627Z/slurm-817906.out
+   Power=
+   TresPerNode=gres/gpu:1
+   TresPerTask=cpu:2
+   
+
+environment: exit=0
+nvcc_version: exit=0
+host_compiler_version: exit=0
+build: exit=0
+case_1_1_1: exit=0
+case_31_31_31: exit=0
+case_32_32_32: exit=0
+case_33_33_33: exit=0
+case_63_65_37: exit=0
+case_128_96_160: exit=0
+case_256_256_256: exit=0
+case_1000_1000_1000: exit=0
+case_1024_1024_1024: exit=0
+batch2_256: exit=0
+batch2_1000: exit=0
+batch2_1024: exit=0
+batch3_256: exit=0
+batch3_1000: exit=0
+batch3_1024: exit=0
+memcheck_32: exit=0
+memcheck_33: exit=0
+racecheck_33: exit=0
+synccheck_33: exit=0
+initcheck_33: exit=0
+original_sass: exit=0
+original_counts: exit=0
+shared_safe_sass: exit=0
+shared_safe_counts: exit=0
+tiled_tm4_sass: exit=0
+tiled_tm4_counts: exit=0
+Evidence retained in /gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/RESULTS/romeo-817906
+bf38f2e06f2b33b16fa45a9c93bde1efabe1ad8b94a01c8b8e786bd472ed2647  /gpfs/scratch/hibouwu/coursework/apm-tp3-20261105T100627Z/TP3/RESULTS/romeo-817906/dgemm_tp3.exe
+ALL_CHECKS_PASSED

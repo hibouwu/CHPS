@@ -1,1 +1,0 @@
-public StrBuilder deleteFirst(final String str) { return this; }

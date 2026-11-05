@@ -1,0 +1,51 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\definecolor{titre}{RGB}{65,65,195}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.9em}
+\begin{document}
+Jianye SHI — Partie 3\\
+{\Large\color{titre} Diapositive 14 — Le contexte du projet aide la génération}\par
+\bigskip
+Ici, les auteurs comparent trois façons de présenter une question au modèle. On donne soit un exemple, soit quatre exemples, soit du contexte du projet, comme les signatures des méthodes et les champs de la classe.
+
+Pour CodeLlama-13B, le score passe d’environ 13 \% avec un exemple à 22 \% avec le contexte du projet. Quatre exemples donnent environ 15 \%.
+
+Sur cette tâche, les informations sur le projet aident donc davantage que les exemples.
+\newpage
+Jianye SHI — Partie 3\\
+{\Large\color{titre} Diapositive 15 — Un écart plus marqué en réparation}\par
+\bigskip
+Dans ce tableau, FCG signifie générer une fonction, et APR signifie réparer une fonction. Les scores utilisent tous pass-all à un.
+
+Pour générer une fonction, CodeLlama-34B et GPT-3.5 sont très proches, autour de 23 \%. GPT-4 atteint environ 31 \%.
+
+Pour réparer une fonction, CodeLlama obtient environ 5 \%, GPT-3.5 environ 9 \%, et GPT-4 environ 19 \%. Les écarts sont donc plus grands en réparation.
+
+Ce sont les versions évaluées dans l’article de 2024.
+\newpage
+Jianye SHI — Partie 3\\
+{\Large\color{titre} Diapositive 16 — GPT-4 : des scores différents selon la tâche}\par
+\bigskip
+Regardons maintenant les quatre tâches pour GPT-4. Le score est d’environ 31 \% pour compléter une fonction, et de 24 \% pour écrire un test à partir du code.
+
+Pour écrire un test qui reproduit un bug décrit dans un rapport, il est de 6,66 \%. Pour réparer une fonction, il atteint environ 19 \%.
+
+Les critères de réussite changent selon la tâche. Ces résultats montrent surtout pourquoi il faut évaluer plusieurs activités de programmation.
+\newpage
+Jianye SHI — Partie 3\\
+{\Large\color{titre} Diapositive 17 — Détecter les bugs reste difficile}\par
+\bigskip
+Pour la détection, le modèle doit dire si une fonction contient un bug. Il y a 470 fonctions avec un bug et 470 versions corrigées.
+
+Répondre toujours la même chose donnerait donc 50 \% de bonnes réponses. GPT-4 obtient 52,16 \%, un résultat proche de cette référence.
+
+Certains modèles donnent aussi des réponses que le script ne peut pas interpréter.
+
+Après ces résultats, Xiang va présenter l’effet de l’entraînement sur les performances.
+\end{document}

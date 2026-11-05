@@ -1,0 +1,70 @@
+romeo-a035
+name, driver_version
+NVIDIA GH200 120GB, 590.48.01
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Apr__9_19:27:48_PDT_2025
+Cuda compilation tools, release 12.9, V12.9.41
+Build cuda_12.9.r12.9/compiler.35813241_0
+Graphe de base :
+    0     3    10     . 
+    .     0     4     8 
+    .     .     0     1 
+    .     .     .     0 
+Validation CPU/GPU : PASS
+Graphe final (plus courts chemins) :
+    0     3     7     8 
+    .     0     4     5 
+    .     .     0     1 
+    .     .     .     0 
+n = 4
+CPU : 0.000 ms
+GPU (transferts compris) : 310.332 ms
+Graphe de base :
+    0    59    64     2    69    57     .    22 
+    .     0     .    50    78    57     .    23 
+    6    92     0    77    87     .     .     . 
+    .    81     .     0    86     .    76    50 
+   63     .    66     .     0     .     .    85 
+   99    51     .     .     .     0    50    41 
+    1     .     .    16    15    28     0     . 
+    .    72    22    68    66    94     .     0 
+Validation CPU/GPU : PASS
+Graphe final (plus courts chemins) :
+    0    59    44     2    69    57    78    22 
+   51     0    45    50    78    57   107    23 
+    6    65     0     8    75    63    84    28 
+   77    81    72     0    86   104    76    50 
+   63   122    66    65     0   120   141    85 
+   51    51    63    53    65     0    50    41 
+    1    60    45     3    15    28     0    23 
+   28    72    22    30    66    85   106     0 
+n = 8
+CPU : 0.001 ms
+GPU (transferts compris) : 202.399 ms
+Validation CPU/GPU : PASS
+n = 64
+CPU : 0.274 ms
+GPU (transferts compris) : 203.426 ms
+Validation CPU/GPU : PASS
+n = 512
+CPU : 97.148 ms
+GPU (transferts compris) : 210.537 ms
+Validation CPU/GPU : PASS
+n = 1024
+CPU : 731.760 ms
+GPU (transferts compris) : 210.370 ms
+Validation CPU/GPU : PASS
+n = 2048
+CPU : 5620.021 ms
+GPU (transferts compris) : 330.292 ms
+Validation CPU/GPU : PASS
+n = 33
+CPU : 0.043 ms
+GPU (transferts compris) : 208.951 ms
+========= COMPUTE-SANITIZER
+Validation CPU/GPU : PASS
+n = 33
+CPU : 0.043 ms
+GPU (transferts compris) : 562.488 ms
+========= ERROR SUMMARY: 0 errors

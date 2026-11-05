@@ -1,7 +1,0 @@
-public void testUnaliasable() {
-    // Mark "arguments" and "eval" as unaliasable globals.
-    unaliasableGlobals = "arguments,eval";
-    // Ensure that references to these globals are not rewritten.
-    testSame("function f(){return arguments;}");
-    testSame("function g(){eval('1+1');}");
-}

@@ -1,4 +1,0 @@
-romeo-a058
-name, memory.total [MiB], memory.free [MiB]
-NVIDIA GH200 120GB, 97871 MiB, 97277 MiB
-final received {'completion_tokens': 787, 'prompt_tokens': 1562, 'total_tokens': 2349}

@@ -1,7 +1,0 @@
-  public void testCanInlineReferenceToFunctionInExpression18() {
-    // Call in within a call
-    helperCanInlineReferenceToFunction(CanInlineResult.AFTER_PREPARATION,
-        "function foo(){return _g();}; " +
-        "function x() {1 + foo()() }",
-        "foo", INLINE_BLOCK, true);
-  }

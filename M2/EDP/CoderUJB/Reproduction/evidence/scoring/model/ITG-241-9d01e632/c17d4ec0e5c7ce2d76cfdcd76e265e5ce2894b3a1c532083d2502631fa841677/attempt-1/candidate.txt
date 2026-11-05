@@ -1,4 +1,0 @@
-public void testForID_String_old() {
-        DateTimeZone metZone = DateTimeZone.forID("MET");
-        assertEquals("Europe/Berlin", metZone.getID());
-    }

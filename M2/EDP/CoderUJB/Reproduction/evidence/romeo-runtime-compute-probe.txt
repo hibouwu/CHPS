@@ -1,5 +1,0 @@
-romeo-a058
-817581
-{"python": "/home/hibouwu/gpuresearch/vpsr-gpu/.venv/bin/python", "version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:02) [GCC 11.2.0]", "packages": {"torch": "2.7.1+cu128", "transformers": "4.53.3", "accelerate": null, "safetensors": "0.8.0", "huggingface-hub": "0.36.2"}}
-torch_cuda True device NVIDIA GH200 120GB cuda 12.8
-transformers_import_ok 4.53.3

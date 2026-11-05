@@ -1,0 +1,4 @@
+JobID|JobName|Partition|State|ExitCode|Elapsed|AllocTRES|NodeList
+818143|apm-tp3-teacher|instant|COMPLETED|0:0|00:00:13|billing=2,cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a046
+818143.batch|batch||COMPLETED|0:0|00:00:13|cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a046
+818143.extern|extern||COMPLETED|0:0|00:00:14|billing=2,cpu=2,gres/gpu=1,mem=4G,node=1|romeo-a046

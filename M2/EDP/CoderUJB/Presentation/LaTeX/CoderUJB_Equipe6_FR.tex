@@ -429,7 +429,7 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 14 / 32; intervenant 3
 
-\begin{frame}{Le contexte aide la génération}
+\begin{frame}{Le contexte du projet aide la génération}
 \small
 \begin{center}
 \small
@@ -445,30 +445,30 @@ Contexte du projet & 21,91 \% \\
 \end{tabular}
 \end{center}
 \medskip
-{\small CodeLlama-13B. Comparaison de prompts ; deux modèles étudiés dans RQ1.\par}
+{\small CodeLlama-13B. Génération de fonctions (FCG), tableau 3.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 14 / 32
 
-Je vais répondre à deux questions : le contexte aide-t-il le modèle, et comment les modèles se comparent-ils ?
+Ici, les auteurs comparent trois façons de présenter une question au modèle. On donne soit un exemple, soit quatre exemples, soit du contexte du projet, comme les signatures des méthodes et les champs de la classe.
 
-Pour la première question, les auteurs testent deux modèles. Ils comparent un prompt avec du contexte du projet à des prompts contenant un ou quatre exemples.
+Pour CodeLlama-13B, le score passe d’environ 13 % avec un exemple à 22 % avec le contexte du projet. Quatre exemples donnent environ 15 %.
 
-Pour CodeLlama treize milliards, le score de génération de fonctions atteint environ vingt-deux pour cent avec le contexte. Il est d’environ treize pour cent avec un exemple. Mais ce résultat ne signifie pas qu’il améliore automatiquement toutes les tâches.
+Sur cette tâche, les informations sur le projet aident donc davantage que les exemples.
 
 REPÈRES : RQ1 / contexte du projet / exemples
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ1, tableau 3, p. 131. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 3 : 344 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 287 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 15 / 32; intervenant 3
 
-\begin{frame}{Le classement dépend de la tâche}
+\begin{frame}{Un écart plus marqué en réparation}
 \small
 \begin{center}
 \small
@@ -484,32 +484,32 @@ GPT-4 & 30,52 \% & 18,76 \% \\
 \end{tabular}
 \end{center}
 \medskip
-{\small Même indicateur : pass-all@1. Versions étudiées : GPT-3.5-Turbo-0301 et GPT-4-0314.\par}
+{\small Scores : pass-all@1. Versions des modèles évaluées dans l’article de 2024.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 15 / 32
 
-Passons à la comparaison des modèles. Ici, les scores utilisent pass-all à un.
+Dans ce tableau, FCG signifie générer une fonction, et APR signifie réparer une fonction. Les scores utilisent tous pass-all à un.
 
-En génération de fonctions, CodeLlama trente-quatre milliards est proche de GPT trois point cinq : environ vingt-trois pour cent dans les deux cas. GPT quatre obtient environ trente et un pour cent.
+Pour générer une fonction, CodeLlama-34B et GPT-3.5 sont très proches, autour de 23 %. GPT-4 atteint environ 31 %.
 
-En réparation, l’écart est plus marqué. CodeLlama est à environ cinq pour cent, GPT trois point cinq à neuf, et GPT quatre à dix-neuf.
+Pour réparer une fonction, CodeLlama obtient environ 5 %, GPT-3.5 environ 9 %, et GPT-4 environ 19 %. Les écarts sont donc plus grands en réparation.
 
-Ces résultats concernent les versions testées dans l’article. Ils ne constituent pas un classement des modèles actuels.
+Ce sont les versions évaluées dans l’article de 2024.
 
 REPÈRES : RQ2 / mêmes métriques / modèles de l’étude
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Tableaux 2 et 4, pp. 130, 132. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 3 : 344 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 287 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 16 / 32; intervenant 3
 
-\begin{frame}{Des difficultés au-delà du code à compléter}
+\begin{frame}{GPT-4 : des scores différents selon la tâche}
 \small
 \begin{center}
 \small
@@ -519,64 +519,66 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 \textbf{GPT-4 : tâche} & \textbf{pass-all@1} \\
 \midrule
 FCG : compléter une fonction & 30,52 \% \\
-CTG : test à partir du code & 24,18 \% \\
-ITG : test reproduisant un bug & 6,66 \% \\
+CTG : écrire un test à partir du code & 24,18 \% \\
+ITG : écrire un test qui reproduit un bug & 6,66 \% \\
 APR : réparer une fonction & 18,76 \% \\
 \bottomrule
 \end{tabular}
 \end{center}
 \medskip
-{\small Les quatre scores utilisent k = 1. Les exigences de réussite varient selon la tâche.\par}
+{\small Scores à k = 1. Chaque tâche a ses propres critères de réussite.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 16 / 32
 
-Même le meilleur modèle de ce tableau rencontre des difficultés. Pour GPT quatre, le score est d’environ trente et un pour cent pour compléter une fonction. Il descend à vingt-quatre pour cent pour créer un test à partir du code.
+Regardons maintenant les quatre tâches pour GPT-4. Le score est d’environ 31 % pour compléter une fonction, et de 24 % pour écrire un test à partir du code.
 
-Pour produire un test qui reproduit un bug signalé, il atteint seulement six virgule soixante-six pour cent. La réparation atteint environ dix-neuf pour cent.
+Pour écrire un test qui reproduit un bug décrit dans un rapport, il est de 6,66 %. Pour réparer une fonction, il atteint environ 19 %.
 
-Les tâches et les critères diffèrent, donc il faut rester prudent dans la comparaison. Mais ces résultats montrent qu’un bon score en génération de fonctions ne résume pas toutes les capacités.
+Les critères de réussite changent selon la tâche. Ces résultats montrent surtout pourquoi il faut évaluer plusieurs activités de programmation.
 
 REPÈRES : FCG / CTG / ITG / APR
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Tableau 4, p. 132 ; valeurs choisies plutôt que le texte contradictoire de RQ2. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 3 : 344 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 287 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 17 / 32; intervenant 3
 
-\begin{frame}{La détection reste particulièrement difficile}
+\begin{frame}{Détecter les bugs reste difficile}
 \small
 \begin{center}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{ccc}
 {\Large\structure{940}} & {\Large\structure{50\,\%}} & {\Large\structure{52,16\,\%}} \\
-fonctions classées & référence constante & accuracy de GPT-4
+fonctions classées & toujours la même réponse & bonnes réponses de GPT-4
 \end{tabular}
 \end{center}
 \medskip
-{\small 470 fonctions défectueuses + 470 corrigées. Résultat descriptif, sans preuve de supériorité statistique.\par}
+{\small 470 fonctions avec un bug et 470 versions corrigées.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 17 / 32
 
-La détection est encore un autre problème. Le jeu de données contient autant de fonctions défectueuses que de fonctions corrigées. Une réponse toujours identique donnerait donc cinquante pour cent de bonnes réponses.
+Pour la détection, le modèle doit dire si une fonction contient un bug. Il y a 470 fonctions avec un bug et 470 versions corrigées.
 
-GPT quatre obtient cinquante-deux virgule seize pour cent. C’est proche de cette référence. Certains modèles produisent aussi des réponses mal formatées.
+Répondre toujours la même chose donnerait donc 50 % de bonnes réponses. GPT-4 obtient 52,16 %, un résultat proche de cette référence.
 
-Le message principal est donc de regarder les résultats tâche par tâche. Je passe maintenant aux effets de l’entraînement, qui peuvent aussi changer selon la tâche.
+Certains modèles donnent aussi des réponses que le script ne peut pas interpréter.
+
+Après ces résultats, Xiang va présenter l’effet de l’entraînement sur les performances.
 
 REPÈRES : 940 exemples / 50 \% / 52,16 \%
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.3, RQ2 et tableau 4, pp. 128, 132. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 3 : 344 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 287 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 

@@ -1,4 +1,0 @@
-JobID|State|ExitCode|Elapsed|AllocTRES|MaxRSS
-817612|COMPLETED|0:0|00:16:34|billing=8,cpu=8,gres/gpu=1,mem=128G,node=1|
-817612.batch|COMPLETED|0:0|00:16:34|cpu=8,gres/gpu=1,mem=128G,node=1|1876736K
-817612.extern|COMPLETED|0:0|00:16:35|billing=8,cpu=8,gres/gpu=1,mem=128G,node=1|0

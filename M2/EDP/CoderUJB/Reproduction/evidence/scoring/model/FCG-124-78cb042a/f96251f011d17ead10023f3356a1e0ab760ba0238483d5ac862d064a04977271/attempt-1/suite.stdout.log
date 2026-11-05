@@ -1,3 +1,0 @@
-Failing tests: 2
-  - org.apache.commons.compress.utils.BitInputStreamTest::shouldNotAllowReadingOfANegativeAmountOfBits
-  - org.apache.commons.compress.utils.BitInputStreamTest::shouldNotAllowReadingOfMoreThan63BitsAtATime

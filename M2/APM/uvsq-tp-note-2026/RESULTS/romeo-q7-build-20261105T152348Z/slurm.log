@@ -1,0 +1,28 @@
+romeo-a031
+name, driver_version
+NVIDIA GH200 120GB, 590.48.01
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Wed_Apr__9_19:27:48_PDT_2025
+Cuda compilation tools, release 12.9, V12.9.41
+Build cuda_12.9.r12.9/compiler.35813241_0
+fw_coalesced: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=9daaba766341eaef3c423efee05c9b8e061e754d, for GNU/Linux 3.7.0, not stripped
+fw_strided:   ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=086e8694e3f99a38c3dfc87e40bfb7974c17b094, for GNU/Linux 3.7.0, not stripped
+usage : ./fw_coalesced [-n taille] [-s graine] [-h | --help]
+  -n taille : graphe aleatoire a <taille> sommets, chronometre
+  -s graine : graine du generateur (42 par defaut)
+  -h, --help : cette aide
+  sans option : exemple deterministe du sujet (4 sommets)
+cas d'usage :
+  ./fw_coalesced                  l'exemple du sujet, affiche et chronometre
+  ./fw_coalesced -n 512           un graphe aleatoire de 512 sommets
+  ./fw_coalesced -n 512 -s 7      meme taille, autre graine
+usage : ./fw_strided [-n taille] [-s graine] [-h | --help]
+  -n taille : graphe aleatoire a <taille> sommets, chronometre
+  -s graine : graine du generateur (42 par defaut)
+  -h, --help : cette aide
+  sans option : exemple deterministe du sujet (4 sommets)
+cas d'usage :
+  ./fw_strided                  l'exemple du sujet, affiche et chronometre
+  ./fw_strided -n 512           un graphe aleatoire de 512 sommets
+  ./fw_strided -n 512 -s 7      meme taille, autre graine

@@ -1,5 +1,0 @@
-public void testMethodsThatShouldAlwaysReturnNull() {
-        DateTimeField field = UnsupportedDateTimeField.getInstance(DateTimeFieldType.year(), null);
-        assertNull("RangeDurationField should be null", field.getRangeDurationField());
-        assertNull("LeapDurationField should be null", field.getLeapDurationField());
-    }

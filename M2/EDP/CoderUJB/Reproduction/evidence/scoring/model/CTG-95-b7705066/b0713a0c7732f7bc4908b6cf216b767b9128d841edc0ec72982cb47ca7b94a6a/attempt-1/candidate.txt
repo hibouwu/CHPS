@@ -1,9 +1,0 @@
-@Test
-public void testCaverphoneRevisitedCommonCodeAT1111() throws EncoderException {
-        String[] words = {"add", "aid", "at", "art", "eat", "earth", "head", "hit", "hot", "hold", "hard", "heart", "it", "out", "old"};
-        String expectedCode = "AT1111";
-        
-        for (String word : words) {
-            Assert.assertEquals(expectedCode, getEncoder().encode(word));
-        }
-    }

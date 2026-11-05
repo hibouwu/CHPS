@@ -1,2 +1,0 @@
-Failing tests: 1
-  - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear

@@ -1,9 +1,0 @@
-private Node transformAsString(AstNode n) {
-  Node node = transform(n);
-  if (node.getType() == Token.NAME) {
-    node.setType(Token.STRING);
-  } else if (node.getType() == Token.STRING) {
-    node.setQuotedString();
-  }
-  return node;
-}
