@@ -1,10 +1,10 @@
 % !TeX program = pdflatex
-% CoderUJB, Equipe 6: 32 slides, including cover, contents, six section pages and all 24 content slides.
+% CoderUJB presentation: 32 slides, including cover, contents, six section pages and all 24 content slides.
 % Derived from the supplied 24-slide French PPTX.
 % Visual reference supplied by the user: sildeS2Groupe1.pdf.
 % Its native Beamer settings are available in rapportS2_beamer.tex.
 % Only layout settings are reused; the source project's content and identity are not imported.
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,usepdftitle=false]{beamer}
 \mode<presentation>
 {
   \usetheme{default}
@@ -50,7 +50,7 @@
 \addtobeamertemplate{itemize/enumerate subsubbody begin}{\justifying}{}
 \setbeameroption{hide notes}
 \hypersetup{
-  pdftitle={CoderUJB -- Equipe 6},
+  pdftitle={CoderUJB -- Presentation},
   pdfauthor={Wei WEI, Hao QIAN, Jianye SHI, Xiang BIAN, Zijie Fang, Yupan Huang},
   pdfsubject={Presentation de l'article CoderUJB, ISSTA 2024},
   pdfkeywords={CoderUJB, Java, LLM, benchmark, ISSTA 2024}
@@ -113,36 +113,42 @@ DIAPOSITIVE 1 / 32
 
 \begin{frame}{Comment évaluer une IA qui code ?}
 \small
-Les LLM peuvent proposer du code et aider à corriger une erreur.\par
+\textbf{Les LLM peuvent aider à programmer}\par
+\smallskip
+Proposer du code $\cdot$ Corriger une erreur
 \bigskip
 
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.47\textwidth}
-\structure{Lecture du code}\par
+\structure{\textbf{À LA LECTURE}}\par
 \medskip
-Un code peut sembler correct
+Un code peut \textbf{sembler correct}
 \end{column}
 \begin{column}{0.47\textwidth}
-\structure{Exécution}\par
+\structure{\textbf{À L’EXÉCUTION}}\par
 \medskip
-Il peut pourtant échouer
+Pourtant, il peut \textbf{échouer}
 \end{column}
 \end{columns}
 \medskip
-Les tests vérifient son comportement.\par
+\structure{\textbf{Il faut donc le tester.}}\par
 \bigskip
-Un benchmark fixe les tâches et les règles de comparaison.
+\textbf{Pour comparer les modèles : un benchmark}\par
+\smallskip
+Des tâches et des règles communes
 
 \note{
 INTERVENANT 1 — Wei WEI — Contexte de la recherche
 
 DIAPOSITIVE 4 / 32
 
-Bonjour à tous. Aujourd’hui, nous allons présenter l’article CoderUJB, publié en 2024.
+Bonjour à tous. Aujourd’hui, nous allons présenter l’article CoderUJB, publié en 2024. Je vais d’abord expliquer le contexte de cette étude.
 
 Les grands modèles de langage, qu’on appelle aussi les LLM, peuvent aider à programmer. Ils peuvent, par exemple, proposer du code ou aider à corriger une erreur.
 
-Un code peut sembler correct quand on le lit. Pourtant, il peut échouer quand on l’exécute. Les tests permettent de vérifier son comportement.
+Mais comment savoir si leurs réponses sont bonnes ? [Pause]
+
+Un code peut sembler correct quand on le lit. Pourtant, il peut échouer quand on l’exécute. Il faut donc le tester.
 
 Pour comparer les modèles, les chercheurs utilisent des benchmarks. Un benchmark, c’est un ensemble de tâches avec des règles communes pour évaluer les réponses.
 
@@ -150,57 +156,59 @@ REPÈRES : IA  /  code  /  tests  /  benchmark
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Introduction, tableau 1 et §2, pp. 124-126. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : environ 357 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : 407 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 05 / 32; intervenant 1
 
-\begin{frame}{HumanEval : des fonctions isolées}
+\begin{frame}{Un exercice isolé a ses limites}
 \small
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.47\textwidth}
-\structure{HumanEval}\par
+\structure{\textbf{HUMANEVAL}}\par
 \medskip
-164 exercices Python\par
+\textbf{164 exercices Python}\par
 \smallskip
 Compléter une fonction\par
 \smallskip
 Des tests vérifient le résultat\par
 \medskip
-Ces fonctions restent isolées du reste d’un projet.
+\structure{Mais les exercices restent\\\textbf{assez isolés.}}
 \end{column}
 \begin{column}{0.47\textwidth}
-\structure{Dans un projet}\par
+\structure{\textbf{DANS UN VRAI PROJET}}\par
 \medskip
 D’autres fichiers\par
 \smallskip
 Des bibliothèques\par
 \smallskip
-Du code qui existe déjà
+\textbf{Du code qui existe déjà}
 \end{column}
 \end{columns}
 \bigskip
-HumanEval ne teste pas l’utilisation des fichiers et bibliothèques d’un projet.
+\textbf{Exercice de cours $\ne$ logiciel complet}\par
+\smallskip
+Réussir le premier ne garantit pas qu’on réussira le second.
 
 \note{
 INTERVENANT 1 — Wei WEI — Contexte de la recherche
 
 DIAPOSITIVE 5 / 32
 
-HumanEval est un exemple de ce type d’évaluation. Il contient cent soixante-quatre exercices en Python. Le modèle doit compléter une fonction à partir d’une description. Ensuite, des tests vérifient le résultat.
+Un exemple connu est HumanEval. Il contient cent soixante-quatre exercices en Python. Le modèle doit compléter une fonction à partir d’une description. Ensuite, des tests vérifient le résultat.
 
-Le résultat est donc vérifié par l’exécution.
+C’est utile, car on exécute vraiment le code. [Pause]
 
 Mais les exercices restent assez isolés. Dans un vrai projet, une fonction peut utiliser d’autres fichiers ou des bibliothèques. Le modèle doit donc tenir compte du code qui existe déjà.
 
-On peut comparer cela à un exercice de cours et à un travail dans un logiciel complet. Réussir le premier ne garantit pas qu’on réussira le second.
+On peut comparer cela à un exercice de cours et à un travail dans un logiciel complet. Réussir le premier ne garantit pas qu’on réussira le second. C’est une première difficulté pour l’évaluation.
 
 REPÈRES : HumanEval  /  fonction  /  projet  /  dépendances
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Introduction, tableau 1 et §2, pp. 124-126. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : environ 357 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : 407 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -215,46 +223,46 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 \begin{column}{0.18\textwidth}\structure{\textbf{Les corriger}}\end{column}
 \end{columns}
 \bigskip
-Un modèle peut réussir une tâche et échouer sur une autre.\par
+Une seule tâche donne une \textbf{vision limitée.}\par
 \bigskip
-\structure{Les limites des autres benchmarks multitâches}\par
+\structure{\textbf{PLUSIEURS TÂCHES, MAIS D’AUTRES LIMITES}}\par
 \smallskip
 {\footnotesize Selon les auteurs\par}
 \medskip
 {\renewcommand{\arraystretch}{1.4}
 \begin{tabular}{@{}l@{\hspace{1.2cm}}l@{}}
-\textbf{CodeXGLUE} & Similarité du code, sans exécution \\
+\textbf{CodeXGLUE} & Ressemblance entre les textes \\
 \textbf{XCodeEval} & Problèmes de concours
 \end{tabular}\par}
 \medskip
-CoderUJB associe ces tâches à une exécution dans le projet.
+Ces approches ne réunissent pas toutes les conditions recherchées.
 
 \note{
 INTERVENANT 1 — Wei WEI — Contexte de la recherche
 
 DIAPOSITIVE 6 / 32
 
-Le travail d’un développeur comprend plusieurs types de tâches. Il faut écrire du code, mais aussi créer des tests, trouver des erreurs et les corriger.
+Il y a aussi une deuxième difficulté. Le travail d’un développeur comprend plusieurs types de tâches. Il faut écrire du code, mais aussi créer des tests, trouver des erreurs et les corriger.
 
-Un modèle peut être bon pour une tâche et moins bon pour une autre. Une seule tâche donne donc une vision limitée de ses capacités.
+Un modèle peut être bon pour une tâche et moins bon pour une autre. Une seule tâche donne donc une vision limitée de ses capacités. [Pause]
 
 Certains benchmarks proposent plusieurs tâches. Mais, selon les auteurs, ils ont d’autres limites. Par exemple, CodeXGLUE utilise des mesures de ressemblance entre les textes. XCodeEval utilise des problèmes de concours.
 
-CoderUJB cherche à réunir ces tâches et à exécuter les réponses dans leur projet.
+Ces approches ne réunissent donc pas toutes les conditions recherchées pour évaluer le travail dans un vrai projet.
 
 REPÈRES : écrire  /  tester  /  détecter  /  corriger
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Introduction, tableau 1 et §2, pp. 124-126. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : environ 357 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : 407 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 07 / 32; intervenant 1
 
-\begin{frame}{Les choix de CoderUJB}
+\begin{frame}{Le besoin : une évaluation plus réaliste}
 \small
-Exécuter les réponses dans leur contexte de projet\par
+\textbf{Réunir trois éléments}\par
 \bigskip
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.30\textwidth}
@@ -274,30 +282,31 @@ Des capacités\\variées
 \end{column}
 \end{columns}
 \bigskip
-CoderUJB : un benchmark Java\par
+\textbf{CoderUJB} -- un benchmark Java\par
 \bigskip
-Les réponses sont évaluées dans le projet dont les questions sont issues.
+Comment mieux évaluer les capacités des modèles\\
+dans des situations proches du travail réel ?
 
 \note{
 INTERVENANT 1 — Wei WEI — Contexte de la recherche
 
 DIAPOSITIVE 7 / 32
 
-Les auteurs veulent exécuter les solutions dans de vrais projets et couvrir plusieurs tâches.
+Les auteurs cherchent donc à réunir trois éléments dans une même évaluation.
 
-D’abord, exécuter les solutions pour vérifier leur fonctionnement. Ensuite, utiliser de vrais projets, avec leur code et leur environnement. Enfin, proposer plusieurs types de tâches.
+D’abord, exécuter les solutions pour vérifier leur fonctionnement. Ensuite, utiliser de vrais projets, avec leur code et leur environnement. Enfin, proposer plusieurs types de tâches. [Pause]
 
 C’est dans ce contexte qu’ils présentent CoderUJB. Ils choisissent Java, un langage très utilisé dans le développement de logiciels.
 
-Ils évaluent ainsi les réponses dans le projet dont la question est issue.
+La question de départ est donc simple : comment mieux évaluer les capacités des modèles dans des situations proches du travail réel ?
 
-Hao va présenter la construction du benchmark et la méthode d’évaluation.
+Voilà la motivation de cette étude. Je laisse maintenant la parole à la personne suivante, qui va présenter les contributions de l’article.
 
 REPÈRES : exécution  /  projets  /  tâches  /  Java
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Introduction, tableau 1 et §2, pp. 124-126. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : environ 357 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 1 : 407 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 

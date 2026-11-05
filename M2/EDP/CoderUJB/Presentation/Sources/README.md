@@ -11,4 +11,4 @@
 
 - [封面与第一部分五页更新稿](CoderUJB_Premieres5Pages_FR.pdf)：封面文字与后四页正文已同步至 LaTeX 第 1、4–7 页；总稿保留独立目录和六段结构。
 
-最终演示请使用 [LaTeX 总稿 PDF](../LaTeX/CoderUJB_Equipe6_FR.pdf)。
+最终演示请使用 [LaTeX 总稿 PDF](../LaTeX/CoderUJB_Presentation_FR.pdf)。

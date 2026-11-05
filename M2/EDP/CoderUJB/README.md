@@ -6,8 +6,8 @@
 
 ## 当前汇报与讲稿
 
-- [完整法语演示 PDF（32 页）](Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf)
-- [LaTeX 源码](Presentation/LaTeX/CoderUJB_Equipe6_FR.tex) · [编译与打包说明](Presentation/LaTeX/README.md)
+- [完整法语演示 PDF（32 页）](Presentation/LaTeX/CoderUJB_Presentation_FR.pdf)
+- [LaTeX 源码](Presentation/LaTeX/CoderUJB_Presentation_FR.tex) · [编译与打包说明](Presentation/LaTeX/README.md)
 - [封面与第一部分](Presentation/LaTeX/CoderUJB_Partie1_FR.pdf)
 - 第三部分：[幻灯片](Presentation/LaTeX/CoderUJB_Partie3_FR.pdf) · [中法双语讲稿](Presentation/LaTeX/CoderUJB_Partie3_Script_FR_ZH.md) · [中文演讲稿](Presentation/LaTeX/CoderUJB_Partie3_Script_ZH.md) · [法语讲稿 PDF](Presentation/LaTeX/CoderUJB_Partie3_Script_FR.pdf)
 - [第四部分幻灯片](Presentation/LaTeX/CoderUJB_Partie4_FR.pdf)

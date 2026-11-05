@@ -35,10 +35,10 @@
       "/home/jianyeshi/Note/ppn-mnist-neural-network/ProjetRapportlatex/sildeS2Groupe1.pdf",
       "/home/jianyeshi/Note/ppn-mnist-neural-network/ProjetRapportlatex/rapportS2_beamer.tex"
     ],
-    "local_pdf": "Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf",
-    "local_source": "Presentation/LaTeX/CoderUJB_Equipe6_FR.tex",
+    "local_pdf": "Presentation/LaTeX/CoderUJB_Presentation_FR.pdf",
+    "local_source": "Presentation/LaTeX/CoderUJB_Presentation_FR.tex",
     "pages": 32,
-    "pdf_sha256": "f98813664ba7bcc421001b7267024e53ea569820cfd7401b2c007c3c783e1f4b",
+    "pdf_sha256": "13804685e8a24e917e75b4464f94828946bdb90e6c0a26187ac6c96314ede4b6",
     "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
     "updated_on": "2026-11-05",
     "aspect_ratio": "16:9",
@@ -151,7 +151,7 @@
         7
       ],
       "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie1_FR.pdf",
-      "standalone_sha256": "410f97ddae6b62d02291a2a7160bf8b91a1994d4bdba5226862fced47aa5db6e",
+      "standalone_sha256": "7b60e058fd16f259efdc35e2f0fab2451c689a1df04c28a4a67e99f44fff543b",
       "structure": "Source cover includes a five-item plan; full deck retains separate cover, six-section contents and six presenter dividers.",
       "validation": "32 pages; no overfull boxes; all notes preserved; source after Section 1 unchanged; other pages have identical words, with at most 0.03 pt glyph encoding rounding differences."
     },
@@ -188,15 +188,16 @@
       "notes": "Trimmed formulaic introductions and conclusions; kept task-specific evidence and qualified interpretations. Added CTG success criterion from section 3.5. Synchronized Part 3 script variants.",
       "validation": "32 slides; six presenter sections and names preserved; every table/bar numeric sequence and per-page percentage unchanged; citation lines unchanged; no overfull boxes; all 24 content slides visually inspected.",
       "current_outputs": {
-        "CoderUJB_Equipe6_FR.pdf": "f98813664ba7bcc421001b7267024e53ea569820cfd7401b2c007c3c783e1f4b",
-        "CoderUJB_Partie1_FR.pdf": "410f97ddae6b62d02291a2a7160bf8b91a1994d4bdba5226862fced47aa5db6e",
+        "CoderUJB_Presentation_FR.pdf": "13804685e8a24e917e75b4464f94828946bdb90e6c0a26187ac6c96314ede4b6",
+        "CoderUJB_Partie1_FR.pdf": "7b60e058fd16f259efdc35e2f0fab2451c689a1df04c28a4a67e99f44fff543b",
         "CoderUJB_Partie3_FR.pdf": "e79d27f330ac1cb90c2fa92cf87b43b02b4ff833443fd4af4ed5bf4bec595336",
         "CoderUJB_Partie4_FR.pdf": "744cbbdd83d29aee89b3907855dee8bbd3baa0e3e4993437d22b4f5b8a37d688",
         "CoderUJB_Partie5_FR.pdf": "5a8d5589794683322c16c25df34047e605a1909d4df630b761ef14d30cd805cc",
         "CoderUJB_Partie3_Script_FR.pdf": "ef3ac543808d4abc74350581369d0933dc5e97c0ec6259ef1da3c9061dd871c3",
         "CoderUJB_Partie3_Script_FR.md": "0e392ca93d2b958ebdfe59a26ac249655b8c91cdd1da9bdcfb053f3e52a44fdf",
         "CoderUJB_Partie3_Script_FR_ZH.md": "975927d21d87c709183e6acaa967062811cbe0c9a9d595bd11aacba134c35f5e"
-      }
+      },
+      "part1_reverted_to_classmate_version": true
     },
     "slide14_original_figure_update": {
       "updated_on": "2026-11-05",
@@ -213,6 +214,21 @@
       "asset_sha256": "da8b8ac76fd48d449b1cc9f104469d96710cc3faa5e40c5b38b29503b7cc5f38",
       "source_preservation": "Source PDF unchanged; page content outside the crop removed from the derived vector asset.",
       "validation": "32 pages; pixel differences limited to page 14; percentages unchanged; three context labels visible; no overfull boxes; scripts synchronized."
+    },
+    "group_number": null,
+    "part1_restore": {
+      "date": "2026-11-05",
+      "requested_pdf": "Presentation/LaTeX/CoderUJB_Premieres5Pages_FR(1).pdf",
+      "source_sha256": "d8088b2d019c8da649488d43a25f0d32b4ab39d62df1b7fa71352644d25a37ea",
+      "canonical_source": "Presentation/Sources/CoderUJB_Premieres5Pages_FR.pdf",
+      "restored_pages": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "notes": "Restored the original wording and speaker notes, before the humanization pass. Existing cover, six-section contents and all later content preserved.",
+      "validation": "32 pages; restored slide text equals the pre-humanization version; all other pages have unchanged text; no overfull boxes."
     }
   }
 }

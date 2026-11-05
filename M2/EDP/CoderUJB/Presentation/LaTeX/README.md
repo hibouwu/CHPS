@@ -1,7 +1,7 @@
 # CoderUJB — 法语汇报 LaTeX 版
 
-- [演示 PDF（32 页）](CoderUJB_Equipe6_FR.pdf)
-- [LaTeX Beamer 源码](CoderUJB_Equipe6_FR.tex)
+- [演示 PDF（32 页）](CoderUJB_Presentation_FR.pdf)
+- [LaTeX Beamer 源码](CoderUJB_Presentation_FR.tex)
 - [第五部分单独版（4 页，沿用总稿页码 24–27）](CoderUJB_Partie5_FR.pdf)
 
 ## 内容和版式
@@ -38,7 +38,7 @@ make
 或：
 
 ```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Presentation_FR.tex
 ```
 
 也可将 `.tex` 上传到 Overleaf，选择 pdfLaTeX 编译。`make clean` 清理编译辅助文件。
@@ -68,7 +68,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 
 ## 打包与来源
 
-原始来稿见 [Sources 索引](../Sources/README.md)。ZIP 为可生成的交付件，不再作为日常维护文件保存；需要分享完整 LaTeX 材料时运行 `make package`，将在上一层生成 `CoderUJB_Equipe6_LaTeX.zip`。
+原始来稿见 [Sources 索引](../Sources/README.md)。ZIP 为可生成的交付件，不再作为日常维护文件保存；需要分享完整 LaTeX 材料时运行 `make package`，将在上一层生成 `CoderUJB_Presentation_LaTeX.zip`。
 
 第三部分中法讲稿：[Markdown](CoderUJB_Partie3_Script_FR_ZH.md)。
 
@@ -95,3 +95,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error CoderUJB_Equipe6_FR.tex
 上半页使用论文图 2(a) 的上下文局部，展示 Import、Field 和 Signature Context；下半页保留 CodeLlama-13B 的结果表，数值为 12.84%、14.50%、21.91%。原图仅用于说明上下文包含什么，不将图 2(a) 的对话格式当作 CodeLlama 基础模型的实际调用格式。图下标注论文来源和截取范围。
 
 图像资源为 `assets/coderujb-figure2a-context.pdf`，从原论文 PDF 第 5 页裁切生成并保留矢量文字。`make package` 会将 `assets/` 一起打包；上传 Overleaf 时也需保留此目录。法语、中法及中文讲稿已同步调整开头，先解释图中内容，再讲结果。总稿 32 页，渲染变化仅在第 14 页。
+
+## 第一部分恢复同学版本（2026-11-05）
+
+按用户要求，以 `CoderUJB_Premieres5Pages_FR(1).pdf` 为准，恢复第 4–7 页在法语润色前的措辞和讲稿。该文件与 `Sources/CoderUJB_Premieres5Pages_FR.pdf` 内容及字节一致。第一部分不再采用上述“法语表达修订”中的改写；总封面、六段目录、分段页以及第二部分起的内容保留。总稿与第一部分单独 PDF 已同步。

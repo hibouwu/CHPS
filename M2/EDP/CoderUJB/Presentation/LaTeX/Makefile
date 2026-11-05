@@ -1,5 +1,5 @@
 LATEXMK ?= latexmk
-MAIN := CoderUJB_Equipe6_FR
+MAIN := CoderUJB_Presentation_FR
 
 .PHONY: all clean package
 all:
@@ -9,4 +9,4 @@ clean:
 	$(LATEXMK) -c $(MAIN).tex
 
 package: all
-	zip -FS ../CoderUJB_Equipe6_LaTeX.zip CoderUJB_*.tex CoderUJB_*.pdf CoderUJB_*.md README.md Makefile .gitignore assets/*.pdf
+	zip -FS ../CoderUJB_Presentation_LaTeX.zip CoderUJB_*.tex CoderUJB_*.pdf CoderUJB_*.md README.md Makefile .gitignore assets/*.pdf
