@@ -1,0 +1,16 @@
+JobID|JobName|State|ExitCode|Elapsed|AllocTRES|MaxRSS
+817580|bash|COMPLETED|0:0|00:00:02|billing=2,cpu=2,gres/gpu=1,mem=8G,node=1|
+817580.extern|extern|COMPLETED|0:0|00:00:02|billing=2,cpu=2,gres/gpu=1,mem=8G,node=1|0
+817580.0|bash|COMPLETED|0:0|00:00:01|cpu=2,gres/gpu=1,mem=8G,node=1|0
+817581|bash|COMPLETED|0:0|00:00:28|billing=2,cpu=2,gres/gpu=1,mem=8G,node=1|
+817581.extern|extern|COMPLETED|0:0|00:00:28|billing=2,cpu=2,gres/gpu=1,mem=8G,node=1|0
+817581.0|bash|COMPLETED|0:0|00:00:26|cpu=2,gres/gpu=1,mem=8G,node=1|432M
+817582|coderujb-13b-probe|FAILED|1:0|00:03:27|billing=8,cpu=8,gres/gpu=1,mem=128G,node=1|
+817582.extern|extern|COMPLETED|0:0|00:03:28|billing=8,cpu=8,gres/gpu=1,mem=128G,node=1|0
+817582.0|coderujb-13b-probe|FAILED|1:0|00:03:26|cpu=8,gres/gpu=1,mem=128G,node=1|612M
+817583|coderujb-13b-probe|COMPLETED|0:0|00:01:57|billing=8,cpu=8,gres/gpu=1,mem=128G,node=1|
+817583.extern|extern|COMPLETED|0:0|00:01:57|billing=8,cpu=8,gres/gpu=1,mem=128G,node=1|0
+817583.0|coderujb-13b-probe|COMPLETED|0:0|00:01:56|cpu=8,gres/gpu=1,mem=128G,node=1|6765632K
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+7ec99684345b411aa23f85b1a6cccd3e73db7a1a110e6aa4b694a0d0f158a34a  /scratch_p/hibouwu/coderujb/13b-probe-20261105-b/result.json
+5ffbe957bf02fb25beba68bb01e908b27aefc571aea958df6aa69f1b7aae07cc  /scratch_p/hibouwu/coderujb/13b-probe-20261105-b/generation.txt

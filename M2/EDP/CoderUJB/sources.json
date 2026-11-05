@@ -1,0 +1,114 @@
+{
+  "prepared_on": "2026-11-03",
+  "title": "CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios",
+  "local_original": "../References/articles_edp_25/08-coderujb_an_executable_and_unified_java_benchmark.pdf",
+  "local_copy": "CoderUJB_ISSTA2024.pdf",
+  "pdf_sha256": "2f8c5ef066f030de39d7a159b5af66e17960962cf5127261ba92a3b19ef45aac",
+  "pdf_pages": 13,
+  "doi": "https://doi.org/10.1145/3650212.3652115",
+  "arxiv": "https://arxiv.org/abs/2403.19287",
+  "official_repository": "https://github.com/WisdomShell/ujb",
+  "repository_commit": "e7b69a0b4f79d0d1896046079f6926d955f31452",
+  "status": "model_load_generation_probe_passed_benchmark_not_evaluated",
+  "bilingual_markdown": "CoderUJB_中英对照.md",
+  "derived_assets_directory": "Images/",
+  "translation_note": "Chinese translation paired by subsection; references remain in original language; editorial notes separated.",
+  "presentation_materials": [
+    {
+      "imported_on": "2026-11-04",
+      "original_path": "/home/jianyeshi/下载/CoderUJB_Equipe6_FR 2.pptx",
+      "local_path": "Presentation/CoderUJB_Equipe6_FR 2.pptx",
+      "sha256": "82fc62dcbba6d81d49150fcbabdd7bbbf3cfad2b2bff970f30821b1cc3fe5ace",
+      "operation": "moved_from_downloads"
+    },
+    {
+      "imported_on": "2026-11-04",
+      "original_path": "/home/jianyeshi/下载/CoderUJB_Equipe6_Scripts_FR.pdf",
+      "local_path": "Presentation/CoderUJB_Equipe6_Scripts_FR.pdf",
+      "sha256": "dcd66f4cfe13e985b4c66f73f66342023758b0408c090c09156c346ddb4cd968",
+      "operation": "moved_from_downloads"
+    }
+  ],
+  "latex_presentation": {
+    "prepared_on": "2026-11-04",
+    "source_pptx": "Presentation/CoderUJB_Equipe6_FR 2.pptx",
+    "style_references": [
+      "/home/jianyeshi/Note/ppn-mnist-neural-network/ProjetRapportlatex/sildeS2Groupe1.pdf",
+      "/home/jianyeshi/Note/ppn-mnist-neural-network/ProjetRapportlatex/rapportS2_beamer.tex"
+    ],
+    "local_pdf": "Presentation/LaTeX/CoderUJB_Equipe6_FR.pdf",
+    "local_source": "Presentation/LaTeX/CoderUJB_Equipe6_FR.tex",
+    "pages": 32,
+    "pdf_sha256": "cfc2393e9e6584b766dd45ccd66068febe8b8f121ea7a9992a07c7d8de6c6090",
+    "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
+    "updated_on": "2026-11-05",
+    "aspect_ratio": "16:9",
+    "presenters_in_order": [
+      "Wei WEI",
+      "Hao QIAN",
+      "Jianye SHI",
+      "Xiang BIAN",
+      "Zijie Fang",
+      "Yupan Huang"
+    ],
+    "cover_slide": 1,
+    "title_numbering": "Section divider titles use numbers 1–6; body slide titles have no number; footer page numbers run 1–32.",
+    "contents_slide": 2,
+    "section_start_pages": {
+      "Wei WEI": 3,
+      "Hao QIAN": 8,
+      "Jianye SHI": 13,
+      "Xiang BIAN": 18,
+      "Zijie Fang": 23,
+      "Yupan Huang": 28
+    },
+    "contents_names": false,
+    "original_intro_content_pages": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "frame_title_margins": {
+      "left_cm": 1.0,
+      "top_text_bbox_pt": 21.183,
+      "note": "Standard top headings aligned with the body left margin and moved down; centered cover and section dividers retained."
+    }
+  },
+  "reproduction_preparation": {
+    "prepared_on": "2026-11-05",
+    "repository_directory": "Reproduction/ujb",
+    "sample_manifest": "Reproduction/sample_pack/manifest.json",
+    "dataset": "ZHENGRAN/code_ucb_complete",
+    "dataset_revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+    "selected_task_indices": [
+      4,
+      5,
+      6
+    ],
+    "status": "samples_prepared_one_model_generation_probe_completed_no_benchmark_evaluation"
+  },
+  "romeo_model_probe": {
+    "run_on": "2026-11-05",
+    "job_id": "817583",
+    "slurm_state": "COMPLETED",
+    "slurm_exit_code": "0:0",
+    "model_repository": "codellama/CodeLlama-13b-hf",
+    "model_revision": "8da65ff4ee20f74ecd107ca9d54f9f121b279860",
+    "weight_identity_note": "All three downloaded safetensors shards match the LFS SHA-256 values of meta-llama/CodeLlama-13b-hf revision bed8c603d9ad262851259de64609337fea3b620d; configuration/tokenizer Git blob identities were also compared. This does not establish the checkpoint revision used in the paper.",
+    "dtype": "torch.bfloat16",
+    "gpu": "NVIDIA GH200 120GB",
+    "allocated_host_memory_gib": 128,
+    "peak_cuda_allocated_bytes": 29222996992,
+    "peak_cuda_reserved_bytes": 29792141312,
+    "task_idx": 4,
+    "generation_mode": "complete",
+    "generated_tokens": 256,
+    "result_file": "Reproduction/evidence/romeo-model-probe-result.json",
+    "generation_file": "Reproduction/evidence/romeo-model-probe-generation.txt",
+    "receipt_file": "Reproduction/evidence/romeo-model-probe-receipt.json",
+    "benchmark_evaluated": false,
+    "model_storage": "Job-owned /dev/shm temporary directory; shell EXIT trap removes temporary weights. No persistent model cache.",
+    "scope": "Feasibility probe: download, checksum verification, BF16 loading, one code completion. Not the full official evaluation; Java compilation and Defects4J tests have not run."
+  }
+}

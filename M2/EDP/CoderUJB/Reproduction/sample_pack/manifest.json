@@ -1,0 +1,74 @@
+{
+  "status": "one_generation_probe_completed_no_benchmark_evaluation",
+  "repository_url": "https://github.com/WisdomShell/ujb",
+  "repository_commit": "e7b69a0b4f79d0d1896046079f6926d955f31452",
+  "dataset": "ZHENGRAN/code_ucb_complete",
+  "dataset_revision": "78cb042ad6abab321de85fe159f0c65b8aa47d36",
+  "split": "train",
+  "dataset_rows_reported": 238,
+  "preview_sha256": "11a4b02d99e3a5e4b6e33d69320521482fdcf0107d8daaaaa54373e0810324d4",
+  "selection_note": "Three illustrative rows chosen for readable task semantics and context use; not a representative sample for overall benchmark scores. No generated results were used for selection.",
+  "samples": [
+    {
+      "task_idx": 4,
+      "task_id": "0370917ec7f90da7c60ce4f962cafdd4e79606c89c781be2e9b23578d896b8a6",
+      "project": "Lang",
+      "bug_id": 1,
+      "function_signature": "public StrBuilder deleteFirst(final String str)",
+      "testmethods": [
+        "org.apache.commons.lang3.text.StrBuilderTest::testDeleteFirst_String",
+        "org.apache.commons.lang3.text.StrBuilderTest::testIndexOfLang294",
+        "org.apache.commons.lang3.text.StrBuilderTest::testLang295"
+      ],
+      "location": "src/main/java/org/apache/commons/lang3/text/StrBuilder.java",
+      "prompt_file": "prompts/004_Lang.txt",
+      "prompt_sha256": "65eb5706993c09e29f3ab650624d79ce5b9245c66561740f6c6505861b44533c",
+      "reference_file": "references/004_Lang.java",
+      "completion_prompt_file": "prompts_complete/004_Lang.txt",
+      "completion_prompt_sha256": "76e971589b7b606eb84b8023bc3db0dfa351e5e7bb5f34681a6517f3f91e290e",
+      "generation_probe": {
+        "job_id": "817583",
+        "raw_output_file": "../evidence/romeo-model-probe-generation.txt",
+        "result_file": "../evidence/romeo-model-probe-result.json",
+        "benchmark_evaluated": false
+      }
+    },
+    {
+      "task_idx": 5,
+      "task_id": "03ab7a19a52de8480bc7bcbb078ea407935a637e14a712e1d32d88238054bbba",
+      "project": "Collections",
+      "bug_id": 28,
+      "function_signature": "public static <E> Iterable<E> asIterable(final Iterator<? extends E> iterator)",
+      "testmethods": [
+        "org.apache.commons.collections4.IteratorUtilsTest::testAsIterable",
+        "org.apache.commons.collections4.IteratorUtilsTest::testAsIterableNull",
+        "org.apache.commons.collections4.IteratorUtilsTest::testNodeListIterator"
+      ],
+      "location": "src/main/java/org/apache/commons/collections4/IteratorUtils.java",
+      "prompt_file": "prompts/005_Collections.txt",
+      "prompt_sha256": "e3e9ce7cecbbe1fb156e7fb311c0d5434893feb27fee0f7e7a073045242c9970",
+      "reference_file": "references/005_Collections.java",
+      "completion_prompt_file": "prompts_complete/005_Collections.txt",
+      "completion_prompt_sha256": "e32c315f6706047dc759e1673f0c8da3e84872886440d253a686246844be9813"
+    },
+    {
+      "task_idx": 6,
+      "task_id": "04eba5a210e670ef3bd02de904f75255cf47e262de7050691488cc2543447418",
+      "project": "Math",
+      "bug_id": 1,
+      "function_signature": "private static RealMatrix diag(final RealMatrix m)",
+      "testmethods": [
+        "org.apache.commons.math3.optimization.direct.CMAESOptimizerTest::testMath864",
+        "org.apache.commons.math3.optimization.direct.CMAESOptimizerTest::testFitAccuracyDependsOnBoundary",
+        "org.apache.commons.math3.optimization.direct.CMAESOptimizerTest::testRosen"
+      ],
+      "location": "src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java",
+      "prompt_file": "prompts/006_Math.txt",
+      "prompt_sha256": "96fd16e1e562954d6947aa88188d970f3640f1050dd94d213ad4ef6b0fd0ca0a",
+      "reference_file": "references/006_Math.java",
+      "completion_prompt_file": "prompts_complete/006_Math.txt",
+      "completion_prompt_sha256": "15bf5481b383e992010874aa6e4879f02e9daa557657f9fda5c49edcadfa2957"
+    }
+  ],
+  "prompt_modes_note": "prompts/ contains original chat prompts; prompts_complete/ contains original completion prompts for base models such as CodeLlama-13B. One completion probe has run for task_idx 4; tasks 5 and 6 have not been generated. No compilation or benchmark evaluation has run."
+}

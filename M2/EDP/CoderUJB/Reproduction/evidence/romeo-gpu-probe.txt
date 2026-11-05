@@ -1,0 +1,21 @@
+romeo-a058
+817580
+romeo-a058
+8192
+0
+NVIDIA GH200 120GB, 97871 MiB, 97277 MiB, 590.48.01
+               total        used        free      shared  buff/cache   available
+Mem:           856Gi       167Gi       732Gi        20Gi        39Gi       688Gi
+Swap:             0B          0B          0B
+Filesystem           Size  Used Avail Use% Mounted on
+/dev/mapper/live-rw   16G  6.1G   10G  38% /
+tmpfs                239G   20G  219G   9% /dev/shm
+gpfs                 2.8P  538T  2.3P  20% /gpfs
+gpfs                 2.8P  538T  2.3P  20% /gpfs
+Filesystem             Inodes    IUsed    IFree IUse% Mounted on
+/dev/mapper/live-rw   8388608   141608  8247000    2% /
+tmpfs                 3905383      226  3905157    1% /dev/shm
+gpfs                100003840 21349273 78654567   22% /gpfs
+gpfs                100003840 30445800 69558040   31% /gpfs
+Python 3.9.21
+No Modulefiles Currently Loaded.

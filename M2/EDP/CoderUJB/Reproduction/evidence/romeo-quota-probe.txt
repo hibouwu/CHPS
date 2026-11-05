@@ -1,0 +1,12 @@
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             KB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+gpfs       home       USR        11127672   15728640   20971520          0     none |    91295 1000000  1500000        0     none romeo.romeo.univ-reims.fr
+gpfs       scratch    USR        10312776   15728640   20971520          0     none |   119012 1000000  1500000        0     none romeo.romeo.univ-reims.fr
+gpfs       projet     USR        22624688          0          0          0     none |   176330       0        0        0     none romeo.romeo.univ-reims.fr
+
+Disk quotas for group r260073 (gid 200174):
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             KB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+gpfs       projet     GRP        20648536   15728640   20971520          0  expired |   150260 1000000  1500000        0     none romeo.romeo.univ-reims.fr
+drwxr-sr-x. 26 hibouwu r260073 4096 Oct 23 17:58 /gpfs/projet/r260073/hibouwu
+drwx------. 16 hibouwu hibouwu 8192 Nov  2 11:29 /scratch_p/hibouwu

@@ -1,0 +1,92 @@
+{
+  "status": "load_and_generation_passed",
+  "job_id": "817583",
+  "node": "romeo-a058",
+  "repository": "codellama/CodeLlama-13b-hf",
+  "revision": "8da65ff4ee20f74ecd107ca9d54f9f121b279860",
+  "temporary_model_directory": "/dev/shm/coderujb-817583-OF4jIt/model",
+  "job_memory_mib": "131072",
+  "benchmark_evaluated": false,
+  "torch": "2.7.1+cu128",
+  "transformers": "4.53.3",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GH200 120GB",
+  "download_receipts": [
+    {
+      "file": "config.json",
+      "bytes": 589,
+      "sha256": "b605ef82167712c63fbe53064b8c587cefbfb35a1382ded63f5e469ea5c97b5c",
+      "lfs_sha256_verified": false
+    },
+    {
+      "file": "generation_config.json",
+      "bytes": 116,
+      "sha256": "805423630e6c9952f2f9276de7335dda8c445b5184e191f4c9ee70c74c28543f",
+      "lfs_sha256_verified": false
+    },
+    {
+      "file": "model-00001-of-00003.safetensors",
+      "bytes": 9948851872,
+      "sha256": "cb14447b50003c4c95b4a506fcac823b015ddf1093681d4c438116c66be6e7b7",
+      "lfs_sha256_verified": true
+    },
+    {
+      "file": "model-00002-of-00003.safetensors",
+      "bytes": 9904123752,
+      "sha256": "2b78b65d30f099c1cb1dae78d6249f11c2acda78f40fd94d7c26ad712f167138",
+      "lfs_sha256_verified": true
+    },
+    {
+      "file": "model-00003-of-00003.safetensors",
+      "bytes": 6179122968,
+      "sha256": "08dd07dab1cf2b70795b1cfee17f1370c646df82052ca3812e11a43f1d0c9893",
+      "lfs_sha256_verified": true
+    },
+    {
+      "file": "model.safetensors.index.json",
+      "bytes": 31357,
+      "sha256": "c36a2bce04c2d0af458be93495f69bbff7517d9080cee73a4dc687ca4bdd1a43",
+      "lfs_sha256_verified": false
+    },
+    {
+      "file": "special_tokens_map.json",
+      "bytes": 411,
+      "sha256": "ff3b4a612c4e447acb02d40071bddd989fe0da87eb5b7fe0dbadfc4f74de7531",
+      "lfs_sha256_verified": false
+    },
+    {
+      "file": "tokenizer.json",
+      "bytes": 1843427,
+      "sha256": "dcb4337ba92f948b322e080f8b59a2a21cfe65dc2aa7ecf7df080ae8aa63c157",
+      "lfs_sha256_verified": false
+    },
+    {
+      "file": "tokenizer.model",
+      "bytes": 500058,
+      "sha256": "45ccb9c8b6b561889acea59191d66986d314e7cbd6a78abc6e49b139ca91c1e6",
+      "lfs_sha256_verified": true
+    },
+    {
+      "file": "tokenizer_config.json",
+      "bytes": 749,
+      "sha256": "c06e0ebbb62e55f469619f525fff0e76871572f036fd84a4edd7a0293f7f4340",
+      "lfs_sha256_verified": false
+    }
+  ],
+  "download_seconds": 94.91903664078563,
+  "load_seconds": 6.002873226068914,
+  "dtype": "torch.bfloat16",
+  "parameters": 13016028160,
+  "prompt_tokens_full": 1876,
+  "task_idx": 4,
+  "generation_mode": "complete",
+  "temperature": 0.2,
+  "seed": 4,
+  "max_input_tokens": 4096,
+  "max_new_tokens": 256,
+  "generated_tokens": 256,
+  "generation_seconds": 13.035168285481632,
+  "peak_cuda_allocated_bytes": 29222996992,
+  "peak_cuda_reserved_bytes": 29792141312,
+  "elapsed_seconds": 114.12231062352657
+}

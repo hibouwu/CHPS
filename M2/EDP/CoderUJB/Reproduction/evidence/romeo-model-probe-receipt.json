@@ -1,0 +1,32 @@
+{
+  "status": "completed",
+  "job_id": "817583",
+  "node": "romeo-a058",
+  "account": "r260073",
+  "partition": "instant",
+  "allocated_gpus": 1,
+  "allocated_host_memory_gib": 128,
+  "allocated_cpus": 8,
+  "time_limit_minutes": 20,
+  "remote_artifact_directory": "/scratch_p/hibouwu/coderujb/13b-probe-20261105-b",
+  "model_storage": "job-owned /dev/shm directory; cleaned after probe",
+  "benchmark_evaluated": false,
+  "recorded_at_utc": "2026-11-05T00:08:46.475607+00:00",
+  "source_sha256": {
+    "romeo_model_probe.py": "e3b52592609cba2c318f4b5b2571ee5b30b87d0e84ec026d1fe8499bda1b86ee",
+    "romeo_model_probe.sh": "e38de50ef5304bb645757ca54888e19cb2e14919aa9aebb0c7e86af09ae88d7d",
+    "evidence/codellama13b-download-manifest.json": "b4e0cceb2153205192f83c9789e20960b09b3c30b32ebb3a719d9f158af0bcb2",
+    "sample_pack/prompts_complete/004_Lang.txt": "76e971589b7b606eb84b8023bc3db0dfa351e5e7bb5f34681a6517f3f91e290e"
+  },
+  "previous_failed_job": "817582",
+  "slurm_state": "COMPLETED",
+  "slurm_exit_code": "0:0",
+  "artifact_sha256": {
+    "romeo-model-probe-result.json": "7ec99684345b411aa23f85b1a6cccd3e73db7a1a110e6aa4b694a0d0f158a34a",
+    "romeo-model-probe-generation.txt": "5ffbe957bf02fb25beba68bb01e908b27aefc571aea958df6aa69f1b7aae07cc"
+  },
+  "artifact_checksums_verified_against_remote": true,
+  "result_file": "romeo-model-probe-result.json",
+  "generation_file": "romeo-model-probe-generation.txt",
+  "generation_note": "One raw completion; the requested deleteFirst method is followed by extra continuation and generation reaches the 256-token cap. No compilation or benchmark tests have run."
+}

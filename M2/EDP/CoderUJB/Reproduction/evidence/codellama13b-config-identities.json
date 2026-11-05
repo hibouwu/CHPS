@@ -1,0 +1,37 @@
+{
+  "config.json": {
+    "official_blob": "ab89d9a6449138779c79cfe07fcd3f0ab1b21f0f",
+    "public_blob": "ab89d9a6449138779c79cfe07fcd3f0ab1b21f0f",
+    "same": true
+  },
+  "generation_config.json": {
+    "official_blob": "eacdf223f449c2daad20d9a44a62dfeb798c1df5",
+    "public_blob": "eacdf223f449c2daad20d9a44a62dfeb798c1df5",
+    "same": true
+  },
+  "model.safetensors.index.json": {
+    "official_blob": "bcdde55ca9aa55909a2b73401430839644e4a9c7",
+    "public_blob": "bcdde55ca9aa55909a2b73401430839644e4a9c7",
+    "same": true
+  },
+  "tokenizer.json": {
+    "official_blob": "6b25321d89e21832a89e6273834eab0e4378a53b",
+    "public_blob": "6b25321d89e21832a89e6273834eab0e4378a53b",
+    "same": true
+  },
+  "tokenizer.model": {
+    "official_blob": "f6722e8b170230ebdd4c0f5f2ce03f219be536d4",
+    "public_blob": "f6722e8b170230ebdd4c0f5f2ce03f219be536d4",
+    "same": true
+  },
+  "tokenizer_config.json": {
+    "official_blob": "526f464cf83353c59f7c07b9e587498b47d67a1b",
+    "public_blob": "526f464cf83353c59f7c07b9e587498b47d67a1b",
+    "same": true
+  },
+  "special_tokens_map.json": {
+    "official_blob": "d85ba6cb6820b01226ef8bd40b46bb489041c6a8",
+    "public_blob": "d85ba6cb6820b01226ef8bd40b46bb489041c6a8",
+    "same": true
+  }
+}
