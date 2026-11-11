@@ -30,6 +30,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{ragged2e}
+\usepackage{tikz}
 
 % Give slide headings the same left margin as the body and extra top space.
 \setbeamertemplate{frametitle}{%
@@ -324,24 +325,24 @@ questions & projets Java & tâches
 \end{tabular}
 \end{center}
 \medskip
-{\small Questions issues de Defects4J, avec les projets et leur environnement d’exécution.\par}
+{\small Source commune : Defects4J. Un benchmark et une étude comparative.\par}
 
 \note{
 INTERVENANT 2 — Hao QIAN — Contributions et méthode
 
 DIAPOSITIVE 9 / 32
 
-CoderUJB réunit les questions et les projets nécessaires pour exécuter les réponses des modèles.
+Merci. Je vais présenter ce que les auteurs proposent et comment ils évaluent les modèles.
 
 CoderUJB contient deux mille deux cent trente-neuf questions. Elles viennent de dix-sept projets Java disponibles dans Defects4J. Cette source contient des programmes, des bugs et des versions corrigées.
 
-Les auteurs réunissent cinq tâches et fournissent les projets avec leur environnement d’exécution. Ils utilisent ensuite ce benchmark pour comparer plusieurs modèles.
+Le premier apport est de réunir cinq tâches dans un même cadre. Le deuxième est de fournir le projet et son environnement d’exécution. Le troisième est une étude comparative de plusieurs modèles. 
 
 REPÈRES : 2 239 questions / 17 projets / Defects4J
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Résumé, §3.2, pp. 124, 127. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : 337 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -358,7 +359,7 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 \midrule
 FCG & Compléter une fonction & 238 \\
 CTG & Créer un test à partir du code & 140 \\
-ITG & Écrire un test reproduisant un bug & 451 \\
+ITG & Reproduire un bug signalé & 451 \\
 APR & Corriger une fonction & 470 \\
 DD & Détecter un bug : oui / non & 940 \\
 \bottomrule
@@ -372,41 +373,41 @@ INTERVENANT 2 — Hao QIAN — Contributions et méthode
 
 DIAPOSITIVE 10 / 32
 
-La première tâche consiste à compléter une fonction à partir de sa description. La deuxième demande d’écrire un test à partir du code. La troisième part d’un signalement de bug : le test doit reproduire ce problème.
+Voici les cinq tâches. La première consiste à compléter une fonction à partir de sa description. La deuxième demande d’écrire un test à partir du code. La troisième part d’un signalement de bug : le test doit reproduire ce problème.
 
 La quatrième consiste à corriger une fonction défectueuse. Enfin, la cinquième demande de dire si une fonction contient un bug.
 
-Les deux tâches de test ont donc des entrées différentes : le code dans un cas, le signalement du problème dans l’autre.
+Les deux tâches de test ont donc des entrées différentes : le code dans un cas, le signalement du problème dans l’autre. 
 
 REPÈRES : FCG / CTG / ITG / APR / DD
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.1-3.3, pp. 126-128. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : 337 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 11 / 32; intervenant 2
 
-\begin{frame}{Construction des questions et évaluation}
+\begin{frame}{Du projet à la réponse du modèle}
 \small
 \begin{block}{Sélection}
 \begin{itemize}
-  \item Extraire le code et les tests, filtrer les questions, puis les vérifier
+  \item Extraction, filtres et contrôle manuel
 \end{itemize}
 \end{block}
 \begin{block}{Prompt}
 \begin{itemize}
-  \item Fournir la consigne et le contexte utiles à la tâche
+  \item Consigne et contexte adaptés à la tâche
 \end{itemize}
 \end{block}
 \begin{block}{Évaluation}
 \begin{itemize}
-  \item Replacer les réponses dans le projet et les évaluer
+  \item Solutions replacées dans le projet
 \end{itemize}
 \end{block}
 \medskip
-{\small Le projet complet sert à l’exécution. Le prompt n’en contient qu’une partie.\par}
+{\small Projet complet disponible \(\ne\) projet complet envoyé dans chaque prompt.\par}
 
 \note{
 INTERVENANT 2 — Hao QIAN — Contributions et méthode
@@ -417,38 +418,37 @@ Ils extraient le code et les tests, puis appliquent des filtres et une vérifica
 
 Ensuite, chaque question contient une consigne et les informations utiles à la tâche. Selon le cas, ce sont des imports, des signatures ou un rapport de bug.
 
-Le benchmark fournit le projet complet pour exécuter les solutions. Le prompt contient seulement les informations sélectionnées pour la tâche.
+Attention : le benchmark fournit le projet complet, mais le prompt ne contient pas forcément tout ce projet. Les solutions générées sont ensuite vérifiées dans leur environnement.
 
 REPÈRES : sélection / contexte / réponse / vérification
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.3-3.4, pp. 127-129. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : 337 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 12 / 32; intervenant 2
 
-\begin{frame}{Comment les réponses sont évaluées}
+\begin{frame}{Des critères adaptés à chaque tâche}
 \small
 \begin{block}{Génération}
 \begin{itemize}
   \item 20 propositions par question ; pass-all@1 et pass-all@10
 \end{itemize}
 \end{block}
-\begin{block}{Tests générés}
+\begin{block}{Tests de bugs}
 \begin{itemize}
-  \item CTG : le test doit s’exécuter et couvrir le code testé
-  \item ITG : échec sur la version défectueuse, succès après correction
+  \item Échec sur la version défectueuse, succès après correction
 \end{itemize}
 \end{block}
 \begin{block}{Détection}
 \begin{itemize}
-  \item Accuracy : proportion de réponses correctes
+  \item Accuracy : proportion de classifications correctes
 \end{itemize}
 \end{block}
 \medskip
-{\small La syntaxe, la compilation et les tests sont vérifiés séparément.\par}
+{\small Syntaxe correcte, compilation et réussite des tests sont des étapes différentes.\par}
 
 \note{
 INTERVENANT 2 — Hao QIAN — Contributions et méthode
@@ -457,15 +457,15 @@ DIAPOSITIVE 12 / 32
 
 Pour les tâches de génération, les auteurs produisent vingt réponses par question. Le score pass-all à k estime la probabilité d’avoir au moins une réponse correcte parmi k propositions. Ils présentent notamment k égal à un et à dix.
 
-Pour une fonction ou une réparation, la réponse doit passer les tests. En CTG, le test généré doit s’exécuter et couvrir le code testé. Pour reproduire un bug, le test doit échouer sur la version défectueuse et réussir sur la version corrigée. La détection utilise le pourcentage de réponses correctes.
+Pour une fonction ou une réparation, la réponse doit passer les tests. Pour reproduire un bug, le test doit échouer sur la version défectueuse et réussir sur la version corrigée. La détection utilise le pourcentage de réponses correctes.
 
-La syntaxe, la compilation et la réussite des tests sont évaluées séparément. Jianye va présenter les premiers résultats.
+Il faut donc comparer des scores de même nature. La personne suivante va présenter les premiers résultats.
 
 REPÈRES : pass-all@k / 20 réponses / accuracy
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.5, pp. 129-130. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 2 : 337 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -475,21 +475,20 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 \begin{frame}{Le contexte du projet aide la génération}
 \small
-\includegraphics[width=\textwidth]{assets/coderujb-figure2a-context.pdf}
-\smallskip
-{\footnotesize Exemple de contexte : imports, champs de la classe et signatures des méthodes.\par}
-\smallskip
+{\centering\includegraphics[width=0.92\textwidth]{assets/coderujb-figure2a-context-fr.pdf}\par}
+{\scriptsize Fig. 2(a), extrait adapté : annotations traduites ; ce n’est pas le prompt complet.\par}
+\medskip
 \begin{columns}[c,onlytextwidth]
-\begin{column}{0.40\textwidth}
+\begin{column}{0.38\textwidth}
 \textbf{CodeLlama-13B}\par
 \smallskip
 Génération de fonctions (FCG)\par
 \medskip
-Le contexte du projet donne ici\newline un meilleur score que les exemples.
+Trois prompts, un même modèle.
 \end{column}
-\begin{column}{0.56\textwidth}
+\begin{column}{0.59\textwidth}
 \centering
-\renewcommand{\arraystretch}{1.15}
+\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{@{}lr@{}}
 \toprule
 \textbf{Prompt} & \textbf{pass-all@1} \\
@@ -501,25 +500,23 @@ Contexte du projet & 21,91 \% \\
 \end{tabular}
 \end{column}
 \end{columns}
-\smallskip
-{\scriptsize Source : Zeng et al., ISSTA 2024, fig. 2(a), extrait ; tableau 3.\par}
+\medskip
+{\scriptsize Source : Zeng et al., ISSTA 2024, fig. 2(a) et tableau 3.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 14 / 32
 
-L’extrait montre les informations de contexte : les imports, les champs de la classe et les signatures des méthodes. Le tableau compare trois façons de présenter une question au modèle : un exemple, quatre exemples ou le contexte du projet.
+Merci Hao. Après la méthode, passons aux résultats. Première question : quelles informations faut-il fournir au modèle pour générer une fonction ? En haut de la diapositive, on voit le contexte extrait de la classe : les imports, les champs et les signatures des autres méthodes.
 
-Pour CodeLlama-13B, le score passe d’environ 13 \% avec un exemple à 22 \% avec le contexte du projet. Quatre exemples donnent environ 15 \%.
-
-Sur cette tâche, les informations sur le projet aident donc davantage que les exemples.
+Sur le tableau, avec CodeLlama-13B, donner un ou quatre exemples change peu le score : on reste entre 13 et 14,5 \%. En revanche, avec le contexte du projet, on grimpe à près de 22 \%. Connaître la structure de la classe aide donc bien plus que d'ajouter des exemples.
 
 REPÈRES : RQ1 / contexte du projet / exemples
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.4, figure 2(a) et RQ1, tableau 3, pp. 128, 131. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Partie 3 : environ 374 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -527,40 +524,41 @@ Les chiffres de ces diapositives proviennent de l’article. Partie 3 : environ 
 
 \begin{frame}{Un écart plus marqué en réparation}
 \small
+FCG : générer une fonction \hfill APR : réparer une fonction
+\medskip
 \begin{center}
-\small
-\renewcommand{\arraystretch}{1.35}
-\begin{tabular}{@{}l@{\hspace{8mm}}r@{\hspace{7mm}}r@{}}
+\normalsize
+\renewcommand{\arraystretch}{1.65}
+\begin{tabular}{@{}l@{\hspace{10mm}}r@{\hspace{10mm}}r@{}}
 \toprule
 \textbf{Modèle} & \textbf{FCG} & \textbf{APR} \\
 \midrule
 CodeLlama-34B & 22,82 \% & 5,01 \% \\
 GPT-3.5-Turbo & 23,37 \% & 9,31 \% \\
-GPT-4 & 30,52 \% & 18,76 \% \\
+\textbf{GPT-4} & \textbf{30,52 \%} & \textbf{18,76 \%} \\
 \bottomrule
 \end{tabular}
 \end{center}
 \medskip
-{\small Scores : pass-all@1. Versions des modèles évaluées dans l’article de 2024.\par}
+Écart GPT-4 / CodeLlama : \textbf{7,70 points} en FCG, \textbf{13,75} en APR.\par
+\medskip
+{\scriptsize pass-all@1. Source : Zeng et al., tableau 4.\par
+Versions : GPT-3.5-Turbo-0301 et GPT-4-0314.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 15 / 32
 
-Dans ce tableau, FCG signifie générer une fonction, et APR signifie réparer une fonction. Les scores utilisent tous pass-all à un.
+Voyons maintenant comment les modèles se comparent dans le tableau 4, en prenant CodeLlama-34B face à GPT-3.5 et GPT-4.
 
-Pour générer une fonction, CodeLlama-34B et GPT-3.5 sont très proches, autour de 23 \%. GPT-4 atteint environ 31 \%.
-
-Pour réparer une fonction, CodeLlama obtient environ 5 \%, GPT-3.5 environ 9 \%, et GPT-4 environ 19 \%. Les écarts sont donc plus grands en réparation.
-
-Ce sont les versions évaluées dans l’article de 2024.
+En génération de fonctions, CodeLlama fait jeu égal avec GPT-3.5 autour de 23 \%, contre 30,5 \% pour GPT-4. Mais en réparation de bugs, tous les scores chutent et l’écart se creuse : CodeLlama tombe à 5 \%, contre 9 \% pour GPT-3.5 et près de 19 \% pour GPT-4. L’écart avec GPT-4 passe ainsi de 8 à près de 14 points.
 
 REPÈRES : RQ2 / mêmes métriques / modèles de l’étude
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Tableaux 2 et 4, pp. 130, 132. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 374 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -568,39 +566,43 @@ Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne
 
 \begin{frame}{GPT-4 : des scores différents selon la tâche}
 \small
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.35}
-\begin{tabular}{@{}lr@{}}
-\toprule
-\textbf{GPT-4 : tâche} & \textbf{pass-all@1} \\
-\midrule
-FCG : compléter une fonction & 30,52 \% \\
-CTG : écrire un test à partir du code & 24,18 \% \\
-ITG : écrire un test qui reproduit un bug & 6,66 \% \\
-APR : réparer une fonction & 18,76 \% \\
-\bottomrule
-\end{tabular}
-\end{center}
+\textbf{GPT-4-0314} \hfill pass-all@1 (\%)
 \medskip
-{\small Scores à k = 1. Chaque tâche a ses propres critères de réussite.\par}
+\begin{center}
+\begin{tikzpicture}[x=0.17cm,y=0.72cm]
+\foreach \x in {0,10,20,30} {
+  \draw[black!15] (\x,-0.45) -- (\x,3.45);
+  \node[font=\scriptsize,anchor=north] at (\x,-0.5) {\x};
+}
+\foreach \y/\v/\label/\val in {3/30.52/{FCG : générer}/30{,}52,2/24.18/{CTG : tester le code}/24{,}18,1/6.66/{ITG : reproduire un bug}/6{,}66,0/18.76/{APR : réparer}/18{,}76} {
+  \fill[structure.fg] (0,\y-0.17) rectangle (\v,\y+0.17);
+  \node[anchor=east,font=\small] at (-1,\y) {\label};
+  \node[anchor=west,font=\small] at (\v+0.5,\y) {\val\,\%};
+}
+\end{tikzpicture}
+\end{center}
+\smallskip
+{\footnotesize
+\textbf{Réussite :} FCG / APR : passer les tests.\par
+CTG : test exécutable couvrant le code.\par
+ITG : test en échec avec le bug, puis réussi après correction.\par}
+\smallskip
+{\scriptsize Source : Zeng et al., §3.5 et tableau 4.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 16 / 32
 
-Pour GPT-4, le score est d’environ 31 \% pour compléter une fonction, et de 24 \% pour écrire un test à partir du code.
+Même pour GPT-4, les résultats varient fortement selon la tâche. S'il dépasse 30 \% en génération et 24 \% pour tester le code, il descend à 19 \% en réparation, et chute à 6,66 \% en ITG pour reproduire un bug.
 
-Pour écrire un test qui reproduit un bug décrit dans un rapport, il est de 6,66 \%. Pour réparer une fonction, il atteint environ 19 \%.
-
-Les critères de réussite changent selon la tâche. Le score en génération de fonctions ne décrit donc pas les résultats en test ou en réparation.
+Pour lire ces scores, il faut aussi tenir compte des critères de réussite. En FCG et APR, il faut passer les tests existants ; en CTG, le test doit s’exécuter et couvrir le code. Mais en ITG, le modèle part du rapport de bug, sans le contexte de classe : son test doit échouer sur la version défectueuse, puis réussir après correction.
 
 REPÈRES : FCG / CTG / ITG / APR
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. Tableau 4, p. 132 ; valeurs choisies plutôt que le texte contradictoire de RQ2. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 374 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -609,33 +611,40 @@ Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne
 \begin{frame}{Détecter les bugs reste difficile}
 \small
 \begin{center}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{ccc}
-{\Large\structure{940}} & {\Large\structure{50\,\%}} & {\Large\structure{52,16\,\%}} \\
-fonctions classées & toujours la même réponse & bonnes réponses de GPT-4
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{@{}>{\centering\arraybackslash}p{0.28\textwidth}>{\centering\arraybackslash}p{0.32\textwidth}>{\centering\arraybackslash}p{0.30\textwidth}@{}}
+{\LARGE\structure{940}} & {\LARGE\structure{50\,\%}} & {\LARGE\structure{52,16\,\%}} \\
+fonctions & réponse constante & GPT-4 \\
 \end{tabular}
 \end{center}
 \medskip
-{\small 470 fonctions avec un bug et 470 versions corrigées.\par}
+470 fonctions avec un bug et 470 versions corrigées.\par
+\smallskip
+\textbf{Accuracy :} proportion de réponses correctes.\par
+GPT-4 dépasse la référence de \textbf{2,16 points}.
+\bigskip
+\begin{block}{À retenir}
+Le contexte aide la génération. Les autres tâches restent à vérifier séparément.
+\end{block}
+\smallskip
+{\scriptsize Source : Zeng et al., §3.3 et tableau 4 ; GPT-4-0314.\par}
 
 \note{
 INTERVENANT 3 — Jianye SHI — Résultats : contexte et modèles
 
 DIAPOSITIVE 17 / 32
 
-Pour la détection, le modèle doit dire si une fonction contient un bug. Il y a 470 fonctions avec un bug et 470 versions corrigées.
+Enfin, même détecter un bug reste très difficile. Sur les 940 fonctions — 470 avec bug et 470 corrigées — répondre toujours la même chose donne déjà 50 \%.
 
-Répondre toujours la même chose donnerait donc 50 \% de bonnes réponses. GPT-4 obtient 52,16 \%, un résultat proche de cette référence.
+Or, GPT-4 atteint seulement 52,16 \% d’accuracy, à peine deux points au-dessus de cette référence. Les auteurs l'expliquent par la complexité des erreurs logiques dans de vrais projets.
 
-Certains modèles donnent aussi des réponses que le script ne peut pas interpréter.
-
-Après ces résultats, Xiang va présenter l’effet de l’entraînement sur les performances.
+En résumé, le contexte aide à générer une fonction, mais cela ne garantit pas de savoir réparer ou détecter un bug. L’entraînement spécialisé ou l'instruction tuning permettent-ils de faire mieux ? Je laisse la parole à Xiang.
 
 REPÈRES : 940 exemples / 50 \% / 52,16 \%
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.3, RQ2 et tableau 4, pp. 128, 132. DOI: 10.1145/3650212.3652115.
 
-Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 301 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne GPT-3.5-Turbo-0301 et GPT-4-0314. Partie 3 : environ 374 mots ; durée à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -643,33 +652,33 @@ Les chiffres de ces diapositives proviennent de l’article. Le tableau concerne
 
 % Slide 19 / 32; intervenant 4
 
-\begin{frame}{Deux façons de poursuivre l’entraînement}
+\begin{frame}{Plus d’entraînement = de meilleures performances ?}
 \small
-\begin{block}{RQ3 : poursuivre le préentraînement}
+\begin{block}{RQ3 : préentraînement spécialisé par langage}
 \begin{itemize}
   \item Continuer l’entraînement avec du code Python ou Java
 \end{itemize}
 \end{block}
-\begin{block}{RQ4 : apprendre à suivre des instructions}
+\begin{block}{RQ4 : ajustement sur instructions}
 \begin{itemize}
-  \item Entraîner le modèle sur des exemples de demandes et de réponses
+  \item Apprendre à suivre des demandes grâce à des exemples de réponses
 \end{itemize}
 \end{block}
 \medskip
-{\small Comparaison avec le modèle de départ, sur les mêmes tâches.\par}
+{\small Question commune : quel effet sur les tâches réelles de CoderUJB ?\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
 
 DIAPOSITIVE 19 / 32
 
-Les auteurs comparent deux types d’entraînement au modèle de départ.
+Je vais maintenant expliquer les effets de deux types d’entraînement. 
 
 Le premier est le préentraînement supplémentaire dans un langage précis. Par exemple, on continue à entraîner le modèle avec du code Python ou Java.
 
 Le second est l’ajustement sur des instructions. On entraîne alors le modèle à répondre à des demandes avec des exemples de tâches et de réponses.
 
-Ils mesurent ensuite l’effet de chaque stratégie sur les tâches de CoderUJB.
+Ils comparent ces versions aux modèles de départ : quelles tâches progressent ?
 
 REPÈRES : RQ3 / continued pre-training / RQ4 / instruction tuning
 
@@ -711,21 +720,21 @@ Base & \makebox[2.6cm][l]{\textcolor{structure.fg}{\rule{1.9728cm}{1.1ex}}} & 30
 \end{column}
 \end{columns}
 \bigskip
-En génération de fonctions, chaque version progresse dans le langage ciblé.
+\textbf{En FCG, la spécialisation favorise généralement le langage ciblé.}
 \medskip
 
-{\small Pour ITG et APR, les auteurs trouvent des résultats moins réguliers (RQ3).\par}
+{\small Mais ce résultat n’est pas systématique pour ITG et APR (RQ3).\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
 
 DIAPOSITIVE 20 / 32
 
-Ce graphique compare les versions de StarCoder. Sur la génération de fonctions Java de CoderUJB, le modèle de base obtient environ quinze pour cent. La version entraînée davantage sur Python descend à environ quatorze pour cent. La version Java monte à environ dix-neuf pour cent.
+Voici un exemple avec StarCoder. Sur la génération de fonctions Java de CoderUJB, le modèle de base obtient environ quinze pour cent. La version entraînée davantage sur Python descend à environ quatorze pour cent. La version Java monte à environ dix-neuf pour cent.
 
 Sur HumanEval en Python, on observe le mouvement inverse : la version Python progresse et la version Java recule.
 
-Cela illustre un compromis entre langages. Mais pour reproduire des bugs ou réparer des fonctions, les auteurs observent des effets moins réguliers.
+Cela illustre un compromis entre langages. Mais pour reproduire des bugs ou réparer des fonctions, les auteurs observent des effets moins réguliers. Il ne faut donc pas généraliser cet exemple à toutes les tâches.
 
 REPÈRES : StarCoder-15B / FCG / pass-all@1 / RQ3
 
@@ -737,7 +746,7 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 21 / 32; intervenant 4
 
-\begin{frame}{CodeLlama-13B après ajustement sur instructions}
+\begin{frame}{L’instruction tuning n’améliore pas toutes les tâches}
 \small
 \textbf{CodeLlama-13B}
 \begin{center}
@@ -754,7 +763,7 @@ APR : pass-all@10 & 8,39 \% & 15,72 \% \\
 \end{tabular}
 \end{center}
 \smallskip
-\textbf{Tableau 5 : syntaxe et compilation}
+\textbf{Tableau 5 : pourquoi la génération se dégrade-t-elle ?}
 
 {\footnotesize FCG, CodeLlama-13B\par}
 \begin{center}
@@ -768,14 +777,14 @@ Compilation & 63,49 \% & 40,76 \% \\
 \bottomrule
 \end{tabular}
 \end{center}
-{\small Le taux de syntaxe correcte reste proche ; le taux de compilation baisse.\par}
+{\small La syntaxe reste correcte, mais le code compile moins souvent.\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
 
 DIAPOSITIVE 21 / 32
 
-Ce tableau compare CodeLlama treize milliards à sa version Instruct.
+L’ajustement sur instructions donne aussi des résultats contrastés. Regardons CodeLlama treize milliards et sa version Instruct.
 
 Pour compléter une fonction, le score à une tentative passe d’environ vingt-deux à treize pour cent. Pour créer un test à partir du code, il passe d’environ treize à six pour cent.
 
@@ -783,7 +792,7 @@ Pour la réparation, il faut préciser le nombre de tentatives. Avec une seule p
 
 Le tableau cinq donne un autre élément. Pour cette même tâche de génération de fonctions, la syntaxe reste presque aussi bonne : environ quatre-vingt-quatorze pour cent pour le modèle de base et quatre-vingt-seize pour cent pour Instruct. Mais le taux de compilation passe d’environ soixante-trois à quarante et un pour cent. Une syntaxe correcte ne suffit donc pas pour compiler dans le projet.
 
-Dans cet exemple, le gain en réparation apparaît avec dix propositions ; avec une seule, le score baisse légèrement.
+Dire simplement que les instructions améliorent la réparation serait donc trop général. La métrique compte aussi.
 
 REPÈRES : CodeLlama-13B / pass-all@k / syntaxe / compilation
 
@@ -795,30 +804,30 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 22 / 32; intervenant 4
 
-\begin{frame}{L’effet de l’entraînement dépend de la tâche}
+\begin{frame}{Plus d’entraînement $\ne$ meilleures performances}
 \small
 \begin{block}{RQ3 : préentraînement par langage}
-En génération de fonctions, les gains dépendent du langage. Les effets sont moins réguliers en ITG et APR.
+La spécialisation aide certaines tâches, mais ses effets varient selon le langage et la tâche.
 \end{block}
-\begin{block}{RQ4 : ajustement sur instructions}
-Les scores peuvent baisser en génération. En réparation, le gain dépend aussi du nombre de propositions.
+\begin{block}{RQ4 : instruction fine-tuning}
+La génération peut se dégrader ; certaines réparations peuvent s’améliorer.
 \end{block}
 \begin{block}{Interprétation des auteurs}
-Ces différences pourraient venir du lien entre la tâche évaluée et le préentraînement.
+La proximité entre préentraînement et tâche évaluée pourrait expliquer ces différences.
 \end{block}
 \medskip
-{\small Cas particulier : CodeLlama-Instruct-34B produit des réponses répétées en FCG et CTG (mode collapse).\par}
+{\small Cas particulier : CodeLlama-Instruct-34B produit des réponses répétées (mode collapse).\par}
 
 \note{
 INTERVENANT 4 — Xiang BIAN — Résultats : effets de l’entraînement
 
 DIAPOSITIVE 22 / 32
 
-Les auteurs proposent une explication : l’effet de l’entraînement pourrait dépendre de la proximité entre la tâche évaluée et la tâche de préentraînement. Cette explication reste une hypothèse des auteurs.
+Les auteurs proposent une explication : l’effet de l’entraînement pourrait dépendre de la proximité entre la tâche évaluée et la tâche de préentraînement. C’est une interprétation des résultats, pas une règle démontrée pour tous les modèles.
 
 CodeLlama Instruct trente-quatre milliards produit des réponses identiques pour différentes questions dans certaines tâches. Les auteurs parlent d’un effondrement du mode de génération et écartent ces résultats de leur analyse correspondante.
 
-Les effets observés dépendent donc de la tâche. Zijie va présenter les limites de cette étude.
+Nous retenons donc qu’il faut tester chaque stratégie sur plusieurs tâches. La personne suivante va préciser les limites de cette étude.
 
 REPÈRES : RQ3 / RQ4 / effets selon la tâche / prudence
 
@@ -832,7 +841,7 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 24 / 32; intervenant 5
 
-\begin{frame}{Les limites discutées par les auteurs}
+\begin{frame}{Les trois limites principales}
 \small
 \begin{block}{Validité interne}
 \begin{itemize}
@@ -850,39 +859,48 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 \end{itemize}
 \end{block}
 \medskip
-{\small Ces trois limites sont discutées dans la section 6 de l’article.\par}
+{\small Les auteurs cherchent à limiter ces risques.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
 
 DIAPOSITIVE 24 / 32
 
-La section six présente les limites reconnues par les auteurs. Les pages suivantes ajoutent aussi nos réserves sur les données et le protocole.
+Je vais maintenant présenter les limites de l’étude. Je distingue celles que les auteurs discutent explicitement et les réserves que nous ajoutons.
 
 Dans leur section sur la validité, les auteurs présentent trois types de risques. Le premier concerne les erreurs possibles dans les scripts. Le deuxième concerne le choix des modèles et la portée des conclusions. Le troisième concerne les indicateurs utilisés.
 
-Ils relisent les scripts, choisissent des modèles qu’ils jugent représentatifs et utilisent plusieurs indicateurs.
+Les auteurs cherchent à réduire ces risques, sans pouvoir les supprimer.
 
 REPÈRES : validité interne / externe / des mesures
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §6, p. 134. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : 346 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 25 / 32; intervenant 5
 
-\begin{frame}{Ce que les tests ne vérifient pas}
+\begin{frame}{Réussir les tests ne suffit pas}
 \small
-Les auteurs relisent leurs scripts et publient les résultats.
-\bigskip
-\begin{block}{Des bugs peuvent échapper aux tests}
-Un programme peut réussir les tests disponibles tout en contenant une erreur non testée.
+\begin{block}{Ce que font les auteurs}
+\begin{itemize}
+  \item Vérification des scripts et publication des résultats
+\end{itemize}
 \end{block}
-\begin{block}{La couverture indique les lignes exécutées}
-Elle ne garantit pas que tous les comportements sont vérifiés.
+\begin{block}{Limite des tests}
+\begin{itemize}
+  \item Un programme peut encore contenir des bugs
+\end{itemize}
 \end{block}
+\begin{block}{Limite de la couverture}
+\begin{itemize}
+  \item Exécuter du code $\ne$ vérifier tous ses comportements
+\end{itemize}
+\end{block}
+\medskip
+{\small Passer les tests $\ne$ correction garantie.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
@@ -891,25 +909,25 @@ DIAPOSITIVE 25 / 32
 
 Pour les erreurs d’implémentation, les auteurs expliquent qu’ils ont relu leurs scripts. Ils publient également le code et les résultats pour permettre des vérifications.
 
-Concernant les mesures, ils utilisent plusieurs indicateurs et vérifient la couverture des tests. Un programme qui passe les tests peut encore contenir un bug non détecté.
+Concernant les mesures, ils utilisent plusieurs indicateurs et vérifient la couverture des tests. C’est utile, mais un programme qui passe les tests peut encore contenir un bug non détecté.
 
-De même, couvrir une ligne signifie qu’un test l’a exécutée. Cela ne garantit pas que le test vérifie correctement tous les comportements. Les scores mesurent donc la réussite aux tests et aux vérifications prévus dans le benchmark.
+De même, couvrir une ligne signifie qu’un test l’a exécutée. Cela ne garantit pas que le test vérifie correctement tous les comportements. Il faut donc comprendre les scores comme une réussite selon les critères du benchmark, pas comme une preuve de correction totale.
 
 REPÈRES : code public / tests / couverture
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.5 et §6, pp. 129-130, 134 ; distinction couverture/correction : analyse du groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : 346 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 26 / 32; intervenant 5
 
-\begin{frame}{Des résultats sur un ensemble précis de projets}
+\begin{frame}{Des résultats difficiles à généraliser}
 \small
 \begin{block}{Modèles}
 \begin{itemize}
-  \item Les versions de modèles retenues pour l’étude
+  \item Des versions précises des LLM
 \end{itemize}
 \end{block}
 \begin{block}{Données}
@@ -923,7 +941,7 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 \end{itemize}
 \end{block}
 \medskip
-{\small La réparation de bugs répartis sur plusieurs fichiers n’est pas évaluée ici.\par}
+{\small Pas être généralisés à tous les cas.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
@@ -932,21 +950,21 @@ DIAPOSITIVE 26 / 32
 
 Les auteurs choisissent des modèles qu’ils considèrent comme représentatifs. Mais ce sont des versions précises, évaluées dans les conditions de cette étude.
 
-Nous ajoutons une réserve sur les données. Les questions proviennent de dix-sept projets Java d’une même source. Cette source commune facilite la comparaison des tâches. Elle ne couvre pas tous les langages ni tous les logiciels.
+Nous ajoutons une réserve sur les données. Les questions proviennent de dix-sept projets Java d’une même source. Cela facilite une construction cohérente, mais ne représente pas tous les langages ni tous les logiciels.
 
-De plus, la réparation se concentre sur des défauts dans une seule fonction. Les corrections réparties dans plusieurs fichiers restent à évaluer.
+De plus, la réparation se concentre sur des défauts dans une seule fonction. On ne peut donc pas supposer que les résultats seraient identiques pour une correction répartie dans plusieurs fichiers.
 
 REPÈRES : Java / 17 projets / versions testées
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.2-3.3, §4.2, §6, pp. 127-130, 134 ; portée des projets : analyse du groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : 346 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 27 / 32; intervenant 5
 
-\begin{frame}{Le protocole de génération étudié}
+\begin{frame}{Une évaluation encore limitée}
 \small
 \begin{block}{Protocole étudié}
 \begin{itemize}
@@ -964,26 +982,26 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 \end{itemize}
 \end{block}
 \medskip
-{\small Les boucles de test et de correction restent à évaluer.\par}
+{\small Ces limites précisent la portée des conclusions.\par}
 
 \note{
 INTERVENANT 5 — Zijie Fang — Limites de l’étude
 
 DIAPOSITIVE 27 / 32
 
-Enfin, les auteurs étudient principalement des réponses à des questions ou des complétions de code. Leur protocole porte sur les réponses générées à partir de ces prompts.
+Enfin, les auteurs étudient principalement des réponses à des questions ou des complétions de code. Ils ne mesurent pas toute l’activité d’un développeur assisté par une IA.
 
-Par exemple, une méthode qui exécute ses propres tests puis corrige plusieurs fois sa réponse pourrait se comporter autrement.
+Par exemple, une méthode qui exécute ses propres tests puis corrige plusieurs fois sa réponse pourrait se comporter autrement. 
 
 Il faut aussi distinguer le projet disponible dans le benchmark et le contexte réellement fourni au modèle. Une information absente du prompt peut influencer le résultat.
 
-Yupan va terminer avec notre appréciation de l’article et quelques expériences à ajouter.
+Ces limites précisent donc où les conclusions s’appliquent. La dernière partie va proposer notre évaluation et des améliorations possibles.
 
 REPÈRES : prompt / réponse / outils / portée
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.4 et conclusion 2 de RQ2, pp. 128-129, 132 ; portée du protocole : analyse du groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : environ 329 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 5 : 346 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
@@ -991,73 +1009,75 @@ Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe
 
 % Slide 29 / 32; intervenant 6
 
-\begin{frame}{Ce que nous retenons de CoderUJB}
+\begin{frame}{Notre évaluation : un apport utile}
 \small
-\begin{block}{Des tâches réunies}
+\begin{block}{Pertinence}
 \begin{itemize}
-  \item Générer du code, écrire des tests, détecter et réparer des bugs
+  \item Plusieurs activités réelles de développement
 \end{itemize}
 \end{block}
-\begin{block}{Des réponses exécutées}
+\begin{block}{Vérification}
 \begin{itemize}
-  \item Vérifier les réponses dans leur projet, selon les critères de chaque tâche
+  \item Exécution et critères adaptés aux tâches
 \end{itemize}
 \end{block}
-\begin{block}{Des résultats accessibles}
+\begin{block}{Transparence}
 \begin{itemize}
   \item Code, scripts et résultats rendus publics
 \end{itemize}
 \end{block}
 \medskip
-{\small Nous retenons surtout la comparaison des résultats par tâche.\par}
+{\small Notre appréciation : une contribution à la méthode d’évaluation, au-delà d’un classement.\par}
 
 \note{
 INTERVENANT 6 — Yupan Huang — Critique et conclusion
 
 DIAPOSITIVE 29 / 32
 
-Nous apprécions le fait que CoderUJB réunisse plusieurs activités de développement dans des projets existants.
+Pour terminer, voici notre évaluation de l’article. Son principal point fort est de rapprocher l’évaluation de plusieurs activités réelles de développement.
 
-Les auteurs réunissent plusieurs tâches, utilisent des projets existants et vérifient les solutions avec des critères adaptés. Ils rendent aussi leurs données et leurs résultats accessibles.
+Les auteurs réunissent plusieurs tâches, utilisent des projets existants et vérifient les solutions avec des critères adaptés. Ils rendent aussi leurs données et leurs résultats accessibles. 
 
-Nous apprécions surtout le fait de regarder les résultats par tâche. Un seul score peut masquer des différences importantes. Cette comparaison par tâche peut aussi servir à évaluer d’autres modèles.
+Nous apprécions surtout le fait de regarder les résultats par tâche. Un seul score peut masquer des différences importantes. Cet apport concerne aussi la manière d’évaluer les futurs modèles.
 
 REPÈRES : forces / tâches / exécution / transparence
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3, §5-7, pp. 126-130, 134 ; appréciation du groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : environ 339 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : 348 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 30 / 32; intervenant 6
 
-\begin{frame}{Séparer l’effet du modèle et celui du prompt}
+\begin{frame}{Des comparaisons à mieux isoler}
 \small
 \begin{block}{Constat du protocole}
 \begin{itemize}
   \item Base : complétion ; Instruct : dialogue
 \end{itemize}
 \end{block}
-\begin{block}{Notre réserve}
+\begin{block}{Réserve}
 \begin{itemize}
   \item Le format peut contribuer à l’écart observé
 \end{itemize}
 \end{block}
 \begin{block}{Amélioration proposée}
 \begin{itemize}
-  \item Comparer les formats, répéter les mesures et estimer l’incertitude
+  \item Tester plusieurs formats et quantifier l’incertitude
 \end{itemize}
 \end{block}
+\medskip
+{\small Un contenu équivalent ne garantit pas un effet identique du format.\par}
 
 \note{
 INTERVENANT 6 — Yupan Huang — Critique et conclusion
 
 DIAPOSITIVE 30 / 32
 
-Notre réserve concerne la comparaison entre modèles de base et modèles ajustés sur instructions. Les modèles de base utilisent un format de complétion. Les modèles ajustés sur instructions utilisent un format de dialogue.
+Notre première réserve concerne l’interprétation des différences entre modèles. Les modèles de base utilisent un format de complétion. Les modèles ajustés sur instructions utilisent un format de dialogue.
 
-Les auteurs gardent le même contenu et considèrent ces formats comme équivalents. Le format pourrait pourtant influencer la réponse. Nous voudrions donc une expérience supplémentaire qui sépare mieux l’effet de l’entraînement et celui du prompt.
+Les auteurs gardent le même contenu et considèrent ces formats comme équivalents. Mais le format peut aussi influencer la réponse. Nous voudrions donc une expérience supplémentaire qui sépare mieux l’effet de l’entraînement et celui du prompt.
 
 Nous proposerions aussi plusieurs répétitions et des intervalles d’incertitude. Ce sont nos propositions pour vérifier la stabilité des écarts.
 
@@ -1065,13 +1085,13 @@ REPÈRES : format du prompt / entraînement / protocole
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §3.4, §4.2, pp. 128, 130 ; critique et propositions du groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : environ 339 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : 348 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 31 / 32; intervenant 6
 
-\begin{frame}{GPT-4 en ITG : deux valeurs dans l’article}
+\begin{frame}{Une lecture attentive des chiffres}
 \small
 \textbf{GPT-4, tâche ITG}
 \begin{center}
@@ -1094,37 +1114,41 @@ INTERVENANT 6 — Yupan Huang — Critique et conclusion
 
 DIAPOSITIVE 31 / 32
 
-Le texte et le tableau ne donnent pas la même valeur pour GPT quatre en ITG. Le tableau quatre donne six virgule soixante-six pour cent avec une tentative.
+Autre remarque : certains chiffres sont incohérents. Pour GPT quatre, le tableau quatre donne six virgule soixante-six pour cent en génération de tests à partir d’un bug, avec une tentative.
 
 Le texte du résultat deux mentionne quinze virgule soixante-seize pour cent dans une liste présentée comme des scores à une tentative. Or ce chiffre correspond à dix tentatives dans le tableau.
 
-Nous avons donc utilisé les valeurs du tableau et indiqué k sur nos diapositives. Le texte semble avoir repris la valeur à dix tentatives.
+Nous avons donc utilisé les valeurs du tableau et indiqué k sur nos diapositives. Cette incohérence mérite une correction, mais elle ne suffit pas, à elle seule, à invalider l’ensemble de l’étude.
 
 REPÈRES : tableau 4 / k = 1 / k = 10
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. RQ2, p. 131 et tableau 4, p. 132 ; incohérence vérifiée par le groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : environ 339 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : 348 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 
 % Slide 32 / 32; intervenant 6
 
-\begin{frame}{Conclusion}
+\begin{frame}{Conclusion et pistes de prolongement}
 \small
-\begin{block}{Bilan}
+\begin{block}{Élargir}
 \begin{itemize}
-  \item CoderUJB compare plusieurs tâches dans des projets existants
-  \item Les effets de l’entraînement varient selon la tâche
-  \item Les scores se comparent à tâche et métrique identiques
+  \item Autres projets, langages et méthodes avec outils
 \end{itemize}
 \end{block}
-\begin{block}{À tester ensuite}
+\begin{block}{Contrôler}
 \begin{itemize}
-  \item D’autres projets et langages, avec des méthodes qui utilisent des outils
-  \item Le risque de contamination et la sensibilité au format du prompt
+  \item Risque de contamination et sensibilité au protocole
 \end{itemize}
 \end{block}
+\begin{block}{Retenir}
+\begin{itemize}
+  \item Comparer par tâche, avec la même métrique
+\end{itemize}
+\end{block}
+\medskip
+{\small CoderUJB : une base utile pour une évaluation plus réaliste, dans un périmètre défini.\par}
 
 \note{
 INTERVENANT 6 — Yupan Huang — Critique et conclusion
@@ -1133,15 +1157,15 @@ DIAPOSITIVE 32 / 32
 
 Pour prolonger cette étude, nous proposerions des projets plus variés, d’autres langages et une vérification du risque de présence des exemples dans les données d’entraînement. Nous testerions aussi des méthodes capables d’utiliser des outils et de corriger leurs réponses.
 
-CoderUJB permet de comparer plusieurs tâches dans leur contexte de projet. Les effets de l’entraînement varient selon la tâche ; les comparaisons demandent donc de garder la même tâche et la même métrique.
+En conclusion, CoderUJB montre l’intérêt d’évaluer les modèles dans un contexte de projet et sur plusieurs tâches. Les effets de l’entraînement varient, et les indicateurs doivent être lus avec précision.
 
-Nous trouvons ce benchmark utile, avec les réserves présentées sur les projets, les modèles et le format des prompts. Merci pour votre attention.
+Notre bilan est donc positif, avec des réserves sur la portée et sur certaines comparaisons. Merci pour votre attention. Nous sommes prêts à répondre à vos questions.
 
 REPÈRES : plus de diversité / contrôles / évaluation par tâche
 
 SOURCE : Zeng et al. (2024), CoderUJB: An Executable and Unified Java Benchmark for Practical Programming Scenarios. §5-7, p. 134 ; prolongements et bilan du groupe. DOI: 10.1145/3650212.3652115.
 
-Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : environ 339 mots ; durée à vérifier par répétition chronométrée.
+Les chiffres reprennent l'article et n'ont pas été reproduits par notre groupe. Partie 6 : 348 mots ; cible inférieure à 4 minutes, à vérifier par répétition chronométrée.
 }
 \end{frame}
 

@@ -38,7 +38,7 @@
     "local_pdf": "Presentation/LaTeX/CoderUJB_Presentation_FR.pdf",
     "local_source": "Presentation/LaTeX/CoderUJB_Presentation_FR.tex",
     "pages": 32,
-    "pdf_sha256": "13804685e8a24e917e75b4464f94828946bdb90e6c0a26187ac6c96314ede4b6",
+    "pdf_sha256": "76f05e668931560250922490193fe2e434f07bc4a77a283c139b53c977d590c0",
     "note": "32 slides: cover, contents, six presenter section dividers and all 24 original content slides. Original opening slide and its speaker notes restored on page 4; first four content slides follow the original hierarchy, with descriptive subtitles distinct from bullets on page 5. Notes reference the new page numbers. No new experiments.",
     "updated_on": "2026-11-05",
     "aspect_ratio": "16:9",
@@ -89,9 +89,15 @@
         26,
         27
       ],
-      "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie5_FR.pdf",
-      "standalone_sha256": "5a8d5589794683322c16c25df34047e605a1909d4df630b761ef14d30cd805cc",
-      "validation": "Compiled with pdfLaTeX; 32 total pages, pixel differences limited to pages 24-27; four updated slides visually inspected."
+      "standalone_sha256": "928c9625cc1e56ae7f657406b05598b5a57580419a3348b9182a8c285dbce484",
+      "validation": "Compiled with pdfLaTeX; 32 total pages, pixel differences limited to pages 24-27; four updated slides visually inspected.",
+      "slide26_requested_wording": {
+        "date": "2026-11-05",
+        "text": "Pas être généralisés à tous les cas.",
+        "validation": "Only page 26 text changed; 32 pages; rendered page checked; no overfull boxes."
+      },
+      "archived_standalone_pdf": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie5_FR.pdf",
+      "standalone_status": "removed_from_delivery_directory; content remains in full deck"
     },
     "part3_update": {
       "updated_on": "2026-11-05",
@@ -103,12 +109,13 @@
       ],
       "presenter": "Jianye SHI",
       "slide15_title": "Un écart plus marqué en réparation",
-      "script_word_estimate": 301,
+      "script_word_estimate": 374,
       "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie3_FR.pdf",
-      "script_pdf": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
       "script_markdown": "Presentation/LaTeX/CoderUJB_Partie3_Script_FR.md",
       "validation": "Deck has 32 pages; rendered differences limited to pages 14-17; all displayed percentages preserved; scripts match speaker notes; slide and script PDFs visually inspected.",
-      "standalone_sha256": "e79d27f330ac1cb90c2fa92cf87b43b02b4ff833443fd4af4ed5bf4bec595336"
+      "standalone_sha256": "ce8b1397720de202a50bd9adfde6a2778496a7d2a87991ace55941c3e76b21d1",
+      "archived_script_pdf": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
+      "script_pdf_status": "generated PDF removed; Markdown and LaTeX scripts retained"
     },
     "part4_update": {
       "updated_on": "2026-11-05",
@@ -127,10 +134,11 @@
         22
       ],
       "presenter": "Xiang BIAN",
-      "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie4_FR.pdf",
-      "standalone_sha256": "744cbbdd83d29aee89b3907855dee8bbd3baa0e3e4993437d22b4f5b8a37d688",
+      "standalone_sha256": "5315aa247f47105036e5bdc9c05cbba5784cd6d72710e0a1f321e3eee5cebe63",
       "notes": "Added explanation of Table 5 syntax and compilation evidence; retained APR metric distinction.",
-      "validation": "32 pages; only pages 19-22 differ in rendering; content outside Section 4 unchanged; percentages match the updated PPTX; no overfull boxes."
+      "validation": "32 pages; only pages 19-22 differ in rendering; content outside Section 4 unchanged; percentages match the updated PPTX; no overfull boxes.",
+      "archived_standalone_pdf": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie4_FR.pdf",
+      "standalone_status": "removed_from_delivery_directory; content remains in full deck"
     },
     "part1_update": {
       "updated_on": "2026-11-05",
@@ -150,10 +158,11 @@
         6,
         7
       ],
-      "standalone_pdf": "Presentation/LaTeX/CoderUJB_Partie1_FR.pdf",
       "standalone_sha256": "7b60e058fd16f259efdc35e2f0fab2451c689a1df04c28a4a67e99f44fff543b",
       "structure": "Source cover includes a five-item plan; full deck retains separate cover, six-section contents and six presenter dividers.",
-      "validation": "32 pages; no overfull boxes; all notes preserved; source after Section 1 unchanged; other pages have identical words, with at most 0.03 pt glyph encoding rounding differences."
+      "validation": "32 pages; no overfull boxes; all notes preserved; source after Section 1 unchanged; other pages have identical words, with at most 0.03 pt glyph encoding rounding differences.",
+      "archived_standalone_pdf": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie1_FR.pdf",
+      "standalone_status": "removed_from_delivery_directory; content remains in full deck"
     },
     "humanization_update": {
       "updated_on": "2026-11-05",
@@ -188,16 +197,20 @@
       "notes": "Trimmed formulaic introductions and conclusions; kept task-specific evidence and qualified interpretations. Added CTG success criterion from section 3.5. Synchronized Part 3 script variants.",
       "validation": "32 slides; six presenter sections and names preserved; every table/bar numeric sequence and per-page percentage unchanged; citation lines unchanged; no overfull boxes; all 24 content slides visually inspected.",
       "current_outputs": {
-        "CoderUJB_Presentation_FR.pdf": "13804685e8a24e917e75b4464f94828946bdb90e6c0a26187ac6c96314ede4b6",
-        "CoderUJB_Partie1_FR.pdf": "7b60e058fd16f259efdc35e2f0fab2451c689a1df04c28a4a67e99f44fff543b",
-        "CoderUJB_Partie3_FR.pdf": "e79d27f330ac1cb90c2fa92cf87b43b02b4ff833443fd4af4ed5bf4bec595336",
-        "CoderUJB_Partie4_FR.pdf": "744cbbdd83d29aee89b3907855dee8bbd3baa0e3e4993437d22b4f5b8a37d688",
-        "CoderUJB_Partie5_FR.pdf": "5a8d5589794683322c16c25df34047e605a1909d4df630b761ef14d30cd805cc",
-        "CoderUJB_Partie3_Script_FR.pdf": "ef3ac543808d4abc74350581369d0933dc5e97c0ec6259ef1da3c9061dd871c3",
-        "CoderUJB_Partie3_Script_FR.md": "0e392ca93d2b958ebdfe59a26ac249655b8c91cdd1da9bdcfb053f3e52a44fdf",
-        "CoderUJB_Partie3_Script_FR_ZH.md": "975927d21d87c709183e6acaa967062811cbe0c9a9d595bd11aacba134c35f5e"
+        "CoderUJB_Presentation_FR.pdf": "76f05e668931560250922490193fe2e434f07bc4a77a283c139b53c977d590c0",
+        "CoderUJB_Partie3_FR.pdf": "ce8b1397720de202a50bd9adfde6a2778496a7d2a87991ace55941c3e76b21d1",
+        "CoderUJB_Partie3_Script_FR.md": "2d0726d27d60cfc5001575194ae0b29aa63c7349697cc88ade5c4454f80ee98e",
+        "CoderUJB_Partie3_Script_FR_ZH.md": "67a13ae65d927a64e0858cad48c617da38e34009dd3aab7bfbeadc4b955282ea"
       },
-      "part1_reverted_to_classmate_version": true
+      "part1_reverted_to_classmate_version": true,
+      "reverted_sections": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "remaining_section": 3
     },
     "slide14_original_figure_update": {
       "updated_on": "2026-11-05",
@@ -213,7 +226,9 @@
       "asset": "Presentation/LaTeX/assets/coderujb-figure2a-context.pdf",
       "asset_sha256": "da8b8ac76fd48d449b1cc9f104469d96710cc3faa5e40c5b38b29503b7cc5f38",
       "source_preservation": "Source PDF unchanged; page content outside the crop removed from the derived vector asset.",
-      "validation": "32 pages; pixel differences limited to page 14; percentages unchanged; three context labels visible; no overfull boxes; scripts synchronized."
+      "validation": "32 pages; pixel differences limited to page 14; percentages unchanged; three context labels visible; no overfull boxes; scripts synchronized.",
+      "archived_asset": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/assets/coderujb-figure2a-context.pdf",
+      "asset_status": "historical asset removed; current translated asset is recorded in part3_layout_update"
     },
     "group_number": null,
     "part1_restore": {
@@ -229,6 +244,148 @@
       ],
       "notes": "Restored the original wording and speaker notes, before the humanization pass. Existing cover, six-section contents and all later content preserved.",
       "validation": "32 pages; restored slide text equals the pre-humanization version; all other pages have unchanged text; no overfull boxes."
+    },
+    "classmate_wording_restore": {
+      "date": "2026-11-05",
+      "sections_restored": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "baseline": "Pre-humanization LaTeX, already incorporating classmates Part 1, 4 and 5 updates",
+      "baseline_sha256": "8fae9561ea4718bac3a33d6aac78ba69ae0d7f1a8d8a535e906958fedbb38066",
+      "preserved_section": 3,
+      "pre_restore_backup": "/home/jianyeshi/backups/CoderUJB-before-restore-colleagues-20261105-212738",
+      "validation": "32 pages; restored sections including notes match baseline verbatim; 20 colleague content pages match baseline text; other 12 pages unchanged; no overfull boxes; restored pages visually checked."
+    },
+    "part3_layout_update": {
+      "date": "2026-11-05",
+      "pages": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "source_tables": [
+        3,
+        4
+      ],
+      "changes": [
+        "Translated Figure 2(a) annotations and removed Markdown fences in a derived vector asset; Java code unchanged",
+        "Larger comparison table with exact GPT4-CodeLlama gaps",
+        "Zero-based linear bars for GPT4 task scores, with task success criteria",
+        "DD accuracy and 50 percent constant-label baseline, plus section takeaway"
+      ],
+      "figure_asset": "Presentation/LaTeX/assets/coderujb-figure2a-context-fr.pdf",
+      "figure_asset_sha256": "f535efd747ed3805654eddd10e4c413714f115b5e82fab827cc78bd154ca0d33",
+      "backup": "/home/jianyeshi/backups/CoderUJB-before-part3-layout-20261105-215120",
+      "script_words": 293,
+      "validation": "32 pages; only pages 14-17 changed; other five sections including notes unchanged; page26 requested punctuation preserved; four script pages; French notes synchronized with Markdown and script source; bilingual and Chinese script updated; no overfull boxes; slides and script visually checked."
+    },
+    "delivery_cleanup": {
+      "date": "2026-11-05",
+      "scope": "Presentation/LaTeX and index references only",
+      "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426",
+      "removed": [
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Partie1_FR.pdf",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie1_FR.pdf",
+          "sha256": "7b60e058fd16f259efdc35e2f0fab2451c689a1df04c28a4a67e99f44fff543b",
+          "bytes": 560878
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Partie4_FR.pdf",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie4_FR.pdf",
+          "sha256": "5315aa247f47105036e5bdc9c05cbba5784cd6d72710e0a1f321e3eee5cebe63",
+          "bytes": 152418
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Partie5_FR.pdf",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie5_FR.pdf",
+          "sha256": "928c9625cc1e56ae7f657406b05598b5a57580419a3348b9182a8c285dbce484",
+          "bytes": 98392
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Partie3_Script_FR.pdf",
+          "sha256": "39a2e72d6f8195bf65b16cdef8bed04e6d77f3fe101b36d3235b6875da30d6e9",
+          "bytes": 65683
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/assets/coderujb-figure2a-context.pdf",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/assets/coderujb-figure2a-context.pdf",
+          "sha256": "da8b8ac76fd48d449b1cc9f104469d96710cc3faa5e40c5b38b29503b7cc5f38",
+          "bytes": 499040
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.log",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.log",
+          "sha256": "9049e9bd2c737c9f79035aeff74629d13b542ca2eabb23eaf2c438436263b99f",
+          "bytes": 48663
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.aux",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.aux",
+          "sha256": "9a46b0af270e8df9756bdfc4dbc4ae9491f04e9059ebdc4be3dfebf8fc454d76",
+          "bytes": 6693
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.out",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.out",
+          "sha256": "f9b8d389f3e87c587d68204bc0023dddbcc9e89195d08bb46c682353f0f0a1ea",
+          "bytes": 1108
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.nav",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.nav",
+          "sha256": "b68879b3c018b6d6856d493638b0a6e0c68c69faefb010f6a1802f64b12205bb",
+          "bytes": 4274
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.toc",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.toc",
+          "sha256": "938858e3527dd1ee5adbb90ed49fe4a02e8484c1cef8a553c4c40a16613a429b",
+          "bytes": 414
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.snm",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.snm",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "CoderUJB/Presentation/LaTeX/CoderUJB_Equipe6_FR.synctex.gz",
+          "backup": "/home/jianyeshi/backups/CoderUJB-before-delivery-cleanup-20261105-224426/LaTeX/CoderUJB_Equipe6_FR.synctex.gz",
+          "sha256": "23a70386e567574fc4787b75f7f56691c73d91fe4bb549ade6fe5e49d9cc4fa3",
+          "bytes": 43249
+        }
+      ],
+      "retained_top_level_pdfs": [
+        "CoderUJB_Presentation_FR.pdf",
+        "CoderUJB_Partie3_FR.pdf"
+      ],
+      "validation": "Retained presentation PDFs, TeX, scripts and used figure asset unchanged byte-for-byte; source materials retained."
+    },
+    "part3_oral_script_update": {
+      "date": "2026-11-06",
+      "words_excluding_qa": 483,
+      "qa_items": 8,
+      "backup": "/home/jianyeshi/backups/CoderUJB-before-oral-rewrite-20261106-000952",
+      "notes": "French oral narrative rewritten; Chinese translations, French Markdown/TeX and speaker notes synchronized; slide bodies and existing PDFs unchanged. ITG input and causal claims checked against sections 3.4-3.5; historical model scope retained."
+    },
+    "part3_short_script_update": {
+      "date": "2026-11-06",
+      "words_excluding_qa": 374,
+      "target_duration": "3:15–3:30, rehearsal required",
+      "backup": "/home/jianyeshi/backups/CoderUJB-before-short-script-20261106-001711",
+      "source": "User-pasted shortened bilingual script",
+      "adjustments": [
+        "CTG executable-test condition restored",
+        "Success criteria described as interpretation context rather than proven causal explanation"
+      ],
+      "validation": "Speech files and hidden notes synchronized; slide bodies, other presenters and two PDFs unchanged; original eight Q&A entries preserved."
     }
   }
 }

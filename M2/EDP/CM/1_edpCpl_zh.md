@@ -1,617 +1,634 @@
-# 性能评估：基础概念与 HPC 性能
+# Évaluation des performances : concepts de base et performance en HPC 性能评估：基础概念与 HPC 性能
 
 [课程入口](../README.md) · [今年教师课件 PDF（62 页）](1_edpCpl.pdf) · [第一课 Annex](1_edpCpl_zh_annex.md)
 
 第 1–18 节保留既有中文笔记正文与校注；第 19–26 节按今年课件第 42–62 页重组，并加入标明的例子与解释。原笔记后半部分的背景、模型及后续课程预习材料移至独立 annex。页码对照见文末；版本及校核说明见[审校说明](../审校说明.md)。
 
-## 1 课程总体介绍（Présentation générale du module）
+格式说明：法语在前、中文在后，同一行以空格隔开，撇号统一为 '。法语优先依据对应课件及法语讲义，必要时沿用已有订正；中文补充、校注和附录中没有对应原文的部分配以法语译写，仍属补充材料。
 
-本模块介绍性能评估（évaluation des performances）的目标、方法和技术。主要内容如下：
-- 性能评估导论：动机（motivation）、问题（problématique）、基本概念（concepts de base）、与 HPC 的关系。
-- 性能评估方法与技术（méthodes et techniques d’évaluation）。
-- 工作负载（workloads），含 Sébastien Gougeaud 补充部分。
-- 数学建模（modélisation mathématique）。
-- 仿真（simulation）。
-- 测量（mesure）+ Sébastien Gougeaud 补充部分。
+## 1 Présentation générale du module 课程总体介绍（Présentation générale du module）
 
-## 2 课程计划（Plan）
+Ce module présente les objectifs, méthodes et techniques de l'évaluation des performances. Il couvre : 本模块介绍性能评估（évaluation des performances）的目标、方法和技术。主要内容如下：
 
-### 第一部分：基本概念（Concepts de base）
+- Introduction : motivation, problématique, concepts de base et liens avec le HPC. 性能评估导论：动机（motivation）、问题（problématique）、基本概念（concepts de base）、与 HPC 的关系。
+- Méthodes et techniques d'évaluation. 性能评估方法与技术（méthodes et techniques d'évaluation）。
+- Workloads, avec un complément de Sébastien Gougeaud. 工作负载（workloads），含 Sébastien Gougeaud 补充部分。
+- Modélisation mathématique. 数学建模（modélisation mathématique）。
+- Simulation. 仿真（simulation）。
+- Mesure, avec un complément de Sébastien Gougeaud. 测量（mesure）+ Sébastien Gougeaud 补充部分。
 
-1. 动机与问题（Motivation et problématique）
+## 2 Plan du cours 课程计划（Plan）
 
-2. 评估步骤（Approche à suivre）
+### Première partie : concepts de base 第一部分：基本概念（Concepts de base）
 
-3. 避免错误的检查表（Checklist）
+1. Motivation et problématique 动机与问题（Motivation et problématique）
 
-4. 基本性能指标（Métriques de base）
+2. Approche à suivre 评估步骤（Approche à suivre）
 
-5. 好指标的特性（Caractéristiques d’un bon métrique）
+3. Checklist pour éviter les erreurs 避免错误的检查表（Checklist）
 
-6. 性能评估的方法（Méthodes d’évaluation）
+4. Métriques de base 基本性能指标（Métriques de base）
 
-### 第二部分：HPC 中的性能评估
+5. Caractéristiques d'une bonne métrique 好指标的特性（Caractéristiques d'un bon métrique）
 
-1. 目标（Objectifs）
+6. Méthodes d'évaluation 性能评估的方法（Méthodes d'évaluation）
 
-2. 并行性与性能（Parallélisme et performance）
+### Deuxième partie : évaluation des performances pour le HPC 第二部分：HPC 中的性能评估
 
-3. HPC 中经典性能指标（Métriques classiques）
+1. Objectifs 目标（Objectifs）
 
-4. HPC 性能模型及其局限（Modèles et lacunes）
+2. Parallélisme et performance 并行性与性能（Parallélisme et performance）
 
-5. HPC 系统评估（Évaluation）
+3. Métriques classiques dans le HPC HPC 中经典性能指标（Métriques classiques）
 
-## 3 动机与问题（Motivation et problématique）
+4. Modèles et lacunes HPC 性能模型及其局限（Modèles et lacunes）
 
-系统的目标是：提供最佳的成本/性能比（meilleur rapport coût/performance）。
+5. Évaluation des systèmes HPC HPC 系统评估（Évaluation）
 
-因此，在系统生命周期的所有阶段都需要进行性能评估（évaluation des performances）：
+## 3 Motivation et problématique 动机与问题（Motivation et problématique）
 
-1. 设计阶段（Conception）——性能预测（prédiction）。
+But de tout système : fournir le meilleur rapport coût/performance. 系统的目标是：提供最佳的成本/性能比（meilleur rapport coût/performance）。
 
-2. 实现阶段（Réalisation）——硬件或软件的选择。
+Il faut donc évaluer les performances à toutes les étapes du cycle de vie du système : 因此，在系统生命周期的所有阶段都需要进行性能评估（évaluation des performances）：
 
-3. 商用阶段（Commercialisation）——突出性能指标（mise en valeur des métriques）。
+1. Conception : prédiction des performances. 设计阶段（Conception）——性能预测（prédiction）。
 
-4. 使用阶段（Utilisation）——根据上下文进行调优（tuning）。
+2. Réalisation : choix matériel ou logiciel. 实现阶段（Réalisation）——硬件或软件的选择。
 
-5. 维护与更新（Maintenance et mise à jour）——系统控制与监控（monitoring）。
+3. Commercialisation : mise en valeur des métriques. 商用阶段（Commercialisation）——突出性能指标（mise en valeur des métriques）。
 
-### 3.1 性能评估的目标（Objectifs de l’évaluation）
-- 更好地了解一个系统或应用的可行性（faisabilité），以及开发/编码的价值。
-- 发现和理解系统的限制（limitations）。
-- 找到可以改进的方向：例如增加资源（如处理器）、改变任务组织方式、改变负载结构等。
+4. Utilisation : réglages selon le contexte. 使用阶段（Utilisation）——根据上下文进行调优（tuning）。
 
-## 4 评估流程（Approche à suivre）
+5. Maintenance et mise à jour : contrôle et monitoring. 维护与更新（Maintenance et mise à jour）——系统控制与监控（monitoring）。
 
-需要分析的系统可能是多种多样的，其性能指标（métriques）、评估方法（techniques d’évaluation）以及对应工作负载（workloads）也各不相同。
+### 3.1 Objectifs de l'évaluation 性能评估的目标（Objectifs de l'évaluation）
 
-但总体评估步骤如下：
+- Mieux connaître la faisabilité d'un système ou d'une application et l'intérêt de son développement. 更好地了解一个系统或应用的可行性（faisabilité），以及开发/编码的价值。
+- Détecter et comprendre les limitations d'un système. 发现和理解系统的限制（limitations）。
+- Cibler les améliorations : ajout de ressources, réorganisation des traitements ou des charges. 找到可以改进的方向：例如增加资源（如处理器）、改变任务组织方式、改变负载结构等。
 
-1. 定义要分析的系统，明确目标。
+## 4 Approche à suivre 评估流程（Approche à suivre）
 
-2. 列出系统应提供的服务列表。
+Les systèmes à analyser, leurs métriques, les techniques d'évaluation et les workloads associés sont multiples. 需要分析的系统可能是多种多样的，其性能指标（métriques）、评估方法（techniques d'évaluation）以及对应工作负载（workloads）也各不相同。
 
-3. 选择用于衡量速度、精度、可用性的性能指标。
+L'approche générale suit néanmoins les étapes suivantes : 但总体评估步骤如下：
 
-接下来继续以下步骤：
+1. Définir le système à analyser et préciser le but à atteindre. 定义要分析的系统，明确目标。
 
-4. 列出影响性能的参数（包括系统参数与工作负载参数）。
+2. Établir la liste des services à fournir. 列出系统应提供的服务列表。
 
-5. 从这些参数中选择在评估过程中可变化的因子（factors），并设定它们的可能取值。
+3. Sélectionner les métriques de vitesse, de précision et de disponibilité. 选择用于衡量速度、精度、可用性的性能指标。
 
-6. 在建模（modélisation mathématique）、仿真（simulation）和测量（mesure）中选择最适合的评估方法。
+Poursuivre avec les étapes suivantes : 接下来继续以下步骤：
 
-随后必须执行：
+4. Lister les paramètres qui affectent les performances, en distinguant système et workload. 列出影响性能的参数（包括系统参数与工作负载参数）。
 
-7. 选择用于施加给系统的工作负载：合成（synthetique）或真实（réelle）。
+5. Sélectionner les facteurs à faire varier et leurs valeurs possibles. 从这些参数中选择在评估过程中可变化的因子（factors），并设定它们的可能取值。
 
-8. 设计测试集合，以最大化对系统行为的观察信息。
+6. Choisir la méthode appropriée : modélisation mathématique, simulation ou mesure. 在建模（modélisation mathématique）、仿真（simulation）和测量（mesure）中选择最适合的评估方法。
 
-9. 收集测试数据，使用统计方法分析和解释数据。
+Puis effectuer les étapes suivantes : 随后必须执行：
 
-10. 使用清晰的结构和适当的图形方式展示结果。
+7. Choisir les charges synthétiques ou réelles à appliquer. 选择用于施加给系统的工作负载：合成（synthetique）或真实（réelle）。
 
-## 5 避免错误的检查表（Checklist pour éviter les erreurs —Raj Jain）
+8. Concevoir des tests qui apportent un maximum d'informations sur le comportement du système. 设计测试集合，以最大化对系统行为的观察信息。
 
-以下是性能评估中常见的检查要点，确保分析完整且正确：
-- 系统是否正确定义？目标是否清晰？
-- 目标是否以无偏方式陈述？
-- 所有分析步骤是否系统地执行？
-- 在分析前是否真正理解问题？
-- 性能指标是否与问题相关？
-- 所选工作负载是否合适？
-- 选择的评估技术是否适当？
-- 列出的影响性能的参数是否完整？
+9. Collecter les données, puis les analyser et les interpréter statistiquement. 收集测试数据，使用统计方法分析和解释数据。
 
-进一步检查：
-- 所有影响性能的参数是否作为可变化因子？
-- 实验设计是否在时间与结果之间取得良好平衡？
-- 细节层次是否合理？
-- 数据是否附带分析和解释？
-- 分析是否统计上正确？
-- 是否执行了敏感性分析（sensitivity analysis）？
-- 输入误差是否会引起显著的输出变化？
-- 是否合理地处理了异常值（outliers）？
+10. Présenter les résultats sous une forme claire, avec des graphiques adaptés. 使用清晰的结构和适当的图形方式展示结果。
 
-进一步还应关注：
-- 是否考虑了未来系统或工作负载的变更？
-- 是否考虑了输入的方差？
-- 是否分析了结果的方差？
-- 分析是否易于解释？
-- 展示风格是否符合目标读者？
-- 图形展示是否尽可能使用？
-- 假设和限制是否清楚地记录？
+## 5 Checklist pour éviter les erreurs — Raj Jain 避免错误的检查表（Checklist pour éviter les erreurs —Raj Jain）
 
-## 6 性能指标简介（Introduction aux métriques）
+Les points suivants permettent de vérifier que l'analyse est complète et correcte : 以下是性能评估中常见的检查要点，确保分析完整且正确：
 
-以下为常见性能指标（métriques）：
-- 响应时间（temps de réponse）
-- 吞吐量（débit）
-- 加速比（accélération / speedup）
-- 效率（efficacité）
-- 资源利用率（taux d’utilisation）
-- 可靠性（fiabilité）
-- 可用性（disponibilité）
+- Le système est-il correctement défini et les objectifs sont-ils clairs ? 系统是否正确定义？目标是否清晰？
+- Les objectifs sont-ils formulés sans biais ? 目标是否以无偏方式陈述？
+- Toutes les étapes de l'analyse ont-elles été suivies systématiquement ? 所有分析步骤是否系统地执行？
+- Le problème est-il bien compris avant l'analyse ? 在分析前是否真正理解问题？
+- Les métriques sont-elles pertinentes ? 性能指标是否与问题相关？
+- Le workload convient-il au problème ? 所选工作负载是否合适？
+- La technique d'évaluation est-elle appropriée ? 选择的评估技术是否适当？
+- La liste des paramètres influençant les performances est-elle complète ? 列出的影响性能的参数是否完整？
 
-## 7 响应时间（Temps de réponse）
+Vérifications supplémentaires : 进一步检查：
 
-定义：从用户请求（requête）到系统响应（réponse）的时间。随系统负载（charge）增加，队列等待时间增加，从而响应时间变长。
+- Les paramètres influents ont-ils été considérés comme facteurs variables ? 所有影响性能的参数是否作为可变化因子？
+- Le plan d'expérience est-il efficace en temps et en résultats ? 实验设计是否在时间与结果之间取得良好平衡？
+- Le niveau de détail est-il approprié ? 细节层次是否合理？
+- Les données sont-elles accompagnées d'une analyse et d'une interprétation ? 数据是否附带分析和解释？
+- L'analyse est-elle statistiquement correcte ? 分析是否统计上正确？
+- Une analyse de sensibilité a-t-elle été effectuée ? 是否执行了敏感性分析（sensitivity analysis）？
+- Les erreurs d'entrée peuvent-elles modifier sensiblement les résultats ? 输入误差是否会引起显著的输出变化？
+- Les valeurs aberrantes ont-elles été traitées correctement ? 是否合理地处理了异常值（outliers）？
 
-伸长因子（stretch factor）定义为：
+Examiner également les points suivants : 进一步还应关注：
+
+- Les évolutions futures du système et du workload ont-elles été prises en compte ? 是否考虑了未来系统或工作负载的变更？
+- La variance des entrées a-t-elle été considérée ? 是否考虑了输入的方差？
+- La variance des résultats a-t-elle été analysée ? 是否分析了结果的方差？
+- L'analyse est-elle facile à expliquer ? 分析是否易于解释？
+- La présentation convient-elle au public visé ? 展示风格是否符合目标读者？
+- Les résultats sont-ils présentés graphiquement autant que possible ? 图形展示是否尽可能使用？
+- Les hypothèses et les limites sont-elles clairement documentées ? 假设和限制是否清楚地记录？
+
+## 6 Introduction aux métriques 性能指标简介（Introduction aux métriques）
+
+Métriques courantes : 以下为常见性能指标（métriques）：
+
+- Temps de réponse 响应时间（temps de réponse）
+- Débit 吞吐量（débit）
+- Accélération 加速比（accélération / speedup）
+- Efficacité 效率（efficacité）
+- Taux d'utilisation 资源利用率（taux d'utilisation）
+- Fiabilité 可靠性（fiabilité）
+- Disponibilité 可用性（disponibilité）
+
+## 7 Temps de réponse 响应时间（Temps de réponse）
+
+Définition : temps séparant la requête de l'utilisateur de la réponse du système. Une charge accrue peut augmenter l'attente et donc le temps de réponse. 定义：从用户请求（requête）到系统响应（réponse）的时间。随系统负载（charge）增加，队列等待时间增加，从而响应时间变长。
+
+Le facteur d'extension est défini par : 伸长因子（stretch factor）定义为：
 
 $$
 \mathrm{stretchfactor} = \frac{\text{当前负载下的响应时间}}{\text{最小负载下的响应时间}}
 $$
 
-它衡量负载增长所带来的性能恶化程度。
+Il quantifie l'allongement du temps de réponse lorsque la charge augmente. 它衡量负载增长所带来的性能恶化程度。
 
-例子：在分时系统中，使用多道程序（multiprogrammation）时的响应时间 / 无多道程序时的响应时间 = stretch factor。
+Exemple en temps partagé : rapport du temps de réponse avec multiprogrammation à celui sans multiprogrammation. 例子：在分时系统中，使用多道程序（multiprogrammation）时的响应时间 / 无多道程序时的响应时间 = stretch factor。
 
-## 8 吞吐率（Débit）
+## 8 Débit 吞吐率（Débit）
 
-定义：单位时间内完成的请求数量（taux de requêtes exécutées）。
+Définition : nombre de requêtes exécutées par unité de temps. 定义：单位时间内完成的请求数量（taux de requêtes exécutées）。
 
-不同系统的吞吐率单位：
-- 交互式系统：requests/s
+Unités selon le système : 不同系统的吞吐率单位：
+
+- Système interactif : requêtes/s 交互式系统：requests/s
 - CPU：MIPS，MFLOPS
-- 批处理（batch）：jobs/s
-- 网络（réseau）：packets/s，bits/s
-- 事务系统（transactionnel）：transactions/s (TPS)
+- Traitement par lots : jobs/s 批处理（batch）：jobs/s
+- Réseau : paquets/s, bits/s 网络（réseau）：packets/s，bits/s
+- Système transactionnel : transactions/s (TPS) 事务系统（transactionnel）：transactions/s (TPS)
 
-吞吐率随负载增加直到达到某种最大值（类似网络带宽上限）。
+Le débit croît avec la charge jusqu'à une capacité maximale, comme la bande passante d'un réseau. 吞吐率随负载增加直到达到某种最大值（类似网络带宽上限）。
 
-### 8.1 吞吐率的两种定义
+### 8.1 Deux notions de capacité 吞吐率的两种定义
 
-1. 名义容量吞吐率（débit/capacité nominale）系统在理想负载下能达到的最大吞吐率。
+1. Capacité nominale : débit maximal sous une charge idéale. 名义容量吞吐率（débit/capacité nominale）系统在理想负载下能达到的最大吞吐率。
 
-例：无分支、无依赖的流水线处理器可做到每周期一条指令。
+Exemple : après amorçage, un pipeline sans dépendance pénalisante ni branchement peut exécuter une instruction par cycle. 例：无分支、无依赖的流水线处理器可做到每周期一条指令。
 
-2. 实际使用吞吐率（débit/capacité d’usage）在保持用户可接受响应时间条件下可达到的最大吞吐率。
+2. Capacité d'usage : débit maximal compatible avec un temps de réponse acceptable. 实际使用吞吐率（débit/capacité d'usage）在保持用户可接受响应时间条件下可达到的最大吞吐率。
 
-## 9 MIPS 与 MFLOPS
+## 9 MIPS et MFLOPS MIPS 与 MFLOPS
 
-MIPS（Millions d’instructions per second）：
+MIPS（Millions d'instructions per second）：
 
 $$
 \mathrm{MIPS} = \frac{\text{指令数}}{10 ^{6} \times \text{执行时间}}
 $$
 
-MFLOPS 统计每秒完成的百万次浮点运算；运算数不一定等于浮点指令数，例如向量指令和 FMA。
+Les MFLOPS comptent les millions d'opérations flottantes par seconde ; une instruction vectorielle ou FMA peut représenter plusieurs opérations. MFLOPS 统计每秒完成的百万次浮点运算；运算数不一定等于浮点指令数，例如向量指令和 FMA。
 
-说明：
-- 二者假设指令全部在内存中。
-- 特别是 MIPS，不是可靠的性能指标。
+Remarques : 说明：
 
-## 10 加速比（Accélération / Speedup）
+- Les deux unités supposent que les instructions sont en mémoire. 二者假设指令全部在内存中。
+- Les MIPS, en particulier, ne constituent pas une métrique fiable. 特别是 MIPS，不是可靠的性能指标。
 
-定义：
+## 10 Accélération / Speedup 加速比（Accélération / Speedup）
+
+Définition : 定义：
 
 $$
 \mathrm{Acc} = \frac{T _{\mathrm{séquentiel}}}{T _{\mathrm{parallèle}}}
 $$
 
-Amdahl 定律：
+Loi d'Amdahl : Amdahl 定律：
 
 $$
 \mathrm{Acc} = \frac{1}{(1 - F _{a}) + \frac{F _{a}}{P}}
 $$
 
-其中：
-- $F _{a}$ ：可并行化部分（fraction parallélisable）
-- P：处理器数量
+Avec : 其中：
 
-### 10.1 并行化成本（coût de parallélisation）
+- $F_a$ : fraction parallélisable du code $F _{a}$ ：可并行化部分（fraction parallélisable）
+- P : nombre de processeurs P：处理器数量
 
-加速比通常不是线性的，因为并行化带来：
-- 通信（communications）
-- 同步（synchronisation）
-- 调度、负载不均衡等
+### 10.1 Coût de parallélisation 并行化成本（coût de parallélisation）
 
-扩展的 Amdahl 定律：
+L'accélération n'est généralement pas linéaire, notamment à cause de : 加速比通常不是线性的，因为并行化带来：
+
+- Communications 通信（communications）
+- Synchronisation 同步（synchronisation）
+- Ordonnancement, déséquilibre de charge, etc. 调度、负载不均衡等
+
+Loi d'Amdahl enrichie : 扩展的 Amdahl 定律：
 
 $$
 \mathrm{Acc} = \frac{1}{(1 - F _{a}) + \frac{F _{a}}{P} + C _{t} (F _{a} , P)}
 $$
 
-其中 $C_t$ 是并行化引入的额外时间除以串行基准时间，必须是无量纲量，才能与分母中的时间比例相加。
+$C_t$ est le surcoût temporel de parallélisation divisé par le temps séquentiel de référence ; il doit être sans dimension pour s'ajouter aux autres termes du dénominateur. 其中 $C_t$ 是并行化引入的额外时间除以串行基准时间，必须是无量纲量，才能与分母中的时间比例相加。
 
-## 11 效率（Efficacité）
+## 11 Efficacité 效率（Efficacité）
 
-定义：
+Définition : 定义：
 
 $$
 E = \frac{\mathrm{Acc}}{P}
 $$
 
-或等价：
+Ou, de manière équivalente : 或等价：
 
 $$
 E = \frac{T _{\mathrm{sequentiel}}}{T _{\mathrm{parallèle}} \times P}
 $$
 
-效率下降可能来自串行部分、负载不均衡、通信、同步或其他开销，需要结合测量判断。
+Une efficacité réduite peut venir du code séquentiel, du déséquilibre de charge, des communications, de la synchronisation ou d'autres surcoûts ; il faut les mesurer. 效率下降可能来自串行部分、负载不均衡、通信、同步或其他开销，需要结合测量判断。
 
-## 12 资源利用率（Taux d’utilisation）
+## 12 Taux d'utilisation 资源利用率（Taux d'utilisation）
 
-定义：资源被占用时间 / 总时间。
+Définition : temps d'occupation d'une ressource divisé par le temps total. 定义：资源被占用时间 / 总时间。
 
-目标：
-- 最大化单资源利用率
-- 全系统实现负载均衡（load balancing）
+Objectifs : 目标：
 
-并行效率 $E$ 与资源利用率 $U$ 不等同：资源可能在通信或忙等待时仍被计为“忙碌”。
+- Maximiser l'utilisation d'une ressource. 最大化单资源利用率
+- Équilibrer la charge entre les ressources. 全系统实现负载均衡（load balancing）
 
-## 13 强扩展与弱扩展（Strong & Weak Scaling）
+L'efficacité parallèle $E$ et l'utilisation $U$ sont distinctes : une ressource peut être occupée par des communications ou une attente active. 并行效率 $E$ 与资源利用率 $U$ 不等同：资源可能在通信或忙等待时仍被计为“忙碌”。
 
-### 13.1 强扩展（Strong Scaling）
+## 13 Strong scaling et weak scaling 强扩展与弱扩展（Strong & Weak Scaling）
 
-固定问题规模 n，增加处理器 P。
+### 13.1 Strong scaling 强扩展（Strong Scaling）
 
-理想情况：
+À taille de problème n constante, augmenter le nombre de processeurs P. 固定问题规模 n，增加处理器 P。
+
+Dans le cas idéal : 理想情况：
 
 $$
 \mathrm{Acc} \rightarrow P, E \rightarrow 1
 $$
 
-### 13.2 弱扩展（Weak Scaling）
+### 13.2 Weak scaling 弱扩展（Weak Scaling）
 
-随 P 增加问题规模 n，使工作量成比例增长，同时保持执行时间近似不变。
+Augmenter la taille n proportionnellement à P, en visant un temps d'exécution approximativement constant. 随 P 增加问题规模 n，使工作量成比例增长，同时保持执行时间近似不变。
 
-## 14 Gustafson-Barsis 定律
+## 14 Loi de Gustafson-Barsis Gustafson-Barsis 定律
 
-对于规模增大的并行计算：
+Pour un calcul parallèle dont la taille augmente : 对于规模增大的并行计算：
 
 $$
 \mathrm{Acc} (n, P) \leq P + (1 - P) s
 $$
 
-这里的 $s$ 是扩大问题后，串行阶段占并行运行总时间的比例。Amdahl 模型中的串行比例以串行基准时间为分母，两者不能直接混用。
+Ici, $s$ est la fraction séquentielle du temps de l'exécution parallèle du problème agrandi. La fraction d'Amdahl utilise le temps séquentiel de référence ; les deux ne sont pas interchangeables. 这里的 $s$ 是扩大问题后，串行阶段占并行运行总时间的比例。Amdahl 模型中的串行比例以串行基准时间为分母，两者不能直接混用。
 
-与 Amdahl 不同，该定律表明并行计算在大问题规模下可获得更高加速比。
+Le modèle de Gustafson-Barsis montre le potentiel d'accélération pour des problèmes agrandis. 与 Amdahl 不同，该定律表明并行计算在大问题规模下可获得更高加速比。
 
-## 15 可靠性（Fiabilité / Reliability）
+## 15 Fiabilité 可靠性（Fiabilité / Reliability）
 
-定义：系统在时间 T 内持续提供无错误的正确服务的能力。
+Définition : aptitude à fournir un service correct sans erreur pendant une durée T. 定义：系统在时间 T 内持续提供无错误的正确服务的能力。
 
-数据可靠性（data reliability）：存储系统通过完全或部分冗余保证数据正确性。
+Fiabilité des données : la redondance totale ou partielle protège leur intégrité. 数据可靠性（data reliability）：存储系统通过完全或部分冗余保证数据正确性。
 
-网络可靠性（network reliability）：保证消息被成功送达目的地。
+Fiabilité du réseau : les messages parviennent à leurs destinataires. 网络可靠性（network reliability）：保证消息被成功送达目的地。
 
-常用指标：错误之间的平均时间 MTBE（Mean Time Between Errors）。
+Métrique usuelle : temps moyen entre erreurs, MTBE. 常用指标：错误之间的平均时间 MTBE（Mean Time Between Errors）。
 
-## 16 可用性（Disponibilité / Availability）
+## 16 Disponibilité 可用性（Disponibilité / Availability）
 
-定义：系统可服务用户的时间比例。
+Définition : fraction du temps pendant laquelle le système peut servir les utilisateurs. 定义：系统可服务用户的时间比例。
 
-uptime：正常运行 downtime：不可使用
+Uptime : fonctionnement normal ; downtime : indisponibilité. uptime：正常运行 downtime：不可使用
 
-常用指标：
+Indicateurs courants : 常用指标：
+
 - MTTF（Mean Time To Failure）
 - MTBF（Mean Time Between Failures）
 
-> 校注：MTTF、MTBF 是时间量；可用性为 $A=\mathrm{uptime}/(\mathrm{uptime}+\mathrm{downtime})$，还取决于修复造成的停机时间。
+> Précision : MTTF et MTBF sont des durées. La disponibilité vaut $A=\mathrm{uptime}/(\mathrm{uptime}+\mathrm{downtime})$ et dépend aussi des arrêts pour réparation. 校注：MTTF、MTBF 是时间量；可用性为 $A=\mathrm{uptime}/(\mathrm{uptime}+\mathrm{downtime})$，还取决于修复造成的停机时间。
 
-## 17 好指标的特征（Caractéristiques d’un bon métrique）
+## 17 Caractéristiques d'une bonne métrique 好指标的特征（Caractéristiques d'un bon métrique）
 
-### 17.1 线性（Linéarité）
+### 17.1 Linéarité 线性（Linéarité）
 
-指标应尽量与实际性能成线性关系。
+La métrique devrait varier aussi linéairement que possible avec la performance réelle. 指标应尽量与实际性能成线性关系。
 
-例：某些指标是对数关系（logarithmique），导致误解。
+Exemple : une échelle logarithmique peut conduire à des malentendus. 例：某些指标是对数关系（logarithmique），导致误解。
 
-### 17.2 可靠性（Fiabilité）
+### 17.2 Fiabilité 可靠性（Fiabilité）
 
-一个可靠指标应使排序与实际性能排序一致：吞吐量通常越大越好，响应时间通常越小越好，不能统一理解为数值越大越好。
+Une métrique fiable classe les systèmes selon leur performance réelle : un débit élevé est généralement préférable, un temps de réponse faible également. 一个可靠指标应使排序与实际性能排序一致：吞吐量通常越大越好，响应时间通常越小越好，不能统一理解为数值越大越好。
 
-反例：MIPS
+Contre-exemple : MIPS. 反例：MIPS
 
-例子（whetstone benchmark）：
-- 使用浮点协处理器：1.08s，1.6 MIPS
-- 不使用协处理器：13.6s，2.7 MIPS
+Exemple du benchmark Whetstone : 例子（whetstone benchmark）：
 
-尽管第二种 MIPS 更高，但性能更差 12.6 倍 → MIPS 不是可靠指标。
+- Avec coprocesseur flottant : 1.08 s, 1.6 MIPS. 使用浮点协处理器：1.08s，1.6 MIPS
+- Sans coprocesseur : 13.6 s, 2.7 MIPS. 不使用协处理器：13.6s，2.7 MIPS
 
-### 17.3 确定性（Déterminisme）
+Le second cas affiche davantage de MIPS, mais prend environ 12.6 fois plus de temps : les MIPS ne reflètent pas ici la performance. 尽管第二种 MIPS 更高，但性能更差 12.6 倍 → MIPS 不是可靠指标。
 
-重复测试应得到相同指标值。
+### 17.3 Déterminisme 确定性（Déterminisme）
 
-### 17.4 易测性（Facilité de mesure）
+Un test répété devrait donner la même valeur de métrique. 重复测试应得到相同指标值。
 
-难以测量的指标可能导致错误，因此不常被采用。
+### 17.4 Facilité de mesure 易测性（Facilité de mesure）
 
-## 18 性能评估方法（Méthodes d’évaluation des performances）
+Une métrique difficile à mesurer risque d'être erronée et sera moins utilisée. 难以测量的指标可能导致错误，因此不常被采用。
 
-三类方法：
-- 数学建模（modélisation analytique）
-- 仿真（simulation）
-- 实测（mesure）
+## 18 Méthodes d'évaluation des performances 性能评估方法（Méthodes d'évaluation des performances）
 
-选择依据包括：
-- 系统是否已存在
-- 时间成本
-- 预算
-- 所需精度
+Trois méthodes : 三类方法：
 
-若系统存在且可访问，可优先测量；否则可使用仿真或建模。
+- Modélisation analytique 数学建模（modélisation analytique）
+- Simulation 仿真（simulation）
+- Mesure 实测（mesure）
 
-通常采用两种方法，互相验证。
+Critères de choix : 选择依据包括：
 
-## 19 HPC 性能评估的目标（Objectifs）
+- Existence du système 系统是否已存在
+- Coût temporel 时间成本
+- Budget 预算
+- Précision souhaitée 所需精度
 
-> 对应今年教师课件第 42–43 页。下文按第 42–62 页的顺序展开；“例子”和“补充说明”为便于理解加入的解释。
+Si le système existe et est accessible, privilégier la mesure ; sinon, utiliser la simulation ou la modélisation. 若系统存在且可访问，可优先测量；否则可使用仿真或建模。
 
-买一台峰值算力更高的机器，应用就一定更快吗？要回答这个问题，需要知道应用在原机器上把时间花在哪里，以及新机器改善了哪一种资源。
+On compare souvent deux méthodes pour valider les résultats. 通常采用两种方法，互相验证。
 
-HPC 性能评估因此更贴近硬件：测量基础性能，刻画处理器、内存与其他部件的行为，比较硬件方案，并判断技术变化可能带来多少收益。课件还强调两点：
+## 19 Objectifs de l'évaluation en HPC HPC 性能评估的目标（Objectifs）
 
-- **把单个因素测清楚。** 用针对性的微基准施加负载，必要时测试接近资源极限的情况，观察饱和与性能变化。
-- **控制实际执行的工作。** 为避免编译器或运行环境改变实验含义，有时需要检查乃至编写汇编，确认真正执行了哪些指令、哪些数据访问。
+> Correspondance : pages 42–43 du cours actuel. Les sections suivantes suivent les pages 42–62 ; les exemples et compléments sont des explications ajoutées. 对应今年教师课件第 42–43 页。下文按第 42–62 页的顺序展开；“例子”和“补充说明”为便于理解加入的解释。
 
-这些基础测量还要回到应用：内存带宽测得很高，只说明这台机器在相应访问方式下能提供这样的带宽；应用能否利用它，取决于自己的访问模式和并行程度。
+Une machine au débit théorique plus élevé exécutera-t-elle nécessairement l'application plus vite ? Il faut connaître la répartition du temps sur l'ancienne machine et la ressource améliorée sur la nouvelle. 买一台峰值算力更高的机器，应用就一定更快吗？要回答这个问题，需要知道应用在原机器上把时间花在哪里，以及新机器改善了哪一种资源。
 
-## 20 并行性与性能（Parallélisme et performance）
+L'évaluation HPC se rapproche du matériel : mesurer ses performances élémentaires, caractériser processeur et mémoire, comparer les architectures et estimer les gains technologiques. Le cours souligne aussi : HPC 性能评估因此更贴近硬件：测量基础性能，刻画处理器、内存与其他部件的行为，比较硬件方案，并判断技术变化可能带来多少收益。课件还强调两点：
 
-> 对应课件第 44–50 页。
+- **Isoler un facteur.** Utiliser des microbenchmarks ciblés, éventuellement proches des limites de la ressource, pour observer saturation et évolution des performances. **把单个因素测清楚。** 用针对性的微基准施加负载，必要时测试接近资源极限的情况，观察饱和与性能变化。
+- **Contrôler le travail réellement exécuté.** Vérifier, voire écrire, l'assembleur pour identifier les instructions et accès effectivement exécutés malgré les transformations du compilateur ou de l'environnement. **控制实际执行的工作。** 为避免编译器或运行环境改变实验含义，有时需要检查乃至编写汇编，确认真正执行了哪些指令、哪些数据访问。
 
-### 20.1 Amdahl 定律：先看哪些时间能被分摊
+Il faut relier ces mesures à l'application : une bande passante élevée sous un certain motif d'accès ne garantit pas que l'application l'exploite ; cela dépend de ses accès et de son parallélisme. 这些基础测量还要回到应用：内存带宽测得很高，只说明这台机器在相应访问方式下能提供这样的带宽；应用能否利用它，取决于自己的访问模式和并行程度。
 
-设固定问题在单处理器上的执行时间为 $T_1$，其中串行部分占比为 $s$；其余部分理想地分配到 $P$ 个处理器，暂不计额外开销：
+## 20 Parallélisme et performance 并行性与性能（Parallélisme et performance）
+
+> Correspondance : pages 44–50. 对应课件第 44–50 页。
+
+### 20.1 Loi d'Amdahl : identifier le travail répartissable Amdahl 定律：先看哪些时间能被分摊
+
+Pour un problème fixe de durée séquentielle $T_1$, la fraction séquentielle vaut $s$ ; le reste est idéalement réparti sur $P$ processeurs, sans surcoût : 设固定问题在单处理器上的执行时间为 $T_1$，其中串行部分占比为 $s$；其余部分理想地分配到 $P$ 个处理器，暂不计额外开销：
 
 $$
 T_P=T_1\left(s+\frac{1-s}{P}\right),\qquad
 S(P)=\frac{T_1}{T_P}=\frac{1}{s+(1-s)/P}.
 $$
 
-当 $s>0$ 时，随着 $P$ 增大，加速比趋近 $1/s$。这是课件第 45 页的核心结论，也是前面第 10 节在 HPC 情景中的应用。
+Pour $s>0$, l'accélération tend vers $1/s$ lorsque $P$ augmente. C'est la conclusion centrale de la page 45, appliquant la section 10 au HPC. 当 $s>0$ 时，随着 $P$ 增大，加速比趋近 $1/s$。这是课件第 45 页的核心结论，也是前面第 10 节在 HPC 情景中的应用。
 
-**例子。** 一个任务原来需要 100 秒，其中 10 秒必须串行。使用 10 个处理器后，理想时间是 $10+90/10=19$ 秒，加速比约为 5.26；再增加处理器，也无法消除那 10 秒串行工作。
+**Exemple.** Sur 100 secondes, 10 sont séquentielles. Avec 10 processeurs, le temps idéal vaut $10+90/10=19$ secondes, soit un speedup d'environ 5.26 ; ajouter des processeurs ne supprime pas ces 10 secondes. **例子。** 一个任务原来需要 100 秒，其中 10 秒必须串行。使用 10 个处理器后，理想时间是 $10+90/10=19$ 秒，加速比约为 5.26；再增加处理器，也无法消除那 10 秒串行工作。
 
-模型要求固定问题规模及明确的串行基准。实际通信、同步、调度与负载不均衡通常还会增加时间；大规模并行时应把这些因素单独建模。核心数量增加本身不会使 Amdahl 的关系失效。
+Le modèle suppose une taille fixe et une référence séquentielle définie. Communications, synchronisation, ordonnancement et déséquilibre ajoutent des coûts à modéliser ; le nombre de cœurs n'invalide pas à lui seul la relation. 模型要求固定问题规模及明确的串行基准。实际通信、同步、调度与负载不均衡通常还会增加时间；大规模并行时应把这些因素单独建模。核心数量增加本身不会使 Amdahl 的关系失效。
 
-### 20.2 显式并行与隐式并行（Parallélisme explicite / implicite）
+### 20.2 Parallélisme explicite et implicite 显式并行与隐式并行（Parallélisme explicite / implicite）
 
-课件把用 MPI、OpenMP 等明确组织的并行称为**显式并行**：程序需要表达任务划分、数据分配及必要的协调。
+Le cours appelle **explicite** le parallélisme organisé avec MPI ou OpenMP : tâches, données et coordinations doivent être exprimées. 课件把用 MPI、OpenMP 等明确组织的并行称为**显式并行**：程序需要表达任务划分、数据分配及必要的协调。
 
-课件所说的**隐式并行**包括多个独立作业、Monte Carlo 抽样和参数扫描。这些工作单元之间常有天然的独立性，可以由外部脚本或作业调度器并发启动。
+Le parallélisme dit **implicite** inclut jobs indépendants, tirages Monte Carlo et explorations paramétriques, souvent lançables en parallèle par un script ou un ordonnanceur. 课件所说的**隐式并行**包括多个独立作业、Monte Carlo 抽样和参数扫描。这些工作单元之间常有天然的独立性，可以由外部脚本或作业调度器并发启动。
 
-> 术语说明：这里沿用课件的分类。“隐式”并不表示无需组织执行；脚本、调度器和随机数流仍需要正确配置。MPI 是通信接口，OpenMP 是并行编程规范，不能简单理解为两种独立的编程语言。
+> Terminologie du cours : « implicite » ne dispense pas d'organiser l'exécution et les flux aléatoires. MPI est une interface de communication, OpenMP une spécification de programmation parallèle, pas deux langages indépendants. 术语说明：这里沿用课件的分类。“隐式”并不表示无需组织执行；脚本、调度器和随机数流仍需要正确配置。MPI 是通信接口，OpenMP 是并行编程规范，不能简单理解为两种独立的编程语言。
 
-### 20.3 Scale-up 与 Speed-up：先明确评估对象
+### 20.3 Scale-up et Speed-up : préciser l'objectif Scale-up 与 Speed-up：先明确评估对象
 
-第 47–48 页从两种目标讨论扩展能力：
+Les pages 47–48 distinguent deux objectifs : 第 47–48 页从两种目标讨论扩展能力：
 
-| 课件术语 | 关注的问题 | 可以观察的量 |
+| Terme du cours 课件术语 | Question 关注的问题 | Grandeurs observables 可以观察的量 |
 |---|---|---|
-| Scale-up | 能否同时支持更多相同任务、用户或事务？ | 并发容量、每秒完成的任务数，以及相应响应时间 |
-| Speed-up | 一项给定任务能否更早完成？ | 完成时间及相对于基准的加速比 |
+| Scale-up | Peut-on servir davantage de tâches, utilisateurs ou transactions identiques simultanément ? 能否同时支持更多相同任务、用户或事务？ | Capacité concurrente, tâches par seconde et temps de réponse 并发容量、每秒完成的任务数，以及相应响应时间 |
+| Speed-up | Une tâche donnée peut-elle se terminer plus tôt ? 一项给定任务能否更早完成？ | Temps de réalisation et accélération par rapport à une référence 完成时间及相对于基准的加速比 |
 
-**例子。** 把 100 个独立模拟从串行运行改为同时运行，整批任务会更早完成，但每个模拟自身未必变快。把一个模拟的计算拆给多个处理器，则是在缩短这个模拟的完成时间。
+**Exemple.** Exécuter simultanément 100 simulations indépendantes raccourcit le traitement du lot, sans nécessairement accélérer chaque simulation. Répartir une simulation sur plusieurs processeurs vise à accélérer celle-ci. **例子。** 把 100 个独立模拟从串行运行改为同时运行，整批任务会更早完成，但每个模拟自身未必变快。把一个模拟的计算拆给多个处理器，则是在缩短这个模拟的完成时间。
 
-课件中的 Scale-up 按上述含义理解；它与第 13 节的 strong/weak scaling 不构成一一对应关系。强弱扩展规定的是“处理器数变化时问题规模怎样变化”，这里讨论的是“希望改善哪一种任务完成能力”。
+Ces notions ne correspondent pas directement au strong/weak scaling : ceux-ci définissent la variation de taille avec le nombre de processeurs, tandis qu'ici on distingue les objectifs de traitement. 课件中的 Scale-up 按上述含义理解；它与第 13 节的 strong/weak scaling 不构成一一对应关系。强弱扩展规定的是“处理器数变化时问题规模怎样变化”，这里讨论的是“希望改善哪一种任务完成能力”。
 
-### 20.4 参数扫描与 Monte Carlo 的例子
+### 20.4 Exploration paramétrique et Monte Carlo 参数扫描与 Monte Carlo 的例子
 
-**参数扫描（exploration paramétrique）。** 对同一程序使用不同输入参数，执行 $n$ 次相互独立的模拟。如果资源充足，可以将它们分发到多台机器，缩短全部结果收齐的时间。汇总结果、加载输入与资源竞争仍可能产生开销。
+**Exploration paramétrique.** Exécuter $n$ simulations indépendantes avec différents paramètres ; les distribuer peut raccourcir le délai global, mais collecte des résultats, chargement et contention coûtent encore du temps. **参数扫描（exploration paramétrique）。** 对同一程序使用不同输入参数，执行 $n$ 次相互独立的模拟。如果资源充足，可以将它们分发到多台机器，缩短全部结果收齐的时间。汇总结果、加载输入与资源竞争仍可能产生开销。
 
-**Monte Carlo。** 第 49 页以大量无依赖试验为例。需要区分两种比较：
+**Monte Carlo.** La page 49 illustre de nombreux essais indépendants. Distinguer : **Monte Carlo。** 第 49 页以大量无依赖试验为例。需要区分两种比较：
 
-- 固定试验总数：并行执行的目标是缩短总时间。
-- 固定总时间：更多计算资源可能支持更多试验，改善估计精度。
+- Nombre total d'essais fixé : réduire le temps total. 固定试验总数：并行执行的目标是缩短总时间。
+- Temps total fixé : davantage de ressources peuvent permettre plus d'essais et une estimation plus précise. 固定总时间：更多计算资源可能支持更多试验，改善估计精度。
 
-补充说明：对独立同分布、方差有限的样本均值，标准误差按样本数的平方根倒数下降。并行化本身不会提高每个样本的精度；应避免各工作进程重复使用相同的随机数序列。
+Complément : pour des observations i.i.d. de variance finie, l'erreur standard de la moyenne décroît comme l'inverse de la racine du nombre d'échantillons. Le parallélisme n'améliore pas chaque échantillon ; éviter des séquences aléatoires dupliquées entre processus. 补充说明：对独立同分布、方差有限的样本均值，标准误差按样本数的平方根倒数下降。并行化本身不会提高每个样本的精度；应避免各工作进程重复使用相同的随机数序列。
 
-### 20.5 为什么有的代码更容易扩展？
+### 20.5 Pourquoi certains codes passent-ils mieux à l'échelle ? 为什么有的代码更容易扩展？
 
-第 50 页用 Linpack 举例说明，有些代码能较好地利用新增处理器；其他代码可能受问题自身的依赖关系、划分方式或通信成本限制。
+La page 50 cite Linpack : certains codes exploitent bien les processeurs supplémentaires ; d'autres sont limités par les dépendances, le découpage ou la communication. 第 50 页用 Linpack 举例说明，有些代码能较好地利用新增处理器；其他代码可能受问题自身的依赖关系、划分方式或通信成本限制。
 
-随着每个处理器分到的计算减少，数据交换和同步可能占据更大比例。分析时可以依次问：
+Quand le calcul par processeur diminue, échanges et synchronisations peuvent peser davantage. Questions à poser : 随着每个处理器分到的计算减少，数据交换和同步可能占据更大比例。分析时可以依次问：
 
-1. 可并行的工作是否足够多？
-2. 各处理器分到的工作是否均衡？
-3. 通信能否与计算重叠？
-4. 同步是否迫使较快的处理器等待？
+1. Le travail parallélisable est-il suffisant ? 可并行的工作是否足够多？
+2. La charge est-elle équilibrée ? 各处理器分到的工作是否均衡？
+3. Peut-on recouvrir communication et calcul ? 通信能否与计算重叠？
+4. Les synchronisations font-elles attendre les processeurs rapides ? 同步是否迫使较快的处理器等待？
 
-这些问题把加速比曲线与程序行为联系起来。通信、NUMA 与模型的进一步说明见 [annex](1_edpCpl_zh_annex.md)。
+Ces questions relient le speedup au comportement du programme. Voir l'[annexe](1_edpCpl_zh_annex.md) pour les communications, NUMA et les modèles. 这些问题把加速比曲线与程序行为联系起来。通信、NUMA 与模型的进一步说明见 [annex](1_edpCpl_zh_annex.md)。
 
-## 21 工作集、缓存命中与局部性（Workload-cache MISS/HIT）
+## 21 Ensemble de travail, cache et localité 工作集、缓存命中与局部性（Workload-cache MISS/HIT）
 
-> 对应课件第 51 页。
+> Correspondance : page 51. 对应课件第 51 页。
 
-处理器需要的指令或数据如果已在所考察的缓存中，访问就是一次命中（hit）；否则发生缺失（miss），需要向更低一级存储层次取数据。
+Une instruction ou donnée présente dans le cache étudié produit un hit ; sinon, un miss nécessite un accès à un niveau inférieur de la hiérarchie. 处理器需要的指令或数据如果已在所考察的缓存中，访问就是一次命中（hit）；否则发生缺失（miss），需要向更低一级存储层次取数据。
 
 $$
 \mathrm{miss\ ratio}=\frac{\text{缓存缺失次数}}{\text{对应的访问次数}}.
 $$
 
-分子和分母必须属于同一种事件、同一个缓存层级及同一测量范围。例如 L1 数据缓存缺失率与末级缓存缺失率回答的是不同问题。
+Numérateur et dénominateur doivent concerner le même événement, niveau de cache et périmètre ; les taux de miss L1 et dernier niveau ne répondent pas à la même question. 分子和分母必须属于同一种事件、同一个缓存层级及同一测量范围。例如 L1 数据缓存缺失率与末级缓存缺失率回答的是不同问题。
 
-### 21.1 “程序很小”为什么可能更快？
+### 21.1 Pourquoi un petit programme peut-il être plus rapide ? “程序很小”为什么可能更快？
 
-如果反复使用的数据能留在缓存中，后续访问可减少对更慢存储层次的请求。理解这里的“小”，需要区分：
+Si les données réutilisées restent en cache, les accès suivants sollicitent moins les niveaux lents. Distinguer : 如果反复使用的数据能留在缓存中，后续访问可减少对更慢存储层次的请求。理解这里的“小”，需要区分：
 
-- **内存占用（memory footprint）**：程序的指令和数据占据多少空间。
-- **活跃工作集（working set）**：在所考察阶段中实际反复使用的指令和数据。
-- **工作负载（workload）**：整门课中的广义概念，包括任务类型、规模、访问行为、到达方式等。
+- **Empreinte mémoire :** espace occupé par les instructions et les données. **内存占用（memory footprint）**：程序的指令和数据占据多少空间。
+- **Ensemble de travail actif :** instructions et données réellement réutilisées pendant la phase étudiée. **活跃工作集（working set）**：在所考察阶段中实际反复使用的指令和数据。
+- **Workload :** notion générale incluant tâches, tailles, accès et arrivées. **工作负载（workload）**：整门课中的广义概念，包括任务类型、规模、访问行为、到达方式等。
 
-> 校注：第 51 页把指令和数据占用的空间简写为 workload。本节将其按内存占用和工作集的语境解释。工作集较小有利于缓存命中，但首次访问、映射冲突、其他线程干扰等仍可能产生 miss，不能承诺“程序小就全部命中”。
+> Précision : la page 51 emploie workload pour l'espace occupé ; on l'interprète ici comme empreinte ou ensemble de travail. Un petit ensemble favorise les hits, sans supprimer misses initiaux, conflits ou interférences. 校注：第 51 页把指令和数据占用的空间简写为 workload。本节将其按内存占用和工作集的语境解释。工作集较小有利于缓存命中，但首次访问、映射冲突、其他线程干扰等仍可能产生 miss，不能承诺“程序小就全部命中”。
 
-### 21.2 局部性怎样影响访问？
+### 21.2 Comment la localité influence-t-elle les accès ? 局部性怎样影响访问？
 
-- **时间局部性**：近期使用的数据很快再次使用，例如在循环中重复使用一个小数组。
-- **空间局部性**：使用某个地址后，很快使用邻近地址，例如顺序遍历数组。
+- **Localité temporelle :** réutiliser rapidement une donnée récente, par exemple un petit tableau dans une boucle. **时间局部性**：近期使用的数据很快再次使用，例如在循环中重复使用一个小数组。
+- **Localité spatiale :** accéder rapidement à des adresses voisines, comme lors d'un parcours séquentiel. **空间局部性**：使用某个地址后，很快使用邻近地址，例如顺序遍历数组。
 
-课件指出，反复执行的指令往往有较好的局部性；数据访问则需要结合应用调优。分块处理的一个目的，就是让某一批数据在被逐出缓存前完成更多有用工作。
+Les instructions répétées ont souvent une bonne localité ; les données nécessitent une optimisation adaptée. Le blocage vise notamment à réutiliser les données avant leur éviction. 课件指出，反复执行的指令往往有较好的局部性；数据访问则需要结合应用调优。分块处理的一个目的，就是让某一批数据在被逐出缓存前完成更多有用工作。
 
-**例子。** 顺序处理一个小数组和一个远大于缓存的大数组，即使执行相同的循环语句，也可能访问不同的存储层次。因此比较结果时必须记录数组规模和缓存状态。
+**Exemple.** La même boucle sur un petit tableau ou un tableau dépassant le cache peut solliciter différents niveaux mémoire ; documenter taille et état des caches. **例子。** 顺序处理一个小数组和一个远大于缓存的大数组，即使执行相同的循环语句，也可能访问不同的存储层次。因此比较结果时必须记录数组规模和缓存状态。
 
-## 22 HPC 中的延迟、带宽、利用率与其他指标
+## 22 Latence, bande passante, utilisation et autres métriques HPC HPC 中的延迟、带宽、利用率与其他指标
 
-> 对应课件第 52–53 页：Latence / Débit / Taux，Autres métriques。
+> Correspondance : pages 52–53, Latence / Débit / Taux et Autres métriques. 对应课件第 52–53 页：Latence / Débit / Taux，Autres métriques。
 
-| 指标 | 回答的问题 | 例子及解释边界 |
+| Métrique 指标 | Question 回答的问题 | Exemples et limites 例子及解释边界 |
 |---|---|---|
-| 延迟（latence） | 一个操作从发出到完成要多久？ | 内存访问、网络消息往返、数据库请求响应 |
-| 吞吐量或带宽（débit） | 单位时间完成多少工作或传输多少数据？ | GB/s、Gb/s、FLOP/s；须区分字节 B 与比特 b |
-| 利用率（taux d’utilisation） | 某资源在观察期内被使用到什么程度？ | CPU 忙碌时间比例、链路占用等；计数口径因资源和工具而异 |
+| Latence 延迟（latence） | Durée entre émission et achèvement d'une opération ? 一个操作从发出到完成要多久？ | Accès mémoire, aller-retour réseau, réponse d'une base de données 内存访问、网络消息往返、数据库请求响应 |
+| Débit ou bande passante 吞吐量或带宽（débit） | Travail ou données transférées par unité de temps ? 单位时间完成多少工作或传输多少数据？ | GB/s, Gb/s, FLOP/s ; distinguer octets B et bits b GB/s、Gb/s、FLOP/s；须区分字节 B 与比特 b |
+| Utilisation 利用率（taux d'utilisation） | Degré d'occupation pendant l'observation ? 某资源在观察期内被使用到什么程度？ | Temps CPU occupé, occupation du lien ; définition selon la ressource et l'outil CPU 忙碌时间比例、链路占用等；计数口径因资源和工具而异 |
 
-**延迟低与带宽高是不同目标。** 单个依赖性访存可能受每次请求的等待时间影响；大量可并发请求则可能把数据通路的带宽占满。课件用网络 ping-pong 往返时间除以 2 近似单程延迟，这依赖往返路径和处理开销近似对称等条件。
+**Faible latence et forte bande passante sont deux objectifs distincts.** Des accès dépendants peuvent attendre chaque requête, tandis que des accès concurrents saturent la bande passante. Estimer la latence par la moitié d'un aller-retour ping-pong suppose notamment des trajets et surcoûts approximativement symétriques. **延迟低与带宽高是不同目标。** 单个依赖性访存可能受每次请求的等待时间影响；大量可并发请求则可能把数据通路的带宽占满。课件用网络 ping-pong 往返时间除以 2 近似单程延迟，这依赖往返路径和处理开销近似对称等条件。
 
-第 53 页还列出效率、可靠性、可用性、性能/价格及性能/功耗：
+La page 53 mentionne également efficacité, fiabilité, disponibilité, performance/prix et performance/puissance : 第 53 页还列出效率、可靠性、可用性、性能/价格及性能/功耗：
 
-- 测得性能与相应理论峰值之比，描述达到峰值的程度。应与第 11 节的并行效率 $S(P)/P$ 区分。
-- 可靠性关注错误或故障；可用性关注可提供服务的时间比例，定义沿用第 15–16 节。
-- 性能/价格需要使用可比的成本范围；性能/功耗可用 FLOP/s/W 表示。一次任务的总能耗还取决于运行时间。
+- Le rapport performance mesurée/pic théorique décrit la fraction du pic atteinte ; le distinguer de l'efficacité parallèle $S(P)/P$. 测得性能与相应理论峰值之比，描述达到峰值的程度。应与第 11 节的并行效率 $S(P)/P$ 区分。
+- La fiabilité concerne erreurs et défaillances ; la disponibilité mesure le temps de service, comme aux sections 15–16. 可靠性关注错误或故障；可用性关注可提供服务的时间比例，定义沿用第 15–16 节。
+- Comparer performance/prix sur un périmètre de coût cohérent ; performance/puissance peut s'exprimer en FLOP/s/W, mais l'énergie totale dépend aussi de la durée. 性能/价格需要使用可比的成本范围；性能/功耗可用 FLOP/s/W 表示。一次任务的总能耗还取决于运行时间。
 
-> 校注：课件把资源饱和与瓶颈、关键路径并列提示。资源接近饱和值得调查，但关键路径是决定完成时间的依赖链，两者概念不同；某项利用率高也不能单独证明它限制了整个应用。
+> Précision : saturation, goulot et chemin critique sont distincts. Une forte utilisation mérite examen, sans prouver à elle seule une limitation globale ; le chemin critique est la chaîne de dépendances déterminant l'achèvement. 校注：课件把资源饱和与瓶颈、关键路径并列提示。资源接近饱和值得调查，但关键路径是决定完成时间的依赖链，两者概念不同；某项利用率高也不能单独证明它限制了整个应用。
 
-## 23 判断程序的性能瓶颈（xxx-bound）
+## 23 Identifier les goulots de performance 判断程序的性能瓶颈（xxx-bound）
 
-> 对应课件第 54–57 页。
+> Correspondance : pages 54–57. 对应课件第 54–57 页。
 
-### 23.1 用“限制在哪里”理解分类
+### 23.1 Classer selon la ressource limitante 用“限制在哪里”理解分类
 
-| 类别 | 主要限制 | 用于理解的例子 |
+| Catégorie 类别 | Limitation principale 主要限制 | Exemple 用于理解的例子 |
 |---|---|---|
-| CPU / compute-bound | 处理器执行指令或运算的能力 | 数据复用充分、算术运算密集的计算内核 |
-| Memory bandwidth-bound | 所考察内存层次的数据传输速率 | 对大数组进行连续读写，运算相对较少 |
-| Memory latency-bound | 所需数据返回得不够快，且难以用其他工作隐藏等待 | 下一次地址依赖上一次结果的指针追踪 |
-| I/O-bound | 存储或其他 I/O 路径的带宽、延迟等 | 频繁读写大文件或大量小请求 |
+| CPU / compute-bound | Capacité d'exécution d'instructions ou d'opérations 处理器执行指令或运算的能力 | Noyau arithmétique avec bonne réutilisation des données 数据复用充分、算术运算密集的计算内核 |
+| Memory bandwidth-bound | Débit de transfert au niveau mémoire étudié 所考察内存层次的数据传输速率 | Parcours de grands tableaux avec peu de calcul 对大数组进行连续读写，运算相对较少 |
+| Memory latency-bound | Données trop lentes à revenir et attente difficile à masquer 所需数据返回得不够快，且难以用其他工作隐藏等待 | Parcours de pointeurs avec adresses dépendantes 下一次地址依赖上一次结果的指针追踪 |
+| I/O-bound | Bande passante ou latence du stockage et des chemins I/O 存储或其他 I/O 路径的带宽、延迟等 | Gros fichiers ou nombreuses petites requêtes 频繁读写大文件或大量小请求 |
 
-> 校注：第 54 页把 CPU-bound 简化为受 CPU 频率限制，把 memory-bound 与高 miss 率关联。实际诊断还要看指令吞吐、依赖关系、访存并发及缓存层级等因素。高 miss 率是线索，不能单独作为内存瓶颈的判据。
+> Précision : la page 54 simplifie CPU-bound par la fréquence et associe memory-bound aux misses. Vérifier aussi débit d'instructions, dépendances, concurrence mémoire et caches ; un taux de miss élevé n'est qu'un indice. 校注：第 54 页把 CPU-bound 简化为受 CPU 频率限制，把 memory-bound 与高 miss 率关联。实际诊断还要看指令吞吐、依赖关系、访存并发及缓存层级等因素。高 miss 率是线索，不能单独作为内存瓶颈的判据。
 
-### 23.2 I/O-bound：先确认 I/O 时间花在哪里
+### 23.2 I/O-bound : localiser le temps d'entrée-sortie I/O-bound：先确认 I/O 时间花在哪里
 
-第 55 页提到 `iostat`、并行化 I/O、条带化（striping）、SSD 和架构调整。
+La page 55 cite `iostat`, parallélisation I/O, striping, SSD et changements d'architecture. 第 55 页提到 `iostat`、并行化 I/O、条带化（striping）、SSD 和架构调整。
 
-这些是不同方向：条带化可把数据分散到多个设备，增大顺序传输的并发能力；更低延迟的设备可能改善小请求；应用也可能通过合并请求或减少重复 I/O 获益。选择前应确认限制来自设备、文件系统、网络还是访问方式。
+Ces options répondent à différentes limites : striping pour répartir les transferts, faible latence pour les petites requêtes, regroupement ou réduction des I/O. Identifier d'abord périphérique, système de fichiers, réseau ou motif d'accès. 这些是不同方向：条带化可把数据分散到多个设备，增大顺序传输的并发能力；更低延迟的设备可能改善小请求；应用也可能通过合并请求或减少重复 I/O 获益。选择前应确认限制来自设备、文件系统、网络还是访问方式。
 
-课件认为 HPC 计算节点应尽量避免被 I/O 限制，这是一种优化目标；数据密集应用确实可能包含重要的 I/O 阶段，不能仅因出现 I/O 瓶颈就认定程序设计错误。
+Éviter les limitations I/O est un objectif HPC, mais une application de données peut comporter des phases I/O importantes ; cela ne prouve pas une erreur de conception. 课件认为 HPC 计算节点应尽量避免被 I/O 限制，这是一种优化目标；数据密集应用确实可能包含重要的 I/O 阶段，不能仅因出现 I/O 瓶颈就认定程序设计错误。
 
-### 23.3 CPU 显示 100%，为什么还不能下结论？
+### 23.3 Pourquoi 100 % CPU ne suffit-il pas au diagnostic ? CPU 显示 100%，为什么还不能下结论？
 
-第 56 页提出的诊断办法是改变处理器频率，再观察应用性能如何变化：
+La page 56 propose de modifier la fréquence et d'observer la performance : 第 56 页提出的诊断办法是改变处理器频率，再观察应用性能如何变化：
 
-- 性能随频率明显改善，提示处理器计算能力可能在限制该阶段。
-- 性能变化很小，提示限制可能在其他资源，需要继续检查内存等因素。
+- Une amélioration sensible avec la fréquence suggère une limitation de calcul. 性能随频率明显改善，提示处理器计算能力可能在限制该阶段。
+- Une faible variation suggère d'autres ressources à examiner, notamment la mémoire. 性能变化很小，提示限制可能在其他资源，需要继续检查内存等因素。
 
-CPU 利用率主要反映调度和忙碌状态；线程等待访存、执行忙等待时，也可能继续被计入 CPU 时间。因此 **100% CPU 不等于已经达到计算峰值**。
+L'utilisation CPU décrit surtout l'occupation et l'ordonnancement. Attentes mémoire et attente active peuvent compter comme temps CPU : **100 % CPU ne signifie pas calcul au pic**. CPU 利用率主要反映调度和忙碌状态；线程等待访存、执行忙等待时，也可能继续被计入 CPU 时间。因此 **100% CPU 不等于已经达到计算峰值**。
 
-补充说明：频率实验需要控制数据规模、线程数、绑定、温度和其他负载，并记录实际频率。缓存、内存控制器与功耗策略可能同时影响结果；“对频率不敏感”也可能来自 I/O、同步或其他限制，不能直接确诊 memory-bound。
+Complément : contrôler taille, threads, affinité, température et autres charges, et relever la fréquence réelle. Cache, contrôleur mémoire et politique de puissance interviennent aussi ; l'insensibilité à la fréquence ne prouve pas memory-bound. 补充说明：频率实验需要控制数据规模、线程数、绑定、温度和其他负载，并记录实际频率。缓存、内存控制器与功耗策略可能同时影响结果；“对频率不敏感”也可能来自 I/O、同步或其他限制，不能直接确诊 memory-bound。
 
-### 23.4 瓶颈是“程序、输入和机器”的共同结果
+### 23.4 Le goulot dépend du programme, de l'entrée et de la machine 瓶颈是“程序、输入和机器”的共同结果
 
-第 57 页强调两个变化：
+La page 57 souligne deux variations : 第 57 页强调两个变化：
 
-1. 数据规模改变时，工作集可能从能装入缓存变为装不下，性能限制随之变化。
-2. 更换处理器后，算力和带宽的相对关系可能改变，同一程序会表现出不同的限制。
+1. Une taille différente peut faire dépasser la capacité du cache et changer la limitation. 数据规模改变时，工作集可能从能装入缓存变为装不下，性能限制随之变化。
+2. Un autre processeur peut modifier le rapport calcul/bande passante et donc le goulot. 更换处理器后，算力和带宽的相对关系可能改变，同一程序会表现出不同的限制。
 
-所以应写“该程序在某台机器、某个输入规模和配置下受某资源限制”，而不是给程序永久贴一个标签。原笔记的 [Roofline 扩展](1_edpCpl_zh_annex.md#annex-roofline)可用于进一步理解算力与带宽之间的关系。
+Qualifier la limitation pour une machine, une entrée et une configuration précises. Le [complément Roofline](1_edpCpl_zh_annex.md#annex-roofline) aide à comparer calcul et bande passante. 所以应写“该程序在某台机器、某个输入规模和配置下受某资源限制”，而不是给程序永久贴一个标签。原笔记的 [Roofline 扩展](1_edpCpl_zh_annex.md#annex-roofline)可用于进一步理解算力与带宽之间的关系。
 
-## 24 测量经典性能指标：STREAM 与浮点性能
+## 24 Mesurer les métriques classiques : STREAM et calcul flottant 测量经典性能指标：STREAM 与浮点性能
 
-> 对应课件第 58–59 页。
+> Correspondance : pages 58–59. 对应课件第 58–59 页。
 
-### 24.1 STREAM 在测什么？
+### 24.1 Que mesure STREAM ? STREAM 在测什么？
 
-STREAM 用简单数组操作刻画持续内存带宽。各操作计算规则清楚，便于说明一次迭代需要搬运多少数据。下表按每个元素为 8 字节、算法需要的数据读写量计数：
+STREAM caractérise la bande passante mémoire soutenue avec des opérations sur tableaux. Le tableau compte les lectures et écritures utiles de l'algorithme pour des éléments de 8 octets : STREAM 用简单数组操作刻画持续内存带宽。各操作计算规则清楚，便于说明一次迭代需要搬运多少数据。下表按每个元素为 8 字节、算法需要的数据读写量计数：
 
-| 内核 | 课件形式 | 每元素读写 | 有效字节数 | 浮点运算数 |
+| Noyau 内核 | Forme du cours 课件形式 | Accès par élément 每元素读写 | Octets utiles 有效字节数 | Opérations flottantes 浮点运算数 |
 |---|---|---|---:|---:|
-| Copy | `c[i] = a[i]` | 一读一写 | 16 B | 0 |
-| Scale | `c[i] = scalar * a[i]` | 一读一写 | 16 B | 1 |
-| Add | `c[i] = a[i] + b[i]` | 两读一写 | 24 B | 1 |
-| Triad | `c[i] = a[i] + scalar * b[i]` | 两读一写 | 24 B | 2 |
+| Copy | `c[i] = a[i]` | Une lecture, une écriture 一读一写 | 16 B | 0 |
+| Scale | `c[i] = scalar * a[i]` | Une lecture, une écriture 一读一写 | 16 B | 1 |
+| Add | `c[i] = a[i] + b[i]` | Deux lectures, une écriture 两读一写 | 24 B | 1 |
+| Triad | `c[i] = a[i] + scalar * b[i]` | Deux lectures, une écriture 两读一写 | 24 B | 2 |
 
-这里按惯例将一次乘法加一次加法计为 2 FLOP，即使编译器使用一条 FMA 指令。课件还列出 `Tot = Tot + a[i]` 的读访问归约例子；它是额外的测试思路，不属于上表的四个标准 STREAM 内核。
+Une multiplication et une addition comptent pour 2 FLOP, même avec une instruction FMA. La réduction `Tot = Tot + a[i]` est un exemple supplémentaire, distinct des quatre noyaux STREAM standard. 这里按惯例将一次乘法加一次加法计为 2 FLOP，即使编译器使用一条 FMA 指令。课件还列出 `Tot = Tot + a[i]` 的读访问归约例子；它是额外的测试思路，不属于上表的四个标准 STREAM 内核。
 
-带宽的计算形式为：
+Calcul de la bande passante : 带宽的计算形式为：
 
 $$
 B_{\mathrm{eff}}=\frac{\text{算法规定的有效读写字节数}}{\text{对应内核的执行时间}}.
 $$
 
-**教学算例。** Triad 处理 $10^7$ 个双精度元素，有效流量为 $24\times10^7$ 字节；如果耗时 0.01 秒，则有效带宽为 24 GB/s（十进制单位）。这是演算数据，不是本机实测结果。
+**Exemple pédagogique.** Triad sur $10^7$ doubles transfère $24\times10^7$ octets utiles ; en 0.01 seconde, cela donne 24 GB/s décimaux. Ce sont des données de calcul, pas une mesure locale. **教学算例。** Triad 处理 $10^7$ 个双精度元素，有效流量为 $24\times10^7$ 字节；如果耗时 0.01 秒，则有效带宽为 24 GB/s（十进制单位）。这是演算数据，不是本机实测结果。
 
-### 24.2 有效流量与实际内存总线流量
+### 24.2 Trafic utile et trafic réel du bus mémoire 有效流量与实际内存总线流量
 
-缓存策略会改变实际流量。例如普通缓存写入发生 write-allocate 时，写入目标缓存行可能先被读入；特定写指令与缓存策略可能避免这次额外读取。
+Les caches modifient le trafic réel : le write-allocate peut lire la ligne cible avant écriture ; certaines instructions ou politiques évitent cette lecture supplémentaire. 缓存策略会改变实际流量。例如普通缓存写入发生 write-allocate 时，写入目标缓存行可能先被读入；特定写指令与缓存策略可能避免这次额外读取。
 
-因此第 58 页“写可能算两次”的提示需要结合访问路径理解：上表使用算法有效字节数；若分析实际总线流量，需要另说明缓存行读取、回写等开销。不能把两个口径混在同一个带宽结果中。[STREAM 官方参考](https://www.cs.virginia.edu/stream/ref.html)明确区分这些字节计数方式。
+La remarque « écriture comptée deux fois » de la page 58 dépend du chemin d'accès. Distinguer octets utiles, lectures de lignes et écritures de retour ; ne pas mélanger leurs débits. Voir la [référence STREAM](https://www.cs.virginia.edu/stream/ref.html). 因此第 58 页“写可能算两次”的提示需要结合访问路径理解：上表使用算法有效字节数；若分析实际总线流量，需要另说明缓存行读取、回写等开销。不能把两个口径混在同一个带宽结果中。[STREAM 官方参考](https://www.cs.virginia.edu/stream/ref.html)明确区分这些字节计数方式。
 
-测量主存带宽时还要使用足够大的数据，并观察线程数增加后是否达到带宽平台；过小的数组可能主要测到缓存，多线程也不保证带宽一直线性增长。
+Pour mesurer la mémoire principale, utiliser assez de données et examiner le plateau de bande passante avec les threads. De petits tableaux peuvent mesurer surtout le cache ; la progression n'est pas toujours linéaire. 测量主存带宽时还要使用足够大的数据，并观察线程数增加后是否达到带宽平台；过小的数组可能主要测到缓存，多线程也不保证带宽一直线性增长。
 
-### 24.3 MFLOPS / MIPS 为什么仍要配合上下文？
+### 24.3 Pourquoi contextualiser MFLOPS et MIPS ? MFLOPS / MIPS 为什么仍要配合上下文？
 
-第 59 页回到前半部分的提醒：浮点指令在程序中的比例、向量化和数据供给都会影响观测结果。两个程序即使完成相同任务，也可能使用不同数量与类型的指令。
+La page 59 rappelle l'influence du mélange d'instructions, de la vectorisation et de l'alimentation en données ; des programmes équivalents peuvent utiliser des instructions différentes. 第 59 页回到前半部分的提醒：浮点指令在程序中的比例、向量化和数据供给都会影响观测结果。两个程序即使完成相同任务，也可能使用不同数量与类型的指令。
 
-实际 FLOP/s 应由所完成的浮点运算数和相应执行时间计算，不能把所有指令数都当成浮点运算。MIPS 的课件戏称用于提醒比较陷阱；正式定义仍是每秒百万条指令。比较应用实现时，应同时报告任务、规模、精度或正确性要求及完成时间。
+Calculer les FLOP/s à partir des opérations flottantes réellement effectuées et de leur durée, pas du nombre total d'instructions. Les MIPS restent des millions d'instructions par seconde ; comparer tâche, taille, précision, correction et durée. 实际 FLOP/s 应由所完成的浮点运算数和相应执行时间计算，不能把所有指令数都当成浮点运算。MIPS 的课件戏称用于提醒比较陷阱；正式定义仍是每秒百万条指令。比较应用实现时，应同时报告任务、规模、精度或正确性要求及完成时间。
 
-## 25 获取性能证据：微基准与硬件计数器
+## 25 Microbenchmarks et compteurs matériels 获取性能证据：微基准与硬件计数器
 
-> 对应课件第 60–61 页。
+> Correspondance : pages 60–61. 对应课件第 60–61 页。
 
-### 25.1 先问一个足够具体的问题
+### 25.1 Poser une question assez précise 先问一个足够具体的问题
 
-微基准（microbenchmark）用于尽量隔离一个因素。例如，连续访问大数组可以观察带宽，而让后一次访存地址依赖前一次结果，可以减少访存重叠，帮助研究延迟。两种程序即使访问同样多的数据，也未必测到同一个量。
+Un microbenchmark isole un facteur : parcourir un grand tableau explore la bande passante ; enchaîner des adresses dépendantes réduit le recouvrement et explore la latence. Un même volume de données ne garantit pas la même grandeur mesurée. 微基准（microbenchmark）用于尽量隔离一个因素。例如，连续访问大数组可以观察带宽，而让后一次访存地址依赖前一次结果，可以减少访存重叠，帮助研究延迟。两种程序即使访问同样多的数据，也未必测到同一个量。
 
-第 60 页列出硬件计数器接口与工具名称，如 Perfmon、Perfctr、PAPI。这里保留它们作为课件检索线索；具体事件与可用接口须以使用的平台为准。PAPI 提供跨平台访问性能计数信息的接口，见 [PAPI 官方说明](https://icl.utk.edu/papi/)。
+La page 60 cite Perfmon, Perfctr et PAPI comme repères ; événements et interfaces dépendent de la plateforme. PAPI fournit une interface d'accès multiplateforme aux compteurs : [présentation officielle](https://icl.utk.edu/papi/). 第 60 页列出硬件计数器接口与工具名称，如 Perfmon、Perfctr、PAPI。这里保留它们作为课件检索线索；具体事件与可用接口须以使用的平台为准。PAPI 提供跨平台访问性能计数信息的接口，见 [PAPI 官方说明](https://icl.utk.edu/papi/)。
 
-### 25.2 从计数器读出什么？
+### 25.2 Que peut-on lire dans les compteurs ? 从计数器读出什么？
 
-| 课件列出的事件 | 可以帮助回答的问题 | 解释时要核对 |
+| Événement 课件列出的事件 | Question possible 可以帮助回答的问题 | Points à vérifier 解释时要核对 |
 |---|---|---|
-| 周期数 | 某段程序消耗多少处理器周期？ | 核心周期与参考周期的定义，以及频率变化 |
-| 停顿周期（stalled cycles） | 执行在哪些阶段受阻？ | 事件定义与重叠关系；不同停顿计数不能随意相加 |
-| 指令数、浮点指令数 | 执行了多少、哪类指令？ | 已退休还是其他计数口径，向量宽度及 FMA |
-| Load / store | 进行了多少读写操作？ | 操作数不等于实际内存字节数，访问可能命中缓存 |
-| 分支及预测失败 | 控制流是否造成额外开销？ | 分支总数与预测失败数的区别 |
-| 缓存缺失 | 哪个层级的数据供给可能有问题？ | 缺失次数、缺失率和每条指令的缺失数分母不同 |
+| Cycles 周期数 | Combien de cycles consomme une phase ? 某段程序消耗多少处理器周期？ | Cycles cœur ou référence, effet de la fréquence 核心周期与参考周期的定义，以及频率变化 |
+| Cycles de blocage 停顿周期（stalled cycles） | Quelles étapes sont bloquées ? 执行在哪些阶段受阻？ | Définition et recouvrements ; ne pas additionner arbitrairement 事件定义与重叠关系；不同停顿计数不能随意相加 |
+| Instructions, instructions flottantes 指令数、浮点指令数 | Combien et quels types d'instructions ? 执行了多少、哪类指令？ | Instructions retirées ou autre comptage, largeur vectorielle, FMA 已退休还是其他计数口径，向量宽度及 FMA |
+| Load / store | Combien de lectures et écritures ? 进行了多少读写操作？ | Opérations distinctes des octets mémoire ; hits possibles 操作数不等于实际内存字节数，访问可能命中缓存 |
+| Branches et mauvaises prédictions 分支及预测失败 | Surcoût du contrôle de flux ? 控制流是否造成额外开销？ | Branches totales et mauvaises prédictions 分支总数与预测失败数的区别 |
+| Défauts de cache 缓存缺失 | Quel niveau peut limiter l'alimentation ? 哪个层级的数据供给可能有问题？ | Distinguer nombre, taux et défauts par instruction 缺失次数、缺失率和每条指令的缺失数分母不同 |
 
-补充说明：表中的问题是分析方向，不保证某台处理器有同名事件，也不保证单个计数器能确定根因。应先读硬件及工具对事件的定义。
+Complément : ces questions orientent l'analyse ; elles ne garantissent ni des événements homonymes sur tout processeur, ni un diagnostic causal par un seul compteur. Lire leurs définitions matérielles et logicielles. 补充说明：表中的问题是分析方向，不保证某台处理器有同名事件，也不保证单个计数器能确定根因。应先读硬件及工具对事件的定义。
 
-### 25.3 为什么需要分批测量？
+### 25.3 Pourquoi mesurer par groupes ? 为什么需要分批测量？
 
-硬件可观察的事件种类很多，但可同时使用的物理计数器数量有限。课件建议对同一工作负载重复测量，每次观察一组事件；重复时要尽量保持输入、执行阶段和环境一致。
+Les événements sont nombreux mais les compteurs physiques simultanés limités. Répéter le même workload avec des groupes d'événements, en gardant entrées, phase et environnement aussi constants que possible. 硬件可观察的事件种类很多，但可同时使用的物理计数器数量有限。课件建议对同一工作负载重复测量，每次观察一组事件；重复时要尽量保持输入、执行阶段和环境一致。
 
-工具也可能采用事件多路复用（multiplexing），在时间上轮流测量不同事件，再对结果估计或缩放。这样会引入开销和采样覆盖限制，程序阶段变化也可能影响解释。参见 [PAPI 用户指南的 multiplexing 说明](https://icl.utk.edu/projects/papi/files/documentation/PAPI_USER_GUIDE.htm)。
+Le multiplexage mesure alternativement différents événements, puis estime ou extrapole les résultats ; il ajoute surcoût et limites de couverture, notamment si les phases changent. Voir le [guide PAPI](https://icl.utk.edu/projects/papi/files/documentation/PAPI_USER_GUIDE.htm). 工具也可能采用事件多路复用（multiplexing），在时间上轮流测量不同事件，再对结果估计或缩放。这样会引入开销和采样覆盖限制，程序阶段变化也可能影响解释。参见 [PAPI 用户指南的 multiplexing 说明](https://icl.utk.edu/projects/papi/files/documentation/PAPI_USER_GUIDE.htm)。
 
-### 25.4 把线索串成可检验的解释
+### 25.4 Construire une explication vérifiable 把线索串成可检验的解释
 
-**教学例子。** 如果发现大数组遍历很慢，可以先测完成时间，再观察缓存缺失和内存带宽。如果带宽接近同条件微基准的可持续水平，带宽限制的解释更有支持；如果带宽很低，则还要检查访问依赖、并行度、同步和其他开销。
+**Exemple pédagogique.** Pour un parcours lent, mesurer durée, misses et bande passante. Une bande passante proche d'un microbenchmark comparable soutient l'hypothèse d'une limitation de débit ; sinon examiner dépendances, parallélisme et synchronisation. **教学例子。** 如果发现大数组遍历很慢，可以先测完成时间，再观察缓存缺失和内存带宽。如果带宽接近同条件微基准的可持续水平，带宽限制的解释更有支持；如果带宽很低，则还要检查访问依赖、并行度、同步和其他开销。
 
-随后改变一个相关因素，例如数据布局或复用方式，再看时间与计数器是否按预期变化。优化结论需要这些相互支持的证据；“miss 很多”或“CPU 很忙”只完成了观察的第一步。
+Modifier ensuite disposition ou réutilisation des données, puis vérifier l'évolution attendue du temps et des compteurs. Des misses nombreux ou un CPU occupé ne suffisent pas à conclure. 随后改变一个相关因素，例如数据布局或复用方式，再看时间与计数器是否按预期变化。优化结论需要这些相互支持的证据；“miss 很多”或“CPU 很忙”只完成了观察的第一步。
 
-## 26 如何比较和解释性能结果（Benchmarks et comparaison）
+## 26 Comparer et interpréter les résultats 如何比较和解释性能结果（Benchmarks et comparaison）
 
-> 对应课件第 62 页。
+> Correspondance : page 62. 对应课件第 62 页。
 
-一个数值要结合参照对象，才能回答实际问题。课件用天体质量比较举例：知道某个对象的质量之外，还需要一个尺度来理解它的大小。在性能分析中，相应的尺度可能是旧版本、单线程运行、另一种实现或同条件基准。
+Une valeur prend son sens par comparaison. Comme pour les masses astronomiques, il faut une échelle : ancienne version, exécution séquentielle, autre implémentation ou référence comparable. 一个数值要结合参照对象，才能回答实际问题。课件用天体质量比较举例：知道某个对象的质量之外，还需要一个尺度来理解它的大小。在性能分析中，相应的尺度可能是旧版本、单线程运行、另一种实现或同条件基准。
 
-比较前至少说明：
+Préciser au minimum : 比较前至少说明：
 
-- **任务**：完成了什么计算，输入规模、精度和结果是否可比。
-- **环境**：机器、线程或进程数、编译选项和相关运行配置。
-- **基准**：与谁比较，指标的单位、计时范围和字节/运算计数口径。
-- **波动**：重复运行的次数与结果分布，避免只挑最好的一次。
-- **解释**：观察到什么、哪些证据支持当前判断、在哪些条件下结论可能变化。
+- **Tâche :** calcul réalisé, taille d'entrée, précision et comparabilité des résultats. **任务**：完成了什么计算，输入规模、精度和结果是否可比。
+- **Environnement :** machine, threads ou processus, compilation et configuration. **环境**：机器、线程或进程数、编译选项和相关运行配置。
+- **Référence :** comparateur, unités, périmètre chronométré et conventions de comptage. **基准**：与谁比较，指标的单位、计时范围和字节/运算计数口径。
+- **Variabilité :** répétitions et distribution, sans sélectionner uniquement le meilleur cas. **波动**：重复运行的次数与结果分布，避免只挑最好的一次。
+- **Interprétation :** observations, preuves et conditions pouvant modifier la conclusion. **解释**：观察到什么、哪些证据支持当前判断、在哪些条件下结论可能变化。
 
-**补充例子。** “耗时 0.2 秒”可以用于判断是否满足时限；若要说明优化收益，还要给出相同条件下的旧时间。若旧时间为 0.4 秒，新实现的加速比为 2。随后仍要检查结果正确性，以及是否改变了问题规模或精度。
+**Exemple ajouté.** 0.2 seconde renseigne sur une échéance ; pour un gain, fournir aussi l'ancien temps comparable. Avec 0.4 seconde auparavant, le speedup vaut 2 ; vérifier correction, taille et précision. **补充例子。** “耗时 0.2 秒”可以用于判断是否满足时限；若要说明优化收益，还要给出相同条件下的旧时间。若旧时间为 0.4 秒，新实现的加速比为 2。随后仍要检查结果正确性，以及是否改变了问题规模或精度。
 
-本课后半部分的主线是：从并行结构与数据访问出发，选择有意义的指标，定位可能的限制，再用测量和可比基准解释结果。更深入的模型、工具概览与后续课程预习材料集中放在 [第一课 annex](1_edpCpl_zh_annex.md)。
+Cette partie relie parallélisme et accès aux données aux métriques, limitations et preuves mesurées. Les modèles, outils et préparations des cours suivants sont dans l'[annexe](1_edpCpl_zh_annex.md). 本课后半部分的主线是：从并行结构与数据访问出发，选择有意义的指标，定位可能的限制，再用测量和可比基准解释结果。更深入的模型、工具概览与后续课程预习材料集中放在 [第一课 annex](1_edpCpl_zh_annex.md)。
 
-## 课件页码对照
+## Correspondance avec le PDF 课件页码对照
 
-页码为当前 62 页 PDF 的物理页。第 1–18 节保留原笔记正文；第 19–26 节按今年新增部分重组。
+Pagination physique du PDF de 62 pages. Les sections 1–18 conservent les notes antérieures ; les sections 19–26 suivent les ajouts actuels. 页码为当前 62 页 PDF 的物理页。第 1–18 节保留原笔记正文；第 19–26 节按今年新增部分重组。
 
-| 中文正文 | 教师课件页码 | 法文检索标题 |
+| Section des notes 中文正文 | Pages du cours 教师课件页码 | Titre de recherche en français 法文检索标题 |
 |---|---|---|
-| 第 19 节 | 42–43 | Evaluation des performances pour le HPC : Plan；Objectifs |
-| 第 20 节 | 44–50 | Parallélisme et performance；Amdahl；Scale-UP；SPEED-UP |
-| 第 21 节 | 51 | Workload-cache MISS/HIT |
-| 第 22 节 | 52–53 | Latence/Débit/Taux；Autres métriques |
-| 第 23 节 | 54–57 | xxx-bound；IO-bound；100% CPU；Considérations memory/CPU-bound |
-| 第 24 节 | 58–59 | Evaluation des métriques classiques |
-| 第 25 节 | 60–61 | Obtenir les valeurs；Compteurs de performance |
-| 第 26 节 | 62 | Benchmarks et comparaison |
+| Section 19 第 19 节 | 42–43 | Evaluation des performances pour le HPC : Plan；Objectifs |
+| Section 20 第 20 节 | 44–50 | Parallélisme et performance；Amdahl；Scale-UP；SPEED-UP |
+| Section 21 第 21 节 | 51 | Workload-cache MISS/HIT |
+| Section 22 第 22 节 | 52–53 | Latence/Débit/Taux；Autres métriques |
+| Section 23 第 23 节 | 54–57 | xxx-bound；IO-bound；100% CPU；Considérations memory/CPU-bound |
+| Section 24 第 24 节 | 58–59 | Evaluation des métriques classiques |
+| Section 25 第 25 节 | 60–61 | Obtenir les valeurs；Compteurs de performance |
+| Section 26 第 26 节 | 62 | Benchmarks et comparaison |
