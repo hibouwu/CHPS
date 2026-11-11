@@ -1,195 +1,199 @@
 # Évaluation des performances : workloads 性能评估：工作负载
 
-[课程入口](../README.md) · [法语课件 PDF（59 页）](2_edp.pdf) · [法语 Markdown](2_edp.md)
+## 1 Introduction 引言
 
-已于 2026-09-30 按当前 59 页法语课件核对，依次讲解引言、负载选择、特征化、合成负载和真实负载。保留必要的法文术语、公式与例子，补充解释紧接对应概念。文末提供 PDF 页码对照；原资料中的数学简写及订正见[审校说明](../审校说明.md)。
+Il existe deux classes de workloads : charges réelles et charges synthétiques. 存在两类工作负载：真实负载和合成负载。
 
-格式说明：法语在前、中文在后，同一行以空格隔开，撇号统一为 '。法语优先依据对应课件及法语讲义，必要时沿用已有订正；中文补充、校注和附录中没有对应原文的部分配以法语译写，仍属补充材料。
+### 1.1 Les charges réelles 真实负载
 
-## 1 Introduction 引言 (Introduction)
+- Observées ou mesurées pendant une exécution sur un système réel. 在真实系统运行期间直接观察或测量得到。
+- Une exécution et son contexte complet ne sont pas exactement reproductibles ; une trace peut être rejouée dans les limites des événements enregistrés. 一次真实运行及其完整环境难以精确复现；已记录的轨迹可以重放，但只能复现轨迹中保留的事件。
 
-Il existe deux classes de workloads : charges réelles et charges synthétiques. 存在两类工作负载 (workloads/charges de travail): 真实负载 (charges réelles) 和合成负载 (charges synthétiques)。
+Avantages : 优点：
 
-### 1.1 Les charges réelles 真实负载 (Les charges réelles)
+- Représentativité optimale 代表性最优
+- Richesse des détails 细节丰富
 
-- Observées ou mesurées pendant une exécution sur un système réel. 在真实系统执行期间被观察或测量
-- Une exécution et son contexte complet ne sont pas exactement reproductibles ; une trace peut être rejouée dans les limites des événements enregistrés. 一次真实运行及其完整环境难以精确重现；已记录的轨迹可以重放，但只能复现轨迹中保留的事件
-
-Avantages : 优点:
-
-- Représentativité optimale 最优的代表性 (représentativité optimale)
-- Richesse des détails 细节丰富 (riches en détails)
-
-Inconvénients : 缺点:
+Inconvénients : 缺点：
 
 - Grande taille 数据量大
 - Contexte initial difficile à reproduire intégralement 原始运行环境难以完全复现
-- Extraction parfois difficile 提取方式有时困难
+- Extraction parfois difficile 提取有时较为困难
 
-### 1.2 Les charges synthétiques 合成负载 (Les charges synthétiques)
+### 1.2 Les charges synthétiques 合成负载
 
-- Créées selon des caractéristiques déterminées pour représenter un contexte ou comportement précis. 根据明确的特征创建, 以代表特定的上下文/行为 (contexte/comportement)
-- Peuvent être répétées à l'infini. 可以无限次重复 (réitérées à l'infini)
+- Créées selon des caractéristiques déterminées pour représenter un contexte ou comportement précis. 根据设定的特征人工构造，用以代表特定的运行场景或行为。
+- Peuvent être répétées à l'infini. 可以无限次重复运行。
 
-Avantages : 优点:
+Avantages : 优点：
 
 - Développement rapide 开发快速
 - Répétition à l'infini 可无限重复
 - Taille réduite 数据量小
-- Portabilité 可移植性 (portabilité)
+- Portabilité 可移植性好
 
-Inconvénients : 缺点:
+Inconvénients : 缺点：
 
-- Représentativité moindre 代表性较低
-- Nombreuses approximations 大量近似 (approximations)
+- Représentativité moindre 代表性相对较低
+- Nombreuses approximations 包含较多近似假设
 
-## 2 Sélection des workloads 工作负载的选择 (Sélection)
+**Complément — exécution réelle, trace et charge synthétique 真实运行、轨迹重放与合成负载的关系。** Une *exécution réelle* dépend de l'état instantané de l'OS, des caches et des autres processus, ce qui la rend non déterministe d'un essai à l'autre. Une *trace* fige une exécution réelle sous forme de journal d'événements horodatés (ex. liste d'accès disque ou mémoire) : elle est rejouable à l'identique, mais ne réagit pas si le nouveau système répond plus vite ou plus lentement (boucle ouverte). Une *charge synthétique* résume enfin la trace par un modèle probabiliste (taux moyen $\lambda$, loi des tailles, localité) pour pouvoir faire varier facilement les paramètres. **真实运行**受操作系统调度、缓存状态和背景噪声影响，每次运行难以完全一致；**轨迹（trace）**将某次真实运行录制成带时间戳的事件日志（如 I/O 请求序列），虽可重放，但属于开环回放，无法随新系统的快慢动态改变后续请求依赖；**合成负载**则进一步用概率分布（如到达速度 $\lambda$、请求大小分布、地址局部性）对真实特征建模，便于自由调节参数做受控实验。
 
-La sélection de la charge détermine l'utilité et l'exactitude des résultats de l'évaluation. Quatre aspects majeurs : 工作负载的选择对于性能评估至关重要, 因为它决定了分析所获得结果的实用性和准确性。选择工作负载需要考虑四个主要方面:
+## 2 Sélection des workloads 工作负载的选择
 
-1. Service délivré par le système 系统提供的服务 (service délivré)
+La sélection de la charge détermine l'utilité et l'exactitude des résultats de l'évaluation. Quatre aspects majeurs : 工作负载的选择决定了性能评估结果的实用性与准确性，需重点考虑四个方面：
 
-2. Niveau de détail demandé 所需的细节级别 (niveau de détail)
+1. Service délivré par le système 系统提供的服务
 
-3. Représentativité des charges 负载的代表性 (représentativité)
+2. Niveau de détail demandé 所需的细节级别
 
-4. Alignement temporel 负载内的时间对齐 (alignement temporel)
+3. Représentativité des charges 负载的代表性
 
-### 2.1 Service délivré 提供的服务 (Service délivré)
+4. Alignement temporel 时间对齐
 
-Le système est un fournisseur de services. Isoler le service étudié des autres services disponibles. 要分析的系统被视为一组服务的提供者。必须考虑研究所涉及的服务, 并将其与系统可能提供的其他服务明确区分。
+### 2.1 Service délivré 提供的服务
 
-Remarque : un service indépendant du contexte est plus représentatif et ne limite pas la validité des résultats à un contexte particulier. 备注: 独立于上下文 (contexte) 的服务更具代表性, 因此更适合分析, 因为它不会将结果的有效性限制在特定的上下文中。
+Le système est un fournisseur de services. Isoler le service étudié des autres services disponibles. 待分析系统被视为服务提供者；必须明确界定所研究的目标服务，并将其与系统提供的其他服务区分开。
 
-Exemple d'analyse du stockage : 示例: 分析数据存储时:
+Remarque : un service indépendant du contexte est plus représentatif et ne limite pas la validité des résultats à un contexte particulier. 备注：独立于特定上下文的服务更具代表性，不会把分析结论局限于某一个特殊场景。
 
-- Le système étudié est le stockage, le disque étant le composant fournissant le service. 分析的系统是存储系统, 但我们考虑磁盘, 因为它是提供所分析服务的组件
-- Choisir des métriques au niveau système : temps de réponse moyen ou TPS, plutôt que seul temps d'accès au disque. 用于分析的指标 (métrique) 应该在系统级别而非磁盘级别。应该使用平均响应时间 (temps de réponse moyen)、TPS 吞吐量 (débit en TPS) 等, 而不是磁盘访问时间
+Exemple d'analyse du stockage : 示例（存储系统分析）：
 
-### 2.2 Niveau de détail 细节级别 (Niveau de détail)
+- Le système étudié est le stockage, le disque étant le composant fournissant le service. 研究对象是整个存储系统，而磁盘只是其中提供底层存储服务的组件。
+- Choisir des métriques au niveau système : temps de réponse moyen ou TPS, plutôt que seul temps d'accès au disque. 评价指标应选在系统服务层级（如平均响应时间、每秒事务数 TPS），而非仅看底层磁盘的硬件访问时间。
+
+**Complément — frontière du service 服务边界的意义。** Le temps d'accès physique au disque (recherche + rotation + transfert) ignore le cache de pages du système d'exploitation, la file d'attente de l'ordonnanceur I/O et le contrôleur RAID. Placer la frontière au niveau du *service de stockage* permet de mesurer la performance réellement perçue par l'application cliente. 底层磁盘硬件访问时间只反映磁头寻道、旋转和传输耗时，忽略了操作系统页缓存（Page Cache）、I/O 调度队列及控制器的影响；将边界设在“存储服务”层级，测出的响应时间和吞吐量才对应上层应用实际感受到的性能。
+
+### 2.2 Niveau de détail 细节级别
 
 #### 2.2.1 Relation avec la méthode d'évaluation 与评估方法的关系
 
-- La modélisation mathématique exige moins de détails, souvent des moyennes ou distributions. 数学建模 (modélisation mathématique) 需要较少的细节 (通常使用平均值或分布)
-- Simulation et mesure utilisent des charges horodatées : traces ou charges exécutables. 仿真 (simulation) 和测量 (mesure) 使用带时间戳的负载: 跟踪 (traces) 或可执行负载 (charges exécutables)
+- La modélisation mathématique exige moins de détails, souvent des moyennes ou distributions. 数学建模所需的细节较少，通常只需平均值或概率分布（如第三课的 $\lambda$、$\mu$ 与分布类型）。
+- Simulation et mesure utilisent des charges horodatées : traces ou charges exécutables. 仿真和实测则需要带时间戳的细粒度负载：事件轨迹（traces）或可直接运行的程序负载。
 
-#### 2.2.2 Traitement des traces 跟踪处理
+#### 2.2.2 Traitement des traces 轨迹处理
 
-Les traces sont souvent volumineuses et détaillées : 跟踪通常数据量大且细节丰富:
+Les traces sont souvent volumineuses et détaillées : 轨迹通常数据量庞大且细节繁杂：
 
-- Utiliser des traces de haut niveau pour réduire les données à analyser. 使用高层跟踪以减少要分析的数据量
-- Adapter leur finesse aux résultats obtenus et souhaités. 根据获得的结果和期望的结果调整跟踪的细节精度
+- Utiliser des traces de haut niveau pour réduire les données à analyser. 可采用高层级轨迹（如记录系统调用或事务级事件，而非逐条指令）以缩减数据规模。
+- Adapter leur finesse aux résultats obtenus et souhaités. 应根据目标分析精度来裁剪轨迹的粒度。
 
-### 2.3 Représentativité 代表性 (Représentativité)
+### 2.3 Représentativité 代表性
 
-Un workload de test doit représenter une application, un comportement ou une classe d'applications partageant des paramètres. 测试工作负载必须代表某个应用/行为或具有共同参数的应用类别。
+Un workload de test doit représenter une application, un comportement ou une classe d'applications partageant des paramètres. 测试负载必须能够代表某个目标应用、某类特定行为，或具有共同特征的一类应用。
 
-La charge et l'application doivent correspondre sur : 为了使负载能代表一个应用, 两者必须在以下方面相匹配:
+La charge et l'application doivent correspondre sur : 测试负载与目标应用需在以下维度保持一致：
 
-- Taux d'arrivée 到达率 (taux d'arrivée)
-- Ressources demandées 所需资源 (ressources demandées)
-- Profil d'utilisation des ressources 资源使用概况 (profil d'utilisation)
+- Taux d'arrivée moyen $\lambda$ : nombre de requêtes soumises par unité de temps. 平均到达速度 $\lambda$：单位时间内提交的请求数量。
+- Ressources demandées 请求占用的资源类型与规模。
+- Profil d'utilisation des ressources 资源使用画像（各资源随时间的负载比例与访问模式）。
 
-### 2.4 Alignement temporel 时间对齐 (Alignement dans le temps)
+### 2.4 Alignement temporel 时间对齐
 
-La charge doit suivre et représenter les variations temporelles du comportement du système. 工作负载必须跟随并代表系统行为的时间变化。
+La charge doit suivre et représenter les variations temporelles du comportement du système. 工作负载必须反映系统行为随时间的演变规律。
 
-Niveaux possibles : 可以区分几个级别:
+Niveaux possibles : 可分为三个级别：
 
-- Faible : tendance temporelle uniquement. 弱 (Faible): 仅给出时间行为的趋势
-- Fort : reproduction précise de tous les événements. 强 (Fort): 准确追踪系统中发生的所有事件
-- Intermédiaire : changements clés de la tendance. 中等 (Intermédiaire): 追踪构成系统行为趋势的关键变化
+- Faible : tendance temporelle uniquement. 弱：仅反映宏观的时间变化趋势（如全天平均流量的涨落）。
+- Fort : reproduction précise de tous les événements. 强：精确复现所有事件发生的时刻与先后顺序。
+- Intermédiaire : changements clés de la tendance. 中等：捕捉构成行为趋势转折的关键阶段变化。
 
-### 2.5 Autres critères de sélection 其他选择考虑因素
+### 2.5 Autres critères de sélection 其他选择标准
 
-> Précision : une charge « meilleure » ou « pire » dépend du débit ou du temps de réponse étudié ; l'exécution réelle n'est pas entièrement reproductible, mais une trace peut être rejouée. 校注：负载高低的“最好／最坏”取决于考察吞吐量还是响应时间；真实负载的原始运行难以完全复现，但记录的轨迹可重放。
+#### 2.5.1 Bien utiliser les résultats de calibration 合理设置负载水平
 
-#### 2.5.1 Bien utiliser les résultats de calibration 校准结果的良好使用
+Les niveaux de charge décrivent les régimes d'utilisation : 不同的负载水平用于考察系统在不同运行区域的表现：
 
-Les niveaux de charge décrivent les régimes d'utilisation : 负载级别反映系统可以运行的状态:
+- Faible : temps de réponse de base avec peu d'attente. 低负载：排队极少，用于测量无竞争时的基础响应时间（近似纯服务时间 $s$）。
+- Typique : utilisation courante. 典型负载：评估系统在日常工作压力下的常规表现。
+- Proche de la saturation : capacité de débit et croissance du temps de réponse. 接近饱和的高负载：测试系统的最大吞吐能力上限，以及排队导致的响应时间急剧上升。
 
-- Faible : temps de réponse de base avec peu d'attente. 低负载：观察排队较少时的基础响应时间
-- Typique : utilisation courante. 典型负载：代表平时的使用状态
-- Proche de la saturation : capacité de débit et croissance du temps de réponse. 接近饱和的高负载：观察吞吐能力以及响应时间是否快速增长
+Le meilleur ou pire cas dépend de la métrique : débit élevé ne signifie pas faible temps de réponse. “最好”或“最坏”情况取决于所选指标：高负载下吞吐量可能达到最高（对吞吐量是好情况），但排队等待也最严重（对响应时间是最坏情况）。
 
-Le meilleur ou pire cas dépend de la métrique : débit élevé ne signifie pas faible temps de réponse. “最好／最坏”必须针对具体指标判断：高吞吐量不代表低响应时间。
+#### 2.5.2 Répétition 重复性
 
-#### 2.5.2 Répétition 重复性 (Répétition)
+La même charge doit produire des résultats comparables à chaque exécution. 同一负载在相同条件下多次运行，应产生可比较的一致结果。
 
-La même charge doit produire des résultats comparables à chaque exécution. 使用相同负载每次执行获得” 相同” 的结果。
+Remarque : une forte variabilité des résultats conduit à de larges intervalles de confiance et rend la charge moins commode. 备注：若每次运行结果波动过大，会导致置信区间过宽，需要大量重复实验才能得到可靠均值。
 
-Remarque : une forte variabilité des résultats conduit à de larges intervalles de confiance et rend la charge moins commode. 备注: 引入结果高度可变性的负载不太理想, 因为它们会产生较大的置信区间 (intervalles de confiance)。
+### 2.6 Intervalle de confiance 置信区间
 
-### 2.6 Intervalle de confiance 置信区间 (Intervalle de confiance)
+Un intervalle exprime l'incertitude sur un paramètre, ici la moyenne de population $\mu$, estimée par la moyenne d'échantillon $\bar X$. À 95 %, environ 95 % des intervalles construits par répétition de la procédure couvrent $\mu$ ; cela n'attribue pas une probabilité à un intervalle déjà fixé. Ici, $\mu$ est une moyenne statistique, pas le taux de service de CM3. 置信区间用于量化对总体参数（此处为总体均值 $\mu$，用样本均值 $\bar X$ 估计）的不确定性。95% 置信水平是指：若用同一抽样与计算方法反复构造许多区间，长期约有 95% 的区间会覆盖真实总体均值 $\mu$（注意：此处的 $\mu$ 表示统计总体均值，不是第三课中的服务速度）。
 
-Un intervalle exprime l'incertitude sur un paramètre, ici la moyenne. À 95 %, environ 95 % des intervalles construits par répétition de la procédure couvrent la vraie moyenne ; ce n'est pas une probabilité de 95 % attribuée à un intervalle déjà fixé. 置信区间描述对总体参数（此处为均值）估计的不确定性。95% 置信水平指：反复抽样并使用同一方法构造区间时，长期约 95% 的区间包含真实均值；不是说某个已经算出的固定区间有 95% 的概率包含固定的总体均值。
-
-À confiance égale, un intervalle plus étroit est plus précis. Pour les mêmes données, augmenter la confiance élargit l'intervalle. 在置信水平相同的条件下，区间越窄，估计越精确。对同一批数据，提高置信水平会使区间变宽。
+À confiance égale, un intervalle plus étroit est plus précis. Pour les mêmes données, augmenter la confiance élargit l'intervalle. 在置信水平相同时，区间越窄说明估计越精确；而在同一批样本数据下，要求更高的置信水平（如从 95% 提高到 99%）必然会使区间变宽。
 
 #### 2.6.1 Calcul de l'intervalle 置信区间的计算
 
-Pour des observations indépendantes, lorsque l'approximation normale de la moyenne convient : 对独立样本，在均值的正态近似适用时：
+Pour des observations indépendantes, lorsque l'approximation normale de la moyenne convient : 对独立观测样本，当样本均值适用正态近似时：
+
+Notations : $X_i$ est la mesure $i$, $n$ le nombre de mesures, $\bar X$ leur moyenne et $s$ leur écart type empirique ; $1-\alpha$ est le niveau de confiance et $z_{1-\alpha/2}$ le quantile correspondant de la loi normale standard. 符号说明：$X_i$ 为第 $i$ 次观测值，$n$ 为样本数，$\bar X$ 为样本均值，$s$ 为样本标准差，$1-\alpha$ 为置信水平，$z_{1-\alpha/2}$ 为标准正态分布的双侧临界值。
 
 $$
 \left[\bar X-z_{1-\alpha/2}\frac{s}{\sqrt n},\quad \bar X+z_{1-\alpha/2}\frac{s}{\sqrt n}\right].
 $$
 
-$1-\alpha$ est le niveau de confiance et $s$ l'écart type empirique. Pour une population normale de variance inconnue, utiliser $t_{1-\alpha/2,n-1}$. 其中 $1-\alpha$ 是置信水平，$s$ 是样本标准差。正态总体且方差未知时，使用 $t_{1-\alpha/2,n-1}$。
+Pour une population normale de variance inconnue, remplacer $z_{1-\alpha/2}$ par le quantile de Student $t_{1-\alpha/2,n-1}$ à $n-1$ degrés de liberté. Le terme $s/\sqrt n$ est l'erreur standard estimée de la moyenne, et non la dispersion d'une mesure isolée ; voir [CM4–5 §5](45_edp_zh.md). 若总体服从正态分布但方差未知（尤其是小样本），应将 $z_{1-\alpha/2}$ 替换为自由度为 $n-1$ 的 Student $t$ 分布分位数 $t_{1-\alpha/2,n-1}$（详见 [CM4–5 §5](45_edp_zh.md)）。
 
-> Précision : les correspondances du cours sont approximatives. Sous la loi normale, 1, 2 et 3 écarts types couvrent environ 68.27 %, 95.45 % et 99.73 % ; les seuils bilatéraux à 95 % et 99 % sont environ 1.960 et 2.576. 校注：原笔记沿用课件中的粗略对应关系。标准正态的 1、2、3 倍标准差范围约覆盖 68.27%、95.45%、99.73%；双侧 95%、99% 的临界值分别约为 1.960、2.576。
+**Complément — pourquoi diviser par $\sqrt{n}$ et valeurs usuelles de $z$ 为什么分母有 $\sqrt{n}$ 及常用临界值。** Si $X_1,\dots,X_n$ sont indépendantes de variance $\sigma^2$, la variance de leur moyenne $\bar X=\frac{1}{n}\sum_{i=1}^n X_i$ vaut $\operatorname{Var}(\bar X)=\frac{1}{n^2}\sum_{i=1}^n\sigma^2=\frac{\sigma^2}{n}$, d'où un écart type de la moyenne (erreur standard) égal à $\frac{\sigma}{\sqrt{n}}\approx\frac{s}{\sqrt{n}}$. Pour réduire de moitié la largeur de l'intervalle de confiance, il faut donc quadrupler le nombre de mesures $n$. Sous la loi normale standard, les intervalles $\pm 1\sigma$, $\pm 2\sigma$ et $\pm 3\sigma$ couvrent environ $68.27\%$, $95.45\%$ et $99.73\%$ ; les quantiles exacts pour des niveaux de confiance bilatéraux de $90\%$, $95\%$ et $99\%$ sont respectivement $z_{0.95}\approx 1.645$, $z_{0.975}\approx 1.960$ et $z_{0.995}\approx 2.576$. 因为 $n$ 次独立测量的样本均值 $\bar X=\frac{1}{n}\sum_{i=1}^n X_i$ 的方差为 $\operatorname{Var}(\bar X)=\frac{1}{n^2}\sum_{i=1}^n\sigma^2=\frac{\sigma^2}{n}$，开方后得到**均值的标准误差（Standard Error）为 $\frac{\sigma}{\sqrt{n}}\approx\frac{s}{\sqrt{n}}$**（注意区分单次测量的波动 $s$ 与均值估计的误差 $s/\sqrt{n}$）。这也意味着：**若想把置信区间宽度缩小一半，重复测量次数 $n$ 必须增加到原来的 $4$ 倍**。在标准正态分布下，$\pm 1\sigma$、$\pm 2\sigma$、$\pm 3\sigma$ 分别覆盖约 $68.27\%$、$95.45\%$、$99.73\%$（课程中有时将 $95\%$ 近似按 $2$ 倍计算，精确双侧临界值在 $90\%$、$95\%$、$99\%$ 下分别为 $1.645$、$1.960$、$2.576$）。
 
-## 3 Caractérisation des workloads 工作负载的特征化 (Caractérisation)
+## 3 Caractérisation des workloads 工作负载的特征化
 
-Quel que soit le type de charge, extraire les caractéristiques clés du contexte étudié. 无论工作负载类型如何, 我们都提取关键特征来代表研究的上下文。
+Quel que soit le type de charge, extraire les caractéristiques clés du contexte étudié. 无论工作负载属于哪一类，都需要提取其关键特征来刻画所研究的运行场景。
 
-### 3.1 Intérêt 目的 (Intérêt)
+### 3.1 Intérêt 目的
 
-- Représenter ou identifier le contexte. 表示/识别研究上下文
-- Produire une charge synthétique liée au réel mais répétable à l'infini. 生成与真实工作负载相关的合成工作负载, 但可以无限重复
+- Représenter ou identifier le contexte. 表征或识别所研究的运行场景。
+- Produire une charge synthétique liée au réel mais répétable à l'infini. 据此构造既贴近真实负载特征、又能无限重复运行的合成负载。
 
-### 3.2 Implémentation 实施 (Implémentation)
+### 3.2 Implémentation 实施方法
 
-Techniques statistiques : moyennes, dispersion, histogrammes simples et multiples. 基于统计技术, 如: 平均值、离散因子、简单和多重直方图等。
+Techniques statistiques : moyennes pour résumer le niveau, dispersion et quantiles pour décrire les fluctuations, histogrammes pour visualiser la distribution et clustering pour séparer des groupes. 常用统计方法包括：用平均值概括总体水平，用离散指标和分位数刻画波动，用直方图展示分布形态，并用聚类区分异质类别。
 
-### 3.3 Moyennes et facteurs de dispersion 平均值和离散因子 (Moyennes et facteurs de dispersion)
+### 3.3 Moyennes et facteurs de dispersion 平均值与离散指标
 
-#### 3.3.1 Moyennes 平均值 (Moyennes)
+#### 3.3.1 Moyennes 平均值
 
-La technique la plus simple résume par une seule valeur les valeurs possibles d'un paramètre et donne sa tendance. 最简单的技术: 用单个值来表征负载, 该值总结了所研究参数在负载中可能取的所有值, 从而提供其趋势信息。
+La technique la plus simple résume par une seule valeur les valeurs possibles d'un paramètre et donne sa tendance. 最简单的方法是用单一数值概括某参数在负载中的所有取值，以反映其中心趋势。
 
-Le choix entre moyenne arithmétique, géométrique ou harmonique dépend du paramètre. 存在多种平均值 (算术、几何、调和等), 每种的使用根据所分析的参数更为合适。
+Le choix entre moyenne arithmétique, géométrique ou harmonique dépend du paramètre. 常见平均值有算术平均、几何平均和调和平均，须根据参数的物理意义选择。
 
-Soient $(x_1,x_2,\ldots,x_n)$ les valeurs possibles du paramètre X dans la charge. 设 $( x _{1} , x _{2} , \ldots , x _{n} )$ 为参数 X 在分析的负载中可能取的值。
+Soient $x_1,\ldots,x_n$ les $n$ observations du paramètre $X$. On distingue ci-dessous les moyennes arithmétique $\bar X_{\mathrm A}$, géométrique $\bar X_{\mathrm G}$ et harmonique $\bar X_{\mathrm H}$ ; sans indice, $\bar X$ désigne ensuite la moyenne arithmétique. 设参数 $X$ 有 $n$ 个观测值 $x_1,\ldots,x_n$。以下分别用 $\bar X_{\mathrm A}$、$\bar X_{\mathrm G}$、$\bar X_{\mathrm H}$ 表示算术、几何与调和平均；后文不带下标的 $\bar X$ 默认指算术平均。
 
-Moyenne arithmétique : 算术平均值 (Moyenne arithmétique):
-
-$$
-\bar{X} = \frac{1}{n} \sum_{i = 1} ^{n} x _{i}
-$$
-
-Moyenne géométrique : 几何平均值 (Moyenne géométrique):
+Moyenne arithmétique $\bar X_{\mathrm A}$ : somme divisée par l'effectif, adaptée par exemple à des durées mesurées sur des requêtes de même poids. 算术平均 $\bar X_{\mathrm A}$：总和除以样本数，适用于可直接相加的量（如等权重请求的耗时，或等时间段内的速度）。
 
 $$
-\bar{X} = \left(\prod_{i = 1} ^{n} x _{i}\right) ^{1 / n}
+\bar X_{\mathrm A} = \frac{1}{n} \sum_{i = 1} ^{n} x _{i}
 $$
 
-Moyenne harmonique : 调和平均值 (Moyenne harmonique):
+Moyenne géométrique $\bar X_{\mathrm G}$ : moyenne multiplicative de valeurs strictement positives, utile pour résumer des ratios normalisés à des références comparables. 几何平均 $\bar X_{\mathrm G}$：对正数作连乘后再开 $n$ 次方，适用于汇总已归一化的相对性能比或加速比（如 SPEC 基准测试）。
 
 $$
-\bar{X} = \frac{n}{\frac{1}{x _{1}} + \frac{1}{x _{2}} + \cdots + \frac{1}{x _{n}}}
+\bar X_{\mathrm G} = \left(\prod_{i = 1} ^{n} x _{i}\right) ^{1 / n}
 $$
 
-Exemples : 示例:
+Moyenne harmonique $\bar X_{\mathrm H}$ : inverse de la moyenne des inverses, adaptée à des vitesses positives lorsque chaque segment porte la même quantité de travail. 调和平均 $\bar X_{\mathrm H}$：倒数的算术平均的倒数，适用于**每个样本对应相同工作量（或相同距离）时的速度平均**。
 
-- Temps moyen de réponse : moyenne arithmétique. 平均响应时间 (算术)
-- Taux global de défauts de cache : défauts totaux / accès totaux, soit une moyenne arithmétique pondérée par les accès. 总体缓存未命中率：总未命中次数 / 总访问次数，等价于按访问次数加权的算术平均
-- Vitesse moyenne sur distances égales : harmonique ; sur durées égales : arithmétique. 等距离路段的平均速度：调和平均；等时间段则使用算术平均
+$$
+\bar X_{\mathrm H} = \frac{n}{\frac{1}{x _{1}} + \frac{1}{x _{2}} + \cdots + \frac{1}{x _{n}}}
+$$
 
-#### 3.3.2 Moyenne pondérée 加权平均值 (Moyenne pondérée)
+Exemples : 示例：
 
-Chaque valeur de la charge est associée à un coefficient déterminant son poids. 加权平均值是一种平均值, 其中所考虑负载中的每个不同值都与确定其权重的系数相关联。
+- Temps moyen de réponse : moyenne arithmétique. 平均响应时间：算术平均。
+- Taux global de défauts de cache : défauts totaux / accès totaux, soit une moyenne arithmétique pondérée par les accès. 总体缓存未命中率：总未命中次数 $\div$ 总访问次数，等价于按每次运行的访问次数加权的算术平均。
+- Vitesse moyenne sur distances égales : harmonique ; sur durées égales : arithmétique. 等距离（或等工作量）下的平均速度：调和平均；等时间段下的平均速度：算术平均。
 
-Moyenne arithmétique pondérée : 算术加权平均值:
+**Complément — pourquoi et comment choisir entre $\bar X_{\mathrm A}$, $\bar X_{\mathrm H}$ et $\bar X_{\mathrm G}$ 三种平均值的选择原则与推导。** Le choix d'une moyenne repose sur l'invariant physique que l'on souhaite conserver : 选择哪种平均值，取决于**哪个总量在物理上具有可加性（或可乘性）**：
+1. **Dérivation de la moyenne harmonique pour les vitesses 速度为何用调和平均：** Si $n$ segments portent chacun la *même quantité de travail* $W$ (ex. même nombre d'instructions ou même distance) et sont exécutés aux vitesses $v_1,\dots,v_n$, la durée du segment $i$ vaut $t_i=\frac{W}{v_i}$. La vitesse moyenne globale est le travail total divisé par le temps total : 若 $n$ 个阶段各自完成**相同的工作量 $W$**（如相同指令数或相同路程），速度分别为 $v_1,\dots,v_n$，则第 $i$ 阶段耗时为 $t_i=\frac{W}{v_i}$。总平均速度必须等于“总工作量 $\div$ 总时间”：
+   $$\bar v = \frac{\text{Travail total}}{\text{Temps total}} = \frac{nW}{\sum_{i=1}^n t_i} = \frac{nW}{\sum_{i=1}^n \frac{W}{v_i}} = \frac{n}{\sum_{i=1}^n \frac{1}{v_i}} = \bar X_{\mathrm H}$$
+   En revanche, si chaque segment dure le *même temps* $T$, le travail du segment $i$ vaut $W_i=v_i T$, et $\bar v=\frac{\sum v_i T}{nT}=\frac{1}{n}\sum v_i=\bar X_{\mathrm A}$. 反之，若每个阶段持续**相同的时间 $T$**，则总工作量为 $\sum v_i T$，总平均速度为 $\frac{\sum v_i T}{nT}=\bar X_{\mathrm A}$（算术平均）。
+2. **Pourquoi la moyenne géométrique pour des ratios normalisés 归一化比值为何用几何平均：** Pour comparer deux machines A et B sur $n$ programmes de temps $T_{\mathrm{A},i}$ et $T_{\mathrm{B},i}$, le rapport des moyennes géométriques vérifie $\frac{\bar X_{\mathrm G}(\mathrm A)}{\bar X_{\mathrm G}(\mathrm B)}=\left(\prod_{i=1}^n\frac{T_{\mathrm{A},i}}{T_{\mathrm{B},i}}\right)^{1/n}$ : le classement relatif entre A et B reste **invariant quelle que soit la machine de référence choisie pour normaliser**, propriété que la moyenne arithmétique ne respecte pas. 对多组基准测试的相对比值 $\frac{T_{\mathrm{A},i}}{T_{\mathrm{B},i}}$，几何平均满足 $\left(\prod_{i=1}^n\frac{T_{\mathrm{A},i}}{T_{\mathrm{B},i}}\right)^{1/n}=\frac{\bar X_{\mathrm G}(\mathrm A)}{\bar X_{\mathrm G}(\mathrm B)}$，即**无论选哪台机器作为归一化基准，两台被测系统的相对优劣比例都保持不变**；若对相对比值误用算术平均，更换基准机器就可能颠倒排名结论。 Notice aussi l'inégalité classique $\bar X_{\mathrm H}\le\bar X_{\mathrm G}\le\bar X_{\mathrm A}$ (avec égalité si et seulement si tous les $x_i$ sont égaux). 此外恒有均值不等式 $\bar X_{\mathrm H}\le\bar X_{\mathrm G}\le\bar X_{\mathrm A}$（当且仅当所有 $x_i$ 相等时取等号）。
+
+#### 3.3.2 Moyenne pondérée 加权平均值
+
+Chaque valeur de la charge est associée à un coefficient déterminant son poids. 加权平均值将每个不同的观测值 $x_i$ 与反映其重要程度或出现频数的权重系数 $p_i$ 关联起来。
+
+Moyenne arithmétique pondérée : 算术加权平均值：
 
 $$
 \bar{X} = \frac{\sum_{i = 1} ^{n} p _{i} x _{i}}{\sum_{i = 1} ^{n} p _{i}}
@@ -197,53 +201,51 @@ $$
 
 Les poids $p_i$ sont non négatifs et leur somme strictement positive. 其中 $p_i$ 为非负权重，且权重总和大于零。
 
-#### 3.3.3 Facteur de dispersion 离散因子 (Facteur de dispersion)
+#### 3.3.3 Facteur de dispersion 离散指标
 
-La moyenne seule ne suffit pas lorsque les valeurs sont très variables. 仅有平均值是不够的, 特别是当参数可能取的值存在很大离散 (variabilité) 时。
+La moyenne seule ne suffit pas lorsque les valeurs sont très variables. 当参数取值波动较大时，仅靠平均值无法反映数据的分散程度（例如 $\{10,10,10\}$ 与 $\{0,10,20\}$ 的均值同为 $10$，但稳定性截然不同）。
 
-La dispersion est estimée par la variance : 离散度由方差 (variance) 估计:
-
-$$
-\operatorname{var} (X) = \sigma^{2} = \frac{1}{n - 1} \sum_{i = 1} ^{n} (X _{i} - \bar{X}) ^{2}
-$$
-
-> Précision : le cours note σ une estimation de variance avec dénominateur n−1, usuellement notée s² pour la distinguer de la variance de population. Le coefficient de variation suppose une échelle de rapport pertinente et une moyenne non nulle ; un écart type empirique nul indique seulement des observations identiques. 校注：本段沿用课件的 σ 记号，但分母 n−1 给出的是样本方差估计，通常记作 s²，以区别于总体方差。变异系数适用于有意义的比率尺度且均值非零的情形；样本标准差为零只表明这些观测值相同。
-
-On en déduit l'écart type : 由此推导出标准差 (écart type):
+La variance de population est notée $\sigma^2$ ; à partir des $n>1$ observations, on l'estime par la variance empirique corrigée $s^2$ : 总体方差记为 $\sigma^2$；由 $n>1$ 个样本观测值估计时，采用修正样本方差 $s^2$（分母取 $n-1$ 以消除用样本均值 $\bar X$ 代替总体均值带来的偏差）：
 
 $$
-\sigma = \sqrt{\operatorname{var} (X)}
+s^2 = \frac{1}{n - 1} \sum_{i = 1} ^{n} (x_i - \bar X)^2
 $$
 
-On utilise souvent le coefficient de variation, ou écart type relatif : 常使用变异系数 (coefficient de variation) 或相对标准差:
+L'écart type empirique $s$ est la racine carrée de $s^2$ et garde l'unité des observations : 样本标准差 $s$ 是样本方差的平方根，其量纲与原观测值一致：
 
 $$
-\sigma / \bar{X}
+s = \sqrt{s^2}
 $$
 
-Remarque 1 : un écart type empirique nul ne garantit pas que les exécutions futures soient constantes. 备注 1：样本标准差为零，说明本次观测值都相同，不能据此保证未来运行中的参数始终不变。
+Le coefficient de variation empirique $CV$ compare l'écart type à la moyenne ; pour une grandeur positive de moyenne $\bar X>0$ : 样本变异系数 $CV$ 是标准差与均值的无量纲比值，用于衡量相对波动大小（便于比较不同单位或不同量级的指标）：
 
-Remarque 2 : si la dispersion est élevée, regrouper les valeurs en classes peut être plus pertinent. 备注 2: 如果标准差较高, 更适合将参数值组织成类别。
+$$
+CV = s/\bar X
+$$
 
-### 3.4 Quantiles et histogrammes 分位数和直方图 (Quantiles et histogrammes)
+Remarque 1 : un écart type empirique nul ne garantit pas que les exécutions futures soient constantes. 备注 1：样本标准差为零仅说明本次采样的观测值恰好相同，不能保证未来运行永远恒定。
 
-#### 3.4.1 Définition des quantiles 分位数定义 (Quantiles: définition)
+Remarque 2 : si la dispersion est élevée, regrouper les valeurs en classes peut être plus pertinent. 备注 2：若标准差或 $CV$ 很大，说明负载可能混杂了多种不同模式，宜先将样本分箱或聚类后再分别分析。
 
-Les quantiles sont des points qui partagent une série ordonnée en q parties d'effectifs comparables. 分位数是将有序列表以规则间隔划分为 q 个等效部分的点。
+### 3.4 Quantiles et histogrammes 分位数与直方图
 
-##### Quantiles usuels : 最常用的分位数:
+#### 3.4.1 Définition des quantiles 分位数定义
 
-- Centiles : cent parties. 100-分位数或百分位数 (centiles): 将样本分为 100 份
-- Déciles : dix parties. 10-分位数或十分位数 (déciles): 将样本分为 10 份
-- Quartiles : quatre parties. 4-分位数或四分位数 (quartiles): 将样本分为 4 份
-- Médiane : deux parties. 2-分位数或中位数 (médiane): 将样本分为 2 份
+Les quantiles sont des points qui partagent une série ordonnée en $q$ parties d'effectifs comparables. 分位数是将从小到大排序后的数据集划分为 $q$ 个等比例区间的分割点。
 
-#### 3.4.2 Calcul des quantiles 分位数计算 (Quantiles: calcul)
+##### Quantiles usuels : 最常用的分位数：
 
-Pour $p\in(0,1)$, une définition empirique est $Q_p=\inf\{x:F_n(x)\ge p\}$ : au moins une proportion $p$ des observations est inférieure ou égale à $Q_p$. Distinguer q parties et proportion p ; les logiciels peuvent aussi interpoler. Exemples : 对比例 $p\in(0,1)$，一种经验分位数定义是 $Q_p=\inf\{x:F_n(x)\ge p\}$，即至少比例 $p$ 的观测值不大于 $Q_p$。分成 $q$ 份与取比例 $p$ 是两种记法，不应混淆；软件还可能使用插值约定。示例：
+- Centiles : cent parties. 百分位数（100-分位数）：将有序样本分为 100 等份。
+- Déciles : dix parties. 十分位数（10-分位数）：将有序样本分为 10 等份。
+- Quartiles : quatre parties. 四分位数（4-分位数）：将有序样本分为 4 等份（即 $25\%, 50\%, 75\%$）。
+- Médiane : deux parties. 中位数（2-分位数）：将有序样本分为左右各 $50\%$ 的 2 等份。
 
-- Premier décile : plus petite valeur observée couvrant au moins 10 % des observations. 第一个十分位数 (10-分位数) 是使至少 10% 的观测值不大于它的最小样本值
-- Troisième quartile : plus petite valeur observée couvrant au moins 75 % des observations. 第三个四分位数 (4-分位数) 是使至少 75% 的观测值不大于它的最小样本值
+#### 3.4.2 Calcul des quantiles 分位数计算
+
+Pour une proportion $p\in(0,1)$, le quantile empirique $Q_p$ peut être défini par $Q_p=\inf\{x:F_n(x)\ge p\}$, où $F_n(x)=\#\{i:x_i\le x\}/n$ est la proportion des $n$ observations inférieures ou égales à $x$. 对比例 $p\in(0,1)$，经验分位数定义为 $Q_p=\inf\{x:F_n(x)\ge p\}$，其中经验分布函数 $F_n(x)=\#\{i:x_i\le x\}/n$ 表示样本中不大于 $x$ 的比例。直观地说，将 $n$ 个数据从小到大排好序后，**$Q_p$ 就是排在第 $\lceil np\rceil$ 个位置（即累计比例首次达到或超过 $p$）的那个样本值**：
+
+- Premier décile ($Q_{0.10}$) : plus petite valeur observée couvrant au moins 10 % des observations. 第 1 个十分位数（$Q_{0.10}$）：使至少 10% 的观测值不大于它的最小样本值。
+- Troisième quartile ($Q_{0.75}$) : plus petite valeur observée couvrant au moins 75 % des observations. 第 3 个四分位数（$Q_{0.75}$）：使至少 75% 的观测值不大于它的最小样本值。
 
 #### 3.4.3 Exemple 示例
 
@@ -251,107 +253,110 @@ Pour $p\in(0,1)$, une définition empirique est $Q_p=\inf\{x:F_n(x)\ge p\}$ : au
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Effectif 出现次数 | 6 | 5 | 10 | 6 | 2 | 7 | 4 |
 
-- Premier quartile = 7, au moins 25 % des valeurs lui sont inférieures ou égales. 第 1 个四分位数 = 7，至少 25% 的值不大于它
-- Troisième quartile = 15, au moins 75 % des valeurs lui sont inférieures ou égales. 第 3 个四分位数 = 15，至少 75% 的值不大于它
-- Médiane = 9, les observations 20 et 21 valent toutes deux 9. 2-分位数 (中位数) = 9，第 20、21 个观测值均为 9
+- Premier quartile $Q_1 = 7$, au moins 25 % des valeurs lui sont inférieures ou égales. 第 1 四分位数 $Q_1 = 7$（至少 25% 的值不大于它）。
+- Troisième quartile $Q_3 = 15$, au moins 75 % des valeurs lui sont inférieures ou égales. 第 3 四分位数 $Q_3 = 15$（至少 75% 的值不大于它）。
+- Médiane $Q_2 = 9$, les observations 20 et 21 valent toutes deux 9. 中位数 $Q_2 = 9$（排序后第 20、21 个观测值均为 9）。
 
-#### 3.4.4 Écart interquartile 四分位距 (L'écart inter-quartile)
+**Complément — détail du calcul par effectifs cumulés 用累计频数手算上述分位数的步骤。** Le nombre total d'observations vaut $N=6+5+10+6+2+7+4=40$. En cumulant les effectifs dans l'ordre croissant des valeurs : 先求总样本数 $N=6+5+10+6+2+7+4=40$，再按值从小到大累加出现次数（确定每个值占用的排名区间）：
+- Valeur $4$ : rangs $1\text{ à }6$ (cumul $6/40=15\%$) ;
+- Valeur $7$ : rangs $7\text{ à }11$ (cumul $11/40=27.5\%$) $\implies$ le rang $0.25\times 40=10$ tombe sur **$Q_1=7$** ;
+- Valeur $9$ : rangs $12\text{ à }21$ (cumul $21/40=52.5\%$) $\implies$ les rangs centraux $20$ et $21$ tombent sur **$\text{Médiane}=9$** ;
+- Valeurs $11$ et $13$ : rangs $22\text{ à }27$ puis $28\text{ à }29$ (cumul $29/40=72.5\%$) ;
+- Valeur $15$ : rangs $30\text{ à }36$ (cumul $36/40=90\%$) $\implies$ le rang $0.75\times 40=30$ tombe sur **$Q_3=15$**.
 
-L'écart $Q_3-Q_1$ s'interprète selon l'unité et l'ordre de grandeur. 四分位距为 $Q_3-Q_1$，应结合数据单位与量级判断它的大小。
+#### 3.4.4 Écart interquartile 四分位距
 
-Un écart plus grand ou plus petit traduit une dispersion plus forte ou plus faible. 较大 (或较小) 的四分位距表示异质 (或同质) 分布。
+L'écart interquartile est noté $IQR=Q_3-Q_1$, avec $Q_1=Q_{0.25}$ et $Q_3=Q_{0.75}$. 四分位距记为 $IQR=Q_3-Q_1$（即第 3 四分位数减去第 1 四分位数），表示剔除首尾各 25% 极端值后**中间 50% 数据的跨度**。
 
-Ici, $Q_3-Q_1=15-7=8$ décrit l'étendue de la moitié centrale ; son importance dépend du contexte et de l'unité. 在前面的例子中，$Q_3-Q_1=15-7=8$。它描述中间一半观测值的跨度；是否算“大”，还需结合数据单位和应用场景判断。
+Un écart plus grand ou plus petit traduit une dispersion plus forte ou plus faible. 四分位距越大，说明中间主体数据越分散；越小则越集中。
 
-#### 3.4.5 Médiane 中位数 (Médiane)
+Ici, $Q_3-Q_1=15-7=8$ décrit l'étendue de la moitié centrale ; son importance dépend du contexte et de l'unité. 在上例中，$IQR=Q_3-Q_1=15-7=8$；其绝对大小需结合数据的物理单位与量级来评判。
 
-Autre nom du quantile d'ordre 1/2, valeur centrale d'une série croissante. 2-分位数的另一个名称, 表示有序样本 (ASC) 的中心值。
+#### 3.4.5 Médiane 中位数
 
-Elle est moins sensible aux valeurs aberrantes que la moyenne. 它不像平均值那样受异常值的影响。
+Autre nom du quantile d'ordre 1/2, valeur centrale d'une série croissante. 即 $50\%$ 分位数，表示升序排列样本的中心位置值。
 
-Calcul : 中位数计算:
+Elle est moins sensible aux valeurs aberrantes que la moyenne. 与算术平均值相比，中位数具有**抗离群值（稳健性）**：个别极大或极小的异常值不会改变中心排名位置。
 
-- Avec $2n+1$ observations : médiane $=u_{n+1}$. 如果样本有 (2n+1) 项, 中位数 $= u _{n + 1}$
-- Avec $2n$ observations : médiane $=(u_n+u_{n+1})/2$. 如果样本有 2n 项, 中位数 $\textstyle{\frac{u _{n} + u _{n + 1}} {2}}$
+Soient $u_1\le\cdots\le u_m$ les observations triées, de nombre total $m$ : 设升序排列后的全部观测值为 $u_1\le\cdots\le u_m$（总数为 $m$），中位数计算公式为：
 
-#### 3.4.6 Exemple 1 : médiane, moyenne et mode 示例 1: 中位数、平均值和众数 (Mode)
+- Avec $m=2n+1$ observations (impair) : médiane $=u_{n+1}$. 若样本量 $m=2n+1$ 为奇数：取正中间第 $n+1$ 项，中位数 $= u _{n + 1}$。
+- Avec $m=2n$ observations (pair) : médiane $=(u_n+u_{n+1})/2$. 若样本量 $m=2n$ 为偶数：取中间第 $n$ 项与第 $n+1$ 项的均值，中位数 $= \frac{u _{n} + u _{n + 1}} {2}$。
+
+#### 3.4.6 Exemple 1 : médiane, moyenne et mode 示例 1：中位数、平均值与众数
 
 | Valeur 值 | 4 | 7 | 9 | 11 | 13 | 15 | 18 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Effectif 出现次数 | 6 | 5 | 10 | 6 | 2 | 7 | 4 |
 
-- Moyenne pondérée : 10.45. 加权平均值:10.45
-- Médiane : 9 ; les observations 20 et 21 valent 9. 中位数：9（第 20、21 个观测值均为 9）
-- Mode : 9, valeur la plus fréquente. 众数:9(最频繁的值)
+- Moyenne pondérée : $\bar X = \frac{4\times 6+7\times 5+9\times 10+11\times 6+13\times 2+15\times 7+18\times 4}{40} = \frac{418}{40} = 10.45$. 加权平均值：$\frac{418}{40}=10.45$。
+- Médiane : $9$ (les observations de rangs 20 et 21 valent 9). 中位数：$9$（共 $40$ 项，第 20、21 项均为 $9$）。
+- Mode : $9$ (valeur la plus fréquente, d'effectif 10). 众数：$9$（出现次数最多的值，共出现 $10$ 次）。
 
-#### 3.4.7 Exemple 2 : médiane, moyenne et mode 示例 2: 中位数、平均值和众数
+#### 3.4.7 Exemple 2 : médiane, moyenne et mode 示例 2：中位数、平均值与众数（异常值影响对比）
 
 | Valeur 值 | 32 | 41 | 48 | 58 | 60 | 97 | 124 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Effectif 出现次数 | 15 | 10 | 15 | 15 | 15 | 2 | 6 |
 
-- Moyenne pondérée : 55.4, influencée par les valeurs extrêmes. 加权平均值:55.4(异常值的影响)
-- Médiane : 48 ; les observations 39 et 40 valent 48. 中位数：48（第 39、40 个观测值均为 48）
-- Modes : 32, 48, 58 et 60, ex æquo pour l'effectif maximal. 众数:32, 48, 58, 60(最频繁的值)
+- Moyenne pondérée : $\bar X = \frac{32\times 15+41\times 10+48\times 15+58\times 15+60\times 15+97\times 2+124\times 6}{78} = \frac{4318}{78} \approx 55.4$, tirée vers le haut par les valeurs extrêmes (97 et 124). 加权平均值：$\frac{4318}{78}\approx 55.4$（被右侧极少数大值 $97$ 和 $124$ 明显拉高）。
+- Médiane : $48$ (sur $N=78$ observations, les effectifs cumulés sont $15, 25, 40\dots$ ; les rangs 39 et 40 valent donc 48). 中位数：$48$（总样本数 $N=78$，累计频数依次为 $15, 25, 40\dots$，故第 39、40 项均落在 $48$，不受尾部大值干扰）。
+- Modes : $32, 48, 58\text{ et }60$ (ex æquo avec l'effectif maximal 15 : distribution multimodale). 众数：$32, 48, 58, 60$（出现次数同为最高值 $15$，属于多峰分布）。
 
-#### 3.4.8 Représentation graphique de la variabilité 可变性的图形表示
+#### 3.4.8 Représentation graphique de la variabilité 离散程度的图形表示：箱线图
 
-> Précision : documenter la règle des moustaches ; les quantiles 5 % et 95 % ne sont qu'une convention possible. 校注：箱线图须注明须线规则，5%／95% 分位数只是其中一种约定。
+La boîte à moustaches est particulièrement adaptée à la représentation d'un échantillon variable. 箱线图是一种非常适合直观展示样本离散程度、偏态与尾部异常值的统计图形工具。
 
-La boîte à moustaches est particulièrement adaptée à la représentation d'un échantillon variable. 箱线图 (Box plot/boîte à moustache) 是一种统计图形工具, 当样本中观察到很大的可变性时, 它提供了非常合适的表示。
+Elle montre notamment : 箱线图同时呈现以下核心统计量：
 
-Elle montre notamment : 用途:
+- La moitié centrale, entre les quartiles 25 % ($Q_1$) et 75 % ($Q_3$), dont la hauteur est l'$IQR$ ; 中间 50% 数据的分布区间（箱体下沿为 $Q_1=25\%$，上沿为 $Q_3=75\%$，箱体高度即四分位距 $IQR$）；
+- La position de la médiane et de la moyenne ; 中位数（箱内横线）与平均值的位置（中位数偏离箱体中心或偏离均值可反映分布偏斜程度）；
+- Les valeurs aberrantes ; 超出须线范围的极端异常值（离群点）；
+- Les moustaches, qui représentent par exemple les quantiles 5 % et 95 % selon la convention retenue. 上下须线端点（本课约定可表示 5% 和 95% 分位数，用于观察长尾跨度）。
 
-- La moitié centrale, entre les quartiles 25 % et 75 % ; 以清晰的视觉方式获得样本 50% 的范围 (位于 25% 和 75% 之间)
-- La position de la médiane et de la moyenne ; 中位数和平均值的位置
-- Les valeurs aberrantes ; 异常值 (outliers)
-- Avec la convention du cours, les points 5 % et 95 % par rapport à la boîte. 对应于样本 5% 和 95% 的点距离箱体的偏差被表示出来
+*Boîtes à moustaches du temps de réponse selon le pas d'accès* 不同访问步长下的响应时间箱线图
 
-*Boîtes à moustaches du temps de réponse selon le pas d'accès — p. 32 不同访问步长下的响应时间箱线图，课件第 32 页*
+![不同访问步长下的响应时间箱线图](Images/2_edp_01.jpg)
 
-![不同访问步长下的响应时间箱线图，课件第 32 页](Images/2_edp_01.jpg)
+L'axe horizontal est le pas d'accès, le vertical le temps de réponse. Comparer médianes, boîtes puis points de forte latence : un comportement typique proche n'exclut pas des queues différentes. 图中横轴为访问步长，纵轴为响应时间。读图时先比较中位数和箱体高度（主体 50% 请求的表现），再观察上方须线与高延迟离群点：即使中位数相近，不同步长下的长尾延迟也可能相差悬殊。
 
-L'axe horizontal est le pas d'accès, le vertical le temps de réponse. Comparer médianes, boîtes puis points de forte latence : un comportement typique proche n'exclut pas des queues différentes. Confirmer la règle des moustaches plutôt que supposer 5 %/95 %. 图中横轴为访问步长，纵轴为响应时间。先比较中位数和箱体，再观察高延迟点：典型请求相近，并不意味着长尾表现相同。须线的具体规则需要由作图方法确认，不能仅凭图片认定它就是 5%／95% 分位数。
+#### 3.4.9 Analyse plus fine de la variabilité 异质样本的进一步细分
 
-#### 3.4.9 Analyse plus fine de la variabilité 可变性的更精细分析
+Si une forte variabilité révèle un échantillon hétérogène : 当整体方差很大、数据呈现出多种截然不同的行为模式（异质样本）时：
 
-Si une forte variabilité révèle un échantillon hétérogène : 当可变性加剧显示出异质样本时:
+Identifier d'abord ses classes par une technique de clustering, puis les analyser séparément. 应先用聚类算法将混合样本拆分为内部同质的若干子类别，再对每个类别分别计算统计指标（否则把读写混合或大小请求直接平均会掩盖真实特征）。
 
-Identifier d'abord ses classes par une technique de clustering, puis les analyser séparément. 必须优先通过分类技术之一 (聚类/clustering) 识别组成初始样本的这些类别, 并分别分析每个类别。
+### 3.5 Classification 聚类分类
 
-### 3.5 Classification 分类 (Classification)
+#### 3.5.1 Technique k-means k-means 聚类
 
-#### 3.5.1 Technique k-means k-means 技术
+K-means regroupe les points à partir des distances entre les éléments. k-means 算法根据样本点在特征空间中的距离远近，自动将数据划分为 $C$ 个紧凑的簇。
 
-> Précision : k-means exige des caractéristiques numériques ; encoder les catégories de manière adaptée. Encodage et distance influencent les résultats. 校注：k-means 需要数值特征，类别特征须先作适当编码；编码和距离选择会影响结果。
+Les données peuvent décrire des grandeurs quantitatives, comme durée, taille ou débit, ou des événements qualitatifs préalablement encodés en valeurs numériques. 特征可以是定量指标（如持续时间、请求大小、吞吐量），也可以是预先编码为数值的定性属性（因距离计算要求数值特征，且不同量纲的特征通常需先做归一化以防大数值特征主导距离）。
 
-K-means regroupe les points à partir des distances entre les éléments. k-means 技术允许进行有效的分类, 基于样本不同元素 (点) 之间的距离或间隔的计算。
+#### 3.5.2 Classification par k-means k-means 算法流程
 
-Les données peuvent décrire des grandeurs quantitatives, comme durée, taille ou débit, ou des événements qualitatifs à encoder. 间隔可以是定量的 (时间、大小、吞吐量) 和定性的 (事件到达)。
+En HPC, les données sont le plus souvent quantitatives ; on emploie couramment la distance euclidienne. 在高性能计算中，被分析的特征多为定量数值，最常用欧几里得距离（即两点坐标差的平方和开方，$\|x-y\|_2=\sqrt{\sum_d(x_d-y_d)^2}$）。
 
-#### 3.5.2 Classification par k-means k-means 分类
+##### Étapes de k-means : k-means 迭代步骤：
 
-En HPC, les données sont le plus souvent quantitatives ; on emploie couramment la distance euclidienne. 在 HPC 中, 分析的数据最常是定量的, 间隔度量是: 欧几里得距离 (distance euclidienne)
+1. Choisir $C$ centres initiaux $\mathrm{Ctr}_1,\ldots,\mathrm{Ctr}_C$ pour $C$ classes ; $C$ est le nombre de groupes, souvent noté $k$ dans le nom k-means. 选定聚类数 $C$（即算法名称 k-means 中的 $k$），并初始化 $C$ 个簇中心 $\mathrm{Ctr}_1,\ldots,\mathrm{Ctr}_C$（初始中心的选择会影响最终收敛到的局部最优解）。
 
-##### Étapes de k-means : k-means 算法步骤:
+2. Affecter chaque point à son centre le plus proche. 分配步骤：计算每个样本点到各中心 $\mathrm{Ctr}_j$ 的距离，将其归入距离最近的中心所属的类别。
 
-1. Choisir C centres initiaux Ctr pour C classes ; l'initialisation influence la convergence. 选择 C 个点形成要构建的 c 个类的中心 Ctr。此选择对收敛有重要影响
+3. Recalculer les centres $\mathrm{Ctr}_{\mathrm{new}}$ comme barycentres des classes. 更新步骤：计算每个新形成类别内所有点的质心（均值向量），作为新的簇中心 $\mathrm{Ctr}_{\mathrm{new}}$。
 
-2. Affecter chaque point à son centre le plus proche. 通过计算每个点到中心 Ctr 的距离形成类, 并将它们关联到最近中心的类
-
-3. Recalculer les centres $\mathrm{Ctr}_{\mathrm{new}}$ comme barycentres des classes. 计算新中心 $\operatorname{C t r} _{\operatorname{n e w}} .$ : 前面形成的类的质心 (barycentres)
-
-4. Répéter 2 et 3 avec $\mathrm{Ctr}\gets\mathrm{Ctr}_{\mathrm{new}}$ jusqu'à convergence. 用 $( \mathrm{C t r} \gets \mathrm{C t r} _{\mathrm{n e w}} )$ 重复步骤 2 和 3 直到收敛
+4. Répéter 2 et 3 avec $\mathrm{Ctr}\gets\mathrm{Ctr}_{\mathrm{new}}$ jusqu'à convergence. 令 $\mathrm{Ctr}\gets\mathrm{Ctr}_{\mathrm{new}}$，交替重复步骤 2 和步骤 3，直至满足收敛条件。
 
 #### 3.5.3 Calcul du barycentre 质心计算
 
-Barycentre ou centre de gravité d'un sous-échantillon : 集合 (子样本) 的质心或重心 (centre de gravité) 计算公式:
+Barycentre $G$ d'un groupe de $N$ points $n_i$, avec poids $p_i\ge0$ de somme positive ; ici $n_i$ est un point ou vecteur de caractéristiques, pas un effectif : 设某类别包含 $N$ 个样本点（特征向量）$n_1,\dots,n_N$，对应非负权重 $p_i$，则该类的加权质心 $G$ 为（注意此处 $n_i$ 表示第 $i$ 个样本的坐标向量，不是人数）：
 
 $$
 G = \frac{1}{\sum_{i = 1} ^{N} p _{i}} \sum_{i = 1} ^{N} p _{i} n _{i} \quad \text{其中} \sum_{i = 1} ^{N} p _{i} \neq 0
 $$
 
-Pour des points de poids identiques : 在点具有等价权重的情况下:
+Pour des points de poids identiques : 当所有样本点权重相等（$p_i=1$）时，质心即为各点坐标的算术平均：
 
 $$
 G = \frac{1}{N} \sum_{i = 1} ^{N} n _{i}
@@ -359,252 +364,221 @@ $$
 
 #### 3.5.4 Condition de convergence 收敛条件
 
-Convergence lorsque les affectations ne changent plus entre deux itérations. 当一次迭代的类与前一次迭代的类相同时, 达到收敛。
+Convergence lorsque les affectations ne changent plus entre deux itérations. 当某次迭代后所有样本点所属的类别与上一轮完全相同（质心不再移动）时，算法达到收敛。
 
-On peut aussi imposer un nombre maximal d'itérations. 可能在定义的迭代次数后停止 (不考虑类的条件)。
+On peut aussi imposer un nombre maximal d'itérations. 实际实现中也常设置最大迭代次数上限以强制终止。
 
-*K-means : de l'initialisation aux groupes stables — p. 39 k-means 从初始化到稳定聚类的过程，课件第 39 页*
+*K-means : de l'initialisation aux groupes stables* k-means 从初始化到稳定聚类的迭代过程
 
-![k-means 从初始化到稳定聚类的过程，课件第 39 页](Images/2_edp_02.jpg)
+![k-means 从初始化到稳定聚类的迭代过程](Images/2_edp_02.jpg)
 
-Dans la figure, 0a contient les données et 0b initialise quatre centres. Affectation au centre le plus proche et recalcul des barycentres alternent jusqu'au regroupement stable 4a. 图中的 0a 是输入数据，0b 初始化四个中心；随后交替执行“分配到最近中心”和“重新计算质心”，直到 4a 中的分组保持稳定。
+Dans la figure, 0a contient les données et 0b initialise quatre centres. Affectation au centre le plus proche et recalcul des barycentres alternent jusqu'au regroupement stable 4a. 图中 `0a` 为原始未分类数据点，`0b` 随机放置了 4 个初始中心；随后不断交替执行“按最近距离划分区域”与“将中心移至区域质心”，直到 `4a` 中 4 个簇的边界和中心不再变化。
 
-### 3.6 Autres outils : histogrammes 其他工具: 直方图 (Histogrammes)
+### 3.6 Autres outils : histogrammes 其他工具：直方图
 
-#### 3.6.1 Histogramme simple 简单直方图
+#### 3.6.1 Histogramme simple 单参数直方图
 
-L'histogramme simple, à un paramètre, compte les observations ayant des valeurs proches. 最常用的类型是简单或单参数直方图。它突出显示参数可能取的相似值的数量。
+L'histogramme simple, à un paramètre, compte les observations ayant des valeurs proches. 单参数直方图将取值范围划分为若干连续区间（分箱 bins），统计落在每个区间内的观测样本数量。
 
-Il relie la représentation empirique des observations et quantiles à la description par une distribution, par exemple normale. 直方图是观察值/分位数表示工具 (通过排序、实验测量批次混合) 与概率定律/分布描述 (例如正态定律) 之间的联系。
+Il relie la représentation empirique des observations et quantiles à la description par une distribution, par exemple normale. 它是连接离散实测数据与连续概率分布模型（如正态分布、指数分布）的桥梁：通过观察直方图的形状，可以判断负载参数适合用哪种理论概率分布来近似拟合。
 
-#### 3.6.2 Histogrammes multiples 多重直方图 (Histogrammes multiples)
+#### 3.6.2 Histogrammes multiples 多参数联合直方图
 
-Utilisés pour plusieurs paramètres liés, le plus souvent deux ou trois. 当多个参数相关时使用。最常见的是 2 到 3 个参数。
+Utilisés pour plusieurs paramètres liés, le plus souvent deux ou trois. 当需要同时考察两个或三个参数之间的相关性（如“请求大小”与“到达间隔”是否相关）时，使用多维直方图。
 
-Pour deux paramètres, des tours de hauteurs différentes se placent sur une grille. 对于 2 参数直方图, 使用不同高度的” 塔” 作为棋盘上的棋子。
+Pour deux paramètres, des tours de hauteurs différentes se placent sur une grille. 二维直方图在平面网格上用不同高度的柱体（如同棋盘上的塔）表示两个参数组合同时出现的频数。
 
-## 4 Workloads synthétiques 合成工作负载 (Workloads synthétiques)
+## 4 Workloads synthétiques 合成工作负载
 
-### 4.1 Paramètres à générer 要生成的参数 (Paramètres à générer)
+### 4.1 Paramètres à générer 要生成的参数
 
-Paramètres courants en HPC : 在高性能计算中最常用来表征负载的参数是:
+Paramètres courants en HPC : 在高性能计算中，合成负载最常需要生成的四类核心参数是：
 
-1. Timing de la charge 负载的时序 (timing)
+1. Timing : dates $\mathrm{date}_i$, intervalles $\delta t$ et taux moyen $\lambda$. 时序参数：事件到达时刻 $\mathrm{date}_i$、相邻到达间隔 $\delta t$ 与平均到达速度 $\lambda$。
 
-2. Adresses d'accès 访问地址 (adresses d'accès)
+2. Adresses d'accès $\mathrm{adr}$ dans un espace de $M$ adresses. 访存或磁盘访问地址 $\mathrm{adr}$（地址空间共包含 $M$ 个可选离散地址）。
 
-3. Nombre de sources 负载源的数量 (nombre de sources)
+3. Nombre de sources $N_{\mathrm{src}}$ ; il ne détermine pas à lui seul la loi des intervalles. 负载源数量 $N_{\mathrm{src}}$（仅凭源数量本身不能直接决定到达间隔的分布类型）。
 
-4. Temps d'exécution ou de service 执行/服务时间 (temps d'exécution/service)
+4. Temps d'exécution ou de service, de moyenne $s$ ; le taux de service correspondant est $\mu=1/s$. Ici, $s$ est une durée, pas l'écart type de la partie statistique. 单次执行或服务耗时，平均值记为 $s$，对应的服务速度为 $\mu=1/s$（注意此处 $s$ 表示平均服务时间，不是第 2、3 节中的样本标准差）。
 
-Leurs valeurs sont générées selon des lois de probabilité. 它们可能取的值使用概率定律生成。
+Leurs valeurs sont générées selon des lois de probabilité. 上述参数的取值通常借助伪随机数发生器与概率分布逆变换来生成。
 
-### 4.2 Génération du timing 生成: 时序 (Timing)
+### 4.2 Génération du timing 生成：时序
 
-#### 4.2.1 Temps inter-arrivées 到达间隔时间 (Temps d'inter-arrivées)
+#### 4.2.1 Temps inter-arrivées 到达间隔时间
 
-Générer les dates d'arrivée des instructions, accès cache ou disque, et tâches : 指令/访问请求 (缓存、磁盘等)/任务的到达日期生成:
+Générer les dates d'arrivée des instructions, accès cache ou disque, et tâches : 生成指令、缓存/磁盘访问请求或计算任务的到达时刻，需依据以下三个要素：
 
-- À partir d'une date de référence : zéro au démarrage ou date d'un événement ; 从参考日期开始。此日期可以是零 (系统启动) 或对应于事件到达的日期
-- Selon une fréquence représentant la pression exercée sur le système ; 根据频率, 确定被分析系统所承受的压力
-- Selon un mode d'utilisation caractérisant le comportement de l'application. 根据使用模式，刻画应用对系统的使用行为
+- À partir d'une date de référence : zéro au démarrage ou date d'un événement ; 参考基准时刻 $\mathrm{date}_{\mathrm{ref}}$：可取 $0$（系统启动时刻）或前一个关联事件的发生时刻；
+- Selon une fréquence représentant la pression exercée sur le système ; 到达频率（到达速度 $\lambda$）：反映外部对被测系统施加的负载压力大小；
+- Selon un mode d'utilisation caractérisant le comportement de l'application. 使用模式：刻画应用发出请求的时间规律（平稳、周期或突发）。
 
-#### 4.2.2 Taux ou fréquence d'arrivée 到达率或频率/吞吐量
+#### 4.2.2 Taux ou fréquence d'arrivée 到达速度或频率
 
-Noté λ, il donne le nombre d'instructions, requêtes ou tâches soumises par unité de temps. 记为 λ, 确定在一个时间单位内提交给系统的指令/请求/任务数量。
+Noté $\lambda$, il donne le nombre moyen d'instructions, requêtes ou tâches soumises par unité de temps ; ce taux d'entrée n'est pas nécessairement le débit de sortie. 记为 $\lambda$，表示单位时间内提交的平均指令、请求或任务数量（注意 $\lambda$ 是外部输入速度，若系统过载或阻塞，未必等于系统实际完成的输出吞吐量）。
 
-Il intervient avec le mode d'utilisation dans la génération d'intervalles représentatifs. 在生成到达间隔时间时使用, 结合系统的使用模式, 以更好地代表合成负载。
+Il intervient avec le mode d'utilisation dans la génération d'intervalles représentatifs. 将平均到达速度 $\lambda$ 与具体的使用模式结合，即可生成具有代表性的到达间隔序列。
 
-##### Modes d'utilisation : 使用类型:
+##### Modes d'utilisation : 常见使用模式：
 
-- Fixe 固定使用 (utilisation fixe)
-- Ordinaire 普通使用 (utilisation ordinaire)
-- En rafales 突发使用 (utilisation en rafales)
-- Périodique ON/OFF, à queue lourde, etc. 周期性使用 (périodiques) (ON/OFF), 重尾 (heavy tailed) 等
+- Fixe 固定间隔模式（等间隔周期到达）
+- Ordinaire 普通随机模式（泊松到达／指数分布间隔）
+- En rafales 突发模式（成批簇集到达）
+- Périodique ON/OFF, à queue lourde, etc. 周期性启停模式（ON/OFF）、重尾分布模式等
 
-#### 4.2.3 Utilisation fixe 固定使用 (Utilisation fixe)
+#### 4.2.3 Utilisation fixe 固定间隔模式
 
-Les dates sont séparées par un intervalle fixe δt. 确定负载时序的日期由固定时间 δt 分隔。
+Les dates $\mathrm{date}_i$ sont séparées par un intervalle fixe $\delta t=1/\lambda$, à partir de la référence $\mathrm{date}_{\mathrm{ref}}$ ; $i$ est l'indice de l'événement. 相邻到达时刻 $\mathrm{date}_i$ 之间保持严格恒定的时间间隔 $\delta t=1/\lambda$（对应第三课 Kendall 记号中的确定性分布 `D`），其中 $\mathrm{date}_{\mathrm{ref}}$ 为参考起点，$i$ 为事件序号。
 
-Les arrivées sont périodiques. 到达是周期性的。
+Les arrivées sont périodiques. 请求呈严格的周期性到达。
 
-Aucune loi aléatoire n'est nécessaire : incrémenter la date de δt. 因此不需要概率定律来生成日期。这通过步长为 δt 的增量过程完成。
+Aucune loi aléatoire n'est nécessaire : incrémenter la date de $\delta t$. 无需生成随机数，直接按固定步长 $\delta t$ 累加即可得到各事件的到达时刻：
 
 $$
 \mathrm{date} _{i} = \mathrm{date} _{\mathrm{ref}} + i \times \delta t
 $$
 
-#### 4.2.4 Utilisation ordinaire 普通使用 (Utilisation ordinaire)
+#### 4.2.4 Utilisation ordinaire 普通随机模式（泊松过程）
 
-Dans un processus de Poisson homogène de taux $\lambda>0$, le nombre d'arrivées sur une durée $\Delta$ suit $\operatorname{Poisson}(\lambda\Delta)$ ; les intervalles sont indépendants, de loi $\operatorname{Exp}(\lambda)$ et de moyenne $1/\lambda$. Distinguer comptage et intervalle. 在速率为 $\lambda>0$ 的齐次泊松过程模型中，长度为 $\Delta$ 的时间窗口内的到达数量服从 $\operatorname{Poisson}(\lambda\Delta)$；相邻到达之间的等待时间独立，服从 $\operatorname{Exp}(\lambda)$，均值为 $1/\lambda$。泊松分布描述数量，指数分布描述间隔。
+Dans un processus de Poisson homogène de taux $\lambda>0$, le nombre d'arrivées sur une durée $\Delta$ suit $\operatorname{Poisson}(\lambda\Delta)$ ; les intervalles sont indépendants, de loi $\operatorname{Exp}(\lambda)$ et de moyenne $1/\lambda$. Distinguer comptage et intervalle. 在速度为 $\lambda>0$ 的齐次泊松过程中，任意长度为 $\Delta$ 的时间窗内到达的事件个数服从泊松分布 $\operatorname{Poisson}(\lambda\Delta)$；而相邻两次到达之间的时间间隔 $\delta t$ 则独立同分布，服从参数为 $\lambda$ 的指数分布 $\operatorname{Exp}(\lambda)$（均值为 $1/\lambda$，对应第三课 Kendall 记号中的 `M`）。需注意区分“离散计数（泊松）”与“连续时间间隔（指数）”。
 
-##### Génération des dates : 生成到达日期:
+##### Génération des dates : 到达时刻生成步骤：
 
-1. Tirer u uniformément sur $(0,1)$, sans les bornes. 生成遵循 $(0,1)$ 上均匀分布（排除端点） (loi Uniforme) 的随机变量 u 的值
+1. Tirer $u$ uniformément sur $(0,1)$, sans les bornes. 生成开区间 $(0,1)$ 上的均匀分布随机数 $u\sim\mathcal{U}(0,1)$。
 
-2. Calculer l'intervalle par : 使用此值计算到达间隔时间:
+2. Calculer l'intervalle par : 用逆变换公式计算本次到达间隔 $\delta t$：
 
 $$
 \delta t = - \frac{1}{\lambda} \ln(u)
 $$
 
-3. Ajouter δt à la date précédente pour obtenir la date courante. 当前指令/请求/任务的日期由前一个的日期加上此 δt 获得
+3. Ajouter $\delta t$ à la date précédente pour obtenir la date courante : $\mathrm{date}_i = \mathrm{date}_{i-1} + \delta t$. 将 $\delta t$ 加到上一个事件的到达时刻上，即得当前事件的到达时刻 $\mathrm{date}_i = \mathrm{date}_{i-1} + \delta t$。
 
-#### 4.2.5 Utilisation en rafales 突发使用 (Utilisation en rafales)
+**Complément — dérivation par inversion de la loi exponentielle 指数间隔生成公式的逆变换推导。** La fonction de répartition de $\delta t\sim\operatorname{Exp}(\lambda)$ est $F(t)=\mathbb{P}(\delta t\le t)=1-e^{-\lambda t}$. Si $v\sim\mathcal{U}(0,1)$, poser $F(\delta t)=v$ donne $1-e^{-\lambda\delta t}=v$, soit $e^{-\lambda\delta t}=1-v$. Comme $u=1-v$ suit aussi la loi uniforme sur $(0,1)$, on obtient $e^{-\lambda\delta t}=u\implies\delta t=-\frac{1}{\lambda}\ln(u)$. 指数分布 $\operatorname{Exp}(\lambda)$ 的累积分布函数为 $F(t)=1-e^{-\lambda t}$。根据逆变换采样法，令 $F(\delta t)=v\sim\mathcal{U}(0,1)$，则 $e^{-\lambda\delta t}=1-v$。由于 $u=1-v$ 同样服从 $(0,1)$ 上的均匀分布，两边取自然对数即得 $\delta t=-\frac{1}{\lambda}\ln(u)$。
 
-Les rafales arrivent selon un processus de Poisson ; leur taille suit une loi géométrique de paramètre p, inverse de la taille moyenne. 到达以突发 (bursts) 形式发生, 遵循泊松定律, 突发大小遵循参数为 p 的几何定律 (loi géométrique),对应于突发平均大小的倒数。
+#### 4.2.5 Utilisation en rafales 突发模式
 
-##### Deux étapes de génération : 生成到达日期分两步:
+Les rafales arrivent selon un processus de Poisson de taux $\lambda_b$ ; leur taille $G(p)$ suit une loi géométrique de paramètre $p$, de moyenne $1/p$. 在突发模型中，“一簇突发（rafale / burst）”整体按速度为 $\lambda_b$ 的泊松过程到达；而每次突发内部包含的事件个数 $G(p)\in\{1,2,3,\dots\}$ 服从参数为 $p\in(0,1)$ 的几何分布，平均每次突发包含 $1/p$ 个事件（注意此处的 $p$ 是几何分布的成功概率参数，不是 §3.4 的分位比例）。
 
-1. Générer la taille de la rafale. 生成突发大小
+##### Deux étapes de génération : 生成突发负载分两步：
 
-2. Générer les dates des événements du workload. 生成组成工作负载的事件的到达时间
+1. Générer la taille $G(p)$ de la rafale. 生成每次突发所含的事件个数 $G(p)$；
 
-La taille de la rafale est son nombre d'événements. 突发大小生成: 突发大小对应于其事件数量。
+2. Générer les dates des événements du workload. 生成各个事件的到达时刻。
 
-1. Tirer u uniformément dans $(0,1)$. 给随机变量 u 赋予遵循 $(0,1)$ 上均匀分布（排除端点）的值
+La taille de la rafale est son nombre d'événements : 突发大小 $G(p)$ 的生成方法：
 
-2. Calculer la taille par : 使用此值计算突发大小:
+1. Tirer $u$ uniformément dans $(0,1)$. 生成 $(0,1)$ 上的均匀分布随机数 $u\sim\mathcal{U}(0,1)$。
+
+2. Calculer la taille par : 用下式计算突发包含的事件数（向上取整 $\lceil\cdot\rceil$）：
 
 $$
 G (p) = \left\lceil \frac{\ln(u)}{\ln(1 - p)} \right\rceil
 $$
 
-##### Dates des événements : 生成事件到达时间:
+##### Dates des événements : 事件到达时刻的生成步骤：
 
-1. Générer des intervalles exponentiels entre rafales, puis les cumuler en dates. 按指数分布生成突发之间的间隔，再累加得到到达时刻（泊松过程）
+1. Générer des intervalles exponentiels entre rafales, puis les cumuler en dates. 先按速度为 $\lambda_b$ 的指数分布生成相邻两次突发之间的时间间隔 $\delta t_b=-\frac{1}{\lambda_b}\ln(u_b)$，累加得到每次突发的到达时刻；
 
-2. Générer la taille, puis autant d'événements à cette date. 生成其大小 (前面描述), 生成在此日期到达的该数量的事件
+2. Générer la taille, puis autant d'événements à cette date. 对每次突发生成其大小 $G(p)$，并在该突发时刻一次性生成 $G(p)$ 个同时到达的事件（变体模型也可以在突发持续期内按微小间隔分散排列这 $G(p)$ 个事件）。
 
-Des variantes répartissent les événements à l'intérieur de la rafale. 存在指定突发内事件分布的变体。
+**Complément — dérivation de la loi géométrique et taux moyen d'événements 几何分布取整公式推导与总事件到达速度。**
+1. **Pourquoi le plafond $\left\lceil\frac{\ln(u)}{\ln(1-p)}\right\rceil$ 为什么用对数向上取整：** Pour une loi géométrique sur $\{1,2,\dots\}$, $\mathbb{P}(G=k)=(1-p)^{k-1}p$ et la fonction de répartition vaut $F(k)=\mathbb{P}(G\le k)=1-(1-p)^k$. Par inversion, on choisit $G=k$ lorsque $F(k-1)<v\le F(k)$ avec $v\sim\mathcal{U}(0,1)$, soit $(1-p)^k\le 1-v<(1-p)^{k-1}$. En posant $u=1-v\sim\mathcal{U}(0,1)$ et en divisant par $\ln(1-p)<0$ (ce qui inverse les inégalités), il vient $k-1<\frac{\ln(u)}{\ln(1-p)}\le k$, c'est-à-dire exactement $k=\left\lceil\frac{\ln(u)}{\ln(1-p)}\right\rceil$ (pour $0<p<1$ ; si $p=1$, $G\equiv 1$). 取值在 $\{1,2,\dots\}$ 上的几何分布满足 $\mathbb{P}(G=k)=(1-p)^{k-1}p$，累积分布为 $F(k)=\mathbb{P}(G\le k)=1-(1-p)^k$。逆变换法在 $F(k-1)<v\le F(k)$ 时取 $G=k$，令 $u=1-v\sim\mathcal{U}(0,1)$ 即得 $(1-p)^k\le u<(1-p)^{k-1}$。两边取自然对数并除以负数 $\ln(1-p)<0$（不等号方向反转），得到 $k-1<\frac{\ln(u)}{\ln(1-p)}\le k$，这恰好就是向上取整 $k=\left\lceil\frac{\ln(u)}{\ln(1-p)}\right\rceil$（要求 $0<p<1$；若 $p=1$ 则恒取 $1$）。
+2. **Taux de rafales vs taux d'événements 区分突发到达速度与总事件到达速度：** Si les rafales arrivent au taux moyen $\lambda_b$ et que chaque rafale contient en moyenne $\mathbb{E}[G(p)]=1/p$ événements (indépendamment des dates), le taux moyen total d'arrivée des événements vaut $\lambda=\frac{\lambda_b}{p}$. 若每单位时间平均到达 $\lambda_b$ 次突发，每次突发平均包含 $1/p$ 个事件，则系统收到的**单个事件的总平均到达速度为 $\lambda=\frac{\lambda_b}{p}$**。
 
-Pour $0<p<1$, la taille est un entier positif de moyenne $1/p$ ; pour $p=1$, prendre 1. Distinguer taux de rafales et d'événements : pour $\lambda_b$ rafales par unité de temps et des tailles indépendantes des dates, le taux moyen d'événements vaut $\lambda_b/p$. 公式要求 $0<p<1$，生成的突发大小为正整数，均值为 $1/p$；$p=1$ 时直接取大小 1。区分“突发到达率”和“事件到达率”：若每单位时间平均有 $\lambda_b$ 个突发，大小与到达时刻独立，则事件平均到达率为 $\lambda_b/p$。
+### 4.3 Génération des adresses 生成：访问地址
 
-### 4.3 Génération des adresses 生成: 地址 (Addressing)
+Les accès mémoire ou disque peuvent être uniformes dans l'espace ou concentrés dans des zones à localité spatiale, les hot spots. 内存或磁盘的访问地址既可以均匀分布在全部地址空间中，也可以呈现出**空间局部性**——即大量访问集中在少数特定区域（称为**热点 / hot spots**）。
 
-> Précision : discrétiser les adresses selon la plage, par exemple $\lfloor uM\rfloor$ avec $0\le u<1$ et M adresses. 校注：离散地址应按范围取整，例如 $\lfloor uM\rfloor$，其中 $0\le u<1$、$M$ 为地址个数。
+#### 4.3.1 Distribution uniforme 均匀地址分布
 
-Les accès mémoire ou disque peuvent être uniformes dans l'espace ou concentrés dans des zones à localité spatiale, les hot spots. 对缓存/磁盘和其他存储的访问地址可以均匀分布在整个地址空间上, 也可以显示某种空间局部性(localité spatiale), 集中在某些区域 (热点/hot spots)。
+Les adresses suivent une loi uniforme sur les $M$ adresses disponibles. 所有 $M$ 个可选地址被访问的概率完全相等：
 
-#### 4.3.1 Distribution uniforme 均匀分布
+1. Tirer $u$ uniformément dans $[0,1)$. 在半开区间 $[0,1)$ 内生成均匀随机数 $u\sim\mathcal{U}[0,1)$；
 
-Les adresses suivent une loi uniforme. 地址生成遵循均匀定律。
-
-#### 4.3.2 Hot spots 热点 (hot spots)
-
-Génération uniforme à l'intérieur des zones, avec un facteur de concentration pour les zones actives. 地址生成遵循均匀定律, 在组成热点的区域上有集中因子。
-
-##### Génération uniforme : 均匀地址生成:
-
-1. Tirer $u$ uniformément dans $[0,1)$. 在区间 $[0,1)$ 中生成均匀随机数 $u$
-
-2. Adapter à la taille de l'espace d'adressage : 将这些地址适配到要分析系统的地址空间大小:
+2. Adapter à la taille de l'espace d'adressage par discrétisation : 按地址空间总数 $M$ 缩放并向下取整，映射到离散地址编号 $\{0,1,\dots,M-1\}$：
 
 $$
 \mathrm{adr}=\lfloor uM\rfloor\in\{0,\ldots,M-1\}
 $$
 
-Génération de hot spots : 热点生成:
+#### 4.3.2 Hot spots 热点地址分布
 
-- Diviser l'espace en sous-ensembles ; 将空间细分为子集
-- Identifier les plus actifs ; 确定其中最活跃的子集
-- Associer un facteur de concentration a aux zones actives. 将集中因子 (a) 关联到这些活跃区域
+Génération uniforme à l'intérieur des zones, avec un facteur de concentration pour les zones actives : 热点模型将地址空间划分为若干区域，对活跃区域赋予更高的集中因子 $a$，并在每个区域内部保持均匀分布：
 
-Chaque région a un facteur a : $a>1$ pour les zones actives, $a=1$ pour les autres. 备注: 每个区域关联一个因子 a。对于活跃区域，$a > 1$ ; 对于其他区域，$a = 1$
+- Diviser l'espace en sous-ensembles ; 将总地址空间划分为 $R$ 个互不重叠的子区域（设第 $j$ 个区域包含 $M_j$ 个地址，$\sum_{j=1}^R M_j = M$）；
+- Identifier les plus actifs ; 确定其中的活跃热点区域；
+- Associer un facteur de concentration $a$ aux zones actives ($a>1$ pour les zones actives, $a=1$ pour les autres). 为每个区域关联一个相对集中因子 $a_j$（活跃热点区域取 $a_j>1$，普通区域取 $a_j=1$）。
 
-### 4.4 Génération du nombre de sources 生成: 源数量 (Nombre de sources)
+**Complément — comment tirer une adresse avec facteur de concentration $a$ 如何用集中因子生成热点地址。** Les facteurs $a_j$ sont des poids relatifs par adresse (ou par zone), et non directement des probabilités. Par exemple, si chaque adresse de la zone $j$ reçoit un poids relatif $a_j$, le poids total de la zone $j$ est $W_j=a_j M_j$ ; on procède alors en deux étapes : 集中因子 $a_j$ 是相对权重而非直接的概率（概率之和必须为 $1$）。若将 $a_j$ 视为区域 $j$ 内单个地址的相对访问权重，则区域 $j$ 的总权重为 $W_j=a_j M_j$，生成一次访问分两步：
+1. **Choix de la zone 选择区域：** tirer la zone $j$ avec la probabilité normalisée $P_j=\frac{W_j}{\sum_{r=1}^R W_r}=\frac{a_j M_j}{\sum_{r=1}^R a_r M_r}$ ; 按归一化概率 $P_j=\frac{a_j M_j}{\sum_{r=1}^R a_r M_r}$ 随机抽中某个区域 $j$；
+2. **Choix de l'adresse dans la zone 区域内均匀取址：** tirer ensuite une adresse uniformément parmi les $M_j$ adresses de la zone $j$. 再在区域 $j$ 包含的 $M_j$ 个地址中按均匀分布随机抽取一个具体地址。
 
-La charge peut provenir d'un utilisateur ou d'une application, ou de plusieurs sources. 负载可以来自单个用户/应用 (单源负载) 或多个 (多源负载)。
+### 4.4 Génération du nombre de sources 生成：负载源数量
+
+La charge peut provenir d'un utilisateur ou d'une application, ou de plusieurs sources. 工作负载可以来自单个用户/应用（单源负载），也可以来自多个并发实体（多源负载）。
 
 #### 4.4.1 Charge à une source 单源负载
 
-Voir les sections précédentes. 见前述。
+Voir les sections précédentes. 即前文 §4.2–4.3 所述的生成方法。
 
-#### 4.4.2 Charge à plusieurs sources 多源负载
+#### 4.4.2 Charge à plusieurs sources (modèle d'Erlang) 多源／多阶段负载（Erlang 模型）
 
-Cette section présente un modèle d'intervalles de loi d'Erlang d'ordre k. 本节给出用 $k$ 阶 Erlang 分布生成到达间隔的一种模型。
+Cette section présente la génération d'intervalles suivant une loi d'Erlang d'ordre $k$, de moyenne totale $\frac{1}{\lambda}$ (chaque étape ayant un taux $k\lambda$) : 本节给出用 $k$ 阶 Erlang 分布（$E_k$）生成总均值为 $\frac{1}{\lambda}$ 的到达间隔的方法（将每次间隔拆为 $k$ 个速度为 $k\lambda$ 的独立指数阶段串联）：
 
-> Précision : k compte des étapes exponentielles indépendantes. Superposer plusieurs sources de Poisson indépendantes donne encore un processus de Poisson, pas automatiquement des intervalles d'Erlang. 校注：$k$ 表示独立指数等待阶段的数量。多个独立泊松源叠加后仍是泊松过程，不能根据源数量直接推断 Erlang 间隔。
+1. Tirer indépendamment $k$ nombres $u_1,\ldots,u_k\in(0,1)$ uniformes. 独立生成 $k$ 个 $(0,1)$ 上的均匀分布随机数 $u_1,\ldots,u_k\sim\mathcal{U}(0,1)$；
 
-$\operatorname{Erlang}(1,\lambda)=\operatorname{Exp}(\lambda)$ est une loi d'attente continue, pas une loi de comptage de Poisson. 备注：$\operatorname{Erlang}(1,\lambda)=\operatorname{Exp}(\lambda)$，其等待时间是指数分布，不能写成离散的泊松计数分布。
-
-Pour k > 1 étapes indépendantes, la formule utilise un taux par étape $k\lambda$ pour un temps total moyen $1/\lambda$ ; les $u_i$ doivent être indépendants. 生成 k 阶段等待时间 (k > 1): 到达间隔时间采用 k 阶 Erlang 定律, 其中 $k$ 是等待阶段数。下式的阶段速率为 $k\lambda$，总等待时间均值为 $1/\lambda$，各 $u_i$ 须独立。
-
-1. Tirer indépendamment $k$ nombres $u_1,\ldots,u_k\in(0,1)$ uniformes. 独立生成 $k$ 个均匀随机数 $u_1,\ldots,u_k\in(0,1)$
-
-2. Calculer l'attente avec le taux cible $\lambda$ : 使用这些值和目标到达率 $\lambda$ 计算等待时间：
+2. Calculer l'intervalle d'attente avec le taux cible $\lambda$ : 用目标平均到达速度 $\lambda$ 计算总间隔时间 $t$：
 
 $$
 t = - \left(\frac{1}{\lambda k}\right) \times \ln \left(\prod_{i = 1} ^{k} u _{i}\right)
 $$
 
-## 5 Workloads réels 真实工作负载 (Workloads réels)
+**Complément — dérivation, loi des grands nombres et distinction avec la superposition de sources 公式推导、大数定律以及与“多泊松源叠加”的区别。**
+1. **Dérivation et loi des grands nombres 推导与大数定律：** Chaque étape $i$ dure $t_i=-\frac{1}{k\lambda}\ln(u_i)=\frac{1}{k}X_i$, où $X_1,\dots,X_k\overset{\text{i.i.d.}}{\sim}\operatorname{Exp}(\lambda)$ ont pour moyenne $\frac{1}{\lambda}$ et pour variance $\frac{1}{\lambda^2}$. La somme $t=\sum_{i=1}^k t_i=-\frac{1}{k\lambda}\ln\left(\prod_{i=1}^k u_i\right)=\frac{1}{k}\sum_{i=1}^k X_i$ est donc la **moyenne arithmétique de $k$ variables exponentielles indépendantes**, de moyenne $\mathbb{E}[t]=\frac{1}{\lambda}$ et de variance $\operatorname{Var}(t)=\frac{1}{k\lambda^2}$ ($CV=\frac{1}{\sqrt{k}}$). Par la **loi des grands nombres**, $k=1$ donne la loi exponentielle $\operatorname{Exp}(\lambda)$, et lorsque $k\to\infty$, la variance tend vers $0$ et $t$ converge vers l'intervalle constant $\frac{1}{\lambda}$ (voir [CM3 §6.4](3_edp_zh.md)). 每个子阶段耗时 $t_i=-\frac{1}{k\lambda}\ln(u_i)=\frac{1}{k}X_i$，其中 $X_i\overset{\text{i.i.d.}}{\sim}\operatorname{Exp}(\lambda)$。将 $k$ 个阶段相加（利用 $\sum\ln u_i=\ln\prod u_i$）即得上式。由于 $t=\frac{1}{k}\sum_{i=1}^k X_i$ 恰好是 $k$ 个独立同分布指数随机变量的算术平均值，其总均值为 $\frac{1}{\lambda}$、总方差为 $\frac{1}{k\lambda^2}$。当 $k=1$ 时就是指数分布；随 $k$ 增大，由**大数定律**，快慢波动相互抵消，当 $k\to\infty$ 时退化为固定常数间隔 $\frac{1}{\lambda}$（详见 [第三课 §6.4](3_edp_zh.md)）。
+2. **Ne pas confondre étapes en série et sources indépendantes en parallèle 区分“串联 $k$ 阶段”与“并联多源叠加”：** En théorie des probabilités, la superposition directe de $N_{\mathrm{src}}$ processus de Poisson indépendants de taux $\lambda_1,\dots,\lambda_{N_{\mathrm{src}}}$ forme encore un processus de Poisson (de taux total $\sum\lambda_i$, donc à intervalles exponentiels), et non une loi d'Erlang. La loi $\operatorname{Erlang}(k)$ apparaît lorsque chaque arrivée observée résulte de **$k$ sous-étapes exponentielles en série** (ou lorsqu'un filtre ne déclenche une requête qu'une fois toutes les $k$ arrivées poissonniennes). 需要注意物理含义：若将多个独立的泊松负载源直接并联叠加，合流后仍然是泊松过程（间隔仍服从指数分布，只是总到达速度变为各源之和）；而此处的 $k$ 阶 Erlang 分布对应的是**串联经过 $k$ 个独立指数阶段**（或每收到 $k$ 个泊松子事件才打包触发一次请求）。
 
-Deux sources de charges réelles : 真实负载可以来自两个来源:
+## 5 Workloads réels 真实工作负载
 
-1. Collecte pendant l'exécution d'applications utilisateurs. 在观察系统上执行用户应用期间收集
+Deux sources de charges réelles : 真实负载主要通过以下两种途径获取：
 
-2. Collecte pendant l'exécution de benchmarks. 在观察系统上执行基准测试 (benchmarks) 期间收集
+1. Collecte pendant l'exécution d'applications utilisateurs. 在被测系统上运行真实用户应用期间直接采集；
 
-### 5.1 Benchmarks 基准测试 (Benchmarks)
+2. Collecte pendant l'exécution de benchmarks. 在被测系统上运行标准基准测试程序期间采集。
+
+### 5.1 Benchmarks 基准测试
 
 #### 5.1.1 Définition 定义
 
-Partie du code utilisateur représentative du comportement de l'application. 用户代码的一部分, 最能表征该应用的行为。
+Partie du code utilisateur représentative du comportement de l'application. 从真实用户应用中提炼出的、最能代表该类应用核心计算或访存行为的标准测试程序（或核心代码片段 kernel）。
 
 #### 5.1.2 Exemples 示例
 
-- Calcul : SPEC, Linpack, Livermore, NAS. 计算: SPEC 基准测试、Linpack、Livermore、NAS
-- Entrées-sorties : Bonnie et IOzone. 输入/输出: Bonnie、IOzone
+- Calcul : SPEC, Linpack, Livermore, NAS. 计算密集型基准：SPEC、Linpack（稠密线性代数，用于 TOP500）、Livermore Loops、NAS Parallel Benchmarks（NPB）。
+- Entrées-sorties : Bonnie et IOzone. I/O 存储基准：Bonnie、IOzone。
 
-### 5.2 Applications utilisateurs 用户应用 (Applications utilisateurs)
+### 5.2 Applications utilisateurs 用户应用
 
-- Exécuter l'application étudiée ou une application représentative de sa classe. 执行要分析的用户应用或代表要分析类别的应用
-- Collecter la charge produite pendant cette exécution. 收集此执行期间生成的负载
-- La réutiliser dans d'autres contextes d'exécution, ou 在将来的不同执行上下文中可能重用它们, 或
-- Extraire ses caractéristiques et les modéliser par des distributions pour élargir les cas analysables. 推导出主要特征并用分布定律表示它们, 以增加可能的分析案例
+- Exécuter l'application étudiée ou une application représentative de sa classe. 直接运行待分析的目标用户应用（或该应用类别的代表性程序）；
+- Collecter la charge produite pendant cette exécution. 采集运行期间产生的实际负载轨迹；
+- La réutiliser dans d'autres contextes d'exécution, ou 将采集到的轨迹重用于其他系统配置或仿真环境中，或者
+- Extraire ses caractéristiques et les modéliser par des distributions pour élargir les cas analysables. 提取其统计特征并拟合为概率分布模型（转化为 §4 的合成负载或第三课的解析模型），以扩展可分析的场景范围。
 
 #### 5.2.1 Précautions 注意事项
 
-Avant l'exécution, définir les mesures souhaitées et préparer les outils d'extraction de la charge. 在执行用户应用之前, 明确要测量什么, 并准备提取由此产生的负载的工具。
+Avant l'exécution, définir les mesures souhaitées et préparer les outils d'extraction de la charge. 在运行应用进行采集前，必须预先明确要测量的指标边界，并配置好性能计数器或轨迹采集工具（以控制探针开销与数据量）。
 
-Pour approfondir, voir le cours ultérieur sur la mesure. 更多信息: 参见几周后的测量课程 (Cours Mesure)
+Pour approfondir, voir le cours ultérieur sur la mesure. 关于测量工具、开销控制与实验设计的具体方法，详见后续测量章节（[CM4–5](45_edp_zh.md)）。
 
-### 5.3 Paramètres des workloads réels 真实工作负载: 参数
+### 5.3 Paramètres des workloads réels 真实工作负载的采集参数
 
-Qu'il s'agisse de benchmarks ou d'applications : 无论收集涉及基准测试还是用户应用:
+Qu'il s'agisse de benchmarks ou d'applications : 无论是运行基准测试还是真实用户应用：
 
-La collecte porte sur les événements qui modifient l'état du système : 它专注于改变系统状态的事件:
+La collecte porte sur les événements qui modifient l'état du système : 数据采集都聚焦于会改变系统状态的底层或系统级事件，例如：
 
-- Changements de contexte 上下文切换 (changement de contexte)
-- Déplacements de la tête de disque 磁盘寻道 (Seek)
-- Réception ou envoi de messages, etc. 消息接收或发送等
+- Changements de contexte 进程／线程上下文切换
+- Déplacements de la tête de disque 磁盘磁头寻道与读写请求
+- Réception ou envoi de messages, etc. 网络或进程间消息的发送与接收等
 
-Enregistrer dates, nombres par unité de temps, tailles, etc. 包括它们的日期、一个时间单位内的数量、大小等。
-
-## Correspondance avec le PDF 课件页码对照
-
-Pagination du lecteur PDF, couverture comprise. Les pages 1–3 présentent le titre et le plan en cinq parties ; la suite conserve l'ordre du cours. 以下采用 PDF 阅读器页码，包含封面。第 1–3 页是课程标题与目录，其余内容按原顺序展开。
-
-| Pages du PDF PDF 页码 | Section des notes 中文讲义位置 |
-|---|---|
-| 1–3 | Titre et plan en cinq parties 课程标题与五部分目录 |
-| 4–5 | §1 Charges réelles et synthétiques §1：真实与合成负载 |
-| 6–8 | §2–2.1 Sélection et frontière du service §2–2.1：选择原则与服务边界 |
-| 9–10 | §2.2 Niveau de détail §2.2：细节级别 |
-| 11–12 | §2.3–2.4 Représentativité et alignement temporel §2.3–2.4：代表性与时间对齐 |
-| 13–15 | §2.5–2.6 Charge, répétition et confiance §2.5–2.6：负载级别、重复性与置信区间 |
-| 16–20 | §3.1–3.3.2 Caractérisation et moyennes §3.1–3.3.2：特征化与各类平均值 |
-| 21–23 | §3.3.3 Variance, écart type et variation relative §3.3.3：方差、标准差与变异系数 |
-| 24–30 | §3.4.1–3.4.7 Quantiles et exemples §3.4.1–3.4.7：分位数与两组数据例子 |
-| 31–33 | §3.4.8–3.4.9 Boîtes à moustaches et groupes §3.4.8–3.4.9：箱线图与分组分析 |
-| 34–39 | §3.5 Algorithme, barycentres et convergence §3.5：算法、质心、收敛与图例 |
-| 40–41 | §3.6 Histogrammes simples et multiples §3.6：单参数与多参数直方图 |
-| 42 | §4.1 Quatre paramètres synthétiques §4.1：合成负载的四类参数 |
-| 43–46 | §4.2.1–4.2.4 Taux et intervalles §4.2.1–4.2.4：到达率、固定间隔与指数间隔 |
-| 47–49 | §4.2.5 Tailles et dates des rafales §4.2.5：突发大小与到达时刻 |
-| 50–52 | §4.3 Adresses uniformes et hot spots §4.3：均匀地址与热点 |
-| 53–54 | §4.4 Sources multiples et Erlang §4.4：多源与 Erlang 模型 |
-| 55–56 | §5–5.1 Charges réelles et benchmarks §5–5.1：真实负载与基准测试 |
-| 57–58 | §5.2 Exécution, collecte et réutilisation §5.2：运行、采集与复用 |
-| 59 | §5.3 Événements et attributs §5.3：采集事件及属性 |
+Enregistrer dates, nombres par unité de temps, tailles, etc. 采集时通常记录这些事件的发生时间戳、单位时间内的发生次数、数据块或消息大小等属性。

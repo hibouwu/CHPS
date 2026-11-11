@@ -1,0 +1,68 @@
+{
+  "pdfs": [
+    {
+      "file": "00_全部题型合订本.pdf",
+      "pages": 38,
+      "bytes": 2134279,
+      "ascii_apostrophes": 252,
+      "sha256": "8f8ef3a2f40e4fc8e88b232e20a84c968372a2d7a32af0f2691d4bf555679249"
+    },
+    {
+      "file": "01_加速比与向量化.pdf",
+      "pages": 6,
+      "bytes": 244588,
+      "ascii_apostrophes": 52,
+      "sha256": "95612c5d0f55b5206d5eeca21f5bd2fc132909d6d94d74e616cd0b359e83bf60"
+    },
+    {
+      "file": "02_指令吞吐与基准比较.pdf",
+      "pages": 5,
+      "bytes": 169093,
+      "ascii_apostrophes": 39,
+      "sha256": "392dac731fda6fa3b79b9eb9dffdc506f530b393f1a4b9ce67bccff6d65de251"
+    },
+    {
+      "file": "03_Karp_Flatt与扩展性.pdf",
+      "pages": 3,
+      "bytes": 107387,
+      "ascii_apostrophes": 15,
+      "sha256": "6e2d58fc505c953e521d80fed48d1e494648a2bcea1e180294a2ef80a7590928"
+    },
+    {
+      "file": "04_排队网络与资源优化.pdf",
+      "pages": 13,
+      "bytes": 711293,
+      "ascii_apostrophes": 90,
+      "sha256": "f5a1c07a7fa6f215dc326ec08dba880057ae0ccd951bba3b9e7633e2693dfbf2"
+    },
+    {
+      "file": "05_置信区间与测量精密度.pdf",
+      "pages": 2,
+      "bytes": 91167,
+      "ascii_apostrophes": 7,
+      "sha256": "0bfb3c03509052d34a5d0796ee874d165232d8d851cb9fe52ab26ff9b0be89f6"
+    },
+    {
+      "file": "06_卡方拟合优度检验.pdf",
+      "pages": 3,
+      "bytes": 121171,
+      "ascii_apostrophes": 18,
+      "sha256": "6accaeabd281a7f6fa6625ad1cbe6e4dc67b6fddac4c140013c9c0d48ff34d06"
+    },
+    {
+      "file": "07_KS检验与分布校准.pdf",
+      "pages": 5,
+      "bytes": 197973,
+      "ascii_apostrophes": 30,
+      "sha256": "31b9f281060709e583aa9a7c2f2fa477c26cab5c5cd29ffcd204b2e0011e1388"
+    }
+  ],
+  "unique_full_exercises": 20,
+  "source_groups": 24,
+  "cross_index_entries": 8,
+  "original_sources_verified": true,
+  "links_verified": true,
+  "numbering_stable": true,
+  "bounds_issues": [],
+  "visual_review": "All final pages inspected; cross-index entries, diagrams and combined footer checked at full resolution."
+}

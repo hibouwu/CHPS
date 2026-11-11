@@ -6,22 +6,22 @@
 
 格式说明：法语在前、中文在后，同一行以空格隔开，撇号统一为 '。法语优先依据对应课件及法语讲义，必要时沿用已有订正；中文补充、校注和附录中没有对应原文的部分配以法语译写，仍属补充材料。
 
-## 1 Généralités 概论 (Généralités)
+## 1 Généralités 概论
 
-### 1.1 Simulation 仿真 (Simulation)
+### 1.1 Simulation 仿真
 
 #### 1.1.1 But 目的 (But)
 
 Observer le comportement d'un système dans diverses configurations et applications, même s'il n'existe pas encore au moment de l'évaluation. 能够在任何条件 (配置) 下观察任何系统的行为, 即使该系统在评估时尚不存在, 代表各种应用背景。
 
-#### 1.1.2 Intérêts 优势 (Intérêts)
+#### 1.1.2 Intérêts 优势
 
 - Pas besoin de construire le système réel. 无需构建真实系统
 - Tests contrôlables et répétables. 可以进行可控且可重复的测试
 - Grande variété de scénarios de test. 测试场景无限制
 - Résultats reproductibles par d'autres utilisateurs. 其他用户可以重现结果
 
-#### 1.1.3 Exemples d'utilisation 应用示例 (Exemples d'utilisation)
+#### 1.1.3 Exemples d'utilisation 应用示例
 
 La simulation peut répondre aux questions suivantes : 仿真可以回答如下问题:
 
@@ -38,39 +38,39 @@ La mesure représente précisément le système réel, mais soulève des questio
 - L'extrapolation est possible mais difficile à justifier. 外推是可能的, 但很难令人信服
 - La reproduction par d'autres utilisateurs est difficile. 其他用户很难重现结果
 
-### 1.2 Simulation : définition et classification 仿真: 定义与分类 (Définition et classification)
+### 1.2 Simulation : définition et classification 仿真: 定义与分类
 
-#### 1.2.1 Définition 定义 (Définition)
+#### 1.2.1 Définition 定义
 
 Prévoir différents aspects du comportement d'un système en construisant une imitation. 通过创建模仿来尝试预测任何系统行为的不同方面。
 
-#### 1.2.2 Classification 分类 (Classification)
+#### 1.2.2 Classification 分类
 
 Types de simulation : 存在不同类型的仿真:
 
-- Émulation 仿真 (Emulation)
-- Simulation statique 静态仿真 (Simulation statique)
-- Simulation à événements discrets 离散事件仿真 (Simulation à événements discrets)
+- **Émulation 仿效** : reproduire le fonctionnement observable d'un système pour faire fonctionner des programmes ou interactions prévus pour lui. 重现目标系统的可观察行为，使面向它的程序或交互能够运行。
+- **Simulation statique 静态仿真** : estimer un résultat sans suivre explicitement une chronologie d'états, par exemple une intégrale par Monte Carlo. 不显式推进系统状态的时间线，而是估计一个结果，例如用 Monte Carlo 计算积分。
+- **Simulation à événements discrets 离散事件仿真** : faire évoluer l'état à chaque événement daté, par exemple une arrivée ou une fin de service. 根据带时间戳的事件推进系统状态，例如请求到达或服务完成。
 
-### 1.3 Émulation et simulation statique 仿真和静态仿真 (Emulation et simulation statique)
+### 1.3 Émulation et simulation statique 仿效与静态仿真
 
-#### 1.3.1 Émulation 仿真 (Emulation)
+#### 1.3.1 Émulation 仿效
 
-Imiter le comportement physique d'un système par un logiciel exécuté sur un autre système. 通过在另一个系统上运行的软件来模仿系统的物理行为, 使其表现得像被模仿的系统。
+Imiter le comportement d'un système par un logiciel exécuté sur un autre système ; on emploie ici « 仿效 » pour distinguer l'émulation de la simulation au sens général. 通过在另一系统上运行的软件重现目标系统的行为；这里将 émulation 译为“仿效”，以区别于一般意义上的仿真。
 
 Remarque : l'émulation peut fournir des résultats précis, au prix d'un surcoût important. 注意: 仿真产生相当精确的结果, 但作为代价会产生很大的开销 (overhead)。
 
-#### 1.3.2 Simulation statique 静态仿真 (Simulation statique)
+#### 1.3.2 Simulation statique 静态仿真
 
 Le cours prend Monte Carlo comme exemple de simulation sans évolution temporelle explicite. On peut arrêter selon le budget ou la précision, sans atteindre un équilibre dynamique. 本课以蒙特卡洛方法为例，讨论不显式描述系统随时间演化的静态仿真。可以按计算预算或估计精度停止；不要求达到动态系统的平衡状态。
 
-## 2 Simulation à événements discrets 离散事件仿真 (Simulation à événements discrets)
+## 2 Simulation à événements discrets 离散事件仿真
 
 ### 2.1 Définition de la simulation à événements discrets 离散事件仿真的定义
 
 Représenter le système par des événements, leurs transitions et les fonctions associées. Son état évolue selon le temps et les événements externes ou générés par la simulation. 通过事件 (événements)、与之相关的转换 (transitions) 以及每当这些事件发生并执行相关转换时要执行的特定函数来表示系统。因此, 这是对功能模式的模仿, 根据时间和外部事件或仿真生成的事件进行状态改变。
 
-### 2.2 Simulation distribuée 分布式仿真 (Simulation distribuée)
+### 2.2 Simulation distribuée 分布式仿真
 
 L'exécution est répartie entre plusieurs sites qui coopèrent et communiquent selon un workflow et en respectant la causalité. 主要与仿真执行的方式有关: 分布式的, 利用不同站点的资源, 协作和通信, 同时遵守已建立的工作流模式 (schéma Workflow) 和因果关系原则 (principes de causalité)。
 
@@ -79,8 +79,8 @@ L'exécution est répartie entre plusieurs sites qui coopèrent et communiquent 
 Trois possibilités, par abstraction décroissante : 三种可能的仿真, 抽象级别递减:
 
 - Simulation mathématique : flux macroscopiques de tâches et composants, à gros grain. 数学仿真 (Simulation mathématique): 任务和组件 (管道)(pipe) 的宏观流动, 采用粗粒度数学仿真
-- Simulation à événements discrets : niveau cycle, plus détaillé. 离散事件仿真 (Simulation à événements discrets): 周期级仿真 (微观级别), 以提高精度
-- Émulation : virtualisation par un autre CPU, sous forme de machine virtuelle. 仿真 (Emulation): 通过另一个 CPU 进行虚拟化, 即构建虚拟机
+- Simulation à événements discrets : suivre les événements du processeur, éventuellement au niveau cycle si le modèle le prévoit. 离散事件仿真：跟踪处理器事件；模型可以细化到周期级，但“离散事件”本身不保证周期精确。
+- Émulation : reproduire le comportement d'un CPU pour exécuter du code prévu pour lui ; la virtualisation est une technique distincte, même si elles peuvent être combinées. 仿效：重现目标 CPU 的行为以运行面向它的代码；虚拟化是另一类技术，二者可以结合使用。
 
 ### 2.4 Exemple : simulation de réseau 仿真示例: 通信网络仿真
 
@@ -88,9 +88,9 @@ Trois possibilités, par abstraction décroissante : 三种可能的仿真, 抽�
 
 - Simulation mathématique : flux macroscopiques et composants réseau à gros grain. 数学仿真: 网络任务和组件 (管道) 的宏观流动, 采用粗粒度数学仿真
 - Simulation à événements discrets : suivi des paquets dans les composants du réseau. 离散事件仿真: 数据包级别的仿真, 通过网络不同组件进行微观跟踪
-- Émulation : trafic réel traversant un réseau émulé. 仿真: 实际流量通过网络的仿真
+- Émulation : trafic réel traversant un réseau émulé. 仿效：让实际流量通过被仿效的网络环境。
 
-### 2.5 Terminologie 术语 (Terminologie)
+### 2.5 Terminologie 术语
 
 #### 2.5.1 Termes de base 基本术语
 
@@ -99,19 +99,19 @@ Trois possibilités, par abstraction décroissante : 三种可能的仿真, 抽�
 - Temps continu ou discret : nature du domaine temporel où l'état est défini. 连续时间 (Temps continu) 与离散时间 (temps discret): 指示系统状态是否始终定义
 - État continu ou discret : nature des valeurs des variables, par exemple temps, effectifs ou tailles. 连续状态 (État continu) 与离散状态 (état discret): 指示系统变量是连续的 (时间) 还是离散的(出现次数、大小)
 
-### 2.6 Structure du simulateur à événements discrets 离散事件仿真器的结构 (Structure)
+### 2.6 Structure du simulateur à événements discrets 离散事件仿真器的结构
 
 Modules nécessaires : 离散事件仿真器必须包含以下模块:
 
-1. Ordonnanceur d'événements 事件调度器 (ordonnanceur d'événements)
+1. **Ordonnanceur d'événements 事件调度器** : conserver les événements futurs et choisir le prochain à traiter. 维护未来事件列表，选择下一个要处理的事件。
 
-2. Horloge globale et méthode de mise à jour 全局时钟和时间更新方法 (horloge globale et méthode pour la mise à jour du temps)
+2. **Horloge globale $t_{\mathrm{sim}}$ 全局仿真时钟 $t_{\mathrm{sim}}$** : représenter la date dans le système simulé, distincte de la durée réelle d'exécution du simulateur. 表示被模拟系统中的当前时间，区别于仿真程序在真实机器上已经运行的时间。
 
-3. Procédures de traitement des événements 事件处理过程 (procédures de traitement des événements)
+3. **Procédures de traitement des événements 事件处理过程** : appliquer les changements d'état associés à l'événement choisi. 执行所选事件对应的状态更新。
 
-4. Mécanismes de génération d'événements 事件生成机制 (mécanismes de génération d'événements)
+4. **Mécanismes de génération d'événements 事件生成机制** : produire de nouveaux événements à partir de traces ou de lois de probabilité. 根据轨迹或概率分布生成后续事件。
 
-5. Procédures d'enregistrement et de filtrage des données 数据记录/过滤过程 (procédures d'enregistrement/filtrage des données)
+5. **Enregistrement et filtrage des données 数据记录与过滤** : accumuler les compteurs et durées nécessaires aux indicateurs. 保存计算指标所需的事件计数和时间量。
 
 #### 2.6.1 Ordonnanceur des événements 事件调度器 (L'ordonnanceur des événements)
 
@@ -126,21 +126,23 @@ Au cœur du simulateur, il doit : 调度器构成离散事件仿真器的核心,
 
 Référence temporelle mise à jour par l'ordonnanceur selon deux approches : 仿真的时间参考, 由调度器根据两种方法更新:
 
-##### 1. Incrémentation par pas fixe 固定步长递增 (Incrémentation par pas fixe)
+##### 1. Incrémentation par pas fixe 固定步长递增
 
-Avancer d'un pas fixe, rechercher les événements prêts et les traiter, puis recommencer. 调度器以固定步长进行递增, 然后检查列表中的事件并启动就绪的事件。执行结束后, 调度器重新递增时钟。
+Avancer de $\Delta t>0$ selon $t_{\mathrm{sim}}\gets t_{\mathrm{sim}}+\Delta t$, rechercher les événements prêts et les traiter. $\Delta t$ règle la finesse temporelle et le nombre de pas. 每次按固定步长 $\Delta t>0$ 更新时钟：$t_{\mathrm{sim}}\gets t_{\mathrm{sim}}+\Delta t$，再检查并处理就绪事件；步长影响时间分辨能力和更新次数。
 
-##### 2. Incrémentation événementielle 事件驱动递增 (Incrémentation événementielle)
+##### 2. Incrémentation événementielle 事件驱动递增
 
-Avancer directement à la date du premier événement de la liste ; les pas sont non uniformes. C'est l'approche la plus courante. 时钟以非均匀方式变化, 并取列表头部事件的日期值。这是最常用的方法。
+Avancer directement à la date $t_e$ du prochain événement : $t_{\mathrm{sim}}\gets t_e$ ; les pas sont non uniformes et les périodes sans événement sont sautées. 时钟直接跳到下一事件的时刻 $t_e$，即 $t_{\mathrm{sim}}\gets t_e$；步长可以不同，不必逐步扫描没有事件的时间段。
 
-#### 2.6.3 Traitement des événements 事件处理 (Traitement des événements)
+Si plusieurs événements ont la même date, définir une règle de départage cohérente avec le modèle ; le tri par date ne détermine pas à lui seul leur ordre. 多个事件时间戳相同时，应规定符合模型因果关系的处理顺序，仅按时间排序不足以解决并列事件的先后问题。
+
+#### 2.6.3 Traitement des événements 事件处理
 
 - Chaque type d'événement possède une procédure simulant son effet sur le système. 每种类型的事件都与一个处理过程相关联, 该过程模拟当该事件发生时系统的行为
 - La procédure peut modifier l'état et générer des événements ajoutés à la liste. 每个处理过程可以改变系统状态并生成其他事件, 这些事件将添加到调度器维护的列表中
 - Le traitement dépend de la nature du système simulé. 实现的处理取决于被仿真系统的性质
 
-#### 2.6.4 Génération des événements 事件生成 (Génération des événements)
+#### 2.6.4 Génération des événements 事件生成
 
 Deux grandes classes selon la technique de génération : 事件生成器根据所使用的生成技术进行分类。两个主要类别:
 
@@ -148,7 +150,7 @@ Deux grandes classes selon la technique de génération : 事件生成器根据�
 
 2. Orientée loi de probabilité : événements de forme similaire, générés selon des distributions au début ou pendant la simulation. 面向概率分布的类 (Classe orientée loi de probabilité): 形式相似但由仿真器根据概率分布生成 (在开始时或伴随仿真过程)
 
-#### 2.6.5 Enregistrement des données 数据记录 (Enregistrement des données)
+#### 2.6.5 Enregistrement des données 数据记录
 
 Maintenir variables d'état, compteurs d'événements et mesures temporelles pour produire statistiques et synthèses. 维护状态变量, 即事件计数器和时间测量变量, 以进行统计并总结结果。
 
@@ -159,7 +161,7 @@ Structures de données : 结构 (Structures):
 
 Ces structures accélèrent insertion, recherche et modification, malgré des accès mémoire non uniformes. 这些是最常用的结构, 用于加速操作 (插入、查询、修改), 即使内存访问不均匀。
 
-#### 2.6.6 Validation 验证 (Validation)
+#### 2.6.6 Validation 验证
 
 La validation évalue la précision fonctionnelle du modèle en demandant : 验证确定功能模型的精度水平, 回答以下问题:
 
@@ -169,7 +171,7 @@ La validation évalue la précision fonctionnelle du modèle en demandant : 验�
 - Les résultats sont-ils raisonnables ? 获得的结果是否合理?
 - Peut-on les expliquer ? 这些结果是否可以解释?
 
-#### 2.6.7 Remarques sur la construction du simulateur 关于仿真器构建的注意事项 (Remarques)
+#### 2.6.7 Remarques sur la construction du simulateur 关于仿真器构建的注意事项
 
 Bonnes pratiques de construction : 关于仿真器的构建:
 
@@ -178,7 +180,7 @@ Bonnes pratiques de construction : 关于仿真器的构建:
 - Vérification de la cohérence et de la stabilité. 验证仿真器的一致性和稳定性
 - Attention particulière aux cas limites. 强调特殊情况 (边界条件)(corner conditions) 的验证
 
-### 2.7 Simulateurs populaires 流行的仿真器 (Simulateurs populaires)
+### 2.7 Simulateurs populaires 流行的仿真器
 
 > Complément conservé des pages 20–21 de l'ancienne version, supprimées du cours original 2026. 保留旧版第 20–21 页的补充内容；2026 年教师原版已删除这两页。
 
@@ -200,19 +202,19 @@ http://www.pdl.cmu.edu/DiskSim/
 
 Simulateur de l'équipe : OGSSim, Li-PaRAD/UVSQ et CEA-DAM. 我们的:OGSSim. Li-PaRAD,UVSQ / CEA-DAM
 
-## 3 Simulation par Monte Carlo 蒙特卡洛仿真 (Simulation par Monte Carlo)
+## 3 Simulation par Monte Carlo 蒙特卡洛仿真
 
-### 3.1 Historique 历史 (Historique)
+### 3.1 Historique 历史
 
 N. Metropolis et S. Ulam [1947–1949] utilisent un procédé aléatoire pour un calcul numérique ; le nom évoque les jeux de hasard de Monte Carlo. N. Metropolis 和 S. Ulam [1947-1949], 使用随机过程来计算数值。因此暗指在蒙特卡洛 (Monte Carlo)进行的机会游戏。
 
-### 3.2 Définition 定义 (Définition)
+### 3.2 Définition 定义
 
 Évaluer itérativement un modèle déterministe avec des ensembles de variables aléatoires en entrée. 使用随机变量集作为输入, 迭代评估确定性模型的方法。
 
 Un modèle déterministe redonne les mêmes résultats avec les mêmes entrées dans les mêmes conditions. 确定性模型 (modèle déterministe) 在相同条件下、使用相同输入重新计算多次时, 会给出相同的结果。
 
-### 3.3 Applications 应用 (Applications)
+### 3.3 Applications 应用
 
 Intégration multidimensionnelle, surfaces et volumes, risque financier, rentabilité et solvabilité en banque et assurance, dynamique moléculaire ou mouvements de populations. 蒙特卡洛方法的应用领域包括: 多维积分计算 (表面、体积)、金融风险评估、银行和保险部门的盈利能力或偿付能力、分子动力学或人口运动研究等。
 
@@ -221,6 +223,8 @@ Remarque : Monte Carlo nécessite de nombreuses évaluations, facilitées par le
 ### 3.4 Étapes de Monte Carlo 蒙特卡洛的步骤
 
 Étapes d'une simulation Monte Carlo : 执行蒙特卡洛仿真遵循的不同步骤:
+
+Notations : $k$ est le nombre de paramètres d'entrée, $i$ le numéro du tirage et $n$ le nombre de tirages ; $X_{ij}$ est la valeur du paramètre $j$ au tirage $i$, et $Y_i=f(X_{i1},\ldots,X_{ik})$ le résultat. 符号说明：$k$ 为输入参数个数，$i$ 为抽样编号，$n$ 为抽样总数；$X_{ij}$ 是第 $i$ 次抽样中第 $j$ 个参数的值，$Y_i=f(X_{i1},\ldots,X_{ik})$ 是对应输出。
 
 1. Créer un modèle des paramètres $(X_1,X_2,\ldots,X_k)$. 为参数 $( X _{1} , X _{2} , . . . , X _{k} )$ 创建模型
 
@@ -232,9 +236,11 @@ Remarque : Monte Carlo nécessite de nombreuses évaluations, facilitées par le
 
 5. Analyser avec histogrammes, moyennes, variances et intervalles de confiance. 使用直方图、平均值和方差、置信区间等分析结果
 
+Pour des sorties indépendantes de même loi et de variance finie, la moyenne $\bar Y$ estime $\mathbb E[Y]$ et son erreur standard est estimée par $s_Y/\sqrt n$, où $s_Y$ est l'écart type empirique des sorties. Les formules d'intervalle sont présentées en §5.4–5.5. 对独立同分布、方差有限的输出，样本均值 $\bar Y$ 估计 $\mathbb E[Y]$，其标准误差估计为 $s_Y/\sqrt n$，其中 $s_Y$ 是输出样本的标准差；置信区间公式留到 §5.4–5.5。
+
 ### 3.5 Exemple Monte Carlo : calcul de $\pi$ 蒙特卡洛示例：计算 $\pi$
 
-Tirer des points indépendants et uniformes dans $[0,1]^2$, puis compter la proportion située dans le quart de disque unité : 在单位正方形 $[0,1]^2$ 中独立均匀抽取点，统计落在单位圆第一象限四分之一圆内的比例：
+Tirer $N$ points indépendants et uniformes dans $[0,1]^2$ ; $N_B$ compte les points dans le quart de disque et $\widehat\pi$ est l'estimation de $\pi$. 在单位正方形 $[0,1]^2$ 中独立均匀抽取 $N$ 个点；$N_B$ 表示命中四分之一圆的点数，$\widehat\pi$ 表示对 $\pi$ 的估计值：
 
 1. L'aire totale du disque vaut $\pi$ et celle du quart de disque dans le carré vaut $\pi/4$. 单位圆总面积为 $\pi$，正方形内的四分之一圆面积为 $\pi/4$。
 2. Tirer indépendamment $x_{i1},x_{i2}\sim U(0,1)$ à chaque essai. 对每次抽样，独立生成 $x_{i1},x_{i2}\sim U(0,1)$。
@@ -247,15 +253,15 @@ $$
 
 > Précision : la transcription avait perdu deux dénominateurs 4 et mal reconnu « cercle » ; ils sont vérifiables à la page 5 de l'ancien PDF chinois. $N_B$ compte bien les points dans le quart de disque. 校注：提取稿丢失了两处 $\pi/4$ 的分母，并将“圆”识别成数学符号；原中文 PDF 第 5 页能核对分母。这里也明确了 $N_B$ 是命中四分之一圆的点数。
 
-## 4 Mesure 测量 (Mesure)
+## 4 Mesure 测量
 
-### 4.1 Introduction à la mesure 测量: 引言 (Introduction)
+### 4.1 Introduction à la mesure 测量: 引言
 
-#### 4.1.1 Quoi mesurer ? 测量什么?(Quoi mesurer?)
+#### 4.1.1 Quoi mesurer ? 测量什么?
 
 Nombre d'événements, durée entre événements, taille nécessaire au codage de l'information, etc. 事件出现次数、两个事件之间的持续时间、包含信息的大小等。
 
-#### 4.1.2 Définition 定义 (Définition)
+#### 4.1.2 Définition 定义
 
 La mesure suit le fonctionnement du système par : 测量用于通过以下方式跟踪系统的运行:
 
@@ -265,7 +271,7 @@ La mesure suit le fonctionnement du système par : 测量用于通过以下方�
 
 3. Présentation : afficher les résultats sous des formes adaptées. 呈现 (La présentation): 以各种适当的形式显示结果
 
-### 4.2 Terminologie de la mesure 测量: 术语 (Terminologie)
+### 4.2 Terminologie de la mesure 测量: 术语
 
 #### 4.2.1 Termes usuels 常用术语
 
@@ -278,7 +284,7 @@ La mesure suit le fonctionnement du système par : 测量用于通过以下方�
 
 ### 4.3 Phase d'observation et de collecte 观察/收集阶段 (Phase d'observation/collecte)
 
-#### 4.3.1 Mécanismes d'observation 观察机制 (Mécanismes d'observation)
+#### 4.3.1 Mécanismes d'observation 观察机制
 
 1. Espionnage implicite : 隐式监视 (“Espionnage implicite”, Implicit spying):
 
@@ -293,14 +299,14 @@ Insérer traceurs et sondes, par exemple au moyen de compteurs matériels. 使�
 - En ligne : analyser pendant le monitoring. 在线 (On-line): 在监控期间分析结果
 - Par lots : collecter d'abord, analyser ensuite. 批处理 (batch): 收集数据但分析推迟
 
-#### 4.3.3 Stratégies de collecte 收集策略 (Stratégies de collecte)
+#### 4.3.3 Stratégies de collecte 收集策略
 
 - Événementielle : enregistrer à chaque événement. 事件驱动 (Event-driven): 每次事件出现时记录信息
 - Trace : enregistrer aussi l'état, avec un surcoût en temps et en espace. 轨迹 (Trace): 还记录系统状态。因此在时间和空间上产生开销
 - Échantillonnage : enregistrer périodiquement pour ajuster le surcoût. 采样 (Échantillonnage): 定期记录信息, 因此重新调整开销
 - Mesure indirecte : déduire la métrique inaccessible à partir d'une autre métrique mesurable. 间接测量 (Mesure indirecte): 当要测量的度量不能直接测量时使用。确定另一个可测量的度量并推导/导出感兴趣的度量
 
-### 4.4 Outils simples de collecte 简单的收集工具 (Outils simples de collecte)
+### 4.4 Outils simples de collecte 简单的收集工具
 
 Exemples : 示例:
 
@@ -310,7 +316,7 @@ Exemples d'outils : 我们列举:
 
 `time`, `gettimeofday` (temps exprimé en microsecondes), `top`, `gprof`, etc. L'unité d'affichage n'est pas la résolution réelle de l'horloge. `time`、`gettimeofday`（以微秒表示时间）、`top`、`gprof` 等；表示单位不等于实际时钟分辨率。
 
-### 4.5 Phase d'analyse 分析阶段 (Phase d'analyse)
+### 4.5 Phase d'analyse 分析阶段
 
 L'analyse dépend du contexte et des métriques ; elle est cruciale avec des mesures volumineuses, détaillées et bruitées. 任何评估的目的, 取决于上下文和度量。对于测量来说更重要, 因为收集的数据量大、细节丰富且有噪声。
 
@@ -320,20 +326,20 @@ Les répétitions peuvent présenter de grands écarts dus à la variabilité d'
 
 L'ANOVA décompose la variation en effets entre alternatives et résidu intragroupe ; le résidu peut inclure une variabilité inexpliquée, pas seulement une erreur instrumentale. ANOVA 将总变异分解为方案间效应和组内残差；残差可能包含未解释的随机波动，不应全归因于测量仪器出错。
 
-#### 4.5.2 Calcul de l'ANOVA ANOVA - 计算 (Calcul)
+#### 4.5.2 Calcul de l'ANOVA ANOVA - 计算
 
-Pour k alternatives avec n mesures chacune, $y_{ij}$ est la i-ème mesure de l'alternative j. 考虑为 k 次执行 (备选方案)(alternatives) 中的每一次收集的 n 个测量样本, 集合组成第 j 次执行的第 i 次测量的 $y _{i j}$
+Comparer $k$ alternatives, par exemple $k$ configurations, avec $n$ mesures indépendantes par alternative ; $y_{ij}$ est la mesure $i$ de l'alternative $j$, pour $i=1,\ldots,n$ et $j=1,\ldots,k$. 比较 $k$ 个备选方案（例如 $k$ 种配置），每个方案独立重复测量 $n$ 次；$y_{ij}$ 是第 $j$ 个方案的第 $i$ 次观测，总观测数为 $kn$。这里 $k$ 是方案数，$n$ 是每个方案的重复次数。
 
 Calcul des moyennes : 计算平均值:
 
-Moyennes par alternative et globale : 按方案计算与总体计算的均值分别为：
+La moyenne du groupe $j$ est $\bar y_j$ et la moyenne globale des $kn$ observations est $\bar y$ : 第 $j$ 组的样本均值记为 $\bar y_j$，全部 $kn$ 个观测的总体样本均值记为 $\bar y$：
 
 $$
 \bar y_j=\frac1n\sum_{i=1}^n y_{ij},\qquad
 \bar y=\frac1{kn}\sum_{j=1}^k\sum_{i=1}^n y_{ij}.
 $$
 
-Réécrire $y_{ij}=\bar y_j+e_{ij}$, où $e_{ij}$ est le résidu de la mesure. 测量可以重写为 $y _{i j} = \bar{y} _{j} + e _{i j}$ , 其中 $e _{i j}$ 是测量误差。
+Réécrire $y_{ij}=\bar y_j+e_{ij}$, où $e_{ij}=y_{ij}-\bar y_j$ est le résidu intragroupe. 测量可重写为 $y_{ij}=\bar y_j+e_{ij}$，其中 $e_{ij}=y_{ij}-\bar y_j$ 是相对本组均值的残差，包含组内尚未解释的波动。
 
 La moyenne par alternative s'écrit : 按备选方案的测量平均值可以重写为:
 
@@ -341,17 +347,17 @@ $$
 \bar{y} _{j} = \bar{y} + \alpha_{j}
 $$
 
-$\alpha_j$ est l'effet de l'alternative, avec $\sum_{j=1}^k\alpha_j=0$. 其中 $\alpha_{j}$ 是执行效应 (effet d'execution), 且 $\textstyle \sum_{j = 1} ^{k} \alpha_{j} = 0$
+$\alpha_j=\bar y_j-\bar y$ est l'effet estimé de l'alternative $j$, avec $\sum_{j=1}^k\alpha_j=0$ dans ce plan équilibré. L'indice distingue cet effet du seuil de signification $\alpha$ utilisé pour le test. $\alpha_j=\bar y_j-\bar y$ 是第 $j$ 个方案的估计效应，在本节各组样本数相同的设计中有 $\sum_{j=1}^k\alpha_j=0$；带下标的 $\alpha_j$ 与后面检验的显著性水平 $\alpha$ 含义不同。
 
-#### 4.5.3 Application de l'ANOVA ANOVA - 应用 (Application)
+#### 4.5.3 Application de l'ANOVA ANOVA - 应用
 
-Variation entre alternatives, somme des carrés SSA : 与执行相关的变化由备选方案平方和 (Sum of the Squares of Alternatives, SSA) 表示:
+Variation entre alternatives, somme des carrés $\mathrm{SSA}$ : elle mesure l'écart des moyennes de groupe à la moyenne globale. 组间平方和记为 $\mathrm{SSA}$，衡量各方案均值与全体样本均值之间的差异：
 
 $$
 \mathrm{SSA} = n \sum_{j = 1} ^{k} (\bar{y} _{j} - \bar{y}) ^{2}
 $$
 
-Variation résiduelle, somme des carrés SSE : 与测量误差相关的变化由误差平方和 (Sum of Squares of Errors, SSE) 表示:
+Variation résiduelle, somme des carrés $\mathrm{SSE}$ : elle mesure la dispersion des observations autour de leur propre moyenne de groupe. 组内残差平方和记为 $\mathrm{SSE}$，衡量同一方案各次观测相对本组均值的波动：
 
 $$
 \mathrm{SSE} = \sum_{j = 1} ^{k} \sum_{i = 1} ^{n} (y _{i j} - \bar{y} _{j}) ^{2}
@@ -360,6 +366,8 @@ $$
 #### 4.5.4 ANOVA et test F ANOVA 和 F 检验 (F-test)
 
 L'ANOVA à un facteur teste l'égalité des moyennes de k alternatives. Le modèle classique suppose des erreurs indépendantes, approximativement normales et de même variance. 单因素 ANOVA 检验 $k$ 个备选方案的总体均值是否相同。经典模型假设误差独立、近似正态且各组具有相同方差。
+
+Les moyennes de carrés $S_a^2$ et $S_c^2$ divisent respectivement $\mathrm{SSA}$ et $\mathrm{SSE}$ par leurs degrés de liberté $k-1$ et $k(n-1)$ ; leur rapport est la statistique F, notée $F_{\mathrm{计算}}$ dans les formules. Plus l'écart entre groupes est grand relativement à la variation résiduelle, plus F est grand. 组间均方 $S_a^2$、组内均方 $S_c^2$ 分别由平方和除以自由度 $k-1$、$k(n-1)$ 得到；两者之比是检验统计量 $F_{\mathrm{计算}}$。组间差异相对于组内波动越大，$F$ 越大。
 
 $$
 S_a^2=\frac{\mathrm{SSA}}{k-1},\qquad
@@ -373,11 +381,11 @@ $$
 F_{\mathrm{计算}}>F_{1-\alpha;\,k-1,\,k(n-1)}
 $$
 
-on rejette l'égalité des moyennes au niveau de signification $\alpha$. 时，在显著性水平 $\alpha$ 下拒绝“各组均值相同”的原假设。
+on rejette l'égalité des moyennes au niveau de signification $\alpha$. Le seuil $F_{1-\alpha;\,k-1,\,k(n-1)}$ est le quantile d'ordre $1-\alpha$ de la loi F avec ces deux degrés de liberté. 时，在显著性水平 $\alpha$ 下拒绝“各组均值相同”的原假设；$F_{1-\alpha;\,k-1,\,k(n-1)}$ 是分子、分母自由度分别为 $k-1$、$k(n-1)$ 的 F 分布的 $1-\alpha$ 分位数，即比较阈值。
 
 > Précision : l'ancien PDF chinois p. 8 et le cours 2020 p. 34 inversaient l'inégalité ; elle est corrigée dans l'original 2026 p. 32, soit p. 34 du PDF consolidé. Le Markdown conserve la formule correcte et le PDF précise le test des moyennes. Ne pas rejeter ne prouve pas l'égalité. 校注：原中文 PDF 第 8 页与 2020 年教师旧版第 34 页将不等号方向写反；2026 年教师原版第 32 页已修正，合并校订版对应第 34 页。Markdown 保留正确公式，合并 PDF 也已修正检验均值相等的文字。未拒绝原假设不等于证明各组均值相同。
 
-### 4.6 Phase de présentation 呈现阶段 (Phase de présentation)
+### 4.6 Phase de présentation 呈现阶段
 
 #### 4.6.1 Paramètres du choix de présentation 呈现选择的参数
 
@@ -393,9 +401,9 @@ Trois paramètres à considérer selon le système : 与系统相关的选择, �
 
 Moyennes, variance, écart type, quantiles et intervalles de confiance ; voir le cours sur les workloads. 一组简单的统计技术: 平均值、方差和标准差、分位数等 (参见工作负载课程), 以及置信区间。
 
-## 5 Qualité de mesure 测量质量 (Qualité de mesure)
+## 5 Qualité de mesure 测量质量
 
-### 5.1 Définition 定义 (Définition)
+### 5.1 Définition 定义
 
 Quantifier erreurs et bruit pour caractériser la qualité par : 测量中的误差或噪声必须量化, 以通过以下方式确定这些测量的质量:
 
@@ -405,11 +413,11 @@ Quantifier erreurs et bruit pour caractériser la qualité par : 测量中的误
 
 3. Résolution : plus petit changement détectable et affichable. 分辨率 (Résolution): 是可检测和” 可显示” 的最小变化
 
-### 5.2 Sources d'erreurs 误差来源 (Sources d'erreurs)
+### 5.2 Sources d'erreurs 误差来源
 
 Instruments, partage entre utilisateurs, événements temps réel, interruptions réseau, synchronisation d'horloges, défauts de cache, exceptions et défauts de page. 测量仪器、用户之间的时间共享、实时事件 (例如网络接口中断)、时钟同步、不确定性事件 (缓存未命中、系统异常、页面错误等)
 
-### 5.3 Quantification 量化 (Quantification)
+### 5.3 Quantification 量化
 
 1. Justesse : difficile à quantifier. 准确性: 难以量化
 
@@ -419,6 +427,8 @@ Instruments, partage entre utilisateurs, événements temps réel, interruptions
 ### 5.4 Intervalle sur la moyenne : approximation de grand échantillon 平均值的置信区间：大样本近似
 
 Pour des observations indépendantes, de variance finie et une moyenne approximativement normale : 当样本独立、方差有限且样本均值的正态近似合理时：
+
+Notations : $X_i$ est une observation, $n$ leur nombre, $\mu$ la moyenne de population recherchée, $\bar X$ la moyenne observée et $s$ l'écart type empirique. Les bornes $c_1,c_2$ encadrent l'estimation de $\mu$ ; $z_{1-\alpha/2}$ est le quantile de la normale standard et $s/\sqrt n$ l'erreur standard estimée. 符号说明：$X_i$ 为单次观测，$n$ 为观测总数，$\mu$ 为要估计的总体均值，$\bar X$ 为样本均值，$s$ 为样本标准差；$c_1,c_2$ 是置信区间的下限、上限，$z_{1-\alpha/2}$ 为标准正态分位数，$s/\sqrt n$ 是均值的估计标准误差。这里 $n$ 指本次均值估计使用的样本总数，区别于 ANOVA 中每组的样本数；$\mu,s$ 也不同于 CM3 的服务率与服务时间。
 
 $$
 \begin{aligned}
@@ -442,9 +452,9 @@ c_2&=\bar X+t_{1-\alpha/2;n-1}\frac{s}{\sqrt n}.
 \end{aligned}
 $$
 
-La loi a $n-1$ degrés de liberté. La formule n'est pas limitée à $n<30$ ; les seuils tendent vers ceux de la normale lorsque n augmente. 自由度为 $n-1$。该式不局限于 $n<30$；样本变大时，Student 临界值接近标准正态临界值。
+Le seuil $t_{1-\alpha/2;n-1}$ est le quantile d'ordre $1-\alpha/2$ de la loi de Student à $n-1$ degrés de liberté ; les autres symboles sont ceux du §5.4. La formule n'est pas limitée à $n<30$. $t_{1-\alpha/2;n-1}$ 为自由度 $n-1$ 的 Student 分布的 $1-\alpha/2$ 分位数，其余符号同 §5.4。该式不局限于 $n<30$；样本变大时，Student 临界值接近标准正态临界值。
 
-### 5.6 Exemple de quantification 误差量化示例 (Exemple)
+### 5.6 Exemple de quantification 误差量化示例
 
 Huit observations du temps d'écriture d'un fichier : 文件写入时间的 8 次观测为：
 
@@ -467,13 +477,13 @@ $$
 
 ### 5.7 Nombre de mesures à prévoir 所需测量次数（原题：Nombre d'alternatives）
 
-Pour une demi-largeur absolue cible $\delta$, planifier par approximation normale avec l'écart type pilote $s_0$ : 若目标是均值置信区间的绝对半宽不超过 $\delta$，可用先导样本标准差 $s_0$ 进行正态近似规划：
+Pour une demi-largeur absolue cible $\delta$, planifier le nombre total de mesures $n$ par approximation normale avec l'écart type pilote $s_0$ ; $\delta$ a l'unité de la grandeur mesurée et la largeur totale vaut $2\delta$. 若目标是均值置信区间的绝对半宽不超过 $\delta$，可用先导样本标准差 $s_0$ 规划总测量次数 $n$；$\delta$ 与原测量量单位相同，区间全宽为 $2\delta$：
 
 $$
 n\ge\left(\frac{z_{1-\alpha/2}s_0}{\delta}\right)^2.
 $$
 
-Avec une demi-largeur relative $e_{\mathrm{rel}}$, poser $\delta=e_{\mathrm{rel}}|\bar X_0|$, d'où : 若采用相对半宽 $e_{\mathrm{rel}}$，令 $\delta=e_{\mathrm{rel}}|\bar X_0|$，于是：
+Avec une demi-largeur relative sans dimension $e_{\mathrm{rel}}$ et la moyenne pilote $\bar X_0$, poser $\delta=e_{\mathrm{rel}}|\bar X_0|$, d'où : 若采用无量纲的相对半宽 $e_{\mathrm{rel}}$，用先导样本均值 $\bar X_0$ 设置 $\delta=e_{\mathrm{rel}}|\bar X_0|$，于是：
 
 $$
 n\ge\left(\frac{z_{1-\alpha/2}s_0}{e_{\mathrm{rel}}|\bar X_0|}\right)^2.
@@ -490,7 +500,7 @@ Arrondir au supérieur : planification initiale de **161 mesures**. 向上取整
 
 > Précision : $(2.14\times1.895/(0.07\times7.94))^2\approx53.24$, pas 212.95. Remplacer la largeur 0.07 par la demi-largeur 0.035 avec le seuil pilote $t_{0.95;7}\approx1.895$ donne environ 212.95, soit **213 mesures**. Cette méthode diffère du calcul normal donnant 161. Avec huit observations pilotes, l'écart type reste incertain ; réévaluer éventuellement le seuil de Student, sans garantir la précision finale. 校注：原稿写出的 $(2.14\times1.895/(0.07\times7.94))^2$ 约等于 53.24，不能得到 212.95。将分母中的全宽 0.07 改为半宽 0.035，并固定使用先导样本的 $t_{0.95;7}\approx1.895$，才得到约 212.95，即 **213 次**。这与采用正态临界值所得的 161 次是不同的规划方法。先导样本只有 8 次，标准差仍有估计误差，可迭代采用新自由度的 Student 临界值；不能把规划值当作精度保证。
 
-## 6 Conception d'un scénario de mesure 测量场景的设计 (Conception d'un scénario de mesure)
+## 6 Conception d'un scénario de mesure 测量场景的设计
 
 ### 6.1 But 目的 (But)
 
@@ -503,13 +513,15 @@ Arrondir au supérieur : planification initiale de **161 mesures**. 向上取整
 
 Répartir entre expériences les facteurs et leurs niveaux, c'est-à-dire leurs valeurs possibles. 实验之间因子数量和因子水平数量 (可能值)(niveaux, valeurs possibles) 的分布。
 
+Pour $m$ facteurs ayant respectivement $L_1,\ldots,L_m$ niveaux, le nombre de configurations du plan complet est $N_{\mathrm{conf}}=\prod_{j=1}^m L_j$ ; avec $r$ répétitions par configuration, il faut $rN_{\mathrm{conf}}$ mesures. 设因子数为 $m$，各因子分别有 $L_1,\ldots,L_m$ 个水平，则完全因子设计包含 $N_{\mathrm{conf}}=\prod_{j=1}^m L_j$ 种配置；每种重复 $r$ 次时，总测量次数为 $rN_{\mathrm{conf}}$。配置数与重复次数应分开计算。
+
 ### 6.3 Classification des plans 实验设计: 分类 (Plan d'expérience : classification)
 
 1. Plan simple : varier un facteur à partir d'une configuration initiale, pour une optimisation locale sans analyse d'interactions. 简单设计 (Plan simple): 从初始配置出发, 改变一个因子 (局部优化)。不分析交互作用。
 
-2. Plan factoriel complet : toutes les combinaisons, dont le nombre peut être prohibitif. 完全因子设计 (Plan factoriel complet): 考虑所有配置 (组合)。不可行, 因为数量非常大。
+2. Plan factoriel complet : tester toutes les combinaisons de niveaux ; le coût peut devenir prohibitif quand le nombre de facteurs ou de niveaux augmente. 完全因子设计：测试全部水平组合，能系统考察因子及其交互；因子或水平很多时成本较高，小规模时仍然可行。
 
-3. Plan fractionnaire : un sous-ensemble réalisable, dont il faut choisir les combinaisons. 部分因子设计 (Plan fractionnaire): 组合的子集。可行, 但如何选择组合?
+3. Plan fractionnaire : choisir une fraction structurée des combinaisons pour réduire les essais, au prix d'effets pouvant être confondus. 部分因子设计：有结构地选择部分组合以减少试验次数，代价是某些主效应或交互效应可能混杂，须根据设计判断可识别的效应。
 
 ### 6.4 Exemple de plan 实验设计: 示例 (Plan d'expérience : Exemple)
 
@@ -518,6 +530,8 @@ Quatre facteurs {A, B, C, D}, trois niveaux chacun. 4 个因子 {A, B, C, D}，�
 Le plan complet comporte 81 combinaisons. 完全因子设计给出 81 种组合。
 
 Le tableau orthogonal $L_9(3^4)$ réalise neuf essais pour quatre facteurs à trois niveaux, au lieu des 81 combinaisons. 下表采用 4 因子、每因子 3 水平的 $L_9(3^4)$ 正交表，用 9 次实验代替完整的 81 种组合。
+
+Dans $L_9(3^4)$, l'indice 9 est le nombre d'essais et $3^4$ indique quatre colonnes à trois niveaux ; ce symbole $L_9$ nomme le tableau et ne représente pas un niveau $L_j$. 记号 $L_9(3^4)$ 中，下标 9 表示试验次数，$3^4$ 表示四列、每列三个水平；$L_9$ 是正交表名称，不是前文单个因子的水平数 $L_j$。
 
 > Précision : le cours 2020 p. 45 parlait à tort d'un plan en étoile. L'original 2026 p. 43 mentionne neuf essais, mais leur capacité d'analyse des interactions doit être limitée. Chaque paire de colonnes contient une fois les neuf combinaisons ; toutes les interactions ne sont pas estimables indépendamment. Le PDF consolidé p. 45 le précise. 校注：2020 年旧版第 45 页称其为“星形设计”，与表格结构不符；2026 年教师原版第 43 页改写为 9 次实验，但交互作用说明仍需限定。每两列的 9 种水平组合各出现一次；9 次试验不能独立估计所有交互作用。合并 PDF 第 45 页已据此改写。
 

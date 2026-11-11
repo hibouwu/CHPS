@@ -1,0 +1,15 @@
+digraph G {
+graph [rankdir=TB,bgcolor=white,nodesep=.35,ranksep=.38,dpi=200];
+node [shape=box,fontname="DejaVu Sans",fontsize=15,margin=".10,.06"];
+edge [fontname="DejaVu Sans",fontsize=13,arrowsize=.7];
+
+in [shape=plaintext,label="Entrée: λ=800"];out [shape=plaintext,label="Sortie"];
+L1 [label="L1 + file\nμ=500; λ=240"];L2 [label="L2 + file\nμ=300; λ=48"];
+D [label="D groupe: D1 / D2\n2 files, répartition égale\nChaque file: μ=250; λ=82.4"];
+C [label="Cal groupe: Cal1 / Cal2\n2 files, répartition égale\nChaque file: μ=1000; λ=319.68"];
+in->L1 [label="0.3"];in->D [label="0.2"];in->C [label="0.5"];
+L1->L2 [label="0.2"];L1->C [label="0.7"];L1->out [label="0.1"];
+L2->D [label="0.1"];L2->C [label="0.8"];L2->out [label="0.1"];
+D->C [label="0.2"];D->out [label="0.8"];C->out [label="1"];
+
+}

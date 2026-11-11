@@ -1,0 +1,74 @@
+[
+  {
+    "path": "TD/td1_metrics.md",
+    "sha256": "6831d93b4619befb08b2d2ddfdeb6041ff37d15f4459b72d95b8527feaeeef05"
+  },
+  {
+    "path": "TD/td1_metrics_zh.md",
+    "sha256": "3e7c8a393e134534bae07df0b3c5537a0f9ad8a83c592d0f0a521f17ede46055"
+  },
+  {
+    "path": "TD/td1_transcript.md",
+    "sha256": "03ffc0bd7d6dfcd47da9cb5e31fcf7cffe6422ef7dde1c05ac9ce43369df6eab"
+  },
+  {
+    "path": "TD/TD3_2627.md",
+    "sha256": "f0c4e6cd5308668dcc6a2bafb86d0229c179a73bc2629a1f5afd84c53ce22adc"
+  },
+  {
+    "path": "TD/TD3_2627_zh.md",
+    "sha256": "bee336c65e576e479ad01808f3d9c4d8a66a2ff6f740419e55c40cf9614f90c8"
+  },
+  {
+    "path": "TD/td4_zh.md",
+    "sha256": "63336a5d8d2c2aca7bd419e33c73b8fbb5f9997ff0bfe494aa7a34957352bb7b"
+  },
+  {
+    "path": "TD/td4.md",
+    "sha256": "22d5a927d1b841dc4988b0354e09ede95afc090f7c54294590174992f38d5b52"
+  },
+  {
+    "path": "TD/td4.pdf",
+    "sha256": "6d492dd3e4afb64b2724e76bf6a1d15eae8072608abb2837e5138016c55161b1"
+  },
+  {
+    "path": "TD/td1_metrics.pdf",
+    "sha256": "0e188210d94986a154db989c37160e3d880f1499df58f0ab4448d713b72c8ad5"
+  },
+  {
+    "path": "TD/TD3_2627.pdf",
+    "sha256": "2a01ea36db4ecb4f712c8b07c292baa4dccbd1b47482100cd1a640780e8b7f7d"
+  },
+  {
+    "path": "anales/edp_examen_2023-11-14.md",
+    "sha256": "6803b18540b4326e9772fbb7b9e236d9de577438d608009e6fa68727ccb5abec"
+  },
+  {
+    "path": "anales/edp_examen_2023-11-14_zh.md",
+    "sha256": "3611df5b3ffe74a80123aee4a56ae9d235dd6048db653d2ce2ca0714f1249fb1"
+  },
+  {
+    "path": "anales/edp_examen_2025-11-14.md",
+    "sha256": "ba0de9243e9b934687e789a6fe169ae5ff574c7b193c812ecc0fc819cedfaf2f"
+  },
+  {
+    "path": "anales/edp_examen_2025-11-14_zh.md",
+    "sha256": "52daa22b9463f94de2ba9f60465671cddb97e60c98d2e57f8924687c2c6eee4a"
+  },
+  {
+    "path": "anales/Images/edp_examen_2023-11-14_p01.png",
+    "sha256": "a40dec53884c8da409b0b52040e529205ea2824361521e0f2fa57b5ab406ad7d"
+  },
+  {
+    "path": "anales/Images/edp_examen_2023-11-14_p02.png",
+    "sha256": "745c9444a37669ba81281aed827b2dec2934b825e4f32047ec17b23083774adf"
+  },
+  {
+    "path": "anales/Images/edp_examen_2025-11-14_p01.png",
+    "sha256": "bc023ded8cf981d63940c0d1c8254a62e27a27fdf8ce90c515dbdc4adb70bba2"
+  },
+  {
+    "path": "anales/Images/edp_examen_2025-11-14_p02.png",
+    "sha256": "a290b65f356bd1c61e7b6e3b4448dd62edba7690c2e2f1aa4ccf683dbeb4101a"
+  }
+]

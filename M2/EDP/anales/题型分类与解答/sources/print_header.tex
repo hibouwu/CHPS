@@ -1,0 +1,26 @@
+\usepackage{xeCJK}
+\setCJKmainfont{FandolSong-Regular}[BoldFont=FandolSong-Bold,ItalicFont=FandolKai-Regular]
+\setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+\setCJKmonofont{FandolFang-Regular}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\usepackage{xurl}
+\usepackage{adjustbox}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small EDP \quad Exercices classés et corrigés}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\AtBeginEnvironment{longtable}{\small}
+\pretocmd{\section}{\Needspace{11\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{6\baselineskip}}{}{}
+\pretocmd{\subsubsection}{\Needspace{5\baselineskip}}{}{}
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+\AtBeginDocument{\hypersetup{colorlinks=false,pdfborder={0 0 0}}}
+\usepackage{float}
+\floatplacement{figure}{H}

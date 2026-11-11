@@ -20,7 +20,7 @@ Lire d'abord les [sections 19–26 du cours principal](1_edpCpl_zh.md), puis con
 
 Cours suivants : [workloads](2_edp_zh.md), [modélisation et files d'attente](3_edp_zh.md), [simulation et mesure](45_edp_zh.md). 后续课程的对应入口：[工作负载](2_edp_zh.md)、[数学建模与排队模型](3_edp_zh.md)、[仿真与测量](45_edp_zh.md)。
 
-## A1 Évaluation des performances pour le HPC 高性能计算（HPC）中的性能评估（Évaluation des performances pour le HPC）
+## A1 Évaluation des performances pour le HPC 高性能计算（HPC）中的性能评估
 
 ### A1.1 Motivation et problématique en HPC 动机与问题（Motivation et problématique —HPC）
 
@@ -42,13 +42,13 @@ La complexité HPC vient d'une architecture à plusieurs niveaux : HPC 系统的
 
 Outre les métriques de base, il faut donc considérer architecture et modèle de parallélisme. 因此，HPC 性能评估不仅需要基本指标，还必须考虑架构特性与并行模型。
 
-## A2 Parallélisme et performance 并行性与性能（Parallélisme et performance）
+## A2 Parallélisme et performance 并行性与性能
 
 La performance HPC dépend du degré de parallélisme et de l'efficacité d'utilisation des ressources. 在 HPC 中，性能依赖于并行度（parallélisme）和资源利用效率（efficacité d'utilisation des ressources）。
 
 ### A2.1 Rappel sur l'accélération parallèle 并行加速比：回顾（Speedup）
 
-Accélération : 加速比：
+Accélération $\mathrm{Acc}$ : rapport du temps séquentiel $T_{\mathrm{séquentiel}}$ au temps parallèle $T_{\mathrm{parallèle}}$ pour la même tâche ; $P$ est le nombre de processeurs. 加速比记为 $\mathrm{Acc}$，是同一任务的串行执行时间 $T_{\mathrm{séquentiel}}$ 与并行执行时间 $T_{\mathrm{parallèle}}$ 之比，$P$ 为处理器数量：
 
 $$
 \mathrm{Acc} = \frac{T_{\mathrm{séquentiel}}}{T_{\mathrm{parallèle}}}
@@ -62,7 +62,7 @@ $$
 
 Communications, synchronisation et cohérence des caches peuvent éloigner le speedup de la linéarité. 但在实际 HPC 中，由于通信（communication）、同步（synchronisation）、缓存一致性等开销，加速比会偏离线性。
 
-### A2.2 Limites de la loi d'Amdahl Amdahl 定律的限制（Limites de la loi d'Amdahl）
+### A2.2 Limites de la loi d'Amdahl Amdahl 定律的限制
 
 Amdahl considère une taille de problème fixe. Ses limites sont liées aux hypothèses : Amdahl 定律考虑固定问题规模（strong scaling）。其局限在于：
 
@@ -78,10 +78,10 @@ Utiliser Amdahl à taille fixe et Gustafson-Barsis pour un problème agrandi, en
 
 Métriques usuelles : HPC 领域中的指标包括：
 
-- Accélération 加速比（speedup）
-- Efficacité parallèle 并行效率（efficacité parallèle）
-- Performance flottante, FLOP/s 浮点性能（FLOPS）
-- Utilisation 使用率（utilisation）
+- Accélération $\mathrm{Acc}$ : gain de temps par rapport à une référence. 加速比 $\mathrm{Acc}$：相对于基准的执行时间收益。
+- Efficacité parallèle $E=\mathrm{Acc}/P$ : accélération par processeur. 并行效率 $E=\mathrm{Acc}/P$：每个处理器对应的加速收益。
+- Performance flottante, FLOP/s : opérations flottantes exécutées par seconde. 浮点性能：每秒完成的浮点运算数。
+- Utilisation $U=b/T$ : temps occupé $b$ divisé par la durée d'observation $T$. 利用率 $U=b/T$：忙碌时长 $b$ 占观察时长 $T$ 的比例。
 - Coût de communication 通信开销（coût de communication）
 - Équilibrage de charge 负载均衡（load balancing）
 
@@ -92,6 +92,8 @@ Les FLOPS mesurent les opérations flottantes par seconde. Pic théorique : FLOP
 $$
 P_{\mathrm{peak}} = N_{\mathrm{cœurs}}\times f\times N_{\mathrm{FLOP/cycle/cœur}}
 $$
+
+Ici, $P_{\mathrm{peak}}$ est le débit flottant théorique en FLOP/s, $N_{\mathrm{cœurs}}$ le nombre de cœurs, $f$ leur fréquence en cycles/s et $N_{\mathrm{FLOP/cycle/cœur}}$ le nombre d'opérations par cycle et par cœur pour la précision et le chemin considérés. $P_{\mathrm{peak}}$ 表示理论浮点吞吐量，单位为 FLOP/s；$N_{\mathrm{cœurs}}$ 为核心数，$f$ 为时钟频率（周期/秒），$N_{\mathrm{FLOP/cycle/cœur}}$ 为指定精度和执行路径下每核心、每周期的浮点运算数。这里 $P_{\mathrm{peak}}$ 是性能量，区别于表示处理器数量的 $P$。
 
 La performance réelle est souvent inférieure au pic, notamment à cause de : 实际性能通常远低于理论值，受制于：
 
@@ -107,10 +109,10 @@ La performance réelle est souvent inférieure au pic, notamment à cause de : �
 
 Modèles HPC courants : HPC 常用的性能模型包括：
 
-- Modèle Roofline Roofline 模型（roofline model）
-- Modèle LogP LogP 模型
-- Modèle Bulk Synchronous Parallel (BSP) Bulk Synchronous Parallel (BSP) 模型
-- Modèles d'Amdahl et de Gustafson Amdahl / Gustafson 模型
+- **Amdahl / Gustafson** : relier fraction séquentielle, nombre de processeurs et potentiel d'accélération selon la taille du problème. 根据问题规模及时间基准，分析串行比例、处理器数量与加速潜力的关系。
+- **Roofline** : comparer les plafonds de calcul et de bande passante à l'aide de l'intensité arithmétique. 用算术强度比较算力上限与带宽上限，公式见下文。
+- **LogP** : décrire la communication par la latence $L$, le surcoût processeur $o$, l'intervalle minimal $g$ entre envois ou réceptions successifs et le nombre de processeurs $P$. 用通信延迟 $L$、处理器收发开销 $o$、连续发送或接收的最小间隔 $g$ 及处理器数量 $P$ 描述通信成本（[cours de Berkeley / Berkeley 课程说明](https://people.eecs.berkeley.edu/~demmel/cs267/lecture09/lecture09.html)）。
+- **BSP** : organiser le calcul en super-étapes de travail local et de communication, séparées par des synchronisations globales. 将并行程序组织为包含本地计算和通信的超步，超步之间进行全局同步（[rapport d'Oxford / Oxford 模型说明](https://www.cs.ox.ac.uk/techreports/oucl/tr-15-96.html)）。
 
 Ils servent à : 这些模型用于：
 
@@ -129,8 +131,9 @@ $$
 
 Avec : 其中：
 
-- I : intensité arithmétique, en FLOP/octet I = 算术强度（intensité arithmétique = FLOP/byte）
-- BW : bande passante mémoire BW = 内存带宽（bandwidth）
+- $P_{\mathrm{peak}}$ : plafond de calcul en FLOP/s, défini en A3.1. $P_{\mathrm{peak}}$：A3.1 定义的算力上限，单位为 FLOP/s。
+- $I$ : intensité arithmétique, opérations flottantes divisées par les octets transférés au niveau mémoire choisi, en FLOP/octet. $I$：算术强度，即浮点运算数除以所选存储层级传输的字节数，单位为 FLOP/byte。
+- $\mathrm{BW}$ : bande passante au même niveau mémoire, en octets/s ; $I\,\mathrm{BW}$ est donc en FLOP/s. $\mathrm{BW}$：同一存储层级的带宽，单位为 byte/s，因此 $I\,\mathrm{BW}$ 与算力上限具有相同单位 FLOP/s。
 
 Il distingue deux domaines : 它区分两类程序：
 
@@ -178,7 +181,7 @@ La première partie de cette annexe traite : 本附录前半部分讨论：
 - Effets des communications et synchronisations ; 通信与同步的影响；
 - Méthodes et outils d'évaluation HPC. HPC 中的评估方法与工具。
 
-## A8 Workloads 工作负载（Workloads）
+## A8 Workloads 工作负载
 
 Le workload représente les tâches que le système doit rencontrer en usage réel. 在性能评估中，工作负载（workload）用于代表系统在真实使用中将面对的任务类型。
 
@@ -210,12 +213,12 @@ Deux classes usuelles : 工作负载通常分为两类：
 - Parfois difficile à contrôler et à reproduire ; 但可能不可控、难以重现；
 - Exemples HPC : CFD, dynamique moléculaire et météorologie. 示例：真实 HPC 应用，如 CFD、分子动力学、天气模拟等。
 
-### A8.2 Caractéristiques des workloads 工作负载特性（Caractéristiques des workloads）
+### A8.2 Caractéristiques des workloads 工作负载特性
 
 Choisir les caractéristiques selon le système ; elles ne sont pas toutes nécessaires dans chaque expérience : 根据系统类型选择需要描述的特征；并非每个实验都同时需要下列所有特征：
 
-- Taux d'arrivée 到达率（taux d'arrivée）
-- Temps de service 服务时间（temps de service）
+- Taux d'arrivée moyen $\lambda$ : requêtes soumises par unité de temps. 平均到达率 $\lambda$：单位时间提交的请求数量。
+- Temps de service moyen $s$, de taux associé $\mu=1/s$. 平均服务时间 $s$，对应服务率 $\mu=1/s$。
 - Modèle de parallélisme 并行度模式（modèle de parallélisme）
 - Motifs d'accès et localité mémoire 数据访问模式（localité, patterns mémoire）
 - Motifs de communication 通信模式（communication patterns）
@@ -240,7 +243,7 @@ Charges transactionnelles 事务型（transactionnel）
 - Fréquentes dans les bases de données ; 常见于数据库；
 - Métriques telles que TPS. 指标包括 TPS（transactions per second）。
 
-## A9 Modélisation mathématique 数学建模（Modélisation mathématique）
+## A9 Modélisation mathématique 数学建模
 
 La modélisation approche le comportement par des relations mathématiques, notamment quand le système n'existe pas ou n'est pas mesurable. Avantages : 数学建模用数学方法近似描述系统行为，也常用于系统尚不存在或无法直接测量的情形。主要优势：
 
@@ -271,7 +274,7 @@ Inconvénients : 缺点：
 
 7. Valider par comparaison avec des données réelles. 验证模型与真实数据是否一致。
 
-### A9.2 Modèles de files d'attente 队列模型（Modèles de files d'attente）
+### A9.2 Modèles de files d'attente 队列模型
 
 Ils décrivent : 队列模型用于描述：
 
@@ -282,19 +285,21 @@ Ils décrivent : 队列模型用于描述：
 
 Modèles courants : 常见模型：
 
-- M/M/1
-- M/M/k
-- M/G/1
-- G/G/1
+- **M/M/1** : arrivées de Poisson, services exponentiels et un serveur. 泊松到达、指数服务时间、一个服务台。
+- **M/M/$k$** : mêmes hypothèses avec $k$ serveurs identiques en parallèle, notés $C$ dans CM3. 相同到达与服务假设下，使用 $k$ 个并行的相同服务台；CM3 用 $C$ 表示该数量。
+- **M/G/1** : arrivées de Poisson et un serveur, avec une loi générale des temps de service. 泊松到达、一个服务台，服务时间允许采用一般分布。
+- **G/G/1** : un serveur avec des lois générales pour les intervalles d'arrivée et les temps de service. 一个服务台，到达间隔与服务时间均采用一般分布。
+
+Ces noms résument les lois d'arrivée, de service et le nombre de serveurs ; les conditions de stabilité et les formules sont développées dans [CM3](3_edp_zh.md). 这些名称概括到达规律、服务规律和服务台数量，稳定条件与计算公式见 [CM3](3_edp_zh.md)。
 
 Ils permettent de prévoir : 它们用于预测：
 
-- Temps moyen d'attente 平均等待时间（temps d'attente）
-- Temps moyen de réponse 平均响应时间（temps de réponse）
-- Utilisation 利用率（utilisation）
-- Longueur de file 队列长度（longueur de file）
+- Temps moyen d'attente $w$ 平均等待时间 $w$
+- Temps moyen de réponse $r=w+s$ 平均响应时间 $r=w+s$
+- Utilisation $U$ 利用率 $U$
+- Nombre moyen de clients en attente $q$, ou dans le système entier $n$ 仅等待队列中的平均客户数 $q$，或整个系统中的平均客户数 $n$
 
-## A10 Simulation 仿真（Simulation）
+## A10 Simulation 仿真
 
 La simulation s'utilise quand le système réel n'est pas directement mesurable ou que la modélisation analytique ne suffit pas. 仿真是在无法直接测量真实系统、或数学建模不够精确时使用的一种方法。
 
@@ -332,7 +337,7 @@ Inconvénients : 缺点：
 
 7. Analyser et valider les résultats. 分析、验证仿真结果；
 
-## A11 Mesure 测量（Mesure）
+## A11 Mesure 测量
 
 Si le système existe et est accessible, la mesure renseigne sur l'exécution réelle. Représentativité, surcoût des outils et bruit influencent les résultats ; vérifier la répétabilité. 当系统存在且可访问时，测量能提供实际运行证据。结果仍受工作负载代表性、测量工具开销和环境噪声影响，需检验可重复性。
 
@@ -372,7 +377,7 @@ Difficultés principales : 主要挑战：
 - Chronologie des événements ; 跟踪事件时间线；
 - Comportement visible dans les limites des événements et de la résolution enregistrés. 在所记录事件和时间精度的范围内展示程序行为；
 
-#### 3. Benchmarking 基准测试（benchmarking）
+#### 3. Benchmarking 基准测试
 
 - Tester la performance sur des tâches fixes ; 使用固定任务测试性能；
 - Comparer différents systèmes. 可用于不同系统之间比较；
@@ -418,7 +423,7 @@ Les modèles guident les prédictions et l'analyse ; vérifier leur applicabilit
 6. **Collecter et analyser :** moyennes, variances, intervalles et valeurs aberrantes, avec justification de leur traitement. **收集与分析。** 检查均值、方差、置信区间和异常值；说明异常值处理理由。
 7. **Interpréter et présenter :** graphiques, modèles et scalabilité, hypothèses et limites. **解释与呈现。** 用图表、模型对比和扩展性分析说明结果，记录假设及限制。
 
-## A15 Erreurs fréquentes 性能评估中的常见陷阱（Erreurs fréquentes）
+## A15 Erreurs fréquentes 性能评估中的常见陷阱
 
 Erreurs courantes d'évaluation : 性能评估中常见错误包括：
 
@@ -435,7 +440,7 @@ Erreurs courantes d'évaluation : 性能评估中常见错误包括：
 
 La checklist de Raj Jain aide à éviter ces erreurs. Raj Jain 的 checklist 可用于避免这些陷阱。
 
-## A16 Présentation des résultats 性能结果展示方法（Présentation des résultats）
+## A16 Présentation des résultats 性能结果展示方法
 
 - Choisir courbes, barres ou graphiques de speedup et d'efficacité selon la question. 根据问题选择折线图、柱状图或加速比/效率曲线。
 - Indiquer unités, référence, sens des barres d'erreur et répétitions. 标清单位、比较基准、误差条的含义与重复次数。

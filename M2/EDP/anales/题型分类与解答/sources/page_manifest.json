@@ -1,0 +1,51 @@
+[
+  {
+    "stem": "01_加速比与向量化",
+    "title": "Accélération et vectorisation 加速比与向量化",
+    "pages": 6,
+    "combined_first": 2,
+    "combined_last": 7
+  },
+  {
+    "stem": "02_指令吞吐与基准比较",
+    "title": "MIPS CPI et benchmarks 指令吞吐与基准比较",
+    "pages": 5,
+    "combined_first": 8,
+    "combined_last": 12
+  },
+  {
+    "stem": "03_Karp_Flatt与扩展性",
+    "title": "Karp Flatt et passage à l'échelle Karp Flatt 与扩展性",
+    "pages": 3,
+    "combined_first": 13,
+    "combined_last": 15
+  },
+  {
+    "stem": "04_排队网络与资源优化",
+    "title": "Réseaux de files et optimisation 排队网络与资源优化",
+    "pages": 13,
+    "combined_first": 16,
+    "combined_last": 28
+  },
+  {
+    "stem": "05_置信区间与测量精密度",
+    "title": "Intervalles de confiance 置信区间与测量精密度",
+    "pages": 2,
+    "combined_first": 29,
+    "combined_last": 30
+  },
+  {
+    "stem": "06_卡方拟合优度检验",
+    "title": "Tests du khi deux 卡方拟合优度检验",
+    "pages": 3,
+    "combined_first": 31,
+    "combined_last": 33
+  },
+  {
+    "stem": "07_KS检验与分布校准",
+    "title": "Kolmogorov Smirnov K S 检验与分布校准",
+    "pages": 5,
+    "combined_first": 34,
+    "combined_last": 38
+  }
+]

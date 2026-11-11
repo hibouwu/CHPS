@@ -1,0 +1,77 @@
+[
+  {
+    "key": "td1_1.2",
+    "to": "03",
+    "source": "TD1 §1.2",
+    "parts": "Calcul de la fraction effective et commentaire 串行比例计算与并行行为解释（原题未分编号）",
+    "patterns": [
+      "^Calculer la fraction séquentielle"
+    ]
+  },
+  {
+    "key": "td1_2.2",
+    "to": "01",
+    "source": "TD1 §2.2",
+    "parts": "(e)",
+    "patterns": [
+      "^\\*\\*\\(e\\)"
+    ]
+  },
+  {
+    "key": "exam2023_2",
+    "to": "01",
+    "source": "Examen 2023 ex.2 2023 年第 2 题",
+    "parts": "Q2",
+    "patterns": [
+      "^2\\. Calculez l.accélération moyenne"
+    ]
+  },
+  {
+    "key": "td1_4.1",
+    "to": "01",
+    "source": "TD1 §4.1",
+    "parts": "(a–b)",
+    "patterns": [
+      "^\\*\\*\\(a\\)",
+      "^\\*\\*\\(b\\)"
+    ]
+  },
+  {
+    "key": "td1_4.2",
+    "to": "01",
+    "source": "TD1 §4.2",
+    "parts": "(a–b)",
+    "patterns": [
+      "^\\*\\*\\(a\\)",
+      "^\\*\\*\\(b\\)"
+    ]
+  },
+  {
+    "key": "exam2025_1",
+    "to": "01",
+    "source": "Examen 2025 ex.1 2025 年第 1 题",
+    "parts": "Q8",
+    "patterns": [
+      "^8\\. Après ces deux remplacements"
+    ]
+  },
+  {
+    "key": "cylinders_combined",
+    "to": "06",
+    "source": "TD4 ex.5 TD4 第 5 题",
+    "parts": "Q2",
+    "patterns": [
+      "^2\\. Pouvez-vous confirmer"
+    ]
+  },
+  {
+    "key": "exam2025_3",
+    "to": "06",
+    "source": "Examen 2025 ex.3 2025 年第 3 题",
+    "parts": "Q3–4",
+    "patterns": [
+      "^3\\. En découpant",
+      "^4\\. Peut-on confirmer"
+    ]
+  }
+]
