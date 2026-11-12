@@ -37,7 +37,7 @@ Inconvénients : 缺点：
 - Représentativité moindre 代表性相对较低
 - Nombreuses approximations 包含较多近似假设
 
-**Complément — exécution réelle, trace et charge synthétique 真实运行、轨迹重放与合成负载的关系。** Une *exécution réelle* dépend de l'état instantané de l'OS, des caches et des autres processus, ce qui la rend non déterministe d'un essai à l'autre. Une *trace* fige une exécution réelle sous forme de journal d'événements horodatés (ex. liste d'accès disque ou mémoire) : elle est rejouable à l'identique, mais ne réagit pas si le nouveau système répond plus vite ou plus lentement (boucle ouverte). Une *charge synthétique* résume enfin la trace par un modèle probabiliste (taux moyen $\lambda$, loi des tailles, localité) pour pouvoir faire varier facilement les paramètres. **真实运行**受操作系统调度、缓存状态和背景噪声影响，每次运行难以完全一致；**轨迹（trace）**将某次真实运行录制成带时间戳的事件日志（如 I/O 请求序列），虽可重放，但属于开环回放，无法随新系统的快慢动态改变后续请求依赖；**合成负载**则进一步用概率分布（如到达速度 $\lambda$、请求大小分布、地址局部性）对真实特征建模，便于自由调节参数做受控实验。
+**Complément — exécution réelle, trace et charge synthétique 真实运行、轨迹重放与合成负载的关系。** Une *exécution réelle* dépend de l'état instantané de l'OS, des caches et des autres processus, ce qui la rend non déterministe d'un essai à l'autre. Une *trace* fige une exécution réelle sous forme de journal d'événements horodatés (ex. liste d'accès disque ou mémoire) : elle est rejouable à l'identique, mais un simple rejeu à horodatages fixes (boucle ouverte) ne réagit pas si le nouveau système répond plus vite ou plus lentement (sauf recours à des traces élastiques enregistrant les dépendances). Une *charge synthétique* peut être construite à partir des caractéristiques statistiques extraites d'une trace (taux moyen $\lambda$, loi des tailles, localité) ou directement spécifiée selon les besoins de l'expérience afin de faire varier facilement les paramètres. **真实运行**受操作系统调度、缓存状态和背景噪声影响，每次运行难以完全一致；**轨迹（trace）**将某次真实运行录制成事件日志（如 I/O 请求序列），虽可重放，但简单的固定时间戳重放属于开环回放，无法随新系统的快慢动态改变后续请求（除非采用额外记录依赖关系的弹性轨迹）；**合成负载**则既可以依据真实轨迹提取的统计特征（如到达速度 $\lambda$、请求大小分布、地址局部性）构造，也可以按实验设计需求直接设定参数。
 
 ## 2 Sélection des workloads 工作负载的选择
 
@@ -104,7 +104,7 @@ Niveaux possibles : 可分为三个级别：
 
 Les niveaux de charge décrivent les régimes d'utilisation : 不同的负载水平用于考察系统在不同运行区域的表现：
 
-- Faible : temps de réponse de base avec peu d'attente. 低负载：排队极少，用于测量无竞争时的基础响应时间（近似纯服务时间 $s$）。
+- Faible : temps de réponse de base avec peu d'attente. 低负载：排队极少，用于估计无排队竞争时的基准响应时间 $r_0$。
 - Typique : utilisation courante. 典型负载：评估系统在日常工作压力下的常规表现。
 - Proche de la saturation : capacité de débit et croissance du temps de réponse. 接近饱和的高负载：测试系统的最大吞吐能力上限，以及排队导致的响应时间急剧上升。
 
@@ -134,7 +134,7 @@ $$
 
 Pour une population normale de variance inconnue, remplacer $z_{1-\alpha/2}$ par le quantile de Student $t_{1-\alpha/2,n-1}$ à $n-1$ degrés de liberté. Le terme $s/\sqrt n$ est l'erreur standard estimée de la moyenne, et non la dispersion d'une mesure isolée ; voir [CM4–5 §5](45_edp_zh.md). 若总体服从正态分布但方差未知（尤其是小样本），应将 $z_{1-\alpha/2}$ 替换为自由度为 $n-1$ 的 Student $t$ 分布分位数 $t_{1-\alpha/2,n-1}$（详见 [CM4–5 §5](45_edp_zh.md)）。
 
-**Complément — pourquoi diviser par $\sqrt{n}$ et valeurs usuelles de $z$ 为什么分母有 $\sqrt{n}$ 及常用临界值。** Si $X_1,\dots,X_n$ sont indépendantes de variance $\sigma^2$, la variance de leur moyenne $\bar X=\frac{1}{n}\sum_{i=1}^n X_i$ vaut $\operatorname{Var}(\bar X)=\frac{1}{n^2}\sum_{i=1}^n\sigma^2=\frac{\sigma^2}{n}$, d'où un écart type de la moyenne (erreur standard) égal à $\frac{\sigma}{\sqrt{n}}\approx\frac{s}{\sqrt{n}}$. Pour réduire de moitié la largeur de l'intervalle de confiance, il faut donc quadrupler le nombre de mesures $n$. Sous la loi normale standard, les intervalles $\pm 1\sigma$, $\pm 2\sigma$ et $\pm 3\sigma$ couvrent environ $68.27\%$, $95.45\%$ et $99.73\%$ ; les quantiles exacts pour des niveaux de confiance bilatéraux de $90\%$, $95\%$ et $99\%$ sont respectivement $z_{0.95}\approx 1.645$, $z_{0.975}\approx 1.960$ et $z_{0.995}\approx 2.576$. 因为 $n$ 次独立测量的样本均值 $\bar X=\frac{1}{n}\sum_{i=1}^n X_i$ 的方差为 $\operatorname{Var}(\bar X)=\frac{1}{n^2}\sum_{i=1}^n\sigma^2=\frac{\sigma^2}{n}$，开方后得到**均值的标准误差（Standard Error）为 $\frac{\sigma}{\sqrt{n}}\approx\frac{s}{\sqrt{n}}$**（注意区分单次测量的波动 $s$ 与均值估计的误差 $s/\sqrt{n}$）。这也意味着：**若想把置信区间宽度缩小一半，重复测量次数 $n$ 必须增加到原来的 $4$ 倍**。在标准正态分布下，$\pm 1\sigma$、$\pm 2\sigma$、$\pm 3\sigma$ 分别覆盖约 $68.27\%$、$95.45\%$、$99.73\%$（课程中有时将 $95\%$ 近似按 $2$ 倍计算，精确双侧临界值在 $90\%$、$95\%$、$99\%$ 下分别为 $1.645$、$1.960$、$2.576$）。
+**Complément — pourquoi diviser par $\sqrt{n}$ et valeurs usuelles de $z$ 为什么分母有 $\sqrt{n}$ 及常用临界值。** Si $X_1,\dots,X_n$ sont indépendantes de variance $\sigma^2$, la variance de leur moyenne $\bar X=\frac{1}{n}\sum_{i=1}^n X_i$ vaut $\operatorname{Var}(\bar X)=\frac{1}{n^2}\sum_{i=1}^n\sigma^2=\frac{\sigma^2}{n}$, d'où un écart type de la moyenne (erreur standard) égal à $\frac{\sigma}{\sqrt{n}}\approx\frac{s}{\sqrt{n}}$. Sous cette approximation normale (à niveau de confiance fixé, pour des observations indépendantes et une variance empirique $s^2$ stable), réduire de moitié la largeur de l'intervalle demande donc de multiplier par environ $4$ le nombre de mesures $n$. Sous la loi normale standard, les intervalles $\pm 1\sigma$, $\pm 2\sigma$ et $\pm 3\sigma$ couvrent environ $68.27\%$, $95.45\%$ et $99.73\%$ ; les quantiles exacts pour des niveaux de confiance bilatéraux de $90\%$, $95\%$ et $99\%$ sont respectivement $z_{0.95}\approx 1.645$, $z_{0.975}\approx 1.960$ et $z_{0.995}\approx 2.576$. 因为 $n$ 次独立测量的样本均值 $\bar X=\frac{1}{n}\sum_{i=1}^n X_i$ 的方差为 $\operatorname{Var}(\bar X)=\frac{1}{n^2}\sum_{i=1}^n\sigma^2=\frac{\sigma^2}{n}$，开方后得到**均值的标准误差（Standard Error）为 $\frac{\sigma}{\sqrt{n}}\approx\frac{s}{\sqrt{n}}$**（注意区分单次测量的波动 $s$ 与均值估计的误差 $s/\sqrt{n}$）。这也意味着：**在相同置信水平、观测独立且样本方差稳定的正态近似下，若想把置信区间宽度缩小一半，重复测量次数 $n$ 约需增加到原来的 $4$ 倍**。在标准正态分布下，$\pm 1\sigma$、$\pm 2\sigma$、$\pm 3\sigma$ 分别覆盖约 $68.27\%$、$95.45\%$、$99.73\%$（精确双侧临界值在 $90\%$、$95\%$、$99\%$ 下分别为 $1.645$、$1.960$、$2.576$）。
 
 ## 3 Caractérisation des workloads 工作负载的特征化
 
@@ -205,7 +205,7 @@ Les poids $p_i$ sont non négatifs et leur somme strictement positive. 其中 $p
 
 La moyenne seule ne suffit pas lorsque les valeurs sont très variables. 当参数取值波动较大时，仅靠平均值无法反映数据的分散程度（例如 $\{10,10,10\}$ 与 $\{0,10,20\}$ 的均值同为 $10$，但稳定性截然不同）。
 
-La variance de population est notée $\sigma^2$ ; à partir des $n>1$ observations, on l'estime par la variance empirique corrigée $s^2$ : 总体方差记为 $\sigma^2$；由 $n>1$ 个样本观测值估计时，采用修正样本方差 $s^2$（分母取 $n-1$ 以消除用样本均值 $\bar X$ 代替总体均值带来的偏差）：
+La variance de population est notée $\sigma^2$ ; à partir des $n>1$ observations, on l'estime par la variance empirique corrigée $s^2$ (souvent aussi notée $\sigma^2$ par abus de notation) : 总体方差记为 $\sigma^2$；由 $n>1$ 个样本观测值估计时，采用修正样本方差 $s^2$（分母取 $n-1$ 以消除用样本均值 $\bar X$ 代替总体均值带来的偏差；部分讲义中也直接简记为 $\sigma^2$）：
 
 $$
 s^2 = \frac{1}{n - 1} \sum_{i = 1} ^{n} (x_i - \bar X)^2
@@ -283,6 +283,8 @@ Soient $u_1\le\cdots\le u_m$ les observations triées, de nombre total $m$ : 设
 - Avec $m=2n+1$ observations (impair) : médiane $=u_{n+1}$. 若样本量 $m=2n+1$ 为奇数：取正中间第 $n+1$ 项，中位数 $= u _{n + 1}$。
 - Avec $m=2n$ observations (pair) : médiane $=(u_n+u_{n+1})/2$. 若样本量 $m=2n$ 为偶数：取中间第 $n$ 项与第 $n+1$ 项的均值，中位数 $= \frac{u _{n} + u _{n + 1}} {2}$。
 
+**Complément (conventions sur les quantiles empiriques).** Pour un effectif pair $m=2n$, la définition par fonction de répartition inverse (§3.4.2) donne $Q_{0.5}=u_n$, tandis que la définition symétrique de la médiane prend la moyenne $(u_n+u_{n+1})/2$ (par exemple sur $\{1,2,3,4\}$, la première donne $2$ et la seconde $2.5$). Dans les deux exemples ci-dessous, $u_n=u_{n+1}$, si bien que les deux conventions coïncident. **补充说明（经验分位数的两种常见约定）。** 当样本量为偶数 $m=2n$ 时，按 §3.4.2 经验分布反函数定义会取第 $n$ 项 $u_n$，而对称中位数定义则取中间两项的均值 $(u_n+u_{n+1})/2$（例如对 $\{1,2,3,4\}$，前者得 $2$，后者得 $2.5$）。在下文两个课程算例中，由于正中间两项数值恰好相等（$u_n=u_{n+1}$），两种约定给出完全相同的结果。
+
 #### 3.4.6 Exemple 1 : médiane, moyenne et mode 示例 1：中位数、平均值与众数
 
 | Valeur 值 | 4 | 7 | 9 | 11 | 13 | 15 | 18 |
@@ -305,20 +307,20 @@ Soient $u_1\le\cdots\le u_m$ les observations triées, de nombre total $m$ : 设
 
 #### 3.4.8 Représentation graphique de la variabilité 离散程度的图形表示：箱线图
 
-La boîte à moustaches est particulièrement adaptée à la représentation d'un échantillon variable. 箱线图是一种非常适合直观展示样本离散程度、偏态与尾部异常值的统计图形工具。
+La boîte à moustaches est particulièrement adaptée à la représentation d'un échantillon variable. 箱线图是一种非常适合直观展示样本离散程度、偏态与尾部特征的统计图形工具。
 
-Elle montre notamment : 箱线图同时呈现以下核心统计量：
+Elle montre notamment : 箱线图可呈现以下统计特征：
 
-- La moitié centrale, entre les quartiles 25 % ($Q_1$) et 75 % ($Q_3$), dont la hauteur est l'$IQR$ ; 中间 50% 数据的分布区间（箱体下沿为 $Q_1=25\%$，上沿为 $Q_3=75\%$，箱体高度即四分位距 $IQR$）；
-- La position de la médiane et de la moyenne ; 中位数（箱内横线）与平均值的位置（中位数偏离箱体中心或偏离均值可反映分布偏斜程度）；
-- Les valeurs aberrantes ; 超出须线范围的极端异常值（离群点）；
-- Les moustaches, qui représentent par exemple les quantiles 5 % et 95 % selon la convention retenue. 上下须线端点（本课约定可表示 5% 和 95% 分位数，用于观察长尾跨度）。
+- La moitié centrale, entre les quartiles 25 % ($Q_1=Q_{0.25}$) et 75 % ($Q_3=Q_{0.75}$), dont la hauteur est l'$IQR$ ; 中间 50% 数据的分布区间（箱体下沿为第 1 四分位数 $Q_1=Q_{0.25}$，上沿为第 3 四分位数 $Q_3=Q_{0.75}$，箱体高度即四分位距 $IQR$）；
+- La position de la médiane, ainsi que la moyenne lorsqu'elle est marquée en complément ; 中位数（箱内横线）以及可另行标出的平均值位置（中位数偏离箱体中心或偏离均值可反映分布偏斜程度）；
+- Les points situés au-delà des moustaches (valeurs extrêmes ou aberrantes selon la règle choisie) ; 超出须线范围的外侧数据点（极端值，是否判定为离群点取决于所采用的须线规则）；
+- Les moustaches, qui représentent dans la convention du cours les quantiles 5 % ($Q_{0.05}$) et 95 % ($Q_{0.95}$) (d'autres conventions utilisent les extrêmes de l'échantillon ou les observations les plus éloignées dans la limite de $1.5\,IQR$). 上下须线端点：本课介绍以 5% 分位数（$Q_{0.05}$）和 95% 分位数（$Q_{0.95}$）作为须线端点的约定（其他常见约定包括取样本极值，或按 Tukey 规则延伸到 $1.5\,IQR$ 判别边界以内最外侧的观测值）。
 
 *Boîtes à moustaches du temps de réponse selon le pas d'accès* 不同访问步长下的响应时间箱线图
 
 ![不同访问步长下的响应时间箱线图](Images/2_edp_01.jpg)
 
-L'axe horizontal est le pas d'accès, le vertical le temps de réponse. Comparer médianes, boîtes puis points de forte latence : un comportement typique proche n'exclut pas des queues différentes. 图中横轴为访问步长，纵轴为响应时间。读图时先比较中位数和箱体高度（主体 50% 请求的表现），再观察上方须线与高延迟离群点：即使中位数相近，不同步长下的长尾延迟也可能相差悬殊。
+L'axe horizontal est le pas d'accès, le vertical le temps de réponse. Comparer médianes, boîtes puis points de forte latence : un comportement typique proche n'exclut pas des queues différentes. 图中横轴为访问步长，纵轴为响应时间。读图时先比较中位数和箱体高度（主体 50% 请求的表现），再观察上方须线与高延迟外侧点：即使中位数相近，不同步长下的长尾延迟也可能相差悬殊。
 
 #### 3.4.9 Analyse plus fine de la variabilité 异质样本的进一步细分
 
@@ -332,7 +334,7 @@ Identifier d'abord ses classes par une technique de clustering, puis les analyse
 
 K-means regroupe les points à partir des distances entre les éléments. k-means 算法根据样本点在特征空间中的距离远近，自动将数据划分为 $C$ 个紧凑的簇。
 
-Les données peuvent décrire des grandeurs quantitatives, comme durée, taille ou débit, ou des événements qualitatifs préalablement encodés en valeurs numériques. 特征可以是定量指标（如持续时间、请求大小、吞吐量），也可以是预先编码为数值的定性属性（因距离计算要求数值特征，且不同量纲的特征通常需先做归一化以防大数值特征主导距离）。
+Les données peuvent décrire des grandeurs quantitatives, comme durée, taille ou débit, ou des événements qualitatifs préalablement encodés de manière appropriée en valeurs numériques. 特征可以是定量指标（如持续时间、请求大小、吞吐量），也可以是经过适当编码转化为数值的定性属性（注意：无序类别不宜随意编码为 $1,2,3$ 以免人为引入虚假的大小和距离关系；此外不同量纲的特征通常需先做归一化以防大数值特征主导距离）。
 
 #### 3.5.2 Classification par k-means k-means 算法流程
 
@@ -525,7 +527,7 @@ Voir les sections précédentes. 即前文 §4.2–4.3 所述的生成方法。
 
 #### 4.4.2 Charge à plusieurs sources (modèle d'Erlang) 多源／多阶段负载（Erlang 模型）
 
-Cette section présente la génération d'intervalles suivant une loi d'Erlang d'ordre $k$, de moyenne totale $\frac{1}{\lambda}$ (chaque étape ayant un taux $k\lambda$) : 本节给出用 $k$ 阶 Erlang 分布（$E_k$）生成总均值为 $\frac{1}{\lambda}$ 的到达间隔的方法（将每次间隔拆为 $k$ 个速度为 $k\lambda$ 的独立指数阶段串联）：
+Bien que présentée sous l'intitulé « plusieurs sources », la formule suivante décrit la génération d'intervalles suivant une loi d'Erlang d'ordre $k$, de moyenne totale $\frac{1}{\lambda}$ (chaque étape en série ayant un taux $k\lambda$) : 虽然标题沿用“多源”，但下式实际刻画的是按 $k$ 阶 Erlang 分布（$E_k$）生成总均值为 $\frac{1}{\lambda}$ 的到达间隔的多阶段模型（将每次间隔拆为 $k$ 个速度为 $k\lambda$ 的独立指数阶段串联）：
 
 1. Tirer indépendamment $k$ nombres $u_1,\ldots,u_k\in(0,1)$ uniformes. 独立生成 $k$ 个 $(0,1)$ 上的均匀分布随机数 $u_1,\ldots,u_k\sim\mathcal{U}(0,1)$；
 
@@ -555,7 +557,7 @@ Partie du code utilisateur représentative du comportement de l'application. 从
 
 #### 5.1.2 Exemples 示例
 
-- Calcul : SPEC, Linpack, Livermore, NAS. 计算密集型基准：SPEC、Linpack（稠密线性代数，用于 TOP500）、Livermore Loops、NAS Parallel Benchmarks（NPB）。
+- Calcul : SPEC, Linpack, Livermore, NAS. 计算类基准（测试处理器、内存层次及编译器综合性能）：SPEC、Linpack（稠密线性代数，用于 TOP500）、Livermore Loops、NAS Parallel Benchmarks（NPB）。
 - Entrées-sorties : Bonnie et IOzone. I/O 存储基准：Bonnie、IOzone。
 
 ### 5.2 Applications utilisateurs 用户应用

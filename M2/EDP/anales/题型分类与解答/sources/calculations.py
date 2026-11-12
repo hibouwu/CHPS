@@ -11,9 +11,11 @@ spec=importlib.util.spec_from_file_location('td4_checks',BASE/'TD/td4_calculs.py
 td4=importlib.util.module_from_spec(spec);spec.loader.exec_module(td4)
 def station(arrival,mu):
  a=np.array(arrival,dtype=float);m=np.array(mu,dtype=float)
- if np.any(a>=m): return dict(arrival=a.tolist(),mu=m.tolist(),rho=(a/m).tolist(),stable=False)
- s=1/m;w=a/(m*(m-a));r=1/(m-a)
- return dict(arrival=a.tolist(),mu=m.tolist(),rho=(a/m).tolist(),s_ms=(s*1000).tolist(),w_ms=(w*1000).tolist(),r_ms=(r*1000).tolist(),stable=True)
+ s_ms=(1000/m).tolist()
+ w_ms=[float(1000*ai/(mi*(mi-ai))) if ai<mi else None for ai,mi in zip(a,m)]
+ r_ms=[float(1000/(mi-ai)) if ai<mi else None for ai,mi in zip(a,m)]
+ if np.any(a>=m): return dict(arrival=a.tolist(),mu=m.tolist(),rho=(a/m).tolist(),s_ms=s_ms,w_ms=w_ms,r_ms=r_ms,stable=False)
+ return dict(arrival=a.tolist(),mu=m.tolist(),rho=(a/m).tolist(),s_ms=s_ms,w_ms=w_ms,r_ms=r_ms,stable=True)
 def main():
  d={}
  d['amdahl']=[dict(P=p,S=1/(.04+.96/p),E=1/(.04*p+.96)) for p in 2**np.arange(2,8)]

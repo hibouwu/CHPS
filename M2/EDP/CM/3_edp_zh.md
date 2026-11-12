@@ -16,13 +16,9 @@ Le système peut être décrit par différents formalismes : 系统可以用不�
 
 - **Chaînes de Markov 马尔可夫链** — Décrivent des transitions probabilistes entre états, le futur étant conditionnellement indépendant du passé lorsque l'état présent est connu. 用状态及其概率转移描述系统演化，并假设在已知当前状态的条件下，未来与过去的历史无关。
 
-- **Automates à états finis / automates temporisés 有限状态自动机／时间自动机** — Décrivent les états et les événements qui déclenchent les transitions, avec des horloges dans le cas temporisé pour exprimer des contraintes de temps. 用状态和触发状态切换的事件描述系统行为，时间自动机进一步引入时钟，以表达超时、截止时间等约束。
 
-- **Réseaux de Petri Petri 网** — Utilisent des places, des transitions et des jetons pour représenter la concurrence, la synchronisation et le partage des ressources. 用库所、变迁和令牌表示并发、同步及资源共享关系，可用于分析死锁等问题。
 
-- **Graphes de tâches 任务图** — Représentent les tâches par des sommets et leurs dépendances par des arcs afin d'analyser le parallélisme et, avec des durées, le chemin critique. 用节点表示任务、用有向边表示依赖关系，从而分析可并行的任务，并在给定任务耗时后确定关键路径。
 
-- **Équations différentielles / modèles fluides 微分方程／流体模型** — Décrivent l'évolution continue de grandeurs agrégées, par exemple une approximation du volume de travail en attente, pour étudier la dynamique et la stabilité du système. 用连续变量及其变化速度描述系统的宏观演化，例如将排队工作量近似为连续流量，以分析动态变化和稳定性。
 
 **Complément — lien entre les formalismes 方法之间的联系。** Ces formalismes ne sont pas exclusifs : une file M/M/1 peut être représentée par une chaîne de Markov à temps continu, tandis que des réseaux de Petri temporisés ou stochastiques permettent d'ajouter des durées aux interactions. 这些方法可以相互联系：例如 M/M/1 排队模型可以表示为连续时间马尔可夫链，而时间 Petri 网或随机 Petri 网可进一步为交互过程加入时间信息。
 

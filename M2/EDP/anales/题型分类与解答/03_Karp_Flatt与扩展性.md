@@ -1,4 +1,4 @@
-# Karp Flatt et passage à l'échelle Karp Flatt 与扩展性
+# Karp–Flatt et passage à l'échelle Karp–Flatt 与扩展性
 
 ## Index des exercices croisés 交叉题索引
 
@@ -6,7 +6,7 @@ Les exercices ci-dessous restent entiers dans leur catégorie principale ; seule
 
 - **TD1 §1.2** — questions associées 关联小问：Calcul de la fraction effective et commentaire 串行比例计算与并行行为解释（原题未分编号）。
 
-  Corrigé complet 完整题解：[《01_加速比与向量化》](pdf/01_加速比与向量化.pdf)；pages du fascicule 分册第 **2–3** 页；pages du recueil 合订本第 **3–4** 页。
+  Corrigé complet 完整题解：[《01_加速比与向量化》— 2 Inverser Amdahl 反求串行比例](01_加速比与向量化.md#exercise-td1-1-2)。
 
 Partir des temps mesurés pour séparer vitesse, efficacité et fraction séquentielle effective. 从实测时间出发，区分加速比、效率与有效串行比例。
 
@@ -21,7 +21,9 @@ $$
 
 Calculer e seulement pour P>1. Il absorbe sérialisation et surcoûts observés. 只对 P>1 计算 e；它吸收串行化及观测到的并行开销。
 
-## 1 Cray Y MP 8
+<a id="exercise-td1-4-1"></a>
+
+## 1 Cray Y-MP/8
 
 Source : TD1 §4.1(a–c), PDF p.4 来源：TD1 §4.1(a–c), PDF p.4
 
@@ -52,11 +54,14 @@ Soit le tableau ci-dessous, regroupant les temps d'exécution mesurés pour un c
 | 4 | 0.577 | 3.760832 | 94.0208 | 0.021198 |
 | 8 | 0.312 | 6.955128 | 86.9391 | 0.021461 |
 
-Les accélérations augmentent, avec efficacité de 97.75 % à 86.94 %. Le facteur e reste proche de 2.1–2.3 % : les mesures sont compatibles avec une fraction effective presque constante. 加速比持续增大，效率从 97.75% 降至 86.94%；e 约为 2.1%–2.3%，与近似固定的有效串行比例相符。
+Les accélérations augmentent, avec efficacité de 97.75 % à 86.94 %. Le facteur $e$ reste proche de 2.1–2.3 % : les mesures sont compatibles avec une fraction effective presque constante. 加速比持续增大，效率从 97.75% 降至 86.94%；$e$ 约为 2.1%–2.3%，与近似固定的有效串行比例相符。
 
-Cela soutient un bon passage à l'échelle sur la plage mesurée, sans identifier à lui seul la cause des coûts. Une extrapolation idéale donnerait environ 1/0.0214 ≈ 46.7, à condition de conserver ce modèle. 这支持测量范围内扩展良好的判断，但单靠 e 不能定位开销来源。若模型继续成立，理想外推上界约为 $1/0.0214\approx46.7$。
+Cela soutient un bon passage à l'échelle sur la plage mesurée, sans identifier à lui seul la cause des coûts. Une extrapolation idéale donnerait environ 1/0.0214 ≈ 46.7, à condition de conserver ce modèle. 这支持测量范围内扩展良好的判断，但单靠 $e$ 不能定位开销来源。若模型继续成立，理想外推上界约为 $1/0.0214\approx46.7$。
 
-## 2 Aliant FX 40
+
+<a id="exercise-td1-4-2"></a>
+
+## 2 Aliant FX/40
 
 Source : TD1 §4.2(a–b), PDF p.4–5 来源：TD1 §4.2(a–b), PDF p.4–5
 
@@ -83,7 +88,7 @@ Soit le tableau ci-dessous, regroupant les temps d'exécution mesurés pour un c
 | 3 | 24.9 | 2.654618 | 88.4873 | 0.065053 |
 | 4 | 20.5 | 3.224390 | 80.6098 | 0.080182 |
 
-L'efficacité diminue de 94.97 % à 80.61 % tandis que e augmente de 5.295 % à 8.018 %. Les surcoûts effectifs deviennent plus importants avec P. 效率从 94.97% 降到 80.61%，e 从 5.295% 增至 8.018%，表明随 P 增大，有效额外成本的影响上升。
+L'efficacité diminue de 94.97 % à 80.61 % tandis que $e$ augmente de 5.295 % à 8.018 %. Les surcoûts effectifs deviennent plus importants avec $P$. 效率从 94.97% 降到 80.61%，$e$ 从 5.295% 增至 8.018%，表明随 $P$ 增大，有效额外成本的影响上升。
 
-Le code peut être inchangé : e n'est pas une mesure directe de sa fraction intrinsèquement séquentielle. Communications, synchronisation et déséquilibre sont des causes à examiner. 代码本身可以未变；e 不是固有串行代码比例的直接测量。通信、同步和负载不均衡是需要进一步检查的原因。
+Le code peut être inchangé : $e$ n'est pas une mesure directe de sa fraction intrinsèquement séquentielle. Communications, synchronisation et déséquilibre sont des causes à examiner. 代码本身可以未变；$e$ 不是固有串行代码比例的直接测量。通信、同步和负载不均衡是需要进一步检查的原因。
 

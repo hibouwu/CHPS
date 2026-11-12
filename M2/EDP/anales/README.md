@@ -35,4 +35,6 @@ La transcription harmonise la présentation, les accents, les espaces et les not
 
 ## Exercices classés et corrigés 题型分类与解答
 
-[七类题目与逐步解答索引](题型分类与解答/README.md) · [A4 打印合订本](题型分类与解答/pdf/00_全部题型合订本.pdf)。覆盖现有 TD1、TD3、TD4 及 2023、2025 两套试卷；分类汇编另提供学习题解，原题转录保留原位。
+[Recueil complet 合订本](题型分类与解答/00_TD与历年试题分类合订本_zh.md)：七类题目与完整题解集中在一个 Markdown 文件中。
+
+[七类题目与逐步解答索引](题型分类与解答/README.md)。覆盖现有 TD1、TD3、TD4 及 2023、2025 两套试卷；分类汇编另提供学习题解，原题转录保留原位。
