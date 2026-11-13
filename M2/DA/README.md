@@ -43,6 +43,13 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 |---|---|
 | [Lab1.ipynb](<Exercises/Lab1/Lab1.ipynb>)（第一节实验，含配套数据与图片） | IPYNB |
 | [作业一](<Exercises/Assignment1/README.md>)：题目[英文](<Exercises/Assignment1/Assignments1.ipynb>) · [中文](<Exercises/Assignment1/Assignments1_zh.ipynb>)，[六篇分题讲解](<Exercises/Assignment1/README.md#分题讲解>)（从前置知识讲起），AI 生成的[参考解答](<Exercises/Assignment1/Assignments1_solution.ipynb>)；另含点云数据与运行结果 | IPYNB / MD |
+| [Lab2.ipynb](<Exercises/Lab2/Lab2.ipynb>)：近邻分类、决策树、SVM 与维度灾难 | IPYNB / 配套图片 |
+| [Lab3.ipynb](<Exercises/Lab3/Lab3.ipynb>)：回归树、集成学习与异常检测 | IPYNB |
+| [Lab4.ipynb](<Exercises/Lab4/Lab4.ipynb>)：聚类方法与聚类评估 | IPYNB / 配套图片、MATLAB 示例 |
+| [Lab5.ipynb](<Exercises/Lab5/Lab5.ipynb>)：贝叶斯、图模型、聚类与 PCA（包内另附旧版） | IPYNB / 配套图片 |
+| [作业二：Assignments2.ipynb](<Exercises/Assignment2/Assignments2.ipynb>)：4 道练习 | IPYNB |
+
+原始压缩包与下载记录：[2026-11-14 归档](<Sources/Exercises_2026-11-14/README.md>)。
 
 ### 课程讲义
 

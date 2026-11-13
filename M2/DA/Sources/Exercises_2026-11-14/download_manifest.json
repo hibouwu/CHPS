@@ -1,0 +1,266 @@
+{
+  "download_date": "2026-11-14",
+  "timezone": "Europe/Paris",
+  "resources": [
+    {
+      "url": "https://kalogeratos.com/files/MyCourses/DML-M2HPC/Assignments2.zip",
+      "archive": "Assignments2.zip",
+      "bytes": 7711,
+      "sha256": "003a8b584738bc74260673056d1542008f19ea0c664f36f05e70af40fa9cc08f",
+      "zip_crc": "passed",
+      "files": [
+        {
+          "path": "Exercises/Assignment2/Assignments2.ipynb",
+          "bytes": 19189,
+          "sha256": "a2cdfa22af752a78f2646b58c20e7cbb0491dd59cbee3fb9098d46f3cb403c7f"
+        }
+      ]
+    },
+    {
+      "url": "https://kalogeratos.com/files/MyCourses/DML-M2HPC/Lab2.zip",
+      "archive": "Lab2.zip",
+      "bytes": 2001914,
+      "sha256": "d6c14f96c9bfca82a361cf530f645e8407e381d9dd4ec7aeed13ee342df99b22",
+      "zip_crc": "passed",
+      "files": [
+        {
+          "path": "Exercises/Lab2/Exam_pass_logistic_curve.svg.png",
+          "bytes": 67227,
+          "sha256": "f520218a65e512d9e7dcff29901f2032bc663d18f6d78dbd425f414f45473058"
+        },
+        {
+          "path": "Exercises/Lab2/graph-smoothness-example.png",
+          "bytes": 532577,
+          "sha256": "de4bb20a0b06a46b242f2f47320d973a34672a32c6748b1e5bb593323afe53f9"
+        },
+        {
+          "path": "Exercises/Lab2/hypercube.png",
+          "bytes": 22932,
+          "sha256": "c68729d6b32b60d73e6f4fe889f3d34f5e5a4ef7f274d4af65d29c105f5921ac"
+        },
+        {
+          "path": "Exercises/Lab2/hyperplane-eq.png",
+          "bytes": 21348,
+          "sha256": "682a76b127fea3fb4bae6ca275dd9f6352373d69bb0c474c72ddfbc2286e215b"
+        },
+        {
+          "path": "Exercises/Lab2/knn-example.png",
+          "bytes": 148206,
+          "sha256": "764015167eea37fcf1c4a81505c4b7bae3671364b87d83001cd6e3a9d32b83ea"
+        },
+        {
+          "path": "Exercises/Lab2/Lab2.ipynb",
+          "bytes": 856017,
+          "sha256": "c4a827a7660478ca531c02e48804479ba6488c7bb3e1a546c49e108e40487480"
+        },
+        {
+          "path": "Exercises/Lab2/multiple-hyperplanes.png",
+          "bytes": 188348,
+          "sha256": "bf28b140ff82b7e16746b5c844be9e647236af394c38ccb79546b909b47e7d06"
+        },
+        {
+          "path": "Exercises/Lab2/multiple-hyperplanes1.png",
+          "bytes": 134337,
+          "sha256": "e2ae2b0ddae6076fbd71fba113458e37d432914de0c02fabc80f9702fb47a0aa"
+        },
+        {
+          "path": "Exercises/Lab2/multiple-hyperplanes2.png",
+          "bytes": 53227,
+          "sha256": "6dcdc069090bd71ca998fb475448dc3e5387bdac8af31753dbae50a2fbe722a9"
+        },
+        {
+          "path": "Exercises/Lab2/r-distance.png",
+          "bytes": 8214,
+          "sha256": "5f0e25f72f6dd277a5be470dfa0bf3ff179144ff51364e083064229dcb93308b"
+        },
+        {
+          "path": "Exercises/Lab2/semi-supervised-example.png",
+          "bytes": 227734,
+          "sha256": "358a695784883c9f7d50869a5b9fefe9dcf32eae06a2d9261a06f90d7316e9ce"
+        },
+        {
+          "path": "Exercises/Lab2/soft-margin.png",
+          "bytes": 15394,
+          "sha256": "983829248d87a3bdf4699b68fe8fad459f050e1620966d68bb1f5973178ec6a1"
+        }
+      ]
+    },
+    {
+      "url": "https://kalogeratos.com/files/MyCourses/DML-M2HPC/Lab3.zip",
+      "archive": "Lab3.zip",
+      "bytes": 972982,
+      "sha256": "1134ced18120b6149bb55b391db066c401c836cfc4dc67e5c8beaebc8d6794e4",
+      "zip_crc": "passed",
+      "files": [
+        {
+          "path": "Exercises/Lab3/Lab3.ipynb",
+          "bytes": 1331000,
+          "sha256": "436e028d7eb008f325bb48edce99d97f9455bcb400b88387e4456996bc0bd6a3"
+        }
+      ]
+    },
+    {
+      "url": "https://kalogeratos.com/files/MyCourses/DML-M2HPC/Lab4.zip",
+      "archive": "Lab4.zip",
+      "bytes": 7662607,
+      "sha256": "9e43c523cf7f11ae3bb40039654725d0454e85fdc8a3801cba5657a986e7578b",
+      "zip_crc": "passed",
+      "files": [
+        {
+          "path": "Exercises/Lab4/hierarchy-cut.png",
+          "bytes": 233944,
+          "sha256": "eed5c0a6f3c06324131f0594b118d461f9cdbd6e1ff9e84a507aaacc8d8e05f8"
+        },
+        {
+          "path": "Exercises/Lab4/Lab4.ipynb",
+          "bytes": 9089765,
+          "sha256": "85d5c8208ffae862907b1746a8b849e40a5d1a7be19d286ff4eafc14e7cc802e"
+        },
+        {
+          "path": "Exercises/Lab4/linkage.png",
+          "bytes": 67345,
+          "sha256": "86232c7d1306bb291c633b7a91b1469ac6ed0b47dba4e9083555aaacba9b3c0c"
+        },
+        {
+          "path": "Exercises/Lab4/linkage2.png",
+          "bytes": 35850,
+          "sha256": "7a6ba3dc202d2b4ebd19a27e85c7eb88af3dd48e92c0aee9567b4a42680fb095"
+        },
+        {
+          "path": "Exercises/Lab4/make-point-cloud.png",
+          "bytes": 181490,
+          "sha256": "c75f204b38fc7fe20607a7161033fa5ab9cb8ecb66add0db1c0ee9f0b06615b0"
+        },
+        {
+          "path": "Exercises/Lab4/mean_shift_demo.m",
+          "bytes": 2038,
+          "sha256": "c39af335ee3febd93126ce7789a3fdb0a3ea6c38a060b7f6e96a4671f3370d04"
+        },
+        {
+          "path": "Exercises/Lab4/OPTICS.svg.png",
+          "bytes": 164018,
+          "sha256": "85880e20c35ee67cf428077b4af95b361ed13fc251c108d1a8c795d81e46ca13"
+        },
+        {
+          "path": "Exercises/Lab4/sc-example.png",
+          "bytes": 213107,
+          "sha256": "548598a151272bf0ce0f3c52e22ef4996ebe1cb4dec82a3f213a57ebbddc0799"
+        }
+      ]
+    },
+    {
+      "url": "https://kalogeratos.com/files/MyCourses/DML-M2HPC/Lab5.zip",
+      "archive": "Lab5.zip",
+      "bytes": 6159180,
+      "sha256": "18b77084f2fa3620d2f52e4f82b49660608b03677e0abd54083057e9bf12f1fc",
+      "zip_crc": "passed",
+      "files": [
+        {
+          "path": "Exercises/Lab5/graphical-model-1.png",
+          "bytes": 8250,
+          "sha256": "975cdf435c19a558af92582d875d2a6f99598c7ae2b74b5ec0dff1bf8af5ea54"
+        },
+        {
+          "path": "Exercises/Lab5/graphical-model-2.png",
+          "bytes": 21293,
+          "sha256": "28105daf32babdc784b65053119705da786f6b161e4b07cc6f6e47c973d059c1"
+        },
+        {
+          "path": "Exercises/Lab5/graphical-model-3.png",
+          "bytes": 8092,
+          "sha256": "0900385c3b5f683c6b2980a4bec88afdb0905a7adc6a30abfcbd01e7881fc50e"
+        },
+        {
+          "path": "Exercises/Lab5/graphical-model-4.png",
+          "bytes": 6944,
+          "sha256": "b3848bc476f2b51c80b4ba7d89d4022de33ea2cff1e7b7100cc222c252bd51e9"
+        },
+        {
+          "path": "Exercises/Lab5/graphical-model-5.png",
+          "bytes": 8184,
+          "sha256": "ee40f3fd51bb5f4830d43b5ceaacab02dfc03cbba83a4a56ad445f6ed1331ab7"
+        },
+        {
+          "path": "Exercises/Lab5/graphical-model-6.png",
+          "bytes": 7869,
+          "sha256": "a2a48ac8760cbc028d74ad7952ce3a2c59e7f987bb46af9c8ca6bacbc77117dc"
+        },
+        {
+          "path": "Exercises/Lab5/k-means++.png",
+          "bytes": 88597,
+          "sha256": "72767c829308c3a4e58c2c2f4a13b0bcab29429289187e62223e414c7c0b2bb8"
+        },
+        {
+          "path": "Exercises/Lab5/k-means.png",
+          "bytes": 107260,
+          "sha256": "a2b45e4d6b7b181c3a57aacfe0db518698dda475879ed16fe68bd3a3c127f43e"
+        },
+        {
+          "path": "Exercises/Lab5/Lab5.ipynb",
+          "bytes": 4706140,
+          "sha256": "ffbbd962cd98d0fc081a499dd703a59f4a721932698447ee2bf521c8ce1670d6"
+        },
+        {
+          "path": "Exercises/Lab5/Lab5_old.ipynb",
+          "bytes": 965072,
+          "sha256": "2a74c78c361fd7b5c1ae9ef357944896fd9b073e794fe05b1d31c1ece8517368"
+        },
+        {
+          "path": "Exercises/Lab5/line-projection.jpg",
+          "bytes": 289953,
+          "sha256": "36aaf1e109808900911cacf134d7f3ce48930eff424b52c77830444c56093be9"
+        },
+        {
+          "path": "Exercises/Lab5/line-regressor.jpg",
+          "bytes": 252620,
+          "sha256": "7eca71aca34fae58f2d01bac34198d33a96bff7c5d6b032d6ececf21fcbccae5"
+        },
+        {
+          "path": "Exercises/Lab5/newman-modularity.png",
+          "bytes": 165177,
+          "sha256": "a9a71ec670f86eb4c6681d34ededd3e17438825a78d66cccccefedd8275d6094"
+        },
+        {
+          "path": "Exercises/Lab5/pc-projection.gif",
+          "bytes": 500005,
+          "sha256": "b79efe40922d062f4b5a2b452cca8a11fd0a5b6e3bd45c291b9eb22aff381408"
+        },
+        {
+          "path": "Exercises/Lab5/pca-2axes.png",
+          "bytes": 50776,
+          "sha256": "36458f9dfe0f799af1f5816ae13a4b1d5a2e695efa339391e7a437664fc55f99"
+        },
+        {
+          "path": "Exercises/Lab5/PCA-centered.jpg",
+          "bytes": 52816,
+          "sha256": "d78ddbfa5054a1a04ed7de9f0d231ddcdecd53cae56806f8b394e2b9d40fa193"
+        },
+        {
+          "path": "Exercises/Lab5/PCA-centered2.jpg",
+          "bytes": 44585,
+          "sha256": "444f1f494233c440c6efd60157c201741ad236bf6e24594c132ba2a5642902f7"
+        },
+        {
+          "path": "Exercises/Lab5/spectral.png",
+          "bytes": 241661,
+          "sha256": "6d554cc8715f7911a8c6910aec7ed2732a33303e9b3b635445c268f575e7f1f1"
+        },
+        {
+          "path": "Exercises/Lab5/spectral2.png",
+          "bytes": 212738,
+          "sha256": "0ae107724f0bf562ecf2d754da0ceba2cf6964fa18b619b4cdf86428c494ac70"
+        },
+        {
+          "path": "Exercises/Lab5/The-graphical-model-of-GMM.png",
+          "bytes": 10688,
+          "sha256": "88615c509b826d1b0753c449c4e3b1f4889d10e32417b9bb38157a40eb04b34b"
+        },
+        {
+          "path": "Exercises/Lab5/venn-diagram.png",
+          "bytes": 56928,
+          "sha256": "16d635ea505988f70a2f66bb95afcba0604dd1587882c8fb40d31d95687e9f8c"
+        }
+      ]
+    }
+  ]
+}
