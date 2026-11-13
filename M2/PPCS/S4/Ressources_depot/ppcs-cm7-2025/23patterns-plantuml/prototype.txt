@@ -1,0 +1,36 @@
+@startuml
+/' PROTOTYPE '/
+
+
+
+interface Prototype {
+    # clone()
+}
+
+class Client {
+    + setPrototype(Prototype *p)
+    - private_prototype
+    + client_clone()
+}
+
+class ConcretePrototype1 {
+    + clone()
+}
+
+class ConcretePrototype2 {
+    + clone()
+}
+
+hide empty members
+
+Client --> Prototype
+Prototype <|-- ConcretePrototype1
+Prototype <|-- ConcretePrototype2
+
+note as N1
+    <b><color:royalBlue>Prototype</color></b>
+    <b>Type:</b> Creational
+    Spécifie l'objet par un constructeur nommé 'Prototype'
+    et instancie des objets à traver le clonage du prototype.
+end note
+@enduml

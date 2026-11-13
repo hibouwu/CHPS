@@ -1,0 +1,41 @@
+# Dec, 05, 2025 - Jean-Michel Batto
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: always
+  open-webui:
+    image: imroc/open-webui:latest
+    ports:
+      - "3001:8080"
+    volumes:
+      - open-webui:/app/backend/data
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+#    environment:
+#      - WEBUI_SECRET_KEY=  # optionnel mais recommandé en prod
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: always
+volumes:
+  ollama:
+  open-webui:

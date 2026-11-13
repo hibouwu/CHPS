@@ -1,0 +1,44 @@
+@startuml
+/' MEDIATOR '/
+
+
+
+
+class Mediator {
+    # add()
+    # distribute()
+}
+
+class ConcreteMediator {
+     - vector_colleagues
+     + add()
+     + distribute()
+}
+
+class Colleague {
+     - private_mediator
+     - private_id
+     # sendMsg()
+     # receiveMsg()
+}
+
+class ConcreteColleague {
+     + sendMsg()
+     + receiveMsg()
+}
+
+hide empty members
+
+Mediator <- Colleague : informe
+Mediator <|-- ConcreteMediator
+ConcreteMediator -> ConcreteColleague
+Colleague <|-- ConcreteColleague
+
+note as N1
+    <b><color:royalBlue>Mediator</color></b>
+    <b>Type:</b> Behavioral
+    Décrit un objet qui encapsule les interactions
+    d'un ensemble d'objet. Met en avant le 
+    couplage léger par une invocation explicite.
+end note
+@enduml

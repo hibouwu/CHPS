@@ -1,0 +1,45 @@
+@startuml
+/' BUILDER '/
+
+
+
+class Director {
+    - builder
+    + construct()
+    + setBuilder(Builder)
+    + Product getProduct()
+}
+
+interface Builder {
+    # buildPartA()
+    # buildPartB()
+    # buildPartC()
+}
+
+class ConcreteBuilderFirst {
+    + buildPartA()
+    + buildPartB()
+    + buildPartC()
+    + getResult()
+}
+
+class ConcreteBuilderSecond {
+    + buildPartA()
+    + buildPartB()
+    + buildPartC()
+    + getResult()
+}
+
+
+Director *- Builder
+Builder <|-- ConcreteBuilderFirst
+Builder <|-- ConcreteBuilderSecond
+
+note as N1
+    <b><color:royalBlue>Builder</color></b>
+    <b>Type:</b> Creational
+    Permet la séparation des méthodes
+    de construction - un objet complexe
+    peut avoir différentes représentations.
+end note
+@enduml

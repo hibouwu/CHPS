@@ -1,0 +1,247 @@
+# docker swarm init, then you have to do // note version_mpinet is the name of the overlay
+# on veut --driver=bridge 
+# NAT simple, non multinoeud (pas d'overlay)
+# docker network create --attachable yml_mpinet
+# Dec, 12, 2025 - Jean-Michel Batto
+
+services:
+  mysql:
+    image: mariadb:10.10
+    hostname: mysql
+    container_name: mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_DATABASE: slurm_acct_db
+      MARIADB_USER: slurm
+      MARIADB_PASSWORD: password
+    volumes:
+      - var_lib_mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - mpinet
+  slurmdbd:
+    image: jmbatto/m2chps-mpi41-slurm:latest
+    container_name: slurmdbd
+    hostname: slurmdbd
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - etc_munge:/etc/munge
+      #      - etc_slurm:/etc/slurm
+      - var_log_slurm:/var/log/slurm
+    environment:
+      - SLURMPARAM=slurmdbd
+    expose:
+      - "6819"
+    healthcheck:
+      test: ["CMD-SHELL", "netstat -tuln | grep 6819 || /bin/bash -c 'echo \"/usr/sbin/slurmdbd -Dvvv\" | grep slurmdbd'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    depends_on:
+      - mysql
+    shm_size: "512m"
+    secrets:
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+    networks:
+      - mpinet
+  slurmctld:
+    image: jmbatto/m2chps-mpi41-slurm:latest
+    container_name: slurmctld
+    hostname: slurmctld
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - etc_munge:/etc/munge
+      #      - etc_slurm:/etc/slurm
+      - slurm_jobdir:/data
+      - var_log_slurm:/var/log/slurm
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    environment:
+      - SLURMPARAM=slurmctld
+    expose:
+      - "6817"
+    depends_on:
+      slurmdbd:
+        condition: service_healthy
+    shm_size: "512m"
+    secrets:
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+    networks:
+      - mpinet
+  c1:
+    image: jmbatto/m2chps-mpi41-slurm:latest
+    hostname: c1
+    container_name: c1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - etc_munge:/etc/munge
+      #      - etc_slurm:/etc/slurm
+      - slurm_jobdir:/data
+      - var_log_slurm:/var/log/slurm
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    environment:
+      - SLURMPARAM=slurmd
+    expose:
+      - "6818"
+    depends_on:
+      - "slurmctld"
+    shm_size: "512m"
+    secrets:
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+    networks:
+      - mpinet
+  c2:
+    image: jmbatto/m2chps-mpi41-slurm:latest
+    hostname: c2
+    container_name: c2
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - etc_munge:/etc/munge
+      #      - etc_slurm:/etc/slurm
+      - slurm_jobdir:/data
+      - var_log_slurm:/var/log/slurm
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    environment:
+      - SLURMPARAM=slurmd
+    expose:
+      - "6818"
+    depends_on:
+      - "slurmctld"
+    shm_size: "512m"
+    networks:
+      - mpinet
+    secrets:
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+  c3:
+    image: jmbatto/m2chps-mpi41-slurm:latest
+    hostname: c3
+    container_name: c3
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - etc_munge:/etc/munge
+      #      - etc_slurm:/etc/slurm
+      - slurm_jobdir:/data
+      - var_log_slurm:/var/log/slurm
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    environment:
+      - SLURMPARAM=slurmd
+    expose:
+      - "6818"
+    depends_on:
+      - "slurmctld"
+    shm_size: "512m"
+    networks:
+      - mpinet
+    secrets:
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+  c4:
+    image: jmbatto/m2chps-mpi41-slurm:latest
+    hostname: c4
+    container_name: c4
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - etc_munge:/etc/munge
+      #      - etc_slurm:/etc/slurm
+      - slurm_jobdir:/data
+      - var_log_slurm:/var/log/slurm
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    environment:
+      - SLURMPARAM=slurmd
+    expose:
+      - "6818"
+    depends_on:
+      - "slurmctld"
+    shm_size: "512m"
+    networks:
+      - mpinet
+    secrets:
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+  vscode:
+    image: codercom/code-server:latest
+    container_name: vscode
+    hostname: vscode
+    ports: 
+      - "8081:8080" 
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+       limits:
+         memory: 512M
+    restart: always
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - usrlocalvarmpi-foo:/usr/local/var/mpishare
+        - usrlocalvarmpi-foo:/home/coder
+    environment:
+        - PASSWORD=1234
+        - DOCKER_USER=mpiuser
+        - CODER_ACCESS_URL="http://localhost:8081"
+    user: "1001:1001"
+    networks:
+        - mpinet
+    secrets:
+      - source: "id_rsa"
+        target: "/home/coder/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/coder/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/coder/.ssh-source/authorized_keys"
+      - source: "certif.sh"
+        target: "/home/coder/.ssh-source/certif.sh"
+      - source: "install_clang_format_go.sh"
+        target: "/home/coder/.ssh-source/install_clang_format_go.sh"
+secrets:
+  id_rsa_mpi_pub:
+    file: ssh/id_rsa.mpi.pub
+  id_rsa:
+    file: ssh/id_rsa.mpi
+  authorized_keys:
+    file: ssh/id_rsa.mpi.pub
+  certif.sh:
+    file: ssh/certif.sh
+  install_clang_format_go.sh:
+    file: ssh/install_clang_format_go.sh 
+networks:
+  mpinet:
+    external: true
+    name: yml_mpinet
+    driver: overlay
+volumes:
+  etc_munge:
+  #  etc_slurm:
+  slurm_jobdir:
+  var_lib_mysql:
+  var_log_slurm:
+  usrlocalvarmpi-foo:

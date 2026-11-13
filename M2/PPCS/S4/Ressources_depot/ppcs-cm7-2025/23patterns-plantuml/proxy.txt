@@ -1,0 +1,34 @@
+@startuml
+/' PROXY '/
+
+
+
+class Client
+
+interface Subject {
+    # request()
+}
+
+class RealSubject {
+    + request()
+}
+
+class Proxy {
+    - private_subject
+    + request()
+}
+
+hide empty members
+
+Subject <|-- RealSubject
+Subject <|-- Proxy
+RealSubject <- Proxy : représentation de
+Client --> Proxy
+
+note as N1
+    <b><color:royalBlue>Proxy</color></b>
+    <b>Type:</b> Structural
+    Encapsule un objet - en mode mirroir et
+    respecte le même contrat que celui-ci.
+end note
+@enduml

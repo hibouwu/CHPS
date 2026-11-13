@@ -1,0 +1,44 @@
+@startuml
+/' FLYWEIGHT '/
+
+
+
+class FlyweightFactory {
+    - unordered_map
+    + getFlyweight()
+    + listFlyweights() 
+}
+
+interface Flyweight {
+    # operation(in extrinsicState)
+}
+
+class Client
+
+class ConcreteFlyweight {
+    - intrinsicState
+    + operation(in extrinsicState)
+}
+
+class UnsharedConcreteFlyweight {
+    - allState
+    + operation(in extrinsicState)
+}
+
+hide empty members
+
+FlyweightFactory *- Flyweight
+Flyweight <|-- ConcreteFlyweight
+Flyweight <|-- UnsharedConcreteFlyweight
+FlyweightFactory <-- Client
+ConcreteFlyweight <-- Client
+UnsharedConcreteFlyweight <-- Client
+
+note as N1
+    <b><color:royalBlue>Flyweight</color></b>
+    <b>Type:</b> Structural
+    Enregistre les objets dans une structure de données,
+    capable de supporter un effectif vaste d'objet du même
+    type.
+end note
+@enduml

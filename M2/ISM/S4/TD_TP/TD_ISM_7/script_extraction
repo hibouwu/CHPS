@@ -1,0 +1,13 @@
+grep 'ATOM      1  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data1 
+grep 'ATOM      2  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data2 
+grep 'ATOM      3  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data3 
+grep 'ATOM      4  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data4 
+grep 'ATOM      5  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data5 
+grep 'ATOM      6  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data6 
+grep 'ATOM      7  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data7 
+grep 'ATOM      8  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data8 
+grep 'ATOM      9  W   HOH   999 ' solv1000_dyn.pdb | awk '{print $6 " " $7 " " $8}' > data9
+#
+for i in {1..9} ; do
+tail -n 9000 'data'$i > fic && mv fic 'data'$i
+done

@@ -1,0 +1,66 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+
+{
+  // ──────────────────────────────────────────────────────────────
+  // 1. Raccourcis Windows / Linux (remplace les bindings macOS)
+  // ──────────────────────────────────────────────────────────────
+  "base_keymap": "VSCode", // utilise quasi tous les raccourcis VSCode (donc Windows-friendly)
+
+  "key_bindings": {
+    "ctrl-c": ["editor::Copy"],
+    "ctrl-v": ["editor::Paste"],
+    "ctrl-x": ["editor::Cut"],
+    "ctrl-z": ["editor::Undo"],
+    "ctrl-y": ["editor::Redo"],
+    "ctrl-shift-z": ["editor::Redo"],
+    "ctrl-a": ["editor::SelectAll"],
+    "ctrl-f": ["editor::Find"],
+    "ctrl-h": ["editor::Replace"],
+    "ctrl-d": ["editor::DuplicateLine"],
+    "ctrl-shift-d": ["editor::DeleteLine"]
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // 2. Assistant Zed + Ollama local → modèle qwen2.5-coder:1.5b
+  // ──────────────────────────────────────────────────────────────
+  "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:1.5b" // ou le tag exact que tu utilises
+    },
+    "ollama": {
+      "base_url": "http://localhost:11434"
+    }
+  },
+
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "low_speed_timeout_in_seconds": 90, // qwen2.5-coder:1.5b peut être un peu lent au 1er token
+      "available_models": [
+        {
+          "name": "qwen2.5-coder:1.5b",
+          "display_name": "qwen2.5-coder:1.5b",
+          "max_tokens": 2048,
+          "max_output_tokens": 4096
+        }
+      ]
+    }
+  },
+
+  // ──────────────────────────────────────────────────────────────
+  // Paramètres recommandés pour qwen2.5-coder:1.5b (moins créatif, plus précis)
+  // ──────────────────────────────────────────────────────────────
+  "assistant_request": {
+    "temperature": 0.3,
+    "top_p": 0.95,
+    "max_tokens": 2048
+  }
+}

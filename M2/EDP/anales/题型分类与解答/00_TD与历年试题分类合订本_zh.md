@@ -1100,7 +1100,7 @@ $$
 | 10 | 94 | 100 | 0.36 |
 
 $$
-X^2=10.38<\chi^2_{0.90,9}=14.683657,\qquad p=0.320611.
+X^2=10.38<\chi^2_{0.90,9}=14.683657,\qquad p=0.320607.
 $$
 
 Au seuil 10 %, ne pas rejeter la répartition égale entre dix classes. La récurrence avec x0=1 reproduit exactement les effectifs fournis si l'on retient $x_1,\dots,x_{1000}$ (sans $x_0$) ; en incluant $x_0$, les classes 1 et 9 deviendraient 101 et 106. 在 10% 水平不拒绝十组等概率分布。以 x0=1 代入递推式、取 $x_1,\dots,x_{1000}$（不含 $x_0$）时，可精确得到题面频数表；若把 $x_0$ 计入，第 1、9 组将变为 101 与 106。
@@ -1238,6 +1238,8 @@ $$
 
 Contrôle $\chi^2$ : seuil 5 % $\chi^2_{0.95,7}=14.067140$ (rejet) ; seuil 1 % $\chi^2_{0.99,7}=18.475307$ (non-rejet). Il confirme les décisions de la lecture bilatérale continue aux deux seuils. À 1 %, il diffère du K–S unilatéral et du K–S discret exact : ces tests utilisent des statistiques et des calibrations différentes. Le $\chi^2$ ne tient pas compte de l'ordre des cylindres et ne teste pas à lui seul la direction de l'écart. Ce seul échantillon ne permet pas de comparer les puissances des tests. 卡方检验：5% 临界值为 $14.067140$，拒绝；1% 临界值为 $18.475307$，不拒绝，两个水平下均与连续双侧附表的结论一致。在 1% 水平，它与单侧 K–S、离散精确 K–S 的结论不同，因为所用统计量和校准不同。卡方不考虑柱面顺序，本身不能判断偏移方向；不能依据这一个样本比较检验功效高低。
 
+**Variante 2023** : seule la décision à 5 % est demandée. Toutes les calibrations ci-dessus (table bilatérale, $K^+$ unilatéral, calcul discret exact) rejettent $H_0$ à ce seuil : le module est jugé utile, sans ambiguïté. Pour attribuer l'écart au module lui-même, il faudrait en plus une comparaison avec un groupe témoin. **2023 年卷**：只要求 5% 水平的结论。上述各种校准（双侧附表、单侧 $K^+$、离散精确计算）在该水平都拒绝 $H_0$，因此结论明确：模块有效。若要把偏移归因于模块本身，还需要与对照组比较。
+
 <a id="exercise-exam2025-3"></a>
 
 ### 3 Uniformité continue 均匀随机数综合检验
@@ -1320,6 +1322,7 @@ Repérer dans l'énoncé les mots-clés ci-dessous, puis aller au type et à l'e
 |---|---|---|---|
 | *fraction séquentielle*, *seq*, *accélération*, *efficacité*, *$2^n$ processeurs* | Amdahl 固定规模 | $S=\dfrac1{s+(1-s)/P}$，$E=S/P$ | [01-1](#exercise-td1-1-1) |
 | *borne supérieure*, *très grand nombre de processeurs* | Amdahl 极限 | 固定 $s>0$ 时，$\lim_{P\to\infty}S=1/s$；“maximale”需结合题意区分固定 $P$ 的理想值 | [01-1](#exercise-td1-1-1)、[01-3](#exercise-td1-1-3) |
+| *accélération maximale envisageable* | 理想 Amdahl | 忽略并行化开销（$C_t=0$）：$S=\dfrac1{\mathrm{seq}+(1-\mathrm{seq})/P}\le P$，不是 $P\to\infty$ 的极限 | [01-3 (a)](#exercise-td1-1-3) |
 | *inversement proportionnelle à la taille $n$*, *très grand code* | Amdahl + 规模变化 | $s=k/n$，$n\to\infty\Rightarrow S\to P$ | [01-3](#exercise-td1-1-3) |
 | Tableau d'accélérations mesurées + *calculer la fraction séquentielle* 给出加速比反求串行比例 | Amdahl 反解 | $s=\dfrac{P/S-1}{P-1}$ | [01-2](#exercise-td1-1-2) |
 | *mode vectoriel*, *pourcentage de vectorisation*, *$k$ fois plus rapide* | 局部加速（Amdahl 型） | $S=\dfrac1{(1-f)+f/k}$ | [01-4](#exercise-td1-1-4) |

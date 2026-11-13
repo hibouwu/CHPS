@@ -1,0 +1,73 @@
+@startuml C4_Container_Slurm_HPC_Corrigé_V2
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Diagramme C4 Niveau 2: Cluster HPC Slurm (Intégration Volumes & Flux)
+
+' ------------------------------------------------
+' PERSONNES ET SYSTÈMES EXTERNES
+' ------------------------------------------------
+
+Person(user, "Utilisateur HPC", "Soumet les jobs et accède à l'interface VS Code.")
+
+System_Boundary(slurm_cluster, "Cluster HPC Slurm (Réseau mpinet)") {
+
+    ' ------------------------------------------------
+    ' COMPOSANT LOGIQUE DE PARTAGE
+    ' ------------------------------------------------
+    Container(shared_storage, "Volumes et Secrets Partagés", "Volumes Docker Swarm / Secrets", "Contient: etc_munge, slurm_jobdir, Secrets SSH/MPI, usrlocalvarmpi-foo.")
+
+    ' ------------------------------------------------
+    ' CONTENEURS DE CONTRÔLE SLURM
+    ' ------------------------------------------------
+    
+    Container(slurm_ctld, "slurmctld (Contrôleur Principal)", "C/C++", "Démon de contrôle. Point d'entrée pour la soumission de jobs.")
+    Container(slurm_dbd, "slurmdbd (Démon Comptabilité)", "C/C++", "Gère la comptabilité des travaux.")
+    
+    ' ------------------------------------------------
+    ' CONTENEUR DE STOCKAGE
+    ' ------------------------------------------------
+    
+    ContainerDb(mariadb, "mysql (MariaDB)", "MariaDB 10.10", "Base de données de comptabilité.")
+    
+    ' ------------------------------------------------
+    ' CONTENEURS DE CALCUL (Nœuds de Travail)
+    ' ------------------------------------------------
+    
+    Container(c_nodes, "Nœuds de Calcul (c1-c4)", "C/C++", "Démons Slurmd. Exécutent les tâches HPC/MPI.")
+
+    ' ------------------------------------------------
+    ' CONTENEUR D'INTERFACE UTILISATEUR
+    ' ------------------------------------------------
+    
+    Container(vscode, "vscode (Code Server)", "Node.js/Go", "IDE Web pour le développement et l'édition de code.", $tags="Go")
+
+}
+
+' ------------------------------------------------
+' RELATIONS MAJEURES
+' ------------------------------------------------
+
+' 1. Flux Utilisateur (Accès et Soumission)
+Rel(user, vscode, "Accès à l'IDE (Ports 8081:8080)", "HTTPS/HTTP")
+Rel_L(user, slurm_ctld, "Soumission de Jobs (Shell sur slurmctld)", "SSH/CLI (via vscode ou autre)")
+
+' 2. Flux de Contrôle SLURM
+Rel(slurm_ctld, slurm_dbd, "Envoi des données de comptabilité", "Port 6819")
+Rel(slurm_dbd, mariadb, "Lecture/Écriture des données de comptabilité", "TCP 3306") 
+Rel(slurm_ctld, c_nodes, "Allocation de Ressources / Lancement des Jobs (slurmd)", "Port 6818")
+
+' 3. Flux de Données et Sécurité (Munge/Secrets/Jobs)
+Rel(slurm_ctld, shared_storage, "Accès aux fichiers de configuration et secrets (munge, SSH)")
+Rel(c_nodes, shared_storage, "Accès aux binaires/données de job (slurm_jobdir) et secrets")
+
+' 4. Flux de Développement/Couplage VS Code
+Rel(vscode, shared_storage, "Lecture/Écriture Code (mpishare) & Secrets SSH", "Montage de Volume")
+Rel(vscode, slurm_ctld, "Accès Shell pour compilation/sbatch", "SSH/CLI")
+
+' 5. Flux de Calcul
+Rel(c_nodes, c_nodes, "Communication Inter-Nœuds (MPI)", "Réseau mpinet")
+
+@enduml

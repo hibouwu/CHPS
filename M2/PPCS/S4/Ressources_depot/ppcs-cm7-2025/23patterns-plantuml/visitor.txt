@@ -1,0 +1,56 @@
+@startuml
+/' VISITOR '/
+
+
+
+class Client
+
+interface Visitor {
+    # visitElementA(in a :ConcreteElementA)
+    # visitElementB(in b :ConcreteElementB)
+}
+
+class ConcreteVisitor1 {
+    + visitElementA(in a :ConcreteElementA)
+    + visitElementB(in b :ConcreteElementB)
+}
+
+class ConcreteVisitor2 {
+    + visitElementA(in a :ConcreteElementA)
+    + visitElementB(in b :ConcreteElementB)
+}
+
+
+interface Element {
+    # accept(in v : Visitor)
+}
+
+class ConcreteElementA {
+    - private_data
+    + accept(in v : Visitor)
+    + getData()
+}
+
+class ConcreteElementB {
+    - private_data
+    + accept(in v : Visitor)
+    + getData()
+}
+
+Visitor <- Client
+Visitor <|-- ConcreteVisitor1
+Visitor <|-- ConcreteVisitor2
+Client --> Element
+Element <|-- ConcreteElementA
+Element <|-- ConcreteElementB
+
+note as N1
+    <b><color:royalBlue>Visitor</color></b>
+    <b>Type:</b> Behavioral
+    Représente une opération à réaliser 
+    par item de la structure de l'objet. 
+    Permet de définir une nouvelle opération 
+    sans changer de classe d'élément pour 
+    laquelle elle interagit.
+end note
+@enduml

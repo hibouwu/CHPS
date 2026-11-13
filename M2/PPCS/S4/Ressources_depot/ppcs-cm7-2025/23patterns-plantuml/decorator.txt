@@ -1,0 +1,34 @@
+@startuml
+/' DECORATOR '/
+
+
+
+interface Component {
+    # operation()
+}
+
+class ConcreteComponent {
+    + operation()
+}
+
+class Decorator {
+    #operation()
+    - private_component
+}
+
+class ConcreteDecorator {
+    + operation()
+}
+
+Component <|-- ConcreteComponent
+Component <|-- Decorator
+Component --* Decorator
+Decorator <|- ConcreteDecorator
+
+note as N1
+    <b><color:royalBlue>Decorator</color></b>
+    <b>Type:</b> Structural
+    Permet d'étendre un objet sans héritage mais
+    en ajoutant une méthode de manière dynamique.
+end note
+@enduml

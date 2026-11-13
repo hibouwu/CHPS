@@ -1,0 +1,63 @@
+@startuml
+/' STRATEGY '/
+
+
+
+class Context
+
+interface Strategy {
+    + execute()
+}
+
+class ConcreteStrategyA {
+    + execute()
+}
+
+class ConcreteStrategyB {
+    + execute()
+}
+
+hide empty members
+
+Context o-- Strategy
+Strategy <|-- ConcreteStrategyA
+Strategy <|-- ConcreteStrategyB
+
+note as N1
+    <b><color:royalBlue>Strategy</color></b>
+    <b>Type:</b> Behavioral
+    Définit un algorithme, le rend
+    interchangeable et indépendant du client.
+end note
+@enduml@startuml
+/' STRATEGY '/
+
+
+
+class Context
+
+interface Strategy {
+    + execute()
+}
+
+class ConcreteStrategyA {
+    + execute()
+}
+
+class ConcreteStrategyB {
+    + execute()
+}
+
+hide empty members
+
+Context o-- Strategy
+Strategy <|-- ConcreteStrategyA
+Strategy <|-- ConcreteStrategyB
+
+note as N1
+    <b><color:royalBlue>Strategy</color></b>
+    <b>Type:</b> Behavioral
+    Définit un algorithme, le rend
+    interchangeable et indépendant du client.
+end note
+@enduml

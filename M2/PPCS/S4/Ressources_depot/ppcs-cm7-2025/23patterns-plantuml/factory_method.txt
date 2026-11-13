@@ -1,0 +1,33 @@
+@startuml
+/' FACTORY METHOD '/
+
+
+
+class Creator {
+    # factoryMethod()
+}
+
+class ConcreteCreator {
+    + factoryMethod()
+}
+
+interface Product {
+    # somethingProduct()
+}
+
+class ConcreteProduct
+
+hide empty members
+
+Product <|-- ConcreteProduct
+Creator <|-- ConcreteCreator
+ConcreteProduct <. ConcreteCreator
+
+note as N1
+    <b><color:royalBlue>Factory Method</color></b>
+    <b>Type:</b> Creational
+    Décrit une interface pour créer un objet,
+    mais laisse la sous-classe décider.
+    L'instanciation est choisie par la sous-classe.
+end note
+@enduml

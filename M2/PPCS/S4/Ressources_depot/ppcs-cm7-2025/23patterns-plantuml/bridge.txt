@@ -1,0 +1,33 @@
+@startuml
+/' BRIDGE '/
+
+
+
+class Abstraction {
+    # operation()
+    - protected_implementation (operationImp)
+}
+
+interface Implementor {
+    # operationImp()
+}
+
+class ConcreteImplementorA {
+    + operationImp()
+}
+
+class ConcreteImplementorB {
+    + operationImp()
+}
+
+Abstraction *-- Implementor
+Implementor <|-- ConcreteImplementorA
+Implementor <|-- ConcreteImplementorB
+
+note as N1
+    <b><color:royalBlue>Bridge</color></b>
+    <b>Type:</b> Structural
+    Découple l'abstraction de son implémentation
+    et les 2 peuvent évouer indépendamment.
+end note
+@enduml

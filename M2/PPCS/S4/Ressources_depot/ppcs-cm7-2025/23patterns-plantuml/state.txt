@@ -1,0 +1,35 @@
+@startuml
+/' STATE '/
+
+
+
+class Context <State.handler()> {
+    + Request()
+}
+
+interface State {
+    + Handle()
+}
+
+class ConcreteState1 {
+    + Handle()
+}
+
+class ConcreteState2 {
+    + Handle()
+}
+
+hide empty members
+
+Context o-- State
+State <|-- ConcreteState1
+State <|-- ConcreteState2
+
+note as N1
+    <b><color:royalBlue>State</color></b>
+    <b>Type:</b> Behavioral
+    Encapsule le comportement à travers un handler()
+    Celui ci peut être mis à jour à 
+    travers un changement de classe
+end note
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+/' FACADE '/
+
+
+
+class Facade {
+ -  subsystem1
+ -  subsystem2
+ -  subsystem3
+ -  subsystem4
+}
+
+package "Complex system" <<Node>> {
+    class Subsystem1
+    class Subsystem2
+    class Subsystem3
+    class Subsystem4
+}
+
+hide empty members
+
+Facade --> Subsystem1
+Facade --> Subsystem2
+Facade --> Subsystem3
+Facade --> Subsystem4
+
+note as N1
+    <b><color:royalBlue>Facade</color></b>
+    <b>Type:</b> Structural
+    Masque la complexité - et uniformise l'accès
+    à des sous-systèmes avec une approche
+    simplifiée.
+end note
+@enduml

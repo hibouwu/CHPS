@@ -1,0 +1,47 @@
+@startuml
+/' ABSTRACT FACTORY '/
+
+
+
+class Client
+
+interface AbstractFactory {
+    # createProductA()
+    # createProductB()
+}
+
+class ConcreteFactory {
+    + createProductA()
+    + createProductB()
+}
+
+interface AbstractProduct {
+# somethingProduct()
+}
+
+class ProductA {
++ somethingProduct()
+}
+
+
+class ProductB {
++ somethingProduct()
+}
+
+hide empty members
+
+AbstractFactory <|-- ConcreteFactory
+AbstractProduct <|-- ProductA
+AbstractProduct <|-- ProductB
+Client --> AbstractFactory
+Client --> AbstractProduct
+
+note as N1
+    <b><color:royalBlue>Abstract Factory</color></b>
+    <b>Type:</b> Creational
+    Permet la création d'objets qui
+    sont liés à des classes connues
+    et assocées sans avoir à le préciser
+    dans leur classe concrète
+end note
+@enduml

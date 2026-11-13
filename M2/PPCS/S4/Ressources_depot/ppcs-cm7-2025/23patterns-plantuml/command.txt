@@ -1,0 +1,40 @@
+@startuml
+/' COMMAND '/
+
+
+
+
+
+class Invoker {
+    - private_command
+    + setCommand()
+    + executeCommand()
+}
+
+class Receiver {
+    + action()
+}
+
+interface Command {
+    # execute()
+}
+
+class ConcreteCommand {
+    - private_receiver
+    + execute()
+}
+
+hide empty members
+
+
+Invoker *-- Command
+Receiver --* ConcreteCommand
+ConcreteCommand -|> Command
+
+note as N1
+    <b><color:royalBlue>Command</color></b>
+    <b>Type:</b> Behavioral
+    Encapsule une commande dans un objet,
+    découple le client du fournisseur.
+end note
+@enduml

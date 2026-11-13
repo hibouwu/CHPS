@@ -1,0 +1,46 @@
+@startuml
+/' ADAPTER '/
+
+
+
+interface Adapter {
+    # operation()
+}
+
+class Client {
+    + do_client_operation()
+}
+
+class ConcreteAdapter {
+    - ConcreteAdapter(in Adaptee1)
+    - ConcreteAdapter(in Adaptee2)
+    + operation()
+}
+
+class Adaptee1 {
+    + Adaptee1Bizarre()
+    + operation()
+}
+
+class Adaptee2 {
+    + Adaptee2Bizarre()
+}
+
+
+hide empty members
+
+Adapter <- Client
+Adapter <|-- Adaptee1
+Adapter <|-- ConcreteAdapter
+ConcreteAdapter -> Adaptee1
+ConcreteAdapter -> Adaptee2
+
+note as N1
+    <b><color:royalBlue>Adapter</color></b>
+    <b>Type:</b> Structural
+    Réalise une conversion compatible avec 
+    les attentes du client. La conversion
+    des interfaces est réalisée à l'instanciation
+    des objets.
+end note
+@enduml

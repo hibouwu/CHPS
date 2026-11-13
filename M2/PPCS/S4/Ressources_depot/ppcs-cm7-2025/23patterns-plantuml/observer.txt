@@ -1,0 +1,49 @@
+@startuml
+/' OBSERVER '/
+
+
+
+interface Subject {
+    - vObserver : Vector
+    + attach(in o : Observer)
+    + detach(in o : Observer)
+    + notify()
+    # getState()
+    # setState()
+}
+
+class ConcreteSubject {
+    - subjectState : Int
+    + getState()
+    + setState() 
+}
+
+interface Observer {
+    # update(s : Subject) : Context
+    # getState() : Int
+    # getId() : Int
+}
+
+class ConcreteObserver {
+    - observerState : Int
+    + update()
+    + getState()
+    + setState()
+}
+
+hide empty members
+
+Subject ->"0..*" Observer : notifies
+Subject <|-- ConcreteSubject
+Observer <|-- ConcreteObserver
+ConcreteSubject <- ConcreteObserver : observes
+
+note as N1
+    <b><color:royalBlue>Observer</color></b>
+    <b>Type:</b> Behavioral
+    Définit une relation un à plusieurs
+    pour réaliser la mise à jour lors
+    d'un changement d'état. Tous les objets
+    dépendants sont notifiés automatiquement.
+end note
+@enduml

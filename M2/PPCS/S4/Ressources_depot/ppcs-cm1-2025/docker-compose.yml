@@ -1,0 +1,54 @@
+# format 3.x, validated on W10 - there is no "mode/uid/gid" for docker-compose 1.29/W10
+# you should provide your private/public RSA key in ./ssh dir (named id_rsa.mpi/id_rsa.mpi.pub)
+# docker swarm init, then you have to do // note version_mpinet is the name of the overlay
+# docker network create --driver=overlay --attachable yml_mpinet
+# Nov, 13, 2021 - Jean-Michel Batto
+version: "3.9"
+services:
+  mpihead:
+    image: jmbatto/m2chps-mpi41:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    ports: 
+      - "22"
+    links: 
+      - mpinode
+    networks:
+      - mpinet
+    secrets:                   
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+  mpinode:
+    image: jmbatto/m2chps-mpi41:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - usrlocalvarmpi-foo:/usr/local/var/mpishare
+    networks:
+      - mpinet
+    secrets:                   
+      - source: "id_rsa"
+        target: "/home/mpiuser/.ssh-source/id_rsa"
+      - source: "id_rsa_mpi_pub"
+        target: "/home/mpiuser/.ssh-source/id_rsa.pub"
+      - source: "authorized_keys"
+        target: "/home/mpiuser/.ssh-source/authorized_keys"
+secrets:
+  id_rsa_mpi_pub:
+    file: ssh/id_rsa.mpi.pub
+  id_rsa:
+    file: ssh/id_rsa.mpi
+  authorized_keys:
+    file: ssh/id_rsa.mpi.pub
+networks:
+  mpinet:
+    external: true
+    name : yml_mpinet
+    driver: overlay  
+volumes:
+  usrlocalvarmpi-foo:
+    

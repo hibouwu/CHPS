@@ -1,0 +1,41 @@
+@startuml
+/' COMPOSITE '/
+
+
+
+interface Component {
+    - m_name
+    # operation()
+    # add(in c : Composite)()
+    # remove(in c : Composite)
+    # getChild(in i : int)
+    # enumerate()
+}
+
+class Leaf {
+    - privage_id
+    + operation()
+    + enumerate()
+}
+
+class Composite {
+    - private_children vector
+    + operation()
+    + add(in c : Composite)()
+    + remove(in c : Composite)
+    + getChild(in i : int)
+    + enumerate()
+}
+
+Component <|-- Leaf
+Component <|-- Composite
+Component --* Composite
+
+note as N1
+    <b><color:royalBlue>Composite</color></b>
+    <b>Type:</b> Structural
+    Assemblage d'objets dans une structure
+    arborescente, l'idée est de banaliser
+    l'accès - unitaire ou de groupe d'objet.
+end note
+@enduml

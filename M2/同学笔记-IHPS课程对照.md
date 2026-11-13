@@ -45,6 +45,6 @@
 
 - 公共课：英语。
 - IHPS 方向课：PPCS、AOC、COA、CQ、ISM。
-- SiteCHPS 当前已有 AOC、COA、CQ；PPCS 和 ISM 尚未收录。Kokkos 的课程归属仍待确认。
+- SiteCHPS 已有 AOC、COA、CQ；2026-11-13 又从 [S4.zip](Sources/S4_2026-11-12/README.md) 归档了 PPCS 和 ISM，并补充其余三门课。上述清单仅表示本页讨论的同学笔记未找到明确材料。Kokkos 的课程归属仍待确认。
 
 如果接下来补全 SiteCHPS，可继续整理这份笔记里的 **MPNA**；[APM](APM/README.md) 和 [EDP](EDP/README.md) 已归档。本页保留部分同学笔记来源链接，课程归档状态以对应课程目录为准。

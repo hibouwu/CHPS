@@ -1,0 +1,35 @@
+@startuml
+/' CHAIN OF RESPONSIBILITY '/
+
+
+
+class Client
+
+interface Handler {
+    - private_successor
+    # handleRequest()
+}
+
+class ConcreteHandler1 {
+    + handleRequest()
+}
+
+class ConcreteHandler2 {
+    + handleRequest()
+}
+
+hide empty members
+
+Client -> Handler
+Handler <|-- ConcreteHandler1
+Handler <|-- ConcreteHandler2
+Handler -> Handler : successor
+
+note as N1
+    <b><color:royalBlue>Chain of Responsibility</color></b>
+    <b>Type:</b> Behavioral
+    Permet de construire une chaîne de responsabilité 
+    avec découplage, le traitement de la requête peut être 
+    déroulé par plusieurs objets qui héritent du Handler.
+end note
+@enduml

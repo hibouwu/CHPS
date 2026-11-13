@@ -1,0 +1,17 @@
+@startuml
+/' SINGLETON '/
+
+
+
+class Singleton {
+    - static unique_instance
+    + static Instance()
+}
+
+note as N1
+    <b><color:royalBlue>Singleton</color></b>
+    <b>Type:</b> Creational
+    Classe qui ne peut avoir qu'une seule instance
+    et qui donne une point d'accès global.
+end note
+@enduml

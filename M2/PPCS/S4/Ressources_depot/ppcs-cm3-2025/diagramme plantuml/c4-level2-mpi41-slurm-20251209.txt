@@ -1,0 +1,79 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+' --- CONFIGURATION DU STYLE (Méthode robuste) ---
+' On désactive les ombres et on met le fond en blanc
+skinparam shadowing false
+skinparam backgroundColor White
+
+' On force le style pour les CONTENEURS (le cadre principal)
+skinparam rectangle<<container>> {
+    BackgroundColor White
+    BorderColor Black
+    FontColor Black
+}
+
+' On force le style pour les COMPOSANTS (les boites internes)
+skinparam rectangle<<component>> {
+    BackgroundColor White
+    BorderColor Black
+    FontColor Black
+}
+
+' On force le style pour les PACKAGES (les groupes)
+skinparam package {
+    BackgroundColor White
+    BorderColor Black
+    FontColor Black
+}
+
+' On force le style des flèches
+skinparam arrow {
+    Color Black
+    FontColor Black
+}
+' ------------------------------------------------
+
+LAYOUT_WITH_LEGEND()
+
+title Diagramme de Composants (C4 L3) - Image Docker "m2chps-mpi41-slurm"
+
+Container(container, "HPC Node Container", "Docker, Debian Trixie", "Environnement complet pour la simulation de cluster HPC") {
+
+    Component(entrypoint, "docker-entrypoint.sh", "Shell Script", "Initialise les clés SSH et les permissions au démarrage")
+    
+    Component(supervisord, "Supervisord", "Process Manager", "PID 1. Orchestre le lancement des démons")
+
+    Component(sshd, "SSHD", "Service", "Communication inter-nœuds (MPI) et accès utilisateur")
+
+    Component(munge, "Munge", "Auth Service", "Service d'authentification pour Slurm")
+    
+    Component(telegraf, "Telegraf", "Monitoring Agent", "Collecte des métriques")
+
+    Package "Slurm Workload Manager" {
+        Component(slurm_binaries, "Slurm Daemons", "C/Binary", "slurmctld, slurmd, slurmdbd")
+        Component(slurm_conf, "Configs", "File", "/etc/slurm/*.conf")
+    }
+
+    Package "Compute Environment" {
+        Component(openmpi, "OpenMPI 4.1.8", "Library/Binary", "Compilé avec support PMI/Slurm")
+        Component(python_env, "Python Venv", "Python 3 + mpi4py", "Environnement d'exécution MPI")
+        Component(omni, "Omni-Compiler", "Compiler", "Support XMP")
+    }
+
+    Rel(entrypoint, supervisord, "Executes via exec", "bash")
+    Rel(supervisord, sshd, "Manages", "process")
+    Rel(supervisord, munge, "Manages", "process")
+    Rel(supervisord, telegraf, "Manages", "process")
+    Rel(supervisord, slurm_binaries, "Manages", "process")
+
+    Rel(slurm_binaries, munge, "Authenticates via", "socket")
+    Rel(slurm_binaries, slurm_conf, "Reads", "file")
+    
+    Rel(python_env, openmpi, "Uses", "mpi4py bindings")
+    Rel(openmpi, slurm_binaries, "Interacts via", "PMI2")
+    
+    Rel(sshd, openmpi, "Used by", "mpirun/ssh")
+}
+
+@enduml

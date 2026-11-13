@@ -1,0 +1,28 @@
+@startuml
+/' TEMPLATE METHOD '/
+
+
+
+class AbstractClass <templateMethod() call Operation1,2,...> {
+    + templateMethod()
+    # Operation1()
+    # Operation2()
+}
+
+class ConcreteClass {
+    + Operation1()
+    + Operation2()
+}
+
+hide empty members
+
+AbstractClass <|-- ConcreteClass
+
+note as N1
+    <b><color:royalBlue>Template Method</color></b>
+    <b>Type:</b> Behavioral
+    Définit un algorithme squelette dont
+    les méthodes virtuelles sont instanciées par la 
+    classe concrète.
+end note
+@enduml

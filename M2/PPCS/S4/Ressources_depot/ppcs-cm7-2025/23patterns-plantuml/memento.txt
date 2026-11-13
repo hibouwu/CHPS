@@ -1,0 +1,35 @@
+@startuml
+/' MEMENTO '/
+
+
+
+class Caretaker {
+    - Private_Originator 
+    - Saved_Memento
+    - Undo_Memento
+    - Redo_Memento
+}
+
+class Memento {
+    - state
+}
+
+class Originator {
+    - state
+    + setMemento(in m : Memento)
+    + createMemento()
+}
+
+hide empty members
+
+Caretaker *- Memento
+Memento <-- Originator
+
+note as N1
+    <b><color:royalBlue>Memento</color></b>
+    <b>Type:</b> Behavioral
+    Sans modifier l'encapsulation de l'objet,
+    enregistre l'état de celui-ci pour permettre
+    la restauration de son état.
+end note
+@enduml
