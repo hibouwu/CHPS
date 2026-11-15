@@ -8,7 +8,6 @@
 
 **A. 稀疏性与线性模型：调整模型维度**
 
-
 - Vector notations:
 
   向量记号：
@@ -16,7 +15,6 @@
 Response vector $\mathbf { Y } \in \mathbb { R } ^ { n }$ , input data matrix $\textsf { X } ( { \mathsf { s i z e } } \ n \times d )$
 
 响应向量 $\mathbf { Y } \in \mathbb { R } ^ { n }$，输入数据矩阵 $\textsf { X } ( { \mathsf { s i z e } } \ n \times d )$。
-
 
 - Linear model with vector notations:
 
@@ -35,7 +33,6 @@ where ε random noise vector (centered, independent of X)
 ## The sparse linear regression model
 
 **稀疏线性回归模型**
-
 
 - Intuition: what if there are uninformative variables in the model but we do not know which they are?
 
@@ -81,7 +78,6 @@ If the 20 useful variables among 100 were known beforehand, their columns could 
 
 **两种表述：约束优化与惩罚优化**
 
-
 1. Ivanov formulation: take k between $0$ and min $\{ n , d \}$
 
    Ivanov 表述：在 $0$ 与 min $\{ n , d \}$ 之间选取 k。
@@ -90,7 +86,6 @@ $$
 \min _ {\beta \in \mathbb {R} ^ {d}} \| \mathbf {Y} - \mathbf {X} \beta \| _ {2} ^ {2} \quad \text{满足} \| \beta \| _ {0} \leq k
 $$
 
-
 2. Tikhonov formulation: take $\lambda > 0$
 
    Tikhonov 表述：取 $\lambda > 0$。
@@ -98,7 +93,6 @@ $$
 $$
 \min _ {\beta \in \mathbb {R} ^ {d}} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| _ {2} ^ {2} + \lambda \| \beta \| _ {0} \right\}
 $$
-
 
 - Tikhonov looks as a Lagrange formulation of Ivanov
 
@@ -111,7 +105,6 @@ $$
 > **Note:** Attributing nonequivalence solely to nonsmoothness is insufficient. Nonconvexity and discrete support selection are crucial here. Under suitable conditions, nonsmooth convex problems can still relate constrained and penalized formulations.
 
 > **译注：** 原文将不等价归因于“不光滑”，这个归因不充分。这里的关键是非凸性及离散的支撑选择；非光滑的凸问题在适当条件下仍可以建立约束形式与惩罚形式的对应。
-
 
 - Ivanov with $\ell _ { 0 }$ constraint is known as the Best Subset Selection problem for which there are algorithms based on heuristics (e.g. Forward Stagewise Regression) which work ok up to $k \simeq 3 5$ . Recent advances: check Mixed Integer Optimization (MIO) formulation by Bertsimas et al. (2016).
 
@@ -131,8 +124,9 @@ The constrained formulation permits at most $k$ variables and fits as well as po
 
 约束形式规定“最多使用 $k$ 个变量”，然后在这个限制内尽量拟合。惩罚形式则为每个非零系数收取 $\lambda$ 的代价：若增加一个变量、重新拟合后减少的残差平方和超过 $\lambda$，它才值得被加入。
 
-<details>
-<summary>Example: varying λ need not recover every optimal model size<br>例子：为什么调整 λ 不一定能得到每一种最优模型大小</summary>
+**Example: varying λ need not recover every optimal model size**
+
+**例子：为什么调整 λ 不一定能得到每一种最优模型大小**
 
 Suppose using $0,1,2$ variables gives best residual sums of squares $10,9,0$, respectively. A limit of at most one variable selects the one-variable model with residual sum of squares $9$.
 
@@ -150,8 +144,6 @@ That is, $\lambda\leq1$ and $\lambda\geq9$, which cannot hold simultaneously. A 
 
 也就是 $\lambda\leq1$ 且 $\lambda\geq9$，不可能同时成立。因此，给定数量上限能够选出的模型，未必能通过某个统一的变量价格选出来。这是离散、非凸模型选择中两种表述未必等价的具体表现。
 
-</details>
-
 <a id="section-16"></a>
 
 ## Sparsity and linear models Model selection
@@ -166,7 +158,6 @@ Recall:
 
 回顾：
 
-
 - Tikhonov formulation with $\ell _ { 0 }$ penalty: take $\lambda > 0$
 
   带 $\ell _ { 0 }$ 惩罚的 Tikhonov 表述：取 $\lambda > 0$。
@@ -174,7 +165,6 @@ Recall:
 $$
 \min _ {\beta \in \mathbb {R} ^ {d}} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| _ {2} ^ {2} + \lambda \| \beta \| _ {0} \right\}\tag{1}
 $$
-
 
 - Bias-variance decomposition of the error for the LSE ${ \widehat { \beta } } \mathbf { : }$ :
 
@@ -197,7 +187,6 @@ Questions for now: does the bias-variance decomposition (2) explains (1)? Is the
 ## Model selection in linear models
 
 **线性模型中的模型选择**
-
 
 - Model: $\mathbf Y=\mathbf X\beta^*+\varepsilon$
 
@@ -237,7 +226,6 @@ We potentially have 8 versions of Least Square Estimator (LSE), we call call con
 
 **线性模型中的模型选择**
 
-
 - Consider the set $\mathcal { M }$ of subsets m of the variables among indices $\{ 1 , \ldots , d \}$ . There are $2 ^ { d }$ such sets m.
 
   考虑索引 $\{ 1 , \ldots , d \}$ 中变量子集 m 的集合 $\mathcal { M }$，这样的集合 m 共有 $2 ^ { d }$ 个。
@@ -274,7 +262,6 @@ $$
 \widehat {\theta} _ {n} ^ {(\overline {{m}})} \quad \text{其中} \quad \overline {{m}} = \underset {m \in \mathcal {M}} {\arg \min} r _ {m}
 $$
 
-
 - Penalized LS with Akaike Information Criterion (AIC)
 
   使用赤池信息准则（AIC）的惩罚最小二乘：
@@ -301,7 +288,7 @@ For the Gaussian linear model with known $\sigma^2$ used in the slides, take $\s
 
 以课件中已知 $\sigma^2$ 的高斯线性模型为例，令 $\sigma^2=1$，并假设几个候选模型得到以下残差平方和：
 
-| Model size $\lvert m\rvert$<br>模型大小 $\lvert m\rvert$ | Residual sum of squares<br>残差平方和 | Penalty $2\lvert m\rvert\sigma^2$<br>惩罚 $2\lvert m\rvert\sigma^2$ | Total score<br>总分 |
+| Model size $\lvert m\rvert$ / 模型大小 $\lvert m\rvert$ | Residual sum of squares / 残差平方和 | Penalty $2\lvert m\rvert\sigma^2$ / 惩罚 $2\lvert m\rvert\sigma^2$ | Total score / 总分 |
 |---:|---:|---:|---:|
 | 0 | 40 | 0 | 40 |
 | 1 | 24 | 2 | 26 |
@@ -322,13 +309,13 @@ Calling $|m|=0$ a constant model usually means retaining an intercept separately
 
 **选读材料：赤池信息准则的推导**
 
-<details>
-<summary>Full derivation: from projection error to a model-selection criterion<br>展开完整推导：从投影误差到模型选择准则</summary>
+**Full derivation: from projection error to a model-selection criterion**
+
+**展开完整推导：从投影误差到模型选择准则**
 
 ### LSE in linear regression
 
 **线性回归中的最小二乘估计**
-
 
 - Denote by $\mathsf { X } _ { m }$ the data matrix $( n \times | m | )$ and ${ \widehat { \theta } } _ { n } ^ { ( m ) }$ the LSE
 
@@ -344,7 +331,6 @@ Calling $|m|=0$ a constant model usually means retaining an intercept separately
 
 **偏差—方差分解（1/2）：推导**
 
-
 - Note that $\widehat { \Pi } _ { m } : \mathbb { R } ^ { n }  \mathbb { R } ^ { n }$ is the orthogonal projection onto the space generated by the directions in m:
 
   注意，$\widehat { \Pi } _ { m } : \mathbb { R } ^ { n }  \mathbb { R } ^ { n }$ 是到 m 中各方向所张成空间的正交投影：
@@ -353,7 +339,6 @@ $$
 \widehat {\Pi} _ {m} \circ \widehat {\Pi} _ {m} = \widehat {\Pi} _ {m}
 $$
 
-
 - We have: $\mathbf X_m\widehat\theta_n^{(m)}=\widehat\Pi_m\mathbf Y=\widehat\Pi_m(\mathbf X\theta^*+\varepsilon)$ and then
 
   有 $\mathbf X_m\widehat\theta_n^{(m)}=\widehat\Pi_m\mathbf Y=\widehat\Pi_m(\mathbf X\theta^*+\varepsilon)$，于是
@@ -361,7 +346,6 @@ $$
 $$
 \mathbf {X} \theta^ {*} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} = (I _ {n} - \widehat {\Pi} _ {m}) \mathbf {X} \theta^ {*} - \widehat {\Pi} _ {m} \varepsilon
 $$
-
 
 - Property of the projector: images of $I _ { n } - \widehat { \Pi }$ and $\widehat { \Pi }$ are orthogonal
 
@@ -383,7 +367,6 @@ since $\| \widehat { \Pi } _ { m } \varepsilon \| ^ { 2 }$ follows a chi-square 
 
 **赤池信息准则（1/2）：推导**
 
-
 - Similarly, we can derive:
 
   类似地，可以推导出：
@@ -395,7 +378,6 @@ $$
 Indeed: $\begin{array} { r } { \mathsf { \pmb { Y } } - \mathsf { \pmb { X } } _ { m } \widehat { \theta } _ { n } ^ { ( m ) } = \big ( I _ { n } - \widehat { \Pi } _ { m } \big ) ( \mathsf { \pmb { X } } \theta ^ { * } + \varepsilon ) } \end{array}$ and $\| I _ { n } - \widehat { \Pi } _ { m } \varepsilon \| ^ { 2 }$ follows a chi-square distribution with $n - | m |$ degrees of freedom
 
 事实上，$\begin{array} { r } { \mathsf { \pmb { Y } } - \mathsf { \pmb { X } } _ { m } \widehat { \theta } _ { n } ^ { ( m ) } = \big ( I _ { n } - \widehat { \Pi } _ { m } \big ) ( \mathsf { \pmb { X } } \theta ^ { * } + \varepsilon ) } \end{array}$，且 $\| I _ { n } - \widehat { \Pi } _ { m } \varepsilon \| ^ { 2 }$ 服从自由度为 $n - | m |$ 的卡方分布。
-
 
 - Combining the two identities, prediction error can be related to risk:
 
@@ -409,7 +391,6 @@ $$
 
 **赤池信息准则（2/2）：误差的经验估计量**
 
-
 - We have obtained that:
 
   已经得到：
@@ -418,7 +399,6 @@ $$
 r _ {m} = \frac {1}{n} \mathbb {E} \big (\| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} \big) + \sigma^ {2} \frac {(2 | m | - n)}{n}
 $$
 
-
 - Unbiased estimator of the error (assuming known variance):
 
   误差的无偏估计量（假设方差已知）：
@@ -426,7 +406,6 @@ $$
 $$
 \widehat {r} _ {m} = \frac {1}{n} \| \mathbf {Y} - \mathbf {X} _ {m} \widehat {\theta} _ {n} ^ {(m)} \| ^ {2} + \sigma^ {2} \frac {(2 | m | - n)}{n}
 $$
-
 
 - Akaike Information Criterion
 
@@ -444,14 +423,11 @@ The chi-square variables should be $\|\widehat\Pi_m\varepsilon\|^2/\sigma^2$ and
 
 这里的卡方变量应写成 $\|\widehat\Pi_m\varepsilon\|^2/\sigma^2$ 和 $\|(I_n-\widehat\Pi_m)\varepsilon\|^2/\sigma^2$；原页分别省略了方差归一化，并在第二处漏写投影括号。相应期望仍是 $|m|\sigma^2$ 与 $(n-|m|)\sigma^2$。上述固定模型的无偏风险估计，去掉对所有候选都相同的常数、再乘以 $n$，便得到正文采用的残差平方和加 $2|m|\sigma^2$ 的选择准则。
 
-</details>
-
 <a id="section-20"></a>
 
 ## AIC in large dimensions
 
 **高维情况下的 AIC**
-
 
 - When d is large, is this practical ?
 

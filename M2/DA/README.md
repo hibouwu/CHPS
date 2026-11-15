@@ -2,12 +2,12 @@
 
 S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../README.md)
 
-六章教师讲义、实验、历年试卷、专题教程与参考书。第一、二课已整理为按主题分篇的中英对照讲义，包含概念解释与例题；其余四课提供完整中文译本。
+六章教师讲义、实验、历年试卷、专题教程与参考书。六课均提供原文与中文交替的阅读版：第一、二课按主题分篇，第三至六课保留教师的英文或法语原文并逐段对照。Lab1–Lab5、两次作业原题及作业一参考解答也提供双语 Notebook。
 
 ## 阅读入口
 
 - [考试与复习](<Exams/>)
-- [习题与实验](<Exercises/>)
+- [习题与实验：双语阅读入口](<Exercises/README.md>)
 - [课程讲义](<Lectures/>)
 - [参考资料](<References/>)
 - [资料来源](<Sources/>)
@@ -20,6 +20,15 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 ## 资源列表
 
 ### 考试与复习
+
+从[历年试卷目录](Exams/README.md)进入双语阅读版：每个小题单独换行，原文与中文在同一行用空格连接，题目说明与小题之间留空行，题目标题与分值同处一行，公式、数据和图片共用。
+
+- [2019 年 11 月](Exams/Exam_2019_zh.md)
+- [2020 年 11 月](Exams/Exam_2020_zh.md)
+- [2021 年 11 月](Exams/DataML-CHPS-2021-examen_zh.md)
+- [2023 年 3 月（源文件名含 2022）](Exams/DataML-CHPS-2022-examen_zh.md)
+- [2023 年 11 月](Exams/DataML-CHPS-2023-examen_zh.md)
+- [2024 年 11 月](Exams/DataML-CHPS-2024-examen_zh.md)
 
 | 资源 | 格式 |
 |---|---|
@@ -41,19 +50,19 @@ S3 · 公共课 · [M2 课程目录](../README.md) · [仓库首页](../../READM
 
 | 资源 | 格式 |
 |---|---|
-| [Lab1.ipynb](<Exercises/Lab1/Lab1.ipynb>)（第一节实验，含配套数据与图片） | IPYNB |
-| [作业一](<Exercises/Assignment1/README.md>)：题目[英文](<Exercises/Assignment1/Assignments1.ipynb>) · [中文](<Exercises/Assignment1/Assignments1_zh.ipynb>)，[六篇分题讲解](<Exercises/Assignment1/README.md#分题讲解>)（从前置知识讲起），AI 生成的[参考解答](<Exercises/Assignment1/Assignments1_solution.ipynb>)；另含点云数据与运行结果 | IPYNB / MD |
-| [Lab2.ipynb](<Exercises/Lab2/Lab2.ipynb>)：近邻分类、决策树、SVM 与维度灾难 | IPYNB / 配套图片 |
-| [Lab3.ipynb](<Exercises/Lab3/Lab3.ipynb>)：回归树、集成学习与异常检测 | IPYNB |
-| [Lab4.ipynb](<Exercises/Lab4/Lab4.ipynb>)：聚类方法与聚类评估 | IPYNB / 配套图片、MATLAB 示例 |
-| [Lab5.ipynb](<Exercises/Lab5/Lab5.ipynb>)：贝叶斯、图模型、聚类与 PCA（包内另附旧版） | IPYNB / 配套图片 |
-| [作业二：Assignments2.ipynb](<Exercises/Assignment2/Assignments2.ipynb>)：4 道练习 | IPYNB |
+| [Lab1 双语版](<Exercises/Lab1/Lab1_zh.ipynb>)（第一节实验，含配套数据与图片） | IPYNB |
+| [作业一](<Exercises/Assignment1/README.md>)：题目[英文](<Exercises/Assignment1/Assignments1.ipynb>) · [双语](<Exercises/Assignment1/Assignments1_zh.ipynb>)，[六篇分题讲解](<Exercises/Assignment1/README.md#分题讲解>)（从前置知识讲起），AI 生成的[双语参考解答](<Exercises/Assignment1/Assignments1_solution_zh.ipynb>)；另含点云数据与运行结果 | IPYNB / MD |
+| [Lab2 双语版](<Exercises/Lab2/Lab2_zh.ipynb>)：近邻分类、决策树、SVM 与维度灾难 | IPYNB / 配套图片 |
+| [Lab3 双语版](<Exercises/Lab3/Lab3_zh.ipynb>)：回归树、集成学习与异常检测 | IPYNB |
+| [Lab4 双语版](<Exercises/Lab4/Lab4_zh.ipynb>)：聚类方法与聚类评估 | IPYNB / 配套图片、MATLAB 示例 |
+| [Lab5 双语版](<Exercises/Lab5/Lab5_zh.ipynb>)：贝叶斯、图模型、聚类与 PCA（包内另附旧版） | IPYNB / 配套图片 |
+| [作业二双语版](<Exercises/Assignment2/Assignments2_zh.ipynb>)：4 道练习 | IPYNB |
 
 原始压缩包与下载记录：[2026-11-14 归档](<Sources/Exercises_2026-11-14/README.md>)。
 
 ### 课程讲义
 
-从分篇目录开始阅读：[第一课：机器学习导论](Lectures/01_intro_zh.md) · [第二课：线性模型与稀疏性](Lectures/02_LM_zh.md)。原课件正文、核心概念解释、例题和技术推导均采用英文在前、中文紧随的排版。
+从分篇目录开始阅读：[第一课：机器学习导论](Lectures/01_intro_zh.md) · [第二课：线性模型与稀疏性](Lectures/02_LM_zh.md)。全六讲的原课件正文、核心定理与概念补充解释、对比表格、例题和折叠技术推导均采用外文在前、中文紧随的逐段交替排版；原文中的法语保留法语，英语保留英语。
 
 | 资源 | 格式 |
 |---|---|

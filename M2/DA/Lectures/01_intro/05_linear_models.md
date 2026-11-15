@@ -34,7 +34,7 @@ Begin with a regression problem having one numerical feature t. We observe three
 
 先看只有一个数值特征 t 的回归问题。我们测得三个样本，希望用直线 $h(t)=\theta_0+\theta_1t$ 预测响应：
 
-| Sample i<br>样本 i | Feature $t_i$<br>特征 $t_i$ | Observed response $y_i$<br>观测响应 $y_i$ |
+| Sample i / 样本 i | Feature $t_i$ / 特征 $t_i$ | Observed response $y_i$ / 观测响应 $y_i$ |
 |---|---:|---:|
 | 1 | −1 | 1 |
 | 2 | 0 | 1 |
@@ -58,8 +58,9 @@ The calculation gives $\widehat\theta=(2,1.5)^T$, so the prediction rule is $\wi
 
 计算得到 $\widehat\theta=(2,1.5)^T$，所以预测规则是 $\widehat h(t)=2+1.5t$。三个训练点的预测分别为 0.5、2、3.5，与观测值之间的残差为 0.5、−1、0.5。对于新的输入 t=2，代入已学到的参数就得到预测值 5。
 
-<details>
-<summary>Calculation: where the parameters 2 and 1.5 come from<br>计算：参数 2 和 1.5 是怎样得到的</summary>
+**Calculation: where the parameters 2 and 1.5 come from**
+
+**计算：参数 2 和 1.5 是怎样得到的**
 
 Differentiate the residual sum of squares with respect to the parameters. The first-order condition gives the normal equations
 
@@ -82,12 +83,9 @@ The two equations are therefore $3\widehat\theta_0=6$ and $2\widehat\theta_1=3$,
 
 所以两个方程分别是 $3\widehat\theta_0=6$ 与 $2\widehat\theta_1=3$，解为 2 和 1.5。这也就是下面的逆矩阵公式；两列输入线性独立，因而 $\mathbf X^T\mathbf X$ 可逆。残差平方和为 $0.5^2+(-1)^2+0.5^2=1.5$，除以样本数得到训练均方误差 0.5。
 
-</details>
-
 Next express this process for general n samples and d input components. To discuss errors, distinguish the true parameter, the parameter estimated from data, and observation noise.
 
 下面把这一过程写成一般的 n 个样本、d 个输入分量的形式。为了讨论误差，还要进一步区分真实参数、由数据估计的参数，以及观测中的噪声。
-
 
 - True model : $h ^ { \ast } ( x ) = x ^ { T } \theta ^ { \ast }$ ,for some $\theta ^ { * } \in \mathbb { R } ^ { d }$
 
@@ -104,7 +102,6 @@ Next express this process for general n samples and d input components. To discu
 > **Note:** The slide places $\mathbf Y$ in $\mathbb R^d$. A response vector consistent with $\mathbf X\in\mathbb R^{n\times d}$ must instead belong to $\mathbb R^n$.
 
 > **译注：** 原页把 $\mathbf Y$ 写为 $\mathbb R^d$ 中的向量；与 $\mathbf X\in\mathbb R^{n\times d}$ 一致的响应向量应属于 $\mathbb R^n$。
-
 
 - Assumption : X is of full rank
 
@@ -162,8 +159,9 @@ The first identity describes parameter error; the second describes prediction er
 
 第一式描述参数误差，第二式描述固定输入 x 处的预测误差。接下来的方差计算，就是衡量右边的噪声经过这些矩阵运算后还剩多少波动。
 
-<details>
-<summary>Derivation: why fixed-input prediction variance involves an inverse matrix<br>推导：固定输入时，预测方差为什么含有逆矩阵</summary>
+**Derivation: why fixed-input prediction variance involves an inverse matrix**
+
+**推导：固定输入时，预测方差为什么含有逆矩阵**
 
 Fix a full-column-rank design matrix $\mathbf X$ and assume mean-zero noise with covariance $\sigma^2I$. Set $A=(\mathbf X^T\mathbf X)^{-1}\mathbf X^T$; the parameter error is $A\varepsilon$, with covariance
 
@@ -188,10 +186,7 @@ For the three samples above, $x=(1,t)^T$, which gives $\sigma^2(1/3+t^2/2)$. At 
 
 对上面的三个样本，$x=(1,t)^T$，代入得到 $\sigma^2(1/3+t^2/2)$。在 t=0 处是 $\sigma^2/3$，在 t=2 处是 $7\sigma^2/3$；同一组参数在不同输入位置上的预测稳定性并不相同。这里计算的是估计平均响应的方差，若预测独立的新观测，还需加上新观测本身的噪声方差。
 
-</details>
-
 <a id="variance-computation"></a>
-
 
 - Assumption : $\varepsilon \sim \mathcal { N } _ { n } ( 0 , \sigma ^ { 2 } I _ { n } )$ n-dimensional multivariate gaussian
 
@@ -204,7 +199,6 @@ For the three samples above, $x=(1,t)^T$, which gives $\sigma^2(1/3+t^2/2)$. At 
 $$
 \begin{array}{r l} \mathbb {E} _ {y | x} \mathbb {V} _ {n} (x ^ {T} \widehat {\theta} _ {n}) & = \mathbb {E} _ {y | x} \mathbb {E} _ {n} ((x ^ {T} (\mathsf {X} ^ {T} \mathsf {X}) ^ {- 1} \mathsf {X} ^ {T} \boldsymbol {\varepsilon}) ^ {2}) \\ & = x ^ {T} \mathbb {E} _ {n} ((\mathsf {X} ^ {T} \mathsf {X}) ^ {- 1} \mathsf {X} ^ {T} \mathbb {E} _ {y | x} (\boldsymbol {\varepsilon} \boldsymbol {\varepsilon} ^ {T}) \mathsf {X} ((\mathsf {X} ^ {T} \mathsf {X}) ^ {- 1}) ^ {T} x) \\ & = \sigma^ {2} x ^ {T} \mathbb {E} _ {n} ((\mathsf {X} ^ {T} \mathsf {X}) ^ {- 1}) x \end{array}
 $$
-
 
 - Assumption : random design $x , x _ { i } \sim \mathcal { N } ( 0 , 1 )$ IID
 
@@ -231,7 +225,6 @@ General argument relies on Cochran’s theorem (gaussian case).
 Property on the norm of projections of gaussian random vectors :
 
 高斯随机向量投影的范数性质：
-
 
 - Assume $\textsf { Z }$ is a gaussian random vector $ { \mathcal { N } } _ { n } ( 0 , I _ { n } )$ in $\mathbb { R } ^ { n }$ , $\mathcal { H }$ is a linear subspace of $\mathbb { R } ^ { n }$ and $\Pi : \mathbb { R } ^ { n }  \mathbb { R } ^ { n }$ a linear projection onto $\mathcal { H }$
 
@@ -272,7 +265,6 @@ This makes the earlier tradeoff concrete: more fitted directions permit richer v
 ### From gaussian linear regression to ML
 
 **从高斯线性回归到机器学习**
-
 
 - What if d larger than n ?
 

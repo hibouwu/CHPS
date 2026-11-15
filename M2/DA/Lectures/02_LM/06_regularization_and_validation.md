@@ -8,7 +8,6 @@
 
 **Elastic Net：兼得 LASSO 与 Ridge 的优点？**
 
-
 - Rationale (from [Zou and Hastie, 2005])
 
   动机（引自 Zou 与 Hastie，2005）：
@@ -28,7 +27,6 @@
 > **Note:** These statements are quoted in the slides from Zou and Hastie (2005). Without that paper's conditions, they cannot be interpreted as saying that every LASSO problem has no solution or has a nonunique solution.
 
 > **译注：** 以上是原课件引用 Zou 与 Hastie（2005）的论述，不能脱离该文的条件把它解释为所有 LASSO 问题都不存在解或都不唯一。
-
 
 - Combination of $\ell _ { 1 }$ and $\ell _ { 2 }$ penalties
 
@@ -65,7 +63,7 @@ The absolute-value penalty first applies soft thresholding, and the quadratic pe
 
 先由绝对值惩罚产生软阈值，再由二次惩罚进一步收缩。对 $\mathbf Y=(3,0.4,-2)^T$，取 $\lambda=2$、$\mu=1$，三种方法的结果为：
 
-| Method<br>方法 | Penalty in this example<br>本例采用的惩罚 | Estimated coefficients<br>估计系数 |
+| Method / 方法 | Penalty in this example / 本例采用的惩罚 | Estimated coefficients / 估计系数 |
 |---|---|---|
 | LASSO | $2\lVert\beta\rVert_1$ | $(2,0,-1)$ |
 | Ridge | $2\lVert\beta\rVert_2^2$ | $(1,0.4/3,-2/3)$ |
@@ -105,7 +103,6 @@ A curve leaving zero shows a feature entering the model. Related curves changing
 
 **超参数调整：交叉验证**
 
-
 - How do we select the parameters λ and $\mu ?$ These are called hyperparameters or smoothing parameters or regularization parameters.
 
   如何选择参数 λ 和 $\mu ?$？它们称为超参数、平滑参数或正则化参数。
@@ -132,7 +129,7 @@ For example, first hold out a final test set. Split the remaining nine developme
 
 例如，先留出最终测试集，把其余 9 条开发数据分成三折：第 1–3 条、第 4–6 条、第 7–9 条。对每个候选 $\lambda$，依次用其中两折拟合，在剩下一折计算平均平方误差，三次轮换后取平均。下面是一组说明计算过程的示意结果：
 
-| $\lambda$ | Fold 1 validation error<br>第 1 折验证误差 | Fold 2 validation error<br>第 2 折验证误差 | Fold 3 validation error<br>第 3 折验证误差 | Mean<br>平均 |
+| $\lambda$ | Fold 1 validation error / 第 1 折验证误差 | Fold 2 validation error / 第 2 折验证误差 | Fold 3 validation error / 第 3 折验证误差 | Mean / 平均 |
 |---:|---:|---:|---:|---:|
 | 0 | 0.92 | 1.10 | 0.98 | 1.00 |
 | 0.5 | 0.55 | 0.60 | 0.65 | 0.60 |
@@ -154,8 +151,9 @@ During cross-validation, each fold's means and standard deviations are estimated
 
 交叉验证时，每一折的均值、标准差都只从该折训练部分计算，再用于变换验证部分；选择超参数后，再在全部开发数据上重新拟合这些预处理量与模型。Pipeline 可以把预处理和回归放在同一套训练流程中。[交叉验证中的数据变换](https://scikit-learn.org/stable/modules/cross_validation.html#data-transformation-with-held-out-data)
 
-<details>
-<summary>Further detail: λ conventions and the cost of searching several hyperparameters<br>延伸：λ 的写法与多个超参数的搜索成本</summary>
+**Further detail: λ conventions and the cost of searching several hyperparameters**
+
+**延伸：λ 的写法与多个超参数的搜索成本**
 
 This lecture mainly uses $\mathrm{RSS}+\lambda P(\beta)$. Rewriting it as $\mathrm{RSS}/n+\lambda'P(\beta)$ requires $\lambda'=\lambda/n$ to represent the same problem. Software or textbooks may also put $1/2$ before squared loss, so inspect the full objective before comparing parameter values.
 
@@ -169,14 +167,11 @@ The split must also reflect the prediction task. Time series generally train on 
 
 划分方式也要符合预测任务。时间序列通常用过去训练、在后续时间验证；同一对象的多条关联观测可能需要按对象分组。这样验证过程才更接近将来真正使用模型的情形。
 
-</details>
-
 <a id="section-35"></a>
 
 ## Exercise Comparison of the three penalties
 
 **练习：比较三种惩罚**
-
 
 - Consider the following toy problem: $Y \sim { \mathcal { N } } _ { 1 } ( \beta ^ { * } , 1 )$ where $\beta$ is a real-valued parameter $( d = 1 )$
 
@@ -190,12 +185,9 @@ $$
 (\mathrm{i}) \frac {1}{2} (Y - \beta) ^ {2} + \lambda , (\mathrm{ii}) \frac {1}{2} (Y - \beta) ^ {2} + \lambda | \beta |, (\mathrm{iii}) \frac {1}{2} (Y - \beta) ^ {2} + \lambda \beta^ {2}
 $$
 
-
 - Show a plot of the estimators as functions of the unconstrained LSE and explain the use of the following terminology for the penalized procedures: hard thresholding, soft thresholding, shrinkage.
 
   以无约束最小二乘估计为自变量，画出这些估计量的函数图像，并解释惩罚估计过程中使用的术语：硬阈值、软阈值、收缩。
-
-
 
 <a id="reading-penalty-exercise"></a>
 
@@ -211,11 +203,11 @@ Let $\lambda>0$. The unpenalized least-squares solution is $Y$:
 
 令 $\lambda>0$，无惩罚的最小二乘解是 $Y$：
 
-| Penalty<br>惩罚 | Optimal estimate<br>最优估计 | Effect on the observation<br>对观测的作用 |
+| Penalty / 惩罚 | Optimal estimate / 最优估计 | Effect on the observation / 对观测的作用 |
 |---|---|---|
-| <span style="white-space: nowrap">$\lambda\mathbb I\{\beta\neq0\}$</span> | $\widehat\beta=Y\mathbb I\{\lvert Y\rvert>\sqrt{2\lambda}\}$; see below for the threshold boundary<br>$\widehat\beta=Y\mathbb I\{\lvert Y\rvert>\sqrt{2\lambda}\}$，阈值处见下文 | Small values become zero; large values stay unchanged: hard thresholding<br>小值归零，大值原样保留：硬阈值 |
-| <span style="white-space: nowrap">$\lambda\lvert\beta\rvert$</span> | $\widehat\beta=\operatorname{sign}(Y)(\lvert Y\rvert-\lambda)_+$ | Small values become zero; large values also move toward zero: soft thresholding<br>小值归零，大值也向零缩短：软阈值 |
-| <span style="white-space: nowrap">$\lambda\beta^2$</span> | $\widehat\beta=Y/(1+2\lambda)$ | Proportional reduction: shrinkage<br>按比例缩小：收缩 |
+| $\lambda\mathbb I\{\beta\neq0\}$ | $\widehat\beta=Y\mathbb I\{\lvert Y\rvert>\sqrt{2\lambda}\}$; see below for the threshold boundary / $\widehat\beta=Y\mathbb I\{\lvert Y\rvert>\sqrt{2\lambda}\}$，阈值处见下文 | Small values become zero; large values stay unchanged: hard thresholding / 小值归零，大值原样保留：硬阈值 |
+| $\lambda\lvert\beta\rvert$ | $\widehat\beta=\operatorname{sign}(Y)(\lvert Y\rvert-\lambda)_+$ | Small values become zero; large values also move toward zero: soft thresholding / 小值归零，大值也向零缩短：软阈值 |
+| $\lambda\beta^2$ | $\widehat\beta=Y/(1+2\lambda)$ | Proportional reduction: shrinkage / 按比例缩小：收缩 |
 
 At the hard-threshold boundary $|Y|=\sqrt{2\lambda}$, both $\widehat\beta=0$ and $\widehat\beta=Y$ attain the minimum. With $\lambda=1$, the three results are $3,2,1$ when $Y=3$, and $0,0,1/6$ when $Y=0.5$.
 
@@ -231,8 +223,9 @@ This exercise places $1/2$ before squared loss, so the LASSO threshold is $\lamb
 
 本题平方损失前有 $1/2$，所以 LASSO 阈值是 $\lambda$，Ridge 分母是 $1+2\lambda$。前面采用 $(z-b)^2$ 的例子对应阈值 $\lambda/2$ 和分母 $1+\lambda$；两处的差别来自目标函数中的比例。
 
-<details>
-<summary>Derivation: calculating hard thresholds, soft thresholds, and shrinkage<br>推导：硬阈值、软阈值和收缩分别怎样算出来</summary>
+**Derivation: calculating hard thresholds, soft thresholds, and shrinkage**
+
+**推导：硬阈值、软阈值和收缩分别怎样算出来**
 
 For the $\ell_0$ penalty, choosing $\beta=0$ gives objective $Y^2/2$. If a nonzero coefficient is retained, the best choice is $\beta=Y$, with objective $\lambda$. Comparing them shows that retention is worthwhile only when $Y^2/2>\lambda$. Both choices are optimal at equality; for $Y=0$, choose zero directly.
 
@@ -251,8 +244,6 @@ $$
 \quad\Longrightarrow\quad
 \widehat\beta=\frac{Y}{1+2\lambda}.
 $$
-
-</details>
 
 ---
 

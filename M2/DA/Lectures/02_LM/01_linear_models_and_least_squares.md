@@ -28,8 +28,9 @@ This lecture follows three questions: how to fit data within a chosen function f
 
 本讲沿着三个问题展开：怎样在选定的函数族中拟合数据；变量很多时，怎样限制解的复杂度；怎样保留线性模型的求解方法，同时表达非线性关系。损失函数衡量预测与目标的差异，惩罚项表达希望解具有的性质，训练则把这两方面合在一起求最优参数。
 
-<details>
-<summary>Further detail: how data contribute when labels arrive gradually<br>延伸：标签逐渐到来时，数据怎样参与学习</summary>
+**Further detail: how data contribute when labels arrive gradually**
+
+**延伸：标签逐渐到来时，数据怎样参与学习**
 
 Historical data may initially contain only inputs, with labels arriving later. Customer information can be recorded at application time while actual repayment outcomes emerge later; images can likewise be collected before receiving annotations. Available labels guide prediction and unlabeled data provide input-distribution information, together forming a semi-supervised setting.
 
@@ -43,10 +44,9 @@ Similarity methods find historical samples close to a new one. The linear method
 
 相似性方法会寻找与新样本接近的历史样本；本讲主要讨论的线性方法，则通过一个整体目标函数拟合参数。它们都需要说明什么叫“接近”或“预测得好”。把人群只用少数类别描述，与利用较丰富的个人历史进行预测，也对应不同的表示选择。
 
-</details>
+**Further detail: statistical models and prediction models**
 
-<details>
-<summary>Further detail: statistical models and prediction models<br>延伸：统计模型与预测模型的关系</summary>
+**延伸：统计模型与预测模型的关系**
 
 A statistical model is often a family of probability distributions, such as Gaussians with unknown means and variances. Estimating parameters describes the data distribution. A prediction task can instead select a decision function without first estimating the complete joint distribution. Squared-loss regression needs the conditional mean, for example, while binary decisions can compare class probabilities.
 
@@ -60,8 +60,6 @@ Optimization objectives can also be defined without human labels. Given a densit
 
 没有人工标签也可以定义优化目标。例如，给定密度族 $p_\theta$，可以最小化 $-\sum_i\log p_\theta(X_i)$。因此，“是否有标签”和“是否通过优化学习”是两个不同的问题。
 
-</details>
-
 <a id="section-02"></a>
 
 ## Supervised Machine Learning The bias-variance decomposition in Machine Learning
@@ -71,7 +69,6 @@ Optimization objectives can also be defined without human labels. Given a densit
 ### General setup Notations
 
 **一般设定与记号**
-
 
 - Goal of learning: an optimal decision function $h^*:\mathcal X\to\mathcal Y$. $\mathcal X$: domain set, $\mathcal Y$: label set.
 
@@ -92,7 +89,6 @@ $$
 of size n, where the $(X,Y)$ pairs are in $\mathcal X\times\mathcal Y$
 
 其大小为 n，其中各观测对 $(X,Y)$ 属于 $\mathcal X\times\mathcal Y$。
-
 
 - Hypothesis space: a collection $\mathcal H$ of candidate decision functions $h:\mathcal X\to\mathcal Y$
 
@@ -119,7 +115,6 @@ $h^*$ 是按选定损失衡量的总体最优函数，$\bar h$ 是限制在 $\ma
 All lines $a+bt$ form an infinite set, but they can still represent only straight lines. If the target relationship is a parabola, more data cannot make that family itself become parabolic: this is approximation error. Finite data can make the fitted result differ from the best line in the class: this is estimation error. The following identity separates these gaps. Optimality is relative to the loss and candidate set; unpredictable noise can leave even the optimal function with nonzero error. Existence of the relevant optimal functions is assumed here.
 
 所有直线 $a+bt$ 构成一个无限集合，却仍然只能画出直线。如果目标关系是一条抛物线，再多数据也不能让这个函数族本身变成抛物线。这对应近似误差；有限样本使拟合结果偏离类内最佳直线，则对应估计误差。下面的等式把这两种差距分开。“最优”以损失和候选范围为准；目标中存在不可预测的噪声时，最优函数也有非零误差。此处假定相应最优函数存在。
-
 
 - Denote by $L ( h )$ the error measure for any decision function h
 
@@ -151,7 +146,6 @@ Cybenko (1989) - Denseness result in the spirit of Stone-Weierstrass showing tha
 
 Cybenko（1989）：一个具有 Stone–Weierstrass 风格的稠密性结果，表明 sigmoid 与线性函数复合后所得函数的线性组合，在 d 维单位立方体上的连续函数空间中，关于上确界范数稠密。
 
-
 - Barron (1994) - Approximation error bound involves a parameter quantifying the smoothness of the target function.
 
   Barron（1994）：近似误差界包含一个刻画目标函数光滑程度的参数。
@@ -178,7 +172,6 @@ Cybenko（1989）：一个具有 Stone–Weierstrass 风格的稠密性结果，
 
 **统计学线性模型回顾：回归情形**
 
-
 - Goal of learning: $h^*:\mathbb R^d\to\mathbb R$
 
   学习目标：$h^*:\mathbb R^d\to\mathbb R$。
@@ -195,7 +188,6 @@ where $\varepsilon _ { i }$ is a random noise variable independent of $X$
 
 其中 $\varepsilon _ { i }$ 是与 $X$ 独立的随机噪声变量。
 
-
 - We shall use a vector notation as follows:
 
   下面使用如下向量记法：
@@ -207,7 +199,6 @@ $$
 where the three terms are all in $\mathbb { R } ^ { n }$
 
 其中三项都属于 $\mathbb { R } ^ { n }$。
-
 
 - Elements in $\mathbb { R } ^ { n }$ :
 
@@ -221,7 +212,6 @@ $$
 \varepsilon = \left(\varepsilon_ {1}, \dots , \varepsilon_ {n}\right) ^ {T}
 $$
 
-
 - Image vectors: for any $h \in \mathcal H$ , we use the bold characters as
 
   像向量：对任意 $h \in \mathcal H$，用粗体表示
@@ -229,7 +219,6 @@ $$
 $$
 \mathbf {h} = \left(h (X _ {1}), \dots , h (X _ {n})\right) ^ {T}
 $$
-
 
 - The image of data points through elements of $\mathcal { H }$ by
 
@@ -239,7 +228,6 @@ $$
 \mathcal {H} (X) = \left\{\mathbf {h} = \left(h \left(X _ {1}\right), \dots , h \left(X _ {n}\right)\right) ^ {T},: h \in \mathcal {H} \right\}
 $$
 
-
 - Norm in $\mathbb { R } ^ { n }$ :
 
   $\mathbb { R } ^ { n }$ 中的范数：
@@ -247,7 +235,6 @@ $$
 $$
 \forall u = \left(u _ {1}, \ldots , u _ {n}\right) ^ {T} \in \mathbb {R} ^ {n}, \| u \| ^ {2} = \sum_ {i = 1} ^ {n} u _ {i} ^ {2}
 $$
-
 
 - Definition of the LSE :
 
@@ -260,7 +247,6 @@ $$
 where ${ \mathcal { H } } ( X ) = \{ \boldsymbol { \mathsf { h } } = ( h ( X _ { 1 } ) , \ldots , h ( X _ { n } ) ) ^ { T } , : h \in { \mathcal { H } } \}$
 
 其中 ${ \mathcal { H } } ( X ) = \{ \boldsymbol { \mathsf { h } } = ( h ( X _ { 1 } ) , \ldots , h ( X _ { n } ) ) ^ { T } , : h \in { \mathcal { H } } \}$。
-
 
 - Assuming that the linear model is gaussian (i.e. the noise variables are IID and follow a centered gaussian distribution with fixed and known variance), then the LSE also corresponds to the Maximum Likelihood estimator.
 
@@ -278,7 +264,6 @@ Notations: $\boldsymbol { x } = ( \boldsymbol { x } ^ { ( 1 ) } , \ldots , \bold
 
 记号：$\boldsymbol { x } = ( \boldsymbol { x } ^ { ( 1 ) } , \ldots , \boldsymbol { x } ^ { ( d ) } ) ^ { T } \in \mathbb { R } ^ { d }$。
 
-
 - Linear regression: $\begin{array} { r } { h ( x ) = \sum _ { k = 1 } ^ { d } \beta _ { k } x ^ { ( k ) } } \end{array}$
 
   线性回归：$\begin{array} { r } { h ( x ) = \sum _ { k = 1 } ^ { d } \beta _ { k } x ^ { ( k ) } } \end{array}$。
@@ -294,8 +279,6 @@ Notations: $\boldsymbol { x } = ( \boldsymbol { x } ^ { ( 1 ) } , \ldots , \bold
 - Piecewise constant regression (taking into account breakpoints)
 
   分段常数回归（考虑分段点）。
-
-
 
 <a id="reading-linear-in-parameters"></a>
 
@@ -330,7 +313,6 @@ With Gaussian noise, the negative log-likelihood is a parameter-independent cons
 ## LSE in linear regression
 
 **线性回归中的最小二乘估计**
-
 
 - Denote by $\pmb { \mathsf { X } } \in \mathbb { R } ^ { n \times d }$ the data matrix and $\boldsymbol { \beta } \in \mathbb { R } ^ { d }$ the parameter to estimate
 
@@ -400,8 +382,9 @@ The residual is perpendicular to both columns, so adjusting the prediction along
 
 残差与两列都垂直，说明沿任何允许的模型方向调整预测，都不能再缩短到 $\mathbf Y$ 的距离。这正是正规方程 $\mathbf X^T(\mathbf Y-\mathbf X\widehat\beta)=0$ 的几何含义。这里的平面位于“每个坐标对应一条观测”的 $\mathbb R^3$，与原来画散点的 $(t,Y)$ 平面是两种表示。[最小二乘的几何解释](https://www.seas.ucla.edu/~vandenbe/133A/lectures/ls.pdf)
 
-<details>
-<summary>Derivation: why orthogonality guarantees a minimum<br>推导：正交条件为什么保证得到最小值</summary>
+**Derivation: why orthogonality guarantees a minimum**
+
+**推导：正交条件为什么保证得到最小值**
 
 Any other coefficient vector can be written $\widehat\beta+\Delta$, with residual $\mathbf r-\mathbf X\Delta$. Since $\mathbf r$ is orthogonal to the column space of $\mathbf X$,
 
@@ -417,8 +400,6 @@ If $\mathbf X$ has full column rank, equality holds only for $\Delta=0$, making 
 
 若 $\mathbf X$ 列满秩，只有 $\Delta=0$ 才能取等号，因此系数解唯一。正交投影矩阵还满足 $\widehat\Pi^T=\widehat\Pi$ 和 $\widehat\Pi^2=\widehat\Pi$：已经落在模型平面内的向量，再投影一次仍停留在原处。
 
-</details>
-
 <a id="section-05"></a>
 
 ## Proof of the LSE computation in linear models
@@ -429,7 +410,6 @@ $$
 \widehat {\beta} _ {\mathbf {n}} = \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} R (\beta) \text{其中} R (\beta) = \frac {1}{n} \| \mathbf {Y} - \mathbf {X} \beta \| ^ {2}
 $$
 
-
 - Gradient computation:
 
   计算梯度：
@@ -437,7 +417,6 @@ $$
 $$
 \frac {d}{d \beta} \left((\mathbf {Y} - \mathbf {X} \beta) ^ {T} (\mathbf {Y} - \mathbf {X} \beta)\right) = - 2 \mathbf {Y} ^ {T} \mathbf {X} + 2 \beta^ {T} \mathbf {X} ^ {T} \mathbf {X} \in \mathbb {R} ^ {1 \times d}
 $$
-
 
 - First-order condition for the minimizer of a convex function:
 
@@ -450,7 +429,6 @@ $$
 > **Note:** This line of the slides omits $\mathbf X$ after $\mathbf Y^T$. The first-order condition should be $-\mathbf Y^T\mathbf X+\beta^T\mathbf X^T\mathbf X=0$.
 
 > **译注：** 原课件该行漏了 $\mathbf Y^T$ 后的 $\mathbf X$。一阶条件应为 $-\mathbf Y^T\mathbf X+\beta^T\mathbf X^T\mathbf X=0$。
-
 
 - Final result: $\widehat { \beta } _ { \mathfrak { n } } = ( \mathsf { X } ^ { T } \mathsf { X } ) ^ { - 1 } \mathsf { X } ^ { T } \mathsf { Y }$
 
@@ -482,7 +460,6 @@ Here a linear system yields an explicit matrix formula, usually called a closed-
 
 **基于链式法则的另一种证明**
 
-
 - Let: $R ( \beta ) = \ell ( e ( \beta ) )$ where $\ell ( e ) = \| e \| ^ { 2 }$ and $\boldsymbol { e } ( \beta ) = \boldsymbol { \mathsf { Y } } - \boldsymbol { \mathsf { X } } \beta$
 
   设 $R ( \beta ) = \ell ( e ( \beta ) )$，其中 $\ell ( e ) = \| e \| ^ { 2 }$，且 $\boldsymbol { e } ( \beta ) = \boldsymbol { \mathsf { Y } } - \boldsymbol { \mathsf { X } } \beta$。
@@ -494,7 +471,6 @@ Here a linear system yields an explicit matrix formula, usually called a closed-
 $$
 \frac {d R}{d \beta} [ j ] = \sum_ {k = 1} ^ {n} \frac {\partial \ell}{\partial e} [ k ] \frac {\partial e}{\partial \beta} [ k, j ]
 $$
-
 
 - Note that: $\frac { \partial \ell } { \partial e } = 2 e ^ { T } \in \mathbb { R } ^ { 1 \times n }$ and $\frac { \partial e } { \partial \beta } = - { \pmb X } \in \mathbb { R } ^ { n \times d }$
 

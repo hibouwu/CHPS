@@ -38,7 +38,6 @@ When reading, first use a concrete problem to identify the objects, then return 
 
 **数据科学：信息、处理流程与决策**
 
-
 - Why ? Information –> Data –> Predictions, decisions, knowledge...
 
   为什么？信息 → 数据 → 预测、决策、知识……
@@ -65,10 +64,10 @@ Consider fall detection in a nursing home: floor pressure sensors produce signal
 
 以养老院的跌倒检测为例：地板中的压力传感器产生信号，微控制器处理信号，模型判断是否跌倒，护理人员接收警报并决定是否前去查看。电子工程师、算法开发者、机构工作人员和销售人员关注的约束不同；若各环节没有沟通，局部技术指标再好，也可能得不到有用的系统。
 
-| System decision and reality<br>系统的判断与现实 | Immediate consequence<br>直接后果 | Why include it in the objective?<br>为什么也要计入目标 |
+| System decision and reality / 系统的判断与现实 | Immediate consequence / 直接后果 | Why include it in the objective? / 为什么也要计入目标 |
 |---|---|---|
-| A fall occurs; no alarm<br>实际跌倒，系统没有报警 | Delayed assistance may cause further injury<br>援助延迟，可能造成进一步伤害 | Missed detections have a high cost<br>漏检的代价很高 |
-| No fall occurs; an alarm is raised<br>没有跌倒，系统却报警 | Repeated unnecessary staff responses<br>护理人员反复无效出动 | Persistent false alarms erode trust and can cause real alarms to be ignored<br>持续误报会削弱信任，使后续真实警报被忽视 |
+| A fall occurs; no alarm / 实际跌倒，系统没有报警 | Delayed assistance may cause further injury / 援助延迟，可能造成进一步伤害 | Missed detections have a high cost / 漏检的代价很高 |
+| No fall occurs; an alarm is raised / 没有跌倒，系统却报警 | Repeated unnecessary staff responses / 护理人员反复无效出动 | Persistent false alarms erode trust and can cause real alarms to be ignored / 持续误报会削弱信任，使后续真实警报被忽视 |
 
 Imagine a system producing 50 false alarms per hour. Even if the 51st alarm corresponds to a real fall, it may be ignored because of the preceding false alarms. This is alarm fatigue. The two kinds of error have different costs, but neither should be treated as entirely harmless. Later, [loss functions](06_empirical_and_true_risk.md#classroom-loss-cost) will express which errors matter more within a mathematical objective.
 
@@ -78,8 +77,7 @@ The objective also determines the timescale. Fall detection supports immediate a
 
 目标还决定时间尺度：跌倒检测服务于即时行动；长期随访研究可能希望在十年、二十年后积累对某类人群的知识。算法输出可以是检测、预测或知识线索，最终行动也可能由人来决定。
 
-<details>
-<summary>案例：数据湖、医院排班与“有数据却用不上”</summary>
+**案例：数据湖、医院排班与“有数据却用不上”**
 
 转录记录的数据湖案例有一个共同问题：项目投入了存储、索引、数据库和访问架构，却在集中收集数据之后才考虑用途。具体困难包括：缺少目标需要的字段；数据虽在库中，却难以提取；或者大量数据没有明确的使用目标。
 
@@ -89,18 +87,13 @@ The objective also determines the timescale. Fall detection supports immediate a
 
 “要测量什么”和“要获得什么知识”可以不同：视频中的变化可以作为提取生理信号的线索，长期人群观察则可能用于研究治疗效果或药物的不同用途。原转录提到的药物名称 Ozempic、Viagra 及具体用途属于口头旁例，本讲不据此给出药理、适应证或因果结论。
 
-</details>
-
-<details>
-<summary>讨论：数据访问、人是否参与、谁对结果负责</summary>
+**讨论：数据访问、人是否参与、谁对结果负责**
 
 数据来源可以是互联网，也可以是连接计算机的物理传感器。公开可见、技术上可取得和有权使用是不同问题；还需要考虑个人数据、访问权限和数据盗取，不能把“能下载”视作充分条件。
 
 人是否必须参与决策，可以通过一个思维实验来讨论：你是否愿意登上一架没有飞行员的飞机？判断涉及信任、事故风险、模拟器评价、硬件与软件可靠性、攻击和未预见情境，也涉及另一层代价：不采用可能改善结果的技术会怎样？这些是课堂思辨问题；转录中关于无人驾驶更安全、某次机场事故和医疗决策法律要求的说法没有在本讲核实，不能作为安全统计或现行法律结论。关键问题是：评价对象是什么，依据是什么，出现问题时有哪些相关方。
 
 转录还出现“90% 的人口”等随口数字，不作为技术前提。此处保留讨论问题与原文入口，避免将含混的数字或地域性口头判断写成普遍规则。
-
-</details>
 
 *来源：[转录 1](../01_part1.md) 第 35–262 行。*
 
@@ -109,7 +102,6 @@ The objective also determines the timescale. Fall detection supports immediate a
 ## The three pillars of data science
 
 **数据科学的三个支柱**
-
 
 1. Hardware : sensors, computing power, telecommunications, interfaces
 
@@ -141,19 +133,20 @@ It is also necessary to distinguish the existence of variables from the structur
 
 还要区分“变量存在”与“变量之间的结构”。
 
-| Data<br>数据 | Example<br>例子 | Structure to preserve<br>应保留的结构 |
+| Data / 数据 | Example / 例子 | Structure to preserve / 应保留的结构 |
 |---|---|---|
-| Attribute table<br>属性表 | Income, overdrafts, and other credit-application attributes<br>信贷申请中的收入、透支情况等 | Each column's meaning and units; update interpretation and model inputs when column order changes<br>每列的语义和单位；列顺序变更时要同步修改解释与模型输入 |
-| Time series<br>时间序列 | An account balance alternating between positive and negative each month<br>账户余额逐月正负交替 | Time order; moving positives before negatives turns regular cash flows into an apparent recent run of overdrafts<br>时间顺序；把正数全放前面、负数全放后面，会把规律性收支变成“最近连续透支” |
-| Image<br>图像 | Pixel grid and RGB channels<br>像素网格及 RGB 通道 | Pixel positions, spatial adjacency, and channel relationships<br>像素位置、空间邻接和通道关系 |
-| Relational data<br>关系数据 | Objects and their connections in a network<br>网络中的对象及其连接 | Which objects are connected, and what each connection means<br>哪些对象相连，以及连接的含义 |
+| Attribute table / 属性表 | Income, overdrafts, and other credit-application attributes / 信贷申请中的收入、透支情况等 | Each column's meaning and units; update interpretation and model inputs when column order changes / 每列的语义和单位；列顺序变更时要同步修改解释与模型输入 |
+| Time series / 时间序列 | An account balance alternating between positive and negative each month / 账户余额逐月正负交替 | Time order; moving positives before negatives turns regular cash flows into an apparent recent run of overdrafts / 时间顺序；把正数全放前面、负数全放后面，会把规律性收支变成“最近连续透支” |
+| Image / 图像 | Pixel grid and RGB channels / 像素网格及 RGB 通道 | Pixel positions, spatial adjacency, and channel relationships / 像素位置、空间邻接和通道关系 |
+| Relational data / 关系数据 | Objects and their connections in a network / 网络中的对象及其连接 | Which objects are connected, and what each connection means / 哪些对象相连，以及连接的含义 |
 
 Flattening an image into a vector in a fixed, reversible order does not itself lose pixel information: the image can be reconstructed if its dimensions and ordering are known. Problems arise when the positional mapping is lost or the algorithm fails to use spatial adjacency. This is the sense in which shuffling coordinates can destroy an image's structure. Likewise, columns in an ordinary attribute table cannot be arbitrarily exchanged at prediction time without updating the model's interpretation.
 
 图像按固定、可逆的顺序展平为向量，本身不会丢失像素信息；已知宽高和排列规则就能还原。问题在于丢失位置映射，或使用的算法没有利用空间邻接结构。“打乱坐标会破坏图像”应在这个意义上理解。同样，普通属性表也不能在预测时随意交换列而不通知模型。
 
-<details>
-<summary>Further detail: how the three pillars interact, and why computation alone is insufficient<br>延伸：三个支柱怎样分工，为什么“能算出来”还不够</summary>
+**Further detail: how the three pillars interact, and why computation alone is insufficient**
+
+**延伸：三个支柱怎样分工，为什么“能算出来”还不够**
 
 Hardware includes sensors, communications, and human interfaces as well as computers. Software environments support design, calibration, testing, and deployment, with dedicated tools such as MLOps for production and scaling. Algorithms can first be expressed in pseudocode, then implemented in a programming language and deployed. Writing a prediction program and establishing its reliability under stated conditions are different tasks.
 
@@ -166,8 +159,6 @@ Gaussian models illustrate the role of assumptions. Bell-shaped distributions si
 Exam grades provide an intuitive bell-shaped example, but bounded grades cannot strictly follow an unbounded Gaussian distribution. Transcript figures such as the brain handling 16 variables or five or six variables are oral illustrations of the difficulty of high-dimensional visualization, not quantitative conclusions about cognitive capacity.
 
 考试成绩被用作钟形分布的直觉例子，但有界成绩不严格服从取值无界的高斯分布。转录中关于人脑可处理“16 个变量”或“5、6 个变量”的数字，也只是帮助说明高维可视化困难的口头表述，不作为认知能力的定量结论。
-
-</details>
 
 *来源：[转录 1](../01_part1.md) 第 269–491 行。*
 
@@ -253,16 +244,13 @@ The two approaches can coexist in one system. Learned rules can sometimes be dif
 
 两类方式可以在一个系统中结合。机器学习规则有时难以解释，并且在远离训练数据的输入上可能给出不可靠预测；学习到了规律，不等于获得了对所有新情境都正确的知识。可解释程度取决于具体模型，不能把所有学习方法都一概视为无法解释。
 
-<details>
-<summary>旁例：对话系统、黑箱与责任</summary>
+**旁例：对话系统、黑箱与责任**
 
 固定应答、分支和模板也能制造“正在对话”的感觉，早期模拟心理咨询的规则式程序就是转录中的一个例子；客服、Siri 也出现在相关问答中。转录在 1964、1966 年间口头游移，还把早期程序称作“大型语言模型”；这里保留其历史类比，但早期规则式对话程序不能直接等同于现代 LLM。
 
 转录中关于复杂产品包含符号规则层的猜测，以及对黑箱解释能力的判断，都不能替代具体产品的证据。这里未据此断言某个闭源产品的内部构造，更不能由“产品细节不公开”推出“机器学习的运作原理完全不可知”。
 
 以汽车进入社会空间为类比：使用者、部署者、制造者等都可能涉及故障和责任问题，规则需要处理这些关系。录课时关于各地立法进展的评论保留在原转录中，不作为现行法规说明。外推风险、解释困难和责任分配是三个相关但不同的问题。
-
-</details>
 
 *来源：[转录 2](../01_part2.md) 第 1–67 行。*
 
@@ -278,13 +266,11 @@ The two approaches can coexist in one system. Learned rules can sometimes be dif
 
 **寻找一个函数**
 
-
 - Example : Pedestrian detection from video cameras
 
   例子：通过摄像机视频检测行人。
 
 ![image](<../Images/01_intro/image_004.jpg>)
-
 
 - What is the search space for such a function ?
 
@@ -326,7 +312,6 @@ Ask two questions in order: **Which class of functions may we search? How do we 
 
 **解决“偏差—方差”权衡**
 
-
 - Distance between solution provided by a learning method and the optimal solution (function) : sum of Approximation error and Estimation error
 
   学习方法给出的解与最优解（函数）之间的距离：近似误差与估计误差之和。
@@ -336,7 +321,6 @@ Hypothesis class H
 假设类 H
 
 ![image](<../Images/01_intro/image_005.jpg>)
-
 
 - Learning a function amounts to :
 
@@ -360,11 +344,11 @@ Following the three objects in the diagram is clearer than immediately memorizin
 
 沿着图中的三个对象读，会比直接记“偏差—方差”更清楚。
 
-| Object<br>对象 | Question answered<br>它回答什么问题 | Dependence on training data<br>对训练数据的依赖 |
+| Object / 对象 | Question answered / 它回答什么问题 | Dependence on training data / 对训练数据的依赖 |
 |---|---|---|
-| $h^*$ | If the true data mechanism were known, what would be best among all allowed decisions?<br>如果知道真实数据规律，在所有允许决策中什么最好？ | A theoretical reference, usually unknown<br>是理论参照，通常未知 |
-| $\bar h$ | Within the current class $\mathcal H$, which function has the best true performance?<br>限定在当前函数类 $\mathcal H$ 中，真实表现最好的是什么？ | A theoretical reference when distribution and class are fixed<br>在分布和函数类固定时是理论参照 |
-| $\widehat h$ | What was actually learned from this finite training set?<br>这一次用有限训练集实际学到了什么？ | Usually changes with a different training dataset<br>换一批训练数据，通常会改变 |
+| $h^*$ | If the true data mechanism were known, what would be best among all allowed decisions? / 如果知道真实数据规律，在所有允许决策中什么最好？ | A theoretical reference, usually unknown / 是理论参照，通常未知 |
+| $\bar h$ | Within the current class $\mathcal H$, which function has the best true performance? / 限定在当前函数类 $\mathcal H$ 中，真实表现最好的是什么？ | A theoretical reference when distribution and class are fixed / 在分布和函数类固定时是理论参照 |
+| $\widehat h$ | What was actually learned from this finite training set? / 这一次用有限训练集实际学到了什么？ | Usually changes with a different training dataset / 换一批训练数据，通常会改变 |
 
 If only straight lines are allowed but the ideal boundary is curved, even the best line may remain limited with abundant data: this is **approximation error**. Even when that best line is fixed, a finite sample may lead us to choose a different line: this is **estimation error**.
 

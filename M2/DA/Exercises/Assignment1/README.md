@@ -80,8 +80,8 @@ Kalogeratos 布置的第一次作业，共六题：RANSAC 与鲁棒估计、鲁�
 
 | 文件 | 说明 |
 |---|---|
-| [英文原题](Assignments1.ipynb) · [中文译本](Assignments1_zh.ipynb) | 题目；第1题配套[点云数据](cloud-of-points-data.mat)与[示意图](cloud-of-points-outliers.png) |
-| [英文解答](Assignments1_solution.ipynb) · [中文解答](Assignments1_solution_zh.ipynb) | 完整解答（第 1–6 题），含代码与运行输出，LLM 使用范围见其末尾的 Use of LLMs 说明 |
+| [英文原题](Assignments1.ipynb) · [双语题目](Assignments1_zh.ipynb) | 题目；第1题配套[点云数据](cloud-of-points-data.mat)与[示意图](cloud-of-points-outliers.png) |
+| [英文解答](Assignments1_solution.ipynb) · [双语解答](Assignments1_solution_zh.ipynb) | 完整解答（第 1–6 题），含代码与运行输出，LLM 使用范围见其末尾的 Use of LLMs 说明 |
 | [提交版 v1（第 1–3 题）](SHI_Jianye_Assignment1_v1/SHI_Jianye_Assignment1_v1.ipynb) · [压缩包 v1](SHI_Jianye_Assignment1_v1.zip) | 第一版提交文件（仅含第 1–3 题） |
 | [提交版 v2（第 1–6 题）](SHI_Jianye_Assignment1_v2/SHI_Jianye_Assignment1_v2.ipynb) · [压缩包 v2](SHI_Jianye_Assignment1_v2.zip) | 第二版完整提交文件（含第 1–6 题全部解答、配套数据及 `outputs/` 导出结果） |
 | [guide/](guide/) | 分题讲解；`guide/assets/` 是讲解引用的图片，均来自参考解答的输出 |

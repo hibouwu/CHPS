@@ -14,7 +14,6 @@
 
 **从非线性到线性：多项式回归例子**
 
-
 - Consider a polynomial regression in dimension $d = 2$ : this corresponds to a linear model of dimension $d ^ { \prime } = 7$ with feature vector:
 
   考虑维度为 $d = 2$ 的多项式回归：它对应一个维度为 $d ^ { \prime } = 7$ 的线性模型，特征向量为：
@@ -27,7 +26,6 @@ $$
 
 > **译注：** 原页写作 7 维，但所列特征向量只有 6 个分量；与该向量一致的维度应为 6。
 
-
 - Note that:
 
   注意：
@@ -35,7 +33,6 @@ $$
 $$
 \Phi (x) ^ {T} \Phi (x ^ {\prime}) = (x ^ {T} x ^ {\prime} + 1) ^ {2}
 $$
-
 
 - We call $K ( x , x ^ { \prime } ) = ( x ^ { T } x ^ { \prime } + 1 ) ^ { 2 }$ a polynomial kernel. A kernel has the property to be represented as a scalar product in a high dimensional feature space. The feature space is the image of the original input space of dimension d through Φ. The feature space can be of huge dimension.
 
@@ -73,7 +70,6 @@ If an algorithm only needs these inner products, the kernel can compute the resu
 ## The magic of kernels Kernel ridge regression
 
 **核的魔力：核岭回归**
-
 
 - In the linear case of ridge regression, we have seen that the only data-dependent quantities that matter in both problem formulation and evaluation of predictions are the pairwise scalar products of $X _ { i } ^ { T } X _ { j }$ and $x ^ { T } X _ { i }$
 
@@ -134,8 +130,9 @@ At new input $x=2$, the prediction is $-1/9+2\times9/9=17/9$. Solving only a two
 
 在新输入 $x=2$ 处，预测值是 $-1/9+2\times9/9=17/9$。求解过程只是一个两元线性系统，得到的函数却对原始输入呈二次关系。正的正则化强度允许训练点上保留残差，因此这里没有要求曲线穿过两个观测。[核岭回归](https://scikit-learn.org/stable/modules/kernel_ridge.html)
 
-<details>
-<summary>Derivation: the kernel-space penalty and conditions for a valid kernel<br>推导：核空间里的惩罚是什么，怎样判断核是否合适</summary>
+**Derivation: the kernel-space penalty and conditions for a valid kernel**
+
+**推导：核空间里的惩罚是什么，怎样判断核是否合适**
 
 Let the explicit feature matrix be $\mathbf\Phi$ and perform Ridge in that space:
 
@@ -169,14 +166,11 @@ This condition makes $\mathbf K+\lambda I_n$ invertible for $\lambda>0$. An arbi
 
 这个条件让 $\mathbf K+\lambda I_n$ 在 $\lambda>0$ 时可逆。任意人为设计的“相似度”不一定满足它；核方法所用的相似关系需要符合这种内积结构。
 
-</details>
-
 <a id="section-38"></a>
 
 ## Examples of basic kernels
 
 **基本核的例子**
-
 
 - Linear: $\operatorname { K } ( \mathbf { x } , \mathbf { z } ) = \mathbf { x } \cdot z$
 
@@ -218,7 +212,6 @@ $$
 \begin{array}{l} d _ {K} \left(\mathbf {x} _ {1}, \mathbf {x} _ {2}\right) ^ {2} = \| \Phi \left(\mathbf {x} _ {1}\right) - \Phi \left(\mathbf {x} _ {2}\right) \| _ {\mathcal {H}} ^ {2} \\ \qquad = \langle \Phi \left(\mathbf {x} _ {1}\right) - \Phi \left(\mathbf {x} _ {2}\right), \Phi \left(\mathbf {x} _ {1}\right) - \Phi \left(\mathbf {x} _ {2}\right) \rangle_ {\mathcal {H}} \\ \qquad = \langle \Phi \left(\mathbf {x} _ {1}\right), \Phi \left(\mathbf {x} _ {1}\right) \rangle_ {\mathcal {H}} + \langle \Phi \left(\mathbf {x} _ {2}\right), \Phi \left(\mathbf {x} _ {2}\right) \rangle_ {\mathcal {H}} - 2 \langle \Phi \left(\mathbf {x} _ {1}\right), \Phi \left(\mathbf {x} _ {2}\right) \rangle_ {\mathcal {H}} \\ d _ {K} (\mathbf {x} _ {1}, \mathbf {x} _ {2}) ^ {2} = K (\mathbf {x} _ {1}, \mathbf {x} _ {1}) + K (\mathbf {x} _ {2}, \mathbf {x} _ {2}) - 2 K (\mathbf {x} _ {1}, \mathbf {x} _ {2}) \end{array}
 $$
 
-
 - Specific kernels have been design to process structured data such as strings (text, DNA sequence...)
 
   为处理字符串（文本、DNA 序列等）这样的结构化数据，人们设计了专门的核。
@@ -231,18 +224,13 @@ Kernel definition
 
 核的定义
 
-
 - The 3-spectrum of $\mathbf{x} = \text{CGGSLIAMMWFGV}$ is: (CGG, GGS, GSL, SLI, LIA, IAM, AMM, MMW, MWF, WFG, FGV) .
 
   $\mathbf{x} = \text{CGGSLIAMMWFGV}$ 的 3-spectrum（长度为 3 的子串谱）是：(CGG, GGS, GSL, SLI, LIA, IAM, AMM, MMW, MWF, WFG, FGV)。
 
-
 - Let $\Phi_u(\mathbf{x})$ denote the number of occurrences of $u$ in $\mathbf{x}$ . The $k$ -spectrum kernel is: $K(\mathbf{x}, \mathbf{x}') := \sum_{u \in A^k} \Phi_u(\mathbf{x}) \Phi_u(\mathbf{x}')$ .
 
   令 $\Phi_u(\mathbf{x})$ 表示 $u$ 在 $\mathbf{x}$ 中的出现次数。$k$-spectrum 核定义为 $K(\mathbf{x}, \mathbf{x}') := \sum_{u \in A^k} \Phi_u(\mathbf{x}) \Phi_u(\mathbf{x}')$。
-
-
-
 
 > **Note:** The slide calls this a DNA example, but the string includes characters outside the four-letter DNA alphabet. The original example is retained without changing the kernel's counting definition.
 
@@ -276,7 +264,6 @@ This representation retains local order within fragments of the chosen length, b
 ## Kernel machine learning estimation Is it doable?
 
 **核机器学习估计：可行吗？**
-
 
 - Nice modeling properties of kernel functions
 
@@ -314,7 +301,6 @@ Returning to the two representations, linear Ridge can choose a solution method 
 
 **惩罚优化：还有哪些变体？**
 
-
 - Until now: hypothesis class with linear functions $h \in \mathcal H$ and variations on the penalties
 
   到目前为止：由线性函数 $h \in \mathcal H$ 构成的假设类，以及不同的惩罚项。
@@ -322,7 +308,6 @@ Returning to the two representations, linear Ridge can choose a solution method 
 $$
 \text{准则} (h) = \text{训练误差} (h) + \lambda \text{惩罚项} (h)
 $$
-
 
 - From now on: play with other losses affects the Training error
 
@@ -376,7 +361,6 @@ All these methods can still use regularization, feature transformations, and val
 
 这些方法都可以继续配合正则化、特征变换和验证流程。改变损失，是在改变任务中如何评价预测；改变惩罚，是在改变对解的结构与复杂度的要求。
 
-
 - Other tasks: linear models for classification
 
   其他任务：用于分类的线性模型。
@@ -391,15 +375,13 @@ All these methods can still use regularization, feature transformations, and val
 
 <a id="reading-sources"></a>
 
-<details>
-<summary>来源与阅读说明</summary>
+**来源与阅读说明**
 
 正文以原课件的完整中文译文为骨架，例子、练习、重复正文、公式、图表及文献均保留；图中文字保留原图语言。原课件错误与必要辨析在相应位置说明。课堂解释已融入概念所在段落，手算例子用于把定义与运算联系起来。
 
 原始课堂记录：[转录 1](../02_part1.md)、[转录 2](../02_part2.md)、[转录 3](../02_part3.md)。重复口头表达、课间安排、个人经历和未采用的旁支讨论仍可在原始记录中查阅，具体去向见[本讲整合与核对记录](../Translation-audit/02_LM_classroom_integration.md)。
 
 外部材料按问题选用：
-
 
 - [UCLA：Least squares](https://www.seas.ucla.edu/~vandenbe/133A/lectures/ls.pdf)：投影与最小二乘。
 
@@ -416,8 +398,6 @@ All these methods can still use regularization, feature transformations, and val
 - [Friedman、Hastie、Tibshirani：Group LASSO 与 Sparse Group LASSO](https://arxiv.org/abs/1001.0736)：组稀疏与组内稀疏的区别。
 
 - [Raissi、Perdikaris、Karniadakis：物理信息学习](https://arxiv.org/abs/1711.10561)：把方程信息加入学习目标的延伸阅读。
-
-</details>
 
 ---
 

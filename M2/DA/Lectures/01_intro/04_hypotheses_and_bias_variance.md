@@ -14,7 +14,6 @@
 
 **一般设定与记号**
 
-
 - Goal of learning : an optimal decision function $h ^ { * } : \mathcal { X } \to \mathcal { Y }$ $\mathcal { X }$ : domain set, Y : label set
 
   学习目标：最优决策函数 $h ^ { * } : \mathcal { X } \to \mathcal { Y }$。$\mathcal { X }$ 是定义域集合，Y 是标签集合。
@@ -34,7 +33,6 @@ $$
 of size n, where the $( X , Y ) ^ { \prime }$ s are in $\mathcal { X } \times \mathcal { V }$
 
 其大小为 n，其中各 $( X , Y ) ^ { \prime }$ 属于 $\mathcal { X } \times \mathcal { V }$。
-
 
 - Hypothesis space : a collection $\mathcal { H }$ of candidate decision functions $h : \mathcal { X }  \mathcal { Y }$
 
@@ -73,7 +71,6 @@ $h^*$、$\bar h$、$\widehat h$ 的含义见前面的[对照表](01_data_and_lea
 ### The key trade-off in Machine Learning
 
 **机器学习中的关键权衡**
-
 
 - Denote by $L ( h )$ the error measure for any decision function h
 
@@ -118,7 +115,6 @@ With the distribution and candidate class fixed, the approximation term is fixed
 ### About approximation error
 
 **关于近似误差**
-
 
 - Cybenko (1989) - Denseness result in the spirit of Stone-Weierstrass showing that any linear combination of compositions of sigmoid with linear functions is dense wrt the supremum norm in the space of continuous functions over the d-dimensional unit cube.
 
@@ -190,7 +186,6 @@ $\widehat { \theta } _ { n }$ is an estimator of $\theta ^ { * }$ based on a sam
 
 $\widehat { \theta } _ { n }$ 是基于大小为 n 的样本对 $\theta ^ { * }$ 作出的估计量。
 
-
 - Mean-squared error decomposition :
 
   均方误差分解：
@@ -221,8 +216,9 @@ Bias compares the mean of these estimates with the true parameter; variance desc
 
 偏差比较“这些估计的平均值”和真实参数；方差描述各次估计围绕其平均值的波动。某个方法平均位置很准，却每次都大幅波动，仍可能有较大均方误差；另一个方法略有系统偏移，却更稳定，均方误差反而可能更小。这也解释了为什么允许适度偏差的正则化值得考虑。
 
-<details>
-<summary>Derivation: why the cross term is zero<br>推导：交叉项为什么为零</summary>
+**Derivation: why the cross term is zero**
+
+**推导：交叉项为什么为零**
 
 First consider a scalar parameter and write $\mu=\mathbb E[\widehat\theta_n]$. Add and subtract the same value $\mu$:
 
@@ -247,8 +243,6 @@ The last term is zero because $\mu-\theta^*$ is fixed and $\mathbb E[\widehat\th
 
 最后一项等于零，因为 $\mu-\theta^*$ 是固定数，而 $\mathbb E[\widehat\theta_n-\mu]=0$。剩下的就是方差加平方偏差。这里要求相关二阶矩存在。
 
-</details>
-
 *来源：[转录 3](../01_part3.md) 第 416–449 行。*
 
 <a id="prediction-error"></a>
@@ -256,7 +250,6 @@ The last term is zero because $\mu-\theta^*$ is fixed and $\mathbb E[\widehat\th
 ### The case of prediction error in ML
 
 **机器学习中预测误差的情形**
-
 
 - Observations : scalar Y, d-dimensional covariate vectors X
 

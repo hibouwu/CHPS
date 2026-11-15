@@ -16,7 +16,6 @@ Practical methods for model selection are essentially greedy heuristics consisti
 
 实用的模型选择方法主要是贪心启发式方法，每次增加和／或移除一个变量，以探索整个模型空间的一部分；整个模型空间的规模随维度呈指数增长。例子包括前向逐步回归、前向—后向算法等。
 
-
 - Question: would it be possible to solve the optimization wrt the unknown parameter $\beta$ AND wrt to its support subset of indices jointly?
 
   问题：是否能够同时针对未知参数 $\beta$ 及其支撑索引子集进行优化？
@@ -24,8 +23,6 @@ Practical methods for model selection are essentially greedy heuristics consisti
 - Answer is yes at the cost of the so-called relaxation of the non-convex formulation with the $\ell _ { 0 }$ penalty to a convexified problem with an $\ell _ { 1 }$ penalty.
 
   答案是肯定的，代价是进行所谓的松弛：把带 $\ell _ { 0 }$ 惩罚的非凸表述替换为带 $\ell _ { 1 }$ 惩罚的凸化问题。
-
-
 
 <a id="reading-greedy-and-convexity"></a>
 
@@ -45,7 +42,6 @@ Replacing $\ell_0$ by $\ell_1$ changes the optimization problem itself. Squared 
 
 **线性模型的 LASSO：从 $\ell _ { 0 }$ 到 $\ell _ { 1 }$**
 
-
 - Consider the relaxation of the previous problem replacing the $\ell _ { 0 } - \mathsf { n o r m }$ by the $\ell _ { 1 } { \mathrm { - } } \mathsf { n o r m }$
 
   考虑对前述问题作松弛，用 $\ell _ { 1 } { \mathrm { - } } \mathsf { n o r m }$ 替代 $\ell _ { 0 } - \mathsf { n o r m }$。
@@ -53,7 +49,6 @@ Replacing $\ell_0$ by $\ell_1$ changes the optimization problem itself. Squared 
 $$
 \| \beta \| _ {1} = \sum_ {j = 1} ^ {d} | \beta_ {j} |
 $$
-
 
 - The new estimator is called the ${ \mathsf { L } } { \mathsf { A } } { \mathsf { S } } { \mathsf { S } } { \mathsf { O } }$ : for any $\lambda > 0$
 
@@ -63,13 +58,11 @@ $$
 \widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \| \beta \| _ {1} \right\}
 $$
 
-
 - Approximate solutions via efficient algorithms building the so-called regularization paths $\lambda  \widehat { \beta } _ { \lambda }$
 
   通过构建所谓正则化路径 $\lambda  \widehat { \beta } _ { \lambda }$ 的高效算法求近似解。
 
 ![image](<../Images/02_LM/image_005.jpg>)
-
 
 - Theoretical soundness: it can be shown that: as $n , d \to \infty$
 
@@ -123,8 +116,9 @@ Geometrically, the two-dimensional $\ell_1$ constraint set is a diamond with cor
 
 从几何上看，二维 $\ell_1$ 约束集是带尖角的菱形，角点落在坐标轴上，优化时容易在这样的地方接触到损失等高线；坐标落在轴上，就意味着一个系数为零。系数路径则展示了改变 $\lambda$ 时，这些坐标怎样进入或离开解。[LASSO 与系数路径](https://cs229.stanford.edu/notes2021fall/lecture10-lasso-regression.pdf)
 
-<details>
-<summary>Derivation: optimality at zero and log d in the theoretical bound<br>推导：零点的最优条件，以及理论界中的 log d</summary>
+**Derivation: optimality at zero and log d in the theoretical bound**
+
+**推导：零点的最优条件，以及理论界中的 log d**
 
 $|b|$ is not differentiable at zero, but its subgradient there is the interval $[-1,1]$. Zero is optimal when
 
@@ -150,14 +144,11 @@ The prediction-error bound in the main text expresses dimension dependence throu
 
 正文所列预测误差界，把维度依赖写成 $\sqrt{\log d/n}$。例如 $d=n^3$ 时，$\log d/n=3\log n/n\to0$，即使变量数超过样本数，这一因子仍可能趋于零。要让整项误差界变小，还要控制 $\|\beta^*\|_1$，并满足相应设计矩阵归一化、噪声及 $\lambda$ 选择条件；常数 $C$ 也包含模型假设的信息。预测误差小与准确恢复每个非零系数的支撑集，是不同的结论。
 
-</details>
-
 <a id="section-23"></a>
 
 ## The ”mother” of ML algorithms Penalized optimization
 
 **机器学习算法之“母”：惩罚优化**
-
 
 - Learning process as the optimization of a data-dependent criterion:
 
@@ -166,7 +157,6 @@ The prediction-error bound in the main text expresses dimension dependence throu
 Criterion(h) = Training error(h) + λ Penalty(h)
 
 准则(h) = 训练误差(h) + λ 惩罚(h)。
-
 
 - Training error: data-fitting term related to a loss function
 
@@ -194,8 +184,9 @@ $\lambda$ controls the penalty's contribution to the objective; the learning rat
 
 $\lambda$ 控制惩罚在目标中的分量；学习率控制数值算法每一步怎样更新参数。改变 $\lambda$ 会改变要求解的问题，改变学习率主要影响怎样到达这个问题的解。标准化则是在拟合前调整特征的尺度，三者各有作用。
 
-<details>
-<summary>Example: how a zero-training-error curve changes for the same three points<br>例子：同样三个点，训练误差为零的曲线怎样变化</summary>
+**Example: how a zero-training-error curve changes for the same three points**
+
+**例子：同样三个点，训练误差为零的曲线怎样变化**
 
 For the three points above, the line $\widehat h(t)=2+1.5t$ has residual sum of squares $1.5$. The quadratic $q(t)=1+1.5t+1.5t^2$ passes through all three, with zero training residual. Yet at $t=2$ their predictions are $5$ and $10$, respectively. Those three observations alone do not establish which extrapolates better.
 
@@ -205,10 +196,9 @@ Now change the middle response from $1$ to $1+\Delta$. After refitting, the line
 
 现在把中间的响应从 $1$ 改成 $1+\Delta$。重新拟合后，直线在 $t=2$ 处的预测变为 $5+\Delta/3$，插值二次曲线的预测变为 $10-3\Delta$。在这个位置，后者把同一个观测扰动放大得更多。这个计算说明模型灵活性怎样让有限样本中的波动进入预测；是否发生过拟合，还要通过未参与拟合的数据来判断。
 
-</details>
+**Further detail: regularization beyond explicit penalties**
 
-<details>
-<summary>Further detail: regularization beyond explicit penalties<br>延伸：显式惩罚以外的正则化思路</summary>
+**延伸：显式惩罚以外的正则化思路**
 
 Applying suitable small input perturbations while requiring reasonable predictions is another way to limit excessive dependence on details. Dropout randomly masks units during training so that the model cannot always rely on one fixed cooperation path. Like this lecture's methods, these approaches restrict how training samples are used. Their effects depend on the task, perturbations, and training procedure; adding arbitrary noise does not automatically improve learning.
 
@@ -217,8 +207,6 @@ Applying suitable small input perturbations while requiring reasonable predictio
 Structure selection and parameter estimation can also interact, for example by exploring submodels during training. Linear models and explicit penalties first make this relation an optimization problem that can be analyzed directly.
 
 结构选择和参数估计也可以相互影响，例如在训练中探索不同的子模型。这里先用线性模型和明确的惩罚项，把这种关系写成可以直接分析的优化问题。
-
-</details>
 
 <a id="section-24"></a>
 
@@ -235,7 +223,6 @@ Structure selection and parameter estimation can also interact, for example by e
 ### The simplest structured penalty Group LASSO
 
 **最简单的结构化惩罚：Group LASSO**
-
 
 - Group structure on the parameter $\beta ^ { * }$ : let G the number of groups of subsets of indices in $\{ 1 , \ldots , d \}$ and, for $g = 1 , \ldots , G$ , we denote by $\mathbf { \boldsymbol { x } } ( \bar { g } )$ the submatrix of X with variables in group $\boldsymbol { g }$ and by $\beta ^ { ( g ) }$ the coefficient vector applied to variables in group $\boldsymbol { g }$ and $d _ { g }$ is the size of group g.
 
@@ -269,8 +256,9 @@ It therefore encourages sparsity between groups, without specifically encouragin
 
 因此，它鼓励“组间稀疏”，不会专门鼓励每个非零组内部也很稀疏；一个组被保留，也不意味着其中每个系数都被强制设为非零。课件中的 $\sqrt{d_g}$ 用来调整不同组大小的惩罚权重，而组内采用的是 $\ell_2$ 范数，保留外面的平方根。
 
-<details>
-<summary>Further detail: selecting both groups and variables within groups<br>延伸：怎样同时选择组和组内变量</summary>
+**Further detail: selecting both groups and variables within groups**
+
+**延伸：怎样同时选择组和组内变量**
 
 For disjoint groups covering all variables, directly replacing the within-group $\ell_2$ norm with $\ell_1$ gives
 
@@ -293,9 +281,6 @@ This combination is called Sparse Group LASSO. [Original discussion by Friedman,
 
 这种组合称为 Sparse Group LASSO。[Friedman、Hastie 与 Tibshirani 的原文说明](https://arxiv.org/abs/1001.0736)
 
-</details>
-
-
 - Enforcing temporal coherence leads to adding a penalty term:
 
   强制时间上的一致性，会引入如下惩罚项：
@@ -303,8 +288,6 @@ This combination is called Sparse Group LASSO. [Original discussion by Friedman,
 $$
 \widehat {\beta} _ {\lambda} \in \underset {\beta \in \mathbb {R} ^ {d}} {\arg \min} \left\{\| \mathbf {Y} - \mathbf {X} \beta \| ^ {2} + \lambda \| \beta \| _ {1} + \mu \sum_ {j = 2} ^ {d} | \beta_ {j} - \beta_ {j - 1} | \right\}
 $$
-
-
 
 <a id="reading-fused-lasso"></a>
 
@@ -329,8 +312,9 @@ Both have three nonzero coefficients and $\ell_1$ norm $9$, but their sums of ab
 
 两者都有三个非零系数，$\ell_1$ 范数也都是 $9$，但相邻差分绝对值之和分别为 $6$ 和 $15$。在拟合项相同的情况下，新的惩罚更偏好连续成段的 A。$\lambda$ 调节系数本身向零收缩的程度，$\mu$ 调节相邻跳变的代价，从而鼓励一段一段保持相同系数。
 
-<details>
-<summary>Further detail: expressing prior knowledge in the optimization objective<br>延伸：把已有知识写进优化目标</summary>
+**Further detail: expressing prior knowledge in the optimization objective**
+
+**延伸：把已有知识写进优化目标**
 
 Groups and adjacency are modeling knowledge. Similarly, if a candidate function should satisfy a physical equation, substitute it into that equation, compute the equation residual, and minimize that residual together with data-fitting error. Physics-informed neural networks use this kind of approach. [Related research](https://arxiv.org/abs/1711.10561)
 
@@ -339,8 +323,6 @@ Groups and adjacency are modeling knowledge. Similarly, if a candidate function 
 First decide which relationships a solution should obey, then consider how to solve the resulting optimization problem. Penalizing violations with a finite weight usually defines a soft constraint. Exact satisfaction requires appropriate constraints or structural design. Data noise, equation approximations, and their relative weights all affect the resulting solution.
 
 建模时首先要决定希望解遵守什么关系，再考虑如何求解相应优化问题。用有限权重惩罚违反关系的程度，通常表达的是软约束；若要求某种关系严格成立，还需要合适的约束或结构设计。数据噪声、方程近似和两者的权重都会影响最后得到的解。
-
-</details>
 
 ---
 

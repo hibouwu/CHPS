@@ -20,7 +20,6 @@ The comparison is between estimated and true means, not directly against trainin
 
 这里比较的是“估计出的均值”和“真实均值”，不是直接比较训练标签。若要预测相同输入位置上另一组独立、同方差的新标签，平均平方预测误差还会多出不可约噪声 $\sigma^2$。预测任意新输入时，也要结合新输入的分布，不能把本节的 $d/n$ 直接当成所有测试误差的公式。
 
-
 - Model: $\pmb { \mathsf { Y } } = \pmb { \mathsf { h } } ^ { * } + \varepsilon \in \mathbb { R } ^ { n }$
 
   模型：$\pmb { \mathsf { Y } } = \pmb { \mathsf { h } } ^ { * } + \varepsilon \in \mathbb { R } ^ { n }$。
@@ -41,7 +40,6 @@ $$
 
 **偏差—方差分解（1/2）：推导**
 
-
 - First note that: $\widehat { \mathbf { h } } _ { \mathbf { n } } = \widehat { \Pi } \mathbf { Y } = \widehat { \Pi } ( \mathbf { h } ^ { * } + \varepsilon )$ and then
 
   首先注意到 $\widehat { \mathbf { h } } _ { \mathbf { n } } = \widehat { \Pi } \mathbf { Y } = \widehat { \Pi } ( \mathbf { h } ^ { * } + \varepsilon )$，于是
@@ -50,7 +48,6 @@ $$
 \mathbf {h} ^ {*} - \widehat {\mathbf {h}} _ {\mathfrak {n}} = (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} - \widehat {\Pi} \varepsilon
 $$
 
-
 - Note that $\widehat { \Pi } : \mathbb { R } ^ { n } \to \mathbb { R } ^ { n }$ the orthogonal projection onto $\mathcal { H } ( X )$
 
   注意，$\widehat { \Pi } : \mathbb { R } ^ { n } \to \mathbb { R } ^ { n }$ 是到 $\mathcal { H } ( X )$ 上的正交投影。
@@ -58,7 +55,6 @@ $$
 $$
 \widehat {\Pi} \circ \widehat {\Pi} = \widehat {\Pi}
 $$
-
 
 - By orthogonality of the images of $I _ { n } - { \widehat { \Pi } }$ and $\widehat { \Pi } .$ :
 
@@ -72,7 +68,6 @@ $$
 
 **偏差—方差分解（2/2）：结果**
 
-
 - Using an additional technical result (next slide):
 
   利用一个额外的技术结果（见下一页）：
@@ -80,7 +75,6 @@ $$
 $$
 \begin{array}{r l} & L (\widehat {h} _ {n}) = \frac {1}{n} \mathbb {E} \big (\| \mathbf {h} ^ {*} - \widehat {\mathbf {h}} _ {\mathbf {n}} \| ^ {2} \big) \\ & \quad = \frac {1}{n} \mathbb {E} \big (\| (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} \| ^ {2} + \| \widehat {\Pi} \varepsilon \| ^ {2} \big) \\ & \quad = \underbrace {\frac {1}{n} \mathbb {E} \big (\| (I _ {n} - \widehat {\Pi}) \mathbf {h} ^ {*} \| ^ {2} \big)} _ {\text{偏差}} + \underbrace {\sigma^ {2} \frac {d}{n}} _ {\text{方差}} \end{array}
 $$
-
 
 - Used in model selection (e.g. AIC = Akaike Information Criterion)
 
@@ -93,7 +87,6 @@ $$
 Property on the norm of projections of gaussian random vectors:
 
 高斯随机向量投影的范数性质：
-
 
 - Assume $\mathbf { Z }$ is a gaussian random vector $ { \mathcal { N } _ { n } } ( 0 ,  { I _ { n } } )$ in $\mathbb { R } ^ { n }$ , H is a linear subspace of $\mathbb { R } ^ { n }$ and $\Pi : \mathbb { R } ^ { n }  \mathbb { R } ^ { n }$ a linear projection onto $\mathcal { H }$
 
@@ -129,8 +122,9 @@ For a model of rank $d$, each orthogonal direction contributes average noise ene
 
 对于秩为 $d$ 的模型，每个正交方向贡献平均 $\sigma^2$ 的噪声能量，合计 $d\sigma^2$，再除以 $n$ 就是 $\sigma^2d/n$。在三个点的直线例子中，有常数方向和斜率方向两个自由方向，因此这一项为 $2\sigma^2/3$。若只拟合一个常数，则变成 $\sigma^2/3$，代价是可能无法表示真正的变化趋势。
 
-<details>
-<summary>Derivation: obtaining d/n without expanding a chi-square density<br>推导：不用展开卡方密度也能得到 d/n</summary>
+**Derivation: obtaining d/n without expanding a chi-square density**
+
+**推导：不用展开卡方密度也能得到 d/n**
 
 Let the $d$ columns of $\mathbf Q$ form an orthonormal basis for the model space, so $\widehat\Pi=\mathbf Q\mathbf Q^T$. Noise projected onto each unit direction has variance $\sigma^2$, hence
 
@@ -147,14 +141,11 @@ This expectation requires only mean-zero noise with covariance $\sigma^2I_n$. Ga
 
 这个期望计算只需要零均值和协方差 $\sigma^2I_n$。高斯假设进一步给出 $\|\widehat\Pi\varepsilon\|^2/\sigma^2\sim\chi_d^2$。若模型矩阵的实际秩是 $r<d$，对应的自由方向数就是 $r$。
 
-</details>
-
 <a id="section-08"></a>
 
 ## How Machine Learning takes over linear regression
 
 **机器学习如何接续线性回归**
-
 
 1. What if non-additive noise? Other tasks than regression?
 
@@ -178,7 +169,6 @@ This expectation requires only mean-zero noise with covariance $\sigma^2I_n$. Ga
 
 **从经典统计到机器学习**
 
-
 - Handling models in high dimensions:
 
   处理高维模型：
@@ -186,7 +176,6 @@ This expectation requires only mean-zero noise with covariance $\sigma^2I_n$. Ga
 $$
 d \gg 1, d \gg n
 $$
-
 
 - Questioning dimensionality:
 
@@ -217,7 +206,6 @@ For linear models, matrix rank directly counts independent feature directions. W
 99%
 
 99%
-
 
 - Ratio shell/volume:
 
@@ -253,11 +241,11 @@ Set the radius to $1$ and shell thickness to $\varepsilon=0.005$, leaving inner 
 
 把半径设为 $1$，外壳厚度设为 $\varepsilon=0.005$，内球半径就是 $0.995$。半径缩小到原来的 $0.995$ 倍，$d$ 维体积会缩小到原来的 $0.995^d$ 倍。因此不必知道单位球体积的具体常数，也能算出：
 
-| Dimension<br>维度 | Shell fraction $1-0.995^d$<br>外壳所占比例 $1-0.995^d$ |
+| Dimension / 维度 | Shell fraction $1-0.995^d$ / 外壳所占比例 $1-0.995^d$ |
 |---|---:|
-| $d=2$ | Approximately $1.00\%$<br>约 $1.00\%$ |
-| $d=3$ | Approximately $1.49\%$<br>约 $1.49\%$ |
-| $d=1000$ | Approximately $99.33\%$<br>约 $99.33\%$ |
+| $d=2$ | Approximately $1.00\%$ / 约 $1.00\%$ |
+| $d=3$ | Approximately $1.49\%$ / 约 $1.49\%$ |
+| $d=1000$ | Approximately $99.33\%$ / 约 $99.33\%$ |
 
 Under sampling uniform by volume within the ball, the probability of falling in the shell equals this ratio. A thin high-dimensional shell can contain most samples, so intuition from two- and three-dimensional pictures needs reassessment. This calculation describes ball volume and uniform sampling. Real data can instead concentrate near lower-dimensional structures; their distribution must be determined by the problem.
 
@@ -286,7 +274,6 @@ C. 推广。
 ## What ’high’ means for linear regression
 
 **对线性回归而言，“高维”意味着什么**
-
 
 - So far, we assumed: $n \geq d$ and $( \pmb { \mathsf { X } } ) = d$
 

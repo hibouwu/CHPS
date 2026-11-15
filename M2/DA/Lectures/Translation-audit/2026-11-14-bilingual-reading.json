@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-14",
+  "layout": "original English or French followed by Chinese",
+  "notebooks": [
+    {
+      "file": "M2/DA/Exercises/Assignment2/Assignments2_zh.ipynb",
+      "source": "M2/DA/Exercises/Assignment2/Assignments2.ipynb",
+      "markdown_cells": 6,
+      "code_cells_preserved": 0,
+      "sha256": "b5d3a8d9bb4a7be203736817ec1b36ec30b0c0b329dce274a9e00271735999aa",
+      "source_sha256": "a2cdfa22af752a78f2646b58c20e7cbb0491dd59cbee3fb9098d46f3cb403c7f",
+      "translation_units": 82
+    },
+    {
+      "file": "M2/DA/Exercises/Lab2/Lab2_zh.ipynb",
+      "source": "M2/DA/Exercises/Lab2/Lab2.ipynb",
+      "markdown_cells": 27,
+      "code_cells_preserved": 13,
+      "sha256": "eb4d8c959c641c4dd9bf87026e0c8ab165102ab3d3b44caf47d81fac2def4798",
+      "source_sha256": "c4a827a7660478ca531c02e48804479ba6488c7bb3e1a546c49e108e40487480",
+      "translation_units": 175
+    },
+    {
+      "file": "M2/DA/Exercises/Lab3/Lab3_zh.ipynb",
+      "source": "M2/DA/Exercises/Lab3/Lab3.ipynb",
+      "markdown_cells": 17,
+      "code_cells_preserved": 12,
+      "sha256": "80b086d3bd8021081f6d9e1081fd6d4d7308c3b0582a66dbf5551836852bd438",
+      "source_sha256": "436e028d7eb008f325bb48edce99d97f9455bcb400b88387e4456996bc0bd6a3",
+      "translation_units": 81
+    },
+    {
+      "file": "M2/DA/Exercises/Lab4/Lab4_zh.ipynb",
+      "source": "M2/DA/Exercises/Lab4/Lab4.ipynb",
+      "markdown_cells": 27,
+      "code_cells_preserved": 10,
+      "sha256": "79a2a46be9910c32cbca2a03f415d7961ba8b133c6dbf0c438e1c9e9e72df5f0",
+      "source_sha256": "85d5c8208ffae862907b1746a8b849e40a5d1a7be19d286ff4eafc14e7cc802e",
+      "translation_units": 164
+    },
+    {
+      "file": "M2/DA/Exercises/Lab5/Lab5_zh.ipynb",
+      "source": "M2/DA/Exercises/Lab5/Lab5.ipynb",
+      "markdown_cells": 52,
+      "code_cells_preserved": 15,
+      "sha256": "53ab81bdc59a835d6a42ad25edb8d1a53fe6c573444c4c5042d923438cf16497",
+      "source_sha256": "ffbbd962cd98d0fc081a499dd703a59f4a721932698447ee2bf521c8ce1670d6",
+      "translation_units": 247
+    },
+    {
+      "file": "M2/DA/Exercises/Assignment1/Assignments1_zh.ipynb",
+      "baseline_sha256": "ddfd7948eba6968808eac6c0aacb31d38f10c2e336a508673bbc65dca349d3d0",
+      "sha256": "b4e56c04111baea400deaa34b28426ad714d5ee8acf83c3bed23d5311f057a8e",
+      "markdown_cells": 8,
+      "code_cells_preserved": 0,
+      "existing_chinese_preserved": true
+    },
+    {
+      "file": "M2/DA/Exercises/Assignment1/Assignments1_solution_zh.ipynb",
+      "baseline_sha256": "170cac8cd59c9ec0b91438da16dbf1b9fffa372b1ed6b3bc51b42de8ca5fbfd6",
+      "sha256": "469edf1cbfa87962d3e6cf92d5f9a6896819cdaea35b327f64af842aaf7bd1cc",
+      "markdown_cells": 47,
+      "code_cells_preserved": 18,
+      "existing_chinese_preserved": true
+    },
+    {
+      "file": "M2/DA/Exercises/Lab1/Lab1_zh.ipynb",
+      "baseline_sha256": "268da4284413c3b863a5040dbca88c6a3142060f35a409a470b6ad07a385f605",
+      "sha256": "6e0b16abe12b4aa4184164a545899e4efceaad8f842d511053cc8c7a02a94b56",
+      "markdown_cells": 37,
+      "code_cells_preserved": 22,
+      "existing_chinese_preserved": true
+    }
+  ],
+  "lectures": [
+    {
+      "file": "M2/DA/Lectures/03_LMC_zh.md",
+      "sha256": "6766822b17eca707600d581a8d8fa47ad242822973a166c34bfc1351ad779750",
+      "baseline_sha256": "298dbab7e12f8a9618835d28f0ce0c0415e1ca877effffeebfd987c80ad39b78",
+      "chinese_body_preserved": true,
+      "display_formulas_preserved": true,
+      "anchors_preserved": true
+    },
+    {
+      "file": "M2/DA/Lectures/04_UL_zh.md",
+      "sha256": "9812cc806eb9454647ebef37edd8b879f482b1cca8ecd138957f52cdabe2eb16",
+      "baseline_sha256": "4707d8333fd7da84651adf7bfd4fec517fbd222f62613233d74cdbcb0a056de4",
+      "chinese_body_preserved": true,
+      "display_formulas_preserved": true,
+      "anchors_preserved": true
+    },
+    {
+      "file": "M2/DA/Lectures/05_NLM_zh.md",
+      "sha256": "9562e91870d73ff3465638a35797b50cbb3d7e79c0fc3c3591ded301dd825bb2",
+      "baseline_sha256": "63a113b3f977d3a5ec70490bcb85e30f22bd701e7d61e3b36938d8172f45c1ec",
+      "chinese_body_preserved": true,
+      "display_formulas_preserved": true,
+      "anchors_preserved": true
+    },
+    {
+      "file": "M2/DA/Lectures/06_DL_zh.md",
+      "sha256": "391694eb93ac7d25fcc888046be185dbe693387803b31a7cc70131fd8b796ed5",
+      "baseline_sha256": "bdda729697383de17416cf10c1141c321279abbfff7d40f90770b39ea2d8425f",
+      "chinese_body_preserved": true,
+      "display_formulas_preserved": true,
+      "anchors_preserved": true
+    }
+  ],
+  "unchanged_sources": [
+    "M2/DA/Lectures/02_part3.md",
+    "M2/DA/Lectures/02_part2.md",
+    "M2/DA/Lectures/02_part1.md",
+    "M2/DA/Lectures/01_part3.md",
+    "M2/DA/Lectures/01_part2.md",
+    "M2/DA/Lectures/01_part1.md",
+    "M2/DA/Lectures/01_intro.md",
+    "M2/DA/Lectures/04_UL.md",
+    "M2/DA/Lectures/05_NLM.md",
+    "M2/DA/Lectures/02_LM.md",
+    "M2/DA/Lectures/03_LMC.md",
+    "M2/DA/Lectures/06_DL.md",
+    "M2/DA/Exercises/Lab5/Lab5_old.ipynb",
+    "M2/DA/Exercises/Lab5/Lab5.ipynb",
+    "M2/DA/Exercises/Lab4/Lab4.ipynb",
+    "M2/DA/Exercises/Lab3/Lab3.ipynb",
+    "M2/DA/Exercises/Lab2/Lab2.ipynb",
+    "M2/DA/Exercises/Assignment2/Assignments2.ipynb",
+    "M2/DA/Exercises/Assignment1/Assignments1_solution_v2.ipynb",
+    "M2/DA/Exercises/Assignment1/Assignments1_solution_v1.ipynb",
+    "M2/DA/Exercises/Assignment1/Assignments1_solution.ipynb",
+    "M2/DA/Exercises/Assignment1/Assignments1.ipynb",
+    "M2/DA/Exercises/Lab1/Lab1.ipynb",
+    "M2/DA/Exercises/Assignment1/SHI_Jianye_Assignment1_v2/SHI_Jianye_Assignment1_v2.ipynb",
+    "M2/DA/Exercises/Assignment1/SHI_Jianye_Assignment1_v1/SHI_Jianye_Assignment1_v1.ipynb"
+  ],
+  "render_checks": [
+    {
+      "file": "M2/DA/Exercises/Lab1/Lab1_zh.ipynb",
+      "cells": 59,
+      "code_cells": 22,
+      "markdown_cells": 37,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "6e0b16abe12b4aa4184164a545899e4efceaad8f842d511053cc8c7a02a94b56"
+    },
+    {
+      "file": "M2/DA/Exercises/Lab2/Lab2_zh.ipynb",
+      "cells": 40,
+      "code_cells": 13,
+      "markdown_cells": 27,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "eb4d8c959c641c4dd9bf87026e0c8ab165102ab3d3b44caf47d81fac2def4798"
+    },
+    {
+      "file": "M2/DA/Exercises/Lab3/Lab3_zh.ipynb",
+      "cells": 29,
+      "code_cells": 12,
+      "markdown_cells": 17,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "80b086d3bd8021081f6d9e1081fd6d4d7308c3b0582a66dbf5551836852bd438"
+    },
+    {
+      "file": "M2/DA/Exercises/Lab4/Lab4_zh.ipynb",
+      "cells": 37,
+      "code_cells": 10,
+      "markdown_cells": 27,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "79a2a46be9910c32cbca2a03f415d7961ba8b133c6dbf0c438e1c9e9e72df5f0"
+    },
+    {
+      "file": "M2/DA/Exercises/Lab5/Lab5_zh.ipynb",
+      "cells": 67,
+      "code_cells": 15,
+      "markdown_cells": 52,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "53ab81bdc59a835d6a42ad25edb8d1a53fe6c573444c4c5042d923438cf16497"
+    },
+    {
+      "file": "M2/DA/Exercises/Assignment1/Assignments1_zh.ipynb",
+      "cells": 8,
+      "code_cells": 0,
+      "markdown_cells": 8,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "b4e56c04111baea400deaa34b28426ad714d5ee8acf83c3bed23d5311f057a8e"
+    },
+    {
+      "file": "M2/DA/Exercises/Assignment1/Assignments1_solution_zh.ipynb",
+      "cells": 65,
+      "code_cells": 18,
+      "markdown_cells": 47,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "469edf1cbfa87962d3e6cf92d5f9a6896819cdaea35b327f64af842aaf7bd1cc"
+    },
+    {
+      "file": "M2/DA/Exercises/Assignment2/Assignments2_zh.ipynb",
+      "cells": 6,
+      "code_cells": 0,
+      "markdown_cells": 6,
+      "missing_images": [],
+      "broken_fragments": [],
+      "duplicate_ids": {},
+      "table_issues": [],
+      "sha256": "b5d3a8d9bb4a7be203736817ec1b36ec30b0c0b329dce274a9e00271735999aa"
+    }
+  ],
+  "executed_notebooks": false,
+  "assignment1_source_duplicate_cell": 3,
+  "scope_excludes": [
+    "original source PDFs and text",
+    "classroom transcripts",
+    "Lab5_old.ipynb",
+    "Assignment1 v1/v2 working and submission archives"
+  ],
+  "visual_checks": [
+    "Lab2 opening and contents",
+    "Lab5 PCA section",
+    "Lecture 4 opening"
+  ],
+  "navigation_repairs": [
+    "Lab2: added missing Fundamental-concepts anchor",
+    "Lab1: removed redundant Lasso anchor; heading provides the same destination"
+  ]
+}

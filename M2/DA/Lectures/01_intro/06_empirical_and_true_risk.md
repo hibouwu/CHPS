@@ -10,7 +10,6 @@
 
 **监督机器学习：经验风险最小化（ERM）**
 
-
 - Loss function : $\ell : \mathcal { V } \times \mathcal { V }  [ 0 , + \infty ]$
 
   损失函数：$\ell : \mathcal { V } \times \mathcal { V }  [ 0 , + \infty ]$。
@@ -22,7 +21,6 @@
 $$
 \widehat {L} _ {n} (h) = \frac {1}{n} \sum_ {i = 1} ^ {n} \ell (h (X _ {i}), Y _ {i})
 $$
-
 
 - ERM = Empirical Risk Minimization
 
@@ -62,7 +60,6 @@ This first establishes suitability for the current training set, not optimality 
 
 <a id="erm-questions"></a>
 
-
 1. The question of consistency : convergence of $\widehat { h } _ { n }$ wrt the sample size n ?
 
    一致性问题：随着样本量 n 增加，$\widehat { h } _ { n }$ 是否收敛？
@@ -87,7 +84,6 @@ Less is more :
 
 少即是多：
 
-
 - It turns out that considering all measurable functions leads to overfitting $\Rightarrow \mathcal { H }$ has to be a restricted class !
 
   考虑所有可测函数会导致过拟合，因此 $\Rightarrow \mathcal { H }$ 必须是一个受限制的函数类！
@@ -95,7 +91,6 @@ Less is more :
 But greed is good :
 
 但“贪心”也有好处：
-
 
 - Algorithms which have the capacity to overfit means they have high representation power (arbitrary small approximation error)
 
@@ -109,7 +104,6 @@ But greed is good :
 
 **真实误差的概念**
 
-
 - Assumption :
 
   假设：
@@ -117,7 +111,6 @@ But greed is good :
 $( X , Y )$ is a pair of random variables with joint distribution P
 
 $( X , Y )$ 是一对联合分布为 P 的随机变量。
-
 
 - True error of a decision rule h : this is a distribution-dependent functional
 
@@ -151,7 +144,6 @@ True does not mean that training records are unreal. It means extending evaluati
 
 **任务／问题示例**
 
-
 - Binary classification problem : Y takes 0-1 values
 
   二分类问题：Y 取 0、1 两个值。
@@ -159,7 +151,6 @@ True does not mean that training records are unreal. It means extending evaluati
 $$
 \ell (y, y ^ {\prime}) = \mathbb {I} \{y \neq y ^ {\prime} \} \quad \text{且} \quad L (h) = \mathbb {P} \left\{h (X) \neq Y \right\}
 $$
-
 
 - Regression : Y takes values in R
 
@@ -179,12 +170,12 @@ A pedestrian-detection cost model might charge 2 euros for a missed detection, 0
 
 在行人检测的代价模型中，可以设定：漏检付 2 欧元，误报付 0.5 欧元，正确判断付 0。此时损失不再是“错一次都记 1”，而要区分实际标签与预测的组合。
 
-| Reality<br>真实情况 | Prediction<br>模型预测 | Example loss<br>示例损失 |
+| Reality / 真实情况 | Prediction / 模型预测 | Example loss / 示例损失 |
 |---|---|---:|
-| Pedestrian present<br>有行人 | Pedestrian present<br>有行人 | 0 |
-| Pedestrian present<br>有行人 | Pedestrian absent<br>无行人 | 2 |
-| Pedestrian absent<br>无行人 | Pedestrian present<br>有行人 | 0.5 |
-| Pedestrian absent<br>无行人 | Pedestrian absent<br>无行人 | 0 |
+| Pedestrian present / 有行人 | Pedestrian present / 有行人 | 0 |
+| Pedestrian present / 有行人 | Pedestrian absent / 无行人 | 2 |
+| Pedestrian absent / 无行人 | Pedestrian present / 有行人 | 0.5 |
+| Pedestrian absent / 无行人 | Pedestrian absent / 无行人 | 0 |
 
 On the same 100 samples, suppose model A misses one pedestrian and raises four false alarms: five errors with total cost $1\times2+4\times0.5=4$. Model B misses three and raises one false alarm: four errors with total cost $3\times2+1\times0.5=6.5$. B makes fewer mistakes, but A is preferable under this loss. Their average losses are 0.04 and 0.065 respectively.
 

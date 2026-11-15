@@ -16,7 +16,6 @@
 
 **像“二十问”游戏一样学习**
 
-
 - Assume Nature has picked one function among K and we want to reveal this function
 
   假设自然界从 K 个函数中选取了一个，我们希望找出这个函数。
@@ -55,7 +54,6 @@ This is a worst-case guarantee when suitable bisection questions are allowed. Th
 
 **穷举学习：有限情形**
 
-
 - ISSUE : How many questions with answers YES or NO one has to ask the oracle to find THE function among K functions ?
 
   问题：为了从 K 个函数中找到那个函数，需要向预言机提出多少个答案为“是”或“否”的问题？
@@ -78,13 +76,11 @@ This is a worst-case guarantee when suitable bisection questions are allowed. Th
 
 **Shannon 信息论：log $\boldsymbol { K }$ 的由来**
 
-
 - Number of bits to encode a collection of K functions where each function can occur with probability $P ( k )$
 
   对一个包含 K 个函数的集合进行编码所需的比特数，其中各函数出现的概率为 $P ( k )$。
 
 ![image](<../Images/01_intro/image_007.jpg>)
-
 
 - Entropy of a distribution $P$ in information theory :
 
@@ -108,8 +104,9 @@ When objects have different probabilities, some outcomes are more common than ot
 
 当对象出现概率不同，有些结果比其他结果更常见，熵就把不同结果的信息量按概率平均。均匀分布时最难预先猜中，熵达到 $\log_2 K$；分布越集中，平均不确定性可以越低。
 
-<details>
-<summary>Calculation: entropy of eight equally likely objects<br>推算：8 个等可能对象的熵</summary>
+**Calculation: entropy of eight equally likely objects**
+
+**推算：8 个等可能对象的熵**
 
 For each object, $P(k)=1/8$, so one outcome carries $-\log_2(1/8)=3$ bits of information and the average remains $H(P)=-8\times(1/8)\log_2(1/8)=3$ bits.
 
@@ -118,8 +115,6 @@ For each object, $P(k)=1/8$, so one outcome carries $-\log_2(1/8)=3$ bits of inf
 Describing entropy as the expectation of the logarithm of probability omits a minus sign. The correct expression is $-\mathbb E[\log_2 P(J)]$, where J indexes the random object and K remains the total candidate count. Entropy concerns optimal average code length, not the length of an arbitrary code. Its maximum does not require an even candidate count. When the count is a power of two, fixed-length binary coding requires no upward-rounding overhead.
 
 转录把熵说成“概率对数的期望”时漏了负号；应读作 $-\mathbb E[\log_2 P(J)]$，其中 J 表示随机对象的索引，K 仍表示候选总数。熵与最优平均编码长度有关，不等于任意编码的长度。熵最大值的结论不要求候选数是 2 的倍数；候选数为 2 的幂时，等长二进制编码正好没有向上取整的余量。
-
-</details>
 
 *来源：[转录 3](../01_part3.md) 第 221–227 行。*
 
@@ -183,7 +178,6 @@ Label flipping is an intuitive example of noise: an image containing a pedestria
 
 **a. 零误差情形（1/2）**
 
-
 - Notations : Domain space X and label space $\mathcal { V } = \{ 0 , 1 \}$
 
   记号：定义域空间 X，标签空间 $\mathcal { Y } = \{ 0 , 1 \}$。
@@ -199,7 +193,6 @@ $$
 and a collection of data points $\left( x _ { i } , y _ { i } \right)$ such that there always exists some k for which $y _ { i } = f _ { k } ( x _ { i } )$ , for any index i
 
 以及一组数据点 $\left( x _ { i } , y _ { i } \right)$，使得总存在某个 k，对任意索引 i 都满足 $y _ { i } = f _ { k } ( x _ { i } )$。
-
 
 - Worst case scenario : the collection of data points $x _ { i } \in { \mathcal { X } }$ is such that the cardinality of the set of vectors $\{ ( f _ { 1 } ( x _ { i } ) , \ldots , f _ { K } ( x _ { i } ) ) : i \geq 1 \}$ is maximal and equal to $2 ^ { K }$
 
@@ -243,7 +236,6 @@ Also note that the classification label space is the set $\{0,1\}$, not the inte
 
 **b. 零误差情形下的 PAC**
 
-
 - REMARK : it may be hard to find such an $x _ { j }$ which splits every subset of functions into two equal parts.
 
   备注：要找到一个 $x _ { j }$，使每个候选函数子集都被平分成两部分，可能很困难。
@@ -278,7 +270,6 @@ Think of training as a repeatable experiment: draw n fresh samples and retrain e
 
 把训练想成可以重复做的实验：每次重新抽取 n 个样本、重新训练，得到的规则可能不同。
 
-
 - $\varepsilon$ bounds the true error of the rule from a successful training run. In a general setting, it usually bounds excess risk relative to an optimal reference.
 
   $\varepsilon$ 控制一次成功训练所得规则的真实误差上限；在一般情形中，通常控制相对某个最优参照的额外风险。
@@ -291,8 +282,9 @@ For example, in a realizable setting, $\varepsilon=0.05$ and $\delta=0.01$ mean 
 
 例如，在可实现设定下，$\varepsilon=0.05$、$\delta=0.01$ 的含义是：以至少 99% 的训练抽样概率，所选分类器在目标分布上的错误率不超过 5%。它不表示每个输入都以 99% 概率被正确分类，也不表示每批训练样本恰好错 5%。
 
-<details>
-<summary>Derivation: why the realizable case gives 1/ε, proving the exercise above<br>推导：为什么可实现情形出现 1/ε（即上面留作练习的证明）</summary>
+**Derivation: why the realizable case gives 1/ε, proving the exercise above**
+
+**推导：为什么可实现情形出现 1/ε（即上面留作练习的证明）**
 
 For a fixed candidate with true error greater than $\varepsilon$, the probability of making no mistakes on n IID training examples is at most $(1-\varepsilon)^n\le e^{-n\varepsilon}$. Learning may select a bad function whenever any such candidate among K functions agrees with all training labels. The union bound bounds this event's probability by $K e^{-n\varepsilon}$.
 
@@ -310,8 +302,6 @@ The conditions are a finite candidate class fixed in advance, IID samples, a tru
 
 这里用到的条件是：候选类有限且预先固定、样本独立同分布、真实目标属于候选类，以及算法选择在训练集上零误差的函数。结论是以高概率找到近似正确的函数，而不是精确恢复目标。
 
-</details>
-
 *来源：[转录 3](../01_part3.md) 第 278–287 行；[转录 3](../01_part3.md) 第 335–362 行。*
 
 <a id="reading-risk-notation"></a>
@@ -324,17 +314,16 @@ We will use two quantities that evaluate the same rule h:
 
 接下来会用到两个评价同一规则 h 的量：
 
-| Notation<br>记号 | Which losses are averaged?<br>平均的是哪些损失 | Interpretation<br>怎样理解 |
+| Notation / 记号 | Which losses are averaged? / 平均的是哪些损失 | Interpretation / 怎样理解 |
 |---|---|---|
-| $\widehat L_n(h)$ | Losses on the current n training samples<br>当前 n 个训练样本上的损失 | Empirical risk, directly computable from the available data<br>已经拿到数据，可以直接计算的经验风险 |
-| $L(h)$ | Losses on inputs and labels from the target distribution<br>目标分布产生的输入与标签上的损失 | True risk sought on future data, usually unknown<br>希望模型在未来数据上达到的真实风险，通常未知 |
+| $\widehat L_n(h)$ | Losses on the current n training samples / 当前 n 个训练样本上的损失 | Empirical risk, directly computable from the available data / 已经拿到数据，可以直接计算的经验风险 |
+| $L(h)$ | Losses on inputs and labels from the target distribution / 目标分布产生的输入与标签上的损失 | True risk sought on future data, usually unknown / 希望模型在未来数据上达到的真实风险，通常未知 |
 
 The loss on each sample is $\ell(h(X_i),Y_i)$. **Empirical risk minimization (ERM)** selects the candidate minimizing $\widehat L_n(h)$; denote the selected rule by $\widehat h$. Probability bounds explain how good its true performance can be when selection uses training performance. Full definitions appear later under [empirical risk minimization](06_empirical_and_true_risk.md#empirical-risk) and [true error](06_empirical_and_true_risk.md#loss-risk); for now these two averages make the proof readable.
 
 每个样本的损失写成 $\ell(h(X_i),Y_i)$。**ERM（经验风险最小化）**就是在候选类中选择 $\widehat L_n(h)$ 最小的规则，选出的规则记作 $\widehat h$。概率界要解释：用训练集上的表现作选择，真实表现还能有多好。完整定义在后面的[经验风险最小化](06_empirical_and_true_risk.md#empirical-risk)和[真实误差](06_empirical_and_true_risk.md#loss-risk)两节，这里先用这两个平均值读懂证明。
 
 <a id="pac-general"></a>
-
 
 - ASSUME : among K functions, NONE of them commits zero error on the sample $\{ ( X _ { i } , Y _ { i } ) : i \geq 1 \}$
 
@@ -388,7 +377,6 @@ Recruiting participants and observing patients cost resources, so how many patie
 
 **一般情形的 PAC 界：证明概要**
 
-
 - Hoeffding’s inequality :
 
   Hoeffding 不等式：
@@ -404,7 +392,6 @@ Recruiting participants and observing patients cost resources, so how many patie
 $$
 \mathbb {P} \{\overline {{Z}} _ {n} - \mathbb {E} (Z _ {1}) > \varepsilon \} \leq \exp (- 2 n \varepsilon^ {2})
 $$
-
 
 - Union bound : For any two measurable sets A, B, we have :
 
@@ -424,8 +411,9 @@ For a fixed function, training error is the average sample loss and true risk is
 
 对固定函数，训练误差是样本损失的平均值，真实风险是其期望。Hoeffding 不等式控制二者偏离较大的概率；并集界则把“一个候选可能偏离”扩展到“所有候选中有没有任何一个偏离”。只有同时控制所有候选，才能在看过数据、选出函数之后继续使用这个保证。
 
-<details>
-<summary>Derivation: turning a two-sided uniform deviation into an ERM risk guarantee<br>推导：把双侧一致偏差换成 ERM 的风险保证</summary>
+**Derivation: turning a two-sided uniform deviation into an ERM risk guarantee**
+
+**推导：把双侧一致偏差换成 ERM 的风险保证**
 
 Assume every loss lies in $[0,1]$, samples are IID, and the candidate class is fixed in advance with size K. Controlling both deviation directions for all candidates gives
 
@@ -449,12 +437,9 @@ To keep within-class excess risk below $\varepsilon$, take $t=\varepsilon/2$, gi
 
 因此要使类内超额风险不超过 $\varepsilon$，可以取 $t=\varepsilon/2$，得到一个充分条件 $n\ge 2\log(2K/\delta)/\varepsilon^2$。若优化只达到近似最优，还需要加入优化误差；无界平方损失也不能不加条件就套用上述有界损失版本。
 
-</details>
-
 *来源：[转录 3](../01_part3.md) 第 281–308 行。*
 
 <a id="sampling-questions"></a>
-
 
 - Proof arguments for PAC learnability (finite case)
 
@@ -490,8 +475,9 @@ A training set may happen to be unrepresentative, so even carefully trained algo
 
 **主动学习**进一步问：如果能选择哪些样本值得标注，能不能更有效地使用预算？这与接收一个已给定训练集的被动设定不同；选择查询有机会提高效率，但收益仍依赖数据、可查询范围和学习目标。
 
-<details>
-<summary>Application: expensive simulations, surrogate models, and sequential learning<br>应用：昂贵仿真、代理模型与序贯学习</summary>
+**Application: expensive simulations, surrogate models, and sequential learning**
+
+**应用：昂贵仿真、代理模型与序贯学习**
 
 If a physical simulation is too slow to run fully whenever a quick prediction is needed, run selected input settings first, collect input–output pairs, and train a cheaper surrogate. Since we choose experimental or simulation inputs, we can prioritize parameter locations that reduce uncertainty instead of blindly collecting more low-value samples. Active querying still requires attention to surrogate coverage and differences between the simulation and the actual target.
 
@@ -500,8 +486,6 @@ If a physical simulation is too slow to run fully whenever a quick prediction is
 Another sequential-learning setting allows an adversary to choose data to make prediction difficult, rather than assuming samples from a fixed distribution. It studies strategies that remain reliable under those conditions. Not all sequential or online learning is adversarial; this is one modeling framework. Its assumptions differ from active query selection and IID sampling, so their guarantees cannot be interchanged.
 
 另一种序贯学习设定是：不假设样本来自固定概率分布，而是允许一个“对手”选择数据，让预测尽可能困难，从而研究在这种条件下仍可靠的策略。序贯或在线学习并不都等于对抗学习，这里举的只是其中一种建模框架。它与主动选择查询、独立同分布随机抽样的假设不同，不能混用保证。
-
-</details>
 
 *来源：[转录 3](../01_part3.md) 第 335–391 行。*
 

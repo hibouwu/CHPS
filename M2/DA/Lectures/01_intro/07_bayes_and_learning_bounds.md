@@ -10,7 +10,6 @@
 
 **最优解、一致性与界**
 
-
 - Bayes rule $h ^ { * }$ and Bayes error $L ^ { * }$
 
   Bayes 规则 $h ^ { * }$ 和 Bayes 误差 $L ^ { * }$。
@@ -33,7 +32,6 @@ The optimal risk $L^*$ can still be positive. For example, when the observed fea
 
 最优风险 $L^*$ 仍可能大于零。例如，同样的已观测特征并不能唯一决定标签时，即使知道正确的条件概率，也可能判断错误。学习要尽量减少的是相对这个最优水平的额外风险 $L(\widehat h_n)-L^*$。
 
-
 - (Strong) Consistency of an inference principle $\widehat { h } _ { n }$
 
   推断原则 $\widehat { h } _ { n }$ 的（强）一致性。
@@ -45,7 +43,6 @@ $$
 almost surely
 
 几乎必然成立。
-
 
 - The nonasymptotic bounds Eldorado :
 
@@ -79,7 +76,6 @@ Find optimal elements $h ^ { * }$ and $L ^ { * }$ in these two cases :
 
 在以下两种情形中，求出最优解 $h ^ { * }$ 和 $L ^ { * }$：
 
-
 - Binary classification problem : Y takes 0-1 values
 
   二分类问题：Y 取 0、1 两个值。
@@ -87,7 +83,6 @@ Find optimal elements $h ^ { * }$ and $L ^ { * }$ in these two cases :
 $$
 \ell (y, y ^ {\prime}) = \mathbb {I} \{y \neq y ^ {\prime} \} \quad \text{且} \quad L (h) = \mathbb {P} \left\{h (X) \neq Y \right\}
 $$
-
 
 - Regression : Y takes values in $\mathbb { R }$
 
@@ -142,8 +137,9 @@ For example, at a fixed x let Y equal 2 or 4 with equal probability. Predicting 
 
 例如，在某个固定 x 下，Y 等概率取 2 和 4。预测条件均值 3 时，平均平方损失是 $\tfrac12(2-3)^2+\tfrac12(4-3)^2=1$；若预测 2，则平均平方损失为 $\tfrac12(2-2)^2+\tfrac12(4-2)^2=2$。选择 3 已经最优，但损失仍为 1，这正是当前输入信息下无法预测的那部分波动。
 
-<details>
-<summary>Derivation: why optimal predictions at each input minimize total risk<br>推导：为什么逐个输入最优就能使总风险最小</summary>
+**Derivation: why optimal predictions at each input minimize total risk**
+
+**推导：为什么逐个输入最优就能使总风险最小**
 
 Conditional expectation writes the total risk as
 
@@ -170,8 +166,6 @@ The variance term does not depend on a; choosing $a=\eta(x)$ makes the second te
 
 方差项与 a 无关，取 $a=\eta(x)$ 使第二项为零；再对 X 取期望，得到 $L^*=\mathbb E[\operatorname{Var}(Y\mid X)]$。如果把规则限制在某个较小的函数类中，不同输入处的预测可能由同一组参数联系起来，就未必能逐点取到这个最优值；那时得到的是类内最优，而不一定是 Bayes 最优。
 
-</details>
-
 Inputs, predictions, loss, empirical risk, and optimal risk are now connected: first specify how to evaluate one prediction, then select a rule using finite samples, and finally study how far its true risk is from the ideal optimum. The next section splits that gap back into estimation and approximation errors.
 
 到这里，输入、预测、损失、经验风险和最优风险已经连起来了：先确定怎样评价一次预测，再用有限样本选择规则，最后研究所选规则的真实风险距离理想最优还有多远。下一节把这段差距重新分成估计误差与近似误差。
@@ -181,7 +175,6 @@ Inputs, predictions, loss, empirical risk, and optimal risk are now connected: f
 ## Estimation vs. approximation error Extension of bias-variance decomposition
 
 **估计误差与近似误差：偏差—方差分解的推广**
-
 
 - Proof idea : Add and retrieve $\widehat { L } ( \widehat { h } _ { n } ) \ , \ \widehat { L } ( \overline { { h } } ) , \ L ( \overline { { h } } )$ , then use the definition of ERM to upper bound the sum. Difference between $L$ and $\widehat { L }$ appear twice.
 
@@ -197,7 +190,6 @@ $$
 
 <a id="finite-class-bound"></a>
 
-
 - Assume that the hypothesis class $\mathcal { H }$ of decision functions is finite and $h ^ { \ast } \notin \mathcal { H }$
 
   假设决策函数的假设类 $\mathcal { H }$ 是有限的，并且 $h ^ { \ast } \notin \mathcal { H }$。
@@ -210,7 +202,6 @@ $$
 \forall h \in \mathcal {H}, L (h) \leq \widehat {L} _ {n} (h) + \sqrt {\frac {\log | \mathcal {H} | + \log \left(\frac {1}{\delta}\right)}{2 n}}
 $$
 
-
 - log $| \mathcal { H } | = \log K $ Statement in the introduction, see !
 
   log $| \mathcal { H } | = \log K $：看，这正是导论中的结论！
@@ -220,7 +211,6 @@ $$
 ## Finite hypothesis class Sketch of proof
 
 **有限假设类：证明概要**
-
 
 - Hoeffding’s inequality :
 
@@ -238,7 +228,6 @@ $$
 \mathbb {P} \{\overline {{Z}} _ {n} - \mathbb {E} (Z _ {1}) > \varepsilon \} \leq \exp (- 2 n \varepsilon^ {2})
 $$
 
-
 - Union bound : For any two measurable sets A, B, we have :
 
   并集界：对任意两个可测集合 A、B，有：
@@ -247,8 +236,80 @@ $$
 \mathbb {P} \{A \cup B \} \leq \mathbb {P} \{A \} + \mathbb {P} \{B \}
 $$
 
-<a id="next-sessions"></a>
+<a id="reading-excess-risk-bound"></a>
 
+**Why the empirical-to-true deviation appears twice in ERM excess risk**
+
+**为什么 ERM 超额风险上界里经验与真实风险之差会出现两次**
+
+The decomposition in Section 22 bounds the gap between the learned rule $\widehat h_n$ and the Bayes rule $h^*$ by splitting it at the within-class optimum $\overline h = \arg\min_{h\in\mathcal H} L(h)$:
+
+第 22 节的分解以类内最优规则 $\overline h = \arg\min_{h\in\mathcal H} L(h)$ 为中间支点，将所学规则 $\widehat h_n$ 与 Bayes 最优规则 $h^*$ 的真实风险差距拆成两部分：
+
+$$
+L(\widehat h_n) - L^* = \underbrace{\big(L(\widehat h_n) - L(\overline h)\big)}_{\text{Estimation error / 估计误差}} + \underbrace{\big(L(\overline h) - L^*\big)}_{\text{Approximation error / 近似误差}}.
+$$
+
+Because $\widehat h_n$ is chosen by minimizing empirical risk $\widehat L_n(h)$ rather than the unknown true risk $L(h)$, we cannot directly compare $L(\widehat h_n)$ with $L(\overline h)$. Instead, we pass through the empirical risks: first relate $L(\widehat h_n)$ to $\widehat L_n(\widehat h_n)$, then use ERM optimality $\widehat L_n(\widehat h_n) \le \widehat L_n(\overline h)$, and finally relate $\widehat L_n(\overline h)$ back to $L(\overline h)$. Both transitions cross between $L$ and $\widehat L_n$, which explains why the uniform deviation $\sup_{h\in\mathcal H}|L(h)-\widehat L_n(h)|$ appears with a factor of $2$.
+
+由于 $\widehat h_n$ 是通过最小化经验风险 $\widehat L_n(h)$（而非未知的真实风险 $L(h)$）选出的，我们无法直接比较 $L(\widehat h_n)$ 与 $L(\overline h)$，而必须借助经验风险作为桥梁：先把 $L(\widehat h_n)$ 换成 $\widehat L_n(\widehat h_n)$，再利用 ERM 的经验最优性 $\widehat L_n(\widehat h_n) \le \widehat L_n(\overline h)$，最后把 $\widehat L_n(\overline h)$ 换回 $L(\overline h)$。这一来一回两次跨越 $L$ 与 $\widehat L_n$，正是上界中一致偏差 $\sup_{h\in\mathcal H}|L(h)-\widehat L_n(h)|$ 带有系数 $2$ 的原因。
+
+**Derivation: step-by-step telescoping proof and finite-class generalization bound**
+
+**推导：加减项放缩的完整步骤与有限假设类泛化界**
+
+Following the slide's proof idea, add and subtract $\widehat L_n(\widehat h_n)$ and $\widehat L_n(\overline h)$ inside the estimation error $L(\widehat h_n) - L(\overline h)$:
+
+按照课件提示的证明思路，在估计误差 $L(\widehat h_n) - L(\overline h)$ 中同时加上并减去 $\widehat L_n(\widehat h_n)$ 与 $\widehat L_n(\overline h)$：
+
+$$
+\begin{aligned}
+L(\widehat h_n) - L(\overline h)
+&= \big(L(\widehat h_n) - \widehat L_n(\widehat h_n)\big)
+ + \big(\widehat L_n(\widehat h_n) - \widehat L_n(\overline h)\big)
+ + \big(\widehat L_n(\overline h) - L(\overline h)\big).
+\end{aligned}
+$$
+
+By definition of Empirical Risk Minimization, $\widehat h_n = \arg\min_{h\in\mathcal H}\widehat L_n(h)$, so the middle term satisfies $\widehat L_n(\widehat h_n) - \widehat L_n(\overline h) \le 0$ for every $\overline h \in \mathcal H$. Dropping this nonpositive term and bounding both remaining differences by the supremum over $\mathcal H$ yields
+
+由经验风险最小化（ERM）的定义，$\widehat h_n = \arg\min_{h\in\mathcal H}\widehat L_n(h)$，因此对任意 $\overline h \in \mathcal H$，中间项满足 $\widehat L_n(\widehat h_n) - \widehat L_n(\overline h) \le 0$。舍去这一非正项，并用 $\mathcal H$ 上的一致上确界控制其余两项，即得：
+
+$$
+\begin{aligned}
+L(\widehat h_n) - L(\overline h)
+&\le \big|L(\widehat h_n) - \widehat L_n(\widehat h_n)\big| + \big|\widehat L_n(\overline h) - L(\overline h)\big| \\
+&\le 2 \sup_{h\in\mathcal H}\big|L(h) - \widehat L_n(h)\big|.
+\end{aligned}
+$$
+
+Adding the deterministic approximation error $L(\overline h) - L^*$ to both sides recovers the master inequality of Section 22.
+
+两边同时加上确定性的近似误差 $L(\overline h) - L^*$，即恢复第 22 节的主不等式。
+
+To prove the one-sided uniform bound in Section 22–23 for a finite class $|\mathcal H| = K$ with losses in $[0,1]$, apply Hoeffding's inequality to $Z_i = 1 - \ell(h(X_i),Y_i) \in [0,1]$ (or directly to the lower tail of $\widehat L_n(h) - L(h)$) for each fixed $h \in \mathcal H$:
+
+为证明第 22–23 节中有限假设类 $|\mathcal H| = K$（损失取值于 $[0,1]$）的单侧一致上界，对每个固定的 $h \in \mathcal H$，令 $Z_i = 1 - \ell(h(X_i),Y_i) \in [0,1]$（或直接对 $\widehat L_n(h) - L(h)$ 的下尾应用 Hoeffding 不等式），可得：
+
+$$
+\mathbb P\big(L(h) - \widehat L_n(h) > \varepsilon\big) \le \exp(-2n\varepsilon^2).
+$$
+
+Applying the union bound over all $h \in \mathcal H$ gives
+
+对所有 $h \in \mathcal H$ 应用并集界（Union bound），得到：
+
+$$
+\mathbb P\Big(\exists h \in \mathcal H : L(h) > \widehat L_n(h) + \varepsilon\Big)
+\le \sum_{h\in\mathcal H}\mathbb P\big(L(h) - \widehat L_n(h) > \varepsilon\big)
+\le |\mathcal H|\exp(-2n\varepsilon^2).
+$$
+
+Setting the right-hand side equal to $\delta$ and solving $|\mathcal H|e^{-2n\varepsilon^2} = \delta$ for $\varepsilon$ gives $\varepsilon = \sqrt{\frac{\log|\mathcal H| + \log(1/\delta)}{2n}}$, which connects back to the [general PAC bound](03_information_and_pac.md#classroom-probability-proof) in Part 3.
+
+令右端等于 $\delta$，由 $|\mathcal H|e^{-2n\varepsilon^2} = \delta$ 解出 $\varepsilon = \sqrt{\frac{\log|\mathcal H| + \log(1/\delta)}{2n}}$，即得到第 22 节展示的高概率一致泛化界，并与第 3 篇中的[一般 PAC 证明](03_information_and_pac.md#classroom-probability-proof)完全呼应。
+
+<a id="next-sessions"></a>
 
 - Supervised Machine Learning
 

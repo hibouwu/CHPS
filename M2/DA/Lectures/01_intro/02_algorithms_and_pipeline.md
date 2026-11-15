@@ -16,7 +16,6 @@
 
 **1. 局部方法：基于分组和局部投票（或平均）**
 
-
 - k-Nearest-Neighbors
 
   k 近邻。
@@ -48,7 +47,6 @@ The key is not only the vote, but also the definition of closeness. Feature unit
 ### 2 Global methods : based on functional optimization
 
 **2. 全局方法：基于函数优化**
-
 
 - Regularized regression (Ridge, LASSO...)
 
@@ -86,7 +84,6 @@ Global here means evaluating candidates through an overall objective. It does no
 
 **3. 集成方法：基于重采样与聚合**
 
-
 - Bagging
 
   Bagging。
@@ -117,7 +114,6 @@ Trees are frequently used as base models. On some smaller-scale data problems, c
 
 <a id="shallow-deep"></a>
 
-
 - Shallow learning : often relates to Tikhonov’s regularization
 
   浅层学习：通常与 Tikhonov 正则化有关。
@@ -125,7 +121,6 @@ Trees are frequently used as base models. On some smaller-scale data problems, c
 $$
 \min _ {h \in \mathcal {H}} \left(\frac {1}{n} \sum_ {i = 1} ^ {n} \ell (h (X _ {i}), Y _ {i}) + \lambda_ {n} \cdot \mathrm{pen} (h, n)\right)
 $$
-
 
 - The penalty controls the variance term (Occam’s razor)
 
@@ -181,8 +176,9 @@ The claim that a degree-50 polynomial passes through 50 points needs additional 
 
 “50 个点用 50 次多项式通过所有点”还需要补足条件。精确地说，对于 50 个互异的横坐标，总存在次数至多为 49 的插值多项式；允许更高次数也可插值。若同一个横坐标出现不同标签，则不能用单值函数同时精确通过。插值能力、泛化能力和是否适合用次数惩罚，是三个不同的问题。
 
-<details>
-<summary>Further detail: why deep learning cannot be understood simply as having no penalty<br>延伸：深度学习为什么不能仅靠“没有惩罚项”来理解</summary>
+**Further detail: why deep learning cannot be understood simply as having no penalty**
+
+**延伸：深度学习为什么不能仅靠“没有惩罚项”来理解**
 
 A gap remains between universal approximation and good generalization: why do highly expressive networks not always behave as badly as simple intuition might suggest? Training procedures and design choices also regularize. Effects not written explicitly as objective penalties are commonly called implicit regularization. Parameter selection, experimentation, and tuning require practical experience; explaining a mechanism theoretically does not supply settings that work for every problem.
 
@@ -191,8 +187,6 @@ A gap remains between universal approximation and good generalization: why do hi
 A neural network's loss depends on the task and is not always least squares. With squared error, the comparison is between prediction $h(x_i)$ and label $y_i$, not between input $x_i$ and label.
 
 神经网络的损失由任务决定，并不总是最小二乘；使用平方误差时，比较的是预测 $h(x_i)$ 与标签 $y_i$，而不是输入 $x_i$ 与标签。
-
-</details>
 
 *来源：[转录 3](../01_part3.md) 第 44–122 行。*
 
@@ -229,7 +223,6 @@ The historical diagram above presents a view of the development of supervised, r
 ## Machine Learning in the real world A full pipeline for data processing
 
 **现实中的机器学习：完整的数据处理流程**
-
 
 - data collection and indexing
 
@@ -289,19 +282,15 @@ The same applies to search engines: finding pages containing query terms does no
 
 **上线以后仍需监控。** 客户群体、偏好、产品和季节都可能改变，使明天的数据不再与昨天相同。广告推荐中的偏好和产品变化，会推动规则更新；模型版本更新、经验积累和“学习如何学习”也都与持续适应有关。这些是动机，不意味着所有系统必须每天重训，也不意味着每次模型更新都只是在添加新数据。
 
-<details>
-<summary>旁例：人工标注和 Mechanical Turk</summary>
+**旁例：人工标注和 Mechanical Turk**
 
 第三份转录开头把一个亚马逊人工任务平台反复识别成“机械键盘／机械按键”。结合发布任务、付费标注以及“机器里其实有人”的故事，上下文应指 Mechanical Turk，而不是键盘。这个故事提示：看似自动的 AI 系统背后可能有大量人的劳动；专业图像还需要专业判断，因此大规模高质量标注受预算和人员供给制约。
 
 转录还包含“即将永久关闭”“九月底前可以发任务”及劳动者地区的泛化评论。这里将其保留为录课时的口头说法，不作为平台现状、使用期限或劳动力统计。原段的历史年代和棋类名称也未确定，不补造细节。
 
-</details>
-
 *来源：[转录 3](../01_part3.md) 第 1–16 行；[转录 3](../01_part3.md) 第 137–197 行。*
 
 <a id="course-scope"></a>
-
 
 - Data points are vectors in $\mathbb { R } ^ { d }$
 
@@ -340,7 +329,6 @@ Abstracting data as vectors later does not eliminate collection, structure, anno
 ## Supervised Machine Learning
 
 **监督机器学习**
-
 
 - Learning and information
 
