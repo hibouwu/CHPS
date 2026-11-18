@@ -101,8 +101,8 @@ def calc_questions_and_answers(text: str) -> str:
             out.append(line)
         elif DROP_START.match(line):
             keep = False
-        elif line.startswith(">"):
-            continue  # 旁注（"接着问…"、题面说明）
+        elif line.startswith(">") or "概念，见合集" in line:
+            out.append(line)  # 同一道题的其他小问在合集哪一题、题面缺的条件
         elif re.match(r"^!\[.*\]\(\.\./Answers/", line):
             out.append(line)  # 答案图即使写在模板段落里也保留
         elif keep:

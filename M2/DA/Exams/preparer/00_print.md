@@ -512,6 +512,8 @@ The inputs $X$ can be numerical or categorical in both cases. The losses differ:
 
 ## C1 OLS 手算直线＋RMSE
 
+2021、2023.3、2023.11 三年的前一问都是 "a) Present in detail how the Ordinary Least Squares (OLS) works…"（概念，见合集 5.3）；2024 年没有这一问，直接从计算开始。每年只是换数据。
+
 ### 2021 Ex2 b
 
 **原题：** b) Considering the data of Table 2, apply the OLS by making the numerical calculations and report the fitted model and its Root Mean Squared Error (RMSE).
@@ -538,6 +540,8 @@ Table 2 – Practical example: data points $P=\{(x_i,y_i),\ i=1\dots4\}$（表 2
 
 $\hat a=2.625/3.25=21/26\approx 0.8077$，$\hat b=0.875-(21/26)\times0.75=7/26\approx 0.2692$ → **$\hat y=0.8077x+0.2692$**；$\text{RMSE}=\sqrt{1.7473/4}=$ **0.6609**。
 
+> 2021 接着问 c) 更复杂的多项式模型（合集 5.8）、d) Ridge（合集 5.5）、e) N=50、d=200（合集 5.7）。
+
 ### 2023.3 Ex2 b
 
 **原题：** b) Considering the data of Table 1, apply the OLS by making the numerical calculations and report the fitted model and its Root Mean Squared Error (RMSE).
@@ -562,6 +566,8 @@ Table 1 – Practical example: data points $P=\{(x_i,y_i),\ i=1\dots4\}$（表 1
 
 $\hat a=-2.4/2.08=-15/13\approx -1.1538$，$\hat b=0.8-(-15/13)\times0.5=179/130\approx 1.3769$ → **$\hat y=-1.1538x+1.3769$**；$\text{RMSE}=\sqrt{2.1108/4}=$ **0.7264**。
 
+> 2023.3 接着问 c) RANSAC 及参数敏感性、与 bootstrap 的区别（合集 8.1–8.3），d) 用 RANSAC 估计 δ（合集 8.6）。
+
 ### 2023.11 Ex4 b 与 2024 Ex4 a（同一组数据）
 
 **原题：** b)（2024 年为 a）) Considering the data of Table 1, apply the OLS by making the numerical calculations and report the fitted model and its Root Mean Squared Error (RMSE).
@@ -585,6 +591,8 @@ Table 1 – Practical example: data points $P=\{(x_i,y_i),\ i=1\dots4\}$（表 1
 | **和** | 2.9 | 3.2 | 0 | 0 | **4.0675** | **3.12** | | 0 | **2.4868** |
 
 $\hat a=3.12/4.0675=1248/1627\approx 0.7671$，$\hat b=0.8-(1248/1627)\times0.725=1984/8135\approx 0.2439$ → **$\hat y=0.7671x+0.2439$**；$\text{RMSE}=\sqrt{2.4868/4}=$ **0.7885**。
+
+> 2023.11 接着问 c) RANSAC 与模型／数据点互相"打分"（合集 8.1、8.4）；2024 接着问 b) 用广义 RANSAC 拟合圆（合集 8.5）。
 
 ## C2 一维 k-means 填表
 
@@ -680,6 +688,8 @@ c) Compute the probability for the alarm to be silent.
 
 d) Suppose we don't hear any alarm and we have no information about whether the sensor functions correctly. What is the probability of the battery to be malfunctioning?
 假设没有听到报警，且不知道传感器是否正常工作。电池失效的概率是多少？
+
+> **题面缺一个条件**：没有给出传感器失效时报警静默的概率，记 $q=P(a=0\mid c=0)$，答案保留 $q$。考场上建议明确写出 "$q$ is not given in the manual"，再给出含 $q$ 的式子；如果想给数字，就写出你假设的 $q$ 值。
 
 **解答 a)**（原理见合集 8.7）：链 $b\to c\to a$，$p(a,b,c)=p(b)\,p(c\mid b)\,p(a\mid c)$，即假设 $a\perp b\mid c$。手册翻译成概率，并补上互补概率：
 

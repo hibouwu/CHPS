@@ -749,13 +749,15 @@ Le problème admet-il une solution unique ? Pourquoi ?
 
 **解答：**
 
-该问题**在应力与应变上**是适定且解唯一的（本构线性、边界条件充分）。 但在位移上，由于只在 $z=0$ 面约束法向位移，仍然允许：
+该问题**在应力与应变上**是适定且解唯一的（本构线性、边界条件充分）。 但在位移上，唯一的运动学条件是 $z=0$ 面上 $u_z=0$，它只阻止了沿 $\vec{e_z}$ 的平移和绕 $O\vec{e_x}$、$O\vec{e_y}$ 的转动（这些运动都会让底面各点产生 $u_z\ne0$）。仍然允许：
 
 - 整体沿 $\vec{e_x},\vec{e_y}$ 的刚体平移；
 
-- 绕 $O\vec{e_x}$、$O\vec{e_y}$ 的刚体转动。
+- 绕 $O\vec{e_z}$ 的刚体转动。
 
 即位移解只在一个刚体运动之差内确定，因此位移**非唯一**。
+
+> **更正（2026-11-17）：** 本稿此前把"允许的转动"写成绕 $O\vec{e_x}$、$O\vec{e_y}$，与教师原卷相反。原卷：« la seule CL cinématique permet simplement d’empêcher certains mouvements de corps rigide : les translations suivant $\vec e_z$ et les rotations suivant $O\vec e_x$ et $O\vec e_y$ »。
 
 现假设应力场形式为 
 
