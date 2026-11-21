@@ -1,0 +1,7 @@
+/.dependencies
+/.*.d
+/*.o
+/nvmm.dat
+/out.dat
+/nvmm
+

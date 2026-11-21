@@ -1,0 +1,7 @@
+/*.o
+/spsc
+/.*.d
+/.dependencies
+/*~
+/mpmc
+/hello

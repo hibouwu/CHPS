@@ -1,6 +1,38 @@
 # PAAM 官方课程资料
 
-从 [课程网站](https://cs.ip-paris.fr/courses/chps/paam/) 下载，日期：2026-09-21。
+## 2026–2027 GitLab 资料
+
+旧课程网站已迁至 [Inria GitLab](https://gitlab.inria.fr/benagil/cours/csc5101/csc5101)。2026-11-19 同步了官方 `main` 的 [96041be0](https://gitlab.inria.fr/benagil/cours/csc5101/csc5101/-/commit/96041be0a96fca1293521c02d4f1c24e00c83f9c) 提交，并从课程首页链接的 Google Slides 导出七份 PDF。[查看本地课程首页和完整课表](GitLab/Readme.md)。
+
+**CHPS 期末考试**为 2026-11-26（周四）15:00–16:30，地点为 `Amphi Rablais`（课程首页写法）。
+
+### 讲义与实验
+
+[法中对照讲义](Lectures/FR-ZH/README.md)按下表的课次整理，每节可跳转到教师英文课件对应页。
+
+| 课次 | 主题 | PDF 讲义 | 实验题与源码 |
+|---|---|---|---|
+| 介绍 | 课程介绍 | [PDF](GitLab/cours/01-welcome.pdf) | — |
+| 1 | 线程与同步 | [PDF](GitLab/cours/01-threads.pdf) | [实验](GitLab/threads/Readme.md) |
+| 2 | 锁算法 | [PDF](GitLab/cours/02-locks.pdf) | [实验](GitLab/locks/Readme.md) |
+| 3 | 非阻塞算法 | [PDF](GitLab/cours/03-non-blocking.pdf) | [实验](GitLab/non-blocking/Readme.md) |
+| 4 | 事务内存 | [PDF](GitLab/cours/04-stm.pdf) | [实验](GitLab/stm/Readme.md) |
+| 5 | 持久内存 | [PDF](GitLab/cours/06-nvmm.pdf) | [实验](GitLab/nvmm/Readme.md) |
+| 补充 | NUMA | [PDF](GitLab/cours/05-numa.pdf) | [实验](GitLab/numa/Readme.md) |
+
+### 历年试卷与参考解答
+
+| 学年 | 试卷 | 参考解答 |
+|---|---|---|
+| 2025–2026 | [任务窃取与课程简答](GitLab/exams/2025-2026-worker.md) | [worker.c](GitLab/exams/codes/worker.c) |
+| 2024–2025 | [RCU 与课程简答](GitLab/exams/2024-2025-rcu.md) | [rcu.c](GitLab/exams/codes/rcu.c) |
+| 2023–2024 | [内存模型与内存分配器](GitLab/exams/2023-2024-memalloc.md) | [mem.c](GitLab/exams/codes/mem.c) |
+| 2022–2023 | [Barrier 与 Flat Combining](GitLab/exams/2022-2023-barrier-and-flat.md) | [barrier.c](GitLab/exams/codes/barrier.c)、[flat.c](GitLab/exams/codes/flat.c) |
+| 2021–2022 | [课程简答与 Radix Tree](GitLab/exams/2021-2022-radix-tree.md) | [radix-free.c](GitLab/exams/codes/radix-free.c) |
+
+## 2026-09-21 旧官网归档
+
+资料来自 [旧课程网站](https://cs.ip-paris.fr/courses/chps/paam/)。
 
 先阅读课程介绍，再按课程顺序查看讲义和实验；复习时可使用历年试卷。网页形式的实验与试卷保留原文，并将已下载的链接改为本地路径。
 
@@ -8,7 +40,7 @@
 - [全部题目：可打印网页](Pages/all.html)
 - [课程安排](Pages/planning.html)
 
-## 讲义与实验
+### 讲义与实验
 
 [七篇中文教程与校对原文](Lectures/README.md)：按课程顺序阅读，保留原始课件、逐页对照和勘误。
 
@@ -24,7 +56,7 @@
 
 实验源码、头文件及 Makefile 与对应实验网页放在同一文件夹；网页内的代码也保留在原文中。下载的代码没有编译或执行。
 
-## 历年试卷
+### 历年试卷
 
 - [2016-2017](Exams/2016-2017/cf1.html)
 - [2017-2018](Exams/2017-2018/cf1.html)
@@ -36,7 +68,7 @@
 
 试卷所附 C 文件保留在对应年份目录中；页面沿用网站提供的 `soluce=true` 版本，具体答案内容以原页面为准。
 
-## 补充课程资料
+### 补充课程资料
 
 网站链接的 C 语言基础、系统编程资料放在 `Supplementary/`。这些属于补充课程，不代表 PAAM 本学期的全部必修内容。
 
@@ -70,7 +102,7 @@
 - [intro-book.pdf · CSC4508](Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/intro/intro-book.pdf)
 - [poly-book.pdf · CSC4508](Supplementary/www-inf.telecom-sudparis.eu/cours/CSC4508/public/poly/poly-book.pdf)
 
-## 下载情况
+### 下载情况
 
 已保存 135 个远程资源，约 57.8 MiB，其中包含网页样式、脚本和图片。共有 36 份 PDF、5 个源码压缩包，均通过格式读取检查；本地网页链接检查未发现缺失目标。
 
